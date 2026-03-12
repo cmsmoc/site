@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atas CMSMOC · 2025–2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #0D2E5A;
+  --blue:   #1B6CB5;
+  --green:  #1E8A4A;
+  --yellow: #F5C400;
+  --white:  #FFFFFF;
+  --off:    #F7F8FA;
+  --ink:    #111827;
+  --muted:  #6B7280;
+  --border: #E5E7EB;
+  --display: 'Montserrat', sans-serif;
+  --body:    'Open Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--off);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--navy);
+  padding: 40px 48px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--yellow) 33.3%, var(--green) 33.3% 66.6%, var(--blue) 66.6%);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.header-eyebrow {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 8px;
+}
+.header-title {
+  font-family: var(--display);
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.header-sub {
+  font-family: var(--body);
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  margin-top: 6px;
+}
+.header-badge {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: right;
+}
+.header-badge-num {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+.header-badge-label {
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── GALLERY ── */
+.gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.12);
+}
+.card-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  background: var(--navy);
+}
+.card-thumb-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-thumb-placeholder span {
+  font-family: var(--display);
+  font-size: 40px;
+  font-weight: 900;
+  color: rgba(255,255,255,.15);
+  letter-spacing: -2px;
+}
+.card-stripe {
+  height: 4px;
+  background: linear-gradient(to right, var(--yellow) 33.3%, var(--green) 33.3% 66.6%, var(--blue) 66.6%);
+}
+.card-body {
+  padding: 20px 22px 22px;
+}
+.card-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.card-num {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.card-date {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.card-topics {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card-topic {
+  font-size: 12px;
+  color: var(--ink);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.card-topic::before {
+  content: '›';
+  color: var(--blue);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.card-footer {
+  padding: 12px 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-cta {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.card-arrow {
+  width: 28px; height: 28px;
+  background: var(--blue);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white);
+  font-size: 14px;
+  transition: background .2s;
+}
+.card:hover .card-arrow { background: var(--navy); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,46,90,.7);
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  overflow-y: auto;
+}
+.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal {
+  background: var(--white);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 860px;
+  margin: auto;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,.3);
+  animation: slideUp .25s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.modal-header {
+  background: var(--navy);
+  padding: 32px 40px 28px;
+  position: relative;
+}
+.modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--yellow) 33.3%, var(--green) 33.3% 66.6%, var(--blue) 66.6%);
+}
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.15);
+  color: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.modal-close:hover { background: rgba(255,255,255,.3); }
+.modal-eyebrow {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 6px;
+}
+.modal-title {
+  font-family: var(--display);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+.modal-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.modal-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+}
+.modal-meta-item strong { color: var(--white); }
+.modal-body {
+  padding: 36px 40px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.modal-body::-webkit-scrollbar { width: 5px; }
+.modal-body::-webkit-scrollbar-track { background: var(--off); }
+.modal-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ── ATA SECTIONS ── */
+.ata-section {
+  margin-bottom: 28px;
+}
+.ata-section-title {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+.ata-section-title.green { color: var(--green); border-color: var(--green); }
+.ata-section-title.yellow { color: #b89500; border-color: var(--yellow); }
+.ata-body-text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.ata-pauta {
+  background: var(--off);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+}
+.ata-pauta-titulo {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.ata-pauta-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #374151;
+}
+.ata-enc {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.ata-enc-n {
+  min-width: 26px; height: 26px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display);
+  font-size: 11px; font-weight: 700;
+  flex-shrink: 0;
+}
+.ata-enc-text { font-size: 13px; line-height: 1.6; }
+.vote-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.vote-aprovado { background: #D1FAE5; color: #065F46; }
+.vote-abstenção { background: #FEF3C7; color: #92400E; }
+.vote-aprovado-unanime { background: #DBEAFE; color: #1E40AF; }
+.ausencias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ausencia-item {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.ausencia-nome { font-weight: 600; color: var(--navy); min-width: 160px; }
+.ausencia-motivo { color: var(--muted); font-style: italic; }
+.resumo-exec {
+  background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%);
+  border: 1px solid #BFDBFE;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+}
+.resumo-exec-label {
+  font-family: var(--display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.resumo-exec-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.modal-footer {
+  padding: 16px 40px;
+  border-top: 1px solid var(--border);
+  background: var(--off);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-note {
+  font-size: 11px;
+  color: var(--muted);
+}
+.btn-print {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: var(--navy);
+  color: var(--white);
+  transition: opacity .2s;
+}
+.btn-print:hover { opacity: .85; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+}
+.site-footer strong { color: rgba(255,255,255,.7); }
+
+@media (max-width: 600px) {
+  .gallery { padding: 24px 16px; grid-template-columns: 1fr; }
+  .modal-body, .modal-header, .modal-footer { padding-left: 20px; padding-right: 20px; }
+  .site-header { padding: 28px 20px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div>
+      <div class="header-eyebrow">Conselho Municipal de Saúde · Montes Claros/MG</div>
+      <div class="header-title">Atas das Reuniões<br>Ordinárias · 2025–2026</div>
+      <div class="header-sub">Secretaria Executiva — CMSMOC · Transparência e Controle Social</div>
+    </div>
+    <div class="header-badge">
+      <div class="header-badge-num">5</div>
+      <div class="header-badge-label">Atas disponíveis</div>
+    </div>
+  </div>
+</header>
+
+<!-- GALLERY -->
+<div class="gallery">
+
+  <!-- CARD 458 -->
+  <article class="card" onclick="openModal('modal458')">
+    <img class="card-thumb" src="https://i.ibb.co/0zQjHVW/458.png" alt="458ª ROP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="card-thumb-placeholder" style="display:none"><span>458</span></div>
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-tag">ROP · Ordinária</div>
+      <div class="card-num">458ª Reunião Ordinária</div>
+      <div class="card-date">01 de outubro de 2025</div>
+      <div class="card-topics">
+        <div class="card-topic">Oncologia Pediátrica — Fundação Sara</div>
+        <div class="card-topic">Fluxo da Ouvidoria e demandas</div>
+        <div class="card-topic">Indicadores da Atenção Primária</div>
+        <div class="card-topic">Provisão de Insumos na APS</div>
+        <div class="card-topic">Saúde Mental em Movimento / SUP</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-cta">Ver ata completa</span>
+      <div class="card-arrow">›</div>
+    </div>
+  </article>
+
+  <!-- CARD 460 -->
+  <article class="card" onclick="openModal('modal460')">
+    <img class="card-thumb" src="https://i.ibb.co/GfgsL2Qm/460.png" alt="460ª ROP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="card-thumb-placeholder" style="display:none"><span>460</span></div>
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-tag">ROP · Ordinária</div>
+      <div class="card-num">460ª Reunião Ordinária</div>
+      <div class="card-date">09 de dezembro de 2025</div>
+      <div class="card-topics">
+        <div class="card-topic">GRAPPA — prevenção e portadores de AIDS</div>
+        <div class="card-topic">Consultório na Rua — situação e sede</div>
+        <div class="card-topic">Revisão do Regimento Interno</div>
+        <div class="card-topic">Transposição de Recursos Orçamentários</div>
+        <div class="card-topic">Sessão de Homenagens — desligamento Rosana</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-cta">Ver ata completa</span>
+      <div class="card-arrow">›</div>
+    </div>
+  </article>
+
+  <!-- CARD 461 -->
+  <article class="card" onclick="openModal('modal461')">
+    <img class="card-thumb" src="https://i.ibb.co/TBCHV4Cw/461.png" alt="461ª ROP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="card-thumb-placeholder" style="display:none"><span>461</span></div>
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-tag">ROP · Ordinária</div>
+      <div class="card-num">461ª Reunião Ordinária</div>
+      <div class="card-date">21 de janeiro de 2026</div>
+      <div class="card-topics">
+        <div class="card-topic">11ª Conferência Municipal de Saúde — convocação</div>
+        <div class="card-topic">Recomposição do Plenário 2026–2029</div>
+        <div class="card-topic">Arboviroses — LIRAa e ações de controle</div>
+        <div class="card-topic">Servidores efetivos e contratos temporários (adiado)</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-cta">Ver ata completa</span>
+      <div class="card-arrow">›</div>
+    </div>
+  </article>
+
+  <!-- CARD 462 -->
+  <article class="card" onclick="openModal('modal462')">
+    <img class="card-thumb" src="https://i.ibb.co/wDsNm9w/462.png" alt="462ª ROP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="card-thumb-placeholder" style="display:none"><span>462</span></div>
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-tag">ROP · Ordinária</div>
+      <div class="card-num">462ª Reunião Ordinária</div>
+      <div class="card-date">04 de fevereiro de 2026</div>
+      <div class="card-topics">
+        <div class="card-topic">Panorama de leitos hospitalares contratualizados</div>
+        <div class="card-topic">Situação contratual dos leitos do HUCF</div>
+        <div class="card-topic">Servidores efetivos e contratos temporários</div>
+        <div class="card-topic">11ª Conferência Municipal — pré-conferências</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-cta">Ver ata completa</span>
+      <div class="card-arrow">›</div>
+    </div>
+  </article>
+
+  <!-- CARD 463 -->
+  <article class="card" onclick="openModal('modal463')">
+    <img class="card-thumb" src="https://i.ibb.co/7tzvTHXf/463.png" alt="463ª ROP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="card-thumb-placeholder" style="display:none"><span>463</span></div>
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-tag">ROP · Ordinária</div>
+      <div class="card-num">463ª Reunião Ordinária</div>
+      <div class="card-date">04 de março de 2026</div>
+      <div class="card-topics">
+        <div class="card-topic">Rede de Atenção Psicossocial (RAPs)</div>
+        <div class="card-topic">Plano de Contingência das Arboviroses</div>
+        <div class="card-topic">Demanda reprimida: cirurgias eletivas</div>
+        <div class="card-topic">Pré-conferência Saúde da Mulher — 10/03</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-cta">Ver ata completa</span>
+      <div class="card-arrow">›</div>
+    </div>
+  </article>
+
+</div><!-- /gallery -->
+
+<!-- ═══════════════════════════════════════════════════════
+     MODAIS
+═══════════════════════════════════════════════════════ -->
+
+<!-- MODAL 458 -->
+<div class="modal-overlay" id="modal458" onclick="closeIfOverlay(event, this)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal458')">✕</button>
+      <div class="modal-eyebrow">Conselho Municipal de Saúde de Montes Claros</div>
+      <div class="modal-title">458ª Reunião Ordinária — CMSMOC</div>
+      <div class="modal-meta">
+        <span class="modal-meta-item">📅 <strong>01 de outubro de 2025</strong></span>
+        <span class="modal-meta-item">🕑 <strong>14h10 — 16h10</strong></span>
+        <span class="modal-meta-item">📍 <strong>Google Meet (Remota)</strong></span>
+        <span class="modal-meta-item">🪑 <strong>Farley Sindeaux Ribeiro</strong> — Presidente</span>
+      </div>
+    </div>
+    <div class="modal-body">
+
+      <div class="resumo-exec">
+        <div class="resumo-exec-label">Resumo Executivo</div>
+        <div class="resumo-exec-text">
+          Reunião marcada por apresentação de alto impacto sobre Oncologia Pediátrica pelo presidente da Fundação Sara, Sr. Álvaro Gaspar, que provocou reflexão sobre a taxa de cura em Montes Claros (≈50%) em comparação a centros de referência (≈80%). Aprovada por unanimidade a supressão parcial do plantão noturno do SUP (19h–7h, seg–sex), com realocação dos profissionais para matriciamento na atenção primária — estratégia denominada "Saúde Mental em Movimento". Pautas de indicadores da APS e provisão de insumos remarcadas para reunião extraordinária por falta de tempo.
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">1. Expediente — Justificativas de Ausência</div>
+        <div class="ausencias-list">
+          <div class="ausencia-item"><span class="ausencia-nome">Rogério Gonçalves</span><span class="ausencia-motivo">Jornada de trabalho (Suplente — Arquidiocese)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Marcos Borges Oliveira</span><span class="ausencia-motivo">Participação em processo eleitoral do sindicato (Suplente)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">José Geraldo Ramos</span><span class="ausencia-motivo">Viagem (Titular — Soc. São Vicente de Paulo)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Agna Soares da Silva Menezes</span><span class="ausencia-motivo">Participação em seminário em BH — impossibilitando substituição (Suplente — Gestor/Prestador)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Rafaela de Souza Freitas</span><span class="ausencia-motivo">Férias — retorno previsto em novembro (Titular — SRS/SES)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Silvânia Paiva dos Santos</span><span class="ausencia-motivo">Compromisso de trabalho sem remanejamento (Titular — Santa Casa)</span></div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">2. Comunicação e Informes</div>
+        <div class="ata-body-text">
+          <strong>Conselheiro (identidade não identificada):</strong> Solicitou empenho do secretário municipal de saúde para manutenção do contrato de servidor Jean (área de mobilização e prevenção), cujo vínculo se encerra em 2026, pedindo também apoio dos conselheiros nessa demanda.<br><br>
+          <strong>Conselheiro:</strong> Apresentou pedido de carta de apoio ao Conselho para garantia de vagas em concursos públicos contemplando novas categorias consideradas deficiência (como autismo), a ser encaminhada à Câmara Municipal e ao prefeito.<br><br>
+          <strong>Conselheiro (ACS):</strong> Solicitou mediação do Conselho junto à gestão para debate sobre o incentivo financeiro adicional federal aos Agentes Comunitários de Saúde e Agentes de Combate às Endemias — repasse federal que exige autorização municipal via lei.<br><br>
+          <strong>Conselheiro:</strong> Reclamação sobre demora de exames laboratoriais (2–3 meses), pedindo esclarecimento à gestão.<br><br>
+          <strong>Secretaria Executiva:</strong> Registrou necessidade de que as pautas sejam encaminhadas com antecedência adequada aos conselheiros.
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title green">3. Ordem do Dia</div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.1 — Oncologia Pediátrica · Fundação Sara — Apresentação: Álvaro Gaspar</div>
+          <div class="ata-pauta-desc">
+            O presidente da Fundação Sara apresentou panorama do câncer infantojuvenil no Brasil, segunda causa de morte em crianças e adolescentes até 19 anos (perdendo apenas para causas externas). Em Montes Claros, a taxa de cura é de aproximadamente 50%, enquanto centros de referência atingem 80%. O apresentador provocou reflexão sobre a ausência de um hospital oncológico exclusivo em Minas Gerais e a necessidade de ações coordenadas de gestores e sociedade. Destacou a importância do diagnóstico precoce e da diferenciação do tratamento pediátrico do adulto. A Fundação Sara atua há mais de 20 anos, já tendo atendido mais de 100 crianças, algumas curadas.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.2 — Fluxo da Ouvidoria e Principais Demandas — Apresentação: Secretaria Municipal de Saúde</div>
+          <div class="ata-pauta-desc">
+            Apresentação do fluxo operacional da Ouvidoria da Secretaria Municipal de Saúde, principais demandas recebidas e encaminhamentos realizados. Conselheiros apontaram que os indicadores da Ouvidoria refletem demanda espontânea não acolhida, servindo como termômetro da pressão sobre as unidades. Deliberação: registrada como necessidade de aprofundamento posterior.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.3 / 3.4 — Indicadores APS e Provisão de Insumos — ADIADOS</div>
+          <div class="ata-pauta-desc">
+            Ambas as pautas foram transferidas para reunião extraordinária a ser agendada, em razão do horário. O presidente solicitou que a reunião extraordinária ocorra já na semana seguinte, se possível.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.5 — Serviço de Urgência Psiquiátrica / Saúde Mental em Movimento</div>
+          <div class="ata-pauta-desc">
+            A Coordenação de Saúde Mental apresentou proposta de supressão parcial do plantão noturno do SUP (CAPS 3, das 19h às 7h, de segunda a sexta, exceto feriados e finais de semana), com realocação dos profissionais para matriciamento nas Unidades de Saúde da Família — estratégia "Saúde Mental em Movimento". Justificativa: apenas 3 atendimentos foram realizados no serviço ao longo de um ano. Os contratos dos profissionais são mantidos. Profissionais de APS apontaram o aumento da demanda de saúde mental pós-pandemia e defenderam apoio do CAPS para o território. Esclarecido que qualquer necessidade de retorno ao modelo anterior será avaliada e levada ao plenário.
+          </div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title yellow">4. Deliberações e Votações</div>
+        <div class="ata-enc">
+          <div class="ata-enc-n">V1</div>
+          <div class="ata-enc-text">
+            <strong>Supressão parcial do SUP</strong> — plantão noturno das 19h às 7h, de segunda a sexta, com realocação dos profissionais para a estratégia Saúde Mental em Movimento nas unidades de APS.<br>
+            <span class="vote-box vote-aprovado-unanime">✔ Aprovado por unanimidade</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">5. Encaminhamentos</div>
+        <div class="ata-enc"><div class="ata-enc-n">1</div><div class="ata-enc-text">Agendamento de reunião extraordinária para apresentação dos indicadores da APS e provisão de insumos (3 pontos de pauta).</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">2</div><div class="ata-enc-text">Secretaria Municipal de Saúde: analisar possibilidade de manutenção do contrato do servidor Jean em nova modalidade.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">3</div><div class="ata-enc-text">Conselho: elaborar carta de apoio para garantia de vagas em concursos para categorias com deficiência recentemente reconhecidas.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">4</div><div class="ata-enc-text">Gestão: providenciar esclarecimento formal sobre demora em exames laboratoriais de sangue e urina (2–3 meses).</div></div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">6. Encerramento</div>
+        <div class="ata-body-text">Nada mais havendo a tratar, às 16h10, o presidente Farley Sindeaux Ribeiro encerrou a 458ª Reunião Ordinária do CMSMOC, agradecendo a todos os presentes.</div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <span class="footer-note">Ata gerada a partir de transcrição audiovisual. Sujeita à aprovação em plenário.</span>
+      <button class="btn-print" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 460 -->
+<div class="modal-overlay" id="modal460" onclick="closeIfOverlay(event, this)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal460')">✕</button>
+      <div class="modal-eyebrow">Conselho Municipal de Saúde de Montes Claros</div>
+      <div class="modal-title">460ª Reunião Ordinária — CMSMOC</div>
+      <div class="modal-meta">
+        <span class="modal-meta-item">📅 <strong>09 de dezembro de 2025</strong></span>
+        <span class="modal-meta-item">🕑 <strong>14h00 — 17h00</strong></span>
+        <span class="modal-meta-item">📍 <strong>Plenário da Câmara Municipal</strong></span>
+        <span class="modal-meta-item">🪑 <strong>Farley Sindeaux Ribeiro</strong> — Presidente</span>
+      </div>
+    </div>
+    <div class="modal-body">
+
+      <div class="resumo-exec">
+        <div class="resumo-exec-label">Resumo Executivo</div>
+        <div class="resumo-exec-text">
+          Última reunião ordinária de 2025. Marcada pelo desligamento emotivo da conselheira Rosana (Santa Casa) e posse de nova representante. O HU comunicou formalmente a redução de leitos de internação por déficit de servidores (54 contratos encerrados), com reflexo imediato na superlotação do pronto-socorro. Apresentações do GRAPPA (33 anos de atuação, 940 famílias cadastradas) e do Consultório na Rua trouxeram debate sobre saúde pública e vulnerabilidade social. Aprovada por maioria (11 favoráveis, 3 abstenções) a transposição de recursos orçamentários (R$ 12.594.194). Votação sobre realização da reunião ordinária de janeiro de 2026 também deliberada.
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">1. Expediente — Justificativas de Ausência</div>
+        <div class="ausencias-list">
+          <div class="ausencia-item"><span class="ausencia-nome">José Geraldo</span><span class="ausencia-motivo">Compromisso pessoal</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Marcos Borges</span><span class="ausencia-motivo">Trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Mariana Camuir Rodrigues</span><span class="ausencia-motivo">Trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Washington Luiz</span><span class="ausencia-motivo">Trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Júlio César Araújo</span><span class="ausencia-motivo">Trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Rosana Soares / Rute</span><span class="ausencia-motivo">Afastamento (desligamento)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Sandra e Daniele</span><span class="ausencia-motivo">Compromissos profissionais</span></div>
+        </div>
+        <div class="ata-body-text" style="margin-top:10px; font-size:13px;">Total de presentes no início da reunião: <strong>12 conselheiros</strong>.</div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">2. Comunicação e Informes</div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Desligamento — Conselheira Rosana (Santa Casa)</div>
+          <div class="ata-pauta-desc">A conselheira Rosana, representante das instituições filantrópicas, comunicou seu desligamento do Conselho após três mandatos (incluindo a presidência de dois períodos). Indicou como substituta a conselheira Sônia, também da Santa Casa, com experiência em gestão e ex-secretária municipal de saúde. O plenário prestou homenagem à conselheira.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Hospital Universitário (HU) — Conselheiro Henrique</div>
+          <div class="ata-pauta-desc">O HU comunicou formalmente dois pontos críticos: (1) encerramento dos contratos de 54 profissionais temporários (chamamento emergencial do período de doenças respiratórias), gerando redução de leitos de internação; (2) o "hospitalinho" comunicou que não receberia mais pacientes de saúde mental por porta aberta — posição contestada pela gestão, que esclareceu que todo serviço de porta aberta tem obrigação de atender urgência psiquiátrica. No último sábado/domingo: 14 usuários de saúde mental sem conseguir internação, ficando em observação no PS. Farley solicitou que Henrique formalize a comunicação do hospitalinho por e-mail.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Plano de Carreiras — Conselheiro Cláudio / Conselheiro Váldecy</div>
+          <div class="ata-pauta-desc">Informado que o Decreto 5.149 (criado em 1º de dezembro) retirou recursos relacionados ao plano de carreiras. O plano encontra-se suspenso. Farley esclareceu súmula relacionada ao tema. Conselheiro Cláudio sugeriu articulação com sindicatos. ACS apontaram situação de insegurança.</div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title green">3. Ordem do Dia</div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.2 → 3.1 (Inversão aprovada) — Consultório na Rua — Apresentação: Guilherme</div>
+          <div class="ata-pauta-desc">
+            Apresentação da situação e sede do Consultório na Rua. Profissional Naiara apontou dificuldades estruturais e logísticas. Conselheiro Joel questionou o local de atuação do serviço para evitar aparência de "limpeza social", sugerindo pensar na inversão do processo para atendimento em zona rural também. Naiara esclareceu que o ponto atual é conveniente para população de zona rural. Enfermeira do serviço (Andreia) relatou atuação sincronizada com a Guarda Municipal, garantindo segurança e efetividade nos atendimentos.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.1 → 3.2 (Inversão) — GRAPPA — Grupo de Apoio à Prevenção e aos Portadores da AIDS</div>
+          <div class="ata-pauta-desc">
+            Apresentação do GRAPPA, com 33 anos de atuação no Norte de Minas, único serviço da região para PVHIV (Pessoas Vivendo com HIV). Atualmente com 940 famílias cadastradas. Recursos escassos — custeio do trabalho de prevenção pela própria instituição. Projeto "Adolescência em Foco" encontrou resistência nas escolas por equívoco sobre abordagem sexual. Foco em dezembro vermelho foi combate ao preconceito, que segundo os apresentadores "mata mais do que a doença". GRAPPA atende todo o Norte de Minas. Conselheiro Joel destacou parceria histórica com a instituição.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.3 — Revisão do Regimento Interno — Comissão de Revisão</div>
+          <div class="ata-pauta-desc">Apresentação das alterações propostas pela Comissão de Revisão do Regimento Interno. Debate sobre regras e procedimentos. Deliberação: encaminhado para votação em momento oportuno.</div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Ponto Adicional (aprovado por maioria) — Transposição de Recursos Orçamentários</div>
+          <div class="ata-pauta-desc">
+            Apresentação técnica pela Secretaria Municipal de Saúde sobre operações orçamentárias de transposição e transferência de recursos, conforme legislação estadual. Quadro apresentando todas as dotações de origem e destino, com valor total de <strong>R$ 12.594.194</strong>. Conselheiro Joel votou contra, justificando prazo insuficiente de envio da matéria (menos de 72h). Farley destacou necessidade de documentos mais didáticos para análise dos conselheiros voluntários. Votação realizada.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.5 — Sessão de Homenagens</div>
+          <div class="ata-pauta-desc">Homenagem à conselheira Rosana pelo engajamento de três mandatos no Conselho. Discursos de agradecimento e reconhecimento pela plenária.</div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title yellow">4. Deliberações e Votações</div>
+        <div class="ata-enc">
+          <div class="ata-enc-n">V1</div>
+          <div class="ata-enc-text">
+            <strong>Inclusão de ponto de pauta — Transposição de Recursos:</strong> 15 favoráveis, 3 contrários.<br>
+            <span class="vote-box vote-aprovado">✔ Aprovada a inclusão</span>
+          </div>
+        </div>
+        <div class="ata-enc">
+          <div class="ata-enc-n">V2</div>
+          <div class="ata-enc-text">
+            <strong>Transposição de Recursos — R$ 12.594.194</strong> — conforme dotações apresentadas.<br>
+            <span class="vote-box vote-abstenção">✔ Aprovado com 3 abstenções</span>
+          </div>
+        </div>
+        <div class="ata-enc">
+          <div class="ata-enc-n">V3</div>
+          <div class="ata-enc-text">
+            <strong>Manutenção da Reunião Ordinária de Janeiro de 2026</strong> — deliberação sobre realização da reunião no mês de janeiro.<br>
+            <span class="vote-box vote-aprovado">✔ Aprovada a manutenção</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">5. Encaminhamentos</div>
+        <div class="ata-enc"><div class="ata-enc-n">1</div><div class="ata-enc-text">Conselheiro Henrique: formalizar por e-mail a comunicação do "hospitalinho" sobre não recebimento de pacientes de saúde mental.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">2</div><div class="ata-enc-text">Conselheira Sheilla: encaminhar nota de Odontologia aos sindicatos e ao CMS.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">3</div><div class="ata-enc-text">Farley: providenciar apresentações mais didáticas para conselheiros sobre matérias orçamentárias e técnicas.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">4</div><div class="ata-enc-text">Conselho: articular com sindicatos sobre situação do Plano de Carreiras (Decreto 5.149).</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">5</div><div class="ata-enc-text">Próximas matérias: encaminhar com mínimo de 72h de antecedência para inclusão em pauta.</div></div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <span class="footer-note">Ata gerada a partir de transcrição audiovisual e notas de reunião. Sujeita à aprovação em plenário.</span>
+      <button class="btn-print" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 461 -->
+<div class="modal-overlay" id="modal461" onclick="closeIfOverlay(event, this)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal461')">✕</button>
+      <div class="modal-eyebrow">Conselho Municipal de Saúde de Montes Claros</div>
+      <div class="modal-title">461ª Reunião Ordinária — CMSMOC</div>
+      <div class="modal-meta">
+        <span class="modal-meta-item">📅 <strong>21 de janeiro de 2026</strong></span>
+        <span class="modal-meta-item">🕑 <strong>13h30 — 17h00</strong></span>
+        <span class="modal-meta-item">📍 <strong>Plenário da Câmara Municipal</strong></span>
+        <span class="modal-meta-item">🪑 <strong>Farley Sindeaux Ribeiro</strong> — Presidente</span>
+      </div>
+    </div>
+    <div class="modal-body">
+
+      <div class="resumo-exec">
+        <div class="resumo-exec-label">Resumo Executivo</div>
+        <div class="resumo-exec-text">
+          Reunião estratégica de início de ano, com dois temas centrais de alta relevância para o Conselho: a convocação formal da 11ª Conferência Municipal de Saúde (prevista para 22–24 de abril de 2026, justificada pela necessidade de realizá-la antes do período eleitoral) e o processo de Recomposição do Plenário para o mandato 2026–2029. Apresentação detalhada dos critérios, prazos e documentação para inscrição das entidades. Alerta sobre encerramento do atual mandato em 5 de maio. Apresentação sobre arboviroses revelou LIRAa de 13,2%, com ações intensivas em andamento. Pauta sobre servidores efetivos retirada a pedido da gestão para a reunião de fevereiro.
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">1. Expediente — Justificativas de Ausência</div>
+        <div class="ausencias-list">
+          <div class="ausencia-item"><span class="ausencia-nome">Henrique Andrade Barbosa</span><span class="ausencia-motivo">Viagem</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Marcos Borges Oliveira</span><span class="ausencia-motivo">Trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Sandra Valeri</span><span class="ausencia-motivo">Reunião no Ministério Público</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Rosana</span><span class="ausencia-motivo">Férias</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Mariana</span><span class="ausencia-motivo">Trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Emanuela Tomás</span><span class="ausencia-motivo">Compromisso de saúde</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Júlio César / Naiara</span><span class="ausencia-motivo">Saúde</span></div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">2. Comunicação e Informes</div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro (informes gerais)</div>
+          <div class="ata-pauta-desc">Pedido de esclarecimento sobre o IRAa (Levantamento Rápido de Índice de Infestação por Aedes) e sobre a situação das arboviroses no município.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Pauta 3.3 — Retirada a pedido da gestão</div>
+          <div class="ata-pauta-desc">A coordenação de apoio ao conselho solicitou retirada da pauta sobre servidores efetivos e contratos temporários, colocando como ponto 1.1 da convocação de fevereiro. Justificativa: quadro ainda será alterado no final do mês e não há tempo suficiente para elaboração do relatório completo.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro Joel — Moção de Repúdio (COVID)</div>
+          <div class="ata-pauta-desc">Informou que mais de 1.000 famílias receberam multas por descumprimento do isolamento social durante a COVID. Solicitou moção de repúdio e minuta à Secretaria Executiva. Conselheiro notou que a gestão acatou demanda do MP e está anulando as multas — fato positivo que merece também reconhecimento formal do Conselho.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro — Fechamento do Raio-X na FAMED</div>
+          <div class="ata-pauta-desc">Questionamento sobre encerramento do serviço de raio-X na FAMED sem comunicação prévia ao Conselho. Solicitou que a gestão apresente relatório panorâmico das contratações de leitos hospitalares para 2026, em razão de informações sobre fechamento unilateral de leitos.</div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title green">3. Ordem do Dia</div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.1 — Convocação da 11ª Conferência Municipal de Saúde</div>
+          <div class="ata-pauta-desc">
+            A Secretaria Executiva apresentou a convocação da 11ª Conferência Municipal de Saúde, com previsão de realização nos dias <strong>22, 23 e 24 de abril de 2026</strong> (abertura às 19h do dia 22; encerramento às 17h do dia 24). Justificativa para antecipação: evitar sobreposição ao período eleitoral de 2026, quando debates políticos podem prejudicar o foco nas questões de saúde pública. O Conselho Estadual ainda não publicou o documento orientador. O Conselho Nacional de Saúde convocou de janeiro a agosto de 2026.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.2 — Recomposição do Plenário — Mandato 2026–2029</div>
+          <div class="ata-pauta-desc">
+            Apresentação completa do processo de recomposição do plenário:<br>
+            • <strong>Composição:</strong> 32 conselheiros — 16 usuários (50%), 8 trabalhadores (4 nível médio + 4 nível superior), 8 gestores/prestadores (4+4).<br>
+            • <strong>Prazo de inscrição:</strong> 22 de janeiro a 25 de março de 2026 (60 dias).<br>
+            • <strong>Documentação exigida:</strong> CNPJ, ata da diretoria registrada em cartório, comprovação de 2 anos de atuação, documentos do representante legal e ficha de inscrição.<br>
+            • <strong>Mandato encerra:</strong> 5 de maio de 2026. Posse prevista para coincidir com a 11ª Conferência Municipal.<br>
+            • Entidades já participantes: apenas carta de intenção de continuidade. Entidades novas: documentação completa.<br>
+            • Limite: máximo 2 mandatos consecutivos (6 anos). Conselheiros no segundo mandato não podem ser reconduzidos — as entidades deverão indicar novo representante.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Informe Adicional — Arboviroses / LIRAa</div>
+          <div class="ata-pauta-desc">
+            A coordenação de vigilância apresentou o LIRAa atual em <strong>13,2%</strong> (queda de 0,6% em relação a janeiro do ano anterior, porém ainda muito acima do preconizado pelo Ministério da Saúde de 1%). A última leitura de 2025 foi a mais alta da série histórica (24 meses), motivando mobilizações emergenciais no feriado, inclusive no bairro Santos Reis e Indicial. Ações com BV (fumacê pesado) já foram acionadas via SRS-MG. O município utiliza tecnologia de drone para identificação de focos e direcionamento de ações. Alerta para borracharias, ferros-velhos e floriculturas como pontos críticos.
+          </div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">4. Encaminhamentos</div>
+        <div class="ata-enc"><div class="ata-enc-n">1</div><div class="ata-enc-text">Secretaria Executiva: comunicar oficialmente todas as entidades do Conselho sobre abertura do processo de recomposição do plenário, por e-mail e ofício, com prazo de 60 dias.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">2</div><div class="ata-enc-text">Publicar edital de recomposição no Diário Oficial do Município e no site do Conselho.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">3</div><div class="ata-enc-text">Secretaria Executiva: elaborar minuta de moção de repúdio sobre multas COVID, conforme solicitação do conselheiro Joel.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">4</div><div class="ata-enc-text">Gestão: apresentar na reunião de fevereiro relatório panorâmico das contratações de leitos hospitalares para 2026.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">5</div><div class="ata-enc-text">Pauta 3.3 (servidores efetivos/contratos temporários): incluída como item 1.1 na convocação da 462ª ROP.</div></div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">5. Encerramento</div>
+        <div class="ata-body-text">Nada mais havendo a tratar, o presidente Farley Sindeaux Ribeiro declarou encerrada a 461ª Reunião Ordinária do CMSMOC.</div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <span class="footer-note">Ata gerada a partir de transcrição audiovisual. Sujeita à aprovação em plenário.</span>
+      <button class="btn-print" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 462 -->
+<div class="modal-overlay" id="modal462" onclick="closeIfOverlay(event, this)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal462')">✕</button>
+      <div class="modal-eyebrow">Conselho Municipal de Saúde de Montes Claros</div>
+      <div class="modal-title">462ª Reunião Ordinária — CMSMOC</div>
+      <div class="modal-meta">
+        <span class="modal-meta-item">📅 <strong>04 de fevereiro de 2026</strong></span>
+        <span class="modal-meta-item">🕑 <strong>13h30 — 17h00</strong></span>
+        <span class="modal-meta-item">📍 <strong>Plenário da Câmara Municipal</strong></span>
+        <span class="modal-meta-item">🪑 <strong>Farley Sindeaux Ribeiro</strong> — Presidente</span>
+      </div>
+    </div>
+    <div class="modal-body">
+
+      <div class="resumo-exec">
+        <div class="resumo-exec-label">Resumo Executivo</div>
+        <div class="resumo-exec-text">
+          Reunião densa com três pautas substantivas. A pauta sobre leitos do HU foi avançada na ordem a pedido do conselheiro Henrique. O HU esclareceu sua natureza pública vinculada à Secretaria de Estado da Educação, contratualizado com o município via chamamento público. Apresentou panorama dos leitos, com discussão aprofundada sobre impacto do encerramento de contratos temporários na capacidade assistencial. Servidores efetivos: secretaria apresentou esforço logístico de avaliação e alocação dos novos servidores concursados, com entrevistas até às 21h. Plenário deliberou pela realização de reuniões extraordinárias para SAMU, saúde mental e obras de unidades. Secretaria Executiva comunicou entregas de ofícios para renovação do plenário (prazo até 25/03) e atualizações da Conferência Municipal.
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">1. Expediente — Justificativas de Ausência</div>
+        <div class="ausencias-list">
+          <div class="ausencia-item"><span class="ausencia-nome">Soares</span><span class="ausencia-motivo">Reunião de trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Hernandes</span><span class="ausencia-motivo">Reunião de trabalho (previamente agendada)</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Fernando Antônio</span><span class="ausencia-motivo">Compromisso profissional</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">José dos Reis</span><span class="ausencia-motivo">Compromisso profissional</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">José Geraldo Ramos</span><span class="ausencia-motivo">Ausência justificada</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Cláudio Luiz</span><span class="ausencia-motivo">Força maior</span></div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">2. Comunicação e Informes</div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Secretaria Executiva</div>
+          <div class="ata-pauta-desc">Ofícios serão entregues a todos os conselheiros para que suas entidades se manifestem até 25 de março sobre permanência ou indicação de representantes (renovação do plenário). Todos receberão também por e-mail. Conselheiros deverão preencher cadastro com dados da entidade. QR code da lista de presença virtual disponível na tela durante a reunião. Nova conselheira: Dra. de Matos (enfermeira) ingressou como titular representando os prestadores.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">11ª Conferência Municipal de Saúde — atualização</div>
+          <div class="ata-pauta-desc">
+            Plenária de abertura: <strong>11 de março, 7h30–11h30</strong> (portadores de deficiência e prestadores de serviço), na Câmara Municipal. Pré-conferências regionais já agendadas nos bairros: Jamin (usuários), Delfinho Magalhães (col. Delfinho), Independência (Assembleia de Madureira), Maracanã (escola da terra), Major Prates (a definir). Conferência principal: <strong>22, 23 e 24 de abril de 2026</strong> (abertura às 19h; encerramento às 17h do dia 24). Lanche e almoço autorizados pelo secretário e pelo prefeito. Conselho Estadual ainda não elaborou documento orientador, porém o CNS convocou de janeiro a agosto. Prioridade: conferência antes do período eleitoral.
+          </div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro Joel — Anistia de multas COVID</div>
+          <div class="ata-pauta-desc">Joel informou que a gestão acatou demanda do MP e anulou as multas aplicadas por descumprimento do isolamento social na pandemia, com análise caso a caso. Propôs moção do Conselho reconhecendo e concordando com a posição de não anistia irrestrita.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Presidente — Agradecimentos</div>
+          <div class="ata-pauta-desc">Agradecimento à presença de gerentes e coordenadores da SMS e de alunos do 1º período de medicina do Centro Universitário FAFIA, tendo aula de controle social.</div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title green">3. Ordem do Dia (ordem modificada por votação)</div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.2 → 3.1 (Inversão aprovada) — Situação Contratual dos Leitos do HUCF</div>
+          <div class="ata-pauta-desc">
+            Apresentação pelo HU de sua natureza jurídica (hospital público estadual — Secretaria de Estado da Educação; hospital escola, 100% SUS). Contratualizado com o município via chamamento público nº 02/2024. O hospital perdeu parte de sua força de trabalho com o encerramento de contratos temporários emergenciais, sem reposição equivalente via concurso. Impactos: redução de leitos, superlotação do PS, plano de contingência acionado. Discussão sobre natureza específica do HU (antigo FUNFARME), sua importância para a rede de média e alta complexidade e saúde mental. Apresentado panorama de leitos contratualizados. Plenário debateu necessidade de nova proposta do estado para o hospital, uso de emendas como solução parcial e importância de o Conselho deliberar (não apenas ser informado) sobre decisões de rede.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.1 — Panorama de Leitos Hospitalares Contratualizados em 2026</div>
+          <div class="ata-pauta-desc">
+            Apresentação geral do panorama de leitos hospitalares contratualizados pelo município para 2026. Aproximadamente 70% dos leitos SUS são da rede privada contratualizada. Única exceção de hospital público: o HU. Debate sobre necessidade de o Conselho deliberar sobre novas aberturas de serviços (ex: novo PS da Santa Casa), e não apenas ser informado. Conselheiro Henrique reforçou que o Conselho é instância deliberativa das políticas, não apenas consultiva.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.3 — Servidores Efetivos e Contratos Temporários</div>
+          <div class="ata-pauta-desc">
+            A Secretaria de Saúde apresentou o processo de absorção dos servidores concursados: avaliação de perfis, entrevistas (algumas até às 21h), alocação considerando distância de residência, ambientação e apresentação às redes internas. Reconhecido o impacto do período de transição (de agosto até fevereiro). Questão não resolvida: o que fazer com vagas de desistência — o TQU não prevê claramente. Conselheira Dani destacou necessidade de atualização da carteira de serviços, pois novos profissionais têm distribuído senhas limitadas, incompatível com a demanda real.
+          </div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">4. Encaminhamentos Deliberados no Plenário</div>
+        <div class="ata-enc"><div class="ata-enc-n">1</div><div class="ata-enc-text">Reunião extraordinária sobre HU: aprofundar debate sobre situação dos leitos e propostas de solução.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">2</div><div class="ata-enc-text">Reunião extraordinária sobre SAMU: esclarecer fluxo, disponibilidade de ambulâncias e alternativas ao transporte sanitário.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">3</div><div class="ata-enc-text">Reunião extraordinária sobre saúde mental: funcionamento dos CAPS, leitos e RAPS.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">4</div><div class="ata-enc-text">Pauta: obras e reformas das unidades (UPA, UBS) — previsão de conclusão e logística.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">5</div><div class="ata-enc-text">Gestão: atualizar e distribuir a carteira de serviços às unidades para orientação dos novos profissionais.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">6</div><div class="ata-enc-text">Gestão: apresentar ao Conselho qualquer nova abertura ou reestruturação de serviços antes da implementação (deliberação, não apenas informação).</div></div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">5. Encerramento</div>
+        <div class="ata-body-text">Nada mais havendo a tratar, o presidente Farley Sindeaux Ribeiro declarou encerrada a 462ª Reunião Ordinária do CMSMOC.</div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <span class="footer-note">Ata gerada a partir de transcrição audiovisual. Sujeita à aprovação em plenário.</span>
+      <button class="btn-print" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 463 -->
+<div class="modal-overlay" id="modal463" onclick="closeIfOverlay(event, this)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal463')">✕</button>
+      <div class="modal-eyebrow">Conselho Municipal de Saúde de Montes Claros</div>
+      <div class="modal-title">463ª Reunião Ordinária — CMSMOC</div>
+      <div class="modal-meta">
+        <span class="modal-meta-item">📅 <strong>04 de março de 2026</strong></span>
+        <span class="modal-meta-item">🕑 <strong>13h30 — 17h00</strong></span>
+        <span class="modal-meta-item">📍 <strong>Plenário da Câmara Municipal</strong></span>
+        <span class="modal-meta-item">🪑 <strong>Joel</strong> — Vice-Presidente (presidindo)</span>
+      </div>
+    </div>
+    <div class="modal-body">
+
+      <div class="resumo-exec">
+        <div class="resumo-exec-label">Resumo Executivo</div>
+        <div class="resumo-exec-text">
+          Reunião presidida pelo vice-presidente Joel na ausência do presidente titular. Pauta invertida por votação — saúde mental apresentada antes das arboviroses. A apresentação da RAPs (Raimara, apoio técnico de saúde mental) foi considerada de alto nível pelo plenário, detalhando todos os serviços, leitos, produção (115.944 atendimentos e 274.766 procedimentos em 2025) e avanços (dois novos CAPS aprovados pelo PAC). Plano de Contingência das Arboviroses trouxe propostas inovadoras de cidadão (multiplicação de força, drones, parcerias com imobiliárias, CRE). Secretaria Executiva apresentou avanços do sistema de presença em tempo real. Debate sobre demanda reprimida em cirurgias (mamas, urologia) e ética no uso de documentos do Conselho. Convite especial: pré-conferência de Saúde da Mulher em 10/03.
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">1. Expediente — Justificativas de Ausência</div>
+        <div class="ausencias-list">
+          <div class="ausencia-item"><span class="ausencia-nome">José Geraldo Ramos</span><span class="ausencia-motivo">Compromisso pessoal</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Cláudio Luiz</span><span class="ausencia-motivo">Compromisso profissional</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Mariana</span><span class="ausencia-motivo">Compromisso profissional</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Amanda Mendes / Marilda Batista / José dos Reis / Jamilson</span><span class="ausencia-motivo">Compromissos profissionais e acompanhamento familiar</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Henrique</span><span class="ausencia-motivo">Força maior</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Hernandes</span><span class="ausencia-motivo">Reunião de trabalho</span></div>
+          <div class="ausencia-item"><span class="ausencia-nome">Williams (Wilras)</span><span class="ausencia-motivo">Ausência justificada</span></div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">2. Comunicação e Informes</div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Secretaria Executiva — Alexandre</div>
+          <div class="ata-pauta-desc">
+            • Atualização cadastral: todas as entidades sendo notificadas por e-mail. Formulário de renovação do plenário publicado no site e grupos. Conselheiros receberão links individuais para atualização.<br>
+            • Novo sistema de presença em tempo real: link único e permanente que poderá ser salvo como atalho no celular — "aplicativo do conselheiro". Permite visualização pública de quem está presente, justificativas e se há quórum para votação.<br>
+            • Redes sociais: solicitação para conselheiros seguirem o Instagram do Conselho para serem marcados nas publicações institucionais. "Controle social se faz com comunicação."
+          </div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro Washington — Cobrança de contratos</div>
+          <div class="ata-pauta-desc">Cobrou apresentação de contratos da SMS que deveriam ter sido encaminhados previamente. Classificou a omissão como falta de respeito. Subsecretário João esclareceu que a solicitação já foi autorizada e será encaminhada por e-mail.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro — Demanda reprimida em cirurgias</div>
+          <div class="ata-pauta-desc">Demanda reprimida superior a 2 anos para cirurgias de redução de mamas, com pacientes sendo orientados a recorrer à Justiça. Mencionou também urologia. Solicitou relatório com tempo de espera por especialidade e número de cirurgias realizadas. Sugeriu incluir metas específicas nos contratos com prestadores.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro Márcio — Ética no uso de documentos</div>
+          <div class="ata-pauta-desc">Alertou que documentos encaminhados ao Conselho são de uso exclusivo para fins deliberativos, e que o compartilhamento indevido fere a ética do conselheiro e pode gerar uso político contra a gestão. Solicitou postura ética especialmente dos novos membros.</div>
+        </div>
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">Conselheiro — Prerrogativas regimentais</div>
+          <div class="ata-pauta-desc">Concordou com a preocupação ética mas destacou que o conselheiro tem prerrogativa legal de receber documentos com 48h de antecedência. Propôs "acordo de cavalheiros": respeito mútuo à confidencialidade E ao prazo de envio, sem requerimentos formais para direitos já garantidos.</div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title green">3. Ordem do Dia (invertida por votação)</div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.1 (orig. 3.2) — Rede de Atenção Psicossocial (RAPs) — Apresentação: Raimara (Apoio Técnico — Coord. Saúde Mental)</div>
+          <div class="ata-pauta-desc">
+            <strong>Marco regulatório:</strong> Lei 10.216/2001 (Lei Paulo Delgado) e Portaria 3.088/2011. Modelo substitutivo ao manicomial.<br><br>
+            <strong>Serviços da RAPs em Montes Claros:</strong><br>
+            • CAPS 3 "Helena Marceiro" — 24h — 5 leitos de acolhimento noturno — transtornos graves.<br>
+            • CAPS AD3 "Robson Chaves" — 24h — até 12 leitos — álcool e drogas.<br>
+            • CAPS AD2 — 7h30–18h, seg-sex — sem leitos.<br>
+            • CAPS Infanto-Juvenil "Aquarela" — modalidade 2 — 7h30–18h.<br>
+            • SRT 1 (8 moradores) e SRT 2 (9 moradores) — ex-internos psiquiátricos de longa permanência.<br>
+            • Unidade de Acolhimento Adulto (vinc. CAPS AD3) e Infanto-Juvenil.<br>
+            • Consultório na Rua, ESF, ambulatórios de psiquiatria, UPA, SAMU.<br><br>
+            <strong>Leitos hospitalares contratualizados (saúde mental):</strong><br>
+            • HU: 6 leitos municipais + 6 via Macronorte. Em 2025: 406 leitos regulados.<br>
+            • Hospital da Dutonia: 10 leitos. Em 2025: 440 leitos regulados.<br>
+            Custo médio por internação: R$ 2.500,00.<br><br>
+            <strong>Produção 2025:</strong> 115.944 atendimentos e 274.766 procedimentos nos CAPS.<br><br>
+            <strong>Avanços aprovados pelo PAC (2024):</strong> Novo CAPS 3 (bairro Barraca/Ceres) e Novo CAPS AD3 (bairro Canela) — em construção. Passará a ter ~17 leitos de acolhimento. Centro de Convivência e Cultura aprovado. Programa "Saúde Mental em Movimento" em execução. CAPS passam a funcionar nos feriados nacionais.
+          </div>
+        </div>
+
+        <div class="ata-pauta">
+          <div class="ata-pauta-titulo">3.2 (orig. 3.1) — Plano de Contingência das Arboviroses</div>
+          <div class="ata-pauta-desc">
+            A apresentação foi realizada pela equipe da Vigilância em Saúde (CCZ). LIRAa atual: 13,2%. Ações em andamento com fumacê pesado (BV), drones para identificação de focos, intervenções em bairros críticos. Um cidadão presente (não identificado) apresentou série de propostas inovadoras ao Conselho:<br>
+            • Criação de equipe de intervenção rápida (agente de endemias + chaveiro + guarda municipal) para imóveis com 3 visitas negativas consecutivas e foco identificado por drone.<br>
+            • Protocolo de entrada forçada com base jurídica para imóveis abandonados.<br>
+            • Parceria com CRE (conselho de corretores) e imobiliárias para controle em imóveis alugados.<br>
+            • Treinamento de multiplicadores em escolas — "escola livre do Aedes" com certificação.<br>
+            • Boletos semanais de informação para ACS.<br>
+            • Horas extras e horários alternativos (18–21h, sábados) para equipes de ACE.<br>
+            A coordenação do CCZ recebeu positivamente as sugestões, comprometendo-se a levá-las ao Comitê das Arboviroses. Esclareceu questões jurídicas sobre entrada forçada (vinculação à CF) e confirmou uso de drones, fumacê e tecnologias de monitoramento.
+          </div>
+        </div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">4. Encaminhamentos</div>
+        <div class="ata-enc"><div class="ata-enc-n">1</div><div class="ata-enc-text">Secretaria Executiva: encaminhar solicitação formal à gestão para apresentação dos contratos dos prestadores de serviço ao Conselho.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">2</div><div class="ata-enc-text">Gestão (Subsecretário João): verificar situação das cirurgias de redução de mamas — tempo de fila, número de procedimentos realizados e capacidade dos prestadores. Apresentar na próxima reunião.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">3</div><div class="ata-enc-text">CCZ: levar propostas do cidadão ao Comitê das Arboviroses para avaliação de viabilidade técnica e jurídica.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">4</div><div class="ata-enc-text">Conselheiro (sugestão): convidar a Comissão do Conselho para aprofundar as propostas de combate às arboviroses.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">5</div><div class="ata-enc-text">Pré-conferência Saúde da Mulher: terça-feira 10/03, a partir das 7h30, no SIMAS. Conselheiros convidados a multiplicar o convite.</div></div>
+        <div class="ata-enc"><div class="ata-enc-n">6</div><div class="ata-enc-text">Conselheiros: verificar cadastro no Instagram do Conselho para marcação em publicações institucionais.</div></div>
+      </div>
+
+      <div class="ata-section">
+        <div class="ata-section-title">5. Encerramento</div>
+        <div class="ata-body-text">Aniversário da conselheira Maurícia Carvalho foi celebrado pelo plenário. Parabéns e reconhecimento pelo esforço de comparecer à reunião em dia pessoalmente difícil.<br><br>Nada mais havendo a tratar, o vice-presidente Joel declarou encerrada a 463ª Reunião Ordinária do CMSMOC.</div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <span class="footer-note">Ata gerada a partir de transcrição audiovisual e rascunho de referência. Sujeita à aprovação em plenário.</span>
+      <button class="btn-print" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <strong>Conselho Municipal de Saúde de Montes Claros / MG</strong> · Secretaria Executiva<br>
+  Av. Gov. Magalhães Pinto, nº 4.000 · Jaraguá · (38) 2211-4356 · cmsmocmg@gmail.com
+</footer>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeIfOverlay(event, overlay) {
+  if (event.target === overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+</body>
+</html>
