@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca de Roteiros — CMS Montes Claros</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════
+   BASEADA NO CSS MESTRE CMS MONTES CLAROS (Swiss Design)
+════════════════════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cms-blue:   #1B6CB5;
+  --cms-navy:   #0D2E5A;
+  --cms-green:  #1E8A4A;
+  --cms-yellow: #F5C400;
+  --cms-white:  #FFFFFF;
+  --cms-off:    #F7F8FA;
+  --cms-ink:    #111827;
+  --cms-muted:  #6B7280;
+  --cms-border: #E5E7EB;
+
+  --font-display: 'Montserrat', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cms-off);
+  color: var(--cms-ink);
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ── NAV & HERO ── */
+.topbar {
+  background: var(--cms-navy);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 56px;
+  position: sticky; top: 0; z-index: 200;
+}
+.topbar-brand {
+  font-family: var(--font-display); font-weight: 700; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase; color: white;
+}
+.topbar-brand span { color: var(--cms-yellow); }
+.topbar-nav { display: flex; gap: 32px; }
+.topbar-nav a {
+  font-size: 12px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: color .2s;
+}
+.topbar-nav a:hover { color: var(--cms-yellow); }
+
+.hero {
+  background: var(--cms-navy); color: white;
+  padding: 80px 48px 60px; position: relative; overflow: hidden;
+}
+.hero-label {
+  font-family: var(--font-display); font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--cms-yellow);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900; line-height: 0.95; letter-spacing: -2px;
+  max-width: 800px; margin-bottom: 24px;
+}
+.hero h1 em { color: var(--cms-yellow); font-style: normal; }
+
+/* ── LAYOUT BASE ── */
+.cms-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.cms-section { padding: 64px 0; border-bottom: 1px solid var(--cms-border); scroll-margin-top: 56px; }
+@media (max-width: 768px) { .cms-wrap { padding: 0 24px; } .hero { padding: 48px 24px; } .topbar { padding: 0 24px; } }
+
+.section-eyebrow {
+  font-family: var(--font-display); font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--cms-blue);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900; letter-spacing: -1px; line-height: 1.05;
+  color: var(--cms-navy); margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 16px; color: var(--cms-muted); max-width: 600px; margin-bottom: 40px;
+}
+
+/* ── GRID E CARDS DE ROTEIRO ── */
+.script-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 900px) { .script-grid { grid-template-columns: 1fr; } }
+
+.script-card {
+  background: var(--cms-white);
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.script-card.s1 { border-top: 4px solid var(--cms-yellow); }
+.script-card.s2 { border-top: 4px solid var(--cms-blue); }
+.script-card.s3 { border-top: 4px solid var(--cms-green); }
+.script-card.s4 { border-top: 4px solid var(--cms-navy); }
+.script-card.s5 { border-top: 4px solid var(--cms-yellow); }
+
+.script-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--cms-border);
+  background: var(--cms-white);
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.script-ep {
+  font-family: var(--font-display); font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--cms-muted);
+  margin-bottom: 8px;
+}
+.script-title {
+  font-family: var(--font-display); font-size: 20px; font-weight: 800;
+  color: var(--cms-navy); letter-spacing: -0.5px; line-height: 1.2;
+}
+
+/* ── BOTÃO COPIAR ── */
+.btn-copy {
+  background: var(--cms-off); border: 1px solid var(--cms-border);
+  color: var(--cms-navy); font-family: var(--font-display);
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.btn-copy:hover { background: var(--cms-border); }
+.btn-copy.copied { background: var(--cms-green); color: white; border-color: var(--cms-green); }
+
+/* ── CORPO DO ROTEIRO ── */
+.script-body {
+  padding: 24px 28px;
+  flex-grow: 1;
+  background: var(--cms-white);
+}
+
+.script-block { margin-bottom: 20px; }
+.script-block:last-child { margin-bottom: 0; }
+
+.block-label {
+  font-family: var(--font-display); font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--cms-blue);
+  margin-bottom: 6px; display: inline-block;
+  background: rgba(27, 108, 181, 0.08); padding: 3px 8px; border-radius: 4px;
+}
+.s1 .block-label { color: var(--cms-navy); background: rgba(245, 196, 0, 0.15); }
+.s3 .block-label { color: var(--cms-green); background: rgba(30, 138, 74, 0.1); }
+.s4 .block-label { color: var(--cms-white); background: var(--cms-navy); }
+.s5 .block-label { color: var(--cms-navy); background: rgba(245, 196, 0, 0.15); }
+
+.block-text {
+  font-family: var(--font-body); font-size: 15px; color: var(--cms-ink);
+  line-height: 1.7; padding-left: 12px; border-left: 3px solid var(--cms-border);
+}
+.block-text.emphasis { font-weight: 600; color: var(--cms-navy); font-style: italic; border-left-color: var(--cms-yellow); }
+.block-text.pause { font-size: 13px; color: var(--cms-muted); border-left-style: dashed; }
+
+/* Dica Box */
+.tip-box {
+  background: var(--cms-navy); color: white;
+  padding: 24px 32px; border-radius: 12px;
+  margin-bottom: 40px; border-left: 4px solid var(--cms-yellow);
+}
+.tip-box h4 { font-family: var(--font-display); font-size: 14px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; color: var(--cms-yellow); }
+.tip-box p { font-size: 15px; opacity: 0.9; }
+
+.page-footer {
+  background: var(--cms-navy); color: rgba(255,255,255,.5);
+  text-align: center; padding: 32px 20px; font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="topbar-brand">CMS <span>Montes Claros</span> — Audiovisual</span>
+  <div class="topbar-nav">
+    <a href="#serie1">Série 01</a>
+    <a href="#serie2">Série 02</a>
+    <a href="#serie3">Conferência</a>
+    <a href="#posts">Posts</a>
+    <a href="#reels">Reels</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="cms-wrap">
+    <p class="hero-label">Produção de Conteúdo · Estrutura Modular</p>
+    <h1>BIBLIOTECA DE<br><em>ROTEIROS</em></h1>
+    <p style="margin-top:20px; font-size: 16px; color: rgba(255,255,255,0.7); max-width: 600px;">
+      Inventário oficial de roteiros curtos para redes sociais do Conselho Municipal de Saúde.
+      Copie os textos, envie para o teleprompter e grave.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════════
+       SÉRIE 1
+  ════════════════════════════════════════════════ -->
+  <section class="cms-section" id="serie1">
+    <div class="cms-wrap">
+      <p class="section-eyebrow">Formato Curto · Educativo</p>
+      <h2 class="section-title">Série 1 — “Perguntas que eu sempre ouço”</h2>
+      <p class="section-desc"><strong>Tom:</strong> curioso, humano, didático.<br>
+      <strong>Estilo:</strong> inspirado em Carl Sagan / explicação narrativa. A lógica é começar com algo cotidiano e expandir para o sistema.</p>
+
+      <div class="script-grid">
+        
+        <!-- INÍCIO DO EPISÓDIO 1 -->
+        <article class="script-card s1">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Episódio 1</div>
+              <h3 class="script-title">“O que exatamente é o Conselho?”</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura (Gancho)</span>
+              <p class="block-text emphasis">"Eu sempre ouço essa pergunta: 'O que exatamente é o Conselho de Saúde?'"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Storytelling</span>
+              <p class="block-text">Muita gente imagina que o Conselho seja apenas um grupo que se reúne de vez em quando para discutir saúde.<br>Mas, na verdade, ele existe por um motivo muito importante.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">O Conselho Municipal de Saúde é um espaço onde a sociedade participa das decisões sobre a política pública de saúde.<br>Ali estão representados usuários do SUS, trabalhadores da saúde, gestores e entidades da sociedade.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text">É um dos instrumentos que garantem que o SUS seja construído com participação da população.</p>
+            </div>
+          </div>
+        </article>
+        <!-- FIM DO EPISÓDIO 1 -->
+
+        <!-- INÍCIO DO EPISÓDIO 2 -->
+        <article class="script-card s1">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Episódio 2</div>
+              <h3 class="script-title">“Eu queria ser conselheiro…”</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Outro dia alguém me disse: 'Eu queria ser conselheiro de saúde. Como faz?'"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Storytelling</span>
+              <p class="block-text">Essa é uma dúvida muito comum.<br>E muita gente não sabe que os conselheiros não são escolhidos aleatoriamente.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Os conselheiros representam segmentos da sociedade: usuários, trabalhadores, gestores e prestadores.<br>Eles são indicados ou eleitos por entidades e organizações que representam esses grupos.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text">Ou seja: o Conselho não representa pessoas individualmente, mas a sociedade organizada participando da saúde pública.</p>
+            </div>
+          </div>
+        </article>
+        <!-- FIM DO EPISÓDIO 2 -->
+
+        <!-- INÍCIO DO EPISÓDIO 3 -->
+        <article class="script-card s1">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Episódio 3</div>
+              <h3 class="script-title">“Eu nem sabia que existia conferência”</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Muitas pessoas dizem: 'Eu nem sabia que existia conferência de saúde.'"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Storytelling</span>
+              <p class="block-text">E isso é compreensível.<br>Porque, apesar de ser um dos espaços mais importantes de participação no SUS, muita gente nunca ouviu falar delas.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">As Conferências de Saúde são encontros onde a população discute os desafios da saúde pública e constrói propostas para melhorar o sistema.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text">É ali que muitas ideias que viram políticas públicas começam.</p>
+            </div>
+          </div>
+        </article>
+        <!-- FIM DO EPISÓDIO 3 -->
+
+        <!-- INÍCIO DO EPISÓDIO 4 -->
+        <article class="script-card s1">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Episódio 4</div>
+              <h3 class="script-title">“O SUS é só hospital?”</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Quando se fala em SUS, muita gente pensa apenas em hospital."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Storytelling</span>
+              <p class="block-text">Mas o SUS começa muito antes de alguém precisar de um hospital.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Ele está presente na vacinação, na vigilância sanitária, nas campanhas de prevenção, na atenção básica e em muitas outras ações de saúde pública.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text">Ou seja: o SUS não é apenas atendimento quando alguém adoece.<br>Ele também trabalha para evitar que as pessoas adoeçam.</p>
+            </div>
+          </div>
+        </article>
+        <!-- FIM DO EPISÓDIO 4 -->
+
+        <!-- INÍCIO DO EPISÓDIO 5 -->
+        <article class="script-card s1">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Episódio 5</div>
+              <h3 class="script-title">“Quem decide as coisas na saúde?”</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Outra pergunta que aparece muito é: 'Quem decide as coisas na saúde?'"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Storytelling</span>
+              <p class="block-text">Muita gente imagina que essas decisões acontecem apenas dentro da gestão.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Mas no SUS existe algo muito importante chamado controle social.<br>Isso significa que a sociedade participa dessas decisões por meio dos Conselhos e das Conferências de Saúde.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text">É uma forma de garantir que a saúde pública seja construída de forma democrática.</p>
+            </div>
+          </div>
+        </article>
+        <!-- FIM DO EPISÓDIO 5 -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SÉRIE 3
+  ════════════════════════════════════════════════ -->
+  <section class="cms-section" id="serie3">
+    <div class="cms-wrap">
+      <p class="section-eyebrow">Formato Curto · Educativo</p>
+      <h2 class="section-title">Série 3 — Rumo à 11ª Conferência</h2>
+      <p class="section-desc"><strong>Foco:</strong> Engajamento e explicação didática sobre a Conferência Municipal de Saúde.</p>
+
+      <div class="script-grid">
+        
+        <!-- Vídeo 1 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 1</div>
+              <h3 class="script-title">O que é uma Conferência de Saúde?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Você sabe o que é uma Conferência de Saúde?"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">As Conferências de Saúde são espaços de participação da sociedade na construção das políticas públicas de saúde.<br>Nelas, a população, trabalhadores da saúde, gestores e conselheiros se reúnem para discutir os principais desafios da saúde pública e propor soluções para melhorar o SUS.<br>As propostas debatidas nas conferências ajudam a orientar as políticas de saúde do município, do estado e do país.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 2 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 2</div>
+              <h3 class="script-title">Para que serve a Conferência?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"A Conferência de Saúde não é apenas um evento."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Ela é um espaço de diálogo entre sociedade e poder público.<br>Durante a conferência são discutidos problemas, prioridades e caminhos para melhorar o atendimento, fortalecer o SUS e ampliar o acesso à saúde.<br>As propostas aprovadas ajudam a orientar o planejamento das políticas públicas.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 3 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 3</div>
+              <h3 class="script-title">Quem pode participar?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"A Conferência de Saúde é aberta à participação da sociedade."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Podem participar usuários do SUS, trabalhadores da saúde, gestores, representantes de entidades e qualquer pessoa interessada em contribuir para melhorar a saúde pública.<br>A participação social é um dos pilares do SUS e garante que as políticas públicas considerem as necessidades reais da população.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 4 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 4</div>
+              <h3 class="script-title">O que são as pré-conferências?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Antes da Conferência Municipal acontecem as pré-conferências."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">As pré-conferências são encontros preparatórios que acontecem em diferentes territórios ou temas da saúde.<br>Nesses encontros, a população pode discutir problemas locais, apresentar ideias e construir propostas que depois serão levadas para a Conferência Municipal.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 5 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 5</div>
+              <h3 class="script-title">O que acontece dentro de uma Conferência?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Mas o que acontece, na prática, durante uma Conferência de Saúde?"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Durante a conferência acontecem debates, apresentações, grupos de discussão e votação de propostas.<br>Os participantes analisam os desafios da saúde pública e constroem coletivamente propostas para melhorar o sistema de saúde.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 6 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 6</div>
+              <h3 class="script-title">O que são propostas?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Um dos principais resultados da conferência são as propostas."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">As propostas são sugestões e recomendações construídas pelos participantes para melhorar a saúde pública.<br>Elas podem tratar de temas como atendimento, prevenção, estrutura das unidades de saúde, acesso a serviços ou políticas de promoção da saúde.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 7 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 7</div>
+              <h3 class="script-title">O que são delegados?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Você já ouviu falar nos delegados da Conferência de Saúde?"</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Os delegados são representantes eleitos durante as etapas da conferência.<br>Eles participam das votações e ajudam a representar os diferentes segmentos da sociedade nas decisões e nas propostas aprovadas.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 8 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 8</div>
+              <h3 class="script-title">O que acontece depois da Conferência?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Depois da conferência, o trabalho continua."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">As propostas aprovadas são registradas em relatório e passam a orientar o planejamento das políticas de saúde.<br>O Conselho Municipal de Saúde acompanha e fiscaliza a implementação dessas propostas, fortalecendo o controle social no SUS.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 9 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 9</div>
+              <h3 class="script-title">Por que a participação popular é importante?</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"O SUS foi construído com participação da sociedade."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">A participação popular garante que as políticas públicas de saúde considerem as necessidades reais da população.<br>As Conferências de Saúde são um dos principais instrumentos de democracia participativa no SUS.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text pause">[ Encerramento padrão ]</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vídeo 10 -->
+        <article class="script-card s3">
+          <div class="script-header">
+            <div>
+              <div class="script-ep">Vídeo 10</div>
+              <h3 class="script-title">Montes Claros e a história do SUS</h3>
+            </div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block">
+              <span class="block-label">Abertura</span>
+              <p class="block-text emphasis">"Montes Claros tem uma história importante na construção da saúde pública brasileira."</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Explicação</span>
+              <p class="block-text">Experiências como o Projeto Montes Claros foram pioneiras na organização regional da saúde e ajudaram a inspirar modelos que mais tarde influenciaram a criação do SUS.<br>A histórica 8ª Conferência Nacional de Saúde, realizada em 1986, consolidou os princípios da saúde como direito de todos e dever do Estado — bases do SUS que conhecemos hoje.</p>
+            </div>
+            <div class="script-block">
+              <span class="block-label">Fechamento</span>
+              <p class="block-text">Participar das Conferências de Saúde é continuar essa história de construção coletiva da saúde pública.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       POSTS (IMAGENS / CARROSSEL)
+  ════════════════════════════════════════════════ -->
+  <section class="cms-section" id="posts">
+    <div class="cms-wrap">
+      <p class="section-eyebrow">Redes Sociais · Textos Prontos</p>
+      <h2 class="section-title">Ideias de Posts e Legendas</h2>
+      <p class="section-desc">Textos para cards de Instagram, Facebook ou WhatsApp. O botão copiar formata o texto pronto para colar no aplicativo.</p>
+
+      <!-- Ideias Estratégicas -->
+      <h3 class="cms-h3" style="margin-bottom: 24px; color: var(--cms-navy); font-family: var(--font-display); font-size: 22px;">Ideias Estratégicas (Conselho e Conferência)</h3>
+      <div class="script-grid" style="margin-bottom: 64px;">
+        
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 1</div><h3 class="script-title">Você sabia?</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">Card simples</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">Você sabia?<br>As Conferências de Saúde acontecem em três níveis:<br><br>✔ Municipal<br>✔ Estadual<br>✔ Nacional<br><br>As propostas discutidas em cada etapa ajudam a orientar as políticas públicas de saúde em todo o país.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 2</div><h3 class="script-title">O que faz o Conselho de Saúde?</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">Card educativo</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">O Conselho Municipal de Saúde:<br><br>✔ acompanha a política de saúde<br>✔ fiscaliza recursos<br>✔ aprova planos e relatórios<br>✔ fortalece a participação social</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 3</div><h3 class="script-title">Por que participar da Conferência?</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">3 motivos</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">✔ sua opinião ajuda a melhorar o SUS<br>✔ problemas da comunidade podem ser discutidos<br>✔ propostas podem virar políticas públicas</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 4</div><h3 class="script-title">Como participar da Conferência?</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">Passos simples</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">1️⃣ participar das pré-conferências<br>2️⃣ acompanhar as discussões<br>3️⃣ contribuir com propostas</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 5</div><h3 class="script-title">Você usa o SUS?</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">Card de reflexão</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">Se você já utilizou:<br>✔ vacina<br>✔ atendimento em UBS<br>✔ exames<br>✔ SAMU<br>✔ campanhas de prevenção<br><br>Você já utiliza o SUS.<br>E pode ajudar a melhorar ele participando da Conferência.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 6</div><h3 class="script-title">Montes Claros e o SUS</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">Post histórico</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">Nossa cidade teve experiências pioneiras na organização regional da saúde, contribuindo para debates que ajudaram a inspirar o modelo de saúde pública do Brasil.<br>Seguimos fortalecendo essa história com participação social.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Post 7</div><h3 class="script-title">Convite para pré-conferências</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Título</span><p class="block-text emphasis">Participe!</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">As pré-conferências são espaços de escuta da população.<br>É onde começam a surgir muitas das propostas que serão debatidas na Conferência Municipal.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card s4">
+          <div class="script-header">
+            <div><div class="script-ep">Ideia Extra 🔥</div><h3 class="script-title">Pergunte ao Conselho</h3></div>
+            <button class="btn-copy" onclick="copyScript(this)">COPIAR</button>
+          </div>
+          <div class="script-body raw-script-content">
+            <div class="script-block"><span class="block-label">Formato</span><p class="block-text pause">Stories com Caixinha de Perguntas</p></div>
+            <div class="script-block">
+              <span class="block-label">Conteúdo</span>
+              <p class="block-text">"Qual dúvida você tem sobre o SUS ou sobre a Conferência?"</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 20 Posts Prontos -->
+      <h3 class="cms-h3" style="margin-bottom: 24px; color: var(--cms-navy); font-family: var(--font-display); font-size: 22px;">20 Ideias de Posts Prontos</h3>
+      <div class="script-grid">
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 1</div><h3 class="script-title">Você usa o SUS (e talvez não saiba)</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Título</span><p class="block-text emphasis">Você usa o SUS?</p></div><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Se você já utilizou:<br>✔ vacina<br>✔ SAMU<br>✔ atendimento em UBS<br>✔ transplantes<br>✔ vigilância sanitária<br>✔ campanhas de prevenção<br><br>Então você já utilizou o SUS.<br>O SUS está presente em diversas áreas da saúde no Brasil.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 2</div><h3 class="script-title">O que é o Conselho de Saúde?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Título</span><p class="block-text emphasis">O que faz o Conselho Municipal de Saúde?</p></div><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">O Conselho é um espaço de participação da sociedade na gestão da saúde pública.<br>Entre suas funções estão:<br>✔ acompanhar a política de saúde<br>✔ fiscalizar recursos<br>✔ discutir melhorias no SUS<br>✔ garantir a participação social</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 3</div><h3 class="script-title">O SUS é gigante</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">O SUS é considerado um dos maiores sistemas públicos de saúde do mundo.<br>Ele garante acesso universal e gratuito à saúde para milhões de brasileiros.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 4</div><h3 class="script-title">O que são Conferências de Saúde?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">As Conferências de Saúde são espaços de participação social.<br>Elas reúnem:<br>✔ usuários<br>✔ trabalhadores<br>✔ gestores<br>✔ representantes da sociedade<br><br>Para discutir e propor melhorias para o SUS.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 5</div><h3 class="script-title">Por que participar da Conferência?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Participar da Conferência de Saúde é uma forma de contribuir para melhorar a saúde pública.<br>É nesse espaço que a população pode discutir problemas e apresentar propostas.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 6</div><h3 class="script-title">O que são pré-conferências?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Antes da Conferência Municipal acontecem as pré-conferências.<br>São encontros preparatórios onde a população pode discutir problemas da saúde e apresentar propostas.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 7</div><h3 class="script-title">Saúde da Mulher</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Contexto</span><p class="block-text pause">Post para a pré-conferência.</p></div><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">A saúde da mulher envolve cuidado integral em todas as fases da vida.<br>A participação social também é fundamental para fortalecer políticas públicas nessa área.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 8</div><h3 class="script-title">O SUS salva vidas todos os dias</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Todos os dias o SUS realiza:<br>✔ atendimentos de emergência<br>✔ cirurgias<br>✔ vacinação<br>✔ tratamentos complexos<br><br>Milhões de brasileiros dependem do SUS diariamente.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 9</div><h3 class="script-title">Controle social</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Título</span><p class="block-text emphasis">O que é controle social?</p></div><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Controle social é a participação da sociedade na gestão das políticas públicas.<br>No SUS, ele acontece principalmente por meio dos Conselhos e das Conferências de Saúde.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 10</div><h3 class="script-title">Você sabia?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Você sabia que a participação social é um dos princípios do SUS?<br>Isso significa que a população tem o direito de participar da construção das políticas públicas de saúde.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 11</div><h3 class="script-title">História do SUS</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">O SUS foi criado a partir das lutas do movimento da Reforma Sanitária Brasileira.<br>A histórica 8ª Conferência Nacional de Saúde, em 1986, foi um marco nesse processo.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 12</div><h3 class="script-title">Montes Claros e o SUS</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Montes Claros tem uma história importante na construção da saúde pública brasileira.<br>Experiências como o Projeto Montes Claros contribuíram para o desenvolvimento de modelos de organização regional da saúde.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 13</div><h3 class="script-title">Saúde é direito</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">A Constituição Federal garante:<br><br>"A saúde é direito de todos e dever do Estado."<br><br>Esse princípio é a base do SUS.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 14</div><h3 class="script-title">O SUS vai além do hospital</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">O SUS não é apenas hospital.<br>Ele também atua em:<br>✔ prevenção<br>✔ vacinação<br>✔ vigilância sanitária<br>✔ controle de doenças<br>✔ promoção da saúde</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 15</div><h3 class="script-title">Participação da comunidade</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">A participação da comunidade é essencial para melhorar a saúde pública.<br>A Conferência de Saúde é um dos espaços onde essa participação acontece.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 16</div><h3 class="script-title">O que acontece depois da conferência?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">As propostas aprovadas nas conferências ajudam a orientar as políticas públicas de saúde.<br>O Conselho acompanha e fiscaliza a implementação dessas propostas.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 17</div><h3 class="script-title">A importância da atenção básica</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">A atenção básica é a porta de entrada do SUS.<br>Ela atua na prevenção, no acompanhamento das famílias e na promoção da saúde.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 18</div><h3 class="script-title">Democracia e saúde</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">As Conferências de Saúde são um exemplo de democracia participativa.<br>Elas permitem que a população contribua diretamente para a construção das políticas públicas.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 19</div><h3 class="script-title">Convite para conferência</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Em breve acontecerá a 11ª Conferência Municipal de Saúde de Montes Claros.<br>A participação da população é fundamental para fortalecer o SUS.</p></div></div></article>
+
+        <article class="script-card s4"><div class="script-header"><div><div class="script-ep">Post 20</div><h3 class="script-title">Construindo o futuro da saúde</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">A construção de um sistema de saúde melhor depende da participação de todos.<br>As Conferências de Saúde são espaços fundamentais para esse processo.</p></div></div></article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       REELS
+  ════════════════════════════════════════════════ -->
+  <section class="cms-section" id="reels">
+    <div class="cms-wrap">
+      <p class="section-eyebrow">Formato Vertical Curto</p>
+      <h2 class="section-title">10 Ideias de Reels (Viral)</h2>
+      <p class="section-desc">Reels precisam ter: <strong>curiosidade, informação rápida e quebra de expectativa</strong>.</p>
+
+      <div class="script-grid">
+        
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 1</div><h3 class="script-title">3 coisas que o SUS faz e você não sabia</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Exemplos Práticos</span><p class="block-text">✔ transplantes<br>✔ SAMU<br>✔ vacinação em massa</p></div></div></article>
+        
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 2</div><h3 class="script-title">Você usa o SUS mais do que imagina</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Começa com</span><p class="block-text emphasis">"Mesmo quem tem plano de saúde usa o SUS."</p></div><div class="script-block"><span class="block-label">Explica</span><p class="block-text">vacinas<br>vigilância sanitária<br>campanhas</p></div></div></article>
+        
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 3</div><h3 class="script-title">5 curiosidades sobre o SUS</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Exemplo</span><p class="block-text">um dos maiores sistemas públicos do mundo<br>vacinação nacional<br>transplantes<br>atendimento universal<br>controle social</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 4</div><h3 class="script-title">O que é controle social?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo</span><p class="block-text">Explicação rápida do papel do Conselho de Saúde.</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 5</div><h3 class="script-title">O que acontece em uma Conferência?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Mostrar</span><p class="block-text">debate<br>propostas<br>participação popular</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 6</div><h3 class="script-title">Você sabe quem decide as políticas de saúde?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Resposta</span><p class="block-text">gestores<br>conselhos<br>conferências</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 7</div><h3 class="script-title">A população decide a saúde do município?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Abordagem</span><p class="block-text">Explicar que sim, através das conferências e da participação social.</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 8</div><h3 class="script-title">Como surgem as políticas públicas de saúde?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Fluxo simples</span><p class="block-text">Conferência → propostas → planejamento → políticas públicas.</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 9</div><h3 class="script-title">Por que o SUS é importante?</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Exemplos práticos</span><p class="block-text">vacinação<br>emergência<br>prevenção</p></div></div></article>
+
+        <article class="script-card s5"><div class="script-header"><div><div class="script-ep">Reel 10</div><h3 class="script-title">Montes Claros e a história do SUS</h3></div><button class="btn-copy" onclick="copyScript(this)">COPIAR</button></div><div class="script-body raw-script-content"><div class="script-block"><span class="block-label">Conteúdo histórico curto</span><p class="block-text">Projeto Montes Claros<br>Reforma Sanitária<br>8ª Conferência Nacional.</p></div></div></article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <strong>Conselho Municipal de Saúde de Montes Claros – MG</strong><br>
+  Biblioteca de Roteiros Audiovisuais · Versão 1.0 · 2026
+</footer>
+
+<script>
+// Função para extrair o texto do roteiro de forma limpa
+function copyScript(btn) {
+  // Pega o card (pai do botão) e encontra o container do texto
+  const card = btn.closest('.script-card');
+  const blocks = card.querySelectorAll('.script-block');
+  
+  let scriptText = "";
+  const title = card.querySelector('.script-title').innerText;
+  
+  scriptText += `ROTEIRO: ${title}\n`;
+  scriptText += `-----------------------------------\n\n`;
+
+  blocks.forEach(block => {
+    // Pega a label (ex: [ Abertura ])
+    const label = block.querySelector('.block-label').innerText;
+    scriptText += `[ ${label} ]\n`;
+    
+    // Pega os parágrafos de texto puro dentro deste bloco
+    const paragraphs = block.querySelectorAll('.block-text');
+    paragraphs.forEach(p => {
+      // Ignora as formatações de colchetes de pausa para a leitura fluida, se desejar. 
+      // Mas aqui vamos manter exatamente como está na tela.
+      scriptText += `${p.innerText}\n`;
+    });
+    scriptText += `\n`;
+  });
+
+  // Copia para a área de transferência
+  navigator.clipboard.writeText(scriptText).then(() => {
+    const originalText = btn.textContent;
+    btn.textContent = 'COPIADO ✓';
+    btn.classList.add('copied');
+    
+    // Retorna ao estado original após 2 segundos
+    setTimeout(() => { 
+      btn.textContent = originalText; 
+      btn.classList.remove('copied'); 
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
