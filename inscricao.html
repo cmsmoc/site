@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrições Conselho Municipal de Saúde — Montes Claros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Substituição para as fontes oficiais da marca -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── VARIÁVEIS OFICIAIS CMS ── */
+        :root {
+            --cms-navy:   #0D2E5A;
+            --cms-blue:   #1B6CB5;
+            --cms-green:  #1E8A4A;
+            --cms-yellow: #F5C400;
+            --cms-white:  #FFFFFF;
+            --cms-off:    #F7F8FA;
+            --cms-ink:    #111827;
+            --cms-muted:  #6B7280;
+            --cms-border: #E5E7EB;
+            --transition: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--cms-white);
+            color: var(--cms-ink);
+            line-height: 1.75;
+            font-size: 15px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── TIPOGRAFIA SWISS ── */
+        .cms-display {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 0.95;
+            color: var(--cms-navy);
+            text-transform: uppercase;
+        }
+        
+        .cms-h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.05;
+            color: var(--cms-navy);
+        }
+
+        .cms-h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--cms-navy);
+        }
+
+        .cms-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cms-blue);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* ── ANIMAÇÕES DE REVELAÇÃO ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── GRID E LAYOUT ── */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            max-width: 1080px; /* Alinhado com o Brand Guide */
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* ── HEADER & NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--cms-border);
+            padding: 16px 0;
+        }
+
+        .nav-logo {
+            height: 40px;
+            display: block;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: var(--cms-off);
+            overflow: hidden;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -100px; right: -100px;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245,196,0,0.08) 0%, transparent 65%);
+            z-index: 0;
+        }
+
+        .hero > .grid { position: relative; z-index: 1; }
+
+        .hero h1 {
+            grid-column: 1 / span 10;
+        }
+
+        /* ── CARDS E ETAPAS ── */
+        .step-card {
+            grid-column: span 6;
+            background: var(--cms-white);
+            padding: 48px;
+            border: 1px solid var(--cms-border);
+            transition: all 0.4s var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(13, 46, 90, 0.08);
+            border-color: var(--cms-blue);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--cms-blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--transition);
+        }
+
+        .step-card:hover::before { transform: scaleX(1); }
+
+        .step-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--cms-off);
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            z-index: 0;
+            transition: color 0.4s;
+            letter-spacing: -4px;
+        }
+
+        .step-card:hover .step-num { color: var(--cms-border); }
+        .step-content { position: relative; z-index: 1; }
+
+        /* Variações de Cores para Cards */
+        .card-navy { background: var(--cms-navy); color: var(--cms-white); border: none; }
+        .card-navy .cms-h3, .card-navy p { color: var(--cms-white); }
+        .card-navy .step-num { color: rgba(255,255,255,0.05); }
+        .card-navy:hover { border-color: transparent; }
+        .card-navy::before { background: var(--cms-yellow); }
+
+        .card-blue { background: var(--cms-blue); color: var(--cms-white); border: none; }
+        .card-blue .cms-h2, .card-blue .cms-h3, .card-blue p { color: var(--cms-white); }
+        .card-blue .step-num { color: rgba(255,255,255,0.1); }
+        .card-blue:hover { border-color: transparent; }
+        .card-blue::before { background: var(--cms-yellow); }
+
+        /* ── ELEMENTOS VISUAIS ── */
+        .badge-deadline {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cms-yellow);
+            color: var(--cms-navy);
+            padding: 10px 24px;
+            font-weight: 800;
+            font-size: 14px;
+            margin-top: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+
+        .list-visual {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .list-visual li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--cms-border);
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--cms-ink);
+        }
+
+        .list-visual li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--cms-yellow);
+            margin-right: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .cms-btn {
+            display: inline-block;
+            background: var(--cms-yellow);
+            color: var(--cms-navy);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .cms-btn:hover {
+            background: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        /* ── RESPONSIVIDADE ── */
+        @media (max-width: 900px) {
+            .grid { padding: 0 24px; }
+            .step-card { grid-column: span 12; padding: 40px; }
+            .hero h1 { grid-column: 1 / -1; font-size: 40px; }
+            .cms-display { font-size: 40px; }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 60px 0; }
+            .hero { min-height: 70vh; }
+            .step-num { font-size: 6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR COM LOGO HORIZONTAL FUNDO CLARO -->
+    <nav>
+        <div class="grid">
+            <div style="grid-column: 1 / -1;">
+                <img src="https://i.ibb.co/XkSh01M8/LOGOTIPO-CONSELHO-PRETO.png" alt="CMS Montes Claros" class="nav-logo">
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="grid">
+            <div style="grid-column: 1 / -1;">
+                <span class="cms-eyebrow reveal">Conselho Municipal de Saúde</span>
+            </div>
+            <h1 class="cms-display reveal" style="transition-delay: 0.1s;">Inscrições abertas para entidades</h1>
+            <div style="grid-column: 1 / span 8;" class="reveal" style="transition-delay: 0.2s;">
+                <p style="font-size: 18px; color: var(--cms-muted); margin-top: 24px; max-width: 600px; font-weight: 300;">Participe da construção das políticas públicas de saúde do município. O controle social garante uma gestão transparente e efetiva.</p>
+                <div class="badge-deadline">Prazo: até 27 de março</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- QUEM PODE PARTICIPAR -->
+    <section id="quem">
+        <div class="grid">
+            <div style="grid-column: 1 / span 5;" class="reveal">
+                <h2 class="cms-h2" style="margin-bottom: 24px;">Quem pode<br><span style="color: var(--cms-blue);">participar</span></h2>
+                <p style="color: var(--cms-muted);">A participação fortalece o controle social do SUS. O engajamento coletivo é a base da nossa democracia sanitária e permite que a população tenha voz ativa.</p>
+            </div>
+            <div style="grid-column: 7 / -1;" class="reveal" style="transition-delay: 0.2s;">
+                <ul class="list-visual">
+                    <li>Entidades da sociedade civil organizada</li>
+                    <li>Movimentos sociais e populares</li>
+                    <li>Instituições ligadas à área da saúde</li>
+                    <li>Entidades representativas que atuem no município</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASSOS GRID -->
+    <section style="background: var(--cms-off); border-top: 1px solid var(--cms-border);">
+        <div class="grid">
+            <div style="grid-column: 1 / -1; margin-bottom: 64px;" class="reveal">
+                <span class="cms-eyebrow">O Processo</span>
+                <h2 class="cms-h2">Como se inscrever em 5 passos</h2>
+            </div>
+
+            <!-- Passo 1 -->
+            <div class="step-card reveal">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <span style="font-family:'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; letter-spacing: 2px;">Passo 1</span>
+                    <h3 class="cms-h3" style="margin: 12px 0 16px;">Acesse o formulário</h3>
+                    <p style="color: var(--cms-muted); font-size: 14px;">Entre no site oficial do Conselho Municipal de Saúde e acesse o formulário eletrônico. O processo é 100% online.</p>
+                </div>
+            </div>
+
+            <!-- Passo 2 -->
+            <div class="step-card reveal" style="transition-delay: 0.1s;">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <span style="font-family:'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; letter-spacing: 2px;">Passo 2</span>
+                    <h3 class="cms-h3" style="margin: 12px 0 16px;">Preencha os dados</h3>
+                    <p style="color: var(--cms-muted); font-size: 14px;">Informe nome da entidade, CNPJ, dados de contato atualizados e a finalidade de atuação estatutária.</p>
+                </div>
+            </div>
+
+            <!-- Passo 3 (Destaque Dark/Navy) -->
+            <div class="step-card card-navy reveal">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <span style="font-family:'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cms-yellow); text-transform: uppercase; letter-spacing: 2px;">Passo 3</span>
+                    <h3 class="cms-h3" style="margin: 12px 0 16px;">Anexe os documentos</h3>
+                    <p style="font-size: 14px; opacity: 0.8;">Será necessário anexar documentos básicos (Ata, Estatuto, CNPJ) que comprovem a existência e atuação da entidade.</p>
+                </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div class="step-card reveal" style="transition-delay: 0.1s;">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <span style="font-family:'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; letter-spacing: 2px;">Passo 4</span>
+                    <h3 class="cms-h3" style="margin: 12px 0 16px;">Indique o representante</h3>
+                    <p style="color: var(--cms-muted); font-size: 14px;">A entidade deverá indicar seu representante oficial (titular e suplente). Esta indicação deve ser formalizada.</p>
+                </div>
+            </div>
+            
+            <!-- Passo 5 (CTA Final Blue) -->
+            <div style="grid-column: 1 / -1;" class="step-card card-blue reveal">
+                <div class="step-num">05</div>
+                <div class="step-content">
+                    <span style="font-family:'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--cms-yellow); text-transform: uppercase; letter-spacing: 2px;">Passo 5</span>
+                    <h2 class="cms-h2" style="margin: 16px 0 24px; font-size: 36px; letter-spacing: -1px;">Finalize a inscrição</h2>
+                    <p style="font-size: 16px; max-width: 600px; opacity: 0.9;">Envie o formulário com os documentos anexados. Após análise criteriosa da comissão eleitoral, a inscrição poderá ser habilitada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CALL TO ACTION (Fundo Escuro) -->
+    <footer style="padding: 100px 0; background: var(--cms-navy); text-align: center; color: var(--cms-white);">
+        <div class="grid">
+            <div style="grid-column: 1 / -1;" class="reveal">
+                <!-- LOGO HORIZONTAL FUNDO ESCURO -->
+                <img src="https://i.ibb.co/HLG4tvfn/LOGOTIPO-CONSELHO-BRANCO.png" alt="CMS Montes Claros" style="height: 60px; margin-bottom: 40px;">
+                
+                <h2 class="cms-h2" style="color: var(--cms-white); font-size: clamp(28px, 4vw, 44px); margin-bottom: 24px;">Fortaleça a participação social.</h2>
+                <p style="font-size: 18px; font-weight: 300; opacity: 0.7; margin-bottom: 48px;">Seja a voz da sua comunidade no SUS.</p>
+                
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
+                    <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--cms-yellow); font-size: 16px; letter-spacing: 1px; text-transform: uppercase;">
+                        Encerramento: 27 de março
+                    </div>
+                    <a href="#" class="cms-btn">Acessar Sistema de Inscrição</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE OBSERVER -->
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
