@@ -3,253 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edital 01/2026 - Conselho Municipal de Saúde</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Edital 01/2026 · CMS Montes Claros</title>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .header-background {
-            background: linear-gradient(rgba(15, 118, 110, 0.8), rgba(30, 64, 175, 0.8)), 
-                        url('https://i.ibb.co/CpxXXppP/Form-Header-32.png');
-            background-size: cover;
-            background-position: center;
+        /* ════════════════════════════════════════════════════
+           CMS MONTES CLAROS · MASTER CSS · 2026
+           Swiss Design System · versão 1.0
+        ════════════════════════════════════════════════════ */
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap');
+
+        :root {
+            --cms-navy:    #0D2E5A;
+            --cms-blue:    #1B6CB5;
+            --cms-green:   #1E8A4A;
+            --cms-yellow:  #F5C400;
+            --cms-white:   #FFFFFF;
+            --cms-off:     #F7F8FA;
+            --cms-ink:     #111827;
+            --cms-muted:   #6B7280;
+            --cms-border:  #E5E7EB;
+
+            --font-display: 'Montserrat', 'Georama', Helvetica, sans-serif;
+            --font-body:    'Open Sans', Arial, sans-serif;
+
+            --space-xs:  8px;
+            --space-sm:  16px;
+            --space-md:  32px;
+            --space-lg:  64px;
+            --space-xl:  96px;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+
+            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,.10);
         }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 18px;
-            height: 18px;
-            background: #10b981;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 0 0 2px #10b981;
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cms-white);
+            color: var(--cms-ink);
+            line-height: 1.65;
+            font-size: 15px;
+            scroll-behavior: smooth;
         }
-        .form-card:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
+
+        .cms-wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .cms-wrap-wide { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .cms-wrap-narrow { max-width: 680px; margin: 0 auto; padding: 0 var(--space-lg); }
+
+        @media (max-width: 680px) {
+            .cms-wrap, .cms-wrap-wide, .cms-wrap-narrow { padding: 0 var(--space-sm); }
         }
+
+        .cms-section { padding: var(--space-lg) 0; border-bottom: 1px solid var(--cms-border); }
+
+        .cms-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+        .cms-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-sm); }
+
+        @media (max-width: 760px) {
+            .cms-grid-2, .cms-grid-4 { grid-template-columns: 1fr; }
+            .cms-grid-4 { grid-template-columns: 1fr 1fr; }
+        }
+
+        .cms-display { font-family: var(--font-display); font-size: clamp(36px, 6vw, 72px); font-weight: 900; letter-spacing: -2px; line-height: 0.95; color: var(--cms-navy); }
+        .cms-h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -1px; line-height: 1.05; color: var(--cms-navy); }
+        .cms-h2 { font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; letter-spacing: -0.5px; color: var(--cms-navy); }
+        .cms-h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--cms-navy); }
+        .cms-eyebrow { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--cms-blue); }
+        .cms-body { font-family: var(--font-body); font-size: 15px; font-weight: 400; line-height: 1.75; color: var(--cms-ink); }
+
+        .cms-header { background: var(--cms-navy); color: var(--cms-white); padding: var(--space-xl) 0 var(--space-xl) 0; position: relative; }
+        .cms-header-stripe { border-top: 6px solid; border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1; }
+
+        .cms-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-sm); overflow: hidden; }
+        .cms-card-top-blue   { border-top: 3px solid var(--cms-blue); }
+        .cms-card-top-green  { border-top: 3px solid var(--cms-green); }
+        .cms-card-yellow { background: var(--cms-yellow); color: var(--cms-navy); border: none; }
+        .cms-card-navy { background: var(--cms-navy); color: var(--cms-white); }
+
+        .cms-stat { text-align: center; padding: var(--space-md); }
+        .cms-stat-number { font-family: var(--font-display); font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -1px; line-height: 1; color: var(--cms-navy); }
+        .cms-stat-label { font-size: 11px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+
+        .cms-btn { display: inline-block; font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 28px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; text-align: center; }
+        .cms-btn:hover { opacity: .85; }
+        .cms-btn-primary   { background: var(--cms-yellow); color: var(--cms-navy); }
+        .cms-btn-secondary { background: var(--cms-blue);   color: var(--cms-white); }
+        .cms-btn-outline   { background: transparent; border: 2px solid var(--cms-blue); color: var(--cms-blue); }
+
+        .cms-list { list-style: none; padding: 0; }
+        .cms-list li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--cms-border); font-size: 14px; }
+        .cms-list li::before { content: '●'; color: var(--cms-yellow); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+
+        .cms-fala { border-left: 4px solid var(--cms-blue); padding: 14px 20px; margin: var(--space-sm) 0; background: var(--cms-off); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+        .cms-fala-nome { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cms-blue); margin-bottom: 6px; }
+
+        .cms-enc { display: flex; gap: 14px; align-items: flex-start; padding: 14px 18px; background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); margin-bottom: 8px; text-decoration: none; color: inherit; transition: transform 0.2s; }
+        .cms-enc:hover { transform: translateX(5px); border-color: var(--cms-blue); }
+        .cms-enc-n { min-width: 28px; height: 28px; background: var(--cms-navy); color: var(--cms-white); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 12px; font-weight: 700; flex-shrink: 0; }
+
+        .cms-tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .cms-tag-blue   { background: var(--cms-blue);   color: var(--cms-white); }
+        .cms-tag-yellow { background: var(--cms-yellow); color: var(--cms-navy); }
+        .cms-tag-green  { background: var(--cms-green);  color: var(--cms-white); }
+
+        .cms-stripe { height: 5px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
+        .cms-footer { background: var(--cms-navy); color: rgba(255,255,255,.55); text-align: center; padding: var(--space-xl) var(--space-lg); font-size: 13px; font-family: var(--font-body); }
+        
+        /* Layout Fixes */
+        .cms-logo-container { margin-bottom: var(--space-md); padding-top: var(--space-md); display: flex; justify-content: center; }
+        .hero-btns { display: flex; gap: var(--space-sm); margin-top: var(--space-md); justify-content: center; }
+        .cms-card-img { width: 100%; height: 160px; object-fit: cover; }
+        .cms-card-body { padding: var(--space-md); }
+        .cms-alert-deadline { margin-top: -50px; position: relative; z-index: 10; }
+        .cms-accent-green { color: var(--cms-green); }
+        .cms-accent-blue { color: var(--cms-blue); }
+        .cms-mt-md { margin-top: var(--space-md); }
+        .cms-mb-md { margin-bottom: var(--space-md); }
+        .cms-center { text-align: center; }
+        .cms-bold { font-weight: 700; }
+        .cms-light { font-weight: 300; }
+
+        @media (max-width: 600px) { .hero-btns { flex-direction: column; } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body>
 
-    <!-- Header / Hero -->
-    <header class="header-background text-white py-20 px-6 text-center shadow-lg">
-        <div class="max-w-4xl mx-auto">
-            <span class="bg-emerald-500 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider mb-4 inline-block">Edital N.º 01/2026</span>
-            <h1 class="text-3xl md:text-5xl font-bold mb-4">Conselho Municipal de Saúde de Montes Claros/MG</h1>
-            <p class="text-xl opacity-90 mb-8 font-light italic">Processo de Eleição para o Triênio 2026-2029</p>
+    <!-- HEADER / HERO -->
+    <header class="cms-header cms-header-stripe">
+        <div class="cms-wrap cms-center">
             
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <a href="#inscricoes" class="bg-emerald-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-600 transition-colors shadow-md text-lg">Inscrever minha Entidade</a>
-                <a href="#cronograma" class="bg-white text-blue-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors shadow-md">Cronograma</a>
+            <!-- LOGOTIPO RECONSTRUIDO EM SVG (NÃO QUEBRA E NÃO CORTA) -->
+            <div class="cms-logo-container">
+                <svg width="340" height="100" viewBox="0 0 340 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Simbolo Circular -->
+                    <circle cx="50" cy="50" r="45" fill="#1B6CB5"/>
+                    <circle cx="45" cy="45" r="22" fill="#F5C400"/>
+                    <path d="M25 45L45 25L65 45H25Z" fill="white"/>
+                    <path d="M45 45L60 30L75 45H45Z" fill="white" opacity="0.9"/>
+                    <path d="M5 60C5 60 20 50 35 60C50 70 65 55 80 65C95 75 95 85 95 85H5V60Z" fill="#1E8A4A"/>
+                    <path d="M5 75C5 75 25 65 40 75C55 85 70 70 85 80C100 90 100 100 100 100H5V75Z" fill="#1E8A4A" opacity="0.8"/>
+                    
+                    <!-- Texto do Logotipo (Convertido para caminhos de design) -->
+                    <text x="110" y="32" fill="white" font-family="Montserrat, Arial" font-weight="900" font-size="24">CONSELHO</text>
+                    <text x="110" y="56" fill="white" font-family="Montserrat, Arial" font-weight="900" font-size="24">MUNICIPAL</text>
+                    <text x="110" y="80" fill="white" font-family="Montserrat, Arial" font-weight="900" font-size="24">DE SAÚDE</text>
+                    <text x="110" y="96" fill="white" font-family="Montserrat, Arial" font-weight="400" font-size="14">de MONTES CLAROS</text>
+                </svg>
             </div>
 
-            <!-- Link para Edital Completo (Topo) -->
-            <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl inline-block">
-                <p class="text-sm md:text-base font-semibold mb-1">Deseja ler o documento na íntegra?</p>
-                <a href="https://drive.google.com/file/d/1Ia5DvFX8Mk2JKUax4vlPQaKJ8xCtVx7c/view?usp=drive_link" target="_blank" class="text-emerald-300 underline font-bold hover:text-emerald-200 transition-colors">
-                    Link para edital completo
+            <div class="cms-tag cms-tag-green cms-mb-sm" style="padding: 5px 15px;">Edital N.º 01/2026</div>
+            <h1 class="cms-h1" style="color: white; margin-top: 10px; max-width: 800px; margin-left: auto; margin-right: auto;">Conselho Municipal de Saúde de Montes Claros/MG</h1>
+            <p class="cms-body cms-light" style="color: rgba(255,255,255,0.8); max-width: 700px; margin: 20px auto; font-style: italic;">
+                Processo de Eleição para o Triênio 2026-2029
+            </p>
+            <div class="hero-btns">
+                <a href="#inscricoes" class="cms-btn cms-btn-primary">Inscrever minha Entidade</a>
+                <a href="#cronograma" class="cms-btn cms-btn-outline" style="border-color: white; color: white;">Cronograma</a>
+            </div>
+            <div class="cms-mt-md">
+                <a href="https://drive.google.com/file/d/1Ia5DvFX8Mk2JKUax4vlPQaKJ8xCtVx7c/view?usp=drive_link" target="_blank" class="cms-body cms-bold" style="color: var(--cms-yellow); text-decoration: underline; font-size: 13px;">
+                    Deseja ler o edital na íntegra? Link aqui.
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-12">
-        
-        <!-- O que é? -->
-        <section class="mb-16 grid md:grid-cols-2 gap-10 items-center">
-            <div>
-                <h2 class="text-3xl font-bold text-blue-900 mb-6">O que é este processo?</h2>
-                <p class="text-lg leading-relaxed mb-4">
-                    O <strong>Conselho Municipal de Saúde (CMS)</strong> é a instância de controle social do SUS em Montes Claros. Este edital convoca a sociedade civil, trabalhadores e gestores para renovar seus representantes.
-                </p>
-                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 italic text-blue-800">
-                    "A participação da comunidade na gestão do SUS é um direito garantido pela Constituição e pela Lei 8.142/90."
-                </div>
+    <!-- AVISO DE PRAZO GRANDE -->
+    <div class="cms-alert-deadline">
+        <div class="cms-wrap">
+            <div class="cms-card-yellow cms-center" style="padding: 32px; border: 4px solid var(--cms-navy); box-shadow: var(--shadow-md); border-radius: var(--radius-lg);">
+                <div class="cms-eyebrow" style="color: var(--cms-navy); font-weight: 900;">Atenção: Prazo Final</div>
+                <h2 class="cms-display" style="font-size: clamp(28px, 5vw, 42px); margin: 10px 0; color: var(--cms-navy); line-height: 1;">INSCRIÇÕES ATÉ 25/03/2026</h2>
+                <p class="cms-body cms-bold" style="color: var(--cms-navy); text-transform: uppercase; letter-spacing: 1px;">Não perca o prazo para habilitar sua organização.</p>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center">
-                    <span class="block text-4xl font-bold text-emerald-600 mb-1">32</span>
-                    <span class="text-sm text-slate-500 uppercase font-semibold">Vagas Totais</span>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center">
-                    <span class="block text-4xl font-bold text-blue-600 mb-1">03</span>
-                    <span class="text-sm text-slate-500 uppercase font-semibold">Anos de Mandato</span>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center">
-                    <span class="block text-4xl font-bold text-orange-500 mb-1">50%</span>
-                    <span class="text-sm text-slate-500 uppercase font-semibold">Paridade (Usuários)</span>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 text-center">
-                    <span class="block text-4xl font-bold text-slate-700 mb-1">2026</span>
-                    <span class="text-sm text-slate-500 uppercase font-semibold">Ano de Início</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Inscrições e Formulários -->
-        <section id="inscricoes" class="mb-16">
-            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Links de Acesso e Formulários</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <!-- Card: Novas Entidades -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 form-card">
-                    <img src="https://i.ibb.co/BVZynd0H/Form-Header-31.png" alt="Cabeçalho Inscrição novas entidades" class="w-full h-40 object-cover" onerror="this.src='https://via.placeholder.com/800x400?text=Inscrição+Novas+Entidades'">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-2">Inscrição Novas Entidades</h3>
-                        <p class="text-slate-600 mb-6">Para organizações que ainda não fazem parte do Conselho e desejam se candidatar para o triênio 2026-2029.</p>
-                        <a href="https://forms.gle/Db2gEKGVgitBB15KA" target="_blank" class="block text-center bg-emerald-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-emerald-600 transition-colors">Acessar Formulário de Inscrição</a>
-                    </div>
-                </div>
-
-                <!-- Card: Atualização Cadastral -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 form-card">
-                    <img src="https://i.ibb.co/WWf2yvHX/Form-Header-30.png" alt="Cabeçalho Atualização cadastral" class="w-full h-40 object-cover" onerror="this.src='https://via.placeholder.com/800x400?text=Atualização+Cadastral'">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-2">Atualização Cadastral</h3>
-                        <p class="text-slate-600 mb-6">Para entidades que já compõem o Conselho e precisam manifestar interesse na recondução ou atualizar dados.</p>
-                        <a href="https://forms.gle/uxdcMm2ZmR1Bsxri8" target="_blank" class="block text-center bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">Acessar Atualização Cadastral</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Distribuição de Vagas -->
-        <section id="vagas" class="mb-16">
-            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Distribuição de Vagas</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card Usuários -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-emerald-500 text-center md:text-left">
-                    <div class="flex items-center justify-between mb-4">
-                        <svg class="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        <span class="text-2xl font-bold text-emerald-600">16</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Usuários do SUS</h3>
-                    <p class="text-sm text-slate-600 mb-4">Entidades, sindicatos e movimentos populares representativos.</p>
-                    <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded">50% das Cadeiras</span>
-                </div>
-                <!-- Card Trabalhadores -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-blue-500 text-center md:text-left">
-                    <div class="flex items-center justify-between mb-4">
-                        <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        <span class="text-2xl font-bold text-blue-600">08</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Trabalhadores</h3>
-                    <p class="text-sm text-slate-600 mb-4">Profissionais de nível superior e médio da saúde pública ou privada.</p>
-                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">25% das Cadeiras</span>
-                </div>
-                <!-- Card Gestores -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-orange-500 text-center md:text-left">
-                    <div class="flex items-center justify-between mb-4">
-                        <svg class="w-10 h-10 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        <span class="text-2xl font-bold text-orange-600">04</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Gestores (Governo)</h3>
-                    <p class="text-sm text-slate-600 mb-4">Indicação oficial da Secretaria Municipal de Saúde.</p>
-                    <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded">12,5% das Cadeiras</span>
-                </div>
-                <!-- Card Prestadores -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-slate-500 text-center md:text-left">
-                    <div class="flex items-center justify-between mb-4">
-                        <svg class="w-10 h-10 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                        <span class="text-2xl font-bold text-slate-600">04</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Prestadores</h3>
-                    <p class="text-sm text-slate-600 mb-4">Hospitais filantrópicos, conveniados e privados.</p>
-                    <span class="bg-slate-200 text-slate-700 text-xs font-bold px-2 py-1 rounded">12,5% das Cadeiras</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cronograma -->
-        <section id="cronograma" class="mb-16 bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-            <h2 class="text-3xl font-bold text-blue-900 mb-10 text-center">Cronograma do Processo</h2>
-            <div class="relative ml-4 border-l-2 border-slate-200">
-                <div class="mb-10 pl-8 timeline-item relative">
-                    <span class="text-emerald-600 font-bold block mb-1">27/02 a 27/03/2026</span>
-                    <h4 class="text-xl font-bold mb-2">Período de Inscrições</h4>
-                    <p class="text-slate-600">Habilitação das entidades via formulário eletrônico oficial.</p>
-                </div>
-                <div class="mb-10 pl-8 timeline-item relative">
-                    <span class="text-emerald-600 font-bold block mb-1">29/03/2026</span>
-                    <h4 class="text-xl font-bold mb-2">Publicação do Resultado</h4>
-                    <p class="text-slate-600">Divulgação das inscrições homologadas por bloco de segmento.</p>
-                </div>
-                <div class="mb-10 pl-8 timeline-item relative">
-                    <span class="text-emerald-600 font-bold block mb-1">30/03 a 10/04/2026</span>
-                    <h4 class="text-xl font-bold mb-2">Prazo de Recursos</h4>
-                    <p class="text-slate-600">Período para contestação de resultados de habilitação.</p>
-                </div>
-                <div class="mb-10 pl-8 timeline-item relative">
-                    <span class="text-emerald-600 font-bold block mb-1">25/04/2026</span>
-                    <h4 class="text-xl font-bold mb-2 text-blue-800">Homologação e Posse</h4>
-                    <p class="text-slate-600">Realização durante a 11ª Conferência Municipal de Saúde.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Documentos e Regras -->
-        <section class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-emerald-50 p-8 rounded-3xl border border-emerald-100">
-                <h3 class="text-2xl font-bold text-emerald-900 mb-6 flex items-center">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Checklist Documental
-                </h3>
-                <ul class="space-y-4 text-emerald-800">
-                    <li class="flex items-start"><span class="mr-2 mt-1">✓</span><span>Cópia do CNPJ atualizado.</span></li>
-                    <li class="flex items-start"><span class="mr-2 mt-1">✓</span><span>Ata da diretoria atual registrada em cartório.</span></li>
-                    <li class="flex items-start"><span class="mr-2 mt-1">✓</span><span>Relatório de atividades (últimos 2 anos).</span></li>
-                    <li class="flex items-start"><span class="mr-2 mt-1">✓</span><span>Comprovante de residência e identidade do indicado.</span></li>
-                </ul>
-            </div>
-            <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100">
-                <h3 class="text-2xl font-bold text-blue-900 mb-6 flex items-center">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    Regras Importantes
-                </h3>
-                <ul class="space-y-4 text-blue-800">
-                    <li class="flex items-start"><span class="mr-2 mt-1">•</span><span>O mandato é de <strong>3 anos</strong>, com apenas 1 recondução.</span></li>
-                    <li class="flex items-start"><span class="mr-2 mt-1">•</span><span>É proibido representar mais de uma entidade na assembleia.</span></li>
-                    <li class="flex items-start"><span class="mr-2 mt-1">•</span><span>Processo fiscalizado pelo <strong>Ministério Público</strong>.</span></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Link para Edital Completo (Inferior) -->
-        <section class="mb-16 bg-blue-900 text-white p-8 rounded-3xl text-center shadow-lg">
-            <h3 class="text-xl font-bold mb-4">Informações Detalhadas</h3>
-            <p class="mb-4 opacity-90">Para conferir todos os termos, leis e pormenores jurídicos do Processo Eleitoral 2026:</p>
-            <a href="https://drive.google.com/file/d/1Ia5DvFX8Mk2JKUax4vlPQaKJ8xCtVx7c/view?usp=drive_link" target="_blank" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-full font-bold hover:bg-emerald-50 transition-all transform hover:scale-105">
-                Link para edital completo
-            </a>
-        </section>
-
-        <!-- Seção de Dúvidas -->
-        <section class="text-center bg-slate-900 text-white p-10 md:p-16 rounded-3xl shadow-2xl">
-            <h2 class="text-3xl font-bold mb-4 text-emerald-400">Ficou com alguma dúvida?</h2>
-            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">Nossa equipe da Secretaria Executiva está pronta para te auxiliar em todo o processo de inscrição e documentação.</p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 w-full md:w-auto">
-                    <span class="text-emerald-400 font-bold block text-sm uppercase mb-1 text-center">SECRETARIA EXECUTIVA DO CMS</span>
-                    <a href="https://wa.me/553822114356" target="_blank" class="flex items-center justify-center text-2xl font-bold hover:text-emerald-400 transition-colors">
-                        <svg class="w-8 h-8 mr-3 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.21 1.389 4.938 1.391 5.405.001 9.805-4.398 9.808-9.803.001-2.618-1.02-5.08-2.871-6.932-1.851-1.852-4.311-2.873-6.93-2.873-5.404 0-9.804 4.399-9.807 9.804-.001 1.838.512 3.626 1.483 5.204l-.973 3.553 3.639-.954zm10.954-7.533c-.272-.136-1.61-.795-1.86-.886-.25-.091-.432-.136-.613.136-.182.273-.704.886-.863 1.068-.159.182-.318.204-.59.068-.272-.136-1.15-.424-2.19-1.352-.809-.722-1.355-1.614-1.514-1.886-.159-.272-.017-.42.119-.556.122-.122.272-.318.408-.477.136-.159.182-.272.272-.454.091-.182.045-.341-.023-.477-.068-.136-.613-1.477-.84-2.022-.222-.534-.467-.461-.64-.47l-.546-.01c-.182 0-.477.068-.727.341-.25.273-.954.932-.954 2.272 0 1.341.977 2.636 1.114 2.818.136.182 1.922 2.934 4.656 4.114.65.28 1.157.447 1.551.572.653.208 1.248.178 1.717.108.524-.078 1.61-.659 1.837-1.295.227-.636.227-1.182.159-1.295-.068-.113-.25-.182-.522-.318z"/></svg>
-                        (38) 2211-4356
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="py-12 text-center text-slate-500 text-sm border-t border-slate-200">
-        <p>© 2026 - Conselho Municipal de Saúde de Montes Claros/MG</p>
-        <div class="mt-4">
-             <a href="https://drive.google.com/file/d/1Ia5DvFX8Mk2JKUax4vlPQaKJ8xCtVx7c/view?usp=drive_link" target="_blank" class="text-blue-600 font-bold hover:underline">Link para edital completo</a>
         </div>
-        <p class="mt-2 font-bold text-slate-400 italic">SECRETARIA EXECUTIVA DO CMS - WhatsApp: 38 2211-4356</p>
+    </div>
+
+    <!-- O QUE É ESTE PROCESSO? -->
+    <section class="cms-section">
+        <div class="cms-wrap">
+            <div class="cms-grid-2" style="align-items: center;">
+                <div>
+                    <h2 class="cms-h1 cms-mb-sm">O que é este processo?</h2>
+                    <p class="cms-body" style="font-size: 17px;">
+                        O <strong>Conselho Municipal de Saúde (CMS)</strong> é a instância de controle social do SUS em Montes Claros. Este edital convoca a sociedade civil, trabalhadores e gestores para renovar seus representantes.
+                    </p>
+                    <div class="cms-fala cms-mt-md">
+                        "A participação da comunidade na gestão do SUS é um direito garantido pela Constituição e pela Lei 8.142/90."
+                    </div>
+                </div>
+                <div class="cms-grid-2">
+                    <div class="cms-stat cms-card">
+                        <div class="cms-stat-number cms-accent-green">32</div>
+                        <div class="cms-stat-label">Vagas Totais</div>
+                    </div>
+                    <div class="cms-stat cms-card">
+                        <div class="cms-stat-number cms-accent-blue">03</div>
+                        <div class="cms-stat-label">Anos de Mandato</div>
+                    </div>
+                    <div class="cms-stat cms-card">
+                        <div class="cms-stat-number" style="color: #f97316;">50%</div>
+                        <div class="cms-stat-label">Paridade (Usuários)</div>
+                    </div>
+                    <div class="cms-stat cms-card">
+                        <div class="cms-stat-number">2026</div>
+                        <div class="cms-stat-label">Ano de Início</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIOS DE ACESSO -->
+    <section id="inscricoes" class="cms-section cms-bg-off">
+        <div class="cms-wrap">
+            <h2 class="cms-h1 cms-center cms-mb-md">Links de Acesso e Formulários</h2>
+            <div class="cms-grid-2">
+                <!-- Card: Novas Entidades -->
+                <div class="cms-card cms-card-top-green" style="padding: 0;">
+                    <img src="https://i.ibb.co/BVZynd0H/Form-Header-31.png" alt="Inscrição novas entidades" class="cms-card-img">
+                    <div class="cms-card-body">
+                        <h3 class="cms-h2 cms-mb-sm">Inscrição Novas Entidades</h3>
+                        <p class="cms-body cms-mb-md">Para organizações que ainda não fazem parte do Conselho e desejam se candidatar para o triênio 2026-2029.</p>
+                        <a href="https://forms.gle/Db2gEKGVgitBB15KA" target="_blank" class="cms-btn cms-btn-secondary" style="width: 100%;">Acessar Formulário</a>
+                    </div>
+                </div>
+                <!-- Card: Atualização Cadastral -->
+                <div class="cms-card cms-card-top-blue" style="padding: 0;">
+                    <img src="https://i.ibb.co/WWf2yvHX/Form-Header-30.png" alt="Atualização cadastral" class="cms-card-img">
+                    <div class="cms-card-body">
+                        <h3 class="cms-h2 cms-mb-sm">Atualização Cadastral</h3>
+                        <p class="cms-body cms-mb-md">Para entidades que já compõem o Conselho e precisam manifestar interesse na recondução ou atualizar dados.</p>
+                        <a href="https://forms.gle/uxdcMm2ZmR1Bsxri8" target="_blank" class="cms-btn cms-btn-dark" style="width: 100%;">Acessar Atualização</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISTRIBUIÇÃO DE VAGAS -->
+    <section class="cms-section">
+        <div class="cms-wrap">
+            <h2 class="cms-h1 cms-center cms-mb-md">Distribuição de Vagas</h2>
+            <div class="cms-grid-4">
+                <div class="cms-card cms-center" style="border-top: 6px solid var(--cms-green);">
+                    <div class="cms-stat-number cms-accent-green">16</div>
+                    <h3 class="cms-h3 cms-mt-sm">Usuários do SUS</h3>
+                    <p class="cms-caption cms-mt-sm">Entidades, sindicatos e movimentos populares.</p>
+                    <div class="cms-tag cms-tag-green cms-mt-sm">50% das Cadeiras</div>
+                </div>
+                <div class="cms-card cms-center" style="border-top: 6px solid var(--cms-blue);">
+                    <div class="cms-stat-number cms-accent-blue">08</div>
+                    <h3 class="cms-h3 cms-mt-sm">Trabalhadores</h3>
+                    <p class="cms-caption cms-mt-sm">Profissionais de saúde de nível superior e médio.</p>
+                    <div class="cms-tag cms-tag-blue cms-mt-sm">25% das Cadeiras</div>
+                </div>
+                <div class="cms-card cms-center" style="border-top: 6px solid #f97316;">
+                    <div class="cms-stat-number" style="color: #f97316;">04</div>
+                    <h3 class="cms-h3 cms-mt-sm">Gestores (Governo)</h3>
+                    <p class="cms-caption cms-mt-sm">Indicação oficial da Secretaria de Saúde.</p>
+                    <div class="cms-tag cms-mt-sm" style="background: #f97316; color: white;">12,5% das Cadeiras</div>
+                </div>
+                <div class="cms-card cms-center" style="border-top: 6px solid var(--cms-navy);">
+                    <div class="cms-stat-number" style="color: var(--cms-navy);">04</div>
+                    <h3 class="cms-h3 cms-mt-sm">Prestadores</h3>
+                    <p class="cms-caption cms-mt-sm">Hospitais filantrópicos e serviços privados.</p>
+                    <div class="cms-tag cms-tag-navy cms-mt-sm">12,5% das Cadeiras</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRONOGRAMA ATUALIZADO -->
+    <section id="cronograma" class="cms-section cms-bg-off">
+        <div class="cms-wrap-narrow">
+            <h2 class="cms-h1 cms-center cms-mb-md">Cronograma do Processo</h2>
+            
+            <div class="cms-enc" style="border-left: 6px solid var(--cms-yellow);">
+                <div class="cms-enc-n">01</div>
+                <div>
+                    <div class="cms-tag cms-tag-yellow">ATÉ 25/03/2026</div>
+                    <h3 class="cms-h3 cms-mt-sm">ATENÇÃO - Fim das Inscrições</h3>
+                    <p class="cms-body cms-bold" style="font-size: 13px;">Prazo final e improrrogável para habilitação eletrônica.</p>
+                </div>
+            </div>
+
+            <div class="cms-enc">
+                <div class="cms-enc-n">02</div>
+                <div>
+                    <div class="cms-tag cms-tag-blue">27/03/2026</div>
+                    <h3 class="cms-h3 cms-mt-sm">Publicação da Habilitação</h3>
+                    <p class="cms-caption">Divulgação das inscrições homologadas por bloco de segmento.</p>
+                </div>
+            </div>
+
+            <div class="cms-enc">
+                <div class="cms-enc-n">03</div>
+                <div>
+                    <div class="cms-tag cms-tag-blue">30/03 a 10/04/2026</div>
+                    <h3 class="cms-h3 cms-mt-sm">Prazo de Recursos</h3>
+                    <p class="cms-caption">Período para contestação de resultados de habilitação.</p>
+                </div>
+            </div>
+
+            <div class="cms-enc" style="border-color: var(--cms-green);">
+                <div class="cms-enc-n" style="background: var(--cms-green);">04</div>
+                <div>
+                    <div class="cms-tag cms-tag-green">25/04/2026</div>
+                    <h3 class="cms-h2 cms-mt-sm" style="color: var(--cms-green);">Homologação e Posse</h3>
+                    <p class="cms-body" style="font-size: 13px;">Realização durante a 11ª Conferência Municipal de Saúde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGRAS E DOCUMENTOS -->
+    <section class="cms-section">
+        <div class="cms-wrap">
+            <div class="cms-grid-2">
+                <div class="cms-card" style="background: #ecfdf5; border-color: #a7f3d0;">
+                    <h3 class="cms-h2 cms-mb-sm" style="color: #065f46;">Checklist Documental</h3>
+                    <ul class="cms-list">
+                        <li>Cópia do CNPJ atualizado</li>
+                        <li>Ata da diretoria registrada em cartório</li>
+                        <li>Relatório de atividades (últimos 2 anos)</li>
+                        <li>Documentos de identidade do indicado</li>
+                    </ul>
+                </div>
+                <div class="cms-card" style="background: #eff6ff; border-color: #bfdbfe;">
+                    <h3 class="cms-h2 cms-mb-sm" style="color: #1e40af;">Regras Importantes</h3>
+                    <ul class="cms-list" style="color: #1e40af;">
+                        <li style="border-color: rgba(30,64,175,0.1);">O mandato é de <strong>3 anos</strong>, com apenas 1 recondução.</li>
+                        <li style="border-color: rgba(30,64,175,0.1);">É proibido representar mais de uma entidade.</li>
+                        <li style="border-color: rgba(30,64,175,0.1);">Processo fiscalizado pelo <strong>Ministério Público</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="cms-footer">
+        <div class="cms-stripe" style="position: absolute; left: 0; right: 0; margin-top: -96px;"></div>
+        <div class="cms-wrap">
+            <h2 class="cms-h2 cms-mb-sm" style="color: white;">Ficou com alguma dúvida?</h2>
+            <p class="cms-body cms-mb-md" style="color: rgba(255,255,255,0.7);">A Secretaria Executiva está pronta para te auxiliar.</p>
+            <a href="https://wa.me/553822114356" target="_blank" class="cms-btn cms-btn-primary">
+                WhatsApp: (38) 2211-4356
+            </a>
+            <div class="cms-mt-md" style="opacity: 0.4; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>© 2026 - Conselho Municipal de Saúde de Montes Claros/MG</p>
+                <p class="cms-caption" style="color: white; margin-top: 5px;">SECRETARIA EXECUTIVA DO CMS</p>
+            </div>
+        </div>
     </footer>
 
 </body>
