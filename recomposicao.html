@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomposição CMS - Triênio 2026-2029</title>
+    <style>
+        /* ════════════════════════════════════════════════════
+           CMS MONTES CLAROS · MASTER CSS · 2026
+           Swiss Design System · versão 1.0
+        ════════════════════════════════════════════════════ */
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap');
+
+        :root {
+            --cms-navy:    #0D2E5A;
+            --cms-blue:    #1B6CB5;
+            --cms-green:   #1E8A4A;
+            --cms-yellow:  #F5C400;
+            --cms-white:   #FFFFFF;
+            --cms-off:     #F7F8FA;
+            --cms-ink:     #111827;
+            --cms-muted:   #6B7280;
+            --cms-border:  #E5E7EB;
+            --font-display: 'Montserrat', 'Georama', Helvetica, sans-serif;
+            --font-body:    'Open Sans', Arial, sans-serif;
+            --space-xs:  8px;
+            --space-sm:  16px;
+            --space-md:  32px;
+            --space-lg:  64px;
+            --space-xl:  96px;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,.10);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cms-white);
+            color: var(--cms-ink);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .cms-wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .cms-wrap-wide { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .cms-section { padding: var(--space-lg) 0; border-bottom: 1px solid var(--cms-border); }
+        
+        .cms-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
+
+        @media (max-width: 850px) {
+            .cms-grid-3 { grid-template-columns: 1fr; }
+            .cms-wrap, .cms-wrap-wide { padding: 0 var(--space-sm); }
+        }
+
+        .cms-display { font-family: var(--font-display); font-size: clamp(40px, 6vw, 80px); font-weight: 900; letter-spacing: -2px; line-height: 0.95; color: var(--cms-navy); }
+        .cms-h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -1px; line-height: 1.05; color: var(--cms-navy); }
+        .cms-h2 { font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; letter-spacing: -0.5px; color: var(--cms-navy); }
+        .cms-eyebrow { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--cms-blue); }
+        
+        .cms-header { background: var(--cms-navy); color: var(--cms-white); padding: var(--space-xl) var(--space-lg); }
+        .cms-header-stripe { border-top: 6px solid; border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1; }
+
+        .cms-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: transform 0.3s ease; }
+        .cms-card:hover { transform: translateY(-5px); }
+        .cms-card-navy { background: var(--cms-navy); color: var(--cms-white); border: none; }
+        .cms-card-top-blue { border-top: 4px solid var(--cms-blue); }
+
+        /* Animação para o card de atualização */
+        @keyframes cardPulse {
+            0% { box-shadow: 0 0 0 0 rgba(27, 108, 181, 0.4); border-color: var(--cms-blue); }
+            70% { box-shadow: 0 0 0 10px rgba(27, 108, 181, 0); border-color: var(--cms-green); }
+            100% { box-shadow: 0 0 0 0 rgba(27, 108, 181, 0); border-color: var(--cms-blue); }
+        }
+        .cms-card-animate { 
+            animation: cardPulse 2s infinite; 
+            border-width: 2px;
+        }
+
+        .cms-icon-large { margin-bottom: var(--space-sm); display: block; }
+
+        .cms-btn { display: inline-block; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 24px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; text-align: center; margin-top: var(--space-sm); }
+        .cms-btn-primary { background: var(--cms-yellow); color: var(--cms-navy); }
+        .cms-btn-secondary { background: var(--cms-blue); color: var(--cms-white); }
+        
+        .cms-tag { display: inline-block; padding: 4px 12px; border-radius: 4px; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .cms-tag-yellow { background: var(--cms-yellow); color: var(--cms-navy); }
+        
+        .cms-fala { border-left: 4px solid var(--cms-yellow); padding: 18px 24px; margin: var(--space-md) 0; background: var(--cms-off); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+        
+        .cms-stripe { height: 8px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
+        
+        .cms-footer { background: var(--cms-navy); color: rgba(255,255,255,.55); text-align: center; padding: var(--space-md) var(--space-lg); font-size: 13px; }
+        
+        .cms-center { text-align: center; }
+        .cms-mb-md { margin-bottom: var(--space-md); }
+        .cms-mt-sm { margin-top: var(--space-sm); }
+    </style>
+</head>
+<body>
+
+    <!-- Header Principal -->
+    <header class="cms-header cms-header-stripe cms-center">
+        <div class="cms-wrap">
+            <p class="cms-eyebrow" style="color: var(--cms-yellow);">Conselho Municipal de Saúde</p>
+            <h1 class="cms-display" style="color: white; margin-bottom: 10px;">RECOMPOSIÇÃO</h1>
+            <p class="cms-h2" style="color: rgba(255,255,255,0.8); font-weight: 300;">TRIÊNIO 2026 — 2029</p>
+        </div>
+    </header>
+
+    <!-- Seção de Alerta: Prorrogação -->
+    <main class="cms-section cms-wrap">
+        <div class="cms-center cms-mb-md">
+            <span class="cms-tag cms-tag-yellow">Aviso Importante</span>
+        </div>
+        
+        <div class="cms-fala">
+            <p class="cms-h2" style="margin-bottom: 8px;">Prazo Prorrogado!</p>
+            <p class="cms-body">Informamos a todos os interessados que o processo de recomposição teve seu cronograma atualizado. As inscrições e atualizações agora podem ser realizadas até o dia <strong>01 de abril de 2026</strong>.</p>
+        </div>
+    </main>
+
+    <!-- Grid de Cards de Acesso -->
+    <section class="cms-section cms-bg-off">
+        <div class="cms-wrap-wide">
+            <div class="cms-center cms-mb-md">
+                <p class="cms-eyebrow">Selecione sua categoria</p>
+                <h2 class="cms-h1">Canais de Inscrição</h2>
+            </div>
+
+            <div class="cms-grid-3">
+                
+                <!-- Card Destaque: Conselhos Locais (Com Estrela) -->
+                <article class="cms-card cms-card-navy">
+                    <div>
+                        <div class="cms-icon-large">
+                            <!-- SVG Estrela -->
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cms-yellow)" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="cms-h2" style="color: white;">Conselhos Locais</h3>
+                        <p class="cms-body" style="color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 14px;">
+                            Formulário exclusivo para a organização e recomposição dos Conselhos Locais de Saúde (CLS).
+                        </p>
+                    </div>
+                    <a href="https://cmsmoc.github.io/site/cls" class="cms-btn cms-btn-primary">Acessar Formulário CLS</a>
+                </article>
+
+                <!-- Card: Atualização de Entidades (Com Ícone e Animação) -->
+                <article class="cms-card cms-card-top-blue cms-card-animate">
+                    <div>
+                        <div class="cms-icon-large">
+                            <!-- SVG Sincronização/Atualização -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cms-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 12c0-4.4 3.6-8 8-8 3.3 0 6.1 2 7.3 4.8M22 12c0 4.4-3.6 8-8 8-3.3 0-6.1-2-7.3-4.8"/>
+                            </svg>
+                        </div>
+                        <h3 class="cms-h2">Atualização de Entidades</h3>
+                        <p class="cms-body" style="margin-top: 15px; font-size: 14px;">
+                            Para entidades que <strong>já compõem</strong> o conselho e precisam atualizar seus dados cadastrais.
+                        </p>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVFAJIoUAyYmxxOhwn3hRcDt65lPolHiXctqOLlO1hh8HEFQ/viewform" target="_blank" class="cms-btn cms-btn-secondary">Atualizar Cadastro</a>
+                </article>
+
+                <!-- Card: Nova Inscrição (Com Ícone) -->
+                <article class="cms-card cms-card-top-blue">
+                    <div>
+                        <div class="cms-icon-large">
+                            <!-- SVG Nova Inscrição/Usuário -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cms-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM20 8v6M23 11h-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="cms-h2">Pleitear Cadeira</h3>
+                        <p class="cms-body" style="margin-top: 15px; font-size: 14px;">
+                            Destinado a novas entidades que desejam concorrer a uma vaga de representação no Conselho.
+                        </p>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUtjTAGkyjmH_LjD4yWt41Df9GXL1_-Wdvr9qK6SBs7Q5EZg/viewform" target="_blank" class="cms-btn cms-btn-secondary">Iniciar Inscrição</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="cms-footer">
+        <div class="cms-stripe" style="margin-bottom: 30px;"></div>
+        <p><strong>Conselho Municipal de Saúde de Montes Claros</strong></p>
+        <p style="margin-top: 8px;">Participação Social e Controle do SUS · 2026</p>
+    </footer>
+
+</body>
+</html>
