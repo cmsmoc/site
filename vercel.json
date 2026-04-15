@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/conferencia",
+      "destination": "https://tally.so/r/SEUFORM",
+      "permanent": false
+    }
+  ]
+}
