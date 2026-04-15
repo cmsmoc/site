@@ -1,418 +1,722 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recomposição CMS · Triênio 2026-2029</title>
-    <style>
-        /* ════════════════════════════════════════════════════
-           CMS MONTES CLAROS · MASTER CSS · 2026
-           Swiss Design System · versão 1.0
-        ════════════════════════════════════════════════════ */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conselho Municipal de Saúde — Montes Claros</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════
+   CMS MONTES CLAROS · MASTER CSS
+   Adaptado para o Site Provisório
+════════════════════════════════════════════════════ */
 
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap');
+/* ── TOKENS ── */
+:root {
+  /* cores */
+  --cms-navy:    #0D2E5A;
+  --cms-blue:    #1B6CB5;
+  --cms-green:   #1E8A4A;
+  --cms-yellow:  #F5C400;
+  --cms-white:   #FFFFFF;
+  --cms-off:     #F7F8FA;
+  --cms-ink:     #111827;
+  --cms-muted:   #6B7280;
+  --cms-border:  #E5E7EB;
 
-        :root {
-            --cms-navy:    #0D2E5A;
-            --cms-blue:    #1B6CB5;
-            --cms-green:   #1E8A4A;
-            --cms-yellow:  #F5C400;
-            --cms-white:   #FFFFFF;
-            --cms-off:     #F7F8FA;
-            --cms-ink:     #111827;
-            --cms-muted:   #6B7280;
-            --cms-border:  #E5E7EB;
+  /* tipografia */
+  --font-display: 'Montserrat', Helvetica, sans-serif;
+  --font-body:    'Open Sans', Arial, sans-serif;
 
-            --font-display: 'Montserrat', 'Georama', Helvetica, sans-serif;
-            --font-body:    'Open Sans', Arial, sans-serif;
+  /* espaçamentos */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  32px;
+  --space-lg:  64px;
+  --space-xl:  96px;
 
-            --space-xs:  8px;
-            --space-sm:  16px;
-            --space-md:  32px;
-            --space-lg:  64px;
-            --space-xl:  96px;
+  /* raios */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 
-            --radius-sm: 6px;
-            --radius-md: 10px;
-            --radius-lg: 16px;
+  /* sombras */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,.10);
+}
 
-            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
-            --shadow-md: 0 4px 20px rgba(0,0,0,.10);
-        }
+/* ── RESET MÍNIMO ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* RESET & BASE */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: var(--font-body);
-            background: var(--cms-white);
-            color: var(--cms-ink);
-            line-height: 1.65;
-            font-size: 15px;
-            scroll-behavior: smooth;
-        }
+body {
+  font-family: var(--font-body);
+  background: var(--cms-off);
+  color: var(--cms-ink);
+  line-height: 1.65;
+  font-size: 15px;
+}
 
-        /* LAYOUT */
-        .cms-wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .cms-wrap-wide { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .cms-wrap-narrow { max-width: 680px; margin: 0 auto; padding: 0 var(--space-lg); }
-        
-        @media (max-width: 680px) {
-            .cms-wrap, .cms-wrap-wide, .cms-wrap-narrow { padding: 0 var(--space-sm); }
-        }
+/* ── NAVEGAÇÃO SUPERIOR ── */
+.cms-navbar {
+  background: var(--cms-navy);
+  padding: 0 var(--space-lg);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-        .cms-section { padding: var(--space-lg) 0; border-bottom: 1px solid var(--cms-border); }
-        .cms-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
-        .cms-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
-        .cms-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-sm); }
+.cms-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
 
-        @media (max-width: 850px) {
-            .cms-grid-2, .cms-grid-3, .cms-grid-4 { grid-template-columns: 1fr; }
-            .cms-grid-4 { grid-template-columns: 1fr 1fr; }
-        }
+.cms-logo-icon {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+.cms-logo-icon img {
+  width: 100%; height: 100%; object-fit: contain;
+}
 
-        /* TIPOGRAFIA */
-        .cms-display { font-family: var(--font-display); font-size: clamp(36px, 6vw, 72px); font-weight: 900; letter-spacing: -2px; line-height: 0.95; color: var(--cms-navy); }
-        .cms-h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -1px; line-height: 1.05; color: var(--cms-navy); }
-        .cms-h2 { font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; letter-spacing: -0.5px; color: var(--cms-navy); }
-        .cms-h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--cms-navy); }
-        .cms-eyebrow { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--cms-blue); }
-        .cms-body { font-family: var(--font-body); font-size: 15px; font-weight: 400; line-height: 1.75; color: var(--cms-ink); }
-        .cms-caption { font-family: var(--font-body); font-size: 12px; font-weight: 300; color: var(--cms-muted); }
+.cms-logo-text {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cms-white);
+  line-height: 1.2;
+}
+.cms-logo-text span { color: var(--cms-yellow); }
 
-        /* HEADER */
-        .cms-header { background: var(--cms-navy); color: var(--cms-white); padding: var(--space-xl) 0; position: relative; }
-        .cms-header-stripe { border-top: 6px solid; border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1; }
-        .cms-logo-container { margin-bottom: var(--space-md); display: flex; justify-content: center; }
+.cms-nav-links {
+  display: flex;
+  gap: var(--space-md);
+}
 
-        /* CARDS */
-        .cms-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: transform 0.3s ease; }
-        .cms-card:hover { transform: translateY(-5px); }
-        .cms-card-navy { background: var(--cms-navy); color: var(--cms-white); border: none; }
-        .cms-card-top-blue { border-top: 4px solid var(--cms-blue); }
-        .cms-card-top-green { border-top: 4px solid var(--cms-green); }
-        .cms-card-yellow { background: var(--cms-yellow); color: var(--cms-navy); border: none; }
+.cms-nav-links a {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
 
-        /* ANIMAÇÃO PULSO */
-        @keyframes cardPulse {
-            0% { box-shadow: 0 0 0 0 rgba(27, 108, 181, 0.4); border-color: var(--cms-blue); }
-            70% { box-shadow: 0 0 0 10px rgba(27, 108, 181, 0); border-color: var(--cms-green); }
-            100% { box-shadow: 0 0 0 0 rgba(27, 108, 181, 0); border-color: var(--cms-blue); }
-        }
-        .cms-card-animate { animation: cardPulse 2s infinite; border-width: 2px; }
+.cms-nav-links a:hover {
+  color: var(--cms-yellow);
+}
 
-        /* STATS */
-        .cms-stat { text-align: center; padding: var(--space-md); }
-        .cms-stat-number { font-family: var(--font-display); font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -1px; line-height: 1; color: var(--cms-navy); }
-        .cms-stat-label { font-size: 11px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+@media (max-width: 680px) {
+  .cms-navbar { padding: 0 var(--space-sm); flex-direction: column; height: auto; padding-top: 16px; padding-bottom: 16px; gap: 16px;}
+}
 
-        /* BUTTONS */
-        .cms-btn { display: inline-block; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 24px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; text-align: center; margin-top: var(--space-sm); }
-        .cms-btn:hover { opacity: .85; }
-        .cms-btn-primary { background: var(--cms-yellow); color: var(--cms-navy); }
-        .cms-btn-secondary { background: var(--cms-blue); color: var(--cms-white); }
-        .cms-btn-outline { background: transparent; border: 2px solid white; color: white; }
+/* ── LAYOUT ── */
+.cms-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
 
-        /* ALERTA PRORROGAÇÃO */
-        .cms-alert-deadline { margin-top: -50px; position: relative; z-index: 10; }
+@media (max-width: 680px) {
+  .cms-wrap { padding: 0 var(--space-sm); }
+}
 
-        /* LISTS */
-        .cms-list { list-style: none; padding: 0; }
-        .cms-list li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--cms-border); font-size: 14px; }
-        .cms-list li::before { content: '●'; color: var(--cms-yellow); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+.cms-section {
+  padding: var(--space-lg) 0;
+}
 
-        /* ENCAMINHAMENTOS (CRONOGRAMA) */
-        .cms-enc { display: flex; gap: 14px; align-items: flex-start; padding: 14px 18px; background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); margin-bottom: 8px; }
-        .cms-enc-n { min-width: 28px; height: 28px; background: var(--cms-navy); color: var(--cms-white); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.cms-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
 
-        /* TAGS */
-        .cms-tag { display: inline-block; padding: 4px 12px; border-radius: 4px; font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .cms-tag-yellow { background: var(--cms-yellow); color: var(--cms-navy); }
-        .cms-tag-blue { background: var(--cms-blue); color: var(--cms-white); }
-        .cms-tag-green { background: var(--cms-green); color: var(--cms-white); }
+/* ── TIPOGRAFIA ── */
+.cms-display {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  color: var(--cms-navy);
+}
+.cms-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: var(--cms-navy);
+}
+.cms-h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--cms-navy);
+}
+.cms-eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cms-blue);
+  margin-bottom: 12px;
+  display: block;
+}
+.cms-body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--cms-ink);
+}
 
-        /* DIVIDERS */
-        .cms-stripe { height: 8px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
-        .cms-fala { border-left: 4px solid var(--cms-blue); padding: 18px 24px; margin: var(--space-md) 0; background: var(--cms-off); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+/* ── HEADER / HERO ── */
+.cms-header {
+  background: var(--cms-navy);
+  color: var(--cms-white);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+.cms-header::after {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 80%; height: 140%;
+  background: url('https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/logline.png') no-repeat center right;
+  background-size: contain;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+.cms-header .cms-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+.cms-header-text {
+  max-width: 600px;
+}
+.cms-header-icon {
+  width: clamp(240px, 35vw, 512px);
+  height: auto;
+  object-fit: contain;
+  display: none;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+@media (min-width: 768px) {
+  .cms-header-icon { display: block; }
+}
 
-        /* FOOTER */
-        .cms-footer { background: var(--cms-navy); color: rgba(255,255,255,0.7); text-align: center; padding: var(--space-xl) var(--space-lg); font-size: 14px; position: relative; }
+.cms-header .cms-display { color: var(--cms-white); }
+.cms-header .cms-eyebrow { color: var(--cms-yellow); }
+.cms-header-stripe {
+  border-bottom: 6px solid;
+  border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1;
+}
 
-        /* UTILS */
-        .cms-bg-off { background: var(--cms-off); }
-        .cms-center { text-align: center; }
-        .cms-mb-sm { margin-bottom: var(--space-sm); }
-        .cms-mb-md { margin-bottom: var(--space-md); }
-        .cms-mt-md { margin-top: var(--space-md); }
-        .cms-accent-green { color: var(--cms-green); }
-        .cms-accent-blue { color: var(--cms-blue); }
-        .cms-bold { font-weight: 700; }
-        .cms-light { font-weight: 300; }
-        .cms-icon-large { margin-bottom: var(--space-sm); display: block; }
+/* ── QUICK LINKS ── */
+.cms-quick-links {
+  background: var(--cms-white);
+  border-bottom: 1px solid var(--cms-border);
+  padding: var(--space-sm) 0;
+}
+.cms-quick-links-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Permitir quebrar em telas menores */
+}
+.cms-quick-links-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cms-muted);
+}
+.cms-quick-link-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cms-quick-link-group-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cms-navy);
+  text-transform: uppercase;
+}
+.cms-quick-link-item {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cms-blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cms-quick-link-item:hover { color: var(--cms-navy); }
+.cms-quick-link-item::before { content: '📄'; font-size: 14px; }
 
-    </style>
+/* ── GALERIA DE CADEIRAS (NOVO ESTILO) ── */
+.cms-segment-wrapper {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+@media (max-width: 680px) {
+  .cms-segment-wrapper { padding: var(--space-md); }
+}
+
+.cms-segment-wrapper-gestor { background: var(--cms-blue); color: var(--cms-white); }
+.cms-segment-wrapper-trabalhador { background: var(--cms-yellow); color: var(--cms-navy); }
+.cms-segment-wrapper-usuario { background: var(--cms-green); color: var(--cms-white); }
+
+.cms-segment-header {
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cms-segment-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.cms-segment-wrapper-trabalhador .cms-segment-icon { background: rgba(0,0,0,0.06); }
+.cms-segment-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+.cms-segment-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1.1;
+}
+.cms-segment-count {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* Grid estilo Masonry (usando Auto-fill para responsividade perfeita) */
+.cms-seat-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cms-seat-card {
+  background: var(--cms-white);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid var(--cms-white); /* fallback */
+}
+.cms-seat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.cms-seat-badge-new {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.cms-segment-wrapper-gestor .cms-seat-badge-new { color: var(--cms-blue); }
+.cms-segment-wrapper-trabalhador .cms-seat-badge-new { color: var(--cms-yellow); }
+.cms-segment-wrapper-usuario .cms-seat-badge-new { color: var(--cms-green); }
+
+.cms-seat-name {
+  font-family: var(--font-display);
+  font-size: 18px; /* Nome Grande */
+  font-weight: 900;
+  color: var(--cms-navy);
+  line-height: 1.3;
+}
+
+/* ── RICH CARDS (BANNERS EMPILHADOS) ── */
+.cms-rich-card {
+  background: var(--cms-white);
+  border: 1px solid var(--cms-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cms-rich-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.cms-rich-card-img-wrap {
+  position: relative;
+  width: 100%;
+  background: var(--cms-off);
+}
+.cms-rich-card-img {
+  width: 100%;
+  height: auto; /* Permite que a imagem apareça completa sem cortes */
+  display: block;
+  border-bottom: 4px solid var(--cms-blue);
+}
+
+.cms-rich-card-body {
+  padding: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+/* Modificadores de cor para o Card */
+.cms-rich-card-navy { background: var(--cms-navy); color: var(--cms-white); border: none; }
+.cms-rich-card-navy .cms-rich-card-img { 
+  border-bottom: 4px solid var(--cms-yellow); 
+}
+.cms-rich-card-navy .cms-h3 { color: var(--cms-white); }
+.cms-rich-card-navy .cms-body { color: rgba(255,255,255,0.7); }
+
+/* SVG Ícone Integrado */
+.cms-rich-card-icon {
+  position: absolute;
+  top: -36px;
+  right: 32px;
+  width: 72px;
+  height: 72px;
+  background: var(--cms-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 4px solid var(--cms-white);
+  z-index: 3;
+}
+.cms-rich-card-navy .cms-rich-card-icon { border-color: var(--cms-navy); background: var(--cms-white); color: var(--cms-navy); }
+.cms-rich-card-icon svg { width: 32px; height: 32px; fill: currentColor; }
+
+/* Links do Card */
+.cms-card-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+  border-top: 1px solid var(--cms-border);
+  padding-top: 16px;
+}
+.cms-rich-card-navy .cms-card-links { border-top-color: rgba(255,255,255,0.1); }
+.cms-card-links li { padding: 12px 0; border-bottom: 1px solid var(--cms-border); }
+.cms-rich-card-navy .cms-card-links li { border-bottom-color: rgba(255,255,255,0.1); }
+.cms-card-links li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.cms-card-links a {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--cms-ink);
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+}
+.cms-rich-card-navy .cms-card-links a { color: var(--cms-white); }
+.cms-card-links a:hover { color: var(--cms-blue); padding-left: 6px; }
+.cms-rich-card-navy .cms-card-links a:hover { color: var(--cms-yellow); }
+.cms-card-links a::before {
+  content: '→';
+  color: var(--cms-yellow);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+/* ── DIVISORES E UTILITÁRIOS ── */
+.cms-mb-md { margin-bottom: var(--space-md); }
+.cms-mt-lg { margin-top: var(--space-lg); }
+.cms-accent-yellow { color: var(--cms-yellow); }
+
+/* ── FOOTER ── */
+.cms-footer {
+  background: var(--cms-navy);
+  color: rgba(255,255,255,.55);
+  text-align: center;
+  padding: var(--space-lg) var(--space-lg);
+  font-size: 13px;
+  font-family: var(--font-body);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.cms-footer strong { color: rgba(255,255,255,.85); display: block; margin-bottom: 8px;}
+</style>
 </head>
 <body>
 
-    <!-- HEADER / HERO -->
-    <header class="cms-header cms-header-stripe">
-        <div class="cms-wrap cms-center">
-            
-            <div class="cms-logo-container">
-                <svg width="340" height="100" viewBox="0 0 340 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" fill="#1B6CB5"/>
-                    <circle cx="45" cy="45" r="22" fill="#F5C400"/>
-                    <path d="M25 45L45 25L65 45H25Z" fill="white"/>
-                    <path d="M45 45L60 30L75 45H45Z" fill="white" opacity="0.9"/>
-                    <path d="M5 60C5 60 20 50 35 60C50 70 65 55 80 65C95 75 95 85 95 85H5V60Z" fill="#1E8A4A"/>
-                    <path d="M5 75C5 75 25 65 40 75C55 85 70 70 85 80C100 90 100 100 100 100H5V75Z" fill="#1E8A4A" opacity="0.8"/>
-                    <text x="110" y="32" fill="white" font-family="Montserrat, Arial" font-weight="900" font-size="24">CONSELHO</text>
-                    <text x="110" y="56" fill="white" font-family="Montserrat, Arial" font-weight="900" font-size="24">MUNICIPAL</text>
-                    <text x="110" y="80" fill="white" font-family="Montserrat, Arial" font-weight="900" font-size="24">DE SAÚDE</text>
-                    <text x="110" y="96" fill="white" font-family="Montserrat, Arial" font-weight="400" font-size="14">de MONTES CLAROS</text>
-                </svg>
-            </div>
+<!-- NAVEGAÇÃO -->
+<nav class="cms-navbar">
+  <a href="#" class="cms-navbar-brand">
+    <div class="cms-logo-icon">
+      <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/iconcms512.png" alt="Símbolo CMS">
+    </div>
+    <div class="cms-logo-text">CMS<br><span>Montes Claros</span></div>
+  </a>
+  <div class="cms-nav-links">
+    <a href="https://cmsmoc.github.io/site/conselho/" target="_blank">Sobre o Conselho</a>
+    <a href="https://drive.google.com/file/d/1_BVy85atpVm9k8pkG1cQqM3ga1K5kWVK/view" target="_blank">Regimento</a>
+  </div>
+</nav>
 
-            <div class="cms-tag cms-tag-green cms-mb-sm">Edital N.º 01/2026</div>
-            <h1 class="cms-display" style="color: white; margin-bottom: 10px;">RECOMPOSIÇÃO</h1>
-            <p class="cms-h2" style="color: rgba(255,255,255,0.8); font-weight: 300;">TRIÊNIO 2026 — 2029</p>
+<!-- HEADER PRINCIPAL -->
+<header class="cms-header cms-header-stripe">
+  <div class="cms-wrap">
+    <div class="cms-header-text">
+      <span class="cms-eyebrow">Bem-vindo(a)!</span>
+      <h1 class="cms-display">CONSELHO<br>MUNICIPAL<br><span class="cms-accent-yellow">DE SAÚDE</span></h1>
+      <p class="cms-body" style="color: rgba(255,255,255,0.85); margin-top: 24px; font-size: 14px; font-weight: 300;">
+        O Conselho Municipal de Saúde (CMS) de Montes Claros é a instância máxima de deliberação no que diz respeito à avaliação, aprovação e controle da política de saúde no âmbito do município. É um órgão colegiado, deliberativo, normativo, fiscalizador e de natureza permanente, instituído pela Lei no 8.142/1990, pelo art. 188 da Lei Orgânica do Município de Montes Claros e implementado em consonância com a Legislação do SUS – Sistema Único de Saúde – em vigor.
+      </p>
+    </div>
+    <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/iconcms512.png" class="cms-header-icon" alt="Símbolo do Conselho">
+  </div>
+</header>
 
-            <div class="cms-mt-md" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#inscricoes" class="cms-btn cms-btn-primary">Inscrever Entidade</a>
-                <a href="#cronograma" class="cms-btn cms-btn-outline">Cronograma</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- ALERTA DE PRAZO -->
-    <div class="cms-alert-deadline">
-        <div class="cms-wrap">
-            <div class="cms-card-yellow cms-center" style="padding: 32px; border: 4px solid var(--cms-navy); box-shadow: var(--shadow-md); border-radius: var(--radius-lg);">
-                <div class="cms-eyebrow" style="color: var(--cms-navy); font-weight: 900;">Atenção: Prazo Final Prorrogado!</div>
-                <h2 class="cms-display" style="font-size: clamp(28px, 5vw, 42px); margin: 10px 0; color: var(--cms-navy); line-height: 1;">ATÉ 01/04/2026</h2>
-                <p class="cms-body cms-bold" style="color: var(--cms-navy); text-transform: uppercase; letter-spacing: 1px;">Não perca o prazo para habilitar sua organização.</p>
-            </div>
-        </div>
+<!-- ACESSO RÁPIDO -->
+<div class="cms-quick-links">
+  <div class="cms-wrap cms-quick-links-inner">
+    <span class="cms-quick-links-label">Acesso Rápido:</span>
+    
+    <div class="cms-quick-link-group">
+      <span class="cms-quick-link-group-title">Deliberações:</span>
+      <a href="https://drive.google.com/file/d/1zF2S2rYemwQU7EUMM3r-HvWJhrtS91sH/view" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">01</a>
+      <a href="https://drive.google.com/file/d/1-KLybW8iyKHTCpQw1sgdJGQQMmUOq0Cq/view" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">02</a>
     </div>
 
-    <!-- O QUE É ESTE PROCESSO? -->
-    <section class="cms-section">
-        <div class="cms-wrap">
-            <div class="cms-grid-2" style="align-items: center;">
-                <div>
-                    <h2 class="cms-h1 cms-mb-sm">O que é este processo?</h2>
-                    <p class="cms-body" style="font-size: 17px;">
-                        O <strong>Conselho Municipal de Saúde (CMS)</strong> é a instância de controle social do SUS em Montes Claros. Este edital convoca a sociedade civil, trabalhadores e gestores para renovar seus representantes para os próximos 3 anos.
-                    </p>
-                    <div class="cms-fala cms-mt-md">
-                        "A participação da comunidade na gestão do SUS é um direito garantido pela Constituição e pela Lei 8.142/90."
-                    </div>
-                </div>
-                <div class="cms-grid-2">
-                    <div class="cms-stat cms-card">
-                        <div class="cms-stat-number cms-accent-green">32</div>
-                        <div class="cms-stat-label">Vagas Totais</div>
-                    </div>
-                    <div class="cms-stat cms-card">
-                        <div class="cms-stat-number cms-accent-blue">03</div>
-                        <div class="cms-stat-label">Anos de Mandato</div>
-                    </div>
-                    <div class="cms-stat cms-card">
-                        <div class="cms-stat-number" style="color: #f97316;">50%</div>
-                        <div class="cms-stat-label">Paridade (Usuários)</div>
-                    </div>
-                    <div class="cms-stat cms-card">
-                        <div class="cms-stat-number">2026</div>
-                        <div class="cms-stat-label">Ano de Início</div>
-                    </div>
-                </div>
-            </div>
+    <span style="color: var(--cms-border); margin: 0 4px;">|</span>
+
+    <div class="cms-quick-link-group">
+      <span class="cms-quick-link-group-title">Resoluções:</span>
+      <a href="https://drive.google.com/file/d/1ywCClmASWS-ZFuMRH84r6NSUMOO-JYBa/view" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">01</a>
+    </div>
+
+    <span style="color: var(--cms-border); margin: 0 4px;">|</span>
+
+    <a href="https://app.cmsmoc.com/" target="_blank" class="cms-quick-link-item" style="color: var(--cms-navy);">Documentos Oficiais</a>
+  </div>
+</div>
+
+<main class="cms-wrap cms-section">
+  
+  <!-- ==========================================
+       BANNERS DE EVENTOS (EMPILHADOS) - AGORA NO TOPO
+       ========================================== -->
+  <div style="margin-bottom: 24px;">
+    <span class="cms-eyebrow">Acompanhe</span>
+    <h2 class="cms-h2">Painel de Acesso</h2>
+  </div>
+
+  <div class="cms-stack">
+
+    <!-- BLOCO 2: CONFERÊNCIA (Fundo Claro) - PRIMEIRO -->
+    <div class="cms-rich-card">
+      <div class="cms-rich-card-img-wrap">
+        <img src="https://i.ibb.co/wZjpVKnJ/banner-conf.png" alt="11ª Conferência Municipal de Saúde" class="cms-rich-card-img">
+      </div>
+      
+      <div class="cms-rich-card-body">
+        <div class="cms-rich-card-icon">
+          <svg viewBox="0 0 24 24" style="color: var(--cms-navy);">
+            <path d="M17 11c.34 0 .67-.04 1-.09V6.5c0-.83-.67-1.5-1.5-1.5h-11C4.67 5 4 5.67 4 6.5v11c0 .83.67 1.5 1.5 1.5H11c-.44-1.22-.61-2.58-.38-4H6.5v-2H11c.46-1.53 1.4-2.88 2.65-3.8A4.95 4.95 0 0117 11zm-10.5 2h3v2h-3v-2zm0-4h8v2h-8V9zm0-3h8v2h-8V6zm14.5 10c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.24-5 5-5 5 2.24 5 5zm-3 1h-1.5v1.5h-1V17H15v-1.5h-1.5v-1H15V13h1v1.5h1.5v1z"/>
+          </svg>
         </div>
-    </section>
 
-    <!-- CANAIS DE INSCRIÇÃO -->
-    <section id="inscricoes" class="cms-section cms-bg-off">
-        <div class="cms-wrap-wide">
-            <div class="cms-center cms-mb-md">
-                <p class="cms-eyebrow">Links de Acesso e Formulários</p>
-                <h2 class="cms-h1">Habilite-se agora</h2>
-            </div>
-
-            <div class="cms-grid-3">
-                
-                <!-- CARD 1: CONSELHOS LOCAIS -->
-                <article class="cms-card cms-card-navy">
-                    <div>
-                        <div class="cms-icon-large">
-                            <!-- SVG Estrela -->
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cms-yellow)" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="cms-h2" style="color: white;">Conselhos Locais</h3>
-                        <p class="cms-body" style="color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 14px;">
-                            Formulário exclusivo para a organização e recomposição dos <strong>Conselhos Locais de Saúde (CLS)</strong> em cada unidade.
-                        </p>
-                    </div>
-                    <a href="https://cmsmoc.github.io/site/cls" class="cms-btn cms-btn-primary">Acessar Formulário CLS</a>
-                </article>
-
-                <!-- CARD 2: ATUALIZAÇÃO (ANIMADO) -->
-                <article class="cms-card cms-card-top-blue cms-card-animate">
-                    <div>
-                        <div class="cms-icon-large">
-                            <!-- SVG Sincronização -->
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cms-blue)" stroke-width="2.5">
-                                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 12c0-4.4 3.6-8 8-8 3.3 0 6.1 2 7.3 4.8M22 12c0 4.4-3.6 8-8 8-3.3 0-6.1-2-7.3-4.8" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="cms-h2">Atualização Cadastral</h3>
-                        <p class="cms-body" style="margin-top: 15px; font-size: 14px;">
-                            Para entidades que <strong>já compõem</strong> o Conselho e precisam manifestar interesse na recondução.
-                        </p>
-                    </div>
-                    <a href="atualizar" target="_blank" class="cms-btn cms-btn-secondary">Atualizar Cadastro</a>
-                </article>
-
-                <!-- CARD 3: NOVA INSCRIÇÃO -->
-                <article class="cms-card cms-card-top-green">
-                    <div>
-                        <div class="cms-icon-large">
-                            <!-- SVG Nova Inscrição -->
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cms-green)" stroke-width="2.5">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM20 8v6M23 11h-6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="cms-h2">Novas Entidades</h3>
-                        <p class="cms-body" style="margin-top: 15px; font-size: 14px;">
-                            Destinado a <strong>novas organizações</strong> que desejam pleitear uma cadeira de representação no Pleno.
-                        </p>
-                    </div>
-                    <a href="inscrever" target="_blank" class="cms-btn cms-btn-secondary" style="background: var(--cms-green);">Iniciar Inscrição</a>
-                </article>
-
-            </div>
+        <span class="cms-eyebrow">Evento Público</span>
+        <h3 class="cms-h3">11ª CONFERÊNCIA MUNICIPAL DE SAÚDE</h3>
+        <p class="cms-body" style="margin-top: 12px; color: var(--cms-muted);">
+          Acesse os materiais, discussões e resultados finais aprovados durante a conferência.
+        </p>
+        
+        <ul class="cms-card-links">
+          <li><a href="https://pre.cmsmoc.com" target="_blank">Consolidado dos eventos</a></li>
+          <li><a href="#">Caderno de propostas</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- BLOCO 1: RECOMPOSIÇÃO (Fundo Navy) - SEGUNDO -->
+    <div class="cms-rich-card cms-rich-card-navy">
+      <div class="cms-rich-card-img-wrap">
+        <img src="https://i.ibb.co/C3c73p1F/sliderec1.jpg" alt="Processo de Recomposição" class="cms-rich-card-img">
+      </div>
+      
+      <div class="cms-rich-card-body">
+        <div class="cms-rich-card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v-2H4v6h16v-6h-2v2h-2v-5h-2v5zM9 18H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+          </svg>
         </div>
-    </section>
 
-    <!-- DISTRIBUIÇÃO DE VAGAS -->
-    <section class="cms-section">
-        <div class="cms-wrap">
-            <h2 class="cms-h1 cms-center cms-mb-md">Distribuição de Vagas</h2>
-            <div class="cms-grid-4">
-                <div class="cms-card cms-center" style="border-top: 6px solid var(--cms-green);">
-                    <div class="cms-stat-number cms-accent-green">16</div>
-                    <h3 class="cms-h3 cms-mt-sm">Usuários do SUS</h3>
-                    <p class="cms-caption cms-mt-sm">Entidades populares e sindicatos.</p>
-                    <div class="cms-tag cms-tag-green cms-mt-sm">50% das Cadeiras</div>
-                </div>
-                <div class="cms-card cms-center" style="border-top: 6px solid var(--cms-blue);">
-                    <div class="cms-stat-number cms-accent-blue">08</div>
-                    <h3 class="cms-h3 cms-mt-sm">Trabalhadores</h3>
-                    <p class="cms-caption cms-mt-sm">Profissionais de nível superior e médio.</p>
-                    <div class="cms-tag cms-tag-blue cms-mt-sm">25% das Cadeiras</div>
-                </div>
-                <div class="cms-card cms-center" style="border-top: 6px solid #f97316;">
-                    <div class="cms-stat-number" style="color: #f97316;">04</div>
-                    <h3 class="cms-h3 cms-mt-sm">Gestores</h3>
-                    <p class="cms-caption cms-mt-sm">Indicação oficial da Secretaria de Saúde.</p>
-                    <div class="cms-tag cms-mt-sm" style="background: #f97316; color: white;">12,5%</div>
-                </div>
-                <div class="cms-card cms-center" style="border-top: 6px solid var(--cms-navy);">
-                    <div class="cms-stat-number" style="color: var(--cms-navy);">04</div>
-                    <h3 class="cms-h3 cms-mt-sm">Prestadores</h3>
-                    <p class="cms-caption cms-mt-sm">Hospitais filantrópicos e serviços.</p>
-                    <div class="cms-tag cms-tag-navy cms-mt-sm">12,5%</div>
-                </div>
-            </div>
+        <span class="cms-eyebrow" style="color: var(--cms-yellow);">Processo Eleitoral</span>
+        <h3 class="cms-h3">PROCESSO DE RECOMPOSIÇÃO DO CONSELHO</h3>
+        <p class="cms-body" style="margin-top: 12px;">
+          Acompanhe o processo de recomposição oficial das cadeiras do Conselho Municipal de Saúde.
+        </p>
+        
+        <ul class="cms-card-links">
+          <li><a href="#lista-recomposicao">Candidaturas homologadas – nova recomposição</a></li>
+          <li><a href="#">Prazo para recursos</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==========================================
+       LISTA DE RECOMPOSIÇÃO (NOVA GALERIA COM FUNDOS)
+       ========================================== -->
+  <div id="lista-recomposicao" class="cms-mt-lg">
+    <div style="margin-bottom: 32px;">
+      <span class="cms-eyebrow">Documento Oficial</span>
+      <h2 class="cms-h2">Nova Recomposição do Conselho</h2>
+      <p class="cms-body" style="color: var(--cms-muted);">Candidaturas homologadas distribuídas por segmento.</p>
+    </div>
+
+    <!-- SEGMENTO: GESTOR / PRESTADOR -->
+    <div class="cms-segment-wrapper cms-segment-wrapper-gestor">
+      <div class="cms-segment-header">
+        <div class="cms-segment-icon">
+          <!-- Ícone Edifício / Instituição -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L3 6v14h18V6l-9-4zm0 2.5l7 3.11V18h-4v-5h-6v5H5V7.61l7-3.11zM7 10h2v2H7zm0 4h2v2H7zm6-4h2v2h-2zm0 4h2v2h-2z"/>
+          </svg>
         </div>
-    </section>
-
-    <!-- CRONOGRAMA -->
-    <section id="cronograma" class="cms-section cms-bg-off">
-        <div class="cms-wrap-narrow">
-            <h2 class="cms-h1 cms-center cms-mb-md">Cronograma</h2>
-            
-            <div class="cms-enc" style="border-left: 6px solid var(--cms-yellow);">
-                <div class="cms-enc-n">01</div>
-                <div>
-                    <div class="cms-tag cms-tag-yellow">ATÉ 01/04/2026</div>
-                    <h3 class="cms-h3 cms-mt-sm">Inscrições e Atualizações</h3>
-                    <p class="cms-body cms-bold" style="font-size: 13px;">Prazo final improrrogável.</p>
-                </div>
-            </div>
-
-            <div class="cms-enc">
-                <div class="cms-enc-n">02</div>
-                <div>
-                    <div class="cms-tag cms-tag-blue">27/03/2026</div>
-                    <h3 class="cms-h3 cms-mt-sm">Publicação da Habilitação</h3>
-                    <p class="cms-caption">Divulgação das inscrições homologadas.</p>
-                </div>
-            </div>
-
-            <div class="cms-enc">
-                <div class="cms-enc-n">03</div>
-                <div>
-                    <div class="cms-tag cms-tag-blue">30/03 a 10/04/2026</div>
-                    <h3 class="cms-h3 cms-mt-sm">Prazo de Recursos</h3>
-                    <p class="cms-caption">Período para contestação de resultados.</p>
-                </div>
-            </div>
-
-            <div class="cms-enc" style="border-color: var(--cms-green);">
-                <div class="cms-enc-n" style="background: var(--cms-green);">04</div>
-                <div>
-                    <div class="cms-tag cms-tag-green">25/04/2026</div>
-                    <h3 class="cms-h2 cms-mt-sm" style="color: var(--cms-green);">Homologação e Posse</h3>
-                    <p class="cms-body" style="font-size: 13px;">Durante a 11ª Conferência Municipal de Saúde.</p>
-                </div>
-            </div>
+        <div>
+          <h4 class="cms-segment-title">Gestor / Prestador</h4>
+          <div class="cms-segment-count">08 Cadeiras</div>
         </div>
-    </section>
+      </div>
+      
+      <div class="cms-seat-gallery">
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Prestador 1</span><div class="cms-seat-name">HDG, Santa Casa (SC) e APAE</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Prestador 2</span><div class="cms-seat-name">GRAPPA e Capelo Gaivota</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Prestador 3</span><div class="cms-seat-name">Fundação Clarice Albuquerque (Vovó) e HC</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Prestador 4</span><div class="cms-seat-name">Hospital Universitário (HU)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Gestor 1</span><div class="cms-seat-name">SRS e GRS</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Gestor 2</span><div class="cms-seat-name">Secretaria Municipal de Saúde (SMS)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Gestor 3</span><div class="cms-seat-name">Secretaria Municipal de Saúde (SMS)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Gestor 4</span><div class="cms-seat-name">Secretaria Municipal de Saúde (SMS)</div></div>
+      </div>
+    </div>
 
-    <!-- DOCUMENTAÇÃO -->
-    <section class="cms-section">
-        <div class="cms-wrap">
-            <div class="cms-grid-2">
-                <div class="cms-card" style="background: #ecfdf5; border-color: #a7f3d0;">
-                    <h3 class="cms-h2 cms-mb-sm" style="color: #065f46;">Checklist Documental</h3>
-                    <ul class="cms-list">
-                        <li>Cópia do CNPJ atualizado</li>
-                        <li>Ata da diretoria registrada em cartório</li>
-                        <li>Relatório de atividades (últimos 2 anos)</li>
-                        <li>Documentos de identidade do indicado</li>
-                    </ul>
-                    <a href="https://drive.google.com/file/d/1Ia5DvFX8Mk2JKUax4vlPQaKJ8xCtVx7c/view" target="_blank" class="cms-body cms-bold" style="color: var(--cms-green); text-decoration: underline; font-size: 12px; margin-top: 15px; display: block;">
-                        Ler edital completo
-                    </a>
-                </div>
-                <div class="cms-card" style="background: #eff6ff; border-color: #bfdbfe;">
-                    <h3 class="cms-h2 cms-mb-sm" style="color: #1e40af;">Regras Importantes</h3>
-                    <ul class="cms-list" style="color: #1e40af;">
-                        <li style="border-color: rgba(30,64,175,0.1);">Mandato de <strong>3 anos</strong> (1 recondução).</li>
-                        <li style="border-color: rgba(30,64,175,0.1);">Proibido representar mais de uma entidade.</li>
-                        <li style="border-color: rgba(30,64,175,0.1);">Fiscalizado pelo Ministério Público.</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- SEGMENTO: TRABALHADOR -->
+    <div class="cms-segment-wrapper cms-segment-wrapper-trabalhador">
+      <div class="cms-segment-header">
+        <div class="cms-segment-icon">
+          <!-- Ícone Crachá / Trabalhador -->
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-4 7c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm4.5 10H5.5v-1.11c0-1.5 3-2.39 4.5-2.39s4.5.89 4.5 2.39V19z"/>
+          </svg>
         </div>
-    </section>
+        <div>
+          <h4 class="cms-segment-title">Trabalhador</h4>
+          <div class="cms-segment-count" style="color: var(--cms-navy);">08 Cadeiras</div>
+        </div>
+      </div>
+      
+      <div class="cms-seat-gallery">
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 1</span><div class="cms-seat-name">ABO</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 2</span><div class="cms-seat-name">COREN</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 3</span><div class="cms-seat-name">COREN</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 4</span><div class="cms-seat-name">SIEESS</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 5</span><div class="cms-seat-name">SIEEMG (SEEMG)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 6</span><div class="cms-seat-name">Sind-Saúde</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 7</span><div class="cms-seat-name">SINDITRAUX</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Trabalhador 8</span><div class="cms-seat-name">SINDSEP-MG</div></div>
+      </div>
+    </div>
 
-    <!-- FOOTER -->
-    <footer class="cms-footer">
-        <div class="cms-stripe" style="position: absolute; top: 0; left: 0; right: 0;"></div>
-        <div class="cms-wrap">
-            <h2 class="cms-h2" style="color: white; margin-bottom: 10px;">Ficou com alguma dúvida?</h2>
-            <p class="cms-body" style="color: rgba(255,255,255,0.7); margin-bottom: 25px;">A Secretaria Executiva do CMS está pronta para te auxiliar.</p>
-            <a href="https://wa.me/553822114356" target="_blank" class="cms-btn cms-btn-primary">
-                WhatsApp: (38) 2211-4356
-            </a>
-            <div class="cms-mt-md" style="opacity: 0.5; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p>Conselho Municipal de Saúde de Montes Claros/MG</p>
-                <p class="cms-caption" style="color: white; margin-top: 5px;">PARTICIPAÇÃO E CONTROLE SOCIAL</p>
-            </div>
+    <!-- SEGMENTO: USUÁRIO -->
+    <div class="cms-segment-wrapper cms-segment-wrapper-usuario">
+      <div class="cms-segment-header">
+        <div class="cms-segment-icon">
+          <!-- Ícone Pessoas / Comunidade -->
+          <svg viewBox="0 0 24 24">
+            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+          </svg>
         </div>
-    </footer>
+        <div>
+          <h4 class="cms-segment-title">Usuário</h4>
+          <div class="cms-segment-count">16 Cadeiras</div>
+        </div>
+      </div>
+      
+      <div class="cms-seat-gallery">
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 1</span><div class="cms-seat-name">ADEMOC</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 2</span><div class="cms-seat-name">ADM (Madureira)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 3</span><div class="cms-seat-name">ANDA</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 4</span><div class="cms-seat-name">Arquidiocese</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 5</span><div class="cms-seat-name">Associação Presente</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 6</span><div class="cms-seat-name">Consciência Ativa (CA)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 7</span><div class="cms-seat-name">CLS (Independência e Renascença)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 8</span><div class="cms-seat-name">CLS (Jardim Primavera e Vila Atlântida)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 9</span><div class="cms-seat-name">CLS (Delfino Magalhães e Planalto)</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 10</span><div class="cms-seat-name">CMMOC, Lar Betânia e Lar das Velhinhas</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 11</span><div class="cms-seat-name">Fundação Sara</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 12</span><div class="cms-seat-name">MGG e Grupo Arco-Íris</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 13</span><div class="cms-seat-name">Clínica Solidária Nossa Senhora Rosa Mística</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 14</span><div class="cms-seat-name">Rotary</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 15</span><div class="cms-seat-name">STR e CUT</div></div>
+        <div class="cms-seat-card"><span class="cms-seat-badge-new">Usuário 16</span><div class="cms-seat-name">UPM (União Popular da Mulher)</div></div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer class="cms-footer">
+  <strong>Conselho Municipal de Saúde de Montes Claros – MG</strong>
+  Site Institucional Oficial.<br>
+  <span style="font-size: 11px; margin-top: 12px; display: inline-block; color: rgba(255,255,255,0.3);">Layout baseado no Swiss Design System</span>
+</footer>
 
 </body>
-</html>
+</html>s
