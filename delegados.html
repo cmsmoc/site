@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Delegados - 11ª CMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul-sus:        #1A5EA8;
+  --azul-medio:      #2E8BC0;
+  --azul-claro:      #7EC8E3;
+  --azul-wave:       #0D3D6B;
+  --verde-sus:       #3AAA35;
+  --verde-wave:      #5BBF6A;
+  --amarelo-brasil:  #F5C800;
+  --branco-puro:     #FFFFFF;
+  --cinza-off:       #F4F7FB;
+  --cinza-texto:     #2C3E50;
+  --cinza-medio:     #6B7F96;
+  --cinza-borda:     #D6E4F0;
+  --gradient-wave: linear-gradient(135deg, #1A5EA8 0%, #2E8BC0 40%, #5BBF6A 75%, #F5C800 100%);
+  --font: 'Georama', sans-serif;
+  --sombra-card:    0 4px 24px rgba(26,94,168,.10), 0 1px 4px rgba(26,94,168,.06);
+  --sombra-hover:   0 12px 40px rgba(26,94,168,.18), 0 2px 8px rgba(26,94,168,.10);
+  --radius:   14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: var(--font); 
+  background: var(--cinza-off); 
+  color: var(--cinza-texto); 
+  min-height: 100vh; 
+  font-size: 15px; 
+  line-height: 1.6; 
+}
+
+/* Header */
+.portal-header {
+  background: linear-gradient(135deg, var(--azul-wave) 0%, var(--azul-sus) 60%, var(--azul-medio) 100%);
+  padding: 48px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.portal-header::after {
+  content: ''; 
+  position: absolute; 
+  bottom: 0; left: 0; right: 0; 
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23F4F7FB' d='M0,60 C480,10 960,50 1440,0 L1440,60 Z'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+}
+.portal-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+.portal-title { 
+  font-size: clamp(24px, 4vw, 40px); 
+  font-weight: 800; 
+  color: #fff; 
+  line-height: 1.1; 
+  letter-spacing: -.02em; 
+  margin-bottom: 8px; 
+}
+.portal-title em { font-style: normal; color: var(--amarelo-brasil); }
+.portal-sub { color: rgba(255,255,255,.65); font-size: 14px; font-weight: 400; margin-bottom: 32px; max-width: 600px; }
+
+/* Main Content */
+.main-content { max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
+
+.segment-section { margin-top: 40px; margin-bottom: 20px; }
+.section-label {
+  font-size: 16px; 
+  font-weight: 800; 
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
+  color: var(--azul-sus);
+  margin-bottom: 24px; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px;
+}
+.section-label::before { 
+  content: ''; 
+  width: 24px; 
+  height: 4px; 
+  background: var(--gradient-wave); 
+  border-radius: 2px; 
+}
+.section-count {
+  background: rgba(26,94,168,.1);
+  color: var(--azul-sus);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+  gap: 20px;
+}
+
+.person-card {
+  background: #fff; 
+  border-radius: var(--radius); 
+  box-shadow: var(--sombra-card); 
+  border: 1.5px solid var(--cinza-borda);
+  overflow: hidden; 
+  transition: all .3s cubic-bezier(.34,1.56,.64,1); 
+  position: relative; 
+  display: flex; 
+  flex-direction: column;
+}
+.person-card:hover { 
+  transform: translateY(-6px); 
+  box-shadow: var(--sombra-hover); 
+  border-color: var(--azul-medio); 
+}
+.card-top { height: 7px; background: var(--gradient-wave); }
+
+.card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+.card-header-flex { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin-bottom: 12px; 
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.segment-pill {
+  font-size: 10px; 
+  font-weight: 800; 
+  letter-spacing: .12em; 
+  text-transform: uppercase;
+  padding: 4px 12px; 
+  border-radius: var(--radius-pill); 
+  display: inline-block;
+}
+.seg-usuarios { background: #E8F4FD; color: var(--azul-sus); }
+.seg-trabalhadores { background: #E8F8EC; color: #1B7A30; }
+.seg-gestores { background: #FEF8E7; color: #9A6500; }
+.seg-prestadores { background: #F0EBF8; color: #5B2D8E; }
+.seg-vazio { background: var(--cinza-off); color: var(--cinza-medio); border: 1px dashed var(--cinza-medio); }
+
+.pre-conf-tag {
+  font-size: 11px; 
+  font-weight: 700; 
+  color: var(--cinza-medio);
+  background: var(--cinza-off);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.person-name { 
+  font-size: 24px; /* Aumentado de 18px para 24px */
+  font-weight: 800; 
+  color: var(--cinza-texto); 
+  line-height: 1.2; 
+  margin-bottom: 16px; 
+  flex: 1; 
+}
+.person-empty { color: var(--cinza-medio); font-style: italic; }
+.person-empty small { 
+  font-size: 14px; 
+  font-weight: 500; 
+  display: block; 
+  margin-top: 6px; 
+  color: var(--azul-medio); 
+  font-style: normal;
+}
+
+.person-meta { 
+  font-size: 14px; 
+  color: var(--cinza-medio); 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; /* Aumentado o espaçamento entre itens */
+  border-top: 1px solid var(--cinza-borda); 
+  padding-top: 16px; 
+}
+.person-meta span { display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+.meta-icon { flex-shrink: 0; width: 18px; text-align: center; font-size: 16px; margin-top: 2px; }
+
+/* Nova classe para destacar o telefone */
+.person-phone {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--azul-sus);
+}
+
+.loader { 
+  text-align: center; 
+  padding: 80px 20px; 
+  color: var(--azul-sus); 
+  font-weight: 700; 
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(26,94,168,.2);
+  border-top-color: var(--azul-sus);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .portal-header, .main-content { padding-left: 20px; padding-right: 20px; }
+  .cards-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="portal-header">
+  <div class="portal-inner">
+    <div style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:20px;">
+      11ª CMS Montes Claros
+    </div>
+    <h1 class="portal-title">Painel de <em>Delegados</em></h1>
+    <p class="portal-sub">Acompanhamento das inscrições e vagas disponíveis, organizado por segmento (sincronizado em tempo real com a planilha oficial).</p>
+  </div>
+</div>
+
+<div class="main-content">
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+    Carregando dados da planilha ao vivo...
+  </div>
+  <div id="dashboard"></div>
+</div>
+
+<!-- Usando PapaParse para ler o CSV gerado pelo Google Sheets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+// URL pública do CSV do Google Sheets
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ32FFFj_u5J9rx1bRjJ6fOw6qteP-EaKYNdAZWs1x3pFTyArLa0sU0u7qIVd5ayA0826SYc2VS7riB/pub?gid=2110637642&single=true&output=csv";
+
+document.addEventListener("DOMContentLoaded", () => {
+  Papa.parse(CSV_URL, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+      document.getElementById('loader').style.display = 'none';
+      renderDashboard(results.data);
+    },
+    error: function(err) {
+      document.getElementById('loader').innerHTML = "⚠️ Erro ao carregar dados. Verifique o link da planilha ou sua conexão.<br><small>" + err + "</small>";
+    }
+  });
+});
+
+function getSegmentClass(seg) {
+  if (!seg) return 'seg-vazio';
+  const s = seg.toLowerCase();
+  if (s.includes('usuário') || s.includes('usuario')) return 'seg-usuarios';
+  if (s.includes('trabalhador')) return 'seg-trabalhadores';
+  if (s.includes('gestor')) return 'seg-gestores';
+  if (s.includes('prestador')) return 'seg-prestadores';
+  return 'seg-usuarios'; // fallback color
+}
+
+function renderDashboard(data) {
+  const container = document.getElementById('dashboard');
+  const groups = {};
+  
+  data.forEach(row => {
+    // Busca colunas ignorando espaços extras e caixa alta/baixa
+    const keys = Object.keys(row);
+    const getVal = (colName) => {
+      const key = keys.find(k => k.trim().toUpperCase() === colName.toUpperCase());
+      return key ? row[key] : '';
+    };
+
+    let n = getVal('N') || getVal('Nº') || row[keys[0]]; 
+    let preConf = getVal('PRE_CONFERENCIA') || getVal('PRÉ-CONFERÊNCIA') || '';
+    let nome = getVal('NOME_DELEGADO') || getVal('NOME');
+    let segmento = getVal('SEGMENTO');
+    let telefone = getVal('TELEFONE');
+    let email = getVal('EMAIL');
+    let endereco = getVal('ENDERECO') || getVal('ENDEREÇO');
+
+    // Ignora se a linha estiver totalmente vazia
+    let isRowEmpty = !nome && !segmento && !telefone && !preConf;
+    if (isRowEmpty) return; 
+
+    let segKey = (segmento || '').trim();
+    let groupName = segKey !== '' ? segKey : 'Segmentos Pendentes';
+    
+    if (!groups[groupName]) groups[groupName] = [];
+    groups[groupName].push({
+      n, nome, segmento: segKey, telefone, email, endereco, preConf
+    });
+  });
+
+  let html = '';
+
+  for (const [groupName, rows] of Object.entries(groups)) {
+    html += `
+      <div class="segment-section">
+        <div class="section-label">
+          ${groupName} 
+          <span class="section-count">${rows.length} vagas/inscritos</span>
+        </div>
+        <div class="cards-grid">
+    `;
+    
+    rows.forEach(r => {
+      // Verifica se a vaga está vazia com base nos caracteres colocados no CSV
+      const isEmpty = !r.nome || 
+                      r.nome.trim() === '' || 
+                      r.nome.trim() === '⬛' || 
+                      r.nome.trim() === '-' || 
+                      r.nome.trim().toLowerCase() === 'falta preencher';
+                      
+      const nameDisplay = isEmpty ? "VAGA DISPONÍVEL <small>Pendente de preenchimento</small>" : r.nome;
+      const nameClass = isEmpty ? "person-name person-empty" : "person-name";
+      
+      const segText = r.segmento ? r.segmento.toUpperCase() : "AGUARDANDO SEGMENTO";
+      const segClass = getSegmentClass(r.segmento);
+
+      const telDisplay = (r.telefone && r.telefone.trim() !== '⬛' && r.telefone.trim() !== '') ? r.telefone : '<em style="color:#A0B2C6">Não informado</em>';
+      const emailDisplay = (r.email && r.email.trim() !== '⬛' && r.email.trim() !== '') ? r.email : '<em style="color:#A0B2C6">Não informado</em>';
+      const endDisplay = (r.endereco && r.endereco.trim() !== '⬛' && r.endereco.trim() !== '') ? r.endereco : '<em style="color:#A0B2C6">Não informado</em>';
+      const preConfDisplay = (r.preConf && r.preConf.trim() !== '⬛') ? r.preConf : '';
+
+      html += `
+        <div class="person-card">
+          <div class="card-top"></div>
+          <div class="card-body">
+            <div class="card-header-flex">
+              <span class="segment-pill ${segClass}">${segText}</span>
+              ${preConfDisplay ? `<span class="pre-conf-tag">${preConfDisplay}</span>` : ''}
+            </div>
+            <div class="${nameClass}">${nameDisplay}</div>
+            
+            <div class="person-meta">
+            ${!isEmpty ? `
+                <span><div class="meta-icon">📞</div><div class="person-phone">${telDisplay}</div></span>
+                <span><div class="meta-icon">✉️</div><div style="word-break: break-all;">${emailDisplay}</div></span>
+                <span><div class="meta-icon">📍</div><div>${endDisplay}</div></span>
+            ` : `
+                <span><div class="meta-icon">ℹ️</div><div>Esta vaga de delegado titular/suplente ainda não foi ocupada ou os dados não foram lançados.</div></span>
+            `}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    html += `</div></div>`;
+  }
+  
+  if(Object.keys(groups).length === 0) {
+    container.innerHTML = "<p>Nenhum dado encontrado ou a planilha está vazia.</p>";
+  } else {
+    container.innerHTML = html;
+  }
+}
+</script>
+</body>
+</html>
