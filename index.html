@@ -470,6 +470,35 @@ body {
   font-weight: 900;
 }
 
+/* ── BOTOES / CALL TO ACTION ── */
+.cms-btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.cms-btn-primary {
+  background: var(--cms-yellow);
+  color: var(--cms-navy);
+  box-shadow: 0 4px 12px rgba(245, 196, 0, 0.3);
+}
+.cms-btn-primary:hover {
+  background: #e5b600;
+  transform: translateY(-2px);
+}
+.cms-btn-block {
+  display: block;
+  width: 100%;
+  margin: 16px 0 12px 0;
+}
+
 /* ── DIVISORES E UTILITÁRIOS ── */
 .cms-mb-md { margin-bottom: var(--space-md); }
 .cms-mt-lg { margin-top: var(--space-lg); }
@@ -569,13 +598,18 @@ body {
 
         <span class="cms-eyebrow">Evento Público</span>
         <h3 class="cms-h3">11ª CONFERÊNCIA MUNICIPAL DE SAÚDE</h3>
+        
+        <a href="https://www.cmsmoc.com/conferencia" target="_blank" class="cms-btn cms-btn-primary cms-btn-block">
+          Inscrições pelo link: cmsmoc.com/conferencia
+        </a>
+
         <p class="cms-body" style="margin-top: 12px; color: var(--cms-muted);">
           Acesse os materiais, discussões e resultados finais aprovados durante a conferência.
         </p>
         
         <ul class="cms-card-links">
           <li><a href="https://pre.cmsmoc.com" target="_blank">Consolidado dos eventos</a></li>
-          <li><a href="cadenopropostas.html">Caderno de propostas</a></li>
+          <li><a href="#">Caderno de propostas</a></li>
         </ul>
       </div>
     </div>
@@ -601,7 +635,7 @@ body {
         
         <ul class="cms-card-links">
           <li><a href="#lista-recomposicao">Candidaturas homologadas – nova recomposição</a></li>
-          <li><a href="#">Prazo para recursos: 20/04/2026 via cmsmocmg@gmail.com</a></li>
+          <li><a href="#">Prazo para recursos</a></li>
         </ul>
       </div>
     </div>
@@ -719,4 +753,4 @@ body {
 </footer>
 
 </body>
-</html>s
+</html>
