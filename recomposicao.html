@@ -1,200 +1,556 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recomposição CMS - Triênio 2026-2029</title>
-    <style>
-        /* ════════════════════════════════════════════════════
-           CMS MONTES CLAROS · MASTER CSS · 2026
-           Swiss Design System · versão 1.0
-        ════════════════════════════════════════════════════ */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conselho Municipal de Saúde - Montes Claros</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════
+     RESET & TOKENS
+  ═══════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap');
+  :root {
+    --navy:   #0D2E5A;
+    --blue:   #1B6CB5;
+    --green:  #1E8A4A;
+    --yellow: #F5C400;
+    --white:  #FFFFFF;
+    --off:    #F7F8FA;
+    --ink:    #111827;
+    --muted:  #6B7280;
+    --border: #E5E7EB;
+    --red:    #C0392B;
+    
+    --seg-gestao: #1B6CB5; /* Azul */
+    --seg-user: #1E8A4A;   /* Verde */
+    --seg-prest: #F5C400;  /* Amarelo */
+    --seg-trab: #C0392B;   /* Vermelho */
 
-        :root {
-            --cms-navy:    #0D2E5A;
-            --cms-blue:    #1B6CB5;
-            --cms-green:   #1E8A4A;
-            --cms-yellow:  #F5C400;
-            --cms-white:   #FFFFFF;
-            --cms-off:     #F7F8FA;
-            --cms-ink:     #111827;
-            --cms-muted:   #6B7280;
-            --cms-border:  #E5E7EB;
-            --font-display: 'Montserrat', 'Georama', Helvetica, sans-serif;
-            --font-body:    'Open Sans', Arial, sans-serif;
-            --space-xs:  8px;
-            --space-sm:  16px;
-            --space-md:  32px;
-            --space-lg:  64px;
-            --space-xl:  96px;
-            --radius-sm: 6px;
-            --radius-md: 10px;
-            --radius-lg: 16px;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
-            --shadow-md: 0 4px 20px rgba(0,0,0,.10);
-        }
+    --font-d: 'Montserrat', sans-serif;
+    --font-b: 'Open Sans', sans-serif;
+  }
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-b);
+    background-color: var(--off);
+    color: var(--ink);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
 
-        body {
-            font-family: var(--font-body);
-            background: var(--cms-white);
-            color: var(--cms-ink);
-            line-height: 1.65;
-            font-size: 15px;
-        }
+  /* ═══════════════════════════════════════════
+     HEADER INSTITUCIONAL
+  ═══════════════════════════════════════════ */
+  header {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .cms-wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .cms-wrap-wide { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .cms-section { padding: var(--space-lg) 0; border-bottom: 1px solid var(--cms-border); }
-        
-        .cms-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: -50px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(27,108,181,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-        @media (max-width: 850px) {
-            .cms-grid-3 { grid-template-columns: 1fr; }
-            .cms-wrap, .cms-wrap-wide { padding: 0 var(--space-sm); }
-        }
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
 
-        .cms-display { font-family: var(--font-display); font-size: clamp(40px, 6vw, 80px); font-weight: 900; letter-spacing: -2px; line-height: 0.95; color: var(--cms-navy); }
-        .cms-h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -1px; line-height: 1.05; color: var(--cms-navy); }
-        .cms-h2 { font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; letter-spacing: -0.5px; color: var(--cms-navy); }
-        .cms-eyebrow { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--cms-blue); }
-        
-        .cms-header { background: var(--cms-navy); color: var(--cms-white); padding: var(--space-xl) var(--space-lg); }
-        .cms-header-stripe { border-top: 6px solid; border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1; }
+  .title-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,196,0,0.15);
+    border: 1px solid rgba(245,196,0,0.4);
+    color: var(--yellow);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: var(--font-d);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: max-content;
+  }
 
-        .cms-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: transform 0.3s ease; }
-        .cms-card:hover { transform: translateY(-5px); }
-        .cms-card-navy { background: var(--cms-navy); color: var(--cms-white); border: none; }
-        .cms-card-top-blue { border-top: 4px solid var(--cms-blue); }
+  h1 {
+    font-family: var(--font-d);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    max-width: 800px;
+  }
 
-        /* Animação para o card de atualização */
-        @keyframes cardPulse {
-            0% { box-shadow: 0 0 0 0 rgba(27, 108, 181, 0.4); border-color: var(--cms-blue); }
-            70% { box-shadow: 0 0 0 10px rgba(27, 108, 181, 0); border-color: var(--cms-green); }
-            100% { box-shadow: 0 0 0 0 rgba(27, 108, 181, 0); border-color: var(--cms-blue); }
-        }
-        .cms-card-animate { 
-            animation: cardPulse 2s infinite; 
-            border-width: 2px;
-        }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
 
-        .cms-icon-large { margin-bottom: var(--space-sm); display: block; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-        .cms-btn { display: inline-block; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 24px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; text-align: center; margin-top: var(--space-sm); }
-        .cms-btn-primary { background: var(--cms-yellow); color: var(--cms-navy); }
-        .cms-btn-secondary { background: var(--cms-blue); color: var(--cms-white); }
-        
-        .cms-tag { display: inline-block; padding: 4px 12px; border-radius: 4px; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .cms-tag-yellow { background: var(--cms-yellow); color: var(--cms-navy); }
-        
-        .cms-fala { border-left: 4px solid var(--cms-yellow); padding: 18px 24px; margin: var(--space-md) 0; background: var(--cms-off); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
-        
-        .cms-stripe { height: 8px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
-        
-        .cms-footer { background: var(--cms-navy); color: rgba(255,255,255,.55); text-align: center; padding: var(--space-md) var(--space-lg); font-size: 13px; }
-        
-        .cms-center { text-align: center; }
-        .cms-mb-md { margin-bottom: var(--space-md); }
-        .cms-mt-sm { margin-top: var(--space-sm); }
-    </style>
+  .contact-item svg {
+    width: 16px; height: 16px;
+    color: var(--yellow);
+  }
+
+  /* ═══════════════════════════════════════════
+     MAIN CONTENT & FILTERS
+  ═══════════════════════════════════════════ */
+  main {
+    max-width: 1200px;
+    margin: -40px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .controls-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .controls-header {
+    font-family: var(--font-d);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-box {
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 14px 16px 14px 44px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: var(--font-b);
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.3s;
+  }
+
+  .search-box input:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .search-box svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    color: var(--muted);
+  }
+
+  .segment-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 10px 16px;
+    background: var(--off);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: var(--font-d);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    background: #E5E7EB;
+    color: var(--ink);
+  }
+
+  .filter-btn.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  /* ═══════════════════════════════════════════
+     TABLE / LIST
+  ═══════════════════════════════════════════ */
+  .list-container {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .list-header {
+    display: grid;
+    grid-template-columns: 180px 1.2fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px 24px;
+    background: var(--off);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-d);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .list-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-row {
+    display: grid;
+    grid-template-columns: 180px 1.2fr 1fr 1fr;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+
+  .list-row:last-child {
+    border-bottom: none;
+  }
+
+  .list-row:hover {
+    background-color: #F8FAFC;
+  }
+
+  .col-label {
+    display: none; /* Only for mobile */
+    font-family: var(--font-d);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .cell-text {
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .cell-bold {
+    font-weight: 600;
+    font-family: var(--font-d);
+    color: var(--navy);
+  }
+
+  /* ── BADGES DE SEGMENTO ── */
+  .segment-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: var(--font-d);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .seg-gestao { background: rgba(27,108,181,0.1); color: var(--seg-gestao); border: 1px solid rgba(27,108,181,0.2); }
+  .seg-user { background: rgba(30,138,74,0.1); color: var(--seg-user); border: 1px solid rgba(30,138,74,0.2); }
+  .seg-prest { background: rgba(245,196,0,0.15); color: #B28E00; border: 1px solid rgba(245,196,0,0.4); }
+  .seg-trab { background: rgba(192,57,43,0.1); color: var(--seg-trab); border: 1px solid rgba(192,57,43,0.2); }
+
+  /* ── EMPTY STATE ── */
+  .no-results {
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--font-d);
+    font-size: 16px;
+    display: none;
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE (MOBILE)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .list-header {
+      display: none;
+    }
+    
+    .list-row {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 24px;
+      align-items: start;
+    }
+
+    .col-label {
+      display: block;
+    }
+
+    .cell-segment {
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .filter-btn {
+      flex: 1 1 calc(50% - 8px);
+      text-align: center;
+    }
+    .filter-btn[data-seg="Todos"] {
+      flex: 1 1 100%;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Header Principal -->
-    <header class="cms-header cms-header-stripe cms-center">
-        <div class="cms-wrap">
-            <p class="cms-eyebrow" style="color: var(--cms-yellow);">Conselho Municipal de Saúde</p>
-            <h1 class="cms-display" style="color: white; margin-bottom: 10px;">RECOMPOSIÇÃO</h1>
-            <p class="cms-h2" style="color: rgba(255,255,255,0.8); font-weight: 300;">TRIÊNIO 2026 — 2029</p>
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="header-content">
+      <div class="title-badge">Órgão Deliberativo</div>
+      <h1>Conselho Municipal de Saúde de Montes Claros</h1>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Av. Governador Magalhães Pinto, nº 4000, Jaraguá - Montes Claros/MG
         </div>
-    </header>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (38) 2211-4356
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          cmsmocmg@gmail.com
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <!-- Seção de Alerta: Prorrogação -->
-    <main class="cms-section cms-wrap">
-        <div class="cms-center cms-mb-md">
-            <span class="cms-tag cms-tag-yellow">Aviso Importante</span>
-        </div>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    
+    <!-- CONTROLES (BUSCA E FILTROS) -->
+    <div class="controls-card">
+      <div class="controls-header">Diretório de Conselheiros</div>
+      <div class="filters-row">
         
-        <div class="cms-fala">
-            <p class="cms-h2" style="margin-bottom: 8px;">Prazo Prorrogado!</p>
-            <p class="cms-body">Informamos a todos os interessados que o processo de recomposição teve seu cronograma atualizado. As inscrições e atualizações agora podem ser realizadas até o dia <strong>01 de abril de 2026</strong>.</p>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Buscar por nome, entidade ou segmento...">
         </div>
-    </main>
 
-    <!-- Grid de Cards de Acesso -->
-    <section class="cms-section cms-bg-off">
-        <div class="cms-wrap-wide">
-            <div class="cms-center cms-mb-md">
-                <p class="cms-eyebrow">Selecione sua categoria</p>
-                <h2 class="cms-h1">Canais de Inscrição</h2>
-            </div>
-
-            <div class="cms-grid-3">
-                
-                <!-- Card Destaque: Conselhos Locais (Com Estrela) -->
-                <article class="cms-card cms-card-navy">
-                    <div>
-                        <div class="cms-icon-large">
-                            <!-- SVG Estrela -->
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cms-yellow)" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="cms-h2" style="color: white;">Conselhos Locais</h3>
-                        <p class="cms-body" style="color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 14px;">
-                            Formulário exclusivo para a organização e recomposição dos Conselhos Locais de Saúde (CLS).
-                        </p>
-                    </div>
-                    <a href="https://cmsmoc.github.io/site/cls" class="cms-btn cms-btn-primary">Acessar Formulário CLS</a>
-                </article>
-
-                <!-- Card: Atualização de Entidades (Com Ícone e Animação) -->
-                <article class="cms-card cms-card-top-blue cms-card-animate">
-                    <div>
-                        <div class="cms-icon-large">
-                            <!-- SVG Sincronização/Atualização -->
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cms-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 12c0-4.4 3.6-8 8-8 3.3 0 6.1 2 7.3 4.8M22 12c0 4.4-3.6 8-8 8-3.3 0-6.1-2-7.3-4.8"/>
-                            </svg>
-                        </div>
-                        <h3 class="cms-h2">Atualização de Entidades</h3>
-                        <p class="cms-body" style="margin-top: 15px; font-size: 14px;">
-                            Para entidades que <strong>já compõem</strong> o conselho e precisam atualizar seus dados cadastrais.
-                        </p>
-                    </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVFAJIoUAyYmxxOhwn3hRcDt65lPolHiXctqOLlO1hh8HEFQ/viewform" target="_blank" class="cms-btn cms-btn-secondary">Atualizar Cadastro</a>
-                </article>
-
-                <!-- Card: Nova Inscrição (Com Ícone) -->
-                <article class="cms-card cms-card-top-blue">
-                    <div>
-                        <div class="cms-icon-large">
-                            <!-- SVG Nova Inscrição/Usuário -->
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cms-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM20 8v6M23 11h-6"/>
-                            </svg>
-                        </div>
-                        <h3 class="cms-h2">Pleitear Cadeira</h3>
-                        <p class="cms-body" style="margin-top: 15px; font-size: 14px;">
-                            Destinado a novas entidades que desejam concorrer a uma vaga de representação no Conselho.
-                        </p>
-                    </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUtjTAGkyjmH_LjD4yWt41Df9GXL1_-Wdvr9qK6SBs7Q5EZg/viewform" target="_blank" class="cms-btn cms-btn-secondary">Iniciar Inscrição</a>
-                </article>
-
-            </div>
+        <div class="segment-filters" id="filterButtons">
+          <button class="filter-btn active" data-seg="Todos">Todos</button>
+          <button class="filter-btn" data-seg="Gestão Pública">Gestão Pública</button>
+          <button class="filter-btn" data-seg="Usuários do SUS">Usuários</button>
+          <button class="filter-btn" data-seg="Prestadores de Serviço">Prestadores</button>
+          <button class="filter-btn" data-seg="Trabalhadores da Saúde">Trabalhadores</button>
         </div>
-    </section>
 
-    <!-- Rodapé -->
-    <footer class="cms-footer">
-        <div class="cms-stripe" style="margin-bottom: 30px;"></div>
-        <p><strong>Conselho Municipal de Saúde de Montes Claros</strong></p>
-        <p style="margin-top: 8px;">Participação Social e Controle do SUS · 2026</p>
-    </footer>
+      </div>
+    </div>
 
+    <!-- LISTA / TABELA -->
+    <div class="list-container">
+      <div class="list-header">
+        <div>Segmento</div>
+        <div>Entidade / Representação</div>
+        <div>Titular</div>
+        <div>Suplente</div>
+      </div>
+      
+      <div class="list-body" id="tableBody">
+        <!-- Linhas injetadas via JavaScript -->
+      </div>
+      
+      <div class="no-results" id="noResults">
+        Nenhum conselheiro encontrado para a sua busca.
+      </div>
+    </div>
+
+  </main>
+
+<script>
+  // ═══════════════════════════════════════════
+  // 1. DADOS DOS CONSELHEIROS
+  // ═══════════════════════════════════════════
+  const conselheiros = [
+    // ── GESTÃO PÚBLICA ──
+    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Municipal", tit: "Eduardo Luiz da Silva", sup: "João Alves Pereira" },
+    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Municipal", tit: "Maria Clara Lélis Ramos Cordeira", sup: "Raimara Gonçalves Pereira" },
+    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Municipal", tit: "Marcio Cardoso Silva", sup: "Marcos Dangelis Aguiar" },
+    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Estadual (GRS)", tit: "Rafaela Freitas", sup: "Agna Soares" },
+    
+    // ── USUÁRIOS DO SUS ──
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Conselhos Locais (Primavera / Independência)", tit: "Joel Francisco Borges", sup: "Amanda Mendes" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Conselhos Locais (Renascença / Planalto)", tit: "Emanuela Tomaz", sup: "Sérgio Peres" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Conselhos Locais (Vila Atlântica / Delfino)", tit: "Danielle Santos Sousa", sup: "Laryssa Félix" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Assembleia de Deus Madureira", tit: "Luciana de Jesus Santos Cardoso", sup: "Julio César Pereira" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Fundação Sara Albuquerque", tit: "Roberta Cunha Mota Santos", sup: "Elizete Santos Barbosa" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Arquidiocese (Pastoral da Saúde)", tit: "Maria dos Reis Ribeiro Dias", sup: "Cristina da Silva Queiroz Landgraf" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Associação Consciência Ativa", tit: "Marilda Batista da Silva", sup: "Fabiana Pereira Mori" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "ANDA (Apoio ao Autista)", tit: "Farley Sindeaux Ribeiro", sup: "Jamilson Moreira Gandra" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "ADEMOC", tit: "Fernando Antônio Dias de Andrade", sup: "Helder Lopes Souza" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Sindicato dos Trab. Rurais (CUT)", tit: "Naiara Oliveira", sup: "Luiz Antônio Mendes" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Lar Betânia / Metropolitano / Velhinhas", tit: "Aniele Costa Silva", sup: "Jaqueline da Conceição Camelo" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Assoc. Arco-Íris / Movimento Gay (MGG)", tit: "Paulo Thiago Carvalho Soares Ribeiro", sup: "José Cândido de Souza Filho" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Rotary Clube", tit: "Rafael Carvalho Maciel", sup: "Juliana Aparecida de Oliveira" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "UPM (União Popular da Mulher)", tit: "Isabel Macedo Avelar", sup: "Marisa Cantidio Oliveira" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Clínica Rosa Mística", tit: "Cláudia Rocha Biscotto", sup: "Patrícia Soares Gomes" },
+    { seg: "Usuários do SUS", css: "seg-user", rep: "Associação Presente", tit: "Cindy Almeyda Reis", sup: "Sandra Simony Mendes Gonçalves" },
+
+    // ── PRESTADORES DE SERVIÇO ──
+    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "Hosp. Univ. Clemente Faria", tit: "Dalton Caldeira", sup: "Henrique Andrade" },
+    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "GRAPPA / Fundação Capelo Gaivota", tit: "Núbia Carneiro Guimarães", sup: "Kelly Mendes Fagundes" },
+    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "Santa Casa / Hosp. Mário Ribeiro", tit: "Nayra Cristine Lacerda Lourens", sup: "Cristiano Júnior" },
+    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "Hosp. Dilson Godinho / APAE / Vovó Clarice", tit: "Hérick Rodrigues Araújo", sup: "Emilly Eunice Antunes Dias Matos" },
+
+    // ── TRABALHADORES DA SAÚDE ──
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "ABO (Odontologia)", tit: "Sheila Silva Mendes", sup: "Mariana Cristina Meira Cambuí" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "Coren-MG (Nível Médio)", tit: "Ernandes Rodrigues Moraes", sup: "Júlio César Araújo Lopes" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "Coren-MG (Nível Superior)", tit: "Fernanda Fagundes Azevedo Sindeaux", sup: "Ricardo Soares de Oliveira" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SEEMG", tit: "Cláudio Luiz de Souza Santos", sup: "Mônica de Fátima Fernandes Ferreira" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SIEESS-MG", tit: "Washington Luíz Carvalho Souto", sup: "Jucélio Bernardes da Silva" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SINDE-SAÚDE-MG", tit: "Edné Silva Soares", sup: "Graciele Gonçalves Ferreira" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SINDSEP-MG", tit: "Edmilson Alves da Silva", sup: "Edvaldo de Freitas Francisco" },
+    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SINDTRRAUX", tit: "Roberto Coelho Ferreira", sup: "Avilmar Augusto Pereira" }
+  ];
+
+  // ═══════════════════════════════════════════
+  // 2. LÓGICA DE RENDERIZAÇÃO E FILTROS
+  // ═══════════════════════════════════════════
+  const tableBody = document.getElementById('tableBody');
+  const noResults = document.getElementById('noResults');
+  const searchInput = document.getElementById('searchInput');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  let currentSegment = 'Todos';
+  let currentSearch = '';
+
+  // Função para criar o HTML de uma linha/card
+  function createRow(item) {
+    return `
+      <div class="list-row">
+        <div class="cell-segment">
+          <span class="segment-badge ${item.css}">${item.seg}</span>
+        </div>
+        <div>
+          <div class="col-label">Entidade / Representação</div>
+          <div class="cell-text cell-bold">${item.rep}</div>
+        </div>
+        <div>
+          <div class="col-label">Titular</div>
+          <div class="cell-text">${item.tit}</div>
+        </div>
+        <div>
+          <div class="col-label">Suplente</div>
+          <div class="cell-text">${item.sup}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Função para aplicar os filtros e atualizar a tela
+  function renderList() {
+    // Filtrar os dados
+    const filtrados = conselheiros.filter(item => {
+      // Filtro de segmento
+      const matchSegment = currentSegment === 'Todos' || item.seg === currentSegment;
+      
+      // Filtro de texto (busca em todos os campos textuais)
+      const termo = currentSearch.toLowerCase();
+      const matchSearch = 
+        item.tit.toLowerCase().includes(termo) ||
+        item.sup.toLowerCase().includes(termo) ||
+        item.rep.toLowerCase().includes(termo) ||
+        item.seg.toLowerCase().includes(termo);
+
+      return matchSegment && matchSearch;
+    });
+
+    // Renderizar
+    if (filtrados.length === 0) {
+      tableBody.innerHTML = '';
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+      tableBody.innerHTML = filtrados.map(createRow).join('');
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  // 3. EVENT LISTENERS
+  // ═══════════════════════════════════════════
+  
+  // Evento de digitação na busca
+  searchInput.addEventListener('input', (e) => {
+    currentSearch = e.target.value;
+    renderList();
+  });
+
+  // Eventos de clique nos botões de segmento
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Atualizar botões ativos
+      filterBtns.forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      
+      // Atualizar estado e renderizar
+      currentSegment = e.target.getAttribute('data-seg');
+      renderList();
+    });
+  });
+
+  // Renderização inicial
+  renderList();
+
+</script>
 </body>
 </html>
