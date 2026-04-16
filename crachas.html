@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos de Crachás — 11ª CMS Montes Claros</title>
+<link href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   TOKENS DO BRAND GUIDE
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --azul-sus:        #1A5EA8;
+  --azul-medio:      #2E8BC0;
+  --azul-wave:       #0D3D6B;
+  --verde-sus:       #3AAA35;
+  --amarelo-brasil:  #F5C800;
+  --vermelho-org:    #E53935;
+  --vermelho-escuro: #B71C1C;
+  --branco-puro:     #FFFFFF;
+  --cinza-off:       #F4F7FB;
+  --cinza-texto:     #2C3E50;
+  --cinza-medio:     #6B7F96;
+  --font: 'Georama', sans-serif;
+  --sombra-card:    0 12px 32px rgba(13,61,107,.15), 0 2px 8px rgba(13,61,107,.08);
+  --radius:   14px;
+  --radius-pill: 999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--cinza-off);
+  color: var(--cinza-texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── NAV TABS ── */
+.header-top {
+  background: var(--azul-wave);
+  padding: 24px 40px 0;
+}
+.page-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -.02em;
+}
+.page-title span { color: var(--amarelo-brasil); }
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 3px solid rgba(245,200,0,.2);
+  gap: 4px;
+}
+.nav-tab {
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  color: rgba(255,255,255,.55);
+  cursor: pointer;
+  background: rgba(255,255,255,.05);
+  border: none;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  transition: all .2s;
+}
+.nav-tab.active {
+  background: rgba(255,255,255,.1);
+  color: var(--amarelo-brasil);
+  border-bottom-color: var(--amarelo-brasil);
+}
+.nav-tab:hover:not(.active) { color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); }
+
+/* ── CONTAINER PRINCIPAL ── */
+.workspace {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle at center, #ffffff 0%, var(--cinza-off) 100%);
+  overflow-y: auto;
+}
+
+.tab-content { 
+  display: none; 
+  animation: fadeIn .3s ease; 
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1300px;
+}
+.tab-content.active { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN DO CRACHÁ (Proporção 10x14 cm aprox)
+   ═══════════════════════════════════════════════════════════════ */
+.cracha {
+  width: 360px;
+  height: 540px;
+  background: var(--branco-puro);
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-card);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.05);
+  flex-shrink: 0;
+}
+
+/* Furo para o cordão */
+.furo-cordao {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 16px;
+  background: var(--cinza-off);
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.15);
+  z-index: 10;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+/* ── CABEÇALHO ── */
+.cracha-header {
+  height: 230px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 48px; /* Espaço seguro para o furo do cordão */
+}
+.cracha-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23FFFFFF' d='M0,80 C360,20 1080,60 1440,0 L1440,80 Z'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+  z-index: 2;
+}
+
+.logo-conf { width: 170px; z-index: 3; position: relative; }
+.papel-badge {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: var(--radius-pill);
+  margin-top: 14px;
+  z-index: 4;
+}
+
+/* ── CORPO (DADOS) ── */
+.cracha-body {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 30px 20px;
+  text-align: center;
+  z-index: 3;
+}
+.cracha-nome {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--cinza-texto);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.gt-info {
+  margin-bottom: auto; /* Empurra os elementos de baixo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.gt-badge {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gt-badge svg {
+  width: 24px;
+  height: 24px;
+}
+.gt-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cinza-texto);
+  line-height: 1.3;
+  max-width: 280px;
+}
+.segmento-tag {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ── RODAPÉ ── */
+.cracha-footer {
+  height: 110px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+.cracha-footer::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23FFFFFF' d='M1440,0 C1080,60 360,20 0,0 L0,0 L1440,0 Z'/%3E%3C/svg%3E") no-repeat top;
+  background-size: cover;
+  z-index: 2;
+}
+.logo-pref { width: 140px; z-index: 3; position: relative; margin-top: 10px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   TEMAS DOS SEGMENTOS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1. USUÁRIO (Azul SUS) */
+.theme-usuario .cracha-header, .theme-usuario .cracha-footer { background: linear-gradient(145deg, var(--azul-sus) 0%, var(--azul-medio) 100%); }
+.theme-usuario .segmento-tag { background: #E8F4FD; color: var(--azul-sus); }
+.theme-usuario .papel-badge { background: #fff; color: var(--azul-sus); border: 1.5px solid var(--azul-sus); }
+.theme-usuario .gt-badge { color: var(--azul-sus); }
+
+/* 2. TRABALHADOR (Verde SUS) */
+.theme-trabalhador .cracha-header, .theme-trabalhador .cracha-footer { background: linear-gradient(145deg, #2E8A2A 0%, var(--verde-sus) 100%); }
+.theme-trabalhador .segmento-tag { background: #E8F8EC; color: #1B7A30; }
+.theme-trabalhador .papel-badge { background: #fff; color: #1B7A30; border: 1.5px solid #1B7A30; }
+.theme-trabalhador .gt-badge { color: #1B7A30; }
+
+/* 3. GESTOR / PRESTADOR (Amarelo Brasil) */
+.theme-gestor .cracha-header, .theme-gestor .cracha-footer { background: linear-gradient(145deg, #FFD622 0%, var(--amarelo-brasil) 100%); }
+.theme-gestor .segmento-tag { background: #FEF8E7; color: #9A6500; }
+.theme-gestor .papel-badge { background: #fff; color: #9A6500; border: 1.5px solid #9A6500; }
+.theme-gestor .gt-badge { color: #9A6500; }
+
+/* 4. ORGANIZAÇÃO (Vermelho) */
+.theme-org .cracha-header, .theme-org .cracha-footer { background: linear-gradient(145deg, var(--vermelho-escuro) 0%, var(--vermelho-org) 100%); }
+.theme-org .segmento-tag { background: #FFEBEE; color: var(--vermelho-escuro); }
+.theme-org .papel-badge { background: #fff; color: var(--vermelho-escuro); border: 1.5px solid var(--vermelho-escuro); }
+
+/* ── DECORAÇÃO ASSINATURA (GRADIENT BAR) ── */
+.gradient-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--azul-sus), var(--verde-sus), var(--amarelo-brasil));
+  z-index: 10;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="header-top">
+    <h1 class="page-title">Sistema de Crachás <span>11ª CMS</span></h1>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showTab('usuario')">🔵 Usuário</button>
+      <button class="nav-tab" onclick="showTab('trabalhador')">🟢 Trabalhador</button>
+      <button class="nav-tab" onclick="showTab('gestor')">🟡 Gestor/Prestador</button>
+      <button class="nav-tab" onclick="showTab('org')">🔴 Organização</button>
+    </div>
+  </div>
+
+  <div class="workspace">
+
+    <!-- ==========================================
+         CRACHÁ: USUÁRIO
+         ========================================== -->
+    <div id="tab-usuario" class="tab-content active">
+      
+      <!-- GT 1 -->
+      <div class="cracha theme-usuario">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Maria de Fátima Silva</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              GT 1
+            </span>
+            <span class="gt-title">A Máquina Pública — Gestão, Trabalho e Infraestrutura</span>
+          </div>
+          <span class="segmento-tag">Usuário do SUS</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+      <!-- GT 2 -->
+      <div class="cracha theme-usuario">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">José Carlos Oliveira</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              GT 2
+            </span>
+            <span class="gt-title">A Base do Cuidado — Atenção Primária e Populações Prioritárias</span>
+          </div>
+          <span class="segmento-tag">Usuário do SUS</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+      <!-- GT 3 -->
+      <div class="cracha theme-usuario">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Ana Lúcia dos Santos</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              GT 3
+            </span>
+            <span class="gt-title">A Rede e o Entorno — Especialidades, Assistência e Vigilância</span>
+          </div>
+          <span class="segmento-tag">Usuário do SUS</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CRACHÁ: TRABALHADOR
+         ========================================== -->
+    <div id="tab-trabalhador" class="tab-content">
+      
+      <!-- GT 1 -->
+      <div class="cracha theme-trabalhador">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Carlos Eduardo Mendes</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              GT 1
+            </span>
+            <span class="gt-title">A Máquina Pública — Gestão, Trabalho e Infraestrutura</span>
+          </div>
+          <span class="segmento-tag">Trabalhador de Saúde</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+      <!-- GT 2 -->
+      <div class="cracha theme-trabalhador">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Fernanda Lima Costa</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              GT 2
+            </span>
+            <span class="gt-title">A Base do Cuidado — Atenção Primária e Populações Prioritárias</span>
+          </div>
+          <span class="segmento-tag">Trabalhador de Saúde</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+      <!-- GT 3 -->
+      <div class="cracha theme-trabalhador">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Roberto Alves Júnior</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              GT 3
+            </span>
+            <span class="gt-title">A Rede e o Entorno — Especialidades, Assistência e Vigilância</span>
+          </div>
+          <span class="segmento-tag">Trabalhador de Saúde</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CRACHÁ: GESTOR / PRESTADOR
+         ========================================== -->
+    <div id="tab-gestor" class="tab-content">
+      
+      <!-- GT 1 -->
+      <div class="cracha theme-gestor">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/7JqHXFZC/conf-preto2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Dr. Roberto Nogueira</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              GT 1
+            </span>
+            <span class="gt-title">A Máquina Pública — Gestão, Trabalho e Infraestrutura</span>
+          </div>
+          <span class="segmento-tag">Gestor / Prestador</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/Rp0vZ1JJ/pref-1.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+      <!-- GT 2 -->
+      <div class="cracha theme-gestor">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/7JqHXFZC/conf-preto2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">Márcia Guimarães</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              GT 2
+            </span>
+            <span class="gt-title">A Base do Cuidado — Atenção Primária e Populações Prioritárias</span>
+          </div>
+          <span class="segmento-tag">Gestor / Prestador</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/Rp0vZ1JJ/pref-1.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+      <!-- GT 3 -->
+      <div class="cracha theme-gestor">
+        <div class="furo-cordao"></div>
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/7JqHXFZC/conf-preto2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        <div class="cracha-body">
+          <h2 class="cracha-nome">João Batista Teixeira</h2>
+          <div class="gt-info">
+            <span class="gt-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              GT 3
+            </span>
+            <span class="gt-title">A Rede e o Entorno — Especialidades, Assistência e Vigilância</span>
+          </div>
+          <span class="segmento-tag">Gestor / Prestador</span>
+          <div class="papel-badge">Delegado</div>
+        </div>
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/Rp0vZ1JJ/pref-1.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CRACHÁ: ORGANIZAÇÃO (Mantido Apenas 1)
+         ========================================== -->
+    <div id="tab-org" class="tab-content">
+      <div class="cracha theme-org">
+        <div class="furo-cordao"></div>
+        
+        <div class="cracha-header">
+          <img src="https://i.ibb.co/6c7MHdY8/conf-branco2.png" alt="11ª CMS" class="logo-conf">
+        </div>
+        
+        <div class="cracha-body">
+          <h2 class="cracha-nome" style="margin-bottom: auto;">Ana Paula Gusmão</h2>
+          <span class="segmento-tag">Comissão Organizadora</span>
+          <div class="papel-badge">Organização</div>
+        </div>
+        
+        <div class="cracha-footer">
+          <img src="https://i.ibb.co/gbKDFPGN/pref-branco.png" alt="Prefeitura Montes Claros" class="logo-pref">
+          <div class="gradient-bar"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  function showTab(tabId) {
+    // Esconde todos
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+    
+    // Mostra o clicado
+    document.getElementById('tab-' + tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
