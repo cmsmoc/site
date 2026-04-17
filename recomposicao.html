@@ -3,554 +3,941 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conselho Municipal de Saúde - Montes Claros</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<title>Recomposição Conselho Municipal de Saúde 2026-2029</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ═══════════════════════════════════════════
-     RESET & TOKENS
-  ═══════════════════════════════════════════ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ════════════════════════════════════════════════════
+   CMS MONTES CLAROS · MASTER CSS
+   Design System · Cards e Destaques Visuais
+════════════════════════════════════════════════════ */
 
-  :root {
-    --navy:   #0D2E5A;
-    --blue:   #1B6CB5;
-    --green:  #1E8A4A;
-    --yellow: #F5C400;
-    --white:  #FFFFFF;
-    --off:    #F7F8FA;
-    --ink:    #111827;
-    --muted:  #6B7280;
-    --border: #E5E7EB;
-    --red:    #C0392B;
-    
-    --seg-gestao: #1B6CB5; /* Azul */
-    --seg-user: #1E8A4A;   /* Verde */
-    --seg-prest: #F5C400;  /* Amarelo */
-    --seg-trab: #C0392B;   /* Vermelho */
+:root {
+  /* cores */
+  --cms-navy:    #0D2E5A;
+  --cms-blue:    #1B6CB5;
+  --cms-green:   #1E8A4A;
+  --cms-yellow:  #F5C400;
+  --cms-white:   #FFFFFF;
+  --cms-off:     #F7F8FA;
+  --cms-ink:     #111827;
+  --cms-muted:   #6B7280;
+  --cms-border:  #E5E7EB;
 
-    --font-d: 'Montserrat', sans-serif;
-    --font-b: 'Open Sans', sans-serif;
-  }
+  /* tipografia */
+  --font-display: 'Montserrat', Helvetica, sans-serif;
+  --font-body:    'Open Sans', Arial, sans-serif;
 
-  body {
-    font-family: var(--font-b);
-    background-color: var(--off);
-    color: var(--ink);
-    line-height: 1.6;
-    padding-bottom: 60px;
-  }
+  /* espaçamentos e raios */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  32px;
+  --space-lg:  64px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 
-  /* ═══════════════════════════════════════════
-     HEADER INSTITUCIONAL
-  ═══════════════════════════════════════════ */
-  header {
-    background-color: var(--navy);
-    color: var(--white);
-    padding: 60px 24px;
-    position: relative;
-    overflow: hidden;
-  }
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.04);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+}
 
-  header::after {
-    content: '';
-    position: absolute;
-    bottom: -50px; right: -50px;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(27,108,181,0.3) 0%, transparent 70%);
-    pointer-events: none;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
-    z-index: 2;
-  }
+body {
+  font-family: var(--font-body);
+  background: var(--cms-off);
+  color: var(--cms-ink);
+  line-height: 1.6;
+}
 
-  .title-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(245,196,0,0.15);
-    border: 1px solid rgba(245,196,0,0.4);
-    color: var(--yellow);
-    padding: 6px 14px;
-    border-radius: 4px;
-    font-family: var(--font-d);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    width: max-content;
-  }
+/* ── LAYOUT ── */
+.cms-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
 
-  h1 {
-    font-family: var(--font-d);
-    font-size: clamp(28px, 5vw, 42px);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    max-width: 800px;
-  }
+.cms-section {
+  padding: var(--space-lg) 0;
+}
 
-  .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 16px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-  }
+.cms-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.cms-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+@media (max-width: 860px) {
+  .cms-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .cms-grid-2, .cms-grid-3 { grid-template-columns: 1fr; }
+}
 
-  .contact-item svg {
-    width: 16px; height: 16px;
-    color: var(--yellow);
-  }
+/* ── HEADER HERO ── */
+.hero {
+  background: var(--cms-navy);
+  color: var(--cms-white);
+  padding: var(--space-lg) 0 var(--space-md);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 6px solid;
+  border-image: linear-gradient(to right, var(--cms-yellow) 33%, var(--cms-green) 33% 66%, var(--cms-blue) 66%) 1;
+}
+.hero::after {
+  content: '';
+  position: absolute; right: -50px; top: -50px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,196,0,0.15) 0%, transparent 70%);
+}
+.hero-label {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cms-yellow);
+  margin-bottom: 16px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+.hero-title span { color: var(--cms-blue); }
+.hero-desc {
+  font-size: 15px; color: rgba(255,255,255,0.7);
+  max-width: 500px; font-weight: 300;
+}
+.hero-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 24px;
+  display: block;
+}
 
-  /* ═══════════════════════════════════════════
-     MAIN CONTENT & FILTERS
-  ═══════════════════════════════════════════ */
-  main {
-    max-width: 1200px;
-    margin: -40px auto 0;
-    padding: 0 24px;
-    position: relative;
-    z-index: 10;
-  }
+/* ── SECTION HEADERS ── */
+.sec-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--space-md);
+}
+.sec-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+}
+.sec-title {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 800;
+  color: var(--cms-navy);
+  letter-spacing: -0.5px;
+}
+.sec-badge {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+}
 
-  .controls-card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+/* ── CARDS ── */
+.entity-card {
+  background: var(--cms-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--cms-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex; flex-direction: column;
+}
+.entity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
 
-  .controls-header {
-    font-family: var(--font-d);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--navy);
-  }
+.entity-header {
+  padding: 20px 24px;
+  background: rgba(247, 248, 250, 0.5);
+  border-bottom: 1px solid var(--cms-border);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.entity-icon-sm {
+  flex-shrink: 0; width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: -2px;
+}
+.entity-name {
+  font-family: var(--font-display);
+  font-size: 18px; font-weight: 700;
+  color: var(--cms-navy);
+  line-height: 1.3;
+}
+.entity-sub {
+  font-size: 13px; color: var(--cms-muted);
+  margin-top: 4px; line-height: 1.4;
+}
 
-  .filters-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
-    justify-content: space-between;
-  }
+.entity-body {
+  padding: 24px;
+  display: flex; flex-direction: column; gap: 16px;
+  flex: 1;
+}
+.member-block { display: flex; flex-direction: column; gap: 6px; }
 
-  .search-box {
-    position: relative;
-    flex: 1;
-    min-width: 280px;
-  }
+/* ── BADGES & TAGS ── */
+.cms-tag {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.tag-titular { background: var(--cms-blue); color: white; }
+.tag-suplente { background: transparent; border: 1px solid var(--cms-muted); color: var(--cms-muted); }
 
-  .search-box input {
-    width: 100%;
-    padding: 14px 16px 14px 44px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-family: var(--font-b);
-    font-size: 15px;
-    color: var(--ink);
-    transition: border-color 0.3s;
-  }
+/* Variações por Tema */
+/* 1. Gestão (Blue) */
+.theme-blue .sec-icon { background: var(--cms-blue); }
+.theme-blue .sec-badge { background: rgba(27,108,181,0.1); color: var(--cms-blue); }
+.theme-blue .entity-card { border-top: 3px solid var(--cms-blue); }
+.theme-blue .entity-icon-sm { background: rgba(27,108,181,0.1); color: var(--cms-blue); }
 
-  .search-box input:focus {
-    outline: none;
-    border-color: var(--blue);
-  }
+/* 2. Usuários (Yellow) */
+.theme-yellow .sec-icon { background: var(--cms-yellow); color: var(--cms-navy); }
+.theme-yellow .sec-badge { background: rgba(245,196,0,0.2); color: var(--cms-navy); }
+.theme-yellow .entity-card { border-top: 3px solid var(--cms-yellow); }
+.theme-yellow .entity-icon-sm { background: rgba(245,196,0,0.15); color: var(--cms-yellow); }
+.theme-yellow .tag-titular { background: var(--cms-yellow); color: var(--cms-navy); }
 
-  .search-box svg {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    color: var(--muted);
-  }
+/* 3. Prestadores (Green) */
+.theme-green .sec-icon { background: var(--cms-green); }
+.theme-green .sec-badge { background: rgba(30,138,74,0.1); color: var(--cms-green); }
+.theme-green .entity-card { border-top: 3px solid var(--cms-green); }
+.theme-green .entity-icon-sm { background: rgba(30,138,74,0.1); color: var(--cms-green); }
+.theme-green .tag-titular { background: var(--cms-green); color: white; }
 
-  .segment-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+/* 4. Trabalhadores (Navy) */
+.theme-navy .sec-icon { background: var(--cms-navy); }
+.theme-navy .sec-badge { background: rgba(13,46,90,0.1); color: var(--cms-navy); }
+.theme-navy .entity-card { border-top: 3px solid var(--cms-navy); }
+.theme-navy .entity-icon-sm { background: rgba(13,46,90,0.1); color: var(--cms-navy); }
+.theme-navy .tag-titular { background: var(--cms-navy); color: white; }
 
-  .filter-btn {
-    padding: 10px 16px;
-    background: var(--off);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-family: var(--font-d);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
+/* ── TYPOGRAPHY UTILS ── */
+.member-name {
+  font-size:21px; font-weight: 600; color: var(--cms-ink);
+  display: flex; align-items: center; gap: 8px;
+}
+.member-name svg { color: var(--cms-muted); width: 18px; height: 18px; flex-shrink: 0; }
+.member-name.suplente { font-weight: 400; color: #4B5563; }
 
-  .filter-btn:hover {
-    background: #E5E7EB;
-    color: var(--ink);
-  }
-
-  .filter-btn.active {
-    background: var(--navy);
-    color: var(--white);
-    border-color: var(--navy);
-  }
-
-  /* ═══════════════════════════════════════════
-     TABLE / LIST
-  ═══════════════════════════════════════════ */
-  .list-container {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-
-  .list-header {
-    display: grid;
-    grid-template-columns: 180px 1.2fr 1fr 1fr;
-    gap: 16px;
-    padding: 16px 24px;
-    background: var(--off);
-    border-bottom: 1px solid var(--border);
-    font-family: var(--font-d);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .list-body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .list-row {
-    display: grid;
-    grid-template-columns: 180px 1.2fr 1fr 1fr;
-    gap: 16px;
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--border);
-    align-items: center;
-    transition: background-color 0.2s;
-  }
-
-  .list-row:last-child {
-    border-bottom: none;
-  }
-
-  .list-row:hover {
-    background-color: #F8FAFC;
-  }
-
-  .col-label {
-    display: none; /* Only for mobile */
-    font-family: var(--font-d);
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-
-  .cell-text {
-    font-size: 14px;
-    color: var(--ink);
-  }
-
-  .cell-bold {
-    font-weight: 600;
-    font-family: var(--font-d);
-    color: var(--navy);
-  }
-
-  /* ── BADGES DE SEGMENTO ── */
-  .segment-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-family: var(--font-d);
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  .seg-gestao { background: rgba(27,108,181,0.1); color: var(--seg-gestao); border: 1px solid rgba(27,108,181,0.2); }
-  .seg-user { background: rgba(30,138,74,0.1); color: var(--seg-user); border: 1px solid rgba(30,138,74,0.2); }
-  .seg-prest { background: rgba(245,196,0,0.15); color: #B28E00; border: 1px solid rgba(245,196,0,0.4); }
-  .seg-trab { background: rgba(192,57,43,0.1); color: var(--seg-trab); border: 1px solid rgba(192,57,43,0.2); }
-
-  /* ── EMPTY STATE ── */
-  .no-results {
-    padding: 60px 24px;
-    text-align: center;
-    color: var(--muted);
-    font-family: var(--font-d);
-    font-size: 16px;
-    display: none;
-  }
-
-  /* ═══════════════════════════════════════════
-     RESPONSIVE (MOBILE)
-  ═══════════════════════════════════════════ */
-  @media (max-width: 900px) {
-    .list-header {
-      display: none;
-    }
-    
-    .list-row {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding: 24px;
-      align-items: start;
-    }
-
-    .col-label {
-      display: block;
-    }
-
-    .cell-segment {
-      margin-bottom: 8px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .filter-btn {
-      flex: 1 1 calc(50% - 8px);
-      text-align: center;
-    }
-    .filter-btn[data-seg="Todos"] {
-      flex: 1 1 100%;
-    }
-  }
+/* ── FOOTER ── */
+.cms-footer {
+  background: var(--cms-navy);
+  color: rgba(255,255,255,.55);
+  text-align: center;
+  padding: var(--space-md) var(--space-lg);
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.cms-footer strong { color: rgba(255,255,255,.85); }
 </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO -->
-  <header>
-    <div class="header-content">
-      <div class="title-badge">Órgão Deliberativo</div>
-      <h1>Conselho Municipal de Saúde de Montes Claros</h1>
-      
-      <div class="contact-info">
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Av. Governador Magalhães Pinto, nº 4000, Jaraguá - Montes Claros/MG
+<!-- HERO HEADER -->
+<header class="hero">
+  <div class="cms-wrap">
+    <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/cms01.png" alt="Logo Conselho Municipal de Saúde de Montes Claros" class="hero-logo">
+    <p class="hero-label">Conselho Municipal de Saúde · Montes Claros - MG</p>
+    <h1 class="hero-title">RECOMPOSIÇÃO<br><span>2026—2029</span></h1>
+    <p class="hero-desc">Diretório oficial de conselheiros titulares e suplentes, divididos por segmentos de representação no controle social da Política de Saúde.</p>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- SEÇÃO 1: USUÁRIOS -->
+  <section class="cms-section theme-yellow">
+    <div class="cms-wrap">
+      <div class="sec-header">
+        <div class="sec-icon">
+          <!-- Users Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          (38) 2211-4356
+        <div>
+          <span class="sec-badge">Segmento 01</span>
+          <h2 class="sec-title">Usuários do SUS</h2>
         </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          cmsmocmg@gmail.com
+      </div>
+
+      <div class="cms-grid-3">
+        <!-- 1 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Conselhos Locais de Saúde</h3>
+            <p class="entity-sub">Jardim Primavera / Independência</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Joel Francisco Borges</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Amanda Mendes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Conselhos Locais de Saúde</h3>
+            <p class="entity-sub">Renascença / Planalto</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Emanuela Tomaz</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Sérgio Peres</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Conselhos Locais de Saúde</h3>
+            <p class="entity-sub">Vila Atlântica / Delfino Magalhães</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Danielle Santos Sousa</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Laryssa Félix</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Assembleia de Deus Madureira</h3>
+            <p class="entity-sub">Entidade Religiosa</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Luciana de J. S. Cardoso</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Julio César Pereira</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Fundação Sara Albuquerque</h3>
+            <p class="entity-sub">Organização Social</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Roberta Cunha Mota Santos</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Elizete Santos Barbosa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Arquidiocese de Montes Claros</h3>
+            <p class="entity-sub">Pastoral da Saúde</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Maria dos Reis Ribeiro Dias</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Cristina da S. Q. Landgraf</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Associação Consciência Ativa</h3>
+            <p class="entity-sub">Organização Social</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Marilda Batista da Silva</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Fabiana Pereira Mori</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">ANDA</h3>
+            <p class="entity-sub">Apoio ao Autista</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Farley Sindeaux Ribeiro</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Jamilson Moreira Gandra</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">ADEMOC</h3>
+            <p class="entity-sub">Organização Social</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Fernando A. D. de Andrade</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Helder Lopes Souza</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Sind. Trab. Rurais (CUT)</h3>
+            <p class="entity-sub">Sindicato</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Naiara Oliveira</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Luiz Antônio Mendes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Lar Betânia / C. Metropolitano</h3>
+            <p class="entity-sub">Composição de Representação</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Aniele Costa Silva</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Jaqueline da Conceição Camelo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Assoc. Arco-Íris / MGG</h3>
+            <p class="entity-sub">Movimento Gay dos Gerais</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Paulo Thiago C. S. Ribeiro</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> José Cândido de Souza Filho</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Rotary Clube</h3>
+            <p class="entity-sub">Organização Social</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Rafael Carvalho Maciel</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Juliana Aparecida de Oliveira</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">UPM</h3>
+            <p class="entity-sub">União Popular da Mulher</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Isabel Macedo Avelar</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Marisa Cantidio Oliveira</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Clínica Rosa Mística</h3>
+            <p class="entity-sub">Entidade Social / Saúde</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Cláudia Rocha Biscotto</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Patrícia Soares Gomes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Associação Presente</h3>
+            <p class="entity-sub">Apoio a Pacientes</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Cindy Almeyda Reis</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Sandra Simony M. Gonçalves</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main>
-    
-    <!-- CONTROLES (BUSCA E FILTROS) -->
-    <div class="controls-card">
-      <div class="controls-header">Diretório de Conselheiros</div>
-      <div class="filters-row">
-        
-        <div class="search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="searchInput" placeholder="Buscar por nome, entidade ou segmento...">
+  <!-- SEÇÃO 2: TRABALHADORES -->
+  <section class="cms-section theme-navy" style="background: white;">
+    <div class="cms-wrap">
+      <div class="sec-header">
+        <div class="sec-icon">
+          <!-- Briefcase/Badge Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <div>
+          <span class="sec-badge">Segmento 02</span>
+          <h2 class="sec-title">Trabalhadores de Saúde</h2>
+        </div>
+      </div>
+
+      <div class="cms-grid-2">
+        <!-- Card 1 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">ABO</h3>
+            <p class="entity-sub">Associação Brasileira de Odontologia</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Sheila Silva Mendes</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Mariana Cristina Meira Cambuí</p>
+            </div>
+          </div>
         </div>
 
-        <div class="segment-filters" id="filterButtons">
-          <button class="filter-btn active" data-seg="Todos">Todos</button>
-          <button class="filter-btn" data-seg="Gestão Pública">Gestão Pública</button>
-          <button class="filter-btn" data-seg="Usuários do SUS">Usuários</button>
-          <button class="filter-btn" data-seg="Prestadores de Serviço">Prestadores</button>
-          <button class="filter-btn" data-seg="Trabalhadores da Saúde">Trabalhadores</button>
+        <!-- Card 2 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Coren-MG</h3>
+            <p class="entity-sub">Trabalhadores de Nível Médio</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Ernandes Rodrigues Moraes</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Júlio César Araújo Lopes</p>
+            </div>
+          </div>
         </div>
 
+        <!-- Card 3 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">Coren-MG</h3>
+            <p class="entity-sub">Trabalhadores de Nível Superior</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Fernanda F. Azevedo Sindeaux</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Ricardo Soares de Oliveira</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">SEEMG</h3>
+            <p class="entity-sub">Sindicato</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Cláudio Luiz de Souza Santos</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Mônica de F. Fernandes Ferreira</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">SIEESS-MG</h3>
+            <p class="entity-sub">Sindicato</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Washington Luíz Carvalho Souto</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Jucélio Bernardes da Silva</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">SINDE-SAÚDE-MG</h3>
+            <p class="entity-sub">Sindicato</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Edné Silva Soares</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Graciele Gonçalves Ferreira</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">SINDSEP-MG</h3>
+            <p class="entity-sub">Sindicato</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Edmilson Alves da Silva</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Edvaldo de Freitas Francisco</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <h3 class="entity-name">SINDTRRAUX</h3>
+            <p class="entity-sub">Sindicato</p>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Roberto Coelho Ferreira</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Avilmar Augusto Pereira</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- LISTA / TABELA -->
-    <div class="list-container">
-      <div class="list-header">
-        <div>Segmento</div>
-        <div>Entidade / Representação</div>
-        <div>Titular</div>
-        <div>Suplente</div>
+  <!-- SEÇÃO 3: PRESTADORES -->
+  <section class="cms-section theme-green">
+    <div class="cms-wrap">
+      <div class="sec-header">
+        <div class="sec-icon">
+          <!-- Hospital/Health Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <span class="sec-badge">Segmento 03</span>
+          <h2 class="sec-title">Prestadores de Serviço</h2>
+        </div>
       </div>
-      
-      <div class="list-body" id="tableBody">
-        <!-- Linhas injetadas via JavaScript -->
-      </div>
-      
-      <div class="no-results" id="noResults">
-        Nenhum conselheiro encontrado para a sua busca.
+
+      <div class="cms-grid-2">
+        <!-- Card 1 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><path d="M12 11v6"/><path d="M9 14h6"/></svg></div>
+            <div>
+              <h3 class="entity-name">Hospital Universitário</h3>
+              <p class="entity-sub">Clemente Faria</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Dalton Caldeira</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Henrique Andrade</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+            <div>
+              <h3 class="entity-name">Grappa / F. Capelo Gaivota</h3>
+              <p class="entity-sub">Composição de Instituições</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Núbia Carneiro Guimarães</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Kelly Mendes Fagundes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><path d="M12 11v6"/><path d="M9 14h6"/></svg></div>
+            <div>
+              <h3 class="entity-name">Santa Casa / H. Mário Ribeiro</h3>
+              <p class="entity-sub">Hospitais Filantrópicos</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Nayra Cristine Lacerda Lourens</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Cristiano Júnior</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5h-2V3a1 1 0 00-1-1H8a1 1 0 00-1 1v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2zM8 4h8v1H8V4zM12 10v4m-2-2h4"/></svg></div>
+            <div>
+              <h3 class="entity-name">Hosp. Dilson Godinho / Apae</h3>
+              <p class="entity-sub">Composição de Instituições</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Hérick Rodrigues Araújo</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Emilly Eunice A. Dias Matos</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-  </main>
-
-<script>
-  // ═══════════════════════════════════════════
-  // 1. DADOS DOS CONSELHEIROS
-  // ═══════════════════════════════════════════
-  const conselheiros = [
-    // ── GESTÃO PÚBLICA ──
-    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Municipal", tit: "Eduardo Luiz da Silva", sup: "João Alves Pereira" },
-    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Municipal", tit: "Maria Clara Lélis Ramos Cordeira", sup: "Raimara Gonçalves Pereira" },
-    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Municipal", tit: "Marcio Cardoso Silva", sup: "Marcos Dangelis Aguiar" },
-    { seg: "Gestão Pública", css: "seg-gestao", rep: "Gestão Estadual (GRS)", tit: "Rafaela Freitas", sup: "Agna Soares" },
-    
-    // ── USUÁRIOS DO SUS ──
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Conselhos Locais (Primavera / Independência)", tit: "Joel Francisco Borges", sup: "Amanda Mendes" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Conselhos Locais (Renascença / Planalto)", tit: "Emanuela Tomaz", sup: "Sérgio Peres" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Conselhos Locais (Vila Atlântica / Delfino)", tit: "Danielle Santos Sousa", sup: "Laryssa Félix" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Assembleia de Deus Madureira", tit: "Luciana de Jesus Santos Cardoso", sup: "Julio César Pereira" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Fundação Sara Albuquerque", tit: "Roberta Cunha Mota Santos", sup: "Elizete Santos Barbosa" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Arquidiocese (Pastoral da Saúde)", tit: "Maria dos Reis Ribeiro Dias", sup: "Cristina da Silva Queiroz Landgraf" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Associação Consciência Ativa", tit: "Marilda Batista da Silva", sup: "Fabiana Pereira Mori" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "ANDA (Apoio ao Autista)", tit: "Farley Sindeaux Ribeiro", sup: "Jamilson Moreira Gandra" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "ADEMOC", tit: "Fernando Antônio Dias de Andrade", sup: "Helder Lopes Souza" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Sindicato dos Trab. Rurais (CUT)", tit: "Naiara Oliveira", sup: "Luiz Antônio Mendes" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Lar Betânia / Metropolitano / Velhinhas", tit: "Aniele Costa Silva", sup: "Jaqueline da Conceição Camelo" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Assoc. Arco-Íris / Movimento Gay (MGG)", tit: "Paulo Thiago Carvalho Soares Ribeiro", sup: "José Cândido de Souza Filho" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Rotary Clube", tit: "Rafael Carvalho Maciel", sup: "Juliana Aparecida de Oliveira" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "UPM (União Popular da Mulher)", tit: "Isabel Macedo Avelar", sup: "Marisa Cantidio Oliveira" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Clínica Rosa Mística", tit: "Cláudia Rocha Biscotto", sup: "Patrícia Soares Gomes" },
-    { seg: "Usuários do SUS", css: "seg-user", rep: "Associação Presente", tit: "Cindy Almeyda Reis", sup: "Sandra Simony Mendes Gonçalves" },
-
-    // ── PRESTADORES DE SERVIÇO ──
-    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "Hosp. Univ. Clemente Faria", tit: "Dalton Caldeira", sup: "Henrique Andrade" },
-    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "GRAPPA / Fundação Capelo Gaivota", tit: "Núbia Carneiro Guimarães", sup: "Kelly Mendes Fagundes" },
-    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "Santa Casa / Hosp. Mário Ribeiro", tit: "Nayra Cristine Lacerda Lourens", sup: "Cristiano Júnior" },
-    { seg: "Prestadores de Serviço", css: "seg-prest", rep: "Hosp. Dilson Godinho / APAE / Vovó Clarice", tit: "Hérick Rodrigues Araújo", sup: "Emilly Eunice Antunes Dias Matos" },
-
-    // ── TRABALHADORES DA SAÚDE ──
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "ABO (Odontologia)", tit: "Sheila Silva Mendes", sup: "Mariana Cristina Meira Cambuí" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "Coren-MG (Nível Médio)", tit: "Ernandes Rodrigues Moraes", sup: "Júlio César Araújo Lopes" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "Coren-MG (Nível Superior)", tit: "Fernanda Fagundes Azevedo Sindeaux", sup: "Ricardo Soares de Oliveira" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SEEMG", tit: "Cláudio Luiz de Souza Santos", sup: "Mônica de Fátima Fernandes Ferreira" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SIEESS-MG", tit: "Washington Luíz Carvalho Souto", sup: "Jucélio Bernardes da Silva" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SINDE-SAÚDE-MG", tit: "Edné Silva Soares", sup: "Graciele Gonçalves Ferreira" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SINDSEP-MG", tit: "Edmilson Alves da Silva", sup: "Edvaldo de Freitas Francisco" },
-    { seg: "Trabalhadores da Saúde", css: "seg-trab", rep: "SINDTRRAUX", tit: "Roberto Coelho Ferreira", sup: "Avilmar Augusto Pereira" }
-  ];
-
-  // ═══════════════════════════════════════════
-  // 2. LÓGICA DE RENDERIZAÇÃO E FILTROS
-  // ═══════════════════════════════════════════
-  const tableBody = document.getElementById('tableBody');
-  const noResults = document.getElementById('noResults');
-  const searchInput = document.getElementById('searchInput');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-
-  let currentSegment = 'Todos';
-  let currentSearch = '';
-
-  // Função para criar o HTML de uma linha/card
-  function createRow(item) {
-    return `
-      <div class="list-row">
-        <div class="cell-segment">
-          <span class="segment-badge ${item.css}">${item.seg}</span>
+  <!-- SEÇÃO 4: GESTÃO -->
+  <section class="cms-section theme-blue" style="background: white;">
+    <div class="cms-wrap">
+      <div class="sec-header">
+        <div class="sec-icon">
+          <!-- Building Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M16 10h.01"></path><path d="M8 14h.01"></path><path d="M16 14h.01"></path></svg>
         </div>
         <div>
-          <div class="col-label">Entidade / Representação</div>
-          <div class="cell-text cell-bold">${item.rep}</div>
-        </div>
-        <div>
-          <div class="col-label">Titular</div>
-          <div class="cell-text">${item.tit}</div>
-        </div>
-        <div>
-          <div class="col-label">Suplente</div>
-          <div class="cell-text">${item.sup}</div>
+          <span class="sec-badge">Segmento 04</span>
+          <h2 class="sec-title">Gestão Pública</h2>
         </div>
       </div>
-    `;
-  }
 
-  // Função para aplicar os filtros e atualizar a tela
-  function renderList() {
-    // Filtrar os dados
-    const filtrados = conselheiros.filter(item => {
-      // Filtro de segmento
-      const matchSegment = currentSegment === 'Todos' || item.seg === currentSegment;
-      
-      // Filtro de texto (busca em todos os campos textuais)
-      const termo = currentSearch.toLowerCase();
-      const matchSearch = 
-        item.tit.toLowerCase().includes(termo) ||
-        item.sup.toLowerCase().includes(termo) ||
-        item.rep.toLowerCase().includes(termo) ||
-        item.seg.toLowerCase().includes(termo);
+      <div class="cms-grid-2">
+        <!-- Card 1 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 014 0v4"/></svg></div>
+            <div>
+              <h3 class="entity-name">Gestão Municipal</h3>
+              <p class="entity-sub">Prefeitura de Montes Claros</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Eduardo Luiz da Silva</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> João Alves Pereira</p>
+            </div>
+          </div>
+        </div>
 
-      return matchSegment && matchSearch;
-    });
+        <!-- Card 2 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 014 0v4"/></svg></div>
+            <div>
+              <h3 class="entity-name">Gestão Municipal</h3>
+              <p class="entity-sub">Prefeitura de Montes Claros</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Maria Clara Lélis Ramos Cordeira</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Raimara Gonçalves Pereira</p>
+            </div>
+          </div>
+        </div>
 
-    // Renderizar
-    if (filtrados.length === 0) {
-      tableBody.innerHTML = '';
-      noResults.style.display = 'block';
-    } else {
-      noResults.style.display = 'none';
-      tableBody.innerHTML = filtrados.map(createRow).join('');
-    }
-  }
+        <!-- Card 3 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 014 0v4"/></svg></div>
+            <div>
+              <h3 class="entity-name">Gestão Municipal</h3>
+              <p class="entity-sub">Prefeitura de Montes Claros</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Marcio Cardoso Silva</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Marcos Dangelis Aguiar</p>
+            </div>
+          </div>
+        </div>
 
-  // ═══════════════════════════════════════════
-  // 3. EVENT LISTENERS
-  // ═══════════════════════════════════════════
-  
-  // Evento de digitação na busca
-  searchInput.addEventListener('input', (e) => {
-    currentSearch = e.target.value;
-    renderList();
-  });
+        <!-- Card 4 -->
+        <div class="entity-card">
+          <div class="entity-header">
+            <div class="entity-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4-9 4-9-4 9-4zm0 10l9-4v6l-9 4-9-4V8l9 4z"/></svg></div>
+            <div>
+              <h3 class="entity-name">Gestão Pública Estadual</h3>
+              <p class="entity-sub">GRS - Gerência Regional de Saúde</p>
+            </div>
+          </div>
+          <div class="entity-body">
+            <div class="member-block">
+              <span class="cms-tag tag-titular">Titular</span>
+              <p class="member-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> Rafaela Freitas</p>
+            </div>
+            <div class="member-block">
+              <span class="cms-tag tag-suplente">Suplente</span>
+              <p class="member-name suplente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M8.5 11a4 4 0 100-8 4 4 0 000 8z"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Agna Soares</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // Eventos de clique nos botões de segmento
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      // Atualizar botões ativos
-      filterBtns.forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      
-      // Atualizar estado e renderizar
-      currentSegment = e.target.getAttribute('data-seg');
-      renderList();
-    });
-  });
+</main>
 
-  // Renderização inicial
-  renderList();
+<footer class="cms-footer">
+  <strong>Conselho Municipal de Saúde de Montes Claros – MG</strong><br>
+  Gestão de 2026 a 2029
+</footer>
 
-</script>
 </body>
 </html>
