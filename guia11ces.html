@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Prático - 11ª Conferência Estadual de Saúde MG | CMS Montes Claros</title>
+    
+    <!-- Importação de Fontes Oficiais -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Ícone da Página -->
+    <link rel="icon" href="https://cmsmoc.github.io/secretariaexecutiva/logo/iconcms512.png" type="image/png">
+
+    <style>
+        /* ==========================================================================
+           CMS DESIGN SYSTEM - VARIÁVEIS E RESET
+           ========================================================================== */
+        :root {
+            --cms-navy: #0D2E5A;
+            --cms-blue: #1B6CB5;
+            --cms-green: #1E8A4A;
+            --cms-yellow: #F5C400;
+            --cms-white: #FFFFFF;
+            --cms-offwhite: #F7F8FA;
+            --cms-ink: #111827;
+            
+            --margin-base: 8vw; /* Margem generosa - Regra Swiss Design */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--cms-offwhite);
+            color: var(--cms-ink);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Marca d'água estrutural */
+        .cms-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            max-width: 800px;
+            height: auto;
+            opacity: 0.03;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ==========================================================================
+           TIPOGRAFIA & HIERARQUIA
+           ========================================================================== */
+        .cms-hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            color: var(--cms-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cms-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            line-height: 1.2;
+            color: var(--cms-ink);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .cms-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            line-height: 1;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cms-yellow);
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .cms-eyebrow.cms-dark { color: var(--cms-blue); }
+
+        p, ul, li {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        strong { font-weight: 700; }
+
+        /* ==========================================================================
+           LAYOUT (SWISS DESIGN)
+           ========================================================================== */
+        .cms-wrap {
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        /* HEADER NAVY */
+        .cms-header {
+            background-color: var(--cms-navy);
+            padding: calc(var(--margin-base) * 0.8) var(--margin-base);
+            display: flex;
+            flex-direction: column;
+            border-bottom: 8px solid var(--cms-blue);
+        }
+
+        .cms-logos-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: clamp(4rem, 8vw, 8rem);
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .cms-logo {
+            height: auto;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        .cms-hero-container {
+            max-width: 1200px;
+        }
+
+        .cms-hero-desc {
+            color: var(--cms-offwhite);
+            font-size: 1.25rem;
+            max-width: 800px;
+            border-left: 4px solid var(--cms-yellow);
+            padding-left: 1.5rem;
+        }
+
+        /* CORPO DO DOCUMENTO */
+        .cms-main {
+            padding: clamp(3rem, 6vw, 6rem) var(--margin-base);
+        }
+
+        .cms-section {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            margin-bottom: clamp(3rem, 6vw, 5rem);
+            border-top: 1px solid rgba(17, 24, 39, 0.1);
+            padding-top: clamp(2rem, 4vw, 3rem);
+        }
+
+        @media (max-width: 768px) {
+            .cms-section {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        .cms-section-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--cms-blue);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .cms-section-content {
+            max-width: 900px;
+        }
+
+        /* ==========================================================================
+           COMPONENTES ESPECÍFICOS E ACENTOS
+           ========================================================================== */
+        
+        /* Listas Limpas */
+        .cms-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .cms-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cms-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--cms-blue);
+            border-radius: 50%;
+        }
+
+        .cms-list.cms-green li::before { background-color: var(--cms-green); }
+
+        /* Alertas e Caixas de Destaque */
+        .cms-alert-navy {
+            background-color: var(--cms-navy);
+            color: var(--cms-white);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 8px solid var(--cms-yellow);
+        }
+
+        .cms-alert-navy p { color: var(--cms-white); margin-bottom: 0; }
+        .cms-alert-navy .cms-heading { color: var(--cms-white); font-size: 1.25rem; }
+
+        /* Gráfico de Paridade (Barra Flexível) */
+        .cms-parity-bar {
+            display: flex;
+            width: 100%;
+            height: 60px;
+            margin: 2rem 0;
+        }
+
+        .cms-parity-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cms-white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .cms-parity-50 { width: 50%; background-color: var(--cms-blue); }
+        .cms-parity-25a { width: 25%; background-color: var(--cms-navy); }
+        .cms-parity-25b { width: 25%; background-color: var(--cms-green); }
+
+        /* Checklist */
+        .cms-checklist-group {
+            margin-top: 2rem;
+            background: var(--cms-white);
+            padding: 2rem;
+            border: 1px solid rgba(17, 24, 39, 0.05);
+        }
+
+        .cms-check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.125rem;
+        }
+
+        .cms-check-box {
+            min-width: 24px;
+            height: 24px;
+            border: 2px solid var(--cms-green);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            display: inline-block;
+        }
+
+        /* FOOTER */
+        .cms-footer {
+            background-color: var(--cms-white);
+            padding: var(--margin-base);
+            border-top: 1px solid rgba(17, 24, 39, 0.1);
+        }
+
+        .cms-signature-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 4rem;
+        }
+
+        .cms-signature-img {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Marca d'água de fundo (Ícone Outline) -->
+    <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logline.png" alt="Marca d'água CMS" class="cms-watermark">
+
+    <div class="cms-wrap">
+        
+        <!-- ================= HERO SECTION ================= -->
+        <header class="cms-header">
+            <div class="cms-logos-top">
+                <!-- Logos em branco para fundo Navy -->
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logohwh.png" alt="Conselho Municipal de Saúde" class="cms-logo">
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/secmonowh.png" alt="Secretaria Executiva" class="cms-logo">
+            </div>
+
+            <div class="cms-hero-container">
+                <span class="cms-eyebrow">Documento Orientador e Regimento</span>
+                <h1 class="cms-hero-title">Guia Prático e Estruturado</h1>
+                <p class="cms-hero-desc">Diretrizes da 11ª Conferência Estadual de Saúde de Minas Gerais. Um manual formatado para fácil leitura e aplicação imediata pelos Conselheiros e Gestores do SUS.</p>
+            </div>
+        </header>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="cms-main">
+
+            <!-- SEÇÃO 01 -->
+            <section class="cms-section">
+                <div class="cms-section-number">01</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Fundamentos</span>
+                    <h2 class="cms-heading">Visão Geral</h2>
+                    <p><strong>O que é a Conferência:</strong> O principal espaço de deliberação democrática e participação social para a construção das políticas de saúde em Minas Gerais.</p>
+                    <p><strong>Finalidade:</strong> Avaliar a situação de saúde do estado e propor diretrizes que guiarão a elaboração dos Planos de Saúde e Planos Plurianuais (PPA) nas esferas municipal, estadual e nacional (2028-2031).</p>
+                    <p><strong>Importância no SUS:</strong> É a garantia de que as vozes da comunidade (controle social) definirão os rumos, os gastos e o modelo de atendimento do Sistema Único de Saúde.</p>
+                    <div class="cms-alert-navy" style="padding: 1.5rem; margin-top: 1rem;">
+                        <p style="font-weight: 700; font-family: 'Montserrat', sans-serif;">TEMA CENTRAL:<br> "Saúde, Democracia, Soberania e SUS: cuidar do povo é cuidar do Brasil".</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 02 -->
+            <section class="cms-section">
+                <div class="cms-section-number">02</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Estrutura de Debate</span>
+                    <h2 class="cms-heading">Eixos Temáticos</h2>
+                    <p>Os debates e propostas devem ser focados obrigatoriamente nestes 6 eixos:</p>
+                    <ul class="cms-list">
+                        <li><strong>Democracia, saúde como direito e soberania nacional:</strong> Defesa do SUS como modelo público e garantia do país produzir seus próprios remédios e vacinas.</li>
+                        <li><strong>Financiamento adequado e suficiente para o SUS:</strong> Como resolver a falta de dinheiro na saúde, combater o teto de gastos, cobrar impostos justos e valorizar os trabalhadores.</li>
+                        <li><strong>Emergências climáticas e justiça socioambiental:</strong> O papel do SUS diante do calor extremo, enchentes, seca, saneamento básico e epidemias (como a dengue).</li>
+                        <li><strong>Modelo de atenção e gestão:</strong> O funcionamento do dia a dia, redução de filas, integração de serviços e saúde digital.</li>
+                        <li><strong>Saúde Integral das Pessoas com Deficiência:</strong> Foco na inclusão real, acessibilidade (rampas, Libras), reabilitação, órteses/próteses e combate ao capacitismo.</li>
+                        <li><strong>Saúde Integral da População LGBTIA+:</strong> Acesso sem preconceito, respeito ao nome social, processo transexualizador e fortalecimento das políticas de equidade.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 03 -->
+            <section class="cms-section">
+                <div class="cms-section-number">03</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Prazos e Datas</span>
+                    <h2 class="cms-heading">Cronograma Completo</h2>
+                    <p>As etapas acontecem de forma ascendente (do município para o país). Fique atento aos prazos críticos:</p>
+                    <ul class="cms-list cms-green">
+                        <li><strong>Abril a Julho de 2026:</strong> Etapa Municipal (Carga horária mínima de 8 horas).</li>
+                        <li><strong>Até 15 dias após a etapa municipal:</strong> Envio de Relatórios e Lista de Delegados ao Estado.</li>
+                        <li><strong>Novembro de 2026:</strong> Plenárias Estaduais (focada em trabalhadores/movimentos).</li>
+                        <li><strong>Até 15 de fevereiro de 2027:</strong> Inscrição para a "Conferencinha" (Crianças).</li>
+                        <li><strong>Até 7 dias antes da etapa estadual:</strong> Prazo limite para substituir Delegados (Estadual).</li>
+                        <li><strong>05 a 08 de abril de 2027:</strong> Etapa Estadual (Belo Horizonte).</li>
+                        <li><strong>Primeira quinzena de Julho de 2027:</strong> Etapa Nacional (Brasília - DF).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 04 -->
+            <section class="cms-section">
+                <div class="cms-section-number">04</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Organização</span>
+                    <h2 class="cms-heading">Etapas da Conferência</h2>
+                    <p><strong>Etapa Municipal:</strong> Participação aberta a todos os moradores. Serve para levantar os problemas da cidade, aprovar o que fica para o município e o que sobe para o estado, além de eleger a delegação municipal.</p>
+                    <p><strong>Plenárias Estaduais:</strong> Reúnem servidores e movimentos sociais. Elegem delegados específicos, mas não elegem conselheiros estaduais.</p>
+                    <p><strong>Etapa Estadual:</strong> Reúne os delegados eleitos nos municípios. Serve para juntar e filtrar as propostas de toda Minas Gerais, construir o relatório do estado e eleger quem vai para Brasília.</p>
+                    <p><strong>Etapa Nacional:</strong> Onde os delegados mineiros defendem as propostas do estado para virarem lei/política no Ministério da Saúde.</p>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 05 -->
+            <section class="cms-section">
+                <div class="cms-section-number">05</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Democracia e Inclusão</span>
+                    <h2 class="cms-heading">Participação e Regras</h2>
+                    <p><strong>Quem pode participar:</strong> Qualquer cidadão na etapa municipal. Exige-se foco na diversidade: mulheres, negros, indígenas, LGBTIA+, PCD, juventude, idosos e população de rua.</p>
+                    <p><strong>Delegado(a):</strong> Tem direito a voz e a VOTO. <strong>Convidado(a):</strong> Tem direito apenas a voz (limitado a 10%).</p>
+                    
+                    <h3 class="cms-heading" style="font-size: 1.25rem; margin-top: 2rem;">Regra de Paridade (Exigência de Lei)</h3>
+                    <div class="cms-parity-bar">
+                        <div class="cms-parity-segment cms-parity-50">50% Usuários</div>
+                        <div class="cms-parity-segment cms-parity-25a">25% Trabalhadores</div>
+                        <div class="cms-parity-segment cms-parity-25b">25% Gestão</div>
+                    </div>
+                    
+                    <p><strong>Cota de Gênero:</strong> A delegação inteira deve ter, no mínimo, 50% de mulheres.</p>
+                    <div class="cms-alert-navy" style="margin-top: 1rem; padding: 1.5rem; border-left-color: #E53E3E;">
+                        <h3 class="cms-heading" style="font-size: 1rem; color: #F5C400;">Impedimentos (Atenção):</h3>
+                        <p style="font-size: 1rem;">Parlamentares (vereadores/deputados) <strong>NÃO</strong> podem ser delegados em nenhuma hipótese. Pessoas com vínculo empregatício, cargos comissionados ou prestadores não podem compor o segmento Usuário. Chefes não representam Trabalhadores.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 06 -->
+            <section class="cms-section">
+                <div class="cms-section-number">06</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Processo Eletivo</span>
+                    <h2 class="cms-heading">Eleição de Delegados</h2>
+                    <p>A eleição ocorre por votação entre os participantes na Plenária Final Municipal, respeitando rigorosamente a paridade do SUS (50/25/25) e a cota mínima de 50% de mulheres.</p>
+                    <p><strong>A Regra de Ouro da Suplência:</strong> Para CADA delegado titular eleito, deve-se eleger os suplentes (1º, 2º e 3º) estritamente do mesmo segmento.</p>
+                    <p><strong>Substituições:</strong> Só podem ser feitas respeitando a ordem dos suplentes do mesmo segmento. Deve ser informada oficialmente ao Estado até 7 dias antes do evento estadual.</p>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 07 -->
+            <section class="cms-section">
+                <div class="cms-section-number">07</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Técnica de Redação</span>
+                    <h2 class="cms-heading">Propostas e Diretrizes</h2>
+                    <p>Existe uma diferença técnica obrigatória na hora de escrever os textos no relatório final:</p>
+                    <ul class="cms-list">
+                        <li><strong>DIRETRIZ:</strong> É o rumo político, a grande ideia. Escrita em poucas frases (Não é ação prática).</li>
+                        <li><strong>PROPOSTA:</strong> É a ação prática vinculada a uma diretriz. Tem que <strong>obrigatoriamente começar com um Verbo no Infinitivo</strong> (Ex: Construir, Garantir, Ampliar, Criar).</li>
+                    </ul>
+                    
+                    <p><strong>Cotas de envio (O que sobe):</strong></p>
+                    <ul class="cms-list cms-green">
+                        <li><strong>Para o Estado:</strong> 1 Diretriz e 2 Propostas para CADA um dos 6 eixos.</li>
+                        <li><strong>Para o Nacional:</strong> 1 Diretriz e 1 Proposta para CADA eixo nacional.</li>
+                    </ul>
+                    
+                    <p><strong>Limite de Tamanho:</strong> Nenhuma diretriz ou proposta pode ultrapassar 700 caracteres (com espaços). O excedente será sumariamente cortado.</p>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 08 & 09 -->
+            <section class="cms-section">
+                <div class="cms-section-number">08</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Burocracia e Logística</span>
+                    <h2 class="cms-heading">Relatórios e Operação</h2>
+                    <p><strong>Documentos Obrigatórios:</strong> O município deve preencher o Formulário Eletrônico do Estado E enviar por e-mail: Ata da Conferência, Lista de Presença, e Lista de Delegados Eleitos (com suplentes). Tudo num prazo de 15 dias.</p>
+                    <p><strong>Carga Horária e Convocação:</strong> A etapa municipal requer no mínimo 8 horas. A convocação deve ser feita pelo Prefeito via Decreto (ou pelo CMS via Resolução caso o prefeito não o faça).</p>
+                    <p><strong>Base Teórica:</strong> É obrigatório o uso prévio do Documento Orientador para guiar os debates na cidade.</p>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 10 & 11 -->
+            <section class="cms-section">
+                <div class="cms-section-number">10</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Direitos e Custeio</span>
+                    <h2 class="cms-heading">Inclusão e Financiamento</h2>
+                    <p><strong>Acessibilidade e Ambiente Seguro:</strong> Obrigatório o uso de locais sem barreiras, com Libras. Tolerância zero com racismo, machismo, capacitismo e LGBTfobia.</p>
+                    <p><strong>Conferencinha:</strong> Espaço infantil (0 a 12 anos) na Etapa Estadual para permitir a participação de pais/mães delegados.</p>
+                    <p><strong>Responsabilidades Financeiras:</strong></p>
+                    <ul class="cms-list">
+                        <li><strong>Fundo Municipal:</strong> Paga a organização da etapa na cidade e o transporte/alimentação de ida e volta dos delegados até a porta do evento em BH.</li>
+                        <li><strong>Fundo Estadual:</strong> Paga a organização do evento em BH, além de hospedagem e alimentação dos delegados municipais durante o evento, e a viagem de BH para Brasília.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 12 -->
+            <section class="cms-section">
+                <div class="cms-section-number">12</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Alerta Vermelho</span>
+                    <h2 class="cms-heading">Pontos Críticos (Erros Graves)</h2>
+                    <p>Se o município errar aqui, a participação na Conferência Estadual será <strong>ANULADA</strong>:</p>
+                    <div class="cms-alert-navy">
+                        <ul class="cms-list" style="color: white;">
+                            <li style="color: white;">Perda do prazo de 15 dias para lançar propostas e nomes no sistema.</li>
+                            <li style="color: white;">Esquecer de enviar a Ata e as Listas assinadas por e-mail.</li>
+                            <li style="color: white;">Enviar propostas com mais de 700 caracteres.</li>
+                            <li style="color: white;">Desrespeitar a Paridade (Eleger menos de 50% de usuários ou menos de 50% de mulheres).</li>
+                            <li style="color: white;">Eleger Vereador ou Chefe como Delegado de Usuário/Trabalhador (Impugnação imediata).</li>
+                            <li style="color: white;">Tentar trocar delegado na porta do evento (o aviso prévio de 7 dias é obrigatório).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 13 - CHECKLIST -->
+            <section class="cms-section">
+                <div class="cms-section-number">13</div>
+                <div class="cms-section-content">
+                    <span class="cms-eyebrow cms-dark">Ação e Conferência</span>
+                    <h2 class="cms-heading">Checklist Prático do CMS</h2>
+                    <p>Ferramenta de verificação de conformidade para as comissões organizadoras locais.</p>
+
+                    <div class="cms-checklist-group">
+                        <h3 class="cms-heading" style="font-size: 1.25rem;">Antes da Conferência</h3>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> O Prefeito assinou o Decreto de Convocação? (Se não, CMS solta Resolução).</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> O local escolhido possui rampa, acessibilidade e infraestrutura básica?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> Foi providenciada alimentação que inclui opções para restrições e veganos?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> O Documento Orientador foi distribuído/lido com a comissão organizadora?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> A programação prevê pelo menos 8 horas de carga horária?</div>
+                    </div>
+
+                    <div class="cms-checklist-group">
+                        <h3 class="cms-heading" style="font-size: 1.25rem;">Durante a Conferência</h3>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> A lista de presença está rodando em todos os grupos e plenárias?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> As Propostas começam com "Verbos no Infinitivo" e ligadas às Diretrizes?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> Os textos aprovados têm menos de 700 caracteres?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> A votação respeitou a paridade? (50% povo, 25% trabalhadores, 25% gestão)</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> Foram eleitos os Suplentes 1, 2 e 3 para cada titular no mesmo segmento?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> Metade ou mais da delegação é formada por mulheres?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> A cota de envio foi seguida? (1 Diretriz + 2 Propostas por eixo p/ Estado).</div>
+                    </div>
+
+                    <div class="cms-checklist-group">
+                        <h3 class="cms-heading" style="font-size: 1.25rem;">Depois da Conferência</h3>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> As atas e listas de presença estão assinadas e digitalizadas?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> O formulário eletrônico estadual foi preenchido antes do 15º dia?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> O e-mail oficial com os anexos foi enviado para o Estado?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> A prefeitura licitou o ônibus/vans para levar os delegados a BH?</div>
+                        <div class="cms-check-item"><div class="cms-check-box"></div> Alguma mãe/pai precisa inscrever a criança na "Conferencinha"?</div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ================= FOOTER / ASSINATURA ================= -->
+        <footer class="cms-footer">
+            <div class="cms-logos-top" style="margin-bottom: 2rem;">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logohbl.png" alt="Conselho Municipal de Saúde" class="cms-logo">
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/secmonobl.png" alt="Secretaria Executiva" class="cms-logo">
+            </div>
+            
+            <p style="font-size: 0.875rem; color: #6B7280; max-width: 600px;">
+                Documento de sistematização elaborado para orientação dos Conselhos e Comissões Locais na aplicação do Regimento da 11ª Conferência Estadual de Saúde de Minas Gerais.
+            </p>
+
+            <div class="cms-signature-area">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/ass.png" alt="Assinatura" class="cms-signature-img">
+                <span class="cms-eyebrow cms-dark" style="margin-bottom: 0;">Secretaria Executiva</span>
+                <p style="font-size: 0.875rem; font-weight: 700; margin: 0;">Conselho Municipal de Saúde</p>
+                <p style="font-size: 0.875rem; margin: 0;">Montes Claros / MG</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
