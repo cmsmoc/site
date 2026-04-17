@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Prático — 11ª Conferência Estadual de Saúde MG</title>
+<link href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN TOKENS (Brand Guide)
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --azul-sus:        #1A5EA8;
+  --azul-medio:      #2E8BC0;
+  --azul-claro:      #7EC8E3;
+  --azul-wave:       #0D3D6B;
+  --verde-sus:       #3AAA35;
+  --verde-wave:      #5BBF6A;
+  --amarelo-brasil:  #F5C800;
+  --branco-puro:     #FFFFFF;
+  --cinza-off:       #F4F7FB;
+  --cinza-texto:     #2C3E50;
+  --cinza-medio:     #6B7F96;
+  --cinza-borda:     #D6E4F0;
+  --vermelho-alerta: #D93838;
+
+  --gradient-wave: linear-gradient(135deg, #1A5EA8 0%, #2E8BC0 40%, #5BBF6A 75%, #F5C800 100%);
+  --font: 'Georama', sans-serif;
+
+  --sombra-card:    0 4px 24px rgba(26,94,168,.10), 0 1px 4px rgba(26,94,168,.06);
+  --sombra-hover:   0 12px 40px rgba(26,94,168,.18), 0 2px 8px rgba(26,94,168,.10);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font);
+  background: var(--cinza-off);
+  color: var(--cinza-texto);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ── TOPBAR INSTITUCIONAL ── */
+.topbar {
+  background: #fff;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--cinza-borda);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.logos { display: flex; align-items: center; gap: 24px; }
+.logos img { height: 48px; object-fit: contain; }
+.nav-menu { display: flex; gap: 16px; }
+.nav-link {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cinza-medio);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+  background: var(--azul-claro);
+  color: var(--azul-wave);
+  background: #EAF4FB;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--azul-wave) 0%, var(--azul-sus) 50%, var(--azul-medio) 100%);
+  padding: 80px 40px 100px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23F4F7FB' d='M0,60 C480,10 960,50 1440,0 L1440,60 Z'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+}
+.hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+.badge-top {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.hero h1 span { color: var(--amarelo-brasil); }
+.hero p {
+  font-size: 18px;
+  color: rgba(255,255,255,.8);
+  font-weight: 500;
+}
+
+/* ── LAYOUT PRINCIPAL ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 40px; }
+.section-title {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--azul-sus);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title::before {
+  content: '';
+  width: 24px; height: 4px;
+  background: var(--gradient-wave);
+  border-radius: 2px;
+}
+section { margin-bottom: 80px; scroll-margin-top: 100px; }
+
+/* ── CARDS (COMPONENTES REUTILIZÁVEIS) ── */
+.grid { display: grid; gap: 24px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--cinza-borda);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+}
+.card-top { height: 6px; background: var(--gradient-wave); }
+.card-body { padding: 24px; }
+.card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--azul-wave);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.card-text { font-size: 14px; color: var(--cinza-medio); }
+.badge {
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+.badge-blue { background: #EAF4FB; color: var(--azul-sus); }
+.badge-green { background: #E8F8EC; color: #1B7A30; }
+.badge-yellow { background: #FEF8E7; color: #9A6500; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  margin-top: 20px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 7px; bottom: 0;
+  width: 4px;
+  background: var(--cinza-borda);
+  border-radius: 4px;
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -32px; top: 2px;
+  width: 18px; height: 18px;
+  background: #fff;
+  border: 4px solid var(--azul-sus);
+  border-radius: 50%;
+  z-index: 1;
+}
+.tl-item.tl-critical::before { border-color: var(--amarelo-brasil); }
+.tl-date {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--azul-medio);
+  letter-spacing: .05em;
+  margin-bottom: 4px;
+}
+.tl-title { font-size: 16px; font-weight: 800; color: var(--cinza-texto); margin-bottom: 6px; }
+.tl-desc { font-size: 14px; color: var(--cinza-medio); }
+
+/* ── GRÁFICO PARIDADE (BARRA) ── */
+.paridade-box {
+  background: #fff; padding: 24px;
+  border-radius: var(--radius); border: 1px solid var(--cinza-borda);
+}
+.par-bar {
+  display: flex; height: 32px; border-radius: var(--radius-pill);
+  overflow: hidden; margin: 20px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+.par-povo { width: 50%; background: var(--azul-sus); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 12px; }
+.par-trab { width: 25%; background: var(--verde-sus); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 12px; }
+.par-gest { width: 25%; background: var(--amarelo-brasil); display: flex; align-items: center; justify-content: center; color: var(--azul-wave); font-weight: 800; font-size: 12px; }
+
+/* ── ALERTAS CRÍTICOS ── */
+.alert-box {
+  background: #FEF8E7;
+  border-left: 6px solid var(--amarelo-brasil);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.alert-box.critical { background: #FDE8E8; border-left-color: var(--vermelho-alerta); }
+.alert-title {
+  font-size: 14px; font-weight: 900; letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.alert-box.critical .alert-title { color: var(--vermelho-alerta); }
+.alert-box p, .alert-box li { font-size: 14px; color: var(--cinza-texto); font-weight: 500; }
+.alert-box ul { padding-left: 20px; margin-top: 8px; }
+
+/* ── CHECKLIST INTERATIVO ── */
+.checklist-group { margin-bottom: 24px; }
+.checklist-group h4 { font-size: 13px; font-weight: 800; color: var(--azul-sus); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--cinza-borda); padding-bottom: 4px; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px; border-radius: var(--radius-sm);
+  cursor: pointer; transition: background 0.2s;
+}
+.check-item:hover { background: #fff; }
+.check-item input[type="checkbox"] {
+  width: 20px; height: 20px; margin-top: 2px;
+  accent-color: var(--verde-sus); cursor: pointer;
+}
+.check-text { font-size: 14px; color: var(--cinza-texto); font-weight: 500; transition: all 0.2s; }
+.check-item input[type="checkbox"]:checked + .check-text {
+  text-decoration: line-through; color: var(--cinza-medio); opacity: 0.7;
+}
+
+/* ── TABELA PROPOSTAS ── */
+.vs-table {
+  width: 100%; border-collapse: collapse; margin-top: 16px;
+  background: #fff; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--sombra-card); border: 1px solid var(--cinza-borda);
+}
+.vs-table th, .vs-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--cinza-borda); }
+.vs-table th { background: var(--cinza-off); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--azul-sus); }
+.vs-table td { font-size: 14px; }
+
+/* ── RESPONSIVIDADE ── */
+@media (max-width: 768px) {
+  .topbar { flex-direction: column; gap: 16px; padding: 16px 20px; }
+  .nav-menu { flex-wrap: wrap; justify-content: center; }
+  .container { padding: 24px 20px; }
+  .hero { padding: 40px 20px 60px; }
+  .par-bar { flex-direction: column; height: auto; border-radius: 8px; }
+  .par-povo, .par-trab, .par-gest { width: 100%; padding: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="logos">
+    <img src="https://raw.githubusercontent.com/cmsmoc/11conferencia/refs/heads/main/11conf_black.png" alt="Logo 11ª Conferência" style="filter: brightness(0.2);">
+    <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logohwh.png" alt="Conselho Municipal de Saúde">
+  </div>
+  <nav class="nav-menu">
+    <a href="#visaogeral" class="nav-link">Visão Geral</a>
+    <a href="#cronograma" class="nav-link">Cronograma</a>
+    <a href="#eixos" class="nav-link">Eixos</a>
+    <a href="#delegados" class="nav-link">Delegados</a>
+    <a href="#propostas" class="nav-link">Propostas</a>
+    <a href="#alertas" class="nav-link">Alertas</a>
+    <a href="#checklist" class="nav-link">Checklist</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="badge-top">Guia Prático e Regimento</div>
+    <h1>11ª Conferência Estadual<br>de <span>Saúde</span> de Minas Gerais</h1>
+    <p>Manual oficial de regras, prazos e obrigações para garantir a participação do seu município (2026–2027).</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 1. VISÃO GERAL -->
+  <section id="visaogeral">
+    <h2 class="section-title">Visão Geral</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <span class="badge badge-blue">O que é?</span>
+          <h3 class="card-title">O principal espaço democrático do SUS</h3>
+          <p class="card-text">O espaço oficial de deliberação para a construção das políticas de saúde em MG. Serve para avaliar a situação da saúde e propor diretrizes que guiarão os <strong>Planos de Saúde e PPAs (2028-2031)</strong> nas esferas municipal, estadual e nacional.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <span class="badge badge-green">Tema Central</span>
+          <h3 class="card-title">Cuidar do povo é cuidar do Brasil</h3>
+          <p class="card-text">"Saúde, Democracia, Soberania e SUS". É a garantia de que as vozes da comunidade (controle social) definirão os rumos, os gastos e o modelo de atendimento do Sistema Único de Saúde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CRONOGRAMA -->
+  <section id="cronograma">
+    <h2 class="section-title">Cronograma Oficial (Crítico)</h2>
+    <div class="card"><div class="card-body">
+      <p style="margin-bottom:20px; font-size:14px; color:var(--cinza-medio);">As etapas acontecem de forma ascendente, do seu município para o país.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Abril a Julho de 2026</div>
+          <div class="tl-title">Etapa Municipal</div>
+          <div class="tl-desc">Carga horária mínima exigida de 8 horas. Aberta a todos os moradores.</div>
+        </div>
+        <div class="tl-item tl-critical">
+          <div class="tl-date">Até 15 dias após a conferência municipal</div>
+          <div class="tl-title">Envio de Relatórios (Prazo Fatal)</div>
+          <div class="tl-desc">Preenchimento no sistema do Estado + envio de Ata e Lista de Presença por e-mail.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Novembro de 2026</div>
+          <div class="tl-title">Plenárias Estaduais</div>
+          <div class="tl-desc">Focadas em trabalhadores e movimentos. Não elegem conselheiros estaduais.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Até 15 de fevereiro de 2027</div>
+          <div class="tl-title">Inscrição para a "8ª Conferencinha"</div>
+          <div class="tl-desc">Espaço infantil na etapa estadual para filhos de delegados(as).</div>
+        </div>
+        <div class="tl-item tl-critical">
+          <div class="tl-date">Até 7 dias antes da Etapa Estadual</div>
+          <div class="tl-title">Limite para Substituir Delegados</div>
+          <div class="tl-desc">Proibido trocar nomes na porta do evento. Use sempre a lista de suplentes.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">05 a 08 de abril de 2027</div>
+          <div class="tl-title">Etapa Estadual (Belo Horizonte)</div>
+          <div class="tl-desc">Reúne delegados municipais para filtrar propostas e eleger quem vai a Brasília.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Julho de 2027 (1ª Quinzena)</div>
+          <div class="tl-title">Etapa Nacional (Brasília - DF)</div>
+          <div class="tl-desc">Defesa das propostas mineiras no Ministério da Saúde.</div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 3. EIXOS TEMÁTICOS -->
+  <section id="eixos">
+    <h2 class="section-title">Os 6 Eixos Temáticos</h2>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-top"></div><div class="card-body">
+        <span class="badge badge-blue">Eixo I</span>
+        <h3 class="card-title" style="font-size:14px;">Democracia, Saúde e Soberania</h3>
+        <p class="card-text" style="font-size:13px;">Defesa do SUS público e garantia da produção nacional de remédios e vacinas.</p>
+      </div></div>
+      <div class="card"><div class="card-top"></div><div class="card-body">
+        <span class="badge badge-green">Eixo II</span>
+        <h3 class="card-title" style="font-size:14px;">Financiamento Adequado</h3>
+        <p class="card-text" style="font-size:13px;">Como resolver a falta de verba, impostos justos e valorização/pagamento de trabalhadores.</p>
+      </div></div>
+      <div class="card"><div class="card-top"></div><div class="card-body">
+        <span class="badge badge-yellow">Eixo III</span>
+        <h3 class="card-title" style="font-size:14px;">Emergências Climáticas</h3>
+        <p class="card-text" style="font-size:13px;">O papel do SUS diante do calor extremo, seca, enchentes e epidemias (como dengue).</p>
+      </div></div>
+      <div class="card"><div class="card-top"></div><div class="card-body">
+        <span class="badge badge-blue">Eixo IV</span>
+        <h3 class="card-title" style="font-size:14px;">Modelo de Atenção e Gestão</h3>
+        <p class="card-text" style="font-size:13px;">Redução de filas, integração posto/hospital e fortalecimento da saúde digital.</p>
+      </div></div>
+      <div class="card"><div class="card-top"></div><div class="card-body">
+        <span class="badge badge-green">Eixo V</span>
+        <h3 class="card-title" style="font-size:14px;">Saúde Integral das PCD</h3>
+        <p class="card-text" style="font-size:13px;">Inclusão real, acessibilidade (Libras, rampas), reabilitação e combate ao capacitismo.</p>
+      </div></div>
+      <div class="card"><div class="card-top"></div><div class="card-body">
+        <span class="badge badge-yellow">Eixo VI</span>
+        <h3 class="card-title" style="font-size:14px;">Saúde População LGBTIA+</h3>
+        <p class="card-text" style="font-size:13px;">Acesso sem preconceito, respeito ao nome social e processo transexualizador.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 4. DELEGADOS E PARIDADE -->
+  <section id="delegados">
+    <h2 class="section-title">Delegados, Eleição e Paridade</h2>
+    
+    <div class="paridade-box" style="margin-bottom: 24px;">
+      <h3 class="card-title">A Regra da Paridade (Obrigatória por Lei)</h3>
+      <p class="card-text">A delegação que representará o município <strong>DEVE</strong> seguir a divisão exata abaixo. Se a proporção não for cumprida, a delegação será impugnada pelo Estado.</p>
+      <div class="par-bar">
+        <div class="par-povo">50% USUÁRIOS (Cidadãos)</div>
+        <div class="par-trab">25% TRABALHADORES</div>
+        <div class="par-gest">25% GESTÃO/PRESTADORES</div>
+      </div>
+      <div style="display:flex; gap:12px; margin-top:16px;">
+        <span class="badge badge-blue">Cota de Gênero: Mínimo de 50% de Mulheres na delegação total.</span>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card"><div class="card-body">
+        <h3 class="card-title" style="font-size:15px;">Quem NÃO pode ser Usuário</h3>
+        <ul style="padding-left:16px; font-size:14px; color:var(--cinza-texto);">
+          <li style="margin-bottom:6px;">Pessoas com vínculo empregatício na saúde.</li>
+          <li style="margin-bottom:6px;">Ocupantes de cargos comissionados.</li>
+          <li style="margin-bottom:6px;">Prestadores de serviços de saúde.</li>
+          <li style="margin-bottom:6px; color:var(--vermelho-alerta); font-weight:700;">Vereadores ou Deputados (nunca podem ser delegados).</li>
+          <li style="margin-bottom:6px; color:var(--vermelho-alerta); font-weight:700;">Chefes de unidades (não representam trabalhadores).</li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3 class="card-title" style="font-size:15px;">Regras da Eleição (Suplência)</h3>
+        <ul style="padding-left:16px; font-size:14px; color:var(--cinza-texto);">
+          <li style="margin-bottom:6px;">Votação ocorre na Plenária Final Municipal.</li>
+          <li style="margin-bottom:6px;">Para CADA titular eleito, é obrigatório eleger <strong>Suplentes (1º, 2º e 3º)</strong> do mesmo segmento.</li>
+          <li style="margin-bottom:6px;"><strong>Substituições:</strong> Só podem ser feitas na ordem dos suplentes do mesmo segmento, avisando o Estado com 7 dias de antecedência.</li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 5. PROPOSTAS -->
+  <section id="propostas">
+    <h2 class="section-title">Diretrizes vs. Propostas</h2>
+    <div class="card" style="margin-bottom: 24px;"><div class="card-body">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th>DIRETRIZ</th>
+            <th>PROPOSTA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>É o rumo político, a grande ideia. Escrita em poucas frases, expressa um desejo geral (não é uma tarefa exata).</td>
+            <td>É a <strong>ação prática</strong> vinculada à diretriz. Obrigatoriamente deve começar com um <strong style="color:var(--azul-sus)">Verbo no Infinitivo</strong> (Ex: <em>Construir, Garantir, Ampliar, Criar</em>).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div></div>
+
+    <div class="alert-box">
+      <div class="alert-title">⚠ Cotas de Envio ao Estado / Nacional</div>
+      <p>O município não envia tudo o que aprova. Deve-se aprovar e enviar exatamente:</p>
+      <ul>
+        <li><strong>Para o Estado:</strong> 1 Diretriz e 2 Propostas para CADA um dos 6 eixos.</li>
+        <li><strong>Para Brasília:</strong> 1 Diretriz e 1 Proposta para CADA eixo nacional.</li>
+        <li><strong>Tamanho Máximo:</strong> Limite absoluto de <strong>700 caracteres</strong> (com espaços). Textos maiores serão sumariamente cortados.</li>
+      </ul>
+      <p style="margin-top:10px; font-size:13px;"><em>Nota: As demais propostas aprovadas ficam retidas no município para compor o Plano Municipal de Saúde.</em></p>
+    </div>
+  </section>
+
+  <!-- 6. FINANCIAMENTO -->
+  <section id="financiamento">
+    <h2 class="section-title">Quem Paga a Conta?</h2>
+    <div class="grid grid-2">
+      <div class="card"><div class="card-body">
+        <h3 class="card-title" style="font-size:15px; color:var(--azul-sus);">O Fundo Municipal (Prefeitura)</h3>
+        <p class="card-text">Paga toda a organização da etapa local. <strong>É obrigada a pagar o transporte e a alimentação de ida e volta</strong> dos delegados do seu município até a porta do evento Estadual em Belo Horizonte.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3 class="card-title" style="font-size:15px; color:var(--verde-sus);">O Fundo Estadual (Governo de MG)</h3>
+        <p class="card-text">Paga a organização da etapa em BH, fornece a <strong>hospedagem e a alimentação</strong> dos delegados municipais durante o evento, e banca 100% da viagem da delegação mineira para Brasília.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 7. ALERTAS CRÍTICOS -->
+  <section id="alertas">
+    <h2 class="section-title">Pontos de Impugnação (Erros Fatais)</h2>
+    <div class="alert-box critical">
+      <div class="alert-title">🚫 A participação do Município será ANULADA se:</div>
+      <ul>
+        <li>Perder o prazo fatal de <strong>15 dias</strong> para lançar dados no sistema online.</li>
+        <li>Esquecer de enviar a Ata e as Listas de Presença <strong>assinadas</strong> por e-mail (só o sistema não basta).</li>
+        <li>Enviar propostas com mais de 700 caracteres.</li>
+        <li>Desrespeitar a paridade do SUS (ex: menos de 50% de usuários).</li>
+        <li>Não atingir a cota mínima de 50% de mulheres na delegação.</li>
+        <li>Eleger Vereador ou Coordenador como Delegado de Usuário/Trabalhador.</li>
+        <li>Tentar trocar o nome do delegado na porta do evento sem avisar com 7 dias de antecedência.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. CHECKLIST -->
+  <section id="checklist">
+    <h2 class="section-title">Checklist Prático (Para o Conselho Municipal)</h2>
+    <div class="card"><div class="card-body" style="padding: 32px;">
+      
+      <div class="checklist-group">
+        <h4>Antes da Conferência</h4>
+        <label class="check-item"><input type="checkbox"><span class="check-text">O Prefeito assinou o Decreto de Convocação? (Se não, o CMS soltou Resolução?)</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">O local escolhido possui rampa, acessibilidade universal e intérprete de Libras?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">Foi providenciada alimentação que inclui opções para restrições e veganos?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">A programação prevê pelo menos 8 horas de carga horária?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">O Documento Orientador foi distribuído/lido como base teórica?</span></label>
+      </div>
+
+      <div class="checklist-group">
+        <h4>Durante a Conferência</h4>
+        <label class="check-item"><input type="checkbox"><span class="check-text">A lista de presença está rodando em todos os grupos e plenárias?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">As Propostas estão começando com "Verbos no Infinitivo"?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">Os textos aprovados têm RIGOROSAMENTE menos de 700 caracteres?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">A eleição respeitou a paridade? (50% povo, 25% trabalhadores, 25% gestão)</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">Metade ou mais da delegação é formada por mulheres?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">Foram eleitos os Suplentes 1, 2 e 3 para cada titular no mesmo segmento?</span></label>
+      </div>
+
+      <div class="checklist-group">
+        <h4>Depois da Conferência</h4>
+        <label class="check-item"><input type="checkbox"><span class="check-text">As atas e listas de presença estão assinadas e digitalizadas?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">O formulário eletrônico do Estado foi preenchido ANTES do 15º dia?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">O e-mail oficial com os anexos (Ata/Lista) foi enviado para o Estado?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">A prefeitura já licitou/reservou o transporte ida/volta para BH?</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">As mães/pais delegados inscreveram as crianças na "Conferencinha" (até 15/fev)?</span></label>
+      </div>
+
+    </div></div>
+  </section>
+
+</div>
+
+<script>
+  // Highlighting active section in navigation based on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
