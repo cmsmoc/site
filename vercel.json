@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/conferencia",
+      "source": "/11conferencia",
       "destination": "https://cmsmoc.github.io/11conferencia/index.html",
       "permanent": false
     }
