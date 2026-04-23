@@ -5,5 +5,10 @@
       "destination": "https://tally.so/r/xXNXM9",
       "permanent": false
     }
+    {
+      "source": "/regimento",
+      "destination": "https://cmsmoc.github.io/11conferencia/regimento",
+      "permanent": false
+    }
   ]
 }
