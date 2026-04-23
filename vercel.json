@@ -7,7 +7,7 @@
     }
     {
       "source": "/regimento",
-      "destination": "https://cmsmoc.github.io/11conferencia/regimento",
+      "destination": "https://cmsmoc.github.io/11conferencia/regimento.html",
       "permanent": false
     }
   ]
