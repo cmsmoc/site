@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Relatoria | 11ª CMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Georama', 'sans-serif'] }, colors: { cms: { 'azul-sus': '#1A5EA8', 'azul-wave': '#0D3D6B', 'verde-sus': '#3AAA35', 'amarelo': '#F5C800' } } } } }
+    </script>
+</head>
+<body class="bg-[#F4F7FB] min-h-screen flex flex-col font-sans">
+    <header class="bg-cms-azul-wave text-white pt-12 pb-24 text-center px-4">
+        <span class="bg-cms-amarelo text-cms-azul-wave text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block">Plenária Final</span>
+        <h1 class="text-3xl md:text-5xl font-black mb-2">Central de Relatoria</h1>
+        <p class="text-white/80">Acesse o Aglutinador correspondente ao seu Grupo de Trabalho.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 -mt-12 w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="aglutinador.html?gt=1" class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-cms-azul-sus hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div class="w-12 h-12 bg-[#E8F4FD] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <i class="ph-fill ph-gears text-2xl text-cms-azul-sus"></i>
+            </div>
+            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Acessar Sala</span>
+            <h2 class="text-xl font-black text-cms-azul-wave leading-tight mb-2">GT 1: A Máquina Pública</h2>
+            <p class="text-sm text-gray-500 font-medium">Gestão, Trabalho e Infraestrutura.</p>
+        </a>
+
+        <a href="aglutinador.html?gt=2" class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-cms-verde-sus hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div class="w-12 h-12 bg-[#E8F8EC] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <i class="ph-fill ph-heart-straight text-2xl text-cms-verde-sus"></i>
+            </div>
+            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Acessar Sala</span>
+            <h2 class="text-xl font-black text-[#1B7A30] leading-tight mb-2">GT 2: A Base do Cuidado</h2>
+            <p class="text-sm text-gray-500 font-medium">Atenção Primária e Prioridades (PCD, LGBT).</p>
+        </a>
+
+        <a href="aglutinador.html?gt=3" class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-[#9A6500] hover:-translate-y-2 transition-transform cursor-pointer group">
+            <div class="w-12 h-12 bg-[#FEF8E7] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <i class="ph-fill ph-share-network text-2xl text-[#9A6500]"></i>
+            </div>
+            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Acessar Sala</span>
+            <h2 class="text-xl font-black text-[#9A6500] leading-tight mb-2">GT 3: A Rede e o Entorno</h2>
+            <p class="text-sm text-gray-500 font-medium">Especialidades e Vigilância Climática/Sanitária.</p>
+        </a>
+
+    </main>
+</body>
+</html>
