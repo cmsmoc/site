@@ -10,6 +10,11 @@
       "source": "/regimento",
       "destination": "https://tally.so/r/xXNXM9",
       "permanent": false
+    },
+    {
+      "source": "/propostas",
+      "destination": "https://cmsmoc.github.io/site/propostas1.html",
+      "permanent": false
     }
   ]
 }
