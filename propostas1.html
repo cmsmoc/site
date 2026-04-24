@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Rastreabilidade | 11ª CMS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Georama', 'sans-serif'] },
+                    colors: {
+                        cms: {
+                            'azul-sus': '#1A5EA8', 'azul-medio': '#2E8BC0', 'azul-wave': '#0D3D6B',
+                            'verde-sus': '#3AAA35', 'amarelo': '#F5C800',
+                            'cinza-off': '#F4F7FB', 'cinza-texto': '#2C3E50', 'cinza-borda': '#D6E4F0'
+                        }
+                    },
+                    boxShadow: { 'card': '0 8px 30px rgba(26,94,168,.08)' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #F4F7FB; color: #2C3E50; }
+        
+        /* Loader Animation */
+        .loader { border: 4px solid rgba(26,94,168,0.2); border-left-color: #1A5EA8; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Accordion Animations */
+        .tree-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s ease-out, opacity 0.4s ease-out; opacity: 0; }
+        .tree-content.open { grid-template-rows: 1fr; opacity: 1; }
+        .tree-content > div { overflow: hidden; }
+
+        .rotate-icon { transform: rotate(180deg); transition: transform 0.3s ease; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F4F7FB; }
+        ::-webkit-scrollbar-thumb { background: #2E8BC0; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans">
+
+    <header class="bg-gradient-to-r from-cms-azul-wave to-cms-azul-sus text-white pt-12 pb-20 px-6 relative">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23ffffff\\' fill-opacity=\\'0.05\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <span class="inline-flex items-center gap-2 bg-cms-amarelo text-cms-azul-wave font-black text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 shadow-sm"><i class="ph-bold ph-tree-structure text-sm"></i> Auditoria Cidadã</span>
+            <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight">Portal de Rastreabilidade</h1>
+            <p class="text-white/80 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Transparência absoluta. Pesquise uma proposta final e navegue pela árvore genealógica para descobrir de quais pré-conferências e bairros as ideias originais vieram.</p>
+        </div>
+    </header>
+
+    <section class="max-w-5xl mx-auto w-full px-4 -mt-10 relative z-20 mb-8">
+        <div class="bg-white rounded-2xl shadow-card border-[1.5px] border-cms-borda p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="flex flex-col items-center p-4 bg-[#F8FBFF] rounded-xl border border-[#7EC8E3]/30">
+                <div class="w-10 h-10 rounded-full bg-cms-azul-sus text-white flex items-center justify-center mb-3 shadow-sm"><i class="ph-bold ph-diamonds-four text-xl"></i></div>
+                <span class="text-3xl font-black text-cms-azul-wave" id="stat-finais">-</span>
+                <span class="text-[10px] font-bold text-cms-medio uppercase tracking-widest mt-1">Supermacros Finais</span>
+            </div>
+            <div class="flex flex-col items-center p-4 bg-[#E8F8EC] rounded-xl border border-[#5BBF6A]/30 relative">
+                <i class="ph-bold ph-arrow-right absolute -left-5 top-1/2 -translate-y-1/2 text-gray-300 text-2xl hidden md:block"></i>
+                <div class="w-10 h-10 rounded-full bg-[#1B7A30] text-white flex items-center justify-center mb-3 shadow-sm"><i class="ph-bold ph-stack text-xl"></i></div>
+                <span class="text-3xl font-black text-[#1B7A30]" id="stat-macros">-</span>
+                <span class="text-[10px] font-bold text-cms-medio uppercase tracking-widest mt-1">Macros (1ª Fase)</span>
+            </div>
+            <div class="flex flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-200 relative">
+                <i class="ph-bold ph-arrow-right absolute -left-5 top-1/2 -translate-y-1/2 text-gray-300 text-2xl hidden md:block"></i>
+                <div class="w-10 h-10 rounded-full bg-gray-500 text-white flex items-center justify-center mb-3 shadow-sm"><i class="ph-bold ph-file-text text-xl"></i></div>
+                <span class="text-3xl font-black text-gray-700" id="stat-originais">-</span>
+                <span class="text-[10px] font-bold text-cms-medio uppercase tracking-widest mt-1">Propostas Originais</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto w-full px-4 mb-6">
+        <div class="relative shadow-sm">
+            <i class="ph-bold ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+            <input type="text" id="searchInput" placeholder="Pesquise por bairro, tema, palavra-chave ou ID..." class="w-full pl-12 pr-4 py-4 bg-white border-[1.5px] border-cms-borda rounded-2xl focus:ring-2 focus:ring-cms-azul-medio focus:border-cms-azul-medio outline-none text-base font-medium transition-all text-cms-texto">
+        </div>
+    </section>
+
+    <div id="loading" class="py-20 flex flex-col items-center justify-center text-cms-azul-wave">
+        <div class="loader mb-4"></div>
+        <p class="font-bold text-[11px] tracking-[0.14em] uppercase text-cms-medio animate-pulse">Cruzando 3 bancos de dados...</p>
+    </div>
+
+    <main id="viewer-container" class="max-w-5xl mx-auto w-full px-4 pb-20 flex-grow flex flex-col gap-6"></main>
+
+    <script>
+        // ==============================================================
+        // 1. URLs OFICIAIS DO BANCO DE DADOS DA 11ª CMS
+        // ==============================================================
+        const URL_ORIGINAIS = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRW7Cg_j_4PPQc2bl9txeRZpQW6oLTRGP9Clp9mAk-t0gWX06Q5KITYIO4rqXnXExSKp7O22jk9NmJ7/pub?gid=582594344&single=true&output=csv';
+        const URL_MACROS = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRW7Cg_j_4PPQc2bl9txeRZpQW6oLTRGP9Clp9mAk-t0gWX06Q5KITYIO4rqXnXExSKp7O22jk9NmJ7/pub?gid=196663017&single=true&output=csv';
+        const URL_FINAIS = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRW7Cg_j_4PPQc2bl9txeRZpQW6oLTRGP9Clp9mAk-t0gWX06Q5KITYIO4rqXnXExSKp7O22jk9NmJ7/pub?gid=680899741&single=true&output=csv';
+
+        // Dicionários para o "Client-Side Join"
+        let mapOriginais = {};
+        let mapMacros = {};
+        let listFinais = [];
+        let filteredFinais = [];
+
+        // Helper para descarregar via PapaParse em formato Promise
+        const fetchCSV = (url) => new Promise((resolve, reject) => {
+            Papa.parse(url, { download: true, header: true, skipEmptyLines: true, complete: resolve, error: reject });
+        });
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                // Descarrega as 3 bases simultaneamente
+                const [resOrig, resMac, resFin] = await Promise.all([fetchCSV(URL_ORIGINAIS), fetchCSV(URL_MACROS), fetchCSV(URL_FINAIS)]);
+                
+                // Popula Nível 3 (Originais)
+                resOrig.data.forEach(row => {
+                    let id = row['ID_GERAL'] || row['ID'] || Object.values(row)[0];
+                    if(id) mapOriginais[id.trim()] = row;
+                });
+
+                // Popula Nível 2 (Macros)
+                resMac.data.forEach(row => {
+                    let id = row['ID_Macro'] || row['ID'] || Object.values(row)[0];
+                    if(id) mapMacros[id.trim()] = row;
+                });
+
+                // Popula Nível 1 (Finais)
+                listFinais = resFin.data.filter(row => Object.values(row)[0]); // Ignora linhas 100% vazias
+                filteredFinais = [...listFinais];
+
+                // Atualiza Estatísticas
+                document.getElementById('stat-originais').innerText = Object.keys(mapOriginais).length;
+                document.getElementById('stat-macros').innerText = Object.keys(mapMacros).length;
+                document.getElementById('stat-finais').innerText = listFinais.length;
+
+                document.getElementById('loading').classList.add('hidden');
+                renderList();
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('loading').innerHTML = '<p class="text-red-500 font-bold">Erro ao carregar o banco de dados. Verifique a conexão.</p>';
+            }
+
+            document.getElementById('searchInput').addEventListener('input', applySearch);
+        });
+
+        // ==============================================================
+        // 2. LÓGICA DE BUSCA PROFUNDA (Deep Search)
+        // ==============================================================
+        function applySearch() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (!q) {
+                filteredFinais = [...listFinais];
+            } else {
+                filteredFinais = listFinais.filter(finalRow => {
+                    // Busca no texto da Supermacro
+                    let textFinal = Object.values(finalRow).join(" ").toLowerCase();
+                    if (textFinal.includes(q)) return true;
+
+                    // Busca profunda: Se não achou na final, olha nas macros e originais ligadas a ela
+                    let links = (finalRow['IDs_Macros_Vinculadas'] || finalRow['IDs_Origem_Vinculados'] || '').toLowerCase();
+                    
+                    let foundInDeep = false;
+                    let idsVinculados = links.split(',').map(s => s.trim()).filter(Boolean);
+                    
+                    idsVinculados.forEach(id => {
+                        // Olha se o ID bate
+                        if (id.includes(q)) foundInDeep = true;
+                        
+                        // Olha dentro da Macro
+                        let macro = mapMacros[id.toUpperCase()];
+                        if (macro) {
+                            let textMacro = Object.values(macro).join(" ").toLowerCase();
+                            if (textMacro.includes(q)) foundInDeep = true;
+                            
+                            // Olha dentro das originais dessa Macro
+                            let linksOrig = (macro['IDs_Origem_Vinculados'] || '').toLowerCase();
+                            let idsOrig = linksOrig.split(',').map(s => s.trim()).filter(Boolean);
+                            idsOrig.forEach(oId => {
+                                if (oId.includes(q)) foundInDeep = true;
+                                let orig = mapOriginais[oId.toUpperCase()];
+                                if (orig && Object.values(orig).join(" ").toLowerCase().includes(q)) foundInDeep = true;
+                            });
+                        } else {
+                            // Talvez o item final já ligue direto a uma Original
+                            let orig = mapOriginais[id.toUpperCase()];
+                            if (orig && Object.values(orig).join(" ").toLowerCase().includes(q)) foundInDeep = true;
+                        }
+                    });
+
+                    return foundInDeep;
+                });
+            }
+            renderList();
+        }
+
+        // ==============================================================
+        // 3. RENDERIZAÇÃO DA INTERFACE E ÁRVORE
+        // ==============================================================
+        function renderList() {
+            const container = document.getElementById('viewer-container');
+            container.innerHTML = '';
+
+            if (filteredFinais.length === 0) {
+                container.innerHTML = `<div class="text-center py-20 text-gray-400"><i class="ph-duotone ph-magnifying-glass-minus text-6xl mb-4"></i><p class="font-bold uppercase tracking-widest text-sm">Nenhum rastro encontrado</p></div>`;
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            filteredFinais.forEach((finalRow, index) => {
+                let idFinal = finalRow['ID_Super_Macro'] || finalRow['ID'] || Object.values(finalRow)[0];
+                let textFinal = finalRow['Texto_Super_Macro'] || finalRow['TEXTO_FINAL'] || finalRow['Texto_Macro'] || Object.values(finalRow)[1];
+                let eixo = finalRow['Abrangencia'] || finalRow['EIXO'] || finalRow['Eixo'] || '';
+                
+                let card = document.createElement('div');
+                card.className = "bg-white rounded-2xl shadow-sm border border-cms-borda overflow-hidden relative";
+                
+                // Cabeçalho da Proposta Final
+                let headerHTML = `
+                    <div class="p-6 relative z-10 border-l-4 border-cms-azul-sus">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-cms-azul-sus text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm"><i class="ph-bold ph-diamonds-four"></i> ${idFinal}</span>
+                        </div>
+                        <p class="text-xs font-bold text-cms-medio uppercase mb-1">${eixo}</p>
+                        <p class="text-[15px] font-bold text-cms-texto leading-relaxed mb-5">${textFinal}</p>
+                        
+                        <button onclick="toggleTree('tree-${index}', this)" class="w-full bg-cms-cinza-off hover:bg-gray-100 border border-cms-borda text-cms-azul-wave font-bold text-xs uppercase tracking-widest py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-git-merge text-lg"></i> Rastrear Origem <i class="ph-bold ph-caret-down ml-auto transition-transform duration-300 icon-caret"></i>
+                        </button>
+                    </div>
+                `;
+
+                // Construção da Árvore Oculta (Accordion)
+                let linksStr = finalRow['IDs_Macros_Vinculadas'] || finalRow['IDs_Origem_Vinculados'] || '';
+                let linkedIds = linksStr.split(',').map(s => s.trim()).filter(Boolean);
+                
+                let treeHTML = `<div id="tree-${index}" class="tree-content bg-gray-50 border-t border-cms-borda"><div><div class="p-6 pt-4 space-y-4">`;
+                
+                if (linkedIds.length === 0) {
+                    treeHTML += `<p class="text-xs font-bold text-gray-400 uppercase tracking-widest text-center py-4">Sem origens rastreáveis</p>`;
+                } else {
+                    linkedIds.forEach(linkedId => {
+                        let macro = mapMacros[linkedId];
+                        
+                        if (macro) {
+                            // RENDERIZA NÍVEL 2 (MACRO)
+                            let textMacro = macro['Texto_Macro'] || Object.values(macro)[1];
+                            treeHTML += `
+                                <div class="pl-5 border-l-2 border-[#5BBF6A] relative">
+                                    <div class="absolute w-4 h-[2px] bg-[#5BBF6A] left-0 top-6"></div>
+                                    <div class="bg-white border border-[#5BBF6A]/50 rounded-xl p-4 shadow-sm relative ml-2">
+                                        <span class="bg-[#E8F8EC] text-[#1B7A30] text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded mb-2 inline-flex items-center gap-1"><i class="ph-fill ph-stack"></i> ${linkedId} (Aglutinação Fase 1)</span>
+                                        <p class="text-[13px] text-gray-700 font-medium mb-3 leading-snug">${textMacro}</p>
+                            `;
+
+                            // Busca as Originais dentro desta Macro
+                            let linksOrigStr = macro['IDs_Origem_Vinculados'] || '';
+                            let linksOrig = linksOrigStr.split(',').map(s => s.trim()).filter(Boolean);
+                            
+                            if (linksOrig.length > 0) {
+                                treeHTML += `<div class="space-y-2 mt-4 pt-3 border-t border-gray-100">`;
+                                linksOrig.forEach(origId => {
+                                    let orig = mapOriginais[origId];
+                                    if (orig) {
+                                        let evento = orig['Nome_Conferencia'] || 'Origem Geral';
+                                        let textOrig = orig['Proposta'] || Object.values(orig)[3];
+                                        treeHTML += `
+                                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:border-gray-300 transition-colors">
+                                                <div class="flex items-center gap-2 mb-2 flex-wrap">
+                                                    <span class="bg-gray-200 text-gray-600 text-[9px] font-black px-2 py-0.5 rounded">${origId}</span>
+                                                    <span class="text-[9px] font-bold text-cms-azul-medio bg-[#E8F4FD] px-2 py-0.5 rounded flex items-center gap-1"><i class="ph-fill ph-map-pin"></i> ${evento}</span>
+                                                </div>
+                                                <p class="text-[12px] text-gray-600 leading-snug">${textOrig}</p>
+                                            </div>`;
+                                    } else {
+                                        treeHTML += `<div class="bg-red-50 text-red-500 text-[10px] p-2 rounded border border-red-100">${origId} (Não encontrado)</div>`;
+                                    }
+                                });
+                                treeHTML += `</div>`;
+                            }
+                            treeHTML += `</div></div>`;
+                        } else {
+                            // Caso a Final ligue diretamente a uma Original (Pulou a fase Macro)
+                            let orig = mapOriginais[linkedId];
+                            if (orig) {
+                                let evento = orig['Nome_Conferencia'] || 'Origem Geral';
+                                let textOrig = orig['Proposta'] || Object.values(orig)[3];
+                                treeHTML += `
+                                    <div class="pl-5 border-l-2 border-gray-300 relative">
+                                        <div class="absolute w-4 h-[2px] bg-gray-300 left-0 top-6"></div>
+                                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm ml-2">
+                                            <div class="flex items-center gap-2 mb-2 flex-wrap">
+                                                <span class="bg-gray-200 text-gray-600 text-[9px] font-black px-2 py-0.5 rounded">${linkedId}</span>
+                                                <span class="text-[9px] font-bold text-cms-azul-medio bg-[#E8F4FD] px-2 py-0.5 rounded flex items-center gap-1"><i class="ph-fill ph-map-pin"></i> ${evento}</span>
+                                            </div>
+                                            <p class="text-[13px] text-gray-600 leading-snug">${textOrig}</p>
+                                        </div>
+                                    </div>`;
+                            }
+                        }
+                    });
+                }
+                treeHTML += `</div></div></div>`;
+
+                card.innerHTML = headerHTML + treeHTML;
+                fragment.appendChild(card);
+            });
+
+            container.appendChild(fragment);
+        }
+
+        // Função do Accordion
+        window.toggleTree = function(targetId, btnElement) {
+            const content = document.getElementById(targetId);
+            const icon = btnElement.querySelector('.icon-caret');
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.classList.remove('rotate-icon');
+                btnElement.classList.remove('bg-gray-100', 'border-cms-azul-sus');
+            } else {
+                content.classList.add('open');
+                icon.classList.add('rotate-icon');
+                btnElement.classList.add('bg-gray-100', 'border-cms-azul-sus');
+            }
+        }
+    </script>
+</body>
+</html>
