@@ -210,7 +210,7 @@
                     <p style="font-family: var(--font-display); font-weight: 700; margin-bottom: 12px; color: var(--cms-navy); text-transform: uppercase;">Motivo da ausência:</p>
                     <textarea id="textoJustificativa" rows="4" placeholder="Escreva a justificativa aqui..."></textarea>
                     <div style="display: flex; gap: 12px;">
-                        <button class="cms-btn cms-btn-danger" onclick="submitAction('AUSÊNCIA')">SALVAR AUSÊNCIA</button>
+                        <button class="cms-btn cms-btn-danger" onclick="submitAction('AUSÊNCIA')">JUSTIFICAR AUSÊNCIA</button>
                         <button class="cms-btn cms-btn-outline" onclick="closeModal()">VOLTAR</button>
                     </div>
                 </div>
@@ -449,7 +449,7 @@
                 email: "" 
             };
 
-            await sendPostRequest(payload, `${formatFirstTwoNames(selectedConselheiro.nome)}<br>${tipoAcao} SALVA`);
+            await sendPostRequest(payload, `${formatFirstTwoNames(selectedConselheiro.nome)}<br>${tipoAcao} REGISTRADA`);
         }
 
         document.getElementById('formPublico').addEventListener('submit', async (e) => {
