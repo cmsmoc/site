@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Presença - CMS Montes Claros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f4f5;
+            --text-main: #18181b;
+            --text-muted: #71717a;
+            --white: #ffffff;
+            --border: #e4e4e7;
+            /* Cores dos Segmentos do SUS */
+            --gestor: #2563eb; /* Azul */
+            --trabalhador: #16a34a; /* Verde */
+            --usuario: #dc2626; /* Vermelho */
+            --sucesso: #10b981;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.5; padding: 20px; }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { margin-bottom: 40px; border-bottom: 4px solid var(--text-main); padding-bottom: 20px; }
+        h1 { font-weight: 800; font-size: 2rem; text-transform: uppercase; letter-spacing: -0.05em; }
+        h2 { font-weight: 600; font-size: 1.5rem; margin-bottom: 20px; text-transform: uppercase; }
+
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        
+        /* Cards */
+        .card { background: var(--white); border: 1px solid var(--border); padding: 20px; cursor: pointer; transition: transform 0.1s, box-shadow 0.1s; display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .card.disabled { cursor: not-allowed; opacity: 0.6; filter: grayscale(100%); }
+        .card-segment-bar { position: absolute; top: 0; left: 0; width: 100%; height: 6px; }
+        .card-name { font-weight: 800; font-size: 1.25rem; text-transform: uppercase; line-height: 1.1; }
+        .card-entity { font-weight: 400; font-size: 0.85rem; color: var(--text-muted); }
+        .card-badge { display: inline-block; padding: 4px 8px; font-size: 0.7rem; font-weight: 800; border-radius: 4px; text-transform: uppercase; align-self: flex-start; }
+        
+        .badge-titular { background: #e4e4e7; color: #18181b; }
+        .badge-suplente { background: #fef08a; color: #854d0e; }
+        .status-registered { margin-top: 10px; font-size: 0.8rem; font-weight: 800; color: var(--sucesso); display: flex; align-items: center; gap: 5px; }
+
+        /* Public Form */
+        .public-section { margin-top: 60px; padding-top: 40px; border-top: 4px solid var(--border); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+        input, textarea { width: 100%; padding: 12px; border: 2px solid var(--border); font-family: inherit; font-size: 1rem; }
+        input:focus, textarea:focus { border-color: var(--text-main); outline: none; }
+        button { background: var(--text-main); color: var(--white); border: none; padding: 15px 24px; font-weight: 800; font-family: inherit; font-size: 1rem; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
+        button:hover { background: #3f3f46; }
+        button:disabled { background: var(--border); cursor: not-allowed; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal { background: var(--white); padding: 40px; max-width: 500px; width: 90%; }
+        .modal-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-green { background: var(--sucesso); }
+        .btn-green:hover { background: #059669; }
+        .btn-red { background: var(--usuario); }
+        .btn-red:hover { background: #b91c1c; }
+        .btn-outline { background: transparent; border: 2px solid var(--text-main); color: var(--text-main); }
+        .btn-outline:hover { background: var(--border); }
+
+        /* Big Success Message */
+        .success-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--sucesso); color: var(--white); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 2000; text-align: center; padding: 20px; }
+        .success-screen h1 { font-size: 4vw; margin-top: 20px; }
+        .success-screen svg { width: 120px; height: 120px; }
+
+        /* Utils */
+        .hidden { display: none !important; }
+        .loader { font-weight: 800; font-size: 1.5rem; text-align: center; margin: 60px 0; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+    </style>
+</head>
+<body>
+
+    <div id="loader" class="loader">SINCRONIZANDO DADOS DO CONSELHO...</div>
+
+    <div id="app" class="container hidden">
+        <header>
+            <h1 id="tituloReuniao">Carregando...</h1>
+            <p id="statusSist" class="card-entity mt-2"></p>
+        </header>
+
+        <section id="secConselheiros">
+            <h2>Conselheiros</h2>
+            <div id="gridConselheiros" class="grid"></div>
+        </section>
+
+        <section id="secPublico" class="public-section">
+            <h2>Público Presente</h2>
+            
+            <div id="formPublicoWrapper" style="background: var(--white); padding: 30px; border: 1px solid var(--border); margin-bottom: 30px;">
+                <h3 style="margin-bottom: 20px; text-transform: uppercase; font-weight: 800;">Não sou conselheiro (Registrar Presença)</h3>
+                <form id="formPublico">
+                    <div class="form-group">
+                        <label>Nome Completo *</label>
+                        <input type="text" id="pubNome" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" id="pubEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Cargo / Setor / Entidade (Opcional)</label>
+                        <input type="text" id="pubCargo" placeholder="Ex: Gerente - UBS Pérola">
+                    </div>
+                    <button type="submit" id="btnSubmitPub">Confirmar Presença</button>
+                </form>
+            </div>
+
+            <div id="gridPublico" class="grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));"></div>
+        </section>
+    </div>
+
+    <div id="modalAcao" class="modal-overlay">
+        <div class="modal">
+            <div id="modalContent">
+                <div class="card-name" id="modalNome">NOME</div>
+                <div class="card-entity" id="modalEntidade" style="margin-bottom: 30px;">Entidade</div>
+                
+                <div id="stepAcao">
+                    <p style="font-weight: 600; margin-bottom: 15px;">Selecione a ação para este registro:</p>
+                    <div class="btn-group" style="flex-direction: column;">
+                        <button class="btn-green" onclick="showConfirmPresence()">Registrar Presença</button>
+                        <button class="btn-red" onclick="showJustifyAbsence()">Justificar Ausência</button>
+                        <button class="btn-outline" onclick="closeModal()">Cancelar</button>
+                    </div>
+                </div>
+
+                <div id="stepConfirmaPresenca" class="hidden">
+                    <p style="font-weight: 600; margin-bottom: 15px; font-size: 1.2rem;">Confirmar presença?</p>
+                    <div class="btn-group">
+                        <button class="btn-green" style="flex: 1;" onclick="submitAction('PRESENÇA')">SIM, CONFIRMAR</button>
+                        <button class="btn-outline" onclick="closeModal()">VOLTAR</button>
+                    </div>
+                </div>
+
+                <div id="stepJustificaAusencia" class="hidden">
+                    <p style="font-weight: 600; margin-bottom: 10px;">Motivo da ausência:</p>
+                    <textarea id="textoJustificativa" rows="4" placeholder="Escreva a justificativa aqui..."></textarea>
+                    <div class="btn-group" style="margin-top: 15px;">
+                        <button class="btn-red" style="flex: 1;" onclick="submitAction('AUSÊNCIA')">CONFIRMAR AUSÊNCIA</button>
+                        <button class="btn-outline" onclick="closeModal()">VOLTAR</button>
+                    </div>
+                </div>
+                
+                <div id="modalLoading" class="hidden" style="text-align: center; font-weight: 800; margin-top: 20px;">
+                    PROCESSANDO...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="successScreen" class="success-screen">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <h1 id="successMsg">PRESENÇA CONFIRMADA</h1>
+    </div>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbwwzDRStWcLJ9MbztmPozlyGiLPZKC46yKsVd888XDusRa2heJkuSk2Tc5W5TMhj2UAfA/exec";
+        const TOKEN = "CMS_MOC_SECURE_TOKEN_2026";
+        
+        let appData = {};
+        let selectedConselheiro = null;
+
+        // Utilitários de formatação de nome
+        function formatFirstTwoNames(fullName) {
+            if (!fullName) return "";
+            const parts = fullName.trim().split(" ");
+            if (parts.length === 1) return parts[0];
+            return `${parts[0]} ${parts[1]}`;
+        }
+
+        function formatPublicName(fullName) {
+            if (!fullName) return "";
+            const parts = fullName.trim().split(" ");
+            if (parts.length <= 2) return fullName;
+            let formatted = `${parts[0]} ${parts[1]}`;
+            for (let i = 2; i < parts.length; i++) {
+                if (parts[i].length > 2) {
+                    formatted += ` ${parts[i][0]}.`;
+                }
+            }
+            return formatted;
+        }
+
+        function getSegmentColor(segmento) {
+            const seg = segmento.toUpperCase();
+            if (seg.includes("GESTOR") || seg.includes("PRESTADOR")) return "var(--gestor)";
+            if (seg.includes("TRABALHADOR")) return "var(--trabalhador)";
+            if (seg.includes("USUARIO") || seg.includes("USUÁRIO")) return "var(--usuario)";
+            return "var(--text-main)";
+        }
+
+        // Inicialização
+        async function init() {
+            try {
+                const res = await fetch(API_URL);
+                appData = await res.json();
+                renderApp();
+            } catch (error) {
+                alert("Erro ao carregar dados. Tente atualizar a página.");
+                console.error(error);
+            }
+        }
+
+        function renderApp() {
+            document.getElementById('loader').classList.add('hidden');
+            document.getElementById('app').classList.remove('hidden');
+            
+            document.getElementById('tituloReuniao').innerText = appData.configs.TITULO || "Reunião do Conselho";
+            
+            const isAtivo = appData.configs.STATUS_SISTEMA === "ATIVO";
+            document.getElementById('statusSist').innerText = isAtivo ? "SISTEMA ABERTO PARA REGISTROS" : "SISTEMA TRAVADO PARA NOVOS REGISTROS";
+            document.getElementById('statusSist').style.color = isAtivo ? "var(--sucesso)" : "var(--usuario)";
+
+            renderConselheiros(appData.configs.MODO, isAtivo);
+            renderPublico(appData.configs.MODO);
+        }
+
+        function renderConselheiros(modo, isAtivo) {
+            const grid = document.getElementById('gridConselheiros');
+            grid.innerHTML = '';
+
+            appData.conselheiros.forEach(c => {
+                // Checa se já tem registro na LISTA
+                const registroPrevio = appData.lista.find(l => l.id === c.id);
+                
+                // Modo 2 (Pós-reunião): Só mostra presentes
+                if (modo == 2 && (!registroPrevio || registroPrevio.registro !== "PRESENÇA")) {
+                    return;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                if (!isAtivo && modo == 1) card.classList.add('disabled');
+                
+                const corSegmento = getSegmentColor(c.segmento);
+                
+                let conteudoHTML = `
+                    <div class="card-segment-bar" style="background-color: ${corSegmento}"></div>
+                    <span class="card-badge ${c.cadeira.toUpperCase() === 'TITULAR' ? 'badge-titular' : 'badge-suplente'}">${c.cadeira}</span>
+                    <div class="card-name">${formatFirstTwoNames(c.nome)}</div>
+                    <div class="card-entity">${c.entidade}</div>
+                `;
+
+                if (modo == 1 && registroPrevio) {
+                    const icon = registroPrevio.registro === "PRESENÇA" ? 
+                        `<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>` :
+                        `<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+                    
+                    const corStatus = registroPrevio.registro === "PRESENÇA" ? "var(--sucesso)" : "var(--usuario)";
+                    
+                    conteudoHTML += `
+                        <div class="status-registered" style="color: ${corStatus}">
+                            ${icon} ${registroPrevio.registro}
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = conteudoHTML;
+
+                if (modo == 1 && isAtivo) {
+                    card.onclick = () => openModal(c);
+                } else if (modo == 2 && registroPrevio && registroPrevio.link_declaracao) {
+                    card.style.background = "#f0fdf4"; // Fundo levemente verde no modo certificado
+                    card.onclick = () => window.open(registroPrevio.link_declaracao, '_blank');
+                    card.innerHTML += `<div style="margin-top:10px; font-size:0.8rem; font-weight:800; color:var(--text-main);">📥 BAIXAR DECLARAÇÃO</div>`;
+                }
+
+                grid.appendChild(card);
+            });
+        }
+
+        function renderPublico(modo) {
+            const grid = document.getElementById('gridPublico');
+            grid.innerHTML = '';
+            
+            // Oculta o formulário se o modo for 2 ou sistema inativo
+            if (modo == 2 || appData.configs.STATUS_SISTEMA !== "ATIVO") {
+                document.getElementById('formPublicoWrapper').style.display = 'none';
+            }
+
+            const publicoList = appData.lista.filter(l => l.id === "-" || !l.id);
+            
+            publicoList.forEach(p => {
+                const div = document.createElement('div');
+                div.style.padding = "10px";
+                div.style.background = "var(--white)";
+                div.style.border = "1px solid var(--border)";
+                div.style.fontSize = "0.9rem";
+                
+                div.innerHTML = `
+                    <strong style="display:block; text-transform:uppercase;">${formatPublicName(p.nome)}</strong>
+                    <span style="color: var(--text-muted); font-size:0.75rem;">${p.cargo_setor !== "-" ? p.cargo_setor : "Público"}</span>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        // Lógica do Modal
+        function openModal(conselheiro) {
+            selectedConselheiro = conselheiro;
+            document.getElementById('modalNome').innerText = conselheiro.nome;
+            document.getElementById('modalEntidade').innerText = conselheiro.entidade;
+            
+            document.getElementById('stepAcao').classList.remove('hidden');
+            document.getElementById('stepConfirmaPresenca').classList.add('hidden');
+            document.getElementById('stepJustificaAusencia').classList.add('hidden');
+            document.getElementById('modalLoading').classList.add('hidden');
+            
+            document.getElementById('modalAcao').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalAcao').style.display = 'none';
+            selectedConselheiro = null;
+        }
+
+        function showConfirmPresence() {
+            document.getElementById('stepAcao').classList.add('hidden');
+            document.getElementById('stepConfirmaPresenca').classList.remove('hidden');
+        }
+
+        function showJustifyAbsence() {
+            document.getElementById('stepAcao').classList.add('hidden');
+            document.getElementById('stepJustificaAusencia').classList.remove('hidden');
+        }
+
+        // Submissão
+        async function submitAction(tipoAcao) {
+            const payload = {
+                token: TOKEN,
+                tipo_usuario: "CONSELHEIRO",
+                cargo_setor: selectedConselheiro.cadeira,
+                nome: selectedConselheiro.nome,
+                id: selectedConselheiro.id,
+                registro: tipoAcao,
+                justificativa: tipoAcao === 'AUSÊNCIA' ? document.getElementById('textoJustificativa').value : "",
+                email: "" 
+            };
+
+            await sendPostRequest(payload, `${formatFirstTwoNames(selectedConselheiro.nome)}<br>${tipoAcao} REGISTRADA`);
+        }
+
+        // Evento do formulário público
+        document.getElementById('formPublico').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmitPub');
+            btn.disabled = true;
+            btn.innerText = "Enviando...";
+
+            const payload = {
+                token: TOKEN,
+                tipo_usuario: "PÚBLICO",
+                cargo_setor: document.getElementById('pubCargo').value,
+                nome: document.getElementById('pubNome').value,
+                id: "-", // Público não tem ID do conselho
+                registro: "PRESENÇA",
+                justificativa: "",
+                email: document.getElementById('pubEmail').value
+            };
+
+            await sendPostRequest(payload, `${formatPublicName(payload.nome)}<br>PRESENÇA CONFIRMADA`);
+            
+            btn.disabled = false;
+            btn.innerText = "Confirmar Presença";
+            document.getElementById('formPublico').reset();
+        });
+
+        async function sendPostRequest(payload, successText) {
+            document.getElementById('stepConfirmaPresenca').classList.add('hidden');
+            document.getElementById('stepJustificaAusencia').classList.add('hidden');
+            document.getElementById('modalLoading').classList.remove('hidden');
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await res.json();
+                
+                if (data.status === "sucesso") {
+                    closeModal();
+                    showBigSuccess(successText, payload.registro === 'AUSÊNCIA');
+                    // Recarrega os dados em background para atualizar a tela
+                    fetch(API_URL).then(r => r.json()).then(newData => {
+                        appData = newData;
+                        renderApp();
+                    });
+                } else {
+                    alert("Erro: " + data.mensagem);
+                    closeModal();
+                }
+            } catch (error) {
+                alert("Erro de conexão ao salvar.");
+                closeModal();
+            }
+        }
+
+        function showBigSuccess(htmlMsg, isAusencia) {
+            const screen = document.getElementById('successScreen');
+            const msg = document.getElementById('successMsg');
+            
+            screen.style.backgroundColor = isAusencia ? "var(--usuario)" : "var(--sucesso)";
+            msg.innerHTML = htmlMsg;
+            
+            screen.style.display = "flex";
+            
+            setTimeout(() => {
+                screen.style.display = "none";
+            }, 3000);
+        }
+
+        // Inicia
+        init();
+    </script>
+</body>
+</html>
