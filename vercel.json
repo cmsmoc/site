@@ -2,13 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/conferencia",
-      "destination": "https://tally.so/r/1Ab9pW",
-      "permanent": false
-    },
-    {
-      "source": "/regimento",
-      "destination": "https://tally.so/r/xXNXM9",
+      "source": "/avalie",
+      "destination": "https://tally.so/r/441yXX",
       "permanent": false
     },
     {
