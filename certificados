@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Certificados - 11ª CMS Montes Claros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       BRAND GUIDE — 11ª CONFERÊNCIA MUNICIPAL DE SAÚDE
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --azul-sus:        #1A5EA8;
+      --azul-medio:      #2E8BC0;
+      --azul-claro:      #7EC8E3;
+      --azul-wave:       #0D3D6B;
+      --verde-sus:       #3AAA35;
+      --amarelo-brasil:  #F5C800;
+      --branco-puro:     #FFFFFF;
+      --cinza-off:       #F4F7FB;
+      --cinza-texto:     #2C3E50;
+      --cinza-medio:     #6B7F96;
+      --cinza-borda:     #D6E4F0;
+      
+      --gradient-wave: linear-gradient(135deg, #1A5EA8 0%, #2E8BC0 40%, #5BBF6A 75%, #F5C800 100%);
+      --sombra-card:    0 4px 24px rgba(26,94,168,.10), 0 1px 4px rgba(26,94,168,.06);
+      --sombra-hover:   0 12px 40px rgba(26,94,168,.18), 0 2px 8px rgba(26,94,168,.10);
+      
+      --font: 'Georama', sans-serif;
+      --radius:   14px;
+      --radius-sm: 8px;
+      --radius-pill: 999px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--cinza-off);
+      color: var(--cinza-texto);
+      min-height: 100vh;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER & HERO SEARCH ── */
+    .hero-section {
+      background: linear-gradient(135deg, var(--azul-wave) 0%, var(--azul-sus) 60%, var(--azul-medio) 100%);
+      padding: 40px 20px 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23F4F7FB' d='M0,60 C480,10 960,50 1440,0 L1440,60 Z'/%3E%3C/svg%3E") no-repeat bottom;
+      background-size: cover;
+    }
+    
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-conf {
+      max-width: 280px;
+      margin: 0 auto 30px;
+      display: block;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    .hero-title span { color: var(--amarelo-brasil); }
+
+    /* ── BARRA DE BUSCA GIGANTE ── */
+    .giant-search-wrap {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .giant-search-wrap input {
+      width: 100%;
+      background: #fff;
+      border: 4px solid rgba(255,255,255,0.2);
+      background-clip: padding-box;
+      border-radius: var(--radius-pill);
+      padding: 24px 32px 24px 64px;
+      font-family: var(--font);
+      font-size: clamp(18px, 4vw, 24px);
+      font-weight: 700;
+      color: var(--azul-wave);
+      box-shadow: var(--sombra-hover);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .giant-search-wrap input:focus {
+      border-color: var(--amarelo-brasil);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+    }
+    .giant-search-wrap input::placeholder {
+      color: var(--cinza-medio);
+      opacity: 0.6;
+    }
+    .search-icon {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--azul-sus);
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ── WARNING BOX ── */
+    .warning-box {
+      background: #fff;
+      border-left: 6px solid var(--amarelo-brasil);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      box-shadow: var(--sombra-card);
+      margin-top: -20px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .warning-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--azul-wave);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .warning-text {
+      font-size: 14px;
+      color: var(--cinza-texto);
+      font-weight: 500;
+    }
+    .warning-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cinza-off);
+      border: 1px solid var(--cinza-borda);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--azul-sus);
+      text-decoration: none;
+    }
+    .contact-badge:hover {
+      background: var(--azul-sus);
+      color: #fff;
+    }
+
+    /* ── RESULTADOS GRID ── */
+    .results-header {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--azul-sus);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .results-header::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--gradient-wave);
+      opacity: 0.3;
+      border-radius: 2px;
+    }
+    
+    .cert-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    
+    .cert-card {
+      background: #fff;
+      border: 1.5px solid var(--cinza-borda);
+      border-radius: var(--radius-sm);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--sombra-card);
+      transition: all 0.2s cubic-bezier(.34,1.56,.64,1);
+    }
+    .cert-card:hover {
+      transform: translateX(6px);
+      border-color: var(--azul-medio);
+      box-shadow: var(--sombra-hover);
+    }
+    
+    .cert-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cinza-texto);
+    }
+    
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gradient-wave);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(26,94,168,.2);
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .dl-btn:hover {
+      opacity: 0.9;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: var(--cinza-medio);
+      font-size: 16px;
+      font-weight: 600;
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1.5px dashed var(--cinza-borda);
+      display: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--azul-wave);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      color: rgba(255,255,255,.6);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .cert-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .dl-btn { width: 100%; justify-content: center; }
+      .warning-contacts { flex-direction: column; }
+      .contact-badge { justify-content: center; }
+      .hero-section { padding-top: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-section">
+    <div class="hero-inner">
+      <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/logo_ultimo_branco.png" alt="Logo 11ª Conferência" class="logo-conf">
+      
+      <div class="hero-label">Galeria Oficial de Certificados</div>
+      <h1 class="hero-title">Qual seu <span>Nome?</span></h1>
+      
+      <div class="giant-search-wrap">
+        <svg class="search-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Digite as 3 primeiras letras..." autocomplete="off" autofocus>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-container">
+    
+    <div class="warning-box">
+      <div class="warning-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        Aviso Importante
+      </div>
+      <div class="warning-text">
+        Esta lista contém <strong>apenas os nomes dos delegados</strong>. Caso você não tenha preenchido a lista de presença online no dia do evento e o seu nome não conste abaixo, entre em contato imediatamente com a Secretaria Executiva para verificação.
+      </div>
+      <div class="warning-contacts">
+        <a href="mailto:secretariaexecutivacmsmoc@gmail.com" class="contact-badge">✉ secretariaexecutivacmsmoc@gmail.com</a>
+        <a href="https://wa.me/553822114356" target="_blank" class="contact-badge">✆ WhatsApp: 2211-4356</a>
+      </div>
+    </div>
+
+    <div class="results-header" id="resultsCount">Todos os Certificados</div>
+    
+    <div class="cert-list" id="certList">
+      </div>
+    
+    <div class="no-results" id="noResults">
+      Nenhum certificado encontrado com esse nome.<br>Verifique a ortografia ou contate a Secretaria.
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      Conselho Municipal de Saúde de Montes Claros • Secretaria Executiva<br>
+      11ª Conferência Municipal de Saúde - 2026
+    </div>
+  </footer>
+
+  <script>
+    // Dados extraídos do template original gerado pelo script
+    const certificados = [
+      { nome: "Adriana Pereira Paulo", link: "https://drive.google.com/file/d/1o2wMAWowBNPZTUuNTdelOcwxLWA3GJmV/view?usp=drivesdk" },
+      { nome: "Aline Magaly Antunes Teixeira", link: "https://drive.google.com/file/d/1998IuunKyTXq0hc9EHSuXmKc1J9PFHAO/view?usp=drivesdk" },
+      { nome: "Amanda Mendes Soares", link: "https://drive.google.com/file/d/1k87GugSTFutzzags_HSRbc5-oVUexnHz/view?usp=drivesdk" },
+      { nome: "Ana Paula Chagas Macedo Honorio", link: "https://drive.google.com/file/d/1EIt-CDYz7TtsROYA-p5kKrbuiNG6jpjT/view?usp=drivesdk" },
+      { nome: "Ana Paula Gonçalves Araújo", link: "https://drive.google.com/file/d/17dpFDDS6sxg4FIKnIevXWeCqEIHdQKv9/view?usp=drivesdk" },
+      { nome: "Andreia Aparecida Barbosa", link: "https://drive.google.com/file/d/1m6VjWMjxAdQUSOmQ3edTTe3vynNRghdy/view?usp=drivesdk" },
+      { nome: "Andreia Ferreira Berto", link: "https://drive.google.com/file/d/14vYwri18pN6WmS73c2CTk60gjy-OdMzA/view?usp=drivesdk" },
+      { nome: "Anelisa Borges de Amorim Silva", link: "https://drive.google.com/file/d/1Xo_pL2MBS8dy0w7v2pq1qYQKM6Cs3dJN/view?usp=drivesdk" },
+      { nome: "Angela Pereira de Souza", link: "https://drive.google.com/file/d/1_hM0ip-yS6Ny2B8ppOmsCC22vwiVyKlm/view?usp=drivesdk" },
+      { nome: "Angelucci Fernandes Pereira", link: "https://drive.google.com/file/d/1yZXO-U7xjhFy6lMjrtcz-jQU9bKzQh_F/view?usp=drivesdk" },
+      { nome: "Anilde Dias de Paula", link: "https://drive.google.com/file/d/1MGtOr9SayN-N1lJ27W0pAAhVTFfBh6up/view?usp=drivesdk" },
+      { nome: "Aracélia Aparecida Barbosa", link: "https://drive.google.com/file/d/18y45CN3HmyWKExC_JQzXWVeE08ig1QGq/view?usp=drivesdk" },
+      { nome: "Arianne Alves Guimarães Nobre", link: "https://drive.google.com/file/d/1fPGSdryLFj9ElorjeooylJQPkt399nMQ/view?usp=drivesdk" },
+      { nome: "Auvenite Rodrigues Souza", link: "https://drive.google.com/file/d/10GI9i-wjr5vUaa_so1y3DO6yEXNUuSrZ/view?usp=drivesdk" },
+      { nome: "Bevanilde Vieira Costa Veloso", link: "https://drive.google.com/file/d/1SZCYk60aU_57jF7_CYlsM77l_pQuiUX4/view?usp=drivesdk" },
+      { nome: "Bruna Fernanda Soares da Silva", link: "https://drive.google.com/file/d/1ipZN6oMvSfzzN2NmlWAzOsg_DbjwxcwV/view?usp=drivesdk" },
+      { nome: "Camila Antonielle Ferreira Ramos", link: "https://drive.google.com/file/d/1c5Qnale6TbSXv8tTu1vYGkYBnqscruMO/view?usp=drivesdk" },
+      { nome: "Camila Izabel Prates Barreto", link: "https://drive.google.com/file/d/16AhjHtOfYIzJvd87NIGfbg7HVNos8x61/view?usp=drivesdk" },
+      { nome: "Carolina dos Reis Alves", link: "https://drive.google.com/file/d/12i8n9vu0imjwc8vLdPRPX4hgYD5iCp-6/view?usp=drivesdk" },
+      { nome: "Charles Beato de Freitas Junio", link: "https://drive.google.com/file/d/1mRGz7gNznzcN4scSbBQdqA8drC79lC4l/view?usp=drivesdk" },
+      { nome: "Cinthia Fagundes Silva Rodrigues", link: "https://drive.google.com/file/d/12NO75a-nxo6XHP2MNCaRI5ZEOID_Cf9A/view?usp=drivesdk" },
+      { nome: "Claudia Raniele Gonçalves da Silva", link: "https://drive.google.com/file/d/1K3DDKsRcZdTtgDWsAh2iUl49A-7bYred/view?usp=drivesdk" },
+      { nome: "Claudinéia Gonçalves dos Santos", link: "https://drive.google.com/file/d/1h-n84Q-3J9LbEQOcph0K8tqbHSupsfCV/view?usp=drivesdk" },
+      { nome: "Cláudio Luís de Souza Santos", link: "https://drive.google.com/file/d/1KmveavMFFHBd0NQ0nVDiTDDhpRR9LKyP/view?usp=drivesdk" },
+      { nome: "Cleita Pinheiro de Almeida", link: "https://drive.google.com/file/d/1fp7vJJu60WfG2i4AUD6XqqxhIEOF5qYY/view?usp=drivesdk" },
+      { nome: "Daliana Cristina de Lima Antonio", link: "https://drive.google.com/file/d/1r4YH--NUhXHQcCk1zAr1TT2HtAAPrCd_/view?usp=drivesdk" },
+      { nome: "Daniela Lima Souza", link: "https://drive.google.com/file/d/13gSuxI6Lj0IiUDi09sg123VALXUr_MHY/view?usp=drivesdk" },
+      { nome: "Débora Rodrigues da Silva", link: "https://drive.google.com/file/d/1hqX_DQVdT92jUajssFxmmpUj-xHCzMYt/view?usp=drivesdk" },
+      { nome: "Edmilson Alves da Silva", link: "https://drive.google.com/file/d/1ClEz2cpl3AjptvmFiE1rXXGlgQBU-iIM/view?usp=drivesdk" },
+      { nome: "Edna Silva Rodrigues", link: "https://drive.google.com/file/d/1ftF08iEYOltuO4Br7_Xz_eKrQr7f0yok/view?usp=drivesdk" },
+      { nome: "Elaine Cristina Alves Queiroz Santos", link: "https://drive.google.com/file/d/1Ez45MOUvW97msibTcnwuFv7Kfod2zxJp/view?usp=drivesdk" },
+      { nome: "Elaine Soares Oliveira Marreiro", link: "https://drive.google.com/file/d/17cem9YBGY7cwEgSwroYDiORjqw4ZgfVK/view?usp=drivesdk" },
+      { nome: "Eliane Pereira Souto e Sousa", link: "https://drive.google.com/file/d/1qtsp7DqupYVXGkZN2aaLwZEMCpHCcLk8/view?usp=drivesdk" },
+      { nome: "Emanuela Tomas da Silva Conceição", link: "https://drive.google.com/file/d/1gy4H5CvHXvki_JjfoKV5a3AVvu27pPs5/view?usp=drivesdk" },
+      { nome: "Erciliane Martins Alves Soares de Oliveira", link: "https://drive.google.com/file/d/1RaJ0lwWHkonXVkKID0Hr5fV0SwA9c9dq/view?usp=drivesdk" },
+      { nome: "Ernandes Rodrigues Moraes", link: "https://drive.google.com/file/d/1fYE5e2qnuovjjWtIVl4fnG7-SOE1cY8k/view?usp=drivesdk" },
+      { nome: "Fabiana Alves da Silva Santana", link: "https://drive.google.com/file/d/1hFqhzkLU87FH2AECcV9iwsQNShBYMeIG/view?usp=drivesdk" },
+      { nome: "Gilson Mendes de Almeida", link: "https://drive.google.com/file/d/1Gm8sVMSmmjQ5uJuLbX6fb5Eex5U687Xj/view?usp=drivesdk" },
+      { nome: "Gleyciele Ferreira Lopes", link: "https://drive.google.com/file/d/1FST4Y-kQl9yyRhAVo7n320y8XJTS0EvM/view?usp=drivesdk" },
+      { nome: "Isabel Macedo Avelar", link: "https://drive.google.com/file/d/1VIIASPj0BrR6m4RFIck3dNZhbrpznHdv/view?usp=drivesdk" },
+      { nome: "Ivaneuza Fagundes de Souza", link: "https://drive.google.com/file/d/1xtNNQCo4GjRwFE7IpTeApvfyE9SHQY-x/view?usp=drivesdk" },
+      { nome: "Ivonete de Cássia Pereira", link: "https://drive.google.com/file/d/1zfwnJWWuEQkk1eK6Mlz7uXlKNZeSngkG/view?usp=drivesdk" },
+      { nome: "Jamille Adriana Mayrink Carmo", link: "https://drive.google.com/file/d/1fOfStN7WKJOblcopwxq4fbOeioMQVCUe/view?usp=drivesdk" },
+      { nome: "Jayane Batista Alves Neves", link: "https://drive.google.com/file/d/1Nzut8DvukEHACQU8x0WRnA-gB2WCsOA2/view?usp=drivesdk" },
+      { nome: "Joana A. Rodrigues Almeida", link: "https://drive.google.com/file/d/1HUCI5B1I6vFMxYxq9blImjgQ1byJSC7_/view?usp=drivesdk" },
+      { nome: "José Candido de Souza Filho", link: "https://drive.google.com/file/d/1J8alLCAl07TgfCsuKedmPwX7OunOb2hI/view?usp=drivesdk" },
+      { nome: "José Gomes Filho", link: "https://drive.google.com/file/d/1QqQxef7FeH0q-5cQshTLHRBKOmGnUIx7/view?usp=drivesdk" },
+      { nome: "Josiane Aparecida Fonseca Santos", link: "https://drive.google.com/file/d/1uVP943NTTl5VOSqJ-R_4QieRPjU6M4ly/view?usp=drivesdk" },
+      { nome: "Júlia Aparecida Amaro Rocha", link: "https://drive.google.com/file/d/1ov4S7Wwoee7rl6gV-zp9P5NsqaStj5qn/view?usp=drivesdk" },
+      { nome: "Julia Maria Oliveira Dias", link: "https://drive.google.com/file/d/1_99RqtqhbMtoURiHzzM163yF3xWGp1rC/view?usp=drivesdk" },
+      { nome: "Karyne de Castro Lacerda", link: "https://drive.google.com/file/d/1LZSs1niwzzq5ahH8WXuweh7S8Awg0gC-/view?usp=drivesdk" },
+      { nome: "Krisley Francielle Lopes Ramos", link: "https://drive.google.com/file/d/1SIfVdKv1J5Gu33KTc21hnJf73HAfhPk8/view?usp=drivesdk" },
+      { nome: "Laura Karinny Camara Silva", link: "https://drive.google.com/file/d/1c10ZUAfyl1RuVB7lgVbW365P1e2KFGfx/view?usp=drivesdk" },
+      { nome: "Leticia Duarte de Oliveira", link: "https://drive.google.com/file/d/1Tkugkmwg4bd-fsEDaNWIF41wtEwbZeNN/view?usp=drivesdk" },
+      { nome: "Leydiane Martins Silva Dias", link: "https://drive.google.com/file/d/1mqXYmUDZJThc6erguLYPDgqqfeID_Bsf/view?usp=drivesdk" },
+      { nome: "Livian Venturini Soares Ferreira", link: "https://drive.google.com/file/d/1ddCE9F7g7LOBcFbI8euAAVLYWrtxaSg4/view?usp=drivesdk" },
+      { nome: "Lorena Pereira Flávio", link: "https://drive.google.com/file/d/1LDhnc6uCWlo_4wI04LRQsASpBh5Yo67J/view?usp=drivesdk" },
+      { nome: "Luciane das Neves Martins", link: "https://drive.google.com/file/d/10dWIQiTf7LfH47V1ItbX_BGgtLaGB_gZ/view?usp=drivesdk" },
+      { nome: "Luciene Andrade Souza", link: "https://drive.google.com/file/d/1rv3XH4la5smOvv39TQKWTT2irkKv5sCm/view?usp=drivesdk" },
+      { nome: "Luiz Marcelo Cruz Novaes", link: "https://drive.google.com/file/d/1Gzz9j1GBt0BlVa3pzKStSoSL9CBA4DCz/view?usp=drivesdk" },
+      { nome: "Marcelo Pinto de Oliveira", link: "https://drive.google.com/file/d/1aYEqXnpDINsStswD5wYHBphhdEn5ud2S/view?usp=drivesdk" },
+      { nome: "Marcos Vinicius Aparecido Soares", link: "https://drive.google.com/file/d/1aUOtGGdsRe4j6CWM_v64nJ1HXFh0sgh3/view?usp=drivesdk" },
+      { nome: "Marcos Vinicius de Queiroz Souto", link: "https://drive.google.com/file/d/1lMlOr_neT_X4AzoxOyyMqVQr4h2JlPWi/view?usp=drivesdk" },
+      { nome: "Marcus Antonio Lopes Ferreira", link: "https://drive.google.com/file/d/1_2SqGf6vPf4PyEwXXuIfLmltMkJxEnWf/view?usp=drivesdk" },
+      { nome: "Maria Anália Silva Campanha", link: "https://drive.google.com/file/d/1kgywYzLdvHUJ2nJm2KPnweB08la8zq04/view?usp=drivesdk" },
+      { nome: "Maria Aparecida de Souza Rocha", link: "https://drive.google.com/file/d/1O9sytuvextEzd5HSFFkjmJP93IjrC2ZV/view?usp=drivesdk" },
+      { nome: "Maria de Lourdes Souza Pimenta", link: "https://drive.google.com/file/d/1vqn1Z8rhP96mXy298o9pHaNr3GCxyHgp/view?usp=drivesdk" },
+      { nome: "Maria do Carmo Sousa dos Santos", link: "https://drive.google.com/file/d/13QmLRn3AOdc0I-gnix8SFyqHNWig5LQE/view?usp=drivesdk" },
+      { nome: "Maria Eliana Ferreira Santos", link: "https://drive.google.com/file/d/1SjojV1HTG-eSZSw3KFknuMUflJSWqjRa/view?usp=drivesdk" },
+      { nome: "Maria Fernanda Prais Vieira", link: "https://drive.google.com/file/d/1BzPPWaQMRqpvfdxgl9RG-ZSWTMb38oQN/view?usp=drivesdk" },
+      { nome: "Maria Irenice Ferreira dos Reis", link: "https://drive.google.com/file/d/1PikAityBead4PKGUiPVyyvpmanEWPGIu/view?usp=drivesdk" },
+      { nome: "Mariangela Pereira Santos", link: "https://drive.google.com/file/d/16OYRG_ldAlhM0Gg6X8hdkWXoKc9K2U-I/view?usp=drivesdk" },
+      { nome: "Marianne Silva Soares", link: "https://drive.google.com/file/d/1yOL-1s2dl5L8zLxR9zfEB6_4rJ2FLO4V/view?usp=drivesdk" },
+      { nome: "Marina de Cássia Ferreira Silva", link: "https://drive.google.com/file/d/1SAxM_09j2YLIRT2K1d15LCiQzIg4WyoF/view?usp=drivesdk" },
+      { nome: "Mayla Mirene Soares Marques", link: "https://drive.google.com/file/d/1SDyj_TBA6t_dfQJ7PXZCbepyj6d3OkOX/view?usp=drivesdk" },
+      { nome: "Meire Damiao Vieira", link: "https://drive.google.com/file/d/1B5CRITgmYD7nSOYhIDnNWSVjNuVvThRC/view?usp=drivesdk" },
+      { nome: "Monik Lopes de Jesus", link: "https://drive.google.com/file/d/1xqiODdqJoKBI-ZMVf54sF8Wa723L9qnt/view?usp=drivesdk" },
+      { nome: "Naiara Oliveira Silva", link: "https://drive.google.com/file/d/1CC9vRoVKu6t5QjaHLrete3ISQExrBj1x/view?usp=drivesdk" },
+      { nome: "Patricia Marques Rodrigues", link: "https://drive.google.com/file/d/1AHWZQICB9Dj6h214Gw5-vKnlE2UFVlFg/view?usp=drivesdk" },
+      { nome: "Paulo Thiago Carvalho Soares Ribeiro", link: "https://drive.google.com/file/d/1jKc2GZp5yxdpsPzfZDv0aau5ft1sQKg7/view?usp=drivesdk" },
+      { nome: "Raquel Edwirges Cruz Ramos", link: "https://drive.google.com/file/d/1aljqmZb43l8k6EQCyw7isXiKDmkTVjmH/view?usp=drivesdk" },
+      { nome: "Raquel Quintino Maciel Martins", link: "https://drive.google.com/file/d/1SPVoWugdrTD-CYZzDUkHMQtC35jQfwfx/view?usp=drivesdk" },
+      { nome: "Rayssa Josefany Soares", link: "https://drive.google.com/file/d/1BPS_igr6564lVfknUs9XPx9BA-hQPde8/view?usp=drivesdk" },
+      { nome: "Regina Madalena Nery Araujo", link: "https://drive.google.com/file/d/1xb1C7AlfjCZBrHY9GwPlLWVBl2v8vjig/view?usp=drivesdk" },
+      { nome: "Rejane Almeida Costa", link: "https://drive.google.com/file/d/1cakmaBQkkprrDx9C7WSLZp8G2ZdI-EM6/view?usp=drivesdk" },
+      { nome: "Renailde Silva Rodrigues Souza", link: "https://drive.google.com/file/d/1zFB2KiFUdpa8Oa4idEhWQEQ79AyGWqBH/view?usp=drivesdk" },
+      { nome: "Renata Athayde Rebello Gomes", link: "https://drive.google.com/file/d/1X7kqzvcS8WlJ74zToI8Yyw8ljEEaIepo/view?usp=drivesdk" },
+      { nome: "Renata Carvalho Sales", link: "https://drive.google.com/file/d/1Pa0wA1ZLltCXdkBMy1_1AoFm5ADMBs-f/view?usp=drivesdk" },
+      { nome: "Renata Mesquita Pimenta", link: "https://drive.google.com/file/d/1BNnTeAwNGeZ_LNemx2vE_YMx5mvxFUv1/view?usp=drivesdk" },
+      { nome: "Rita Alessandra Souza dos Santos", link: "https://drive.google.com/file/d/105i5QSeQ1JIWQPKsIJCmpAKWMB3wPUTZ/view?usp=drivesdk" },
+      { nome: "Ronéria Rodrigues Azevedo", link: "https://drive.google.com/file/d/1r_driQkl2lfTDYqi-jPlLtEMVHalqbww/view?usp=drivesdk" },
+      { nome: "Ruth Cristina Freitas Barbosa", link: "https://drive.google.com/file/d/1yLsp3F9Marna_GGns8wQ1fi9xji456VE/view?usp=drivesdk" },
+      { nome: "Sandra Cardoso Rodrigues", link: "https://drive.google.com/file/d/17YbUrXb4Bq8yS2fHM0PtGVRZ4Uye27Sf/view?usp=drivesdk" },
+      { nome: "Sandra de Freitas Fonseca", link: "https://drive.google.com/file/d/1tAO8bivaPDZVHTiehIM5IPyCOFCsIXmx/view?usp=drivesdk" },
+      { nome: "Sarah Juliane Mendes Capuchinho", link: "https://drive.google.com/file/d/1pLd_l8tE441WkXfmXXR7XvyGjdXOP4Ir/view?usp=drivesdk" },
+      { nome: "Sarah Stefane Carvalho Silva", link: "https://drive.google.com/file/d/1ua1_e5Hx2DTYrNuGlFvnX2wlkwoqppWe/view?usp=drivesdk" },
+      { nome: "Shirley de Oliveira Pereira", link: "https://drive.google.com/file/d/1CTRJJwbp-KKgdOPvPfCVsUH8nJBzaKDR/view?usp=drivesdk" },
+      { nome: "Shirley Ferreira de Brito", link: "https://drive.google.com/file/d/1pI4VYJHLVUgBiWZb0DSF0PfnsIfTulKV/view?usp=drivesdk" },
+      { nome: "Sidney Marley Martins de Souza", link: "https://drive.google.com/file/d/1YOfHM4aWXW49fsR-7axh-bE2iloqMfek/view?usp=drivesdk" },
+      { nome: "Sônia Oliveira Braga", link: "https://drive.google.com/file/d/1D-DI14bnYxQfO_9yL0av1z04qGyAhiEQ/view?usp=drivesdk" },
+      { nome: "Suzyanny Dias Gusmão", link: "https://drive.google.com/file/d/1M7icPqtbSCx1iq2OLcycN-613yai6Dk9/view?usp=drivesdk" },
+      { nome: "Tatiana Almeida Nunes", link: "https://drive.google.com/file/d/1oXH7j0c0ZMIcGYTu_JVrNj5biiv4-qpE/view?usp=drivesdk" },
+      { nome: "Tatiane Freitas dos Santos", link: "https://drive.google.com/file/d/1p-roSoKEOIP411oAA_JydbvXcFQPK5rW/view?usp=drivesdk" },
+      { nome: "Terezinha Ramos Cordeiro", link: "https://drive.google.com/file/d/1gOc4g4W98_B7gEdkG63xt1Ixb2HZk8zF/view?usp=drivesdk" },
+      { nome: "Thais Gomes Vieira", link: "https://drive.google.com/file/d/1arwOfm9rU_7WST-c3fmpkv0G4BBBTcQz/view?usp=drivesdk" },
+      { nome: "Thalita Beata Santos Fonseca", link: "https://drive.google.com/file/d/1R_K-gKQswIQ9AMN6roeDBUprUt1Hteqg/view?usp=drivesdk" },
+      { nome: "Thania Larissa Félix", link: "https://drive.google.com/file/d/1lavr6BXXhV5pyts5cKGn1kjRvPbPpt-J/view?usp=drivesdk" },
+      { nome: "Tiago Ferreira dos Santos", link: "https://drive.google.com/file/d/1GfIN3kq0ZJLdedJt9_yk6MLw0mIpvlxc/view?usp=drivesdk" },
+      { nome: "Vanessa Cristina Silva Gomes", link: "https://drive.google.com/file/d/191rT7h-8hueZwO-YlcL2X7QycIckVoAM/view?usp=drivesdk" }
+    ];
+
+    const searchInput = document.getElementById('searchInput');
+    const certList = document.getElementById('certList');
+    const noResults = document.getElementById('noResults');
+    const resultsCount = document.getElementById('resultsCount');
+
+    // Função para renderizar os cards
+    function renderCards(data) {
+      certList.innerHTML = '';
+      
+      if (data.length === 0) {
+        certList.style.display = 'none';
+        noResults.style.display = 'block';
+        resultsCount.textContent = 'Nenhum certificado encontrado';
+        return;
+      }
+
+      certList.style.display = 'grid';
+      noResults.style.display = 'none';
+      resultsCount.textContent = data.length === certificados.length 
+        ? 'Todos os Certificados' 
+        : `${data.length} certificado(s) encontrado(s)`;
+
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'cert-card';
+        card.innerHTML = `
+          <div class="cert-name">${item.nome}</div>
+          <a href="${item.link}" target="_blank" class="dl-btn">↓ Baixar PDF</a>
+        `;
+        certList.appendChild(card);
+      });
+    }
+
+    // Inicializa renderizando todos
+    renderCards(certificados);
+
+    // Evento de busca instantânea
+    searchInput.addEventListener('input', (e) => {
+      const termo = e.target.value.toLowerCase().trim();
+      
+      // Filtra dinamicamente. Se estiver vazio, mostra todos.
+      if (termo === '') {
+        renderCards(certificados);
+      } else {
+        const filtrados = certificados.filter(item => 
+          item.nome.toLowerCase().includes(termo)
+        );
+        renderCards(filtrados);
+      }
+    });
+  </script>
+</body>
+</html>
