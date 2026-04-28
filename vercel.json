@@ -11,5 +11,11 @@
       "destination": "https://cmsmoc.github.io/site/propostas1.html",
       "permanent": false
     }
+  ],
+    {
+      "source": "/certificados",
+      "destination": "https://cmsmoc.github.io/site/certificados.html",
+      "permanent": false
+    }
   ]
 }
