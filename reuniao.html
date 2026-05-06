@@ -1,21 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Conselho Municipal de Saúde de Montes Claros</title>
-    
+    <title>Presença CMS - Montes Claros</title>
     <meta property="og:title" content="Painel de Presença Oficial - CMS Montes Claros">
-    <meta property="og:description" content="264ª Reunião Extraordinária CMSMOC">
+    <meta property="og:description" content="Sistema de credenciamento e presença para conselheiros e público externo.">
     <meta property="og:image" content="https://raw.githubusercontent.com/cmsmoc/site/refs/heads/main/chrome_I7FOYvg2Om.png">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Conselho Municipal de Saúde - Montes Claros/MG">
-    <meta property="og:locale" content="pt_BR">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="264ª Reunião Extraordinária CMSMOC">
-    <meta name="twitter:description" content="Lista de Presença Virtual - 264ª REP CMSMOC">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/cmsmoc/site/refs/heads/main/chrome_I7FOYvg2Om.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,10 +29,8 @@
             --radius-md: 10px;
         }
 
-        /* ── RESET & MOBILE OPTIMIZATION ── */
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
         body { font-family: var(--font-body); background: var(--cms-off); color: var(--cms-ink); line-height: 1.5; font-size: 16px; overflow-x: hidden; }
-
         .cms-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         /* ── LOADING ── */
@@ -56,52 +46,57 @@
         .cms-display { font-family: var(--font-display); font-size: clamp(28px, 8vw, 56px); font-weight: 900; letter-spacing: -1.5px; line-height: 1; text-transform: uppercase; margin-bottom: 16px; }
         .cms-desc { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 24px; }
 
-        /* ── ACCORDIONS (MOBILE OPTIMIZED) ── */
+        /* ── ACCORDIONS ── */
         .accordion-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
         details { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; }
         summary { padding: 14px 20px; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cms-yellow); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .details-content { padding: 0 20px 20px; color: rgba(255,255,255,0.8); font-size: 13px; }
 
-        /* ── BTNS ── */
+        /* ── BOTÕES ── */
         .cms-btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 16px 20px; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; width: 100%; }
         .cms-btn-primary { background: var(--cms-yellow); color: var(--cms-navy); }
         .cms-btn-secondary { background: var(--cms-blue); color: var(--cms-white); }
         
-        /* ── STATS ── */
-        .cms-grid-stat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 24px 0; }
+        /* ── ESTATÍSTICAS ── */
+        .cms-grid-stat { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 24px 0; }
         .cms-stat { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: 8px; text-align: center; padding: 16px 8px; }
         .cms-stat-number { font-family: var(--font-display); font-size: 28px; font-weight: 900; line-height: 1; color: var(--cms-navy); }
-        .cms-stat-label { font-size: 8px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; margin-top: 4px; font-family: var(--font-display); }
+        .cms-stat-label { font-size: 9px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; margin-top: 4px; font-family: var(--font-display); }
 
-        /* ── CARDS & LOGIC ── */
-        .cms-grid-3 { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
-        @media(min-width: 768px) { .cms-grid-3 { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); } }
+        /* ── NOVO: LISTA COMPACTA (SUBSTITUI OS CARDS GRANDES) ── */
+        .cms-list-container { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
         
-        .cms-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: 20px; display: flex; align-items: flex-start; gap: 12px; position: relative; overflow: hidden; transition: all 0.2s; }
+        .cms-list-item { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: 6px; padding: 10px 16px 10px 16px; display: flex; align-items: center; position: relative; overflow: hidden; cursor: pointer; transition: all 0.1s; }
+        .cms-list-item:hover { border-color: var(--cms-blue); background: var(--cms-off); }
+        .cms-list-item:active { transform: scale(0.99); }
         
-        /* PENDENTES: Apagados */
-        .cms-card-pending { opacity: 0.45; filter: grayscale(100%); }
-        .cms-card:active { transform: scale(0.98); }
+        /* Modificadores de Estado Visual */
+        .cms-list-item-pending { opacity: 0.55; filter: grayscale(100%); }
+        .cms-list-item.disabled { cursor: not-allowed; opacity: 0.5; filter: grayscale(100%); }
         
-        .card-segment-bar { position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
-        .avatar-box { flex-shrink: 0; }
-        .cms-card-name { font-family: var(--font-display); font-size: 15px; font-weight: 900; text-transform: uppercase; color: var(--cms-navy); line-height: 1.1; margin: 4px 0; }
-        .cms-card-entity { font-size: 11px; color: var(--cms-muted); line-height: 1.3; }
+        .list-segment-bar { position: absolute; top: 0; left: 0; width: 6px; height: 100%; }
+        .list-content { flex: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-left: 10px; }
+        
+        .list-main { display: flex; flex-direction: column; gap: 2px; }
+        .tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
+        
+        .list-name { font-family: var(--font-display); font-size: 14px; font-weight: 900; color: var(--cms-navy); text-transform: uppercase; line-height: 1; }
+        .list-entity { font-size: 11px; color: var(--cms-muted); line-height: 1.2; }
+        .list-status { font-family: var(--font-display); font-size: 10px; font-weight: 800; text-transform: uppercase; white-space: nowrap; }
+
         .cms-tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-family: var(--font-display); font-size: 8px; font-weight: 700; text-transform: uppercase; }
         .tag-titular { background: var(--cms-off); color: var(--cms-ink); border: 1px solid var(--cms-border); }
         .tag-suplente { background: rgba(245, 196, 0, 0.1); color: #854d0e; border: 1px solid var(--cms-yellow); }
 
-        /* ── FORM ── */
+        /* ── FORMULÁRIO ── */
         .public-box { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: 24px; border-top: 4px solid var(--cms-blue); margin-bottom: 24px; }
         input, textarea, select { width: 100%; padding: 14px; border: 2px solid var(--cms-border); border-radius: 6px; font-size: 16px; margin-bottom: 12px; background: var(--cms-off); font-family: inherit; }
 
-        /* ── MODAIS ── */
+        /* ── MODAL ── */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 46, 90, 0.9); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px;}
         .modal { background: var(--cms-white); padding: 30px; border-radius: var(--radius-md); width: 100%; max-width: 400px; }
-        
         .success-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 2000; text-align: center; color: var(--cms-white); padding: 20px; }
         .success-screen h1 { font-family: var(--font-display); font-size: 32px; font-weight: 900; margin-top: 16px; text-transform: uppercase; }
-        
         .hidden { display: none !important; }
     </style>
 </head>
@@ -139,14 +134,21 @@
         </header>
 
         <main class="cms-wrap">
+            
             <div class="cms-grid-stat">
-                <div class="cms-stat"><div class="cms-stat-number" id="statPresentes" style="color: var(--cms-green);">0</div><div class="cms-stat-label">Presentes</div></div>
-                <div class="cms-stat"><div class="cms-stat-number" id="statAusentes">0</div><div class="cms-stat-label">Justificativas</div></div>
-                <div class="cms-stat"><div class="cms-stat-number" id="statPublico" style="color: var(--cms-blue);">0</div><div class="cms-stat-label">Público</div></div>
+                <div class="cms-stat" style="border: 2px solid var(--cms-yellow);">
+                    <div class="cms-stat-number" id="statQuorum">0</div>
+                    <div class="cms-stat-label" id="labelQuorum">Votantes (Quórum)</div>
+                </div>
+                <div class="cms-stat"><div class="cms-stat-number" id="statTotalPres" style="color: var(--cms-blue);">0</div><div class="cms-stat-label">Total Presentes</div></div>
+                <div class="cms-stat"><div class="cms-stat-number" id="statTitPres">0</div><div class="cms-stat-label">Titulares</div></div>
+                <div class="cms-stat"><div class="cms-stat-number" id="statSupPres">0</div><div class="cms-stat-label">Suplentes</div></div>
+                <div class="cms-stat"><div class="cms-stat-number" id="statVisPres">0</div><div class="cms-stat-label">Visitantes</div></div>
+                <div class="cms-stat"><div class="cms-stat-number" id="statAus" style="color: #DC2626;">0</div><div class="cms-stat-label">Ausências</div></div>
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--cms-border); padding-bottom: 12px; margin-top: 32px;">
-                <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 16px; color: var(--cms-navy); text-transform: uppercase;">Conselheiros</h2>
+                <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 16px; color: var(--cms-navy); text-transform: uppercase;">Lista de Conselheiros</h2>
                 <select id="filterStatus" onchange="applyFilter()" style="width: auto; margin-bottom: 0; padding: 6px 12px; font-size: 12px;">
                     <option value="ALL">Todos</option>
                     <option value="PENDING">Pendentes</option>
@@ -155,7 +157,8 @@
                 </select>
             </div>
 
-            <div id="gridConselheiros" class="cms-grid-3"></div>
+            <!-- Alterado para a nova estrutura de Lista Container -->
+            <div id="gridConselheiros" class="cms-list-container"></div>
 
             <section id="secPublico" style="margin-top: 60px;">
                 <h2 style="font-family: var(--font-display); font-weight: 900; font-size: 16px; color: var(--cms-navy); text-transform: uppercase; margin-bottom: 20px;">Público Externo</h2>
@@ -167,11 +170,14 @@
                         <button type="submit" class="cms-btn cms-btn-secondary" id="btnSubmitPub">Confirmar Presença</button>
                     </form>
                 </div>
-                <div id="gridPublico" class="cms-grid-3" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));"></div>
+                
+                <!-- Lista Container para o Público também -->
+                <div id="gridPublico" class="cms-list-container" style="margin-top:0;"></div>
             </section>
         </main>
     </div>
 
+    <!-- MODAL -->
     <div id="modalAcao" class="modal-overlay">
         <div class="modal">
             <p class="cms-tag tag-titular" id="modalCadeira" style="margin-bottom: 12px;">TITULAR</p>
@@ -200,6 +206,7 @@
         </div>
     </div>
 
+    <!-- SUCCESS -->
     <div id="successScreen" class="success-screen">
         <svg width="80" height="80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         <h1 id="successMsg">CONFIRMADO</h1>
@@ -214,15 +221,6 @@
         function formatFirstTwoNames(n) { const p = n.trim().split(" "); return p.length === 1 ? p[0] : `${p[0]} ${p[1]}`; }
         function formatPublicName(n) { const p = n.trim().split(" "); if (p.length <= 2) return n; let f = `${p[0]} ${p[1]}`; for (let i = 2; i < p.length; i++) { if (p[i].length > 2) f += ` ${p[i][0]}.`; } return f; }
         function getSegmentColor(s) { const g = s.toUpperCase(); if (g.includes("GESTOR")) return "var(--cms-blue)"; if (g.includes("TRABALHADOR")) return "var(--cms-green)"; return "var(--cms-navy)"; }
-
-        function getAvatarSVG(n, s) {
-            const isF = /[aey]$/i.test(n.split(" ")[0]); const c = getSegmentColor(s);
-            return `<svg viewBox="0 0 100 100" width="40" height="40" style="background: ${c}15; border-radius: 50%;">
-                <circle cx="50" cy="${isF?40:36}" r="16" fill="${c}" />
-                <path d="M${isF?25:20} 100 C ${isF?25:20} ${isF?70:65}, ${isF?75:80} ${isF?70:65}, ${isF?75:80} 100" fill="${c}" />
-                ${isF?`<path d="M34 40 Q 50 15 66 40 Q 75 60 65 75 Q 50 65 35 75 Q 25 60 34 40 Z" fill="${c}" opacity="0.2"/>`:''}
-            </svg>`;
-        }
 
         async function init() {
             try {
@@ -244,19 +242,54 @@
         }
 
         function calculateStats() {
-            let pres = 0, aus = 0, pub = 0;
-            appData.lista.forEach(i => {
-                if(i.id && i.id !== "-") { (i.registro === "PRESENÇA") ? pres++ : aus++; } else { pub++; }
+            let totalPres = 0, visPres = 0, aus = 0, titularesCount = 0, suplentesCount = 0;
+            let presentesIds = new Set();
+            
+            appData.lista.forEach(item => {
+                if (item.registro === "PRESENÇA") {
+                    totalPres++;
+                    if (item.id && item.id !== "-") {
+                        presentesIds.add(parseInt(item.id));
+                        if(item.cargo_setor.toUpperCase() === "TITULAR") titularesCount++;
+                        if(item.cargo_setor.toUpperCase() === "SUPLENTE") suplentesCount++;
+                    } else { visPres++; }
+                } else if (item.registro === "AUSÊNCIA") { aus++; }
             });
-            document.getElementById('statPresentes').innerText = pres;
-            document.getElementById('statAusentes').innerText = aus;
-            document.getElementById('statPublico').innerText = pub;
+
+            let maxId = Math.max(...appData.conselheiros.map(c => parseInt(c.id) || 0));
+            let totalVagas = Math.ceil(maxId / 2);
+            let votantesCount = 0;
+
+            for (let v = 1; v <= totalVagas; v++) {
+                let idTitular = v * 2 - 1;
+                let idSuplente = v * 2;
+                if (presentesIds.has(idTitular) || presentesIds.has(idSuplente)) {
+                    votantesCount++;
+                }
+            }
+
+            let quorumNecessario = Math.floor(totalVagas / 2) + 1;
+            let quorumAtingido = votantesCount >= quorumNecessario;
+            
+            const elQuorumNum = document.getElementById('statQuorum');
+            const elQuorumLabel = document.getElementById('labelQuorum');
+            
+            elQuorumNum.innerText = votantesCount;
+            elQuorumNum.style.color = quorumAtingido ? "var(--cms-green)" : "#DC2626";
+            elQuorumLabel.innerHTML = `VOTANTES (QUÓRUM) <br><span style="font-size:8px; color:${quorumAtingido ? 'var(--cms-green)' : '#DC2626'}">${quorumAtingido ? 'ATINGIDO' : 'MÍNIMO: '+quorumNecessario}</span>`;
+
+            document.getElementById('statTotalPres').innerText = totalPres;
+            document.getElementById('statVisPres').innerText = visPres;
+            document.getElementById('statTitPres').innerText = titularesCount;
+            document.getElementById('statSupPres').innerText = suplentesCount;
+            document.getElementById('statAus').innerText = aus;
         }
 
         function applyFilter() { renderConselheiros(appData.configs.MODO, appData.configs.STATUS_SISTEMA === "ATIVO", document.getElementById('filterStatus').value); }
 
         function renderConselheiros(modo, isAtivo, filter) {
-            const grid = document.getElementById('gridConselheiros'); grid.innerHTML = '';
+            const listContainer = document.getElementById('gridConselheiros'); listContainer.innerHTML = '';
+            
             appData.conselheiros.forEach(c => {
                 const reg = appData.lista.find(l => l.id === c.id);
                 if (filter === 'PRESENT' && (!reg || reg.registro !== "PRESENÇA")) return;
@@ -264,36 +297,57 @@
                 if (filter === 'PENDING' && reg) return;
                 if (modo == 2 && (!reg || reg.registro !== "PRESENÇA")) return;
 
-                const card = document.createElement('div');
-                card.className = 'cms-card';
-                
-                // LÓGICA DE CALOR: Pendentes ficam apagados
-                if (modo == 1 && !reg) card.classList.add('cms-card-pending');
-                if (!isAtivo && modo == 1) card.classList.add('disabled');
+                const listItem = document.createElement('div');
+                listItem.className = 'cms-list-item';
+                if (modo == 1 && !reg) listItem.classList.add('cms-list-item-pending');
+                if (!isAtivo && modo == 1) listItem.classList.add('disabled');
                 
                 const col = getSegmentColor(c.segmento);
-                card.innerHTML = `<div class="card-segment-bar" style="background:${col}"></div>
-                    <div class="avatar-box">${getAvatarSVG(c.nome, c.segmento)}</div>
-                    <div class="card-info">
-                        <span class="cms-tag ${c.cadeira.toUpperCase()==='TITULAR'?'tag-titular':'tag-suplente'}">${c.cadeira}</span>
-                        <div class="cms-card-name">${formatFirstTwoNames(c.nome)}</div>
-                        <div class="cms-card-entity">${c.entidade}</div>
-                        ${(modo==1 && reg)?`<div class="status-badge" style="color:${reg.registro==='PRESENÇA'?'var(--cms-green)':'#DC2626'}">● ${reg.registro}</div>`:''}
-                        ${(modo==2 && reg && reg.link_declaracao)?`<div style="margin-top:10px; font-size:9px; font-weight:800; color:var(--cms-blue);">📥 DECLARAÇÃO DISPONÍVEL</div>`:''}
-                    </div>`;
-                if (modo == 1 && isAtivo) card.onclick = () => openModal(c);
-                else if (modo == 2 && reg && reg.link_declaracao) card.onclick = () => window.open(reg.link_declaracao, '_blank');
-                grid.appendChild(card);
+                
+                listItem.innerHTML = `
+                    <div class="list-segment-bar" style="background:${col}"></div>
+                    <div class="list-content">
+                        <div class="list-main">
+                            <div class="tag-row">
+                                <span class="cms-tag ${c.cadeira.toUpperCase()==='TITULAR'?'tag-titular':'tag-suplente'}">${c.cadeira}</span>
+                                <span class="list-name">${formatFirstTwoNames(c.nome)}</span>
+                            </div>
+                            <span class="list-entity">${c.entidade}</span>
+                        </div>
+                        <div class="list-status">
+                            ${(modo==1 && reg)?`<span style="color:${reg.registro==='PRESENÇA'?'var(--cms-green)':'#DC2626'}">● ${reg.registro}</span>`:''}
+                            ${(modo==2 && reg && reg.link_declaracao)?`<span style="color:var(--cms-blue);">📥 DECLARAÇÃO</span>`:''}
+                        </div>
+                    </div>
+                `;
+                
+                if (modo == 1 && isAtivo) listItem.onclick = () => openModal(c);
+                else if (modo == 2 && reg && reg.link_declaracao) listItem.onclick = () => window.open(reg.link_declaracao, '_blank');
+                
+                listContainer.appendChild(listItem);
             });
+            
+            if(listContainer.innerHTML === '') listContainer.innerHTML = '<p style="color: var(--cms-muted); font-size: 14px; margin-top: 10px;">Nenhum conselheiro encontrado para este filtro.</p>';
         }
 
         function renderPublico(m) {
-            const g = document.getElementById('gridPublico'); g.innerHTML = '';
+            const listContainer = document.getElementById('gridPublico'); listContainer.innerHTML = '';
             if (m == 2 || appData.configs.STATUS_SISTEMA !== "ATIVO") document.getElementById('formPublicoWrapper').style.display='none';
+            
             appData.lista.filter(l => l.id === "-" || !l.id).forEach(p => {
-                const d = document.createElement('div'); d.style.padding="12px"; d.style.background="var(--cms-white)"; d.style.border="1px solid var(--cms-border)"; d.style.borderRadius="6px"; d.style.fontSize="12px";
-                d.innerHTML = `<strong style="display:block; font-size:12px; text-transform:uppercase; color:var(--cms-navy);">${formatPublicName(p.nome)}</strong><span style="color:var(--cms-muted); font-size:10px;">${p.cargo_setor!=="-"?p.cargo_setor:"Visitante"}</span>`;
-                g.appendChild(d);
+                const listItem = document.createElement('div'); 
+                listItem.className = 'cms-list-item';
+                
+                listItem.innerHTML = `
+                    <div class="list-segment-bar" style="background:var(--cms-border)"></div>
+                    <div class="list-content">
+                        <div class="list-main">
+                            <span class="list-name" style="margin-bottom:4px;">${formatPublicName(p.nome)}</span>
+                            <span class="list-entity">${p.cargo_setor!=="-"?p.cargo_setor:"Visitante"}</span>
+                        </div>
+                    </div>
+                `;
+                listContainer.appendChild(listItem);
             });
         }
 
