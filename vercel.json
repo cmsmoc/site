@@ -15,8 +15,7 @@
       "source": "/certificados",
       "destination": "https://cmsmoc.github.io/site/certificados.html",
       "permanent": false
-    }
-  ],
+    },
     {
       "source": "/reuniao",
       "destination": "https://cmsmoc.github.io/site/reuniao.html",
