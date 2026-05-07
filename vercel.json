@@ -1,25 +1,21 @@
 {
   "cleanUrls": true,
-  "redirects": [
+  "rewrites": [
+    {
+      "source": "/reuniao",
+      "destination": "https://cmsmoc.github.io/site/reuniao.html"
+    },
     {
       "source": "/avalie",
-      "destination": "https://tally.so/r/441yXX",
-      "permanent": false
+      "destination": "https://tally.so/r/441yXX"
     },
     {
       "source": "/propostas",
-      "destination": "https://cmsmoc.github.io/site/propostas1.html",
-      "permanent": false
+      "destination": "https://cmsmoc.github.io/site/propostas1.html"
     },
     {
       "source": "/certificados",
-      "destination": "https://cmsmoc.github.io/site/certificados.html",
-      "permanent": false
-    },
-    {
-      "source": "/reuniao",
-      "destination": "https://cmsmoc.github.io/site/reuniao.html",
-      "permanent": false
+      "destination": "https://cmsmoc.github.io/site/certificados.html"
     }
   ]
 }
