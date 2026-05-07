@@ -333,8 +333,13 @@
             if (m == 2 || appData.configs.STATUS_SISTEMA !== "ATIVO") document.getElementById('formPublicoWrapper').style.display='none';
             
             appData.lista.filter(l => l.id === "-" || !l.id).forEach(p => {
-                const listItem = document.createElement('div'); 
-                listItem.className = 'cms-list-item';
+                // No modo 2, mostra apenas quem marcou presença
+                if (m == 2 && p.registro !== "PRESENÇA") return;
+
+                const listItem = document.createElement('div'); listItem.className = 'cms-list-item';
+                
+                // Prepara o selo de declaração se estiver no modo 2 e tiver link
+                let htmlLink = (m == 2 && p.link_declaracao) ? `<span style="color:var(--cms-blue); font-size:10px; font-weight:800; font-family: var(--font-display);">📥 DECLARAÇÃO</span>` : '';
                 
                 listItem.innerHTML = `
                     <div class="list-segment-bar" style="background:var(--cms-border)"></div>
@@ -343,8 +348,16 @@
                             <span class="list-name" style="margin-bottom:4px;">${formatPublicName(p.nome)}</span>
                             <span class="list-entity">${p.cargo_setor!=="-"?p.cargo_setor:"Visitante"}</span>
                         </div>
+                        <div class="list-status">${htmlLink}</div>
                     </div>
                 `;
+                
+                // Ativa o clique no card do público para abrir o link do PDF
+                if (m == 2 && p.link_declaracao) {
+                    listItem.style.cursor = 'pointer';
+                    listItem.onclick = () => window.open(p.link_declaracao, '_blank');
+                }
+                
                 listContainer.appendChild(listItem);
             });
         }
