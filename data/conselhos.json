@@ -1,0 +1,621 @@
+{
+  "ultima_atualizacao": "2026-05-12T04:11:45.038Z",
+  "municipios": [
+    {
+      "id_ibge": "3143302",
+      "micro": "Montes Claros",
+      "nome": "Montes Claros",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3116503",
+      "micro": "Montes Claros",
+      "nome": "Claro dos Poções",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3127388",
+      "micro": "Montes Claros",
+      "nome": "Glaucilândia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3132008",
+      "micro": "Montes Claros",
+      "nome": "Itacambira",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3136801",
+      "micro": "Montes Claros",
+      "nome": "Juramento",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3142007",
+      "micro": "Montes Claros",
+      "nome": "Mirabela",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3107304",
+      "micro": "Bocaiúva",
+      "nome": "Bocaiúva",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3123806",
+      "micro": "Bocaiúva",
+      "nome": "Engenheiro Navarro",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3126000",
+      "micro": "Bocaiúva",
+      "nome": "Francisco Dumont",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3128253",
+      "micro": "Bocaiúva",
+      "nome": "Guaraciama",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3136405",
+      "micro": "Bocaiúva",
+      "nome": "Joaquim Felício",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3145458",
+      "micro": "Bocaiúva",
+      "nome": "Olhos-d'Água",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3108609",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Brasília de Minas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3111157",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Campo Azul",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3129657",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Ibiracatu",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3130051",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Icaraí de Minas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3135357",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Japonvar",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3138658",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Lontra",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3138674",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Luislândia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3147355",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Patis",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3150539",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Pintópolis",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3161106",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "São Francisco",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3162401",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "São João da Ponte",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3164407",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "São Romão",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3170008",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Ubaí",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3170438",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Urucuia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3170800",
+      "micro": "Brasília de Minas / São Francisco",
+      "nome": "Varzelândia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3119309",
+      "micro": "Coração de Jesus",
+      "nome": "Coração de Jesus",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3129202",
+      "micro": "Coração de Jesus",
+      "nome": "Ibiaí",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3135605",
+      "micro": "Coração de Jesus",
+      "nome": "Jequitaí",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3137502",
+      "micro": "Coração de Jesus",
+      "nome": "Lagoa dos Patos",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3162252",
+      "micro": "Coração de Jesus",
+      "nome": "São João da Lagoa",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3112809",
+      "micro": "Francisco Sá",
+      "nome": "Capitão Enéas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3120604",
+      "micro": "Francisco Sá",
+      "nome": "Cristália",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3126703",
+      "micro": "Francisco Sá",
+      "nome": "Francisco Sá",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3127701",
+      "micro": "Francisco Sá",
+      "nome": "Grão Mogol",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3136553",
+      "micro": "Francisco Sá",
+      "nome": "Josenópolis",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3146258",
+      "micro": "Francisco Sá",
+      "nome": "Padre Carvalho",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3115455",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Catuti",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3124309",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Espinosa",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3127354",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Gameleiras",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3134905",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Jaíba",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3135100",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Janaúba",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3139250",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Mamonas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3140852",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Matias Cardoso",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3141108",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Mato Verde",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3143104",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Monte Azul",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3145052",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Nova Porteirinha",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3146357",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Pai Pedro",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3152105",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Porteirinha",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3154705",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Riacho dos Machados",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3166956",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Serranópolis de Minas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3171071",
+      "micro": "Janaúba / Monte Azul",
+      "nome": "Verdelândia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3108252",
+      "micro": "Januária",
+      "nome": "Bonito de Minas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3115851",
+      "micro": "Januária",
+      "nome": "Chapada Gaúcha",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3118004",
+      "micro": "Januária",
+      "nome": "Cônego Marinho",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3132206",
+      "micro": "Januária",
+      "nome": "Itacarambi",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3135209",
+      "micro": "Januária",
+      "nome": "Januária",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3148759",
+      "micro": "Januária",
+      "nome": "Pedras de Maria da Cruz",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3136959",
+      "micro": "Manga",
+      "nome": "Juvenília",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3139300",
+      "micro": "Manga",
+      "nome": "Manga",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3142254",
+      "micro": "Manga",
+      "nome": "Miravânia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3143005",
+      "micro": "Manga",
+      "nome": "Montalvânia",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3162450",
+      "micro": "Manga",
+      "nome": "São João das Missões",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3109706",
+      "micro": "Pirapora",
+      "nome": "Buritizeiro",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3138005",
+      "micro": "Pirapora",
+      "nome": "Lassance",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3150505",
+      "micro": "Pirapora",
+      "nome": "Pirapora",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3151503",
+      "micro": "Pirapora",
+      "nome": "Ponto Chique",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3154507",
+      "micro": "Pirapora",
+      "nome": "Riachinho",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3157658",
+      "micro": "Pirapora",
+      "nome": "Santa Fé de Minas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3170909",
+      "micro": "Pirapora",
+      "nome": "Várzea da Palma",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3106652",
+      "micro": "Salinas",
+      "nome": "Berizal",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3126950",
+      "micro": "Salinas",
+      "nome": "Fruta de Leite",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3145359",
+      "micro": "Salinas",
+      "nome": "Novorizonte",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3156601",
+      "micro": "Salinas",
+      "nome": "Rubelita",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3157005",
+      "micro": "Salinas",
+      "nome": "Salinas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3157336",
+      "micro": "Salinas",
+      "nome": "Santa Cruz de Salinas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3101000",
+      "micro": "Taiobeiras",
+      "nome": "Águas Vermelhas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3120877",
+      "micro": "Taiobeiras",
+      "nome": "Curral de Dentro",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3121958",
+      "micro": "Taiobeiras",
+      "nome": "Divisa Alegre",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3130556",
+      "micro": "Taiobeiras",
+      "nome": "Indaiabira",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3143401",
+      "micro": "Taiobeiras",
+      "nome": "Montezuma",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3144675",
+      "micro": "Taiobeiras",
+      "nome": "Ninheira",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3155702",
+      "micro": "Taiobeiras",
+      "nome": "Rio Pardo de Minas",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3160454",
+      "micro": "Taiobeiras",
+      "nome": "Santo Antônio do Retiro",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3162302",
+      "micro": "Taiobeiras",
+      "nome": "São João do Paraíso",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3168002",
+      "micro": "Taiobeiras",
+      "nome": "Taiobeiras",
+      "cadastrado": false,
+      "dados": null
+    },
+    {
+      "id_ibge": "3170651",
+      "micro": "Taiobeiras",
+      "nome": "Vargem Grande do Rio Pardo",
+      "cadastrado": false,
+      "dados": null
+    }
+  ]
+}
