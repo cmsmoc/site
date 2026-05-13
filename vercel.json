@@ -16,6 +16,10 @@
     {
       "source": "/certificados",
       "destination": "https://cmsmoc.github.io/site/certificados.html"
+    },
+    {
+      "source": "/pesquisa",
+      "destination": "https://cmsmoc.github.io/secretariaexecutiva/pesquisa.html"
     }
   ]
 }
