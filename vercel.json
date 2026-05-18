@@ -20,10 +20,13 @@
     {
       "source": "/pesquisa",
       "destination": "https://cmsmoc.github.io/secretariaexecutiva/pesquisa.html"
-    },
+    }
+  ],
+  "redirects": [
     {
       "source": "/emendas2026-maio",
-      "destination": "https://drive.google.com/file/d/1nO3_ygR3H1d5FtOF8GdtpotjfKQdftRE/view?usp=drive_link"
+      "destination": "https://drive.google.com/file/d/1nO3_ygR3H1d5FtOF8GdtpotjfKQdftRE/view?usp=drive_link",
+      "permanent": false
     }
   ]
 }
