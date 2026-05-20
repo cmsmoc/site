@@ -20,6 +20,10 @@
     {
       "source": "/pesquisa",
       "destination": "https://cmsmoc.github.io/secretariaexecutiva/pesquisa.html"
+    },
+    {
+      "source": "/secretariaexecutiva",
+      "destination": "https://cmsmoc.github.io/secretariaexecutiva/"
     }
   ],
   "redirects": [
