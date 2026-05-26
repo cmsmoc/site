@@ -308,7 +308,7 @@
             });
             let maxId = Math.max(...appData.conselheiros.map(c => parseInt(c.id) || 0)); let totalVagas = Math.ceil(maxId / 2); let votantesCount = 0;
             for (let v = 1; v <= totalVagas; v++) { if (presentesIds.has(v * 2 - 1) || presentesIds.has(v * 2)) votantesCount++; }
-            let quorumNecessario = Math.floor(totalVagas / 2) + 1; let quorumAtingido = votantesCount >= quorumNecessario;
+            let quorumNecessario = Math.floor(totalVagas / 3) + 1; let quorumAtingido = votantesCount >= quorumNecessario;
             
             document.getElementById('statQuorum').innerText = votantesCount; document.getElementById('statQuorum').style.color = quorumAtingido ? "var(--cms-green)" : "#DC2626";
             document.getElementById('labelQuorum').innerHTML = `QUÓRUM <br><span style="font-size:8px; color:${quorumAtingido ? 'var(--cms-green)' : '#DC2626'}">${quorumAtingido ? 'ATINGIDO' : 'MÍNIMO: '+quorumNecessario}</span>`;
