@@ -193,7 +193,6 @@
     </div>
 
     <script>
-        // CONFIGURAÇÃO DA FONTE DE DADOS HÍBRIDA
         const API_GAS = "https://script.google.com/macros/s/AKfycbwwzDRStWcLJ9MbztmPozlyGiLPZKC46yKsVd888XDusRa2heJkuSk2Tc5W5TMhj2UAfA/exec";
         const API_GITHUB = "https://raw.githubusercontent.com/cmsmoc/site/main/data/dados_reuniao.json";
         const TOKEN = "CMS_MOC_SECURE_TOKEN_2026";
@@ -220,12 +219,15 @@
             if(showLoader) document.getElementById('loader').classList.remove('hidden');
             
             try { 
-                let response = await fetch(API_GITHUB);
+                // CORREÇÃO 1: Fura-Cache adicionado (?t=...) para garantir que o navegador sempre pegue a versão mais nova do GitHub
+                const timestamp = new Date().getTime();
+                let response = await fetch(`${API_GITHUB}?t=${timestamp}`);
                 let data = await response.json();
 
                 if (data.configs.MODO == 1) {
                     API_URL = API_GAS;
-                    response = await fetch(API_GAS);
+                    // Fura-cache no GAS também
+                    response = await fetch(`${API_GAS}?t=${timestamp}`);
                     data = await response.json();
                 } else {
                     API_URL = API_GITHUB;
@@ -271,10 +273,10 @@
             document.getElementById('headerLabel').innerText = appData.configs.LABEL_TOPO || "CMS Montes Claros"; 
             document.getElementById('headerTitle').innerText = appData.configs.TITULO || "Reunião";
             
-            // Ajusta os botões e títulos dependendo do Modo e Status
             const isAtivo = appData.configs.STATUS_SISTEMA === "ATIVO";
             const modo = appData.configs.MODO;
             
+            // CORREÇÃO 2: Restaura os textos e o formulário quando o sistema volta para ATIVO/MODO 1
             if (modo == 2 || !isAtivo) {
                 document.getElementById('formPublicoWrapper').classList.add('hidden');
                 document.getElementById('avisoFormFechado').classList.remove('hidden');
@@ -285,6 +287,10 @@
             } else {
                 document.getElementById('formPublicoWrapper').classList.remove('hidden');
                 document.getElementById('avisoFormFechado').classList.add('hidden');
+                document.getElementById('tituloPresentesHome').innerText = "✅ Participantes Credenciados";
+                document.getElementById('iconeBtnCons').innerText = "📋";
+                document.getElementById('tituloBtnCons').innerText = "Sou Conselheiro";
+                document.getElementById('descBtnCons').innerText = "Registrar Presença Oficial";
             }
 
             calculateStats(); 
@@ -328,12 +334,17 @@
                    badge = `<span class="cms-tag ${p.cargo_setor.toUpperCase()==='TITULAR'?'tag-titular':'tag-suplente'}">${p.cargo_setor}</span>`;
                 }
 
-                // MOSTRA O LINK DA DECLARAÇÃO NO MODO 2 SE ELE EXISTIR
                 let htmlStatus = "";
-                if (modo == 2 && p.link_declaracao && p.link_declaracao.startsWith('http')) {
-                    htmlStatus = `<span style="color:var(--cms-blue); font-size:10px; font-weight:900; letter-spacing: 0.5px;">📥 DECLARAÇÃO</span>`;
-                    listItem.style.cursor = 'pointer';
-                    listItem.onclick = () => window.open(p.link_declaracao, '_blank');
+                if (modo == 2) {
+                    if (p.link_declaracao && p.link_declaracao.startsWith('http')) {
+                        htmlStatus = `<span style="color:var(--cms-blue); font-size:10px; font-weight:900; letter-spacing: 0.5px;">📥 BAIXAR</span>`;
+                        listItem.style.cursor = 'pointer';
+                        listItem.onclick = () => window.open(p.link_declaracao, '_blank');
+                    } else {
+                        htmlStatus = `<span style="color:var(--cms-muted); font-size:9px; font-weight:700;">⏳ SEM LINK</span>`;
+                        listItem.style.cursor = 'default';
+                        listItem.title = "A declaração ainda não foi sincronizada.";
+                    }
                 } else {
                     listItem.style.cursor = 'default';
                 }
@@ -378,16 +389,23 @@
                 const col = getSegmentColor(c.segmento);
                 let textAviso = (!reg && modo == 1 && isAtivo) ? `<span class="aviso-clique">👆 Clique para registrar Presença ou Ausência</span>` : '';
 
-                // LÓGICA DO MODO 2 PARA A LISTA OFICIAL
                 let htmlStatus = '';
                 if (reg) {
-                    if (modo == 2 && reg.link_declaracao && reg.link_declaracao.startsWith('http')) {
-                        htmlStatus = `<span style="color:var(--cms-blue); font-weight:900; font-size:10px;">📥 DECLARAÇÃO</span>`;
-                        listItem.style.cursor = 'pointer';
-                        listItem.onclick = () => window.open(reg.link_declaracao, '_blank');
+                    if (modo == 2) {
+                        if (reg.registro === 'AUSÊNCIA') {
+                            htmlStatus = `<span style="color:#DC2626; font-weight:900; font-size:10px;">● AUSENTE</span>`;
+                            listItem.style.cursor = 'default';
+                        } else if (reg.link_declaracao && reg.link_declaracao.startsWith('http')) {
+                            htmlStatus = `<span style="color:var(--cms-blue); font-weight:900; font-size:10px;">📥 BAIXAR</span>`;
+                            listItem.style.cursor = 'pointer';
+                            listItem.onclick = () => window.open(reg.link_declaracao, '_blank');
+                        } else {
+                            htmlStatus = `<span style="color:var(--cms-muted); font-weight:900; font-size:9px;">⏳ SEM LINK</span>`;
+                            listItem.style.cursor = 'default';
+                        }
                     } else {
                         htmlStatus = `<span style="color:${reg.registro==='PRESENÇA'?'var(--cms-green)':'#DC2626'}; font-weight:900;">● ${reg.registro}</span>`;
-                        if (modo == 1 && isAtivo) listItem.onclick = () => openModal(c);
+                        if (isAtivo) listItem.onclick = () => openModal(c);
                     }
                 } else if (modo == 1 && isAtivo) {
                     listItem.onclick = () => openModal(c);
