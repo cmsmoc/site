@@ -1,17 +1,17 @@
 {
   "configs": {
     "CHAVE": "VALOR",
-    "STATUS_SISTEMA": "INATIVO",
-    "MODO": 2,
-    "TITULO": "465ª Reunião Ordinária do CMS - Montes Claros",
-    "LABEL_TOPO": "NOVO CICLO - TRIÊNIO 2026-2029",
+    "STATUS_SISTEMA": "ATIVO",
+    "MODO": 1,
+    "TITULO": "266ª Reunião Ordinária do CMS - Montes Claros",
+    "LABEL_TOPO": "AVALIAÇÃO 1º RDQA / 2026",
     "DESCRICAO": "CONSELHEIRO(A), BASTA CLICAR NO SEU NOME PARA MARCAR PRESENÇA OU JUSTIFICAR AUSÊNCIA",
-    "PAUTA": "<li>Solenidade de Entrega de Honrarias.</li><li>Apresentação e Posse dos novos conselheiros.</li><li>Eleição da nova Mesa Diretora.</li>",
-    "QUANDO_ONDE": "<b>06 de maio de 2026</b><br>Quarta-feira<br><br><b>Câmara Municipal - Rua Urbino Viana, 600, Vila Guilhermina<br>Montes Claros/MG",
-    "DATA_REUNIAO": "06 de maio de 2026",
-    "HORA_REUNIAO": "às 13h30",
+    "PAUTA": "<li>Apreciação e deliberação sobre o Relatório Detalhado do Quadrimestre Anterior</li>",
+    "QUANDO_ONDE": "<b>28 de maio de 2026</b><br>Quinta-feira<br><br><b>Câmara Municipal - Rua Urbino Viana, 600, Vila Guilhermina<br>Montes Claros/MG",
+    "DATA_REUNIAO": "28 de maio de 2026",
+    "HORA_REUNIAO": "no turno vespertino",
     "LOCAL_REUNIAO": "na Câmara Municipal de Montes Claros",
-    "DATA_ASSINATURA": "06 de maio de 2026"
+    "DATA_ASSINATURA": "28 de maio de 2026"
   },
   "conselheiros": [
     {
@@ -19,21 +19,21 @@
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "CLS Jardim Primavera",
-      "nome": "JOEL FRANCISCO BORGES"
+      "nome": "Joel Francisco Borges"
     },
     {
       "id": 2,
       "segmento": "Usuários",
       "cadeira": "Suplente",
       "entidade": "CLS Independência",
-      "nome": "AMANDA MENDES SOARES"
+      "nome": "Amanda Mendes Soares"
     },
     {
       "id": 3,
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "CLS Renascença",
-      "nome": "EMANUELA TOMAS DA SILVA CONCEIÇÃO"
+      "nome": "Emanuela Tomas da Silva Conceição"
     },
     {
       "id": 4,
@@ -47,7 +47,7 @@
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "CLS Vila Atlântica",
-      "nome": "DANIELLE SANTOS SOUSA"
+      "nome": "Danielle Santos Sousa"
     },
     {
       "id": 6,
@@ -68,7 +68,7 @@
       "segmento": "Usuários",
       "cadeira": "Suplente",
       "entidade": "Assembleia de Deus Madureira",
-      "nome": "Julio César Pereira"
+      "nome": "Júlio César Pereira"
     },
     {
       "id": 9,
@@ -89,49 +89,49 @@
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "Arquidiocese de Montes Claros (Pastoral da Saúde)",
-      "nome": "MARIA DOS REIS RIBEIRO DIAS"
+      "nome": "Maria dos Reis Ribeiro Dias"
     },
     {
       "id": 12,
       "segmento": "Usuários",
       "cadeira": "Suplente",
       "entidade": "Arquidiocese de Montes Claros (Pastoral da Saúde)",
-      "nome": "GILSON MENDES DE ALMEIDA"
+      "nome": "Gilson Mendes de Almeida"
     },
     {
       "id": 13,
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "Associação Consciência Ativa",
-      "nome": "MARILDA BATISTA DA SILVA"
+      "nome": "Marilda Batista da Silva"
     },
     {
       "id": 14,
       "segmento": "Usuários",
       "cadeira": "Suplente",
       "entidade": "Associação Consciência Ativa",
-      "nome": "FABIANA PEREIRA MORI"
+      "nome": "Fabiana Pereira Mori"
     },
     {
       "id": 15,
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "ANDA (Associação Norte Mineira de Apoio ao Autista)",
-      "nome": "FARLEY SINDEAUX RIBEIRO"
+      "nome": "Farley Sindeaux Ribeiro"
     },
     {
       "id": 16,
       "segmento": "Usuários",
       "cadeira": "Suplente",
       "entidade": "ANDA (Associação Norte Mineira de Apoio ao Autista)",
-      "nome": "JAMILSON GANDRA MOREIRA"
+      "nome": "Jamilson Gandra Moreira"
     },
     {
       "id": 17,
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "ADEMOC",
-      "nome": "FERNANDO ANTÔNIO DIAS DE ANDRADE"
+      "nome": "Fernando Antônio Dias de Andrade"
     },
     {
       "id": 18,
@@ -145,7 +145,7 @@
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "Sindicato dos Trabalhadores Rurais (CUT)",
-      "nome": "NAIARA OLIVEIRA SILVA"
+      "nome": "Naiara Oliveira Silva"
     },
     {
       "id": 20,
@@ -159,7 +159,7 @@
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "Lar Betânia",
-      "nome": "ANIELLY COSTA SILVA"
+      "nome": "Anielly Costa Silva"
     },
     {
       "id": 22,
@@ -187,7 +187,7 @@
       "segmento": "Usuários",
       "cadeira": "Titular",
       "entidade": "Rotary Clube",
-      "nome": "RAFAEL CARVALHO MACIEL"
+      "nome": "Rafael Carvalho Maciel"
     },
     {
       "id": 26,
@@ -243,63 +243,63 @@
       "segmento": "Trabalhadores",
       "cadeira": "Titular",
       "entidade": "ABO (Associação Brasileira de Odontologia)",
-      "nome": "SHEILLA SILVA MENDES"
+      "nome": "Sheilla Silva Mendes"
     },
     {
       "id": 34,
       "segmento": "Trabalhadores",
       "cadeira": "Suplente",
       "entidade": "ABO (Associação Brasileira de Odontologia)",
-      "nome": "MARIANA CRISTINA MEIRA CAMBUÍ"
+      "nome": "Mariana Cristina Meira Cambuí"
     },
     {
       "id": 35,
       "segmento": "Trabalhadores",
       "cadeira": "Titular",
       "entidade": "COREN-MG (Nível Médio)",
-      "nome": "ERNANDES RODRIGUES MORAES"
+      "nome": "Ernandes Rodrigues Moraes"
     },
     {
       "id": 36,
       "segmento": "Trabalhadores",
       "cadeira": "Suplente",
       "entidade": "COREN-MG (Nível Médio)",
-      "nome": "JÚLIO CÉSAR ARAÚJO LOPES"
+      "nome": "Júlio César Araújo Lopes"
     },
     {
       "id": 37,
       "segmento": "Trabalhadores",
       "cadeira": "Titular",
       "entidade": "COREN-MG (Nível Superior)",
-      "nome": "FERNANDA FAGUNDES AZEVEDO SINDEAUX"
+      "nome": "Fernanda Fagundes Azevedo Sindeaux"
     },
     {
       "id": 38,
       "segmento": "Trabalhadores",
       "cadeira": "Suplente",
       "entidade": "COREN-MG (Nível Superior)",
-      "nome": "RICARDO SOARES DE OLIVEIRA"
+      "nome": "Ricardo Soares de Oliveira"
     },
     {
       "id": 39,
       "segmento": "Trabalhadores",
       "cadeira": "Titular",
       "entidade": "SEEMG",
-      "nome": "CLÁUDIO LUÍS DE SOUZA SANTOS"
+      "nome": "Cláudio Luís de Souza Santos"
     },
     {
       "id": 40,
       "segmento": "Trabalhadores",
       "cadeira": "Suplente",
       "entidade": "SEEMG",
-      "nome": "MÔNICA DE FÁTIMA FERNANDES FERREIRA"
+      "nome": "Mônica de Fátima Fernandes Ferreira"
     },
     {
       "id": 41,
       "segmento": "Trabalhadores",
       "cadeira": "Titular",
       "entidade": "SIEESS-MG",
-      "nome": "WASHINGTON LUIS CARVALHO SOUTO"
+      "nome": "Washington Luis Carvalho Souto"
     },
     {
       "id": 42,
@@ -320,14 +320,14 @@
       "segmento": "Trabalhadores",
       "cadeira": "Suplente",
       "entidade": "SINDE-SAÚDE-MG",
-      "nome": "Graciele Gonçalves Ferreira"
+      "nome": "Imaculada Conceição Barbosa"
     },
     {
       "id": 45,
       "segmento": "Trabalhadores",
       "cadeira": "Titular",
       "entidade": "SINDSEP-MG",
-      "nome": "EDMILSON ALVES DA SILVA"
+      "nome": "Edmilson Alves da Silva"
     },
     {
       "id": 46,
@@ -376,7 +376,7 @@
       "segmento": "Prestadores",
       "cadeira": "Suplente",
       "entidade": "Fundação Capelo Gaivota",
-      "nome": "KELLY MENDES FAGUNDES"
+      "nome": "Kelly Mendes Fagundes"
     },
     {
       "id": 53,
@@ -397,55 +397,55 @@
       "segmento": "Prestadores",
       "cadeira": "Titular",
       "entidade": "Hospital Dilson Godinho",
-      "nome": "HERICK RODRIGUES ARAÚJO"
+      "nome": "Herick Rodrigues Araújo"
     },
     {
       "id": 56,
       "segmento": "Prestadores",
       "cadeira": "Suplente",
       "entidade": "APAE / Fundação Vovó Clarice",
-      "nome": "EMILLE EUNICE ANTUNES DIAS MATOS"
+      "nome": "Emille Eunice Antunes Dias Matos"
     },
     {
       "id": 57,
       "segmento": "Gestão",
       "cadeira": "Titular",
-      "entidade": "Gestão Pública Municipal",
-      "nome": "EDUARDO LUIZ DA SILVA"
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Eduardo Luiz da Silva"
     },
     {
       "id": 58,
       "segmento": "Gestão",
       "cadeira": "Suplente",
-      "entidade": "Gestão Pública Municipal",
+      "entidade": "Secretaria Municipal de Saúde",
       "nome": "João Alves Pereira"
     },
     {
       "id": 59,
       "segmento": "Gestão",
       "cadeira": "Titular",
-      "entidade": "Gestão Pública Municipal",
-      "nome": "MARIA CLARA LELIS RAMOS CARDOSO"
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Maria Clara Lelis Ramos Cardoso"
     },
     {
       "id": 60,
       "segmento": "Gestão",
       "cadeira": "Suplente",
-      "entidade": "Gestão Pública Municipal",
-      "nome": "RAIMARA GONÇALVES PEREIRA"
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Raimara Gonçalves Pereira"
     },
     {
       "id": 61,
       "segmento": "Gestão",
       "cadeira": "Titular",
-      "entidade": "Gestão Pública Municipal",
+      "entidade": "Secretaria Municipal de Saúde",
       "nome": "Márcio Cardoso Silva"
     },
     {
       "id": 62,
       "segmento": "Gestão",
       "cadeira": "Suplente",
-      "entidade": "Gestão Pública Municipal",
+      "entidade": "Secretaria Municipal de Saúde",
       "nome": "Marcos Dangelis Aguiar"
     },
     {
@@ -463,694 +463,5 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": [
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JÚLIO CÉSAR ARAÚJO LOPES",
-      "id": 36,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "MARIANA CRISTINA MEIRA CAMBUÍ",
-      "id": 34,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "MARCOS DANGELIS AGUIAR",
-      "id": 62,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "VALDEMAR RODRIGUES DOS ANJOS",
-      "id": 64,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "NÚBIA CARNEIRO GUIMARÃES",
-      "id": 51,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "AMANDA MENDES SOARES",
-      "id": 2,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "MARISA CANTIDIO OLIVEIRA",
-      "id": 28,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JULIO CÉSAR PEREIRA",
-      "id": 8,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "AVILMAR AUGUSTO PEREIRA",
-      "id": 48,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "KELLY MENDES FAGUNDES",
-      "id": 52,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "SÉRGIO PERES",
-      "id": 4,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JULIANA APARECIDA DE OLIVEIRA",
-      "id": 26,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JAQUELINE DA CONCEIÇÃO CAMELO",
-      "id": 22,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "GILSON MENDES DE ALMEIDA",
-      "id": 12,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "HELDER LOPES SOUZA",
-      "id": 18,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "CINDY ALMEYDA REIS",
-      "id": 31,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "CRISTIANO JÚNIOR",
-      "id": 54,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "EDUARDO LUIZ DA SILVA",
-      "id": 57,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "FABIANA PEREIRA MORI",
-      "id": 14,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "EMILLE EUNICE ANTUNES DIAS MATOS",
-      "id": 56,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "EMANUELA TOMAS DA SILVA CONCEIÇÃO",
-      "id": 3,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1rlSxoJaQmVinKpAS26tTD3tWVkh_g2ns/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "EDMILSON ALVES DA SILVA",
-      "id": 45,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1B6t4Bt7w4p9LbNmo7zF6GoE_BM0VpS_o/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "MÔNICA DE FÁTIMA FERNANDES FERREIRA",
-      "id": 40,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/15n9fvhsjaT7TfEsPtOh6UamtlOPzzTXW/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ANIELLY COSTA SILVA",
-      "id": 21,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/19-5F42vRZPOucbioTIv9u-0uSNWwzVzB/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "FERNANDA FAGUNDES AZEVEDO SINDEAUX",
-      "id": 37,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1TelXSuOdwy98EJKrV4CGdmi1ZzQuhvuL/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JOSÉ CÂNDIDO DE SOUZA FILHO",
-      "id": 24,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1h3pPognezGxR21MwkKeeBfTdn8s7FLdh/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "NAYRA CRISTINE LACERDA LOURENS",
-      "id": 53,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1voiAKuVRpny5BU0TKGWRwwliLr9pzxU-/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "JOEL FRANCISCO BORGES",
-      "id": 1,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1YayMCjBOYUlN_0WUS-chEZnSyLA6FrED/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "HERICK RODRIGUES ARAÚJO",
-      "id": 55,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1N-WC-ZSgMK4WNz0hTVV48Gl1naMumdwJ/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "THALLYTA DE SOUSA LIMA",
-      "id": 63,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/10nSaq74rlWOi_TXMJnyMXl_5C3E1mJdK/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JAMILSON GANDRA MOREIRA",
-      "id": 16,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1aRGK-imbQPUhHSEDV-zUgvwoerUqQg-R/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "PAULO THIAGO CARVALHO SOARES RIBEIRO",
-      "id": 23,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1NcbvXaQwxn0_zuFiz9c1kXvvm6OyjePM/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "PATRÍCIA SOARES GOMES",
-      "id": 30,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/15BfvnonR-rRDh6T3WpQraHJirdkcqaHN/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "RICARDO SOARES DE OLIVEIRA",
-      "id": 38,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1jhWiQZX-KF-qznxywQ24yUHK9iPqABrM/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ISABEL MACEDO AVELAR",
-      "id": 27,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1ElJv_5eXBgzwJK_UIscRQvykQlaXjTuW/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "MARIA DOS REIS RIBEIRO DIAS",
-      "id": 11,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1Vj7sRaQABrdk3T7tsi0AOEQxWLu8wO_9/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "DANIELLE SANTOS SOUSA",
-      "id": 5,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1B7w9v-kKs06Un14Mg3pIjm5CHLDtbQAw/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "CLÁUDIA ROCHA BISCOTTO",
-      "id": 29,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1uKP77-SApixIs55hQWS8HCgnhnFbtB62/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "IURI SIMÕES MOTA",
-      "id": 49,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1iQYawME1XL4mxm4-mTIJOcTxag7kaOD6/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "SUELEN DOS SANTOS FERREIRA",
-      "id": 50,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1owDurAHdDHPfleOu6keorrykNMua2rXO/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "RAFAEL CARVALHO MACIEL",
-      "id": 25,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1qYfVdMLTo1_0Qhd6hS8FpVCA3uIHQOJb/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ROBERTA CUNHA MOTA SANTOS",
-      "id": 9,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1zk4LvrLv-gsqdAepgmaurhz2MWbOXIB8/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "CLÁUDIO LUÍS DE SOUZA SANTOS",
-      "id": 39,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/120LBczxX3xgmJ47azFyLU7It6bbhYnmG/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "MARILDA BATISTA DA SILVA",
-      "id": 13,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1i0JbwnA4AZIYIw6EXs0p_6VCaGKc02dE/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "SHEILLA SILVA MENDES",
-      "id": 33,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/12kmBVyOKRFtiRb0gMCPix9_4Ith_xlwL/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "LUCIANA DE JESUS SANTOS CARDOSO",
-      "id": 7,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1kvz-nSpd84uD74Q0aqriV8Si7XhoMFNr/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ERNANDES RODRIGUES MORAES",
-      "id": 35,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1I6RK7Fhk83ObksjFWsT0zyPRjsHcyLfZ/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "FERNANDO ANTÔNIO DIAS DE ANDRADE",
-      "id": 17,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1kiANXzjdpQxWhHw6nRB6VaXJZTOXNVjM/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "EDINÉ SILVA SOARES",
-      "id": 43,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1umP5EjPeYaSMUQaK50piGDG-PLFh7J3e/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "RAIMARA GONÇALVES PEREIRA",
-      "id": 60,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1AgpXug5o4FD0WX5iyBXQ_RmdKKFD91zC/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "EDVALDO DE FREITAS FRANCISCO",
-      "id": 46,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/13Fs6BDhIQPjSQCgELgT80UoFODxc6h13/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "MÁRCIO CARDOSO SILVA",
-      "id": 61,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/145r3sOobok4S0kHiRllp1zsC2qsBDMiG/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "MARIA CLARA LELIS RAMOS CARDOSO",
-      "id": 59,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1E4PfC2yXZsfObK_HifVk81gcr0Ds73wi/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "FARLEY SINDEAUX RIBEIRO",
-      "id": 15,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1iJXcem4u2DYEvgPzVr0alw1fj_TClYY8/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "WASHINGTON LUIS CARVALHO SOUTO",
-      "id": 41,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1Re6CqnZMlfx2pV1N5RMQa7Des4G4vWO5/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JUCIELIO BERNARDES DA SILVA",
-      "id": 42,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/18hXhrjCIESFPNqUcV0dH16jUAxbYz7rb/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "SANDRA SIMONY MENDES GONÇALVES CARNIELLE",
-      "id": 32,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1wi44wN_ot65M_XLaXt1hPKhromMoZjwQ/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "JOÃO ALVES PEREIRA",
-      "id": 58,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1eY8CVzF0geDxawrFoyLIHlvH6GMVKLG2/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "NAIARA OLIVEIRA SILVA",
-      "id": 19,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1Ef3M0zc3-B0xEXF2N4MvlnDIsIR36U2d/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ROBERTO COELHO FERREIRA",
-      "id": 47,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1B8gUtfnFgz-Gdim81isZOrvGEmk-spkJ/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "ELIZETE SANTOS BARBOSA",
-      "id": 10,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1dzy-xO984Yl8g2ZQeDOZglRyXCku26O_/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Conselho Metropolitano de Montes Claros ",
-      "nome": "JOSÉ GERALDO RAMOS",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1z57Cm2CuYwg9hU8V7apWG17mCuSmzn-d/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Diretor de enfermagem/HUCF",
-      "nome": "SUELEN FERREIRA",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1tYN5alFZjQjNTOrWrlRWUbMJosq9lRWA/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente - secretaria de saude ",
-      "nome": "RENATA MESQUITA PIMENTA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1cPhvNLBOWgpvIGMQvRAH09cPY3Wqy00J/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Odontólogia",
-      "nome": "MARIA CLARA MENDES AGUIAR",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1iI_wkMudZH0ZhDThu82FN9epsizLNm8I/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente / USF Chiquinho Guimarães ",
-      "nome": "THAIS GOMES VIEIRA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1wC1SsT5YDYEY95_29mqeNVWbpGvxh81K/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente ESF José C Machado ",
-      "nome": "ARIANNE ALVES GUIMARÃES NOBRE ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1IeC5nsytZt5N_MWSdlEoKx1X7IJex2hz/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente ",
-      "nome": "RENATA ATHAYDE REBELLO GOMES",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1cNbVAfE7CURyx2ykmCpmTEZ6s4Uepvnj/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Chefe de unidade de saúde ",
-      "nome": "CLEITA PINHEIRO DE ALMEIDA",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1kr-lhaVhOiSJRjMWhpNpMz6_MdgmU7gH/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente USF Santos Reis ",
-      "nome": "THALITA BEATA SANTOS FONSECA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1NepHzyEGEDK5uIZdKbv_pQh8bK9rFv9M/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente Alto São João ",
-      "nome": "ALINE MAGALY ANTUNES TEIXEIRA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1jrK4FcKwAyuS6rmnOt0qa6oHIITj1wAT/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente ",
-      "nome": "LORENA PEREIRA FLÁVIO ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1wImPhPA2SQrtIIppMkDrm6nvsLxJu6R3/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente UBS Antônio Pimenta ",
-      "nome": "SUZYANNY DIAS GUSMÃO ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1bg6Y5e74najnIqb_pq4F1RbAmL2FlpQ5/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente ",
-      "nome": "PRISCILLA PIMENTA DE OLIVEIRA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/118cVA44rL2fho9TXXdCW55VwGEDy2Ysj/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Psicologa/Fundação Sara",
-      "nome": "ELIZETE SANTOS BAEBOSA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1vvgeimK_DmJ9Jc7l1rpxY796qCdtpHx1/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Assessor de Comunicação HUCF",
-      "nome": "RAFAEL GABRIEL SILVA NASCIMENTO ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1OUTpZMv-X-EefsUllYTjb_926tuLBLI1/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Estudante de enfermagem",
-      "nome": "WANDAIK GONÇALVES VELOSO",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1-B2ivuDEuMXy9cy__tlNaxVD3lxSuNlk/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Acadêmico de enfermagem ",
-      "nome": "MERIELY FERREIRA RUAS ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/13n4vbh4md7B6ngEb31EHg-QE0zbR8g9e/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente UBS Walquíria Pereira ",
-      "nome": "RAÍSSA JOSEFANY SOARES",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1JwXheTN0JjIvlCDdbv1TTYp9A0lLBlir/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "-",
-      "nome": "EVELIN FRANÇOAISY PINTO ALVES PIMENTA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1LX1M2iUQBWA7RY0O64QWUq3hiZ03NInY/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerência ",
-      "nome": "CINTHIA FAGUNDES SILVA RODRIGUES",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1JCArt_Rqk8hgI2e-Xdbl-GRKHxEO3RAv/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Coordenadora Ouvidoria - Sms",
-      "nome": "ZENIRA ALVES SOBRINHO ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1xOvQFwkzMF8VmKmLgPtsBNIYdI-RWF-F/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Acadêmica de Enfermagem ",
-      "nome": "ANA CRISTINA DO NASCIMENTO PEREIRA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1EpdQNpvAGxNHK_Jp0RcNiIuDOPDN4z7O/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente SMS",
-      "nome": "SÔNIA OLIVEIRA BRAGA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1VyCrQexiUank_RvykuSoQ7QQApyEgYqU/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Chefe Unidade Básica de Saúde Vargem Grande ",
-      "nome": "TATIANA ALMEIDA NUNES ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1f9zAO-KjbK1vho7T4nmAe_LsyBx4WKFN/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente PSF VITORIA",
-      "nome": "SARAH JULIANE MENDES CAPUCHINHO ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1QBiSq3rviLTmKzdGOa96hGxRgWt7jbA4/view?usp=drivesdk"
-    }
-  ]
+  "lista": []
 }
