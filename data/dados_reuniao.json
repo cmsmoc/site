@@ -9,9 +9,11 @@
     "PAUTA": "<li>Apreciação e deliberação sobre o Relatório Detalhado do Quadrimestre Anterior</li>",
     "QUANDO_ONDE": "<b>28 de maio de 2026</b><br>Quinta-feira<br><br><b>Câmara Municipal - Rua Urbino Viana, 600, Vila Guilhermina<br>Montes Claros/MG",
     "DATA_REUNIAO": "28 de maio de 2026",
-    "HORA_REUNIAO": "no turno vespertino",
+    "HORA_REUNIAO": "às 13:30",
     "LOCAL_REUNIAO": "na Câmara Municipal de Montes Claros",
-    "DATA_ASSINATURA": "28 de maio de 2026"
+    "DATA_ASSINATURA": "28 de maio de 2026",
+    "EXIBIR_AVISO": "SIM",
+    "AVISO_GLOBAL": "CONSELHEIRO(A), BASTA CLICAR NO SEU NOME PARA MARCAR PRESENÇA OU JUSTIFICAR AUSÊNCIA"
   },
   "conselheiros": [
     {
