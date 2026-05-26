@@ -23,10 +23,14 @@
         @keyframes spin { to { transform: rotate(360deg); } } 
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         
-        .cms-header { background: var(--cms-navy); padding: 40px 0; color: var(--cms-white); border-bottom: 6px solid; border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1; }
-        .cms-logo { height: 50px; margin-bottom: 24px; display: block; }
-        .cms-eyebrow { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--cms-yellow); margin-bottom: 8px; }
-        .cms-display { font-family: var(--font-display); font-size: clamp(24px, 6vw, 42px); font-weight: 900; letter-spacing: -1.5px; line-height: 1.1; text-transform: uppercase; margin-bottom: 16px; }
+        .cms-header { background: var(--cms-navy); padding: 30px 0; color: var(--cms-white); border-bottom: 6px solid; border-image: linear-gradient(to right, #F5C400 33%, #1E8A4A 33% 66%, #1B6CB5 66%) 1; }
+        .cms-logo { height: 50px; margin-bottom: 20px; display: block; }
+        .cms-eyebrow { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--cms-yellow); margin-bottom: 6px; }
+        .cms-display { font-family: var(--font-display); font-size: clamp(24px, 5vw, 36px); font-weight: 900; letter-spacing: -1px; line-height: 1.1; text-transform: uppercase; margin-bottom: 12px; }
+        .cms-header-details { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.4; font-weight: 400; }
+        .cms-header-details strong { color: var(--cms-white); }
+
+        .aviso-banner { background-color: #DC2626; color: white; text-align: center; padding: 12px 20px; font-family: var(--font-display); font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 10; position: relative; }
 
         .view-section { display: none; animation: fadeIn 0.3s; }
         .view-section.active { display: block; }
@@ -85,13 +89,19 @@
     </div>
 
     <div id="app" class="hidden">
+        
         <header class="cms-header">
             <div class="cms-wrap">
                 <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logohwh.png" alt="CMS" class="cms-logo">
                 <p class="cms-eyebrow" id="headerLabel">Carregando...</p>
                 <h1 class="cms-display" id="headerTitle">Reunião</h1>
+                <div class="cms-header-details" id="headerDetails"></div>
             </div>
         </header>
+
+        <div id="faixaAviso" class="aviso-banner hidden">
+            <span id="textoAviso"></span>
+        </div>
 
         <main class="cms-wrap">
             
@@ -219,14 +229,12 @@
             if(showLoader) document.getElementById('loader').classList.remove('hidden');
             
             try { 
-                // CORREÇÃO 1: Fura-Cache adicionado (?t=...) para garantir que o navegador sempre pegue a versão mais nova do GitHub
                 const timestamp = new Date().getTime();
                 let response = await fetch(`${API_GITHUB}?t=${timestamp}`);
                 let data = await response.json();
 
                 if (data.configs.MODO == 1) {
                     API_URL = API_GAS;
-                    // Fura-cache no GAS também
                     response = await fetch(`${API_GAS}?t=${timestamp}`);
                     data = await response.json();
                 } else {
@@ -270,13 +278,38 @@
 
         function renderApp() {
             document.getElementById('app').classList.remove('hidden');
+            
+            // 1. Textos Originais do Topo
             document.getElementById('headerLabel').innerText = appData.configs.LABEL_TOPO || "CMS Montes Claros"; 
             document.getElementById('headerTitle').innerText = appData.configs.TITULO || "Reunião";
             
+            // 2. NOVOS DADOS DA REUNIÃO NO TOPO
+            const dataR = appData.configs.DATA_REUNIAO || "";
+            const horaR = appData.configs.HORA_REUNIAO || "";
+            const localR = appData.configs.LOCAL_REUNIAO || "";
+            
+            let htmlDetalhes = "";
+            if (dataR || horaR) htmlDetalhes += `<strong>📅 Quando:</strong> ${dataR} ${horaR} <br>`;
+            if (localR) htmlDetalhes += `<strong>📍 Onde:</strong> ${localR}`;
+            
+            document.getElementById('headerDetails').innerHTML = htmlDetalhes;
+
+            // 3. LÓGICA DA FAIXA DE AVISO GLOBAL
+            const exibirAviso = appData.configs.EXIBIR_AVISO;
+            const textoAviso = appData.configs.AVISO_GLOBAL || "";
+            const faixaElement = document.getElementById('faixaAviso');
+            
+            if (exibirAviso && exibirAviso.toUpperCase() === "SIM" && textoAviso.trim() !== "") {
+                faixaElement.classList.remove('hidden');
+                document.getElementById('textoAviso').innerText = textoAviso;
+            } else {
+                faixaElement.classList.add('hidden');
+            }
+
+            // 4. Modo Ativo/Inativo e Botões
             const isAtivo = appData.configs.STATUS_SISTEMA === "ATIVO";
             const modo = appData.configs.MODO;
             
-            // CORREÇÃO 2: Restaura os textos e o formulário quando o sistema volta para ATIVO/MODO 1
             if (modo == 2 || !isAtivo) {
                 document.getElementById('formPublicoWrapper').classList.add('hidden');
                 document.getElementById('avisoFormFechado').classList.remove('hidden');
@@ -308,7 +341,10 @@
             });
             let maxId = Math.max(...appData.conselheiros.map(c => parseInt(c.id) || 0)); let totalVagas = Math.ceil(maxId / 2); let votantesCount = 0;
             for (let v = 1; v <= totalVagas; v++) { if (presentesIds.has(v * 2 - 1) || presentesIds.has(v * 2)) votantesCount++; }
-            let quorumNecessario = Math.floor(totalVagas / 3) + 1; let quorumAtingido = votantesCount >= quorumNecessario;
+            
+            // CORREÇÃO: Quórum regimental (1/3 com arredondamento para cima)
+            let quorumNecessario = Math.ceil(totalVagas / 3); 
+            let quorumAtingido = votantesCount >= quorumNecessario;
             
             document.getElementById('statQuorum').innerText = votantesCount; document.getElementById('statQuorum').style.color = quorumAtingido ? "var(--cms-green)" : "#DC2626";
             document.getElementById('labelQuorum').innerHTML = `QUÓRUM <br><span style="font-size:8px; color:${quorumAtingido ? 'var(--cms-green)' : '#DC2626'}">${quorumAtingido ? 'ATINGIDO' : 'MÍNIMO: '+quorumNecessario}</span>`;
