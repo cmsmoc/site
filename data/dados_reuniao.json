@@ -551,8 +551,8 @@
       "cargo_setor": "Suplente",
       "nome": "RICARDO SOARES DE OLIVEIRA",
       "id": 38,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1WaDhMuJQc81dZ7loJJSsx-YecehzTGeA/view?usp=drivesdk"
     },
     {
       "tipo_usuario": "CONSELHEIRO",
@@ -609,6 +609,14 @@
       "id": 34,
       "registro": "AUSÊNCIA",
       "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ERNANDES RODRIGUES MORAES",
+      "id": 35,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1rlXAztGqB0AnKuQbu4zQo-zKAaY4rwgL/view?usp=drivesdk"
     },
     {
       "tipo_usuario": "CONSELHEIRO",
