@@ -24,6 +24,10 @@
     {
       "source": "/secretariaexecutiva",
       "destination": "https://cmsmoc.github.io/secretariaexecutiva/"
+    },
+    {
+      "source": "/oficina",
+      "destination": "https://cmsmoc.github.io/secretariaexecutiva/oficinaregimento.html"
     }
   ],
   "redirects": [
