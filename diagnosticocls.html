@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico dos Conselhos Locais de Saúde - CMS Montes Claros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ════════════════════════════════════════════════════
+           CMS MONTES CLAROS · MASTER CSS
+        ════════════════════════════════════════════════════ */
+        :root {
+            --cms-navy:    #0D2E5A;
+            --cms-blue:    #1B6CB5;
+            --cms-green:   #1E8A4A;
+            --cms-yellow:  #F5C400;
+            --cms-white:   #FFFFFF;
+            --cms-off:     #F7F8FA;
+            --cms-ink:     #111827;
+            --cms-muted:   #6B7280;
+            --cms-border:  #E5E7EB;
+
+            --font-display: 'Montserrat', 'Georama', Helvetica, sans-serif;
+            --font-body:    'Open Sans', Arial, sans-serif;
+
+            --space-xs:  8px;
+            --space-sm:  16px;
+            --space-md:  32px;
+            --space-lg:  64px;
+            --space-xl:  96px;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+
+            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,.10);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cms-off);
+            color: var(--cms-ink);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .cms-stripe {
+            height: 6px;
+            background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%);
+        }
+
+        .cms-header {
+            background: var(--cms-navy);
+            color: var(--cms-white);
+            padding: var(--space-lg) var(--space-md);
+            text-align: center;
+        }
+
+        .cms-wrap-narrow {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+
+        .cms-eyebrow {
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cms-yellow);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .cms-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color: var(--cms-white);
+            margin-bottom: var(--space-sm);
+        }
+
+        .cms-intro {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto var(--space-md);
+        }
+
+        .cms-card {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .cms-card-top-blue {
+            border-top: 4px solid var(--cms-blue);
+        }
+
+        .cms-card-top-yellow {
+            border-top: 4px solid var(--cms-yellow);
+        }
+
+        .cms-h2 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--cms-navy);
+            margin-bottom: var(--space-sm);
+            padding-bottom: var(--space-xs);
+            border-bottom: 1px solid var(--cms-border);
+        }
+
+        /* ── FORM ELEMENTS ── */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--cms-navy);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--cms-ink);
+            background: var(--cms-off);
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--cms-blue);
+            background: var(--cms-white);
+            box-shadow: 0 0 0 3px rgba(27, 108, 181, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Radios e Checkboxes Customizados */
+        .check-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .check-label {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: var(--cms-ink);
+            cursor: pointer;
+        }
+
+        .check-label input {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--cms-muted);
+            margin-right: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .check-label input[type="radio"] {
+            border-radius: 50%;
+        }
+
+        .check-label input[type="checkbox"] {
+            border-radius: 4px;
+        }
+
+        .check-label input:checked {
+            border-color: var(--cms-blue);
+            background-color: var(--cms-blue);
+        }
+
+        .check-label input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .check-label input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px; top: 1px;
+            width: 6px; height: 11px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .cms-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .cms-btn-primary {
+            background: var(--cms-yellow);
+            color: var(--cms-navy);
+        }
+
+        .cms-btn-primary:hover {
+            background: #E5B700;
+            transform: translateY(-2px);
+        }
+
+        .cms-footer {
+            background: var(--cms-navy);
+            color: rgba(255,255,255,.55);
+            text-align: center;
+            padding: var(--space-md) var(--space-sm);
+            font-size: 13px;
+            margin-top: var(--space-lg);
+        }
+
+        .cms-footer strong { color: rgba(255,255,255,.85); }
+
+        /* Loader Overlay */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 46, 90, 0.9);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            font-family: var(--font-display);
+        }
+
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid rgba(255,255,255,0.2);
+            border-top-color: var(--cms-yellow);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Success Message */
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .icon-success {
+            width: 80px; height: 80px;
+            background: var(--cms-green);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        .logo-header {
+            max-width: 240px;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cms-stripe"></div>
+
+    <header class="cms-header">
+        <div class="cms-wrap-narrow">
+            <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png" alt="CMS Montes Claros" class="logo-header">
+            <span class="cms-eyebrow">Atenção Primária</span>
+            <h1 class="cms-h1">Diagnóstico dos Conselhos Locais de Saúde</h1>
+            <p class="cms-intro">Este formulário tem por objetivo realizar um levantamento situacional dos Conselhos Locais de Saúde (CLS) vinculados às unidades, subsidiando ações de fortalecimento da participação social.</p>
+        </div>
+    </header>
+
+    <main class="cms-wrap-narrow" style="margin-top: -30px; position: relative; z-index: 10;">
+        
+        <form id="diagnosticoForm">
+            
+            <!-- BLOCO 1 -->
+            <div class="cms-card cms-card-top-blue">
+                <h2 class="cms-h2">Bloco 1 – Identificação</h2>
+                
+                <div class="form-group">
+                    <label class="form-label" for="q1">1. Nome da Unidade de Saúde</label>
+                    <input type="text" id="q1" name="q1" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q2">2. Território / Região de Saúde</label>
+                    <input type="text" id="q2" name="q2" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q3">3. Nome do(a) Gerente da Unidade</label>
+                    <input type="text" id="q3" name="q3" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q4">4. Contato (telefone e e-mail)</label>
+                    <input type="text" id="q4" name="q4" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- BLOCO 2 -->
+            <div class="cms-card cms-card-top-yellow">
+                <h2 class="cms-h2">Bloco 2 – Situação do Conselho Local de Saúde</h2>
+
+                <div class="form-group">
+                    <label class="form-label">5. Existe Conselho Local de Saúde vinculado à unidade?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q5" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q5" value="Não"> Não</label>
+                        <label class="check-label"><input type="radio" name="q5" value="Não sei informar"> Não sei informar</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">6. O Conselho Local está formalmente instituído?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q6" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q6" value="Não"> Não</label>
+                        <label class="check-label"><input type="radio" name="q6" value="Não sei informar"> Não sei informar</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">7. O Conselho Local está atualmente ativo?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q7" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q7" value="Parcialmente"> Parcialmente</label>
+                        <label class="check-label"><input type="radio" name="q7" value="Não"> Não</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">8. Quando ocorreu a última reunião do CLS?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q8" value="Nos últimos 3 meses" required> Nos últimos 3 meses</label>
+                        <label class="check-label"><input type="radio" name="q8" value="Entre 3 e 12 meses"> Entre 3 e 12 meses</label>
+                        <label class="check-label"><input type="radio" name="q8" value="Há mais de 12 meses"> Há mais de 12 meses</label>
+                        <label class="check-label"><input type="radio" name="q8" value="Nunca houve reunião"> Nunca houve reunião</label>
+                        <label class="check-label"><input type="radio" name="q8" value="Não sei informar"> Não sei informar</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q9">9. Quantos conselheiros participam atualmente?</label>
+                    <input type="number" id="q9" name="q9" class="form-control" min="0">
+                </div>
+            </div>
+
+            <!-- BLOCO 3 -->
+            <div class="cms-card cms-card-top-blue">
+                <h2 class="cms-h2">Bloco 3 – Funcionamento</h2>
+
+                <div class="form-group">
+                    <label class="form-label">10. Com que frequência o CLS se reúne?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q10" value="Mensalmente" required> Mensalmente</label>
+                        <label class="check-label"><input type="radio" name="q10" value="Bimestralmente"> Bimestralmente</label>
+                        <label class="check-label"><input type="radio" name="q10" value="Trimestralmente"> Trimestralmente</label>
+                        <label class="check-label"><input type="radio" name="q10" value="Esporadicamente"> Esporadicamente</label>
+                        <label class="check-label"><input type="radio" name="q10" value="Não realiza reuniões"> Não realiza reuniões</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">11. Há registro das reuniões (atas ou listas de presença)?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q11" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q11" value="Parcialmente"> Parcialmente</label>
+                        <label class="check-label"><input type="radio" name="q11" value="Não"> Não</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">12. Como você avalia o funcionamento atual do CLS?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q12" value="Excelente" required> Excelente</label>
+                        <label class="check-label"><input type="radio" name="q12" value="Bom"> Bom</label>
+                        <label class="check-label"><input type="radio" name="q12" value="Regular"> Regular</label>
+                        <label class="check-label"><input type="radio" name="q12" value="Ruim"> Ruim</label>
+                        <label class="check-label"><input type="radio" name="q12" value="Inexistente"> Inexistente</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO 4 -->
+            <div class="cms-card cms-card-top-yellow">
+                <h2 class="cms-h2">Bloco 4 – Interesse e Potencial</h2>
+
+                <div class="form-group">
+                    <label class="form-label">13. Caso o CLS não exista ou esteja inativo, há interesse em implantá-lo ou reativá-lo?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q13" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q13" value="Não"> Não</label>
+                        <label class="check-label"><input type="radio" name="q13" value="Talvez"> Talvez</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">14. Como você avalia o interesse da comunidade em participar?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q14" value="Muito alto" required> Muito alto</label>
+                        <label class="check-label"><input type="radio" name="q14" value="Alto"> Alto</label>
+                        <label class="check-label"><input type="radio" name="q14" value="Médio"> Médio</label>
+                        <label class="check-label"><input type="radio" name="q14" value="Baixo"> Baixo</label>
+                        <label class="check-label"><input type="radio" name="q14" value="Muito baixo"> Muito baixo</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">15. Como você avalia o interesse dos trabalhadores da unidade?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q15" value="Muito alto" required> Muito alto</label>
+                        <label class="check-label"><input type="radio" name="q15" value="Alto"> Alto</label>
+                        <label class="check-label"><input type="radio" name="q15" value="Médio"> Médio</label>
+                        <label class="check-label"><input type="radio" name="q15" value="Baixo"> Baixo</label>
+                        <label class="check-label"><input type="radio" name="q15" value="Muito baixo"> Muito baixo</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO 5 -->
+            <div class="cms-card cms-card-top-blue">
+                <h2 class="cms-h2">Bloco 5 – Dificuldades</h2>
+
+                <div class="form-group">
+                    <label class="form-label">16. Quais são as principais dificuldades para funcionamento do CLS? (marcar quantas desejar)</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="checkbox" name="q16" value="Baixa participação da comunidade"> Baixa participação da comunidade</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de divulgação"> Falta de divulgação</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de capacitação"> Falta de capacitação</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de apoio institucional"> Falta de apoio institucional</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de espaço físico"> Falta de espaço físico</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de tempo da equipe"> Falta de tempo da equipe</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Dificuldade para realizar eleições"> Dificuldade para realizar eleições</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Desconhecimento sobre o papel do CLS"> Desconhecimento sobre o papel do CLS</label>
+                        <label class="check-label"><input type="checkbox" name="q16" value="Outras"> Outras</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q17">17. Comentários adicionais sobre as dificuldades encontradas.</label>
+                    <textarea id="q17" name="q17" class="form-control" placeholder="Descreva aqui se houver..."></textarea>
+                </div>
+            </div>
+
+            <!-- BLOCO 6 -->
+            <div class="cms-card cms-card-top-yellow">
+                <h2 class="cms-h2">Bloco 6 – Estrutura</h2>
+
+                <div class="form-group">
+                    <label class="form-label">18. A unidade possui espaço para realização de reuniões?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="radio" name="q18" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q18" value="Não"> Não</label>
+                        <label class="check-label"><input type="radio" name="q18" value="Parcialmente"> Parcialmente</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">19. A unidade possui recursos para apoiar reuniões?</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="checkbox" name="q19" value="Sala"> Sala</label>
+                        <label class="check-label"><input type="checkbox" name="q19" value="Cadeiras suficientes"> Cadeiras suficientes</label>
+                        <label class="check-label"><input type="checkbox" name="q19" value="Computador"> Computador</label>
+                        <label class="check-label"><input type="checkbox" name="q19" value="Internet"> Internet</label>
+                        <label class="check-label"><input type="checkbox" name="q19" value="Projetor"> Projetor</label>
+                        <label class="check-label"><input type="checkbox" name="q19" value="Impressora"> Impressora</label>
+                        <label class="check-label"><input type="checkbox" name="q19" value="Nenhum dos itens"> Nenhum dos itens</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO 7 -->
+            <div class="cms-card cms-card-top-blue">
+                <h2 class="cms-h2">Bloco 7 – Expectativas</h2>
+
+                <div class="form-group">
+                    <label class="form-label" for="q20">20. Que ações poderiam contribuir para fortalecer o Conselho Local de Saúde nesta unidade?</label>
+                    <textarea id="q20" name="q20" class="form-control" placeholder="Sugestões e propostas..." required></textarea>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <button type="submit" class="cms-btn cms-btn-primary">ENVIAR DIAGNÓSTICO</button>
+            </div>
+            
+        </form>
+
+        <!-- Container de Sucesso (Oculto inicialmente) -->
+        <div id="success-message" class="cms-card cms-card-top-green">
+            <div class="icon-success">✓</div>
+            <h2 class="cms-h2" style="border:none; margin-bottom: 8px;">Dados Registrados com Sucesso!</h2>
+            <p style="color: var(--cms-muted); font-size: 16px;">Obrigado por contribuir com o diagnóstico dos Conselhos Locais. Suas informações foram salvas na base de dados do CMS Montes Claros.</p>
+            <button onclick="window.location.reload()" class="cms-btn cms-btn-primary" style="margin-top: 24px; max-width: 250px;">NOVO ENVIO</button>
+        </div>
+
+    </main>
+
+    <footer class="cms-footer">
+        <strong>Conselho Municipal de Saúde de Montes Claros – MG</strong><br>
+        Sistema Integrado de Controle Social · 2026
+    </footer>
+
+    <!-- Overlay de Carregamento -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <h2 style="margin:0;">Enviando dados...</h2>
+        <p style="opacity: 0.8; margin-top: 8px;">Por favor, não feche a janela.</p>
+    </div>
+
+    <script>
+        // Endpoint do Google Apps Script
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5eyZDwhd9CTLgyxgnlej8kMRZwAgKWsa6c-KRja8KfujT1eamBUiqNsSM8CigqIVc/exec';
+
+        document.getElementById('diagnosticoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Exibir tela de carregamento
+            document.getElementById('loader').style.display = 'flex';
+            
+            // Função auxiliar para capturar valor de radio button
+            const getRadioValue = (name) => {
+                const el = document.querySelector(`input[name="${name}"]:checked`);
+                return el ? el.value : "";
+            };
+            
+            // Função auxiliar para capturar array de checkboxes
+            const getCheckedValues = (name) => {
+                return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+            };
+
+            // Montagem do Payload
+            const payload = {
+                q1: document.getElementById('q1').value,
+                q2: document.getElementById('q2').value,
+                q3: document.getElementById('q3').value,
+                q4: document.getElementById('q4').value,
+                q5: getRadioValue('q5'),
+                q6: getRadioValue('q6'),
+                q7: getRadioValue('q7'),
+                q8: getRadioValue('q8'),
+                q9: document.getElementById('q9').value,
+                q10: getRadioValue('q10'),
+                q11: getRadioValue('q11'),
+                q12: getRadioValue('q12'),
+                q13: getRadioValue('q13'),
+                q14: getRadioValue('q14'),
+                q15: getRadioValue('q15'),
+                q16: getCheckedValues('q16'),
+                q17: document.getElementById('q17').value,
+                q18: getRadioValue('q18'),
+                q19: getCheckedValues('q19'),
+                q20: document.getElementById('q20').value
+            };
+
+            // Envio via Fetch API para o Web App (POST sem CORS requirements complexos graças ao no-cors ou endpoint público)
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // O 'no-cors' impede leitura da resposta, mas garante o envio sem erro de política
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                // Como 'no-cors' não expõe status 200, assumimos sucesso se a promise resolver
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('diagnosticoForm').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            })
+            .catch((error) => {
+                console.error('Erro:', error);
+                document.getElementById('loader').style.display = 'none';
+                alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+            });
+        });
+    </script>
+</body>
+</html>
