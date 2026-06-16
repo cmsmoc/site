@@ -28,6 +28,10 @@
     {
       "source": "/oficina",
       "destination": "https://cmsmoc.github.io/secretariaexecutiva/oficinaregimento.html"
+    },
+    {
+      "source": "/incentivocls",
+      "destination": "http://cmsmoc.github.io/incentivocls/index.html"
     }
   ],
   "redirects": [
