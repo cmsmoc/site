@@ -353,8 +353,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="contato">Contato (E-mail e Telefone) *</label>
-                    <input type="text" id="contato" name="contato" class="form-control" required placeholder="Ex: contato@ubs.com / (38) 99999-9999">
+                    <label class="form-label" for="telefone">Telefone de Contato *</label>
+                    <input type="tel" id="telefone" name="telefone" class="form-control" required placeholder="Ex: (38) 99999-9999">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">E-mail de Contato *</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="Ex: contato@ubs.com">
                 </div>
             </div>
 
@@ -546,7 +551,8 @@
                 endereco: document.getElementById('endereco').value,
                 regiao: document.getElementById('regiao').value,
                 responsavel: document.getElementById('responsavel').value,
-                contato: document.getElementById('contato').value,
+                telefone: document.getElementById('telefone').value,
+                email: document.getElementById('email').value,
                 q1: getRadioValue('q1'),
                 q2: document.getElementById('q2').value,
                 q3: document.getElementById('q3').value,
