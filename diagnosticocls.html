@@ -328,210 +328,166 @@
         
         <form id="diagnosticoForm">
             
-            <!-- BLOCO 1 -->
+            <!-- BLOCO 1 – IDENTIFICAÇÃO -->
             <div class="cms-card cms-card-top-blue">
                 <h2 class="cms-h2">Bloco 1 – Identificação</h2>
                 
                 <div class="form-group">
-                    <label class="form-label" for="q1">1. Nome da Unidade de Saúde</label>
-                    <input type="text" id="q1" name="q1" class="form-control" required>
+                    <label class="form-label" for="nome_ubs">Nome da UBS *</label>
+                    <input type="text" id="nome_ubs" name="nome_ubs" class="form-control" required placeholder="Ex: UBS Santa Rafaela">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="q2">2. Território / Região de Saúde</label>
-                    <input type="text" id="q2" name="q2" class="form-control" required>
+                    <label class="form-label" for="endereco">Endereço *</label>
+                    <input type="text" id="endereco" name="endereco" class="form-control" required placeholder="Rua, número, bairro">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="q3">3. Nome do(a) Gerente da Unidade</label>
-                    <input type="text" id="q3" name="q3" class="form-control" required>
+                    <label class="form-label" for="regiao">Região do Município / Território *</label>
+                    <input type="text" id="regiao" name="regiao" class="form-control" required placeholder="Ex: Região Norte / Território X">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="q4">4. Contato (telefone e e-mail)</label>
-                    <input type="text" id="q4" name="q4" class="form-control" required>
+                    <label class="form-label" for="responsavel">Responsável pelo Preenchimento *</label>
+                    <input type="text" id="responsavel" name="responsavel" class="form-control" required placeholder="Nome completo e cargo">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="contato">Contato (E-mail e Telefone) *</label>
+                    <input type="text" id="contato" name="contato" class="form-control" required placeholder="Ex: contato@ubs.com / (38) 99999-9999">
                 </div>
             </div>
 
-            <!-- BLOCO 2 -->
+            <!-- BLOCO 2 – SITUAÇÃO DO CLS -->
             <div class="cms-card cms-card-top-yellow">
                 <h2 class="cms-h2">Bloco 2 – Situação do Conselho Local de Saúde</h2>
 
                 <div class="form-group">
-                    <label class="form-label">5. Existe Conselho Local de Saúde vinculado à unidade?</label>
+                    <label class="form-label">1. Esta UBS possui Conselho Local de Saúde (CLS) formalmente constituído? *</label>
                     <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q5" value="Sim" required> Sim</label>
+                        <label class="check-label">
+                            <input type="radio" name="q1" value="Sim, está ativo e reunindo regularmente" required>
+                            Sim, está ativo e reunindo regularmente
+                        </label>
+                        <label class="check-label">
+                            <input type="radio" name="q1" value="Sim, mas está inativo (não se reúne há mais de 6 meses)">
+                            Sim, mas está inativo (não se reúne há mais de 6 meses)
+                        </label>
+                        <label class="check-label">
+                            <input type="radio" name="q1" value="Não possui CLS">
+                            Não possui CLS
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q2">2. Se possui CLS: há quanto tempo está constituído?</label>
+                    <input type="text" id="q2" name="q2" class="form-control" placeholder="Ex: 2 anos, desde 2024">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="q3">3. Quantos membros titulares o CLS possui atualmente?</label>
+                    <input type="number" id="q3" name="q3" class="form-control" min="0" placeholder="Número de conselheiros">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">4. O CLS possui ata das últimas 3 reuniões?</label>
+                    <div class="check-group" style="flex-direction: row; gap: 24px;">
+                        <label class="check-label"><input type="radio" name="q4" value="Sim"> Sim</label>
+                        <label class="check-label"><input type="radio" name="q4" value="Não"> Não</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">5. Existe presidente ou coordenador eleito do CLS?</label>
+                    <div class="check-group" style="flex-direction: row; gap: 24px;">
+                        <label class="check-label"><input type="radio" name="q5" value="Sim"> Sim</label>
                         <label class="check-label"><input type="radio" name="q5" value="Não"> Não</label>
-                        <label class="check-label"><input type="radio" name="q5" value="Não sei informar"> Não sei informar</label>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">6. O Conselho Local está formalmente instituído?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q6" value="Sim" required> Sim</label>
-                        <label class="check-label"><input type="radio" name="q6" value="Não"> Não</label>
-                        <label class="check-label"><input type="radio" name="q6" value="Não sei informar"> Não sei informar</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">7. O Conselho Local está atualmente ativo?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q7" value="Sim" required> Sim</label>
-                        <label class="check-label"><input type="radio" name="q7" value="Parcialmente"> Parcialmente</label>
-                        <label class="check-label"><input type="radio" name="q7" value="Não"> Não</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">8. Quando ocorreu a última reunião do CLS?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q8" value="Nos últimos 3 meses" required> Nos últimos 3 meses</label>
-                        <label class="check-label"><input type="radio" name="q8" value="Entre 3 e 12 meses"> Entre 3 e 12 meses</label>
-                        <label class="check-label"><input type="radio" name="q8" value="Há mais de 12 meses"> Há mais de 12 meses</label>
-                        <label class="check-label"><input type="radio" name="q8" value="Nunca houve reunião"> Nunca houve reunião</label>
-                        <label class="check-label"><input type="radio" name="q8" value="Não sei informar"> Não sei informar</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="q9">9. Quantos conselheiros participam atualmente?</label>
-                    <input type="number" id="q9" name="q9" class="form-control" min="0">
                 </div>
             </div>
 
-            <!-- BLOCO 3 -->
+            <!-- BLOCO 3 – TERRITÓRIO E POPULAÇÃO -->
             <div class="cms-card cms-card-top-blue">
-                <h2 class="cms-h2">Bloco 3 – Funcionamento</h2>
+                <h2 class="cms-h2">Bloco 3 – Território e População</h2>
 
                 <div class="form-group">
-                    <label class="form-label">10. Com que frequência o CLS se reúne?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q10" value="Mensalmente" required> Mensalmente</label>
-                        <label class="check-label"><input type="radio" name="q10" value="Bimestralmente"> Bimestralmente</label>
-                        <label class="check-label"><input type="radio" name="q10" value="Trimestralmente"> Trimestralmente</label>
-                        <label class="check-label"><input type="radio" name="q10" value="Esporadicamente"> Esporadicamente</label>
-                        <label class="check-label"><input type="radio" name="q10" value="Não realiza reuniões"> Não realiza reuniões</label>
-                    </div>
+                    <label class="form-label" for="q6">6. Qual a população estimada coberta por esta UBS? *</label>
+                    <input type="text" id="q6" name="q6" class="form-control" required placeholder="Ex: 8.500 pessoas">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">11. Há registro das reuniões (atas ou listas de presença)?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q11" value="Sim" required> Sim</label>
-                        <label class="check-label"><input type="radio" name="q11" value="Parcialmente"> Parcialmente</label>
-                        <label class="check-label"><input type="radio" name="q11" value="Não"> Não</label>
-                    </div>
+                    <label class="form-label" for="q7">7. Quais comunidades, bairros ou localidades compõem o território de cobertura? *</label>
+                    <textarea id="q7" name="q7" class="form-control" required placeholder="Liste as comunidades atendidas..."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">12. Como você avalia o funcionamento atual do CLS?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q12" value="Excelente" required> Excelente</label>
-                        <label class="check-label"><input type="radio" name="q12" value="Bom"> Bom</label>
-                        <label class="check-label"><input type="radio" name="q12" value="Regular"> Regular</label>
-                        <label class="check-label"><input type="radio" name="q12" value="Ruim"> Ruim</label>
-                        <label class="check-label"><input type="radio" name="q12" value="Inexistente"> Inexistente</label>
-                    </div>
+                    <label class="form-label" for="q8">8. Existem grupos de vulnerabilidade específica no território? *</label>
+                    <textarea id="q8" name="q8" class="form-control" required placeholder="Ex: população de rua, extrema pobreza, ribeirinhos, etc..."></textarea>
                 </div>
             </div>
 
-            <!-- BLOCO 4 -->
+            <!-- BLOCO 4 – INTERESSE E PARTICIPAÇÃO -->
             <div class="cms-card cms-card-top-yellow">
-                <h2 class="cms-h2">Bloco 4 – Interesse e Potencial</h2>
+                <h2 class="cms-h2">Bloco 4 – Interesse e Participação</h2>
 
                 <div class="form-group">
-                    <label class="form-label">13. Caso o CLS não exista ou esteja inativo, há interesse em implantá-lo ou reativá-lo?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q13" value="Sim" required> Sim</label>
-                        <label class="check-label"><input type="radio" name="q13" value="Não"> Não</label>
-                        <label class="check-label"><input type="radio" name="q13" value="Talvez"> Talvez</label>
+                    <label class="form-label">9. Há interesse por parte da equipe de saúde em fortalecer o CLS? *</label>
+                    <div class="check-group" style="flex-direction: row; gap: 24px;">
+                        <label class="check-label"><input type="radio" name="q9" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q9" value="Não"> Não</label>
+                        <label class="check-label"><input type="radio" name="q9" value="Não sei"> Não sei</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">14. Como você avalia o interesse da comunidade em participar?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q14" value="Muito alto" required> Muito alto</label>
-                        <label class="check-label"><input type="radio" name="q14" value="Alto"> Alto</label>
-                        <label class="check-label"><input type="radio" name="q14" value="Médio"> Médio</label>
-                        <label class="check-label"><input type="radio" name="q14" value="Baixo"> Baixo</label>
-                        <label class="check-label"><input type="radio" name="q14" value="Muito baixo"> Muito baixo</label>
-                    </div>
+                    <label class="form-label" for="q10">10. Existem lideranças comunitárias conhecidas que poderiam participar do CLS? *</label>
+                    <textarea id="q10" name="q10" class="form-control" required placeholder="Mencione líderes de bairros, associações, igrejas, etc..."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">15. Como você avalia o interesse dos trabalhadores da unidade?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q15" value="Muito alto" required> Muito alto</label>
-                        <label class="check-label"><input type="radio" name="q15" value="Alto"> Alto</label>
-                        <label class="check-label"><input type="radio" name="q15" value="Médio"> Médio</label>
-                        <label class="check-label"><input type="radio" name="q15" value="Baixo"> Baixo</label>
-                        <label class="check-label"><input type="radio" name="q15" value="Muito baixo"> Muito baixo</label>
-                    </div>
+                    <label class="form-label" for="q11">11. Qual o principal desafio para o funcionamento do CLS nesta UBS? *</label>
+                    <textarea id="q11" name="q11" class="form-control" required placeholder="Ex: falta de mobilização, desinformação, falta de espaço físico..."></textarea>
                 </div>
             </div>
 
-            <!-- BLOCO 5 -->
+            <!-- BLOCO 5 – ESTRUTURA FÍSICA -->
             <div class="cms-card cms-card-top-blue">
-                <h2 class="cms-h2">Bloco 5 – Dificuldades</h2>
+                <h2 class="cms-h2">Bloco 5 – Estrutura Física</h2>
 
                 <div class="form-group">
-                    <label class="form-label">16. Quais são as principais dificuldades para funcionamento do CLS? (marcar quantas desejar)</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="checkbox" name="q16" value="Baixa participação da comunidade"> Baixa participação da comunidade</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de divulgação"> Falta de divulgação</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de capacitação"> Falta de capacitação</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de apoio institucional"> Falta de apoio institucional</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de espaço físico"> Falta de espaço físico</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Falta de tempo da equipe"> Falta de tempo da equipe</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Dificuldade para realizar eleições"> Dificuldade para realizar eleições</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Desconhecimento sobre o papel do CLS"> Desconhecimento sobre o papel do CLS</label>
-                        <label class="check-label"><input type="checkbox" name="q16" value="Outras"> Outras</label>
+                    <label class="form-label">12. Existe espaço físico na UBS disponível para reuniões do CLS? *</label>
+                    <div class="check-group" style="flex-direction: row; gap: 24px;">
+                        <label class="check-label"><input type="radio" name="q12" value="Sim" required> Sim</label>
+                        <label class="check-label"><input type="radio" name="q12" value="Não"> Não</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="q17">17. Comentários adicionais sobre as dificuldades encontradas.</label>
-                    <textarea id="q17" name="q17" class="form-control" placeholder="Descreva aqui se houver..."></textarea>
+                    <label class="form-label" for="q13">13. Se sim, qual é esse espaço?</label>
+                    <input type="text" id="q13" name="q13" class="form-control" placeholder="Ex: Refeitório, recepção após horário, etc">
                 </div>
             </div>
 
-            <!-- BLOCO 6 -->
+            <!-- BLOCO 6 – APOIO NECESSÁRIO -->
             <div class="cms-card cms-card-top-yellow">
-                <h2 class="cms-h2">Bloco 6 – Estrutura</h2>
+                <h2 class="cms-h2">Bloco 6 – Apoio Necessário</h2>
 
                 <div class="form-group">
-                    <label class="form-label">18. A unidade possui espaço para realização de reuniões?</label>
+                    <label class="form-label">14. Quais ações contribuiriam para fortalecer o CLS? (Marque quantas desejar)</label>
                     <div class="check-group">
-                        <label class="check-label"><input type="radio" name="q18" value="Sim" required> Sim</label>
-                        <label class="check-label"><input type="radio" name="q18" value="Não"> Não</label>
-                        <label class="check-label"><input type="radio" name="q18" value="Parcialmente"> Parcialmente</label>
+                        <label class="check-label"><input type="checkbox" name="q14" value="Orientação sobre criação"> Orientação sobre criação</label>
+                        <label class="check-label"><input type="checkbox" name="q14" value="Apoio para realizar eleição"> Apoio para realizar eleição</label>
+                        <label class="check-label"><input type="checkbox" name="q14" value="Capacitação de conselheiros"> Capacitação de conselheiros</label>
+                        <label class="check-label"><input type="checkbox" name="q14" value="Mobilização comunitária"> Mobilização comunitária</label>
+                        <label class="check-label"><input type="checkbox" name="q14" value="Materiais informativos"> Materiais informativos</label>
+                        <label class="check-label"><input type="checkbox" name="q14" value="Apoio institucional"> Apoio institucional</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">19. A unidade possui recursos para apoiar reuniões?</label>
-                    <div class="check-group">
-                        <label class="check-label"><input type="checkbox" name="q19" value="Sala"> Sala</label>
-                        <label class="check-label"><input type="checkbox" name="q19" value="Cadeiras suficientes"> Cadeiras suficientes</label>
-                        <label class="check-label"><input type="checkbox" name="q19" value="Computador"> Computador</label>
-                        <label class="check-label"><input type="checkbox" name="q19" value="Internet"> Internet</label>
-                        <label class="check-label"><input type="checkbox" name="q19" value="Projetor"> Projetor</label>
-                        <label class="check-label"><input type="checkbox" name="q19" value="Impressora"> Impressora</label>
-                        <label class="check-label"><input type="checkbox" name="q19" value="Nenhum dos itens"> Nenhum dos itens</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BLOCO 7 -->
-            <div class="cms-card cms-card-top-blue">
-                <h2 class="cms-h2">Bloco 7 – Expectativas</h2>
-
-                <div class="form-group">
-                    <label class="form-label" for="q20">20. Que ações poderiam contribuir para fortalecer o Conselho Local de Saúde nesta unidade?</label>
-                    <textarea id="q20" name="q20" class="form-control" placeholder="Sugestões e propostas..." required></textarea>
+                    <label class="form-label" for="q14_outros">Outros apoios (especifique se necessário):</label>
+                    <input type="text" id="q14_outros" name="q14_outros" class="form-control" placeholder="Descreva outras necessidades...">
                 </div>
             </div>
 
@@ -586,26 +542,26 @@
 
             // Montagem do Payload
             const payload = {
-                q1: document.getElementById('q1').value,
+                nome_ubs: document.getElementById('nome_ubs').value,
+                endereco: document.getElementById('endereco').value,
+                regiao: document.getElementById('regiao').value,
+                responsavel: document.getElementById('responsavel').value,
+                contato: document.getElementById('contato').value,
+                q1: getRadioValue('q1'),
                 q2: document.getElementById('q2').value,
                 q3: document.getElementById('q3').value,
-                q4: document.getElementById('q4').value,
+                q4: getRadioValue('q4'),
                 q5: getRadioValue('q5'),
-                q6: getRadioValue('q6'),
-                q7: getRadioValue('q7'),
-                q8: getRadioValue('q8'),
-                q9: document.getElementById('q9').value,
-                q10: getRadioValue('q10'),
-                q11: getRadioValue('q11'),
+                q6: document.getElementById('q6').value,
+                q7: document.getElementById('q7').value,
+                q8: document.getElementById('q8').value,
+                q9: getRadioValue('q9'),
+                q10: document.getElementById('q10').value,
+                q11: document.getElementById('q11').value,
                 q12: getRadioValue('q12'),
-                q13: getRadioValue('q13'),
-                q14: getRadioValue('q14'),
-                q15: getRadioValue('q15'),
-                q16: getCheckedValues('q16'),
-                q17: document.getElementById('q17').value,
-                q18: getRadioValue('q18'),
-                q19: getCheckedValues('q19'),
-                q20: document.getElementById('q20').value
+                q13: document.getElementById('q13').value,
+                q14: getCheckedValues('q14'),
+                q14_outros: document.getElementById('q14_outros').value
             };
 
             // Envio via Fetch API para o Web App (POST sem CORS requirements complexos graças ao no-cors ou endpoint público)
