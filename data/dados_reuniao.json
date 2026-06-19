@@ -465,5 +465,454 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": []
+  "lista": [
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "CRISTIANO JÚNIOR",
+      "id": 54,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "ELIZETE SANTOS BARBOSA",
+      "id": 10,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "MARCOS DANGELIS AGUIAR",
+      "id": 62,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "MARIANA CRISTINA MEIRA CAMBUÍ",
+      "id": 34,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "MÔNICA DE FÁTIMA FERNANDES FERREIRA",
+      "id": 40,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "RICARDO SOARES DE OLIVEIRA",
+      "id": 38,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "SANDRA SIMONY MENDES GONÇALVES CARNIELLE",
+      "id": 32,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "VALDEMAR RODRIGUES DOS ANJOS",
+      "id": 64,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "CLÁUDIA ROCHA BISCOTTO",
+      "id": 29,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "CLÁUDIO LUÍS DE SOUZA SANTOS",
+      "id": 39,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "DANIELLE SANTOS SOUSA",
+      "id": 5,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "EDINÉ SILVA SOARES",
+      "id": 43,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "EDMILSON ALVES DA SILVA",
+      "id": 45,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "EMANUELA TOMAS DA SILVA CONCEIÇÃO",
+      "id": 3,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FERNANDO ANTÔNIO DIAS DE ANDRADE",
+      "id": 17,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ISABEL MACEDO AVELAR",
+      "id": 27,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "LUCIANA DE JESUS SANTOS CARDOSO",
+      "id": 7,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "NÚBIA CARNEIRO GUIMARÃES",
+      "id": 51,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "PAULO THIAGO CARVALHO SOARES RIBEIRO",
+      "id": 23,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ROBERTA CUNHA MOTA SANTOS",
+      "id": 9,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "SHEILLA SILVA MENDES",
+      "id": 33,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "THALLYTA DE SOUSA LIMA",
+      "id": 63,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ANIELLY COSTA SILVA",
+      "id": 21,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1QFTM2fhWYXhKA7wN14DRb1o0bYEVvPJu/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ERNANDES RODRIGUES MORAES",
+      "id": 35,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1OBTGmux43AoMci-gVeYlpzvgrlOWPu2W/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FARLEY SINDEAUX RIBEIRO",
+      "id": 15,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1tYN_ECigPcF3KPsDm8ZSNjf9BLDuUkNF/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FERNANDA FAGUNDES AZEVEDO",
+      "id": 37,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1doy-hQ89STAOhvCeJ7SljrpEaosguWV-/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "HERICK RODRIGUES ARAÚJO",
+      "id": 55,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": "https://drive.google.com/file/d/1XM_LV8u9gtkJ8lTDg1C-WtezPUJbgIRn/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "JOEL FRANCISCO BORGES",
+      "id": 1,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1CIfZ_vQCJJwOiDEaNqO0eeG7bf3pgrQ7/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "MÁRCIO CARDOSO SILVA",
+      "id": 61,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1FHbsQ-CCqfIuR1cKtUk0jgZr9DL2EBXA/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "MARILDA BATISTA DA SILVA",
+      "id": 13,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1yESw13woEMM5KlGraMMhY-RP9DAKQkaJ/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "NAYRA CRISTINE LACERDA LOURENS",
+      "id": 53,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1BWuD3u_iJ3qabBLqrBLAHGIAw5W9j1F2/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "WASHINGTON LUIS CARVALHO SOUTO",
+      "id": 41,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1wnCEfaegfEA61ex3bDumvi7yBdA1o-C0/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente USF Acacias ",
+      "nome": "MONIK LOPES DE JESUS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1NR6BRJpMmV3aO1HCt1rHiQkSnhwRNduf/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ubs josé Correa Machado ",
+      "nome": "ARIANNE ALVES GUIMARÃES NOBRE ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Vxr8cSfpy9QO7EpaAtKr_v5ZIMKebJ7h/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Administrador secretaria de saúde de Montes Claros",
+      "nome": "MARCIA MICHELE DE SOUZA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1jWX_yual-0d2M7QWNco8LuTWqv7gFgY5/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Coordenadora de Telemedicina ",
+      "nome": "ANDRÉIA DA CRUZ DE ALMEIDA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1yzHl5VQZHKzlRq-jCryKI7vkc_S1wjEq/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Enfermeiro / Regulação- SMS",
+      "nome": "CARLOS DANIEL GONÇALVES DIAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1bpJQZ6t7PRCC9CUYNZ-zkGsmmF2N2lVR/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Coordenadora Ouvidoria - Sms",
+      "nome": "ZENIRA ALVES SOBRINHO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1zhIPya1YxsTdeXk9UcCzV2gXlzOFtrG2/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ",
+      "nome": "KRISLEY FRANCIELLE LOPES MOREIRA RAMOS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Yrum8RiEWnXazmRnxDhk4mRi4nBlIlxj/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente",
+      "nome": "RENATA ATHAYDE REBELLO GOMES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1idoTdBiaN-YChab5cwTnNljotNSrm3Cq/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Diretora de Sistemas de Informação e planejamento em Saúde/SMS MOC",
+      "nome": "CLARICE RIBEIRO DE OLIVEIRA MATOS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1p_v0xD6mHimqZ54_vpz3uDtpaOGgTyGN/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ",
+      "nome": "ALINE MAGALY ANTUNES TEIXEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1zVP7-RzbFY3pStTb3bsIkkUCHBQRkItN/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente/ UBS Tancredo Neves",
+      "nome": "ANGELUCCI FERNANDES PEREIRA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1y6NPvN_RDzY5A-odT871FAJ-YIWOsgh8/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente/UBS Maracanã ",
+      "nome": "MAGDA APARECIDA SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1GBKmafJUJ63d-F-iTe7fsGjedg3cqLEO/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS Antônio Pimenta ",
+      "nome": "SUZYANNY DIAS GUSMÃO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1qF03YaXecR0rVgO8GcVLeO6lLviKzxtz/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "UBS Eldorado ",
+      "nome": "SIMONE XAVIER BRANT DE ABREU ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1wc0rrdjMjE6WRQJef00Bl0Qn7WIq4hkp/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerência ",
+      "nome": "CINTHIA FAGUNDES SILVA RODRIGUES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1PDx0-M2gobvRiNE6bV1aqNBLMHYXp-QF/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Napris/ SMS",
+      "nome": "GEANE SOARES MARQUES GUIMARÃES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/12juo0ZjZT8jntRV5Ud1vMGpCqcosJhq_/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "SMS ",
+      "nome": "SÔNIA OLIVEIRA BRAGA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1kM0T5pGf_Q6vF5qDjLdVFCpN7OD6FVtv/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ",
+      "nome": "IVONETE DE CÁSSIA PEREIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1FL5l2M21UZEkOsZWPB8p688OAZhVvODv/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS Chiquinho Guimarães ",
+      "nome": "THAIS GOMES VIEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/10UOeg3DD9TM5TpjYT7iP_sKSDV0KW50N/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente USF Santos Reis ",
+      "nome": "THALITA BEATA SANTOS FONSECA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1waUu--RvQp5f7niM4Tr_MavB7NUGzwaK/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Coordenação de Comunicação, Educação Permanente e Humanização/SMS ",
+      "nome": "CLÁUDIA GISLENE ROCHA FONSECA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1sBwpAeNCVCmzf8DruTCn0VbJg14AgVio/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente PSF VITORIA",
+      "nome": "SARAH JULIANE MENDES CAPUCHINHO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1MaAQZkWGuM1FntEDHVRXIuMzSFoR-0Ga/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente da UBS Santa Lucia I",
+      "nome": "ERIKA RENATA NUNES DE OLIVEIRA BARRAL ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/15JHNT-IFX5_6xsrk-ozDY50Nl9ygcHZE/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Técnica de Atenção a Saúde ",
+      "nome": "WANESSA MOURA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/19vyDjreZ-G0liOKNsElNk15vsKbzbUU1/view?usp=drivesdk"
+    }
+  ]
 }
