@@ -1,49 +1,64 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": true,
-  "rewrites": [
-    {
-      "source": "/reuniao",
-      "destination": "https://cmsmoc.github.io/site/reuniao.html"
-    },
-    {
-      "source": "/avalie",
-      "destination": "https://tally.so/r/441yXX"
-    },
-    {
-      "source": "/propostas",
-      "destination": "https://cmsmoc.github.io/site/propostas1.html"
-    },
-    {
-      "source": "/certificados",
-      "destination": "https://cmsmoc.github.io/site/certificados.html"
-    },
-    {
-      "source": "/pesquisa",
-      "destination": "https://cmsmoc.github.io/secretariaexecutiva/pesquisa.html"
-    },
-    {
-      "source": "/secretariaexecutiva",
-      "destination": "https://cmsmoc.github.io/secretariaexecutiva/"
-    },
-    {
-      "source": "/oficina",
-      "destination": "https://cmsmoc.github.io/secretariaexecutiva/oficinaregimento.html"
-    },
-    {
-      "source": "/incentivocls",
-      "destination": "https://incentivocls.vercel.app/"
-    },
-    {
-      "source": "/emendasparlamentares/:path*",
+      "cleanUrls": true,
+      "trailingSlash": true,
+      "redirects": [
+        {
+          "source": "/emendasparlamentares",
+          "destination": "/emendasparlamentares/",
+          "permanent": true
+        },
+        {
+          "source": "/secretariaexecutiva",
+          "destination": "/secretariaexecutiva/",
+          "permanent": true
+        },
+        {
+          "source": "/incentivocls",
+          "destination": "/incentivocls/",
+          "permanent": true
+        },
+        {
+          "source": "/emendas2026-maio",
+          "destination": "https://drive.google.com/file/d/1nO3_ygR3H1d5FtOF8GdtpotjfKQdftRE/view?usp=drive_link",
+          "permanent": false
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/reuniao",
+          "destination": "https://cmsmoc.github.io/site/reuniao.html"
+        },
+        {
+          "source": "/avalie",
+          "destination": "https://tally.so/r/441yXX"
+        },
+        {
+          "source": "/propostas",
+          "destination": "https://cmsmoc.github.io/site/propostas1.html"
+        },
+        {
+          "source": "/certificados",
+          "destination": "https://cmsmoc.github.io/site/certificados.html"
+        },
+        {
+          "source": "/pesquisa",
+          "destination": "https://cmsmoc.github.io/secretariaexecutiva/pesquisa.html"
+        },
+        {
+          "source": "/oficina",
+          "destination": "https://cmsmoc.github.io/secretariaexecutiva/oficinaregimento.html"
+        },
+        {
+          "source": "/secretariaexecutiva/:path*",
+          "destination": "https://cmsmoc.github.io/secretariaexecutiva/:path*"
+        },
+        {
+          "source": "/incentivocls/:path*",
+          "destination": "https://incentivocls.vercel.app/:path*"
+        },
+        {
+          "source": "/emendasparlamentares/:path*",
           "destination": "https://emendasparlamentares.vercel.app/:path*"
         }
-  ],
-  "redirects": [
-    {
-      "source": "/emendas2026-maio",
-      "destination": "https://drive.google.com/file/d/1nO3_ygR3H1d5FtOF8GdtpotjfKQdftRE/view?usp=drive_link",
-      "permanent": false
+      ]
     }
-  ]
-}
