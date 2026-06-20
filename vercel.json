@@ -34,9 +34,9 @@
       "destination": "https://incentivocls.vercel.app/"
     },
     {
-      "source": "/emendasparlamentares",
-      "destination": "https://emendasparlamentares.vercel.app/"
-    }
+      "source": "/emendasparlamentares/:path*",
+          "destination": "https://emendasparlamentares.vercel.app/:path*"
+        }
   ],
   "redirects": [
     {
