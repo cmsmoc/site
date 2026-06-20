@@ -35,7 +35,7 @@
     },
     {
       "source": "/emendasparlamentares",
-      "destination": "https://emendasparlamentares.vercel.app//"
+      "destination": "https://emendasparlamentares.vercel.app/"
     }
   ],
   "redirects": [
