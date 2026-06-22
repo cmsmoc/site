@@ -4,6 +4,8 @@
   --cms-navy:   #0D2E5A;
   --cms-green:  #1E8A4A;
   --cms-yellow: #F5C400;
+  --cms-red:    #DC2626;
+  --cms-red-light: rgba(220, 38, 38, 0.08);
   --cms-white:  #FFFFFF;
   --cms-off:    #F7F8FA;
   --cms-ink:    #111827;
@@ -673,7 +675,7 @@ body {
 
 .oport-value {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 26px; /* Task 8: maior destaque */
   font-weight: 900;
   color: var(--cms-navy);
   line-height: 1.1;
@@ -682,6 +684,7 @@ body {
 
 .oport-value.yellow {
   color: var(--cms-green);
+  font-size: 20px; /* Valor monetário: ligeiramente menor para não quebrar */
 }
 
 .oport-label {
@@ -785,11 +788,39 @@ body {
 /* TABLES (cms-table V2) */
 .table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin-bottom: 28px;
   width: 100%;
   position: relative;
   min-height: 200px;
+  /* Task 1: remove barra de scroll quando a tabela cabe */
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--cms-border);
 }
+
+/* Task 1: larguras por coluna para evitar quebra e scroll */
+.cms-table col.col-data      { width: 120px; }
+.cms-table col.col-entidade  { width: 22%; }
+.cms-table col.col-num       { width: 100px; }
+.cms-table col.col-tipo      { width: 80px; }
+.cms-table col.col-parl      { width: 15%; }
+.cms-table col.col-res       { width: 14%; }
+.cms-table col.col-val       { width: 120px; }
+.cms-table col.col-status    { width: 130px; }
+.cms-table col.col-acoes     { width: 120px; }
+
+/* Task 1: células com texto longo truncado */
+.cms-table td.cell-entidade,
+.cms-table td.cell-parlamentar,
+.cms-table td.cell-resolucao {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cms-table td.cell-resolucao { max-width: 150px; }
+.cms-table td.cell-entidade  { max-width: 200px; }
+
 
 .loading-overlay {
   position: absolute;
@@ -1310,6 +1341,73 @@ footer {
   
   .alert-urgente {
     padding: 15px 20px;
+  }
+
+  /* RESPONSIVE TABLE FOR MOBILE (CARDS STYLE) */
+  #emendas-table.cms-table, 
+  #emendas-table.cms-table thead, 
+  #emendas-table.cms-table tbody, 
+  #emendas-table.cms-table th, 
+  #emendas-table.cms-table td, 
+  #emendas-table.cms-table tr {
+    display: block;
+  }
+  
+  #emendas-table.cms-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  #emendas-table.cms-table tr {
+    border: 1px solid var(--cms-border);
+    margin-bottom: 15px;
+    border-radius: var(--border-radius-md);
+    background: var(--cms-white);
+    padding: 12px 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  
+  #emendas-table.cms-table tbody tr:nth-child(even) td {
+    background: transparent;
+  }
+  
+  #emendas-table.cms-table td {
+    border: none;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+    padding-left: 45% !important;
+    text-align: right;
+    font-size: 0.82rem;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  #emendas-table.cms-table td:last-child {
+    border-bottom: 0;
+    justify-content: center;
+    padding: 10px 0 0 0 !important;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  #emendas-table.cms-table td::before {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 40%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 700;
+    color: var(--cms-navy);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    content: attr(data-label);
   }
 }
 
