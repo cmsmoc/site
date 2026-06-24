@@ -300,6 +300,27 @@ document.addEventListener("DOMContentLoaded", async () => {
       .then(() => console.log("Service Worker ativo."))
       .catch(err => console.warn("Service Worker falhou:", err));
   }
+  
+  // Task 11: Bindings do modal Decreto 5197
+  const btnOpenDecree = document.getElementById('btn-open-decree-modal');
+  const btnCloseDecree = document.getElementById('btn-close-decree-modal');
+  if (btnOpenDecree) btnOpenDecree.addEventListener('click', () => document.getElementById('decree-modal').classList.remove('hidden'));
+  if (btnCloseDecree) btnCloseDecree.addEventListener('click', () => document.getElementById('decree-modal').classList.add('hidden'));
+  
+  // Task 7: Bindings do modal de Notificações
+  const btnCloseNotif = document.getElementById('btn-close-notification-modal');
+  const btnGoToDoubts = document.getElementById('btn-go-to-doubts');
+  if (btnCloseNotif) btnCloseNotif.addEventListener('click', () => document.getElementById('notification-modal').classList.add('hidden'));
+  if (btnGoToDoubts) btnGoToDoubts.addEventListener('click', () => {
+    document.getElementById('notification-modal').classList.add('hidden');
+    document.querySelectorAll('.nav-tab-link').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const btnDuvidas = document.getElementById('btn-tab-duvidas');
+    const tabDuvidas = document.getElementById('tab-duvidas');
+    if (btnDuvidas) btnDuvidas.classList.add('active');
+    if (tabDuvidas) tabDuvidas.classList.add('active');
+    renderDoubtBoard();
+  });
 });
 
 // CAPTURA DE INFORMAÇÕES DE REDE
@@ -1068,6 +1089,19 @@ function openEditModal(numeroEmenda) {
   editValor.value = row["Valor"] || 0;
   editObjeto.value = row["Objeto/Finalidade"] || "";
   
+  // Task 3: Mostrar/ocultar seção de deliberação
+  const deliberacaoGroup = document.getElementById('edit-deliberacao-group');
+  if (deliberacaoGroup) {
+    const isAprovada = ['Aprovado','Aprovada','Aprovado em Plenário'].includes(row['Status'] || '');
+    deliberacaoGroup.style.display = isAprovada ? 'block' : 'none';
+    const numDelib = document.getElementById('edit-numero-deliberacao');
+    const dataDelib = document.getElementById('edit-data-deliberacao');
+    const linkDelib = document.getElementById('edit-link-deliberacao');
+    if (numDelib) numDelib.value = row['Numero_Deliberacao'] || '';
+    if (dataDelib) dataDelib.value = row['Data_Deliberacao'] || '';
+    if (linkDelib) linkDelib.value = row['Link_Deliberacao'] || '';
+  }
+  
   if (row["Tipo"] === "Federal") {
     document.getElementById("edit-tipo-federal").checked = true;
   } else {
@@ -1092,7 +1126,10 @@ async function handleEditFormSubmit(e) {
       parlamentar: editParlamentar.value,
       resolucao: editResolucao.value || "Não informado",
       valor: parseFloat(editValor.value) || 0,
-      objeto: editObjeto.value || "Não informado"
+      objeto: editObjeto.value || "Não informado",
+      numeroDeliberacao: document.getElementById('edit-numero-deliberacao')?.value || '',
+      dataDeliberacao: document.getElementById('edit-data-deliberacao')?.value || '',
+      linkDeliberacao: document.getElementById('edit-link-deliberacao')?.value || ''
     },
     clientIp: clientInfo.ip,
     clientLoc: clientInfo.loc,
@@ -1186,7 +1223,7 @@ async function loadDashboardData(forceRefresh = false) {
 
 function renderDashboard() {
   filterData();
-  renderDashboardDoubtPanel();
+  checkAndShowNotifications();
 }
 
 function filterData() {
@@ -1210,7 +1247,15 @@ function filterData() {
                         entidade.toLowerCase().includes(textSearch);
                         
     const matchesEnt = !entFilter || entidade === entFilter;
-    const matchesStatus = !statusFilter || status === statusFilter;
+    const matchesStatus = !statusFilter || (() => {
+      const s = row['Status'] || '';
+      if (statusFilter === 'Pendente Aprovação') {
+        return ['Recebido','Em Análise','Pendente Aprovação','Não Aprovado em Plenário','Devolvido para Correção'].includes(s);
+      } else if (statusFilter === 'Aprovada') {
+        return ['Aprovado','Aprovada','Aprovado em Plenário'].includes(s);
+      }
+      return s === statusFilter;
+    })();
     
     return matchesText && matchesEnt && matchesStatus;
   });
@@ -1246,28 +1291,27 @@ function filterData() {
     let statusCellContent = "";
     // Task 2: status alinhado ao fluxo plenário real
     const STATUS_MAP_DISPLAY = {
-      "Recebido": "Recebido",
-      "Em Análise": "Em Análise",
-      "Aprovado em Plenário": "Aprovado em Plenário",
-      "Aprovado": "Aprovado em Plenário",
-      "Não Aprovado em Plenário": "Não Aprovado em Plenário",
-      "Devolvido para Correção": "Não Aprovado em Plenário"
+      'Recebido': 'Pendente Aprovação',
+      'Em Análise': 'Pendente Aprovação',
+      'Aprovado': 'Aprovada',
+      'Aprovado em Plenário': 'Aprovada',
+      'Não Aprovado em Plenário': 'Pendente Aprovação',
+      'Devolvido para Correção': 'Pendente Aprovação',
+      'Pendente Aprovação': 'Pendente Aprovação',
+      'Aprovada': 'Aprovada'
     };
     const statusDisplay = STATUS_MAP_DISPLAY[status] || status;
     if (isWebmaster) {
       statusCellContent = `
         <select class="status-select-inline" data-numero="${numero}">
-          <option value="Recebido" ${status === "Recebido" ? "selected" : ""}>Recebido</option>
-          <option value="Em Análise" ${status === "Em Análise" ? "selected" : ""}>Em Análise</option>
-          <option value="Aprovado em Plenário" ${(status === "Aprovado" || status === "Aprovado em Plenário") ? "selected" : ""}>Aprovado em Plenário</option>
-          <option value="Não Aprovado em Plenário" ${(status === "Devolvido para Correção" || status === "Não Aprovado em Plenário") ? "selected" : ""}>Não Aprovado em Plenário</option>
+          <option value='Pendente Aprovação' ${['Recebido','Em Análise','Pendente Aprovação','Não Aprovado em Plenário','Devolvido para Correção'].includes(status) ? 'selected' : ''}>Pendente Aprovação</option>
+          <option value='Aprovada' ${['Aprovado','Aprovado em Plenário','Aprovada'].includes(status) ? 'selected' : ''}>Aprovada ✓ Plenário</option>
         </select>
       `;
     } else {
       let statusClass = "status-todo";
-      if (status === "Em Análise") statusClass = "status-warn";
-      else if (status === "Aprovado" || status === "Aprovado em Plenário") statusClass = "status-ok";
-      else if (status === "Devolvido para Correção" || status === "Não Aprovado em Plenário") statusClass = "status-elim";
+      if (['Recebido','Em Análise','Pendente Aprovação','Não Aprovado em Plenário','Devolvido para Correção'].includes(status)) statusClass = "status-warn";
+      else if (['Aprovado','Aprovado em Plenário','Aprovada'].includes(status)) statusClass = "status-ok";
       statusCellContent = `<span class="badge-status ${statusClass}">${statusDisplay}</span>`;
     }
     
@@ -1278,6 +1322,12 @@ function filterData() {
       actionCellContent = `<a href="${pdfUrl}" target="_blank" class="action-btn download-trigger" data-numero="${numero}" data-entidade="${row["Entidade"]}"><i class="fa-solid fa-file-pdf"></i> PDF</a>`;
     } else {
       actionCellContent = `<span style="color: var(--cms-muted);">Sem arquivo</span>`;
+    }
+    
+    // Task 3: link da deliberação plenária
+    const linkDelib = row['Link_Deliberacao'] || '';
+    if (linkDelib && linkDelib.startsWith('http')) {
+      actionCellContent = `<a href='${linkDelib}' target='_blank' class='action-btn' style='background:#D1FAE5; color:#065F46; border-color:#A7F3D0;' title='Ver Deliberação Plenária'><i class='fa-solid fa-gavel'></i></a>` + actionCellContent;
     }
     
     if (isAdmin) {
@@ -1516,6 +1566,11 @@ function renderDoubtBoard() {
   sorted.forEach(row => {
     const card = document.createElement("div");
     card.className = "doubt-card";
+    
+    // Task 7: estilo especial para dúvidas pendentes
+    if (row.Status === 'Pendente') {
+      card.style.cssText = 'border-left: 4px solid #DC2626; background:#FEF2F2;';
+    }
     
     const dDate = new Date(row.Data);
     const formattedDate = !isNaN(dDate.getTime()) ? 
@@ -1770,14 +1825,14 @@ function calculateStats(dataList) {
   heroTotalValue.textContent = formatCurrency(totalValueGlobal); // sempre total real
   
   const pendingCount = dataList.filter(row => {
-    const status = row["Status"] || "Recebido";
-    return status === "Recebido" || status === "Em Análise";
+    const s = row['Status'] || 'Pendente Aprovação';
+    return !['Aprovado','Aprovada','Aprovado em Plenário'].includes(s);
   }).length;
   statPendingCount.textContent = pendingCount;
   
   const approvedCount = dataList.filter(row => {
-    const status = row["Status"] || "";
-    return status === "Aprovado" || status === "Aprovado em Plenário";
+    const s = row['Status'] || '';
+    return ['Aprovado','Aprovada','Aprovado em Plenário'].includes(s);
   }).length;
   statApprovedCount.textContent = approvedCount;
 }
@@ -2144,6 +2199,77 @@ async function enviarRespostaDuvida(id, resp, status, btnSubmitElement = null) {
       if (btnSubmitElement) btnSubmitElement.disabled = false;
     }
   }
+}
+
+// ── MÓDULO DE NOTIFICAÇÕES (DÚVIDAS PENDENTES) ──
+
+function checkAndShowNotifications() {
+  const pendentes = duvidasData.filter(d => d.Status === 'Pendente');
+  const modal = document.getElementById('notification-modal');
+  const list = document.getElementById('notification-doubts-list');
+  if (!modal || !list) return;
+  
+  if (pendentes.length === 0) {
+    modal.classList.add('hidden');
+    return;
+  }
+  
+  list.innerHTML = '';
+  const isAdmin = currentUser && (currentUser.perfil === 'Administrador' || currentUser.perfil === 'Webmaster');
+  
+  pendentes.forEach(row => {
+    const dDate = new Date(row.Data);
+    const formattedDate = !isNaN(dDate.getTime()) ? dDate.toLocaleDateString('pt-BR') : '';
+    const card = document.createElement('div');
+    card.style.cssText = 'background:#FEF2F2; border:1px solid #FECACA; border-left:4px solid #DC2626; border-radius:8px; padding:16px;';
+    
+    const responseForm = isAdmin ? `
+      <div style='margin-top:12px; display:flex; flex-direction:column; gap:8px; border-top:1px solid #FECACA; padding-top:12px;'>
+        <textarea id='notif-resp-${row.ID}' rows='3' placeholder='Escreva o esclarecimento oficial...' style='width:100%; border:1px solid #E5E7EB; border-radius:6px; padding:10px; font-size:0.85rem; resize:vertical;'></textarea>
+        <div style='display:flex; justify-content:flex-end; gap:8px; align-items:center;'>
+          <select id='notif-status-${row.ID}' style='padding:6px 10px; border-radius:6px; border:1px solid #E5E7EB; font-size:0.8rem;'>
+            <option value='Esclarecida'>Esclarecida</option>
+            <option value='Em Discussão'>Em Discussão</option>
+          </select>
+          <button type='button' class='submit-btn btn-notif-salvar' data-id='${row.ID}' style='padding:6px 14px; font-size:0.8rem; background:var(--cms-green); border:none; cursor:pointer; border-radius:4px; color:white; font-family:var(--font-display); letter-spacing:0.5px;'>
+            <i class='fa-solid fa-paper-plane'></i> Responder
+          </button>
+        </div>
+      </div>
+    ` : '';
+    
+    card.innerHTML = `
+      <div style='display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;'>
+        <div style='display:flex; align-items:center; gap:8px;'>
+          <i class='fa-solid fa-circle-user' style='color:#DC2626; font-size:1.1rem;'></i>
+          <strong style='font-size:0.85rem; color:#991B1B;'>${row.AutorExibicao || 'Conselho'}</strong>
+        </div>
+        <span style='font-size:0.75rem; color:#6B7280;'>${formattedDate}</span>
+      </div>
+      <p style='font-size:0.9rem; color:#1F2937; line-height:1.5;'>${row['Dúvida'] || ''}</p>
+      ${responseForm}
+    `;
+    list.appendChild(card);
+  });
+  
+  list.querySelectorAll('.btn-notif-salvar').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const id = e.currentTarget.getAttribute('data-id');
+      const resp = document.getElementById(`notif-resp-${id}`)?.value.trim();
+      const status = document.getElementById(`notif-status-${id}`)?.value || 'Esclarecida';
+      if (!resp) { alert('Por favor, escreva uma resposta antes de enviar.'); return; }
+      e.currentTarget.disabled = true;
+      answerDoubtIdInput.value = id;
+      answerTextInput.value = resp;
+      answerStatusSelect.value = status;
+      const row = duvidasData.find(d => d.ID === id);
+      if (row) answerDoubtPreview.textContent = row['Dúvida'] || '';
+      answerDoubtForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+      modal.classList.add('hidden');
+    });
+  });
+  
+  modal.classList.remove('hidden');
 }
 
 // ── MÓDULO DE RELATÓRIOS (TÉCNICOS E GERADOR DINÂMICO) ──

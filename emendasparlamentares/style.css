@@ -236,7 +236,8 @@ body {
   padding: 16px 48px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
   color: var(--cms-navy);
 }
 
@@ -259,7 +260,7 @@ body {
 
 /* CONTAINER */
 .container {
-  max-width: 1140px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 24px;
 }
@@ -787,39 +788,20 @@ body {
 
 /* TABLES (cms-table V2) */
 .table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: visible;
   margin-bottom: 28px;
   width: 100%;
   position: relative;
   min-height: 200px;
-  /* Task 1: remove barra de scroll quando a tabela cabe */
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--cms-border);
 }
 
-/* Task 1: larguras por coluna para evitar quebra e scroll */
-.cms-table col.col-data      { width: 120px; }
-.cms-table col.col-entidade  { width: 22%; }
-.cms-table col.col-num       { width: 100px; }
-.cms-table col.col-tipo      { width: 80px; }
-.cms-table col.col-parl      { width: 15%; }
-.cms-table col.col-res       { width: 14%; }
-.cms-table col.col-val       { width: 120px; }
-.cms-table col.col-status    { width: 130px; }
-.cms-table col.col-acoes     { width: 120px; }
-
-/* Task 1: células com texto longo truncado */
+/* Task 1: células com texto longo — wrap natural */
 .cms-table td.cell-entidade,
 .cms-table td.cell-parlamentar,
 .cms-table td.cell-resolucao {
-  max-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  word-break: break-word;
+  white-space: normal;
 }
-.cms-table td.cell-resolucao { max-width: 150px; }
-.cms-table td.cell-entidade  { max-width: 200px; }
 
 
 .loading-overlay {
@@ -848,6 +830,7 @@ body {
 
 .cms-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 13px;
   background: var(--cms-white);
