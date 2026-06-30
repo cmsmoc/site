@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envio de Carteirinha · CMS Montes Claros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --cms-navy: #0D2E5A;
+      --cms-yellow: #F5C400;
+      --cms-green: #1E8A4A;
+      --cms-blue: #1B6CB5;
+      --cms-off: #F7F8FA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cms-off);
+      color: #374151;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cms-stripe {
+      height: 6px;
+      background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%);
+      width: 100%;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: #ffffff;
+      max-width: 600px;
+      width: 100%;
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(13, 46, 90, 0.08);
+      border-top: 4px solid var(--cms-navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cms-yellow);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--cms-navy);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #6B7280;
+    }
+
+    /* Illustration */
+    .illustration-badge {
+      margin-bottom: 40px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Big Action Button */
+    .btn-action {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--cms-blue), var(--cms-navy));
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 20px 40px;
+      border-radius: 99px;
+      box-shadow: 0 8px 25px rgba(27, 108, 181, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(13, 46, 90, 0.4);
+    }
+
+    .btn-action:active {
+      transform: translateY(1px);
+    }
+
+    .footer {
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #9CA3AF;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 28px; }
+      .card { padding: 40px 20px; }
+      .btn-action { font-size: 16px; padding: 18px 30px; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cms-stripe"></div>
+
+  <div class="container">
+    <div class="card">
+      <div class="illustration-badge">
+        <svg width="120" height="160" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="110" height="150" rx="10" fill="#ffffff" stroke="#0D2E5A" stroke-width="4"/>
+          <rect x="40" y="16" width="40" height="8" rx="4" fill="#E5E7EB" stroke="#0D2E5A" stroke-width="3"/>
+          <g transform="translate(0, -3)">
+            <rect x="25" y="40" width="70" height="70" rx="8" fill="#F5C400" stroke="#0D2E5A" stroke-width="4"/>
+            <circle cx="60" cy="62" r="14" fill="#0D2E5A"/>
+            <path d="M 35 106 C 35 85 85 85 85 106 Z" fill="#0D2E5A" />
+          </g>
+          <rect x="25" y="120" width="70" height="6" rx="3" fill="#1B6CB5"/>
+          <rect x="35" y="132" width="50" height="6" rx="3" fill="#1E8A4A"/>
+        </svg>
+      </div>
+
+      <p class="header-eyebrow">Conselho Municipal de Saúde</p>
+      <h1>Envio de Foto para Carteirinha</h1>
+      <p>O processo de envio da foto é obrigatório para todos os conselheiros e deve ser feito exclusivamente pelo formulário oficial.</p>
+
+      <a href="https://docs.google.com/forms/d/1KTnuk7XNdCAY6qOcRjqFlGUDBCE_8BPORaqr5XyLb1k/viewform" class="btn-action">
+        Clique Aqui para Enviar sua Foto
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Gestão 2026 • Conselho Municipal de Saúde de Montes Claros
+  </div>
+
+</body>
+</html>
