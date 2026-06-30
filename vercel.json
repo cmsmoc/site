@@ -21,11 +21,6 @@
           "source": "/emendas2026-maio",
           "destination": "https://drive.google.com/file/d/1nO3_ygR3H1d5FtOF8GdtpotjfKQdftRE/view?usp=drive_link",
           "permanent": false
-        },
-        {
-          "source": "/carteirinha",
-          "destination": "https://forms.gle/oGzxV8swHu3AmoTQ9",
-          "permanent": false
         }
       ],
       "rewrites": [
@@ -64,6 +59,10 @@
         {
           "source": "/emendasparlamentares/:path*",
           "destination": "https://emendasparlamentares.vercel.app/:path*"
+        },
+        {
+          "source": "/carteirinha",
+          "destination": "https://forms.gle/oGzxV8swHu3AmoTQ9"
         }
       ]
     }
