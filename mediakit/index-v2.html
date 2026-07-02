@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDIA KIT Â· CMS Montes Claros</title>
-    <meta name="description" content="Media Kit oficial do Conselho Municipal de SaÃºde com logos, diretrizes de uso, aplicaÃ§Ãµes e materiais para download.">
+    <title>MEDIA KIT (v2) Ã‚Â· CMS Montes Claros</title>
+    <meta name="description" content="Media Kit oficial do Conselho Municipal de SaÃƒÂºde com logos, diretrizes de uso, aplicaÃƒÂ§ÃƒÂµes e materiais para download.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS Variables baseadas em cmsmoc-tokens.json */
@@ -54,9 +54,21 @@
         .guidelines h2 { font-family: var(--font-d); font-size: 20px; font-weight: 700; color: var(--cms-navy); margin-bottom: 16px; }
         .guidelines ul { list-style: none; }
         .guidelines li { margin-bottom: 12px; position: relative; padding-left: 24px; color: var(--cms-ink); }
-        .guidelines li::before { content: 'âœ“'; position: absolute; left: 0; color: var(--cms-blue); font-weight: bold; }
+        .guidelines li::before { content: 'Ã¢Å“â€œ'; position: absolute; left: 0; color: var(--cms-blue); font-weight: bold; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 48px; }
+                .asymmetrical-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(280px, auto); gap: 24px; margin-bottom: 48px; }
+        .asymmetrical-grid .kpi-card:nth-child(6n + 1) { grid-column: span 2; grid-row: span 2; }
+        .asymmetrical-grid .kpi-card:nth-child(6n + 4) { grid-column: span 2; grid-row: span 1; }
+        .asymmetrical-grid .card-img-wrapper { height: 100%; min-height: 200px; flex-grow: 1; }
+        
+        @media (max-width: 900px) {
+            .asymmetrical-grid { grid-template-columns: repeat(2, 1fr); }
+            .asymmetrical-grid .kpi-card:nth-child(6n + 1) { grid-column: span 2; grid-row: span 2; }
+        }
+        @media (max-width: 480px) {
+            .asymmetrical-grid { grid-template-columns: 1fr; }
+            .asymmetrical-grid .kpi-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+        }
         
         .kpi-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--r); border-top: 4px solid var(--cms-blue); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; overflow: hidden; position: relative; }
         .kpi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -99,26 +111,26 @@
                 <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logo-cms-vertical-branca.png" alt="CMS Montes Claros" style="height:60px;object-fit:contain;">
             </div>
             <p class="header-eyebrow">RECURSOS OFICIAIS</p>
-            <h1 class="header-title">Media Kit <em>CMSMOC</em></h1>
-            <p class="header-sub">Logotipos e materiais grÃ¡ficos do Conselho Municipal de SaÃºde para uso em comunicaÃ§Ãµes e mÃ­dias.</p>
+            <h1 class="header-title">Media Kit <em>CMSMOC</em> (v2)</h1>
+            <p class="header-sub">Logotipos e materiais grÃƒÂ¡ficos do Conselho Municipal de SaÃƒÂºde para uso em comunicaÃƒÂ§ÃƒÂµes e mÃƒÂ­dias.</p>
         </div>
     </header>
 
     <main class="container">
         
         <section class="guidelines">
-            <h2>OrientaÃ§Ãµes e Dicas de Uso</h2>
+            <h2>OrientaÃƒÂ§ÃƒÂµes e Dicas de Uso</h2>
             <ul>
-                <li><strong>Respeite as proporÃ§Ãµes:</strong> Nunca estique ou distorÃ§a as logomarcas. Mantenha a proporÃ§Ã£o original ao redimensionar.</li>
-                <li><strong>Contraste:</strong> Certifique-se de que o logotipo esteja legÃ­vel contra o fundo. Use versÃµes brancas/monocromÃ¡ticas (logowh, logomonowh) em fundos escuros e versÃµes coloridas/pretas em fundos claros.</li>
-                <li><strong>EspaÃ§o de Respiro:</strong> Mantenha um espaÃ§o livre ao redor da logo para garantir sua integridade visual. NÃ£o encoste a logo em bordas ou outros elementos grÃ¡ficos.</li>
-                <li><strong>Uso das Cores Oficiais:</strong> NÃ£o altere as cores das logomarcas. Utilize apenas as versÃµes fornecidas neste Media Kit.</li>
-                <li><strong>Mini AplicaÃ§Ãµes (Signs & Cards):</strong> Na seÃ§Ã£o dedicada, vocÃª encontrarÃ¡ cartÃµes postais, fundos e papÃ©is de parede. Estas sÃ£o aplicaÃ§Ãµes grÃ¡ficas prontas para uso, e nÃ£o logotipos puros.</li>
+                <li><strong>Respeite as proporÃƒÂ§ÃƒÂµes:</strong> Nunca estique ou distorÃƒÂ§a as logomarcas. Mantenha a proporÃƒÂ§ÃƒÂ£o original ao redimensionar.</li>
+                <li><strong>Contraste:</strong> Certifique-se de que o logotipo esteja legÃƒÂ­vel contra o fundo. Use versÃƒÂµes brancas/monocromÃƒÂ¡ticas (logowh, logomonowh) em fundos escuros e versÃƒÂµes coloridas/pretas em fundos claros.</li>
+                <li><strong>EspaÃƒÂ§o de Respiro:</strong> Mantenha um espaÃƒÂ§o livre ao redor da logo para garantir sua integridade visual. NÃƒÂ£o encoste a logo em bordas ou outros elementos grÃƒÂ¡ficos.</li>
+                <li><strong>Uso das Cores Oficiais:</strong> NÃƒÂ£o altere as cores das logomarcas. Utilize apenas as versÃƒÂµes fornecidas neste Media Kit.</li>
+                <li><strong>Mini AplicaÃƒÂ§ÃƒÂµes (Signs & Cards):</strong> Na seÃƒÂ§ÃƒÂ£o dedicada, vocÃƒÂª encontrarÃƒÂ¡ cartÃƒÂµes postais, fundos e papÃƒÂ©is de parede. Estas sÃƒÂ£o aplicaÃƒÂ§ÃƒÂµes grÃƒÂ¡ficas prontas para uso, e nÃƒÂ£o logotipos puros.</li>
             </ul>
         </section>
 
         <h2 class="section-title">Logotipos Oficiais</h2>
-        <div class="grid">
+        <div class="asymmetrical-grid">
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-cms-horizontal-oficial.png" alt="cms00"></div>
                 <div class="card-content">
@@ -183,16 +195,16 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="icone-cms-512px.png" alt="Ãcone CMS 512"></div>
+                <div class="card-img-wrapper"><img src="icone-cms-512px.png" alt="ÃƒÂcone CMS 512"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Ãcone (512x512)</div>
+                    <div class="kpi-label">ÃƒÂcone (512x512)</div>
                     <a href="icone-cms-512px.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
         </div>
 
         <h2 class="section-title">Logos CTs, CISTT e Diretoria</h2>
-        <div class="grid">
+        <div class="asymmetrical-grid">
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-diretoria-executiva.png" alt="Diretoria"></div>
                 <div class="card-content">
@@ -265,13 +277,13 @@
             </div>
         </div>
 
-        <h2 class="section-title">Signs & Cards (Mini AplicaÃ§Ãµes)</h2>
+        <h2 class="section-title">Signs & Cards (Mini AplicaÃƒÂ§ÃƒÂµes)</h2>
         <p style="margin-bottom: 24px; color: var(--cms-muted);">
-            Imagens tipo cartÃ£o postal, cards, fundos, papÃ©is de parede. Estas nÃ£o sÃ£o logos puras, mas pequenas aplicaÃ§Ãµes prontas.
+            Imagens tipo cartÃƒÂ£o postal, cards, fundos, papÃƒÂ©is de parede. Estas nÃƒÂ£o sÃƒÂ£o logos puras, mas pequenas aplicaÃƒÂ§ÃƒÂµes prontas.
         </p>
-        <div class="grid">
+        <div class="asymmetrical-grid">
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="assinatura-email-azul.png" alt="CMSbb"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMSbb</div>
@@ -279,7 +291,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="aplicacao-banner-01.png" alt="band"></div>
                 <div class="card-content">
                     <div class="kpi-label">Bandeira</div>
@@ -287,7 +299,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="aplicacao-banner-02.png" alt="bande"></div>
                 <div class="card-content">
                     <div class="kpi-label">Bandeira Estendida</div>
@@ -295,7 +307,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="aplicacao-banner-03.png" alt="bander"></div>
                 <div class="card-content">
                     <div class="kpi-label">Bander</div>
@@ -303,7 +315,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="assinatura-email-branca.png" alt="bbass"></div>
                 <div class="card-content">
                     <div class="kpi-label">Assinatura</div>
@@ -311,7 +323,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="aplicacao-cracha-fundo.png" alt="cadd"></div>
                 <div class="card-content">
                     <div class="kpi-label">Card</div>
@@ -319,7 +331,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="icone-cms-redondo.png" alt="cmsicon2"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMS Icon 2</div>
@@ -327,7 +339,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="logo-cms-aplicacao-branca.png" alt="cmslogo1"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMS Logo 1</div>
@@ -335,7 +347,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="logo-cms-aplicacao-azul.png" alt="cmslogoblue"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMS Logo Blue</div>
@@ -343,7 +355,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="logo-cms-aplicacao-amarela.png" alt="cmslogoyellow"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMS Logo Yellow</div>
@@ -351,7 +363,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="logo-cms-vertical-apresentacao.png" alt="cmsvert1"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMS Vertical 1</div>
@@ -359,7 +371,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper dark-bg"><img src="logo-cms-branca-apresentacao.png" alt="cmswhitelog"></div>
                 <div class="card-content">
                     <div class="kpi-label">CMS White Logo</div>
@@ -367,7 +379,7 @@
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃ§Ã£o</div>
+                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
                 <div class="card-img-wrapper"><img src="aplicacao-envelope.png" alt="env"></div>
                 <div class="card-content">
                     <div class="kpi-label">Envelope / Fundo</div>
@@ -378,10 +390,11 @@
     </main>
 
     <footer class="doc-footer">
-        <strong>Conselho Municipal de SaÃºde de Montes Claros â€“ MG</strong><br>
-        Media Kit Â· 2026
+        <strong>Conselho Municipal de SaÃƒÂºde de Montes Claros Ã¢â‚¬â€œ MG</strong><br>
+        Media Kit Ã‚Â· 2026
     </footer>
 
 </body>
 </html>
+
 
