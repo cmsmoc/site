@@ -5,31 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Declarações · Sheilla · CMS Montes Claros</title>
   
-  <!-- SEO & OpenGraph -->
   <meta name="description" content="Portal de Declarações e Certificados da Conselheira Sheilla. Conselho Municipal de Saúde de Montes Claros (CMSMOC).">
   <meta property="og:title" content="Portal do Conselheiro: Sheilla - CMSMOC">
   <meta property="og:description" content="Acesse e baixe os certificados e declarações oficiais emitidos pela Secretaria Executiva do CMSMOC.">
-  <meta property="og:url" content="https://www.cmsmoc.com/site/sheila/">
+  <meta property="og:url" content="https://www.cmsmoc.com/sheilla/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://cmsmoc.github.io/secretariaexecutiva/logo/logobl.png">
   
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --cms-navy:   #0D2E5A;
-      --cms-blue:   #1B6CB5;
-      --cms-green:  #1E8A4A;
-      --cms-yellow: #F5C400;
-      --cms-white:  #FFFFFF;
-      --cms-off:    #F7F8FA;
-      --cms-ink:    #111827;
-      --cms-muted:  #6B7280;
-      --cms-border: #E5E7EB;
-      --font-d: 'Montserrat', Helvetica, sans-serif;
-      --font-b: 'Open Sans', Arial, sans-serif;
-      --r-sm: 6px;
-      --r: 12px;
-    }
+    :root { --cms-navy:#0D2E5A; --cms-blue:#1B6CB5; --cms-green:#1E8A4A; --cms-yellow:#F5C400; --cms-white:#FFFFFF; --cms-off:#F7F8FA; --cms-ink:#111827; --cms-muted:#6B7280; --cms-border:#E5E7EB; --font-d:'Montserrat', Helvetica, sans-serif; --font-b:'Open Sans', Arial, sans-serif; --r-sm:6px; --r:12px; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: var(--font-b); background: var(--cms-off); color: var(--cms-ink); line-height: 1.7; font-size: 15px; }
     .cms-stripe { height: 5px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
@@ -40,44 +25,33 @@
     .header-eyebrow { font-family: var(--font-d); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--cms-yellow); margin-bottom:10px; }
     .header-title { font-family:var(--font-d); font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:-1.5px; line-height:1.05; margin-bottom:10px; }
     .header-title em { color:var(--cms-yellow); font-style:normal; }
-    
     .container { max-width: 1200px; margin: 40px auto; padding: 0 24px; }
-    
     .actions-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
     .search-input { width: 100%; max-width: 500px; padding: 16px 20px; font-size: 16px; border: 1px solid var(--cms-border); border-radius: var(--r); font-family: var(--font-b); outline: none; transition: border-color 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
     .search-input:focus { border-color: var(--cms-blue); }
-    
     .btn-report { background: var(--cms-navy); color: white; border: none; padding: 16px 24px; font-family: var(--font-d); font-weight: 700; font-size: 14px; border-radius: var(--r); cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     .btn-report:hover { background: var(--cms-blue); }
-    
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
     .card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--r); padding: 24px; border-top: 4px solid var(--cms-blue); box-shadow: 0 4px 20px rgba(0,0,0,.05); display: flex; flex-direction: column; transition: transform 0.2s; }
     .card:hover { transform: translateY(-4px); }
-    
     .card-date { font-family: var(--font-d); font-size: 24px; font-weight: 900; color: var(--cms-navy); letter-spacing: -1px; line-height: 1.1; margin-bottom: 8px; }
     .card-title { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--cms-ink); margin-bottom: 12px; }
     .card-event { font-size: 12px; color: var(--cms-muted); flex-grow: 1; margin-bottom: 20px; }
-    
     .btn-download { display: inline-block; background: var(--cms-blue); color: white; text-decoration: none; font-family: var(--font-d); font-weight: 700; font-size: 12px; padding: 10px 16px; border-radius: var(--r-sm); text-align: center; text-transform: uppercase; letter-spacing: 1px; }
     .btn-download:hover { background: var(--cms-navy); }
     
-    /* Print Report Styles */
     .print-only { display: none; }
-    
     @media print {
       body { background: #fff; overflow: visible; height: auto; }
       .doc-header, .actions-bar, .grid { display: none !important; }
       .print-only { display: block; }
       @page { size: A4; margin: 20mm; }
-      
       .report-header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--cms-blue); padding-bottom: 20px; }
       .report-header img { height: 60px; margin-bottom: 16px; }
       .report-title { font-family: var(--font-d); font-weight: 900; font-size: 24px; color: var(--cms-navy); text-transform: uppercase; }
-      
       .report-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
       .report-table th, .report-table td { border: 1px solid var(--cms-border); padding: 12px; text-align: left; font-size: 12px; }
       .report-table th { background: var(--cms-off); font-family: var(--font-d); font-weight: 700; color: var(--cms-navy); }
-      
       .signature-block { text-align: center; margin-top: 60px; page-break-inside: avoid; }
       .signature-block img { max-width: 250px; margin-bottom: -10px; }
       .signature-line { border-top: 1px solid var(--cms-ink); width: 300px; margin: 0 auto; padding-top: 8px; font-family: var(--font-d); font-weight: 700; font-size: 12px; }
@@ -94,38 +68,15 @@
       </div>
       <p class="header-eyebrow">PORTAL DO CONSELHEIRO</p>
       <h1 class="header-title">Declarações e <em>Certificados</em></h1>
-      <p class="header-sub">Conselheira: Sheilla</p>
+      <p class="header-sub">Conselheira: Sheilla Silva Mendes</p>
     </div>
   </header>
-  
   <main class="container">
     <div class="actions-bar">
       <input type="text" id="searchInput" class="search-input" placeholder="Buscar por evento ou data..." onkeyup="filterCards()">
       <button class="btn-report" onclick="window.print()">Gerar Relatório Sintético</button>
     </div>
-    
     <div class="grid" id="cardGrid">
-
-      <div class="card" data-search="certificado 11ª conferência municipal de saúde data não identificada">
-        <div class="card-date">Data não identificada</div>
-        <div class="card-title">Certificado/Declaração</div>
-        <div class="card-event">Certificado 11ª Conferência Municipal de Saúde</div>
-        <a href="Certificado 11ª Conferência Municipal de Saúde - Sheilla Silva Mendes.pdf" class="btn-download" download>Baixar PDF</a>
-      </div>
-
-      <div class="card" data-search="declaração data não identificada">
-        <div class="card-date">Data não identificada</div>
-        <div class="card-title">Certificado/Declaração</div>
-        <div class="card-event">Declaração</div>
-        <a href="Declaração - REUNIÃO DA CISTT COMISSÃO INTERSETORIAL DE SAÚDE DO TRABALHADOR E DA TRABALHADORA - SHEILA SILVA MENDES.pdf" class="btn-download" download>Baixar PDF</a>
-      </div>
-
-      <div class="card" data-search="declaração simples 11ª conferência municipal de saúde de montes claros">
-        <div class="card-date">11ª Conferência Municipal de Saúde de Montes Claros</div>
-        <div class="card-title">Certificado/Declaração</div>
-        <div class="card-event">Declaração Simples</div>
-        <a href="Declaração Sheilla Silva Mendes 11ª Conferência Municipal de Saúde de Montes Claros.pdf" class="btn-download" download>Baixar PDF</a>
-      </div>
 
       <div class="card" data-search="467ª reunião ordinária do cms - montes claros 01 de julho de 2026">
         <div class="card-date">01 de julho de 2026</div>
@@ -133,62 +84,44 @@
         <div class="card-event">467ª Reunião Ordinária do CMS - Montes Claros</div>
         <a href="DECLARAÇÃO_01_de_julho_de_2026_SHEILLA SILVA MENDES_467ª Reunião Ordinária do CMS - Montes Claros.pdf" class="btn-download" download>Baixar PDF</a>
       </div>
-
       <div class="card" data-search="466ª reunião ordinária do cms - montes claros 03 de junho de 2026">
         <div class="card-date">03 de junho de 2026</div>
         <div class="card-title">Certificado/Declaração</div>
         <div class="card-event">466ª Reunião Ordinária do CMS - Montes Claros</div>
         <a href="DECLARAÇÃO_03_de_junho_de_2026_SHEILLA SILVA MENDES_466ª Reunião Ordinária do CMS - Montes Claros.pdf" class="btn-download" download>Baixar PDF</a>
       </div>
-
+      <div class="card" data-search="11ª conferência municipal de saúde 24 de abril de 2026">
+        <div class="card-date">24 de abril de 2026</div>
+        <div class="card-title">Certificado/Declaração</div>
+        <div class="card-event">11ª Conferência Municipal de Saúde</div>
+        <a href="Certificado 11ª Conferência Municipal de Saúde - Sheilla Silva Mendes.pdf" class="btn-download" download>Baixar PDF</a>
+      </div>
+      <div class="card" data-search="reunião da comissão transitória de estudo análise e proposição para a revisão do regimento interno do conselho municipal de saúde 11 de julho de 2025">
+        <div class="card-date">11 de julho de 2025</div>
+        <div class="card-title">Certificado/Declaração</div>
+        <div class="card-event">REUNIÃO DA COMISSÃO TRANSITÓRIA DE ESTUDO ANÁLISE E PROPOSIÇÃO PARA A REVISÃO DO REGIMENTO INTERNO do Conselho Municipal de Saúde</div>
+        <a href="Declaração - REUNIÃO DA COMISSÃO TRANSITÓRIA DE ESTUDO ANÁLISE E PROPOSIÇÃO PARA A REVISÃO DO REGIMENTO INTERNO do Conselho Municipal de Saúde - SHEILLA SILVA MENDES.pdf" class="btn-download" download>Baixar PDF</a>
+      </div>
+      <div class="card" data-search="reunião da cistt comissão intersetorial de saúde do trabalhador e da trabalhadora 07 de julho de 2025">
+        <div class="card-date">07 de julho de 2025</div>
+        <div class="card-title">Certificado/Declaração</div>
+        <div class="card-event">REUNIÃO DA CISTT COMISSÃO INTERSETORIAL DE SAÚDE DO TRABALHADOR E DA TRABALHADORA</div>
+        <a href="Declaração - REUNIÃO DA CISTT COMISSÃO INTERSETORIAL DE SAÚDE DO TRABALHADOR E DA TRABALHADORA - SHEILA SILVA MENDES.pdf" class="btn-download" download>Baixar PDF</a>
+      </div>
     </div>
   </main>
-  
-  <!-- PRINT REPORT SECTION -->
   <div class="print-only">
     <div class="report-header">
       <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logohbl.png" alt="CMS Montes Claros">
       <div class="report-title">Relatório Sintético de Atividades</div>
-      <p>Conselheira: Sheilla | Documentos emitidos pela Secretaria Executiva</p>
+      <p>Conselheira: Sheilla Silva Mendes | Documentos emitidos pela Secretaria Executiva</p>
     </div>
-    
     <table class="report-table">
-      <thead>
-        <tr>
-          <th>Data/Período</th>
-          <th>Descrição do Evento / Atividade</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Data/Período</th><th>Descrição do Evento / Atividade</th></tr></thead>
       <tbody>
-
-        <tr>
-          <td>Data não identificada</td>
-          <td>Certificado 11ª Conferência Municipal de Saúde</td>
-        </tr>
-
-        <tr>
-          <td>Data não identificada</td>
-          <td>Declaração</td>
-        </tr>
-
-        <tr>
-          <td>11ª Conferência Municipal de Saúde de Montes Claros</td>
-          <td>Declaração Simples</td>
-        </tr>
-
-        <tr>
-          <td>01 de julho de 2026</td>
-          <td>467ª Reunião Ordinária do CMS - Montes Claros</td>
-        </tr>
-
-        <tr>
-          <td>03 de junho de 2026</td>
-          <td>466ª Reunião Ordinária do CMS - Montes Claros</td>
-        </tr>
-
+<tr><td>01 de julho de 2026</td><td>467ª Reunião Ordinária do CMS - Montes Claros</td></tr><tr><td>03 de junho de 2026</td><td>466ª Reunião Ordinária do CMS - Montes Claros</td></tr><tr><td>24 de abril de 2026</td><td>11ª Conferência Municipal de Saúde</td></tr><tr><td>11 de julho de 2025</td><td>REUNIÃO DA COMISSÃO TRANSITÓRIA DE ESTUDO ANÁLISE E PROPOSIÇÃO PARA A REVISÃO DO REGIMENTO INTERNO do Conselho Municipal de Saúde</td></tr><tr><td>07 de julho de 2025</td><td>REUNIÃO DA CISTT COMISSÃO INTERSETORIAL DE SAÚDE DO TRABALHADOR E DA TRABALHADORA</td></tr>
       </tbody>
     </table>
-    
     <div class="signature-block">
       <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/ass.png" alt="Assinatura">
       <div class="signature-line">
@@ -197,17 +130,13 @@
       </div>
     </div>
   </div>
-  
   <script>
     function filterCards() {
       let input = document.getElementById('searchInput').value.toLowerCase();
       let cards = document.getElementsByClassName('card');
       for (let i = 0; i < cards.length; i++) {
-        if (cards[i].getAttribute('data-search').indexOf(input) > -1) {
-          cards[i].style.display = "";
-        } else {
-          cards[i].style.display = "none";
-        }
+        if (cards[i].getAttribute('data-search').indexOf(input) > -1) { cards[i].style.display = ""; } 
+        else { cards[i].style.display = "none"; }
       }
     }
   </script>
