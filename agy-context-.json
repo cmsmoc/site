@@ -9,6 +9,7 @@
     "2026-07-02: Criada a página do media kit em site/mediakit, incluindo a organização dos logotipos oficiais e materiais gráficos, e realizado o deploy via push para o repositório principal.",
     "2026-07-02: Revisado o arquivo site/mediakit/index.html para adequá-lo às diretrizes do cmsmoc-design-agent.md e cmsmoc-tokens.json, além de corrigir links quebrados de imagens na seção Signs & Cards.",
     "2026-07-02: Imagens do mediakit foram renomeadas para nomes mais descritivos e padronizados, index.html foi atualizado de acordo, e feito novo push.",
-    "2026-07-02: Corrigido o contraste de fundo do card da Logo CMS 01 e criada uma versão v2 (index-v2.html) em layout asymmetrical grid."
+    "2026-07-02: Corrigido o contraste de fundo do card da Logo CMS 01 e criada uma versão v2 (index-v2.html) em layout asymmetrical grid.",
+    "2026-07-02: Correção de enconding UTF-8 no mediakit, e index-v2.html aprimorado com um Showroom (carrossel) e retorno das Câmaras Técnicas para o grid simétrico."
   ]
 }

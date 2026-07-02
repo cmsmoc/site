@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDIA KIT (v2) Ã‚Â· CMS Montes Claros</title>
-    <meta name="description" content="Media Kit oficial do Conselho Municipal de SaÃƒÂºde com logos, diretrizes de uso, aplicaÃƒÂ§ÃƒÂµes e materiais para download.">
+    <title>MEDIA KIT (v2 Showroom) · CMS Montes Claros</title>
+    <meta name="description" content="Media Kit oficial do Conselho Municipal de Saúde com logos, diretrizes de uso, aplicações e materiais para download.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS Variables baseadas em cmsmoc-tokens.json */
@@ -32,7 +32,6 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
         body { font-family: var(--font-b); background: var(--cms-off); color: var(--cms-ink); line-height: 1.7; font-size: 15px; }
         
         .cms-stripe { height: 5px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
@@ -47,48 +46,56 @@
         .header-sub { font-size:14px; color:rgba(255,255,255,.6); font-weight:300; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
-
         .section-title { font-family: var(--font-d); font-size: 24px; font-weight: 900; color: var(--cms-navy); margin-bottom: 24px; border-bottom: 2px solid var(--cms-yellow); padding-bottom: 8px; }
 
         .guidelines { background: var(--cms-white); padding: 32px; border-radius: var(--r); box-shadow: var(--shadow); border: 1px solid var(--cms-border); border-left: 6px solid var(--cms-blue); margin-bottom: 48px; }
         .guidelines h2 { font-family: var(--font-d); font-size: 20px; font-weight: 700; color: var(--cms-navy); margin-bottom: 16px; }
         .guidelines ul { list-style: none; }
         .guidelines li { margin-bottom: 12px; position: relative; padding-left: 24px; color: var(--cms-ink); }
-        .guidelines li::before { content: 'Ã¢Å“â€œ'; position: absolute; left: 0; color: var(--cms-blue); font-weight: bold; }
+        .guidelines li::before { content: '✓'; position: absolute; left: 0; color: var(--cms-blue); font-weight: bold; }
 
-                .asymmetrical-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(280px, auto); gap: 24px; margin-bottom: 48px; }
+        /* Grelha Simétrica Padrão (para CTs) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 48px; }
+        
+        /* Grelha Assimétrica (para Signs & Cards) */
+        .asymmetrical-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(280px, auto); gap: 24px; margin-bottom: 48px; }
         .asymmetrical-grid .kpi-card:nth-child(6n + 1) { grid-column: span 2; grid-row: span 2; }
         .asymmetrical-grid .kpi-card:nth-child(6n + 4) { grid-column: span 2; grid-row: span 1; }
         .asymmetrical-grid .card-img-wrapper { height: 100%; min-height: 200px; flex-grow: 1; }
         
-        @media (max-width: 900px) {
-            .asymmetrical-grid { grid-template-columns: repeat(2, 1fr); }
-            .asymmetrical-grid .kpi-card:nth-child(6n + 1) { grid-column: span 2; grid-row: span 2; }
-        }
-        @media (max-width: 480px) {
-            .asymmetrical-grid { grid-template-columns: 1fr; }
-            .asymmetrical-grid .kpi-card { grid-column: span 1 !important; grid-row: span 1 !important; }
-        }
-        
+        /* Componente de Card Padrão */
         .kpi-card { background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--r); border-top: 4px solid var(--cms-blue); box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; overflow: hidden; position: relative; }
         .kpi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        
         .card-img-wrapper { height: 220px; padding: 24px; display: flex; align-items: center; justify-content: center; background: var(--cms-off); position: relative; }
-        .dark-bg { background: var(--cms-navy); }
-        
         .kpi-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        
         .card-content { padding: 20px; border-top: 1px solid var(--cms-border); flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .kpi-label { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--cms-navy); margin-bottom: 12px; line-height: 1.3; }
         
+        /* Botão de Download */
         .download-btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 16px; background: var(--cms-blue); color: white; text-decoration: none; border-radius: 999px; font-family: var(--font-d); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; transition: background 0.2s; align-self: flex-start; }
         .download-btn:hover { background: var(--cms-navy); color: white; }
         
         .badge { position: absolute; top: 12px; right: 12px; background: var(--cms-yellow); color: var(--cms-navy); font-size: 10px; padding: 4px 10px; border-radius: 999px; font-family: var(--font-d); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; z-index: 2; }
-
+        .dark-bg { background: var(--cms-navy) !important; color: white !important; }
+        .dark-bg .kpi-label { color: white; }
+        
+        /* Showroom Slider */
+        .showroom { position: relative; max-width: 100%; margin: 0 auto 48px; background: var(--cms-white); border-radius: var(--r-lg); box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid var(--cms-border); }
+        .showroom-slides { display: flex; transition: transform 0.5s ease-in-out; }
+        .showroom-slide { min-width: 100%; display: flex; flex-direction: column; align-items: center; padding: 60px 40px; }
+        .showroom-slide img { height: 350px; max-width: 90%; object-fit: contain; margin-bottom: 32px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
+        .showroom-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 20px; pointer-events: none; }
+        .showroom-btn { pointer-events: auto; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--shadow-md); color: var(--cms-navy); font-size: 24px; font-weight: bold; transition: all 0.2s; }
+        .showroom-btn:hover { background: var(--cms-white); transform: scale(1.1); color: var(--cms-blue); }
+        
         .doc-footer { text-align: center; padding: 32px; color: var(--cms-muted); font-size: 13px; border-top: 1px solid var(--cms-border); background: var(--cms-white); }
         .doc-footer strong { color: var(--cms-navy); }
 
+        @media (max-width: 900px) {
+            .asymmetrical-grid { grid-template-columns: repeat(2, 1fr); }
+            .asymmetrical-grid .kpi-card:nth-child(6n + 1) { grid-column: span 2; grid-row: span 2; }
+            .showroom-slide img { height: 250px; }
+        }
         @media (max-width: 768px) {
             .header-inner { padding: 32px 20px; }
             body { font-size: 14px; }
@@ -96,7 +103,11 @@
             .doc-header { padding: 40px 24px; }
         }
         @media (max-width: 480px) {
-            .grid { grid-template-columns: 1fr; }
+            .grid, .asymmetrical-grid { grid-template-columns: 1fr; }
+            .asymmetrical-grid .kpi-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+            .showroom-slide { padding: 40px 20px; }
+            .showroom-slide img { height: 180px; }
+            .showroom-btn { width: 40px; height: 40px; font-size: 18px; }
         }
     </style>
 </head>
@@ -108,107 +119,96 @@
         <div class="header-inner">
             <div class="header-logos">
                 <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva" style="height:60px;object-fit:contain;">
-                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logo-cms-vertical-branca.png" alt="CMS Montes Claros" style="height:60px;object-fit:contain;">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png" alt="CMS Montes Claros" style="height:60px;object-fit:contain;">
             </div>
             <p class="header-eyebrow">RECURSOS OFICIAIS</p>
-            <h1 class="header-title">Media Kit <em>CMSMOC</em> (v2)</h1>
-            <p class="header-sub">Logotipos e materiais grÃƒÂ¡ficos do Conselho Municipal de SaÃƒÂºde para uso em comunicaÃƒÂ§ÃƒÂµes e mÃƒÂ­dias.</p>
+            <h1 class="header-title">Media Kit <em>CMSMOC</em> (v2 Showroom)</h1>
+            <p class="header-sub">Logotipos e materiais gráficos do Conselho Municipal de Saúde para uso em comunicações e mídias.</p>
         </div>
     </header>
 
     <main class="container">
         
         <section class="guidelines">
-            <h2>OrientaÃƒÂ§ÃƒÂµes e Dicas de Uso</h2>
+            <h2>Orientações e Dicas de Uso</h2>
             <ul>
-                <li><strong>Respeite as proporÃƒÂ§ÃƒÂµes:</strong> Nunca estique ou distorÃƒÂ§a as logomarcas. Mantenha a proporÃƒÂ§ÃƒÂ£o original ao redimensionar.</li>
-                <li><strong>Contraste:</strong> Certifique-se de que o logotipo esteja legÃƒÂ­vel contra o fundo. Use versÃƒÂµes brancas/monocromÃƒÂ¡ticas (logowh, logomonowh) em fundos escuros e versÃƒÂµes coloridas/pretas em fundos claros.</li>
-                <li><strong>EspaÃƒÂ§o de Respiro:</strong> Mantenha um espaÃƒÂ§o livre ao redor da logo para garantir sua integridade visual. NÃƒÂ£o encoste a logo em bordas ou outros elementos grÃƒÂ¡ficos.</li>
-                <li><strong>Uso das Cores Oficiais:</strong> NÃƒÂ£o altere as cores das logomarcas. Utilize apenas as versÃƒÂµes fornecidas neste Media Kit.</li>
-                <li><strong>Mini AplicaÃƒÂ§ÃƒÂµes (Signs & Cards):</strong> Na seÃƒÂ§ÃƒÂ£o dedicada, vocÃƒÂª encontrarÃƒÂ¡ cartÃƒÂµes postais, fundos e papÃƒÂ©is de parede. Estas sÃƒÂ£o aplicaÃƒÂ§ÃƒÂµes grÃƒÂ¡ficas prontas para uso, e nÃƒÂ£o logotipos puros.</li>
+                <li><strong>Respeite as proporções:</strong> Nunca estique ou distorça as logomarcas. Mantenha a proporção original ao redimensionar.</li>
+                <li><strong>Contraste:</strong> Certifique-se de que o logotipo esteja legível contra o fundo. Use versões brancas/monocromáticas em fundos escuros e versões coloridas/pretas em fundos claros.</li>
+                <li><strong>Espaço de Respiro:</strong> Mantenha um espaço livre ao redor da logo para garantir sua integridade visual. Não encoste a logo em bordas ou outros elementos gráficos.</li>
+                <li><strong>Uso das Cores Oficiais:</strong> Não altere as cores das logomarcas. Utilize apenas as versões fornecidas neste Media Kit.</li>
+                <li><strong>Mini Aplicações (Signs & Cards):</strong> Na seção dedicada, você encontrará cartões postais, fundos e papéis de parede. Estas são aplicações gráficas prontas para uso, e não logotipos puros.</li>
             </ul>
         </section>
 
-        <h2 class="section-title">Logotipos Oficiais</h2>
-        <div class="asymmetrical-grid">
-            <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="logo-cms-horizontal-oficial.png" alt="cms00"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo CMS 00</div>
-                    <a href="logo-cms-horizontal-oficial.png" download class="download-btn">Baixar</a>
+        <h2 class="section-title">Showroom de Logotipos Oficiais</h2>
+        <div class="showroom" id="showroom">
+            <div class="showroom-slides" id="showroomSlides">
+                <div class="showroom-slide">
+                    <img src="logo-cms-horizontal-oficial.png" alt="Logo Oficial">
+                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Oficial</h3>
+                    <a href="logo-cms-horizontal-oficial.png" download class="download-btn">Baixar PNG</a>
+                </div>
+                <div class="showroom-slide dark-bg">
+                    <img src="logo-cms-horizontal-branca-oficial.png" alt="Logo Branca Oficial">
+                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Branca Oficial</h3>
+                    <a href="logo-cms-horizontal-branca-oficial.png" download class="download-btn" style="background:var(--cms-white); color:var(--cms-navy);">Baixar PNG</a>
+                </div>
+                <div class="showroom-slide">
+                    <img src="logo-cms-vertical-colorida.png" alt="Logo Vertical Colorida">
+                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Vertical</h3>
+                    <a href="logo-cms-vertical-colorida.png" download class="download-btn">Baixar PNG</a>
+                </div>
+                <div class="showroom-slide dark-bg">
+                    <img src="logo-cms-vertical-branca.png" alt="Logo Vertical Branca">
+                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Vertical Branca</h3>
+                    <a href="logo-cms-vertical-branca.png" download class="download-btn" style="background:var(--cms-white); color:var(--cms-navy);">Baixar PNG</a>
+                </div>
+                <div class="showroom-slide">
+                    <img src="logo-cms-horizontal-azul.png" alt="Logo Azul">
+                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Azul</h3>
+                    <a href="logo-cms-horizontal-azul.png" download class="download-btn">Baixar PNG</a>
+                </div>
+                <div class="showroom-slide">
+                    <img src="icone-cms-512px.png" alt="Ícone CMS 512">
+                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Ícone Oficial (512x512)</h3>
+                    <a href="icone-cms-512px.png" download class="download-btn">Baixar PNG</a>
                 </div>
             </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper dark-bg"><img src="logo-cms-horizontal-branca-oficial.png" alt="cms01"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo CMS 01</div>
-                    <a href="logo-cms-horizontal-branca-oficial.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="logo-cms-vertical-colorida.png" alt="Logo BL"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo BL</div>
-                    <a href="logo-cms-vertical-colorida.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="logo-cms-horizontal-azul.png" alt="Logo Blue"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo Azul</div>
-                    <a href="logo-cms-horizontal-azul.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="logo-cms-horizontal-colorida.png" alt="Logo HBL"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo HBL</div>
-                    <a href="logo-cms-horizontal-colorida.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper dark-bg"><img src="logo-cms-horizontal-branca.png" alt="Logo HWH"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo HWH (Clara)</div>
-                    <a href="logo-cms-horizontal-branca.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="logo-cms-horizontal-preta.png" alt="Logo Mono BL"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo Mono (Preta)</div>
-                    <a href="logo-cms-horizontal-preta.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper dark-bg"><img src="logo-cms-horizontal-monocromatica-branca.png" alt="Logo Mono WH"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo Mono (Branca)</div>
-                    <a href="logo-cms-horizontal-monocromatica-branca.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper dark-bg"><img src="logo-cms-vertical-branca.png" alt="Logo WH"></div>
-                <div class="card-content">
-                    <div class="kpi-label">Logo Branca</div>
-                    <a href="logo-cms-vertical-branca.png" download class="download-btn">Baixar</a>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="icone-cms-512px.png" alt="ÃƒÂcone CMS 512"></div>
-                <div class="card-content">
-                    <div class="kpi-label">ÃƒÂcone (512x512)</div>
-                    <a href="icone-cms-512px.png" download class="download-btn">Baixar</a>
-                </div>
+            <div class="showroom-nav">
+                <button class="showroom-btn" onclick="prevSlide()">&#10094;</button>
+                <button class="showroom-btn" onclick="nextSlide()">&#10095;</button>
             </div>
         </div>
+        
+        <script>
+            let currentSlide = 0;
+            const slidesContainer = document.getElementById('showroomSlides');
+            const totalSlides = document.querySelectorAll('.showroom-slide').length;
+
+            function updateSlide() {
+                slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlide();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlide();
+            }
+            
+            // Auto advance
+            setInterval(nextSlide, 6000);
+        </script>
 
         <h2 class="section-title">Logos CTs, CISTT e Diretoria</h2>
-        <div class="asymmetrical-grid">
+        <div class="grid">
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-diretoria-executiva.png" alt="Diretoria"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Diretoria CMS3</div>
+                    <div class="kpi-label">Diretoria Executiva</div>
                     <a href="logo-diretoria-executiva.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
@@ -222,7 +222,7 @@
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-ct-aps.png" alt="CT APS"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CT APS</div>
+                    <div class="kpi-label">CT Atenção Primária</div>
                     <a href="logo-ct-aps.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
@@ -236,7 +236,7 @@
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-ct-epcs.png" alt="CT EPCS"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CT EPCS</div>
+                    <div class="kpi-label">CT Educação Permanente</div>
                     <a href="logo-ct-epcs.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
@@ -250,139 +250,139 @@
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-ct-paue.png" alt="CT PAUE"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CT PAUE</div>
+                    <div class="kpi-label">CT Urgências</div>
                     <a href="logo-ct-paue.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="card-img-wrapper"><img src="logo-ct-regulacao.png" alt="CT Reg"></div>
+                <div class="card-img-wrapper"><img src="logo-ct-regulacao.png" alt="CT Regulação"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CT Reg</div>
+                    <div class="kpi-label">CT Regulação</div>
                     <a href="logo-ct-regulacao.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-ct-saude-mental.png" alt="CT SM"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CT SM</div>
+                    <div class="kpi-label">CT Saúde Mental</div>
                     <a href="logo-ct-saude-mental.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-ct-vigilancia.png" alt="CT VS"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CT VS</div>
+                    <div class="kpi-label">CT Vigilância em Saúde</div>
                     <a href="logo-ct-vigilancia.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
         </div>
 
-        <h2 class="section-title">Signs & Cards (Mini AplicaÃƒÂ§ÃƒÂµes)</h2>
+        <h2 class="section-title">Signs & Cards (Mini Aplicações)</h2>
         <p style="margin-bottom: 24px; color: var(--cms-muted);">
-            Imagens tipo cartÃƒÂ£o postal, cards, fundos, papÃƒÂ©is de parede. Estas nÃƒÂ£o sÃƒÂ£o logos puras, mas pequenas aplicaÃƒÂ§ÃƒÂµes prontas.
+            Imagens tipo cartão postal, cards, fundos, papéis de parede. Estas não são logos puras, mas pequenas aplicações prontas.
         </p>
         <div class="asymmetrical-grid">
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="assinatura-email-azul.png" alt="CMSbb"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMSbb</div>
+                    <div class="kpi-label">Assinatura Azul</div>
                     <a href="assinatura-email-azul.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="aplicacao-banner-01.png" alt="band"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Bandeira</div>
+                    <div class="kpi-label">Banner 01</div>
                     <a href="aplicacao-banner-01.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="aplicacao-banner-02.png" alt="bande"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Bandeira Estendida</div>
+                    <div class="kpi-label">Banner 02</div>
                     <a href="aplicacao-banner-02.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="aplicacao-banner-03.png" alt="bander"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Bander</div>
+                    <div class="kpi-label">Banner 03</div>
                     <a href="aplicacao-banner-03.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="assinatura-email-branca.png" alt="bbass"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Assinatura</div>
+                    <div class="kpi-label">Assinatura Branca</div>
                     <a href="assinatura-email-branca.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="aplicacao-cracha-fundo.png" alt="cadd"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Card</div>
+                    <div class="kpi-label">Card / Fundo</div>
                     <a href="aplicacao-cracha-fundo.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="icone-cms-redondo.png" alt="cmsicon2"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMS Icon 2</div>
+                    <div class="kpi-label">Ícone Redondo</div>
                     <a href="icone-cms-redondo.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="logo-cms-aplicacao-branca.png" alt="cmslogo1"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMS Logo 1</div>
+                    <div class="kpi-label">Logo Aplicação 1</div>
                     <a href="logo-cms-aplicacao-branca.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="logo-cms-aplicacao-azul.png" alt="cmslogoblue"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMS Logo Blue</div>
+                    <div class="kpi-label">Logo Aplicação Azul</div>
                     <a href="logo-cms-aplicacao-azul.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="logo-cms-aplicacao-amarela.png" alt="cmslogoyellow"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMS Logo Yellow</div>
+                    <div class="kpi-label">Logo Aplicação Amarela</div>
                     <a href="logo-cms-aplicacao-amarela.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="logo-cms-vertical-apresentacao.png" alt="cmsvert1"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMS Vertical 1</div>
+                    <div class="kpi-label">Vertical Apresentação</div>
                     <a href="logo-cms-vertical-apresentacao.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper dark-bg"><img src="logo-cms-branca-apresentacao.png" alt="cmswhitelog"></div>
                 <div class="card-content">
-                    <div class="kpi-label">CMS White Logo</div>
+                    <div class="kpi-label">Branca Apresentação</div>
                     <a href="logo-cms-branca-apresentacao.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
             <div class="kpi-card">
-                <div class="badge">Mini AplicaÃƒÂ§ÃƒÂ£o</div>
+                <div class="badge">Mini Aplicação</div>
                 <div class="card-img-wrapper"><img src="aplicacao-envelope.png" alt="env"></div>
                 <div class="card-content">
-                    <div class="kpi-label">Envelope / Fundo</div>
+                    <div class="kpi-label">Envelope Timbrado</div>
                     <a href="aplicacao-envelope.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
@@ -390,11 +390,9 @@
     </main>
 
     <footer class="doc-footer">
-        <strong>Conselho Municipal de SaÃƒÂºde de Montes Claros Ã¢â‚¬â€œ MG</strong><br>
-        Media Kit Ã‚Â· 2026
+        <strong>Conselho Municipal de Saúde de Montes Claros – MG</strong><br>
+        Media Kit · 2026
     </footer>
 
 </body>
 </html>
-
-
