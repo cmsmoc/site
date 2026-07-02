@@ -7,6 +7,7 @@
     "2026-06-30: Corrigido o apontamento de /carteirinha no site/vercel.json, movendo-o da seção redirects para rewrites.",
     "2026-06-30: Revertido site/vercel.json para a versão anterior para resolver queda do site, e inserida nova regra para /carteirinha acompanhando o padrão já existente na seção rewrites.",
     "2026-07-02: Criada a página do media kit em site/mediakit, incluindo a organização dos logotipos oficiais e materiais gráficos, e realizado o deploy via push para o repositório principal.",
-    "2026-07-02: Revisado o arquivo site/mediakit/index.html para adequá-lo às diretrizes do cmsmoc-design-agent.md e cmsmoc-tokens.json, além de corrigir links quebrados de imagens na seção Signs & Cards."
+    "2026-07-02: Revisado o arquivo site/mediakit/index.html para adequá-lo às diretrizes do cmsmoc-design-agent.md e cmsmoc-tokens.json, além de corrigir links quebrados de imagens na seção Signs & Cards.",
+    "2026-07-02: Imagens do mediakit foram renomeadas para nomes mais descritivos e padronizados, index.html foi atualizado de acordo, e feito novo push."
   ]
 }
