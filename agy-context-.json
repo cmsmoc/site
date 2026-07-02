@@ -1,0 +1,10 @@
+{
+  "change_log": [
+    "2026-06-30: Cortada a imagem site/formacaoregimento/thumb.webp (de 1394x635 para 1212x635) para proporção de 1.91:1, otimizando o tamanho da miniatura (thumb) no WhatsApp.",
+    "2026-06-30: Atualizada a propriedade og:image:width no arquivo site/formacaoregimento/index.html para refletir a nova largura de 1212px.",
+    "2026-06-30: Atualizado o arquivo site/recomposicao.html com correções e substituições de nomes de conselheiros (Emilly -> Ana Márcia, Paulo -> Renilson, Jucélio -> Juciélio).",
+    "2026-06-30: Adicionado redirecionamento de /carteirinha para Google Form no arquivo site/vercel.json.",
+    "2026-06-30: Corrigido o apontamento de /carteirinha no site/vercel.json, movendo-o da seção redirects para rewrites.",
+    "2026-06-30: Revertido site/vercel.json para a versão anterior para resolver queda do site, e inserida nova regra para /carteirinha acompanhando o padrão já existente na seção rewrites."
+  ]
+}

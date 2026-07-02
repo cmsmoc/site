@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Montes Claros · Institucional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables from cmsmoc-tokens.json */
+    :root {
+      --cms-navy:   #0D2E5A;
+      --cms-blue:   #1B6CB5;
+      --cms-green:  #1E8A4A;
+      --cms-yellow: #F5C400;
+      --cms-white:  #FFFFFF;
+      --cms-off:    #F7F8FA;
+      --cms-ink:    #111827;
+      --cms-muted:  #6B7280;
+      --cms-border: #E5E7EB;
+      --cms-success:#16a34a;
+      --font-d: 'Montserrat', Helvetica, sans-serif;
+      --font-b: 'Open Sans', Arial, sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-b); background: var(--cms-off); color: var(--cms-ink); line-height: 1.7; font-size: 15px; }
+    
+    .cms-stripe { height: 5px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
+    
+    .doc-header { background: var(--cms-navy); color: white; padding: 40px 48px; position: relative; overflow: hidden; }
+    .doc-header::before { content:''; position:absolute; right:-50px; top:-50px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(245,196,0,.15) 0%, transparent 65%); pointer-events:none; }
+    .header-inner { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; }
+    .header-logos { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,.15); padding-bottom:20px; margin-bottom:24px; }
+    .header-eyebrow { font-family: var(--font-d); font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--cms-yellow); margin-bottom:10px; }
+    .header-title { font-family:var(--font-d); font-size:clamp(32px,4vw,44px); font-weight:900; letter-spacing:-1.5px; line-height:1.05; margin-bottom:10px; }
+    .header-sub { font-size:15px; color:rgba(255,255,255,.8); font-weight:300; max-width: 600px; }
+    
+    .nav-bar { background: var(--cms-white); border-bottom: 1px solid var(--cms-border); padding: 16px 48px; }
+    .nav-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 24px; }
+    .nav-inner a { font-family: var(--font-d); font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--cms-navy); text-decoration: none; letter-spacing: 1px; }
+    .nav-inner a:hover { color: var(--cms-blue); }
+
+    main { max-width: 960px; margin: 40px auto; padding: 0 48px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+    
+    .section-title { font-family: var(--font-d); font-size: 20px; font-weight: 800; color: var(--cms-navy); margin-bottom: 24px; border-bottom: 2px solid var(--cms-border); padding-bottom: 8px; }
+    
+    .doc-list { display: flex; flex-direction: column; gap: 12px; }
+    .doc-item { background: white; border: 1px solid var(--cms-border); border-left: 4px solid var(--cms-blue); border-radius: 0 8px 8px 0; padding: 16px 20px; }
+    .doc-eyebrow { font-family: var(--font-d); font-size: 10px; font-weight: 700; color: var(--cms-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .doc-item h4 { font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--cms-navy); margin: 4px 0; }
+    .doc-item p { font-size: 13px; color: var(--cms-muted); }
+
+    .sidebar { background: white; border: 1px solid var(--cms-border); border-radius: 8px; padding: 24px; }
+    
+    .btn { display: inline-block; font-family: var(--font-d); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; background: var(--cms-yellow); color: var(--cms-navy); text-decoration: none; padding: 12px 20px; border-radius: 6px; text-align: center; width: 100%; margin-top: 10px; }
+    .btn:hover { background: #e5b600; }
+
+    .doc-footer { background: var(--cms-navy); color: rgba(255,255,255,.5); padding: 40px; text-align: center; font-size: 13px; margin-top: 60px; }
+  </style>
+</head>
+<body>
+  <div class="cms-stripe"></div>
+  <header class="doc-header">
+    <div class="header-inner">
+      <div class="header-logos">
+        <img src="../../secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva" style="height:60px;object-fit:contain;">
+        <img src="../../secretariaexecutiva/logo/logowh.png" alt="CMS Montes Claros" style="height:60px;object-fit:contain;">
+      </div>
+      <p class="header-eyebrow">CONTROLE SOCIAL NO SUS</p>
+      <h1 class="header-title">Conselho Municipal de Saúde</h1>
+      <p class="header-sub">Órgão colegiado deliberativo e permanente do Sistema Único de Saúde no município de Montes Claros, MG.</p>
+    </div>
+  </header>
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="#">Início</a>
+      <a href="#">Atas e Resoluções</a>
+      <a href="#">Contato</a>
+    </div>
+  </nav>
+  <main>
+    <div>
+      <h2 class="section-title">Publicações Recentes</h2>
+      <div class="doc-list">
+        <div class="doc-item">
+          <div class="doc-eyebrow">Ata · 267ª Reunião Ordinária</div>
+          <h4>Aprovação de Propostas da 11ª CMS</h4>
+        </div>
+      </div>
+    </div>
+    <aside>
+      <div class="sidebar">
+        <h3 class="section-title" style="font-size: 15px; border:none; margin-bottom: 12px; padding:0;">Serviços do Conselho</h3>
+        <a href="#" class="btn">Sistema AutoDoc</a>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

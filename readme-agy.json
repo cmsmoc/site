@@ -1,0 +1,24 @@
+{
+  "context": {
+    "module_name": "site",
+    "purpose": "A ser preenchido...",
+    "tech_stack": [],
+    "design_rules": ""
+  },
+  "shared_resources": [],
+  "current_status": {
+    "phase": "Mapeamento inicial",
+    "last_updated": "2026-06-28",
+    "stable": true
+  },
+  "changelog": [
+    {
+      "date": "2026-06-28",
+      "agent": "Antigravity",
+      "action": "Inicialização do arquivo de contexto (readme-agy.json)."
+    }
+  ],
+  "pending_tasks": [
+    "Preencher o purpose e a tech_stack deste módulo."
+  ]
+}

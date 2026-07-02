@@ -1,0 +1,13 @@
+262
+Esse arquivo foi um protótipo usado como v6.0 do modelo de pagina de presença para os conselheiros. Substituiu o google forms, e contou com uma atualizaçao em tempo real via GAS as presenças e uma forma de cadastro dos visitantes mostrando em tempo real quem preencheu e após a reunião a página se atualizava disponibilizando declarações de presença. Ela foi útil e bonita e funcional. Mas contém problemas de sincronização, link quebrado do topo, fugiu da identidade visual, e o mais grave - por questão de praticidade, a presença dos conselheiros poderia ser marcada com um clique, sendo um CRUD aberto e permitindo que qualquer um fosse clicando e marcando ou demarcando presença (como de fato aconteceu, e por eu ter pevisto, eu embuti uma ferramenta de guardar log de tudo salvando todas as alteraçoes e nao apenas a ultima. 
+
+- Criar uma cópia como checkpoint de versão da ata para portfolio/documentação
+- Guardar no Arquivo-morto
+
+==========
+
+262 resumo
+É uma versão visual em HTML da ata da 262ª Reunião Extraordinária do CMS
+- Revisar se está com o conteúdo ok
+- Colocar na pasta correta
+- Atualizar docs de contexto

@@ -1,0 +1,149 @@
+{
+  "_meta": {
+    "name": "CMSMOC Design Tokens",
+    "version": "5.0",
+    "org": "Conselho Municipal de Saúde de Montes Claros – MG",
+    "updated": "2026-06",
+    "usage": "Este arquivo é a fonte única de verdade para valores atômicos do sistema de design CMSMOC. Agentes de IA devem consumir este arquivo antes de gerar qualquer HTML/CSS institucional. Copiar os valores exatos — nunca aproximar."
+  },
+
+  "colors": {
+    "brand": {
+      "navy":      { "hex": "#0D2E5A", "role": "Fundo principal de cabeçalhos, rodapés, covers escuros. Cor de autoridade institucional." },
+      "blue":      { "hex": "#1B6CB5", "role": "Cor de ação, links, bordas de destaque, ícones ativos." },
+      "blue_sus":  { "hex": "#1A5EA8", "role": "Azul SUS oficial — usar na identidade 11ª CMS / Conferências." },
+      "green":     { "hex": "#1E8A4A", "role": "Indicadores positivos, aprovações, saúde, sustentabilidade." },
+      "green_cms": { "hex": "#3AAA35", "role": "Verde da identidade 11ª CMS — gradientes de conferência." },
+      "yellow":    { "hex": "#F5C400", "role": "Accent primário. Numeração, badges, destaques, stripe superior. NUNCA usar como fundo de texto escuro longo." },
+      "yellow_cms":{ "hex": "#F5C800", "role": "Amarelo identidade 11ª CMS." }
+    },
+    "neutral": {
+      "white":     { "hex": "#FFFFFF", "role": "Fundo de cards, células, áreas de conteúdo limpo." },
+      "off_white": { "hex": "#F7F8FA", "role": "Fundo de página padrão. Sutil, não puro." },
+      "border":    { "hex": "#E5E7EB", "role": "Bordas de cards, divisores de tabela, separadores." },
+      "muted":     { "hex": "#6B7280", "role": "Texto secundário, metadados, labels discretos." },
+      "ink":       { "hex": "#111827", "role": "Texto principal. Usar em corpo de texto." },
+      "dark_bg":   { "hex": "#0f172a", "role": "Fundo de blocos de código (spec-code)." }
+    },
+    "semantic": {
+      "success":   { "hex": "#16a34a", "role": "Status aprovado, quórum atingido, deliberação favorável." },
+      "warning":   { "hex": "#d97706", "role": "Atenção, pendência, prazo próximo." },
+      "danger":    { "hex": "#dc2626", "role": "Reprovação, ausência de quórum, veto, erro crítico." },
+      "info":      { "hex": "#0284c7", "role": "Informação neutra, notas, avisos informativos." }
+    }
+  },
+
+  "typography": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&family=Georama:wght@300;400;600;700;900&display=swap",
+    "roles": {
+      "display": {
+        "family": "'Montserrat', Helvetica, sans-serif",
+        "var": "--font-d",
+        "use": "Títulos, eyebrows, badges, botões, cargos, numeração. Font-weight 700–900."
+      },
+      "body": {
+        "family": "'Open Sans', Arial, sans-serif",
+        "var": "--font-b",
+        "use": "Corpo de texto, tabelas, falas, parágrafos. Font-weight 300–600."
+      },
+      "conferencia": {
+        "family": "'Georama', sans-serif",
+        "var": "--font-conf",
+        "use": "EXCLUSIVO para documentos da 11ª CMS / Conferências Municipais de Saúde."
+      },
+      "mono": {
+        "family": "'Courier New', monospace",
+        "var": "--font-mono",
+        "use": "Blocos de código, hex values, IDs, tags técnicas."
+      }
+    },
+    "scale": {
+      "hero":    { "size": "clamp(32px, 5vw, 56px)", "weight": 900, "tracking": "-2px", "use": "Título de capa / cover" },
+      "h1":      { "size": "clamp(26px, 4vw, 42px)", "weight": 900, "tracking": "-1.5px", "use": "Título de seção principal" },
+      "h2":      { "size": "clamp(20px, 3vw, 28px)", "weight": 800, "tracking": "-1px",   "use": "Subtítulo de seção" },
+      "h3":      { "size": "16px",                   "weight": 700, "tracking": "0",       "use": "Cabeçalho de card, label de componente" },
+      "eyebrow": { "size": "10px",                   "weight": 700, "tracking": "3px",     "use": "Label pré-título em maiúsculas. Ex: 'SEÇÃO 01'" },
+      "body":    { "size": "15px",                   "weight": 400, "leading": "1.7",      "use": "Texto corrido padrão" },
+      "small":   { "size": "13px",                   "weight": 400, "leading": "1.6",      "use": "Notas, rodapés, metadados" },
+      "micro":   { "size": "11px",                   "weight": 600, "tracking": "1px",     "use": "Labels de tabela, tags, chips" }
+    }
+  },
+
+  "spacing": {
+    "base": "8px",
+    "scale": {
+      "xs":  "4px",
+      "sm":  "8px",
+      "md":  "16px",
+      "lg":  "24px",
+      "xl":  "40px",
+      "2xl": "60px",
+      "3xl": "80px"
+    },
+    "page_padding": "48px",
+    "page_padding_mobile": "24px",
+    "section_gap": "60px",
+    "card_padding": "20px 24px"
+  },
+
+  "borders": {
+    "radius": {
+      "sm":   "6px",
+      "md":   "12px",
+      "lg":   "16px",
+      "pill": "999px"
+    },
+    "default": "1px solid #E5E7EB"
+  },
+
+  "shadows": {
+    "card":   "0 4px 20px rgba(0,0,0,0.05)",
+    "modal":  "0 20px 60px rgba(0,0,0,0.15)",
+    "subtle": "0 1px 4px rgba(0,0,0,0.06)"
+  },
+
+  "assets": {
+    "_base": "https://cmsmoc.github.io/secretariaexecutiva/logo/",
+    "logos": {
+      "cms_black":          "https://cmsmoc.github.io/secretariaexecutiva/logo/logobl.png",
+      "cms_white":          "https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png",
+      "cms_horizontal_black": "https://cmsmoc.github.io/secretariaexecutiva/logo/logohbl.png",
+      "cms_horizontal_white": "https://cmsmoc.github.io/secretariaexecutiva/logo/logohwh.png",
+      "sec_exec_black":     "https://cmsmoc.github.io/secretariaexecutiva/logo/secexe5.png",
+      "sec_exec_white":     "https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png",
+      "sec_exec_vertical_black": "https://cmsmoc.github.io/secretariaexecutiva/logo/secvbl.png",
+      "sec_exec_vertical_white": "https://cmsmoc.github.io/secretariaexecutiva/logo/secvwh.png",
+      "sec_exec_tagline":   "https://cmsmoc.github.io/secretariaexecutiva/logo/sectag.png",
+      "icon_512":           "https://cmsmoc.github.io/secretariaexecutiva/logo/iconcms512.png",
+      "watermark_outline":  "https://cmsmoc.github.io/secretariaexecutiva/logo/logline.png",
+      "signature":          "https://cmsmoc.github.io/secretariaexecutiva/logo/ass.png"
+    },
+    "logo_usage": {
+      "dark_background":  "Usar variante _white (fundo escuro navy/ink).",
+      "light_background": "Usar variante _black (fundo branco/off-white).",
+      "header_height":    "60px para cabeçalhos padrão; 80px para covers de conferência.",
+      "forbidden":        "Nunca redimensionar com distorção de proporção. Sempre object-fit: contain."
+    }
+  },
+
+  "css_variables_block": "/* Cole este bloco em todo :root {} de documento CMSMOC */\n:root {\n  --cms-navy:   #0D2E5A;\n  --cms-blue:   #1B6CB5;\n  --cms-green:  #1E8A4A;\n  --cms-yellow: #F5C400;\n  --cms-white:  #FFFFFF;\n  --cms-off:    #F7F8FA;\n  --cms-ink:    #111827;\n  --cms-muted:  #6B7280;\n  --cms-border: #E5E7EB;\n  --cms-success:#16a34a;\n  --cms-warn:   #d97706;\n  --cms-danger: #dc2626;\n  --font-d: 'Montserrat', Helvetica, sans-serif;\n  --font-b: 'Open Sans', Arial, sans-serif;\n  --font-conf: 'Georama', sans-serif;\n  --r-sm: 6px;\n  --r: 12px;\n  --r-lg: 16px;\n  --shadow: 0 4px 20px rgba(0,0,0,.05);\n  --shadow-md: 0 20px 60px rgba(0,0,0,.15);\n}",
+
+  "stripe": {
+    "standard": "background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%);",
+    "conferencia": "background: linear-gradient(to right, #F5C800 25%, #3AAA35 25% 50%, #1A5EA8 50% 75%, #0D2E5A 75%);",
+    "height": "5px",
+    "note": "Sempre no topo do body. Nunca remover em documentos institucionais."
+  },
+
+  "document_types": {
+    "ata_ordinaria":         { "cover_style": "dark", "logo_variant": "white", "font_conf": false },
+    "ata_extraordinaria":    { "cover_style": "dark", "logo_variant": "white", "font_conf": false },
+    "resumo_executivo":      { "cover_style": "dark", "logo_variant": "white", "font_conf": false },
+    "nota_tecnica":          { "cover_style": "light", "logo_variant": "black", "font_conf": false },
+    "relatorio_diagnostico": { "cover_style": "dark", "logo_variant": "white", "font_conf": false },
+    "pre_conferencia":       { "cover_style": "dark", "logo_variant": "white", "font_conf": true, "stripe": "conferencia" },
+    "portaria":              { "cover_style": "light", "logo_variant": "black", "font_conf": false },
+    "dashboard_app":         { "cover_style": "none", "logo_variant": "white", "font_conf": false, "layout": "sidebar" },
+    "pwa_app":               { "cover_style": "none", "logo_variant": "white", "font_conf": false, "layout": "mobile-first" }
+  }
+}

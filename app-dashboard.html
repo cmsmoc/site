@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard · SerTão Conselheiro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* 1. CSS Variables */
+    :root {
+      --cms-navy:   #0D2E5A;
+      --cms-blue:   #1B6CB5;
+      --cms-green:  #1E8A4A;
+      --cms-yellow: #F5C400;
+      --cms-white:  #FFFFFF;
+      --cms-off:    #F7F8FA;
+      --cms-ink:    #111827;
+      --cms-muted:  #6B7280;
+      --cms-border: #E5E7EB;
+      --cms-success:#16a34a;
+      --cms-warn:   #d97706;
+      --cms-danger: #dc2626;
+      --font-d: 'Montserrat', Helvetica, sans-serif;
+      --font-b: 'Open Sans', Arial, sans-serif;
+      --r-sm: 6px;
+      --r: 12px;
+      --r-lg: 16px;
+      --shadow: 0 4px 20px rgba(0,0,0,.05);
+      --shadow-md: 0 20px 60px rgba(0,0,0,.15);
+    }
+    
+    /* 2. Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+        font-family: var(--font-b); 
+        background: var(--cms-off); 
+        color: var(--cms-ink); 
+        line-height: 1.7; 
+        font-size: 15px;
+    }
+    
+    /* App Layout */
+    .app-wrapper {
+        display: flex;
+        height: 100vh;
+        overflow: hidden; /* Permitido no wrapper de app */
+    }
+
+    /* Sidebar */
+    .app-sidebar {
+        width: 260px;
+        background: var(--cms-navy);
+        color: var(--cms-white);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+        z-index: 50;
+    }
+    .sidebar-header {
+        padding: 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sidebar-header img {
+        height: 40px;
+        object-fit: contain;
+    }
+    .sidebar-nav {
+        flex: 1;
+        padding: 24px 16px;
+        overflow-y: auto;
+    }
+    .nav-label {
+        font-family: var(--font-d);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 12px;
+        padding-left: 12px;
+    }
+    .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        border-radius: var(--r-sm);
+        margin-bottom: 4px;
+        transition: all 0.2s;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .nav-item:hover, .nav-item.active {
+        background: rgba(255,255,255,0.1);
+        color: var(--cms-white);
+    }
+    .nav-item.active {
+        border-left: 4px solid var(--cms-yellow);
+    }
+    .sidebar-footer {
+        padding: 16px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--cms-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-d);
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .user-info {
+        flex: 1;
+        overflow: hidden;
+    }
+    .user-name {
+        font-weight: 600;
+        font-size: 13px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .user-role {
+        font-size: 11px;
+        color: rgba(255,255,255,0.6);
+    }
+
+    /* Main Content */
+    .app-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: var(--cms-off);
+    }
+    
+    /* Topbar */
+    .app-topbar {
+        height: 70px;
+        background: var(--cms-white);
+        border-bottom: 1px solid var(--cms-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+        flex-shrink: 0;
+    }
+    .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--cms-ink);
+        cursor: pointer;
+    }
+    .page-title {
+        font-family: var(--font-d);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--cms-navy);
+    }
+    .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .icon-btn {
+        background: none;
+        border: none;
+        color: var(--cms-muted);
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: background 0.2s;
+    }
+    .icon-btn:hover {
+        background: var(--cms-off);
+        color: var(--cms-blue);
+    }
+    .badge-dot {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 8px;
+        height: 8px;
+        background: var(--cms-danger);
+        border-radius: 50%;
+    }
+
+    /* Content Area */
+    .app-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 32px;
+    }
+    .content-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* KPI Grid */
+    .kpi-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+        gap: 16px; 
+        margin-bottom: 32px; 
+    }
+    .kpi-card { 
+        background: white; 
+        border: 1px solid var(--cms-border); 
+        border-radius: 12px; 
+        padding: 20px; 
+        border-top: 4px solid var(--cms-blue); 
+        box-shadow: 0 4px 20px rgba(0,0,0,.05); 
+    }
+    .kpi-card.kpi-success { border-top-color: var(--cms-success); }
+    .kpi-card.kpi-warning { border-top-color: var(--cms-warn); }
+    .kpi-card.kpi-danger  { border-top-color: var(--cms-danger); }
+    .kpi-label { 
+        font-family: var(--font-d); 
+        font-size: 10px; 
+        font-weight: 700; 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+        color: var(--cms-muted); 
+        margin-bottom: 8px; 
+    }
+    .kpi-value { 
+        font-family: var(--font-d); 
+        font-size: 32px; 
+        font-weight: 900; 
+        color: var(--cms-navy); 
+        letter-spacing: -1px; 
+        line-height: 1; 
+    }
+    .kpi-sub { font-size: 12px; color: var(--cms-muted); margin-top: 6px; }
+
+    /* Module Cards / Dashboard Sections */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+    }
+    
+    .panel {
+        background: var(--cms-white);
+        border: 1px solid var(--cms-border);
+        border-radius: var(--r);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+    }
+    .panel-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--cms-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .panel-title {
+        font-family: var(--font-d);
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--cms-navy);
+    }
+    .panel-action {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--cms-blue);
+        text-decoration: none;
+    }
+    
+    /* Table inside Panel */
+    .table-container {
+        overflow-x: auto;
+    }
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .data-table th {
+        background: var(--cms-off);
+        padding: 12px 24px;
+        text-align: left;
+        font-family: var(--font-d);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--cms-muted);
+        border-bottom: 1px solid var(--cms-border);
+    }
+    .data-table td {
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--cms-border);
+        font-size: 14px;
+    }
+    .data-table tr:last-child td {
+        border-bottom: none;
+    }
+    .data-table tr:hover td {
+        background: var(--cms-off);
+    }
+    
+    /* Badges */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-family: var(--font-d);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+    }
+    .badge-success { background: #dcfce7; color: #15803d; }
+    .badge-warning { background: #fef9c3; color: #92400e; }
+    .badge-danger  { background: #fee2e2; color: #991b1b; }
+    .badge-info    { background: #dbeafe; color: #1e40af; }
+
+    /* Action List */
+    .action-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .action-item {
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--cms-border);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    .action-item:last-child {
+        border-bottom: none;
+    }
+    .action-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--cms-off);
+        color: var(--cms-muted);
+        flex-shrink: 0;
+    }
+    .action-icon.alert { background: #fee2e2; color: #dc2626; }
+    .action-icon.task { background: #dbeafe; color: #1e40af; }
+    
+    .action-details h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--cms-ink);
+        margin-bottom: 4px;
+    }
+    .action-details p {
+        font-size: 12px;
+        color: var(--cms-muted);
+        line-height: 1.4;
+    }
+
+    /* Responsivo */
+    @media (max-width: 992px) {
+        .dashboard-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+        .app-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            transform: translateX(-100%);
+        }
+        .app-sidebar.open {
+            transform: translateX(0);
+        }
+        .menu-toggle {
+            display: block;
+        }
+        .app-content {
+            padding: 20px 16px;
+        }
+        /* Mobile Overlay */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 40;
+        }
+        .sidebar-overlay.open {
+            display: block;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-wrapper">
+
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+        <div class="sidebar-header">
+            <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png" alt="CMSMOC">
+        </div>
+        <div class="sidebar-nav">
+            <div class="nav-label">Principal</div>
+            <a href="#" class="nav-item active"><i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard</a>
+            <a href="#" class="nav-item"><i data-lucide="file-text" class="w-5 h-5"></i> Documentos</a>
+            <a href="#" class="nav-item"><i data-lucide="calendar" class="w-5 h-5"></i> Reuniões</a>
+            
+            <div class="nav-label" style="margin-top: 24px;">Administrativo</div>
+            <a href="#" class="nav-item"><i data-lucide="users" class="w-5 h-5"></i> Conselheiros</a>
+            <a href="#" class="nav-item"><i data-lucide="check-square" class="w-5 h-5"></i> Resoluções</a>
+            <a href="#" class="nav-item"><i data-lucide="settings" class="w-5 h-5"></i> Configurações</a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">RF</div>
+                <div class="user-info">
+                    <div class="user-name">Roberto Ferreira</div>
+                    <div class="user-role">Sec. Executiva</div>
+                </div>
+                <button class="icon-btn" style="color: white; opacity: 0.7;"><i data-lucide="log-out" class="w-4 h-4"></i></button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+        <header class="app-topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    <i data-lucide="menu"></i>
+                </button>
+                <h1 class="page-title">Visão Geral</h1>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+                <button class="icon-btn">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span class="badge-dot"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="app-content">
+            <div class="content-inner">
+                
+                <!-- KPIs -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Reuniões no Mês</div>
+                        <div class="kpi-value">04</div>
+                        <div class="kpi-sub">2 Ordinárias, 2 Comissões</div>
+                    </div>
+                    <div class="kpi-card kpi-warning">
+                        <div class="kpi-label">Documentos Pendentes</div>
+                        <div class="kpi-value">12</div>
+                        <div class="kpi-sub">Aguardando assinatura</div>
+                    </div>
+                    <div class="kpi-card kpi-success">
+                        <div class="kpi-label">Propostas Aprovadas</div>
+                        <div class="kpi-value">85%</div>
+                        <div class="kpi-sub">Nas últimas plenárias</div>
+                    </div>
+                    <div class="kpi-card kpi-danger">
+                        <div class="kpi-label">Ausências (Média)</div>
+                        <div class="kpi-value">15%</div>
+                        <div class="kpi-sub">Atenção ao quórum</div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    
+                    <!-- Últimos Documentos -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2 class="panel-title">Últimos Documentos</h2>
+                            <a href="#" class="panel-action">Ver Todos</a>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Documento</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Ata 267ª Reunião Ordinária</strong><br><span style="font-size:12px; color:var(--cms-muted)">Plenário</span></td>
+                                        <td>20/02/2026</td>
+                                        <td><span class="badge badge-success">Publicado</span></td>
+                                        <td><button class="icon-btn" style="width:32px; height:32px;"><i data-lucide="eye" class="w-4 h-4"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Resolução nº 005/2026</strong><br><span style="font-size:12px; color:var(--cms-muted)">Comissão de Orçamento</span></td>
+                                        <td>18/02/2026</td>
+                                        <td><span class="badge badge-warning">Pendente</span></td>
+                                        <td><button class="icon-btn" style="width:32px; height:32px;"><i data-lucide="edit" class="w-4 h-4"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nota Técnica 01/2026</strong><br><span style="font-size:12px; color:var(--cms-muted)">Atenção Primária</span></td>
+                                        <td>15/02/2026</td>
+                                        <td><span class="badge badge-success">Publicado</span></td>
+                                        <td><button class="icon-btn" style="width:32px; height:32px;"><i data-lucide="eye" class="w-4 h-4"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ata Reunião Extraordinária</strong><br><span style="font-size:12px; color:var(--cms-muted)">Plenário</span></td>
+                                        <td>10/02/2026</td>
+                                        <td><span class="badge badge-info">Em Análise</span></td>
+                                        <td><button class="icon-btn" style="width:32px; height:32px;"><i data-lucide="edit" class="w-4 h-4"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Alertas e Tarefas -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2 class="panel-title">Avisos e Tarefas</h2>
+                        </div>
+                        <ul class="action-list">
+                            <li class="action-item">
+                                <div class="action-icon alert"><i data-lucide="alert-triangle" class="w-4 h-4"></i></div>
+                                <div class="action-details">
+                                    <h4>Alerta de Quórum</h4>
+                                    <p>2 conselheiros justificaram ausência para a próxima reunião ordinária.</p>
+                                </div>
+                            </li>
+                            <li class="action-item">
+                                <div class="action-icon task"><i data-lucide="check-circle" class="w-4 h-4"></i></div>
+                                <div class="action-details">
+                                    <h4>Assinaturas Pendentes</h4>
+                                    <p>Você tem 3 resoluções aguardando sua assinatura digital.</p>
+                                </div>
+                            </li>
+                            <li class="action-item">
+                                <div class="action-icon" style="background:#fef9c3; color:#92400e;"><i data-lucide="clock" class="w-4 h-4"></i></div>
+                                <div class="action-details">
+                                    <h4>Prazo de Pauta</h4>
+                                    <p>O prazo para envio de pautas da próxima reunião encerra em 2 dias.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div style="padding: 16px; border-top: 1px solid var(--cms-border); text-align: center;">
+                            <button class="btn-primary" style="background:var(--cms-blue); color:white; border:none; padding:8px 16px; border-radius:6px; font-weight:600; cursor:pointer; width:100%;">Nova Tarefa</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</div>
+
+<script>
+    lucide.createIcons();
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('appSidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('open');
+    }
+</script>
+</body>
+</html>
