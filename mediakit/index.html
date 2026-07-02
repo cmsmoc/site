@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Kit - Conselho Municipal de Saúde</title>
+    <meta name="description" content="Media Kit oficial do Conselho Municipal de Saúde com logos, diretrizes de uso, aplicações e materiais para download.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #38bdf8;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #38bdf8;
+                --primary-dark: #7dd3fc;
+                --background: #0f172a;
+                --surface: #1e293b;
+                --text-main: #f8fafc;
+                --text-muted: #94a3b8;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 15s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(2%, 2%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .guidelines {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        .guidelines h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .guidelines ul {
+            list-style-type: none;
+        }
+
+        .guidelines li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .guidelines li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img-wrapper {
+            height: 220px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.02);
+            position: relative;
+        }
+        
+        .dark-bg {
+            background: #1a1a1a;
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            word-break: break-word;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Media Kit CMS</h1>
+        <p>Recursos oficiais, logotipos e materiais gráficos do Conselho Municipal de Saúde para uso em comunicações, eventos e mídias.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="guidelines">
+            <h2>Orientações e Dicas de Uso</h2>
+            <ul>
+                <li><strong>Respeite as proporções:</strong> Nunca estique ou distorça as logomarcas. Mantenha a proporção original ao redimensionar.</li>
+                <li><strong>Contraste:</strong> Certifique-se de que o logotipo esteja legível contra o fundo. Use versões brancas/monocromáticas (logowh, logomonowh) em fundos escuros e versões coloridas/pretas em fundos claros.</li>
+                <li><strong>Espaço de Respiro:</strong> Mantenha um espaço livre ao redor da logo para garantir sua integridade visual. Não encoste a logo em bordas ou outros elementos gráficos.</li>
+                <li><strong>Uso das Cores Oficiais:</strong> Não altere as cores das logomarcas. Utilize apenas as versões fornecidas neste Media Kit.</li>
+                <li><strong>Mini Aplicações (Signs & Cards):</strong> Na seção dedicada, você encontrará cartões postais, fundos e papéis de parede. Estas são aplicações gráficas prontas para uso, e não logotipos puros.</li>
+            </ul>
+        </section>
+
+        <h2 class="section-title">Logotipos Oficiais</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-wrapper"><img src="cms00.png" alt="cms00"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo CMS 00</h3>
+                    <a href="cms00.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="cms01.png" alt="cms01"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo CMS 01</h3>
+                    <a href="cms01.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="logobl.png" alt="Logo BL"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo BL</h3>
+                    <a href="logobl.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="logoblu.png" alt="Logo Blue"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo Azul</h3>
+                    <a href="logoblu.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="logohbl.png" alt="Logo HBL"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo HBL</h3>
+                    <a href="logohbl.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper dark-bg"><img src="logohwh.png" alt="Logo HWH"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo HWH (Versão Clara)</h3>
+                    <a href="logohwh.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="logomonobl.png" alt="Logo Mono BL"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo Monocromática (Preta)</h3>
+                    <a href="logomonobl.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper dark-bg"><img src="logomonowh.png" alt="Logo Mono WH"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo Monocromática (Branca)</h3>
+                    <a href="logomonowh.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper dark-bg"><img src="logowh.png" alt="Logo WH"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Logo Branca</h3>
+                    <a href="logowh.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="iconcms512.png" alt="Ícone CMS 512"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Ícone (512x512)</h3>
+                    <a href="iconcms512.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Logos CTs, CISTT e Diretoria</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-wrapper"><img src="LOGO DIRETORIA CMS3.png" alt="Diretoria"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Diretoria CMS3</h3>
+                    <a href="LOGO DIRETORIA CMS3.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CISTT.png" alt="CISTT"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CISTT</h3>
+                    <a href="Logo CISTT.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT APS.png" alt="CT APS"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT APS</h3>
+                    <a href="Logo CT APS.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT BMAC.png" alt="CT BMAC"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT BMAC</h3>
+                    <a href="Logo CT BMAC.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT EPCS.png" alt="CT EPCS"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT EPCS</h3>
+                    <a href="Logo CT EPCS.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT IGFCA.png" alt="CT IGFCA"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT IGFCA</h3>
+                    <a href="Logo CT IGFCA.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT PAUE.png" alt="CT PAUE"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT PAUE</h3>
+                    <a href="Logo CT PAUE.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT Reg.png" alt="CT Reg"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT Reg</h3>
+                    <a href="Logo CT Reg.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT SM.png" alt="CT SM"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT SM</h3>
+                    <a href="Logo CT SM.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper"><img src="Logo CT VS.png" alt="CT VS"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CT VS</h3>
+                    <a href="Logo CT VS.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Signs & Cards (Mini Aplicações)</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">
+            Imagens tipo cartão postal, cards, fundos, papéis de parede. Estas não são logos puras, mas pequenas aplicações prontas.
+        </p>
+        <div class="grid">
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/CMSbb.png" alt="CMSbb"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMSbb</h3>
+                    <a href="signs-e-cards/CMSbb.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/band.png" alt="band"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Bandeira</h3>
+                    <a href="signs-e-cards/band.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/bande.png" alt="bande"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Bandeira Estendida</h3>
+                    <a href="signs-e-cards/bande.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/bander.png" alt="bander"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Bander</h3>
+                    <a href="signs-e-cards/bander.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/bbass.png" alt="bbass"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Assinatura</h3>
+                    <a href="signs-e-cards/bbass.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/cadd.png" alt="cadd"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Card</h3>
+                    <a href="signs-e-cards/cadd.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/cmsicon2.png" alt="cmsicon2"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMS Icon 2</h3>
+                    <a href="signs-e-cards/cmsicon2.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/cmslogo1.png" alt="cmslogo1"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMS Logo 1</h3>
+                    <a href="signs-e-cards/cmslogo1.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/cmslogoblue.png" alt="cmslogoblue"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMS Logo Blue</h3>
+                    <a href="signs-e-cards/cmslogoblue.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/cmslogoyellow.png" alt="cmslogoyellow"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMS Logo Yellow</h3>
+                    <a href="signs-e-cards/cmslogoyellow.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/cmsvert1.png" alt="cmsvert1"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMS Vertical 1</h3>
+                    <a href="signs-e-cards/cmsvert1.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper dark-bg"><img src="signs-e-cards/cmswhitelog.png" alt="cmswhitelog"></div>
+                <div class="card-content">
+                    <h3 class="card-title">CMS White Logo</h3>
+                    <a href="signs-e-cards/cmswhitelog.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="badge">Mini Aplicação</div>
+                <div class="card-img-wrapper"><img src="signs-e-cards/env.png" alt="env"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Envelope / Fundo</h3>
+                    <a href="signs-e-cards/env.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Conselho Municipal de Saúde. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
