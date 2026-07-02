@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDIA KIT (v2 Showroom) · CMS Montes Claros</title>
+    <title>MEDIA KIT (v2) · CMS Montes Claros</title>
     <meta name="description" content="Media Kit oficial do Conselho Municipal de Saúde com logos, diretrizes de uso, aplicações e materiais para download.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -46,7 +46,9 @@
         .header-sub { font-size:14px; color:rgba(255,255,255,.6); font-weight:300; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
-        .section-title { font-family: var(--font-d); font-size: 24px; font-weight: 900; color: var(--cms-navy); margin-bottom: 24px; border-bottom: 2px solid var(--cms-yellow); padding-bottom: 8px; }
+        .section-title { font-family: var(--font-d); font-size: 24px; font-weight: 900; color: var(--cms-navy); margin: 0; }
+        
+        .section-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--cms-yellow); padding-bottom: 8px; margin-bottom: 24px; }
 
         .guidelines { background: var(--cms-white); padding: 32px; border-radius: var(--r); box-shadow: var(--shadow); border: 1px solid var(--cms-border); border-left: 6px solid var(--cms-blue); margin-bottom: 48px; }
         .guidelines h2 { font-family: var(--font-d); font-size: 20px; font-weight: 700; color: var(--cms-navy); margin-bottom: 16px; }
@@ -54,7 +56,7 @@
         .guidelines li { margin-bottom: 12px; position: relative; padding-left: 24px; color: var(--cms-ink); }
         .guidelines li::before { content: '✓'; position: absolute; left: 0; color: var(--cms-blue); font-weight: bold; }
 
-        /* Grelha Simétrica Padrão (para CTs) */
+        /* Grelha Simétrica Padrão (para Oficiais e CTs) */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 48px; }
         
         /* Grelha Assimétrica (para Signs & Cards) */
@@ -72,21 +74,30 @@
         .kpi-label { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--cms-navy); margin-bottom: 12px; line-height: 1.3; }
         
         /* Botão de Download */
-        .download-btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 16px; background: var(--cms-blue); color: white; text-decoration: none; border-radius: 999px; font-family: var(--font-d); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; transition: background 0.2s; align-self: flex-start; }
-        .download-btn:hover { background: var(--cms-navy); color: white; }
+        .download-btn, .btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 16px; background: var(--cms-blue); color: white; text-decoration: none; border-radius: 999px; font-family: var(--font-d); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; transition: background 0.2s; border: none; cursor: pointer; }
+        .download-btn:hover, .btn:hover { background: var(--cms-navy); color: white; }
+        .btn-outline { background: transparent; border: 2px solid var(--cms-blue); color: var(--cms-blue); }
+        .btn-outline:hover { background: var(--cms-blue); color: white; }
         
         .badge { position: absolute; top: 12px; right: 12px; background: var(--cms-yellow); color: var(--cms-navy); font-size: 10px; padding: 4px 10px; border-radius: 999px; font-family: var(--font-d); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; z-index: 2; }
         .dark-bg { background: var(--cms-navy) !important; color: white !important; }
         .dark-bg .kpi-label { color: white; }
         
-        /* Showroom Slider */
-        .showroom { position: relative; max-width: 100%; margin: 0 auto 48px; background: var(--cms-white); border-radius: var(--r-lg); box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid var(--cms-border); }
+        /* Modal Showroom Slider */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 46, 90, 0.95); z-index: 9999; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(5px); }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-close { position: absolute; top: 30px; right: 40px; background: transparent; border: none; color: white; font-size: 40px; cursor: pointer; transition: transform 0.2s; z-index: 10000; }
+        .modal-close:hover { transform: scale(1.1); color: var(--cms-yellow); }
+
+        .showroom { position: relative; width: 100%; max-width: 900px; margin: 0 auto; overflow: hidden; }
         .showroom-slides { display: flex; transition: transform 0.5s ease-in-out; }
-        .showroom-slide { min-width: 100%; display: flex; flex-direction: column; align-items: center; padding: 60px 40px; }
-        .showroom-slide img { height: 350px; max-width: 90%; object-fit: contain; margin-bottom: 32px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
-        .showroom-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 20px; pointer-events: none; }
-        .showroom-btn { pointer-events: auto; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--shadow-md); color: var(--cms-navy); font-size: 24px; font-weight: bold; transition: all 0.2s; }
-        .showroom-btn:hover { background: var(--cms-white); transform: scale(1.1); color: var(--cms-blue); }
+        .showroom-slide { min-width: 100%; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+        .showroom-slide img { height: 40vh; max-width: 90%; object-fit: contain; margin-bottom: 32px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
+        
+        .showroom-slide h3 { font-family: var(--font-d); font-size: 24px; color: white; text-transform: uppercase; margin-bottom: 16px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .showroom-nav { position: absolute; top: 40%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; pointer-events: none; }
+        .showroom-btn { pointer-events: auto; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.5); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: white; font-size: 28px; transition: all 0.2s; backdrop-filter: blur(4px); }
+        .showroom-btn:hover { background: var(--cms-yellow); border-color: var(--cms-yellow); color: var(--cms-navy); transform: scale(1.1); }
         
         .doc-footer { text-align: center; padding: 32px; color: var(--cms-muted); font-size: 13px; border-top: 1px solid var(--cms-border); background: var(--cms-white); }
         .doc-footer strong { color: var(--cms-navy); }
@@ -94,19 +105,20 @@
         @media (max-width: 900px) {
             .asymmetrical-grid { grid-template-columns: repeat(2, 1fr); }
             .asymmetrical-grid .kpi-card:nth-child(6n + 1) { grid-column: span 2; grid-row: span 2; }
-            .showroom-slide img { height: 250px; }
+            .showroom-slide img { height: 30vh; }
         }
         @media (max-width: 768px) {
             .header-inner { padding: 32px 20px; }
             body { font-size: 14px; }
             .grid { grid-template-columns: repeat(2, 1fr); }
             .doc-header { padding: 40px 24px; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
         }
         @media (max-width: 480px) {
             .grid, .asymmetrical-grid { grid-template-columns: 1fr; }
             .asymmetrical-grid .kpi-card { grid-column: span 1 !important; grid-row: span 1 !important; }
             .showroom-slide { padding: 40px 20px; }
-            .showroom-slide img { height: 180px; }
+            .showroom-slide img { height: 25vh; }
             .showroom-btn { width: 40px; height: 40px; font-size: 18px; }
         }
     </style>
@@ -122,7 +134,7 @@
                 <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png" alt="CMS Montes Claros" style="height:60px;object-fit:contain;">
             </div>
             <p class="header-eyebrow">RECURSOS OFICIAIS</p>
-            <h1 class="header-title">Media Kit <em>CMSMOC</em> (v2 Showroom)</h1>
+            <h1 class="header-title">Media Kit <em>CMSMOC</em> (v2)</h1>
             <p class="header-sub">Logotipos e materiais gráficos do Conselho Municipal de Saúde para uso em comunicações e mídias.</p>
         </div>
     </header>
@@ -140,50 +152,135 @@
             </ul>
         </section>
 
-        <h2 class="section-title">Showroom de Logotipos Oficiais</h2>
-        <div class="showroom" id="showroom">
-            <div class="showroom-slides" id="showroomSlides">
-                <div class="showroom-slide">
-                    <img src="logo-cms-horizontal-oficial.png" alt="Logo Oficial">
-                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Oficial</h3>
-                    <a href="logo-cms-horizontal-oficial.png" download class="download-btn">Baixar PNG</a>
-                </div>
-                <div class="showroom-slide dark-bg">
-                    <img src="logo-cms-horizontal-branca-oficial.png" alt="Logo Branca Oficial">
-                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Branca Oficial</h3>
-                    <a href="logo-cms-horizontal-branca-oficial.png" download class="download-btn" style="background:var(--cms-white); color:var(--cms-navy);">Baixar PNG</a>
-                </div>
-                <div class="showroom-slide">
-                    <img src="logo-cms-vertical-colorida.png" alt="Logo Vertical Colorida">
-                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Vertical</h3>
-                    <a href="logo-cms-vertical-colorida.png" download class="download-btn">Baixar PNG</a>
-                </div>
-                <div class="showroom-slide dark-bg">
-                    <img src="logo-cms-vertical-branca.png" alt="Logo Vertical Branca">
-                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Vertical Branca</h3>
-                    <a href="logo-cms-vertical-branca.png" download class="download-btn" style="background:var(--cms-white); color:var(--cms-navy);">Baixar PNG</a>
-                </div>
-                <div class="showroom-slide">
-                    <img src="logo-cms-horizontal-azul.png" alt="Logo Azul">
-                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Logo CMS Azul</h3>
-                    <a href="logo-cms-horizontal-azul.png" download class="download-btn">Baixar PNG</a>
-                </div>
-                <div class="showroom-slide">
-                    <img src="icone-cms-512px.png" alt="Ícone CMS 512">
-                    <h3 class="kpi-label" style="font-size:20px; text-transform:uppercase;">Ícone Oficial (512x512)</h3>
-                    <a href="icone-cms-512px.png" download class="download-btn">Baixar PNG</a>
+        <!-- Seção: Logotipos Oficiais -->
+        <div class="section-header">
+            <h2 class="section-title" style="border:none; margin:0; padding:0;">Logotipos Oficiais</h2>
+            <button class="btn btn-outline" onclick="openShowroom()">🖼️ Ver em Slideshow</button>
+        </div>
+        
+        <!-- Grid Simétrico Original -->
+        <div class="grid">
+            <div class="kpi-card">
+                <div class="card-img-wrapper"><img src="logo-cms-horizontal-oficial.png" alt="cms00"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Oficial</div>
+                    <a href="logo-cms-horizontal-oficial.png" download class="download-btn">Baixar</a>
                 </div>
             </div>
-            <div class="showroom-nav">
-                <button class="showroom-btn" onclick="prevSlide()">&#10094;</button>
-                <button class="showroom-btn" onclick="nextSlide()">&#10095;</button>
+            <div class="kpi-card">
+                <div class="card-img-wrapper dark-bg"><img src="logo-cms-horizontal-branca-oficial.png" alt="cms01"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Branca Oficial</div>
+                    <a href="logo-cms-horizontal-branca-oficial.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper"><img src="logo-cms-vertical-colorida.png" alt="Logo BL"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Vertical</div>
+                    <a href="logo-cms-vertical-colorida.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper"><img src="logo-cms-horizontal-azul.png" alt="Logo Blue"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Azul</div>
+                    <a href="logo-cms-horizontal-azul.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper"><img src="logo-cms-horizontal-colorida.png" alt="Logo HBL"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Horizontal Colorida</div>
+                    <a href="logo-cms-horizontal-colorida.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper dark-bg"><img src="logo-cms-horizontal-branca.png" alt="Logo HWH"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Horizontal Branca</div>
+                    <a href="logo-cms-horizontal-branca.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper"><img src="logo-cms-horizontal-preta.png" alt="Logo Mono BL"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo Mono (Preta)</div>
+                    <a href="logo-cms-horizontal-preta.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper dark-bg"><img src="logo-cms-horizontal-monocromatica-branca.png" alt="Logo Mono WH"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo Mono (Branca)</div>
+                    <a href="logo-cms-horizontal-monocromatica-branca.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper dark-bg"><img src="logo-cms-vertical-branca.png" alt="Logo WH"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Logo CMS Vertical Branca</div>
+                    <a href="logo-cms-vertical-branca.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="card-img-wrapper"><img src="icone-cms-512px.png" alt="Ícone CMS 512"></div>
+                <div class="card-content">
+                    <div class="kpi-label">Ícone Oficial (512x512)</div>
+                    <a href="icone-cms-512px.png" download class="download-btn">Baixar</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal do Showroom (Slideshow) -->
+        <div class="modal-overlay" id="showroomModal">
+            <button class="modal-close" onclick="closeShowroom()">&times;</button>
+            <div class="showroom">
+                <div class="showroom-slides" id="showroomSlides">
+                    <div class="showroom-slide">
+                        <img src="logo-cms-horizontal-oficial.png" alt="Logo Oficial">
+                        <h3>Logo CMS Oficial</h3>
+                        <a href="logo-cms-horizontal-oficial.png" download class="download-btn">Baixar PNG</a>
+                    </div>
+                    <div class="showroom-slide">
+                        <img src="logo-cms-horizontal-branca-oficial.png" alt="Logo Branca Oficial">
+                        <h3>Logo CMS Branca Oficial</h3>
+                        <a href="logo-cms-horizontal-branca-oficial.png" download class="download-btn">Baixar PNG</a>
+                    </div>
+                    <div class="showroom-slide">
+                        <img src="logo-cms-vertical-colorida.png" alt="Logo Vertical Colorida">
+                        <h3>Logo CMS Vertical</h3>
+                        <a href="logo-cms-vertical-colorida.png" download class="download-btn">Baixar PNG</a>
+                    </div>
+                    <div class="showroom-slide">
+                        <img src="logo-cms-vertical-branca.png" alt="Logo Vertical Branca">
+                        <h3>Logo CMS Vertical Branca</h3>
+                        <a href="logo-cms-vertical-branca.png" download class="download-btn">Baixar PNG</a>
+                    </div>
+                    <div class="showroom-slide">
+                        <img src="logo-cms-horizontal-azul.png" alt="Logo Azul">
+                        <h3>Logo CMS Azul</h3>
+                        <a href="logo-cms-horizontal-azul.png" download class="download-btn">Baixar PNG</a>
+                    </div>
+                    <div class="showroom-slide">
+                        <img src="icone-cms-512px.png" alt="Ícone CMS 512">
+                        <h3>Ícone Oficial (512x512)</h3>
+                        <a href="icone-cms-512px.png" download class="download-btn">Baixar PNG</a>
+                    </div>
+                </div>
+                <div class="showroom-nav">
+                    <button class="showroom-btn" onclick="prevSlide()">&#10094;</button>
+                    <button class="showroom-btn" onclick="nextSlide()">&#10095;</button>
+                </div>
             </div>
         </div>
         
         <script>
             let currentSlide = 0;
+            const modal = document.getElementById('showroomModal');
             const slidesContainer = document.getElementById('showroomSlides');
             const totalSlides = document.querySelectorAll('.showroom-slide').length;
+            let slideInterval;
 
             function updateSlide() {
                 slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -199,11 +296,34 @@
                 updateSlide();
             }
             
-            // Auto advance
-            setInterval(nextSlide, 6000);
+            function openShowroom() {
+                modal.classList.add('active');
+                currentSlide = 0;
+                updateSlide();
+                // Start auto advance
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function closeShowroom() {
+                modal.classList.remove('active');
+                clearInterval(slideInterval);
+            }
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape" && modal.classList.contains('active')) {
+                    closeShowroom();
+                }
+            });
+            // Close on click outside
+            modal.addEventListener('click', function(event) {
+                if(event.target === modal) {
+                    closeShowroom();
+                }
+            });
         </script>
 
-        <h2 class="section-title">Logos CTs, CISTT e Diretoria</h2>
+        <h2 class="section-title" style="margin-bottom:24px; border-bottom: 2px solid var(--cms-yellow); padding-bottom: 8px;">Logos CTs, CISTT e Diretoria</h2>
         <div class="grid">
             <div class="kpi-card">
                 <div class="card-img-wrapper"><img src="logo-diretoria-executiva.png" alt="Diretoria"></div>
@@ -277,7 +397,7 @@
             </div>
         </div>
 
-        <h2 class="section-title">Signs & Cards (Mini Aplicações)</h2>
+        <h2 class="section-title" style="margin-bottom:24px; border-bottom: 2px solid var(--cms-yellow); padding-bottom: 8px;">Signs & Cards (Mini Aplicações)</h2>
         <p style="margin-bottom: 24px; color: var(--cms-muted);">
             Imagens tipo cartão postal, cards, fundos, papéis de parede. Estas não são logos puras, mas pequenas aplicações prontas.
         </p>
