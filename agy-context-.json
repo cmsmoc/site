@@ -11,6 +11,17 @@
     "2026-07-02: Imagens do mediakit foram renomeadas para nomes mais descritivos e padronizados, index.html foi atualizado de acordo, e feito novo push.",
     "2026-07-02: Corrigido o contraste de fundo do card da Logo CMS 01 e criada uma versão v2 (index-v2.html) em layout asymmetrical grid.",
     "2026-07-02: Correção de enconding UTF-8 no mediakit, e index-v2.html aprimorado com um Showroom (carrossel) e retorno das Câmaras Técnicas para o grid simétrico.",
-    "2026-07-02: Alterada a lógica do Showroom na v2 para que os logos sejam exibidos no grid normalmente e o carrossel abra apenas através de um botão de Modal overlay."
-  ]
+    "2026-07-02: Alterada a lógica do Showroom na v2 para que os logos sejam exibidos no grid normalmente e o carrossel abra apenas através de um botão de Modal overlay.",
+    "2026-07-04: Registro do plano de Base Relacional e Portfólio. Mapeamento do Portal Institucional como canal final de consumo da base relacional consolidada.",
+    "2026-07-06: Atualizada a galeria de assinaturas (assinaroficios/index.html) ativando os ofícios da CISM (042 a 051) e marcando os ofícios de 052 a 065 como 'Assinado'. Atualizados os arquivos PDF na pasta de arquivos da galeria."
+  ],
+  "planejamento_estrategico_2026": {
+    "etapas": [
+      "1 - Desenvolver base relacional integrada localmente usando Prisma e SQLite (dev.db) na pasta CENTRAL.",
+      "2 - Sincronizar todos os módulos em background (Gmail, planilhas da Sheila e modulo_presenca) com a base local.",
+      "3 - Listagem completa de portfólio e curadoria dos artefatos desenvolvidos no conselho.",
+      "4 - Separar em 2 apps: Portal Institucional do Conselho (Público) + Painel SEC (Showcase/Toolkit interno de controle e portfólio)."
+    ],
+    "agente_portafolio": "Ativação do LinkedIn Curator salvando assets documentados na pasta C:\\Alx\\linkedin\\ com post, estudo de caso (DSR), pitch deck e imagens criativas."
+  }
 }
