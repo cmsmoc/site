@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ata · 2ª Trimestral 2026 · CMMOC / SSVP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       1. CSS VARIABLES (SSVP Design System)
+       ============================================================ */
+    :root {
+      --blue:        #0056A6;
+      --blue-dark:   #003d7a;
+      --blue-deep:   #00285c;
+      --red:         #D62B2B;
+      --gold:        #C8991A;
+      --gold-light:  #fdf5e0;
+      --text:        #1A1A2E;
+      --text-muted:  #555E78;
+      --bg:          #FAFBFC;
+      --surface:     #ffffff;
+      --border:      #DCE6F5;
+      --r-sm:        6px;
+      --r:           10px;
+      --r-lg:        16px;
+      --shadow:      0 2px 8px rgba(0,86,166,.08);
+      --shadow-md:   0 6px 24px rgba(0,86,166,.13);
+      --font-d:      'Playfair Display', Georgia, serif;
+      --font-c:      'Monotype Corsiva', 'Apple Chancery', 'TexGyreChorus', 'Brush Script MT', cursive;
+      --font-h:      'Source Serif 4', serif;
+      --font-b:      'Inter', system-ui, sans-serif;
+    }
+
+    /* ============================================================
+       2. RESET & BASE
+       ============================================================ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       3. HERO HEADER & STRIPE
+       ============================================================ */
+    .hero {
+      background: linear-gradient(150deg, var(--blue-deep) 0%, var(--blue) 55%, #1a78cc 100%);
+      color: #ffffff;
+      padding: 52px 40px 44px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 5px solid var(--red); /* Stripe Corporativo */
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,.06), transparent);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-logo-container {
+      width: 90px; height: 90px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,.15);
+    }
+    .hero-logo-container img {
+      height: 60px;
+      object-fit: contain;
+    }
+    .hero-tag {
+      background: var(--red);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--r-lg);
+    }
+    .hero h1 {
+      font-family: var(--font-d);
+      font-style: italic;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      opacity: .85;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       4. TEMA BANNER
+       ============================================================ */
+    .tema-banner {
+      background: var(--gold-light);
+      border-left: 5px solid var(--gold);
+      padding: 18px 40px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    }
+    .tema-label {
+      display: block;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    .tema-frase {
+      font-family: var(--font-c);
+      font-size: 34px;
+      color: #5a3e00;
+      display: block;
+      line-height: 1;
+    }
+
+    /* ============================================================
+       5. LAYOUT PRINCIPAL
+       ============================================================ */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-title {
+      font-family: var(--font-d);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ============================================================
+       6. COMPONENTES VISUAIS SSVP
+       ============================================================ */
+    /* Consolidados de dados */
+    .consolidado {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .cons-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .cons-num {
+      display: block;
+      font-family: var(--font-d);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--blue);
+    }
+    .cons-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Tabela de Informações */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .info-table td {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+    .info-table tr:nth-child(even) td {
+      background: #fdfdfd;
+    }
+    .info-table td:first-child {
+      font-family: var(--font-d);
+      font-weight: 700;
+      color: var(--blue);
+      width: 200px;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .narrative {
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    /* Mesa list */
+    .mesa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .mesa-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+    }
+    .mesa-nome {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--blue-deep);
+    }
+    .mesa-cargo {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Cards de Obras Unidas (Lares) */
+    .lares-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .lar-card {
+      border-radius: var(--r);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .lar-card:hover {
+      transform: translateY(-2px);
+    }
+    .card-bg-light {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .card-bg-light:hover {
+      box-shadow: 0 4px 15px rgba(0,86,166,.12);
+    }
+    .card-bg-alert {
+      background: #fffdf4;
+      border: 1px solid #fce8b2;
+      box-shadow: 0 2px 8px rgba(200,153,26,.06);
+    }
+    .card-bg-alert:hover {
+      box-shadow: 0 4px 15px rgba(200,153,26,.12);
+    }
+    .card-bg-critical {
+      background: #fffafa;
+      border: 1px solid #fbcbcb;
+      box-shadow: 0 2px 8px rgba(214,43,43,.06);
+    }
+    .card-bg-critical:hover {
+      box-shadow: 0 4px 15px rgba(214,43,43,.12);
+    }
+    .card-bg-highlight {
+      background: #f4f8fd;
+      border: 1px solid #cde0f7;
+      box-shadow: 0 2px 8px rgba(0,86,166,.06);
+    }
+    .card-bg-highlight:hover {
+      box-shadow: 0 4px 15px rgba(0,86,166,.12);
+    }
+    .lar-card-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .lar-name {
+      font-family: var(--font-d);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .lar-city {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .lar-rep {
+      font-size: 11px;
+      color: var(--red);
+      font-style: italic;
+      margin-top: 2px;
+    }
+    .lar-stats {
+      display: flex;
+      gap: 12px;
+      background: #f8fafc;
+      padding: 8px 12px;
+      border-radius: var(--r-sm);
+    }
+    .lar-stat {
+      flex: 1;
+      text-align: center;
+    }
+    .lar-stat .num {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue-deep);
+    }
+    .lar-stat .lbl {
+      font-size: 9px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .lar-body {
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .lar-body ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .lar-body li {
+      position: relative;
+      padding-left: 14px;
+    }
+    .lar-body li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: bold;
+    }
+    .lar-tags {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 8px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: var(--r-sm);
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-blue { background: rgba(0,86,166,.1); color: var(--blue); }
+    .badge-red { background: rgba(214,43,43,.1); color: var(--red); }
+    .badge-gold { background: rgba(200,153,26,.1); color: var(--gold); }
+
+    /* Palestras e Programação */
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .event-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--blue);
+    }
+    .event-item.red-border { border-left-color: var(--red); }
+    .event-item.gold-border { border-left-color: var(--gold); }
+    .event-title {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--blue-deep);
+    }
+    .event-speaker {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Encerramento e Assinaturas */
+    .closing {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .signature-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .sig-block {
+      text-align: center;
+    }
+    .sig-line {
+      border-top: 1px solid var(--text-muted);
+      width: 80%;
+      margin: 0 auto 8px;
+    }
+    .sig-name {
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .sig-role {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .local-info {
+      margin-top: 32px;
+      padding: 14px;
+      background: #f0f4fa;
+      border-radius: var(--r-sm);
+      font-size: 13px;
+      color: var(--blue-deep);
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    /* Botão de Impressão */
+    .btn-print {
+      display: block;
+      margin: 40px auto 0;
+      background: var(--blue);
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      font-family: var(--font-d);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,86,166,0.2);
+      transition: background 0.2s;
+    }
+    .btn-print:hover {
+      background: var(--blue-dark);
+    }
+
+    /* ============================================================
+       7. REGRAS DE IMPRESSÃO (PRINT-FIRST)
+       ============================================================ */
+    .print-footer { display: none; }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+      }
+      .hero {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 2cm 1.5cm 1cm;
+      }
+      .tema-banner {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 10px 1.5cm;
+      }
+      .container {
+        max-width: 100%;
+        padding: 1cm 1.5cm 2cm;
+      }
+      .btn-print {
+        display: none !important;
+      }
+      .lar-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+      }
+      .cons-item, .mesa-card, .event-item, .info-table tr, .signature-row {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      .print-footer {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        color: #666;
+        border-top: 1px solid #ccc;
+        padding-top: 5px;
+      }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .consolidado { grid-template-columns: repeat(2, 1fr); }
+      .signature-row { grid-template-columns: 1fr; gap: 30px; }
+      .lares-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body contenteditable="true">
+
+  <!-- Stripe Corporativo e Hero Integrados -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo-container">
+        <!-- Logo carregado localmente das imagens -->
+        <img src="imgs/logotipo.png" alt="Logo SSVP">
+      </div>
+      <div class="hero-tag">Conselho Metropolitano Montes Claros</div>
+      <h1>Ata da 2ª Reunião Trimestral 2026</h1>
+      <p class="hero-sub">DENOR — Departamento Nacional de Normatização e Orientação de Obras Unidas</p>
+    </div>
+  </header>
+
+  <!-- Tema Anual da Gestão -->
+  <div class="tema-banner">
+    <span class="tema-label">Ano Temático</span>
+    <span class="tema-frase">“Cuidar para Servir”</span>
+  </div>
+
+  <main class="container">
+
+    <!-- Consolidados -->
+    <section class="section">
+      <div class="consolidado">
+        <div class="cons-item">
+          <span class="cons-num">14</span>
+          <span class="cons-lbl">Obras Presentes</span>
+        </div>
+        <div class="cons-item">
+          <span class="cons-num">535+</span>
+          <span class="cons-lbl">Idosos Assistidos</span>
+        </div>
+        <div class="cons-item">
+          <span class="cons-num">300+</span>
+          <span class="cons-lbl">Colaboradores</span>
+        </div>
+        <div class="cons-item">
+          <span class="cons-num">R$ 1M+</span>
+          <span class="cons-lbl">Recursos Captados</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abertura -->
+    <section class="section">
+      <h2 class="section-title">📌 Abertura e Informações da Reunião</h2>
+      <table class="info-table">
+        <tr>
+          <td>Local</td>
+          <td>Sede AMUSA – Rua Saint Clair de Brito, nº 60, Vila Santa Marta, Salinas–MG</td>
+        </tr>
+        <tr>
+          <td>Data e Horário</td>
+          <td>14 de março de 2026 (sábado) às 09:00</td>
+        </tr>
+        <tr>
+          <td>Coordenador</td>
+          <td>Cfd. Dênis Higino — Coordenador do DENOR</td>
+        </tr>
+        <tr>
+          <td>Visitantes CNB</td>
+          <td>Cfds. César Custódio da Silva e Valdir Aparecido Alves (Conselho Nacional do Brasil)</td>
+        </tr>
+        <tr>
+          <td>Reflexão Espiritual</td>
+          <td>Frei Ivan — Leitura e reflexão de Lucas 18, 9–14</td>
+        </tr>
+        <tr>
+          <td>Ata Anterior</td>
+          <td>Enviada aos presidentes pela Csc. Juciara Pereira Cardoso — Aprovada sem ressalvas</td>
+        </tr>
+      </table>
+      <div class="narrative">
+        <p>A reunião foi aberta com as orações do Regulamento da SSVP (pág. 180), conduzidas pelo Coordenador do DENOR, Cfd. Dênis Higino. Frei Ivan proferiu a reflexão espiritual baseada na parábola do fariseu e do publicano, ressaltando o valor da humildade e da dedicação pura no cuidado com os menos favorecidos.</p>
+      </div>
+    </section>
+
+    <!-- Mesa Diretiva -->
+    <section class="section">
+      <h2 class="section-title">🪑 Composição da Mesa Diretiva</h2>
+      <div class="mesa-grid">
+        <div class="mesa-card">
+          <span class="mesa-nome">Cfd. José Heitor de Amorim</span>
+          <span class="mesa-cargo">Vice-Presidente Região I — CNB</span>
+        </div>
+        <div class="mesa-card">
+          <span class="mesa-nome">Csc. Ana Luiza</span>
+          <span class="mesa-cargo">CJ Região I — CNB</span>
+        </div>
+        <div class="mesa-card">
+          <span class="mesa-nome">Csc. Dalvina Ribeiro Miranda</span>
+          <span class="mesa-cargo">Presidente — CMMOC</span>
+        </div>
+        <div class="mesa-card">
+          <span class="mesa-nome">Cfd. José Geraldo Ramos</span>
+          <span class="mesa-cargo">Vice-Presidente — CMMOC</span>
+        </div>
+        <div class="mesa-card">
+          <span class="mesa-nome">Cfd. José Carlos Pereira</span>
+          <span class="mesa-cargo">Presidente — CC Salinas</span>
+        </div>
+        <div class="mesa-card">
+          <span class="mesa-nome">Csc. Rosa Alcântara de S. Tavares</span>
+          <span class="mesa-cargo">Presidente — Lar Santa Clara</span>
+        </div>
+        <div class="mesa-card">
+          <span class="mesa-nome">Frei Ivan</span>
+          <span class="mesa-cargo">Celebrante / Guia Espiritual</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Situação das Obras Unidas -->
+    <section class="section">
+      <h2 class="section-title">🏠 Situação das Obras Unidas</h2>
+      <div class="lares-grid">
+
+        <!-- LAR 1: Brasília de Minas -->
+        <div class="lar-card card-bg-light">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar Santana</span>
+            <span class="lar-city">Brasília de Minas — MG</span>
+            <span class="lar-rep">Cfd. Cristiano</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">36</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">18</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">7</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Óbitos: Sr. Paulo Gaino (fevereiro) e Dona Maria Madalena (março).</li>
+              <li>Recebimento de <strong>144 pacotes de fraldas</strong> via acordo judicial promovido pelo MP.</li>
+              <li>Visita fraterna da conferência vicentina N. Sra. Aparecida de Angicos.</li>
+              <li>Doações regulares enviadas pelo programa Mesa Brasil.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-blue">Obrigações em Dia</span>
+            <span class="badge badge-gold">Fraldas MP</span>
+          </div>
+        </div>
+
+        <!-- LAR 2: Buritizeiro -->
+        <div class="lar-card card-bg-highlight">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar São Vicente de Paulo</span>
+            <span class="lar-city">Buritizeiro — MG</span>
+            <span class="lar-rep">Csc. Dilmey</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">22</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">10</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">9</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Construção de nova despensa de alimentos com entrega em 60 dias.</li>
+              <li>Assembleia Geral de Prestação de Contas agendada para 24/04/2026.</li>
+              <li>Recebimento de <strong>10 cadeiras de rodas e 8 de banho</strong> do Rotary Club.</li>
+              <li>Apoio com cestas básicas do SESC, BH e doações locais.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-gold">Assembleia 24/Abr</span>
+            <span class="badge badge-blue">Rotary Club</span>
+          </div>
+        </div>
+
+        <!-- LAR 3: Francisco Sá -->
+        <div class="lar-card card-bg-light">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar São Vicente de Paulo</span>
+            <span class="lar-city">Francisco Sá — MG</span>
+            <span class="lar-rep">Cfd. Marcos Vitor</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">38</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">23</span><span class="lbl">Colab.</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Reuniões da diretoria na primeira quinta-feira de cada mês.</li>
+              <li>Assistência espiritual com missas e terço dos homens aos domingos.</li>
+              <li>Controle e monitoramento contínuo de residentes com hipertensão e diabetes.</li>
+              <li>Atividades de integração, aniversários e caminhadas leves.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-blue">Saúde Contínua</span>
+            <span class="badge badge-blue">Atividades Lazer</span>
+          </div>
+        </div>
+
+        <!-- LAR 4: Januária -->
+        <div class="lar-card card-bg-critical">
+          <div class="lar-card-header">
+            <span class="lar-name">Asilo São Vicente de Paulo</span>
+            <span class="lar-city">Januária — MG</span>
+            <span class="lar-rep">Cfd. José Geraldo</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">33</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">12</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Transição de diretoria oficializada (posse em registro cartorial).</li>
+              <li>Assembleia Geral agendada para o dia 23/04/2026 às 09:30.</li>
+              <li>Processo seletivo aberto para contratação de Assistente Social.</li>
+              <li><strong>Entrave:</strong> Extrema dificuldade de contratação de mão de obra local.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-red">Dificuldade RH</span>
+            <span class="badge badge-gold">Assembleia 23/Abr</span>
+          </div>
+        </div>
+
+        <!-- LAR 5: Jaíba -->
+        <div class="lar-card card-bg-light">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar João Pinheiro</span>
+            <span class="lar-city">Jaíba — MG</span>
+            <span class="lar-rep">Cfd. João Batista</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">22</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Assembleia geral e aprovação de prestação marcada para 04/04/2026.</li>
+              <li>Elaboração de projeto para construção de galpão comercial para aluguel.</li>
+              <li>Novos projetos aprovados junto ao Fundo Municipal do Idoso.</li>
+              <li>Parcerias com a CDL e clínica médica local para exames e consultas.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-gold">Assembleia 04/Abr</span>
+            <span class="badge badge-blue">Patrimonial</span>
+          </div>
+        </div>
+
+        <!-- LAR 6: Janaúba -->
+        <div class="lar-card card-bg-critical">
+          <div class="lar-card-header">
+            <span class="lar-name">Asilo São Vicente de Paulo</span>
+            <span class="lar-city">Janaúba — MG</span>
+            <span class="lar-rep">Csc. Maria</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">48</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">22</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">8</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Equipe multiprofissional robusta, incluindo fono, fisio e nutricionista.</li>
+              <li>Submissão de projeto ao Fundo Municipal no valor de <strong>R$ 250.000,00</strong>.</li>
+              <li>Resposta formal enviada ao Ministério Público dentro do prazo de 15 dias.</li>
+              <li>Convênios vigentes com prefeituras de Verdelândia e Nova Porteirinha.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-red">Fiscalização MP</span>
+            <span class="badge badge-gold">R$ 250 mil Fundo</span>
+          </div>
+        </div>
+
+        <!-- LAR 7: Pirapora -->
+        <div class="lar-card card-bg-alert">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar São Vicente de Paulo</span>
+            <span class="lar-city">Pirapora — MG</span>
+            <span class="lar-rep">Csc. Leotilde</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">48</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">28</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Execução de reforma da calçada principal com verba do Fundo Municipal.</li>
+              <li>Estagiários de enfermagem da UNOPAR fornecendo cuidados preventivos.</li>
+              <li>Fundo de fomento mensal de R$ 10.000,00 congelado (sem reajuste municipal).</li>
+              <li>Recebimento de 50 cestas básicas enviadas pelo SERVAS.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-red">Fomento Congelado</span>
+            <span class="badge badge-blue">Parceria UNOPAR</span>
+          </div>
+        </div>
+
+        <!-- LAR 8: Salinas -->
+        <div class="lar-card card-bg-light">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar Santa Clara</span>
+            <span class="lar-city">Salinas — MG (Anfitriã)</span>
+            <span class="lar-rep">Csc. Rosa Alcântara</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">38</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">2</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Prestação de contas e renovação do regimento em dia (prazo 12/04).</li>
+              <li>Arrecadação de <strong>R$ 24.230,00</strong> em ação conjunta e doações.</li>
+              <li>Renovação de fomento com Prefeitura no valor de R$ 5.661,10/mês.</li>
+              <li>Contestação jurídica em andamento junto ao SINTIBREF-MG.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-blue">CEBAS em Trâmite</span>
+            <span class="badge badge-red">Ação Sindical</span>
+          </div>
+        </div>
+
+        <!-- LAR 9: Grão Mogol -->
+        <div class="lar-card card-bg-highlight">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar São Vicente de Paulo</span>
+            <span class="lar-city">Grão Mogol — MG</span>
+            <span class="lar-rep">Cfd. José Mário</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">31</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">13</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Recebido repasse de <strong>R$ 70.000,00</strong> do CC para reforma/ampliação da cozinha.</li>
+              <li>Apoio financeiro mensal regular de 1 salário mínimo de doadora voluntária.</li>
+              <li>Atividades de reabilitação física conduzidas por voluntários.</li>
+              <li>Melhoria no fluxo de insumos através de doadores parceiros da comunidade.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-gold">R$ 70 mil CC</span>
+            <span class="badge badge-blue">Reforma Cozinha</span>
+          </div>
+        </div>
+
+        <!-- LAR 10: Bocaiúva -->
+        <div class="lar-card card-bg-highlight">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar São Vicente de Paulo</span>
+            <span class="lar-city">Bocaiúva — MG</span>
+            <span class="lar-rep">Csc. Maria Aparecida</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">32</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">15</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li><strong>CEBAS aprovado definitivamente!</strong> Plataforma CAGEC regularizada.</li>
+              <li>Captação de emendas federais no valor total de R$ 238.837,88 para 2026.</li>
+              <li><strong>BNB Projeto Envelhecer:</strong> R$ 350.000,00 captados e prontos para repasse.</li>
+              <li>Intervenção jurídica bem-sucedida do DENOR no benefício da residente Irene.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-blue">CEBAS Aprovado ✓</span>
+            <span class="badge badge-gold">R$ 350 mil BNB</span>
+          </div>
+        </div>
+
+        <!-- LAR 11: Montes Claros -->
+        <div class="lar-card card-bg-light">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar São Vicente de Paulo</span>
+            <span class="lar-city">Montes Claros — MG</span>
+            <span class="lar-rep">Cfd. Aparício</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">126</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">83</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Maior Lar da microrregião. Emenda parlamentar ativa de R$ 140.000,00.</li>
+              <li>Apoio financeiro garantido pelo programa Troco Solidário do Mart Minas.</li>
+              <li>Campanha de rádio e TV realizada em parceria com a Inter TV Grande Minas.</li>
+              <li>Assembleia agendada para 23/03 para ratificação estatutária da Obra Unida.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-blue">Maior Lar do CMMOC</span>
+            <span class="badge badge-gold">Troco Solidário</span>
+          </div>
+        </div>
+
+        <!-- LAR 12: Várzea da Palma -->
+        <div class="lar-card card-bg-critical">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar dos Idosos SSVP</span>
+            <span class="lar-city">Várzea da Palma — MG</span>
+            <span class="lar-rep">Csc. Maria Elisa</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">24</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">8</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">12</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Paciente sob isolamento devido a contaminação em clínica de hemodiálise externa.</li>
+              <li>Inspeções periódicas da Anvisa, Vigilância Sanitária e Promotoria.</li>
+              <li>Doações regulares de fraldas geriátricas da Sada Siderúrgica.</li>
+              <li><strong>Desafio:</strong> Ausência total de convênios estruturados.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-red">Inspeção Sanitária</span>
+            <span class="badge badge-red">Sem Convênios</span>
+          </div>
+        </div>
+
+        <!-- LAR 13: Monte Azul -->
+        <div class="lar-card card-bg-light">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar dos Velhinhos SSVP</span>
+            <span class="lar-city">Monte Azul — MG</span>
+            <span class="lar-rep">Csc. Clarinda</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">27</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">14</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Impostos trabalhistas, encargos sociais e duocentésimas em dia.</li>
+              <li>Protocolo do CEBAS efetuado em 08/12/2025; aguardando deferimento.</li>
+              <li>Articulação para captação de emendas estaduais de R$ 80.000,00.</li>
+              <li>Atividades semanais de artes manuais conduzidas por equipe de assistência social.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-blue">CEBAS Protocolado</span>
+            <span class="badge badge-gold">Emenda R$ 80 mil</span>
+          </div>
+        </div>
+
+        <!-- LAR 14: Taiobeiras -->
+        <div class="lar-card card-bg-alert">
+          <div class="lar-card-header">
+            <span class="lar-name">Lar dos Idosos SSVP</span>
+            <span class="lar-city">Taiobeiras — MG</span>
+            <span class="lar-rep">Cfd. Geremias Chaves</span>
+          </div>
+          <div class="lar-stats">
+            <div class="lar-stat"><span class="num">37</span><span class="lbl">Idosos</span></div>
+            <div class="lar-stat"><span class="num">15</span><span class="lbl">CLT</span></div>
+            <div class="lar-stat"><span class="num">—</span><span class="lbl">Cedidos</span></div>
+          </div>
+          <div class="lar-body">
+            <ul>
+              <li>Contrato de convênio nos trâmites finais: <strong>R$ 300.000,00</strong> em 6 parcelas.</li>
+              <li>Processo de execução judicial movido contra o INSS para reaver provisões.</li>
+              <li>Apoio alimentar regular viabilizado pelo Mesa Brasil SESC MOC.</li>
+              <li>Apresentação formal da minuta do novo Regimento Interno.</li>
+            </ul>
+          </div>
+          <div class="lar-tags">
+            <span class="badge badge-gold">R$ 300 mil Convênio</span>
+            <span class="badge badge-red">Ação INSS</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Palestras -->
+    <section class="section">
+      <h2 class="section-title">🎤 Palestras e Programação</h2>
+      <div class="event-list">
+        <div class="event-item gold-border">
+          <div class="event-title">Fomento, Convênio Municipal, Prestação de Contas e Fundo do Idoso</div>
+          <div class="event-speaker">Dra. Elge Valéria Ferreira Morais — Secretária Municipal de Ação Social de Salinas</div>
+        </div>
+        <div class="event-item">
+          <div class="event-title">Palavra do DENOR — CNB: "O DENOR é o Guardião da Regra"</div>
+          <div class="event-speaker">Cfd. César Custódio — Representante do Conselho Nacional do Brasil</div>
+        </div>
+        <div class="event-item red-border">
+          <div class="event-title">Insalubridade e Riscos Psicossociais no Ambiente de Trabalho</div>
+          <div class="event-speaker">Cfd. Valdir Aparecido — Técnico do Conselho Nacional do Brasil</div>
+        </div>
+        <div class="event-item gold-border">
+          <div class="event-title">Apresentação Artística Especial</div>
+          <div class="event-speaker">Conduzida pelas crianças e jovens da Comissão de Coordenação de Adolescentes (CCA)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Encerramento -->
+    <section class="section">
+      <h2 class="section-title">✍️ Encerramento da Reunião</h2>
+      <div class="closing">
+        <p>Ao término das palestras e manifestações dos lares, o Coordenador Cfd. Dênis Higino franqueou a palavra à Presidente do CMMOC, Csc. Dalvina Ribeiro Miranda, e ao Vice-Presidente, Cfd. José Geraldo Ramos, que expressaram profunda gratidão pela acolhida impecável da Obra Unida Lar Santa Clara em Salinas–MG. O Cfd. José Carlos e a Csc. Rosa Tavares também fizeram uso da palavra em agradecimento aos presentes.</p>
+        <p style="margin-top: 12px;">Os trabalhos foram dados por encerrados às 18:30 com as orações regulamentares da Sociedade de São Vicente de Paulo.</p>
+
+        <div class="signature-row">
+          <div class="sig-block">
+            <div class="sig-line"></div>
+            <span class="sig-name">Juciara Pereira Cardoso</span><br>
+            <span class="sig-role">1ª Secretária — CMMOC / SSVP</span>
+          </div>
+          <div class="sig-block">
+            <div class="sig-line"></div>
+            <span class="sig-name">Rosa Alcântara de Souza Tavares</span><br>
+            <span class="sig-role">Presidente — Lar Santa Clara, Salinas–MG</span>
+          </div>
+          <div class="sig-block">
+            <div class="sig-line"></div>
+            <span class="sig-name">Dalvina Ribeiro Miranda</span><br>
+            <span class="sig-role">Presidente — CMMOC</span>
+          </div>
+        </div>
+
+        <div class="local-info">
+          📍 <strong>Salinas–MG, 14 de março de 2026.</strong><br>
+          E para constar, eu, Juciara Pereira Cardoso, secretária, lavrei a presente ata, que dato e assino.
+        </div>
+      </div>
+    </section>
+
+    <button class="btn-print" onclick="window.print()">
+      🖨️ Gerar PDF / Imprimir Documento
+    </button>
+
+  </main>
+
+  <footer class="print-footer">
+    Sociedade de São Vicente de Paulo · CMMOC / DENOR | Ata da Reunião Trimestral — Salinas-MG, 14 de março de 2026
+  </footer>
+
+</body>
+</html>
+

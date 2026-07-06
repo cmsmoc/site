@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ofício – SSVP / DENOR</title>
+<meta name="description" content="Template de Ofício Oficial – Sociedade de São Vicente de Paulo – DENOR/CMMOC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0056A6;--blue-dark:#003d7a;--blue-deep:#00285c;
+  --red:#D62B2B;--gold:#C8991A;
+  --text:#1a1a2e;--text-muted:#555e78;
+  --bg:#eef2f8;--surface:#fff;--border:#dce6f5;
+  --font-d:'Playfair Display',Georgia,serif;
+  --font-h:'Source Serif 4',serif;
+  --font-b:'Inter',system-ui,sans-serif;
+}
+body{
+  background:var(--bg);
+  font-family:var(--font-b);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;padding:40px 24px 100px;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+/* DOCUMENT WRAPPER */
+.doc-wrap{
+  background:var(--surface);
+  width:100%;max-width:760px;
+  border-left:6px solid var(--red);
+  box-shadow:0 4px 40px rgba(0,86,166,.13);
+  border-radius:0 8px 8px 0;
+  overflow:hidden;
+  animation:fadeIn .5s ease both;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* HEADER STRIP */
+.doc-header{
+  background:var(--blue-deep);
+  display:grid;grid-template-columns:80px 1fr;
+  align-items:center;gap:20px;padding:20px 32px;
+}
+.doc-logo-container {
+  width: 70px; height: 70px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,.15);
+  flex-shrink: 0;
+}
+.doc-logo-container img {
+  height: 45px;
+  object-fit: contain;
+}
+.doc-header-text{}
+.doc-header-inst{font-family:var(--font-b);font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px}
+.doc-header-name{font-family:var(--font-d);font-size:18px;font-weight:700;color:#fff;line-height:1.2}
+.doc-header-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:3px}
+
+/* DOCUMENT NUMBER BAR */
+.doc-num-bar{
+  background:var(--red);
+  padding:8px 32px;display:flex;justify-content:space-between;align-items:center;
+}
+.doc-num-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.doc-num-value{
+  font-family:var(--font-d);font-size:16px;font-weight:700;color:#fff;
+  outline:none;background:transparent;border:none;
+  border-bottom:1px dashed rgba(255,255,255,.4);
+  padding:0 4px;min-width:120px;caret-color:#fff;
+}
+.doc-num-value:focus{border-bottom-color:rgba(255,255,255,.9)}
+
+/* BODY */
+.doc-body{padding:36px 40px}
+
+/* FIELD ROWS */
+.field-row{display:grid;grid-template-columns:100px 1fr;gap:8px;align-items:baseline;margin-bottom:14px}
+.field-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);padding-top:2px}
+.field-value{
+  font-family:var(--font-h);font-size:14px;color:var(--text);
+  border-bottom:1px solid var(--border);padding:4px 6px;outline:none;
+  min-width:100px;line-height:1.5;
+}
+.field-value:focus{border-bottom-color:var(--blue);background:#f5f8ff}
+.field-value[contenteditable="true"]:empty::before{content:attr(data-placeholder);color:#bbb;font-style:italic}
+
+/* SUBJECT */
+.subject-block{
+  margin:20px 0;background:#f5f8ff;border-left:4px solid var(--blue);
+  padding:12px 16px;border-radius:0 6px 6px 0;
+}
+.subject-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+.subject-text{font-family:var(--font-h);font-size:15px;font-weight:600;color:var(--blue-dark);outline:none}
+.subject-text:focus{outline:2px solid var(--blue);border-radius:3px}
+
+/* SALUTATION */
+.salutation{font-family:var(--font-h);font-size:14px;font-style:italic;margin:20px 0 16px;color:var(--text-muted)}
+
+/* PARAGRAPHS */
+.para{
+  font-size:14px;line-height:1.85;margin-bottom:18px;
+  text-align:justify;color:var(--text);
+  outline:none;
+  border-radius:4px;padding:4px 6px;
+  transition:background .2s;
+}
+.para:focus{background:#f5f8ff;outline:1px solid var(--border)}
+.para[contenteditable="true"]:empty::before{content:attr(data-placeholder);color:#bbb;font-style:italic}
+
+/* CLOSING */
+.closing{font-family:var(--font-h);font-size:14px;margin:24px 0 4px;color:var(--text)}
+
+/* SIGNATURES */
+.sig-area{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px; page-break-inside: avoid; break-inside: avoid;}
+.sig-block{}
+.sig-line{border-top:1.5px solid var(--text);margin-bottom:8px}
+.sig-name{font-weight:600;font-size:13px;outline:none;padding:2px 0}
+.sig-name:focus{outline:1px solid var(--border);border-radius:3px;background:#f5f8ff}
+.sig-role{font-size:11px;color:var(--text-muted);outline:none;padding:2px 0}
+.sig-role:focus{outline:1px solid var(--border);border-radius:3px;background:#f5f8ff}
+
+/* FOOTER STAMP */
+.doc-footer{
+  border-top:1px solid var(--border);margin-top:32px;padding-top:16px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:10px;color:var(--text-muted);
+}
+
+/* FLOATING TOOLBAR */
+.toolbar{
+  position:fixed;bottom:28px;right:28px;z-index:100;
+  background:var(--blue-deep);border-radius:12px;
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 32px rgba(0,40,92,.35);
+  animation:slideUp .4s .3s ease both;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.toolbar-hint{font-size:10px;color:rgba(255,255,255,.6);font-family:var(--font-b)}
+.toolbar-print{
+  background:var(--red);color:#fff;border:none;border-radius:8px;
+  padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;
+  font-family:var(--font-b);display:flex;align-items:center;gap:6px;
+  transition:background .2s;
+}
+.toolbar-print:hover{background:#b82323}
+.toolbar-print svg{width:13px;height:13px}
+
+/* PRINT */
+@media print{
+  @page{size:A4;margin:0;}
+  body{background:#fff!important;padding:0!important; margin:0!important;}
+  .toolbar{display:none!important;}
+  .doc-wrap{box-shadow:none!important;max-width:100%!important;border:none!important;border-radius:0!important; width:100%!important; padding:0!important;}
+  .doc-header{background:var(--blue-deep)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact; padding: 2cm 2.5cm 1cm !important;}
+  .doc-num-bar{background:var(--red)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact; padding: 8px 2.5cm !important;}
+  .doc-body{padding: 1cm 2.5cm 2cm !important;}
+  .para:focus,.field-value:focus,.subject-text:focus,.sig-name:focus,.sig-role:focus{background:transparent!important;outline:none!important;}
+  [contenteditable]:empty::before{display:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div class="doc-wrap">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-logo-container">
+      <img src="imgs/logotipo.png" alt="Logo SSVP">
+    </div>
+    <div class="doc-header-text">
+      <div class="doc-header-inst">Sociedade de São Vicente de Paulo · Brasil</div>
+      <div class="doc-header-name">DENOR – Conselho Metropolitano</div>
+      <div class="doc-header-sub">Rua General Carneiro, nº 170, Centro, Montes Claros-MG · Região I – CNB/SSVP</div>
+    </div>
+  </div>
+
+  <!-- NUMBER BAR -->
+  <div class="doc-num-bar">
+    <span class="doc-num-label">Ofício Nº</span>
+    <span class="doc-num-value" contenteditable="true" role="textbox" aria-label="Número do ofício">001/2026/DENOR</span>
+  </div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+
+    <!-- METADATA -->
+    <div class="field-row">
+      <span class="field-label">Local/Data</span>
+      <span class="field-value" contenteditable="true" data-placeholder="Cidade-UF, DD de mês de AAAA">Montes Claros-MG, 14 de março de 2026.</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Para</span>
+      <span class="field-value" contenteditable="true" data-placeholder="Ilmo. Sr. / Ilma. Sra. [Nome do destinatário]">Ilmo. Sr. [Nome do Destinatário]</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Cargo</span>
+      <span class="field-value" contenteditable="true" data-placeholder="Cargo ou título do destinatário">[Cargo / Título]</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Instituição</span>
+      <span class="field-value" contenteditable="true" data-placeholder="Nome da instituição ou órgão">[Nome da Instituição]</span>
+    </div>
+
+    <!-- SUBJECT -->
+    <div class="subject-block">
+      <div class="subject-label">Assunto</div>
+      <div class="subject-text" contenteditable="true" role="textbox" aria-label="Assunto do ofício">Assunto: [Descreva o assunto principal do ofício de forma objetiva]</div>
+    </div>
+
+    <div class="salutation" contenteditable="true">Prezado(a) Senhor(a),</div>
+
+    <p class="para" contenteditable="true" data-placeholder="Escreva o primeiro parágrafo aqui...">
+      O <strong>Departamento Nacional de Normatização e Orientação de Obras Unidas – DENOR</strong>, órgão do Conselho Metropolitano de Montes Claros – CMMOC, integrante da Região I do Conselho Nacional do Brasil – CNB da Sociedade de São Vicente de Paulo – SSVP, vem, por meio deste, [descrever o objetivo principal do comunicado ou solicitação].
+    </p>
+
+    <p class="para" contenteditable="true" data-placeholder="Escreva o segundo parágrafo aqui...">
+      Cumpre-nos informar que [inserir informações relevantes, contexto ou justificativa da solicitação]. As atividades desenvolvidas por nossas Obras Unidas atendem diretamente à missão vicentina de servir ao próximo com caridade, União e fraternidade, beneficiando [descrever o público-alvo e impacto].
+    </p>
+
+    <p class="para" contenteditable="true" data-placeholder="Escreva o terceiro parágrafo aqui...">
+      Diante do exposto, solicitamos [descrição da solicitação ou providência esperada], ficando à disposição para quaisquer esclarecimentos que se façam necessários, por meio dos contatos informados no rodapé deste documento.
+    </p>
+
+    <p class="closing" contenteditable="true">Atenciosamente,</p>
+
+    <!-- SIGNATURES -->
+    <div class="sig-area">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name" contenteditable="true" role="textbox" aria-label="Nome do signatário">Cfd. Dênis Higino</div>
+        <div class="sig-role" contenteditable="true" role="textbox" aria-label="Cargo do signatário">Coordenador do DENOR / CMMOC</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name" contenteditable="true" role="textbox" aria-label="Nome do segundo signatário">Csc. Dalvina Ribeiro Miranda</div>
+        <div class="sig-role" contenteditable="true" role="textbox" aria-label="Cargo do segundo signatário">Presidente do CMMOC – SSVP</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+      <span>Rua General Carneiro, nº 170 · Centro · Montes Claros-MG · CEP 39400-000</span>
+      <span>denor.cmmoc@ssvp.org.br</span>
+    </div>
+
+  </div><!-- /doc-body -->
+</div><!-- /doc-wrap -->
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <span class="toolbar-hint">Clique no texto para editar</span>
+  <button class="toolbar-print" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Imprimir / PDF
+  </button>
+</div>
+
+</body>
+</html>

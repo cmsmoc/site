@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Gerador de Atas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+        :root {
+            --primary: #0056A6;
+            --primary-dark: #003d7a;
+            --accent: #D62B2B;
+            --gold: #C8991A;
+            --bg-color: #f0f4f8;
+            --surface-color: #ffffff;
+            --border-color: #dce6f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555e78;
+            --tag-bg: rgba(0, 86, 166, 0.1);
+            --tag-color: #0056A6;
+            --original-bg: rgba(200, 153, 26, 0.15);
+            --original-color: #9c750e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 86, 166, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.8);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0, 86, 166, 0.05);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px; width: 26px;
+            left: 4px; bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .template-view {
+            line-height: 1.9;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .variable {
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Inter', monospace;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .variable.show-tags {
+            background-color: var(--tag-bg);
+            color: var(--tag-color);
+            border: 1px solid rgba(0, 86, 166, 0.2);
+        }
+
+        .variable.show-original {
+            background-color: var(--original-bg);
+            color: var(--original-color);
+            border: 1px solid rgba(200, 153, 26, 0.3);
+        }
+
+        /* Form */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input, textarea {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 0.85rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 86, 166, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-secondary:hover {
+            background: rgba(0, 86, 166, 0.05);
+        }
+
+        .actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            align-items: center;
+        }
+
+        .slots-container {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            background: #f8fafc;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .slots-container span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .slot-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+        }
+
+        #output {
+            display: none;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent);
+            white-space: pre-wrap;
+            line-height: 1.8;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent);
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Assistente de Atas</h1>
+        <p>Automatização de Atas do Lar Santa Clara e Obras Unidas</p>
+    </div>
+
+    <!-- Seção de Aprendizagem do Modelo -->
+    <div class="glass-panel">
+        <h2>Aprenda o Modelo</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            Visualize como o texto original foi mapeado para as variáveis padronizadas (tags). 
+            Alterne o botão abaixo para revelar as substituições.
+        </p>
+
+        <div class="toggle-container">
+            <span style="color: var(--original-color)">Texto Original</span>
+            <label class="switch">
+                <input type="checkbox" id="modelToggle">
+                <span class="slider"></span>
+            </label>
+            <span style="color: var(--tag-color)">Ver Variáveis &lt;TAGS&gt;</span>
+        </div>
+
+        <div class="template-view" id="templateView">
+Ata da <span class="variable" data-original="Segunda" data-tag="<NUMERO_ATA>">Segunda</span> Trimestral do ano de <span class="variable" data-original="2026" data-tag="<ANO_ATA>">2026</span>, realizada pelo <span class="variable" data-original="DENOR" data-tag="<DEPARTAMENTO>">DENOR</span> – Departamento Nacional de Normatização e Orientação de Obras Unidas, órgão do Conselho Metropolitano de Montes Claros - CMMOC.
+Aos <span class="variable" data-original="14/03/2026 (sábado)" data-tag="<DATA_EXTENSO>">14/03/2026 (sábado)</span>, realizou-se a reunião Trimestral do <span class="variable" data-original="Lar Santa Clara" data-tag="<NOME_LOCAL>">Lar Santa Clara</span>, na sede <span class="variable" data-original="AMUSA Rua Saint Clair de Brito, nº 60, Bairro Vila Santa Marta, Salinas - MG" data-tag="<ENDERECO_REUNIAO>">AMUSA Rua Saint Clair de Brito, nº 60, Bairro Vila Santa Marta, Salinas - MG</span>. 
+Ano Temático: "<span class="variable" data-original="Cuidar para Servir" data-tag="<TEMA_ANO>">Cuidar para Servir</span>".
+
+A reunião teve início às <span class="variable" data-original="9h" data-tag="<HORA_INICIO>">9h</span> pelo <span class="variable" data-original="Cfd. Dênis Higino - Coordenador do Denor" data-tag="<NOME_COORDENADOR>">Cfd. Dênis Higino - Coordenador do Denor</span> que iniciou os trabalhos.
+
+Em seguida fez a chamada das Obras Unidas:
+<span class="variable" data-original="LAR DE IDOSOS SENHORA SANTANA DE BRASÍLIA DE MINAS" data-tag="<NOME_OBRA_1>">LAR DE IDOSOS SENHORA SANTANA DE BRASÍLIA DE MINAS</span>: O <span class="variable" data-original="Cfd. Cristiano" data-tag="<REPRESENTANTE_1>">Cfd. Cristiano</span> informou as notícias: Estamos com <span class="variable" data-original="36" data-tag="<QTD_IDOSOS_1>">36</span> Idosos, <span class="variable" data-original="18" data-tag="<QTD_FUNC_1>">18</span> funcionários registrados pela Obra Unida. <span class="variable" data-original="Tivemos a visita dos vicentinos da conferência Nossa Senhora Aparecida..." data-tag="<RELATO_LIVRE_1>">Tivemos a visita dos vicentinos da conferência Nossa Senhora Aparecida...</span>
+
+Encerrando com as orações finais às <span class="variable" data-original="18h30min" data-tag="<HORA_TERMINO>">18h30min</span>. E para tudo constar eu <span class="variable" data-original="Juciara Pereira Cardoso" data-tag="<NOME_SECRETARIA>">Juciara Pereira Cardoso</span>, secretaria, lavrei a presente ata que dato e assino.
+<span class="variable" data-original="Salinas-MG, 14/03/2026" data-tag="<LOCAL_DATA_ASSINATURA>">Salinas-MG, 14/03/2026</span>.
+        </div>
+    </div>
+
+    <!-- MVP do Formulário -->
+    <div class="glass-panel">
+        <h2>Gerador (MVP)</h2>
+        <form id="ataForm">
+            <h3>Cabeçalho e Informações Gerais</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nº da Ata (ex: Segunda)</label>
+                    <input type="text" id="in_NUMERO_ATA" placeholder="Segunda">
+                </div>
+                <div class="form-group">
+                    <label>Ano da Ata</label>
+                    <input type="text" id="in_ANO_ATA" placeholder="2026">
+                </div>
+                <div class="form-group">
+                    <label>Data por Extenso</label>
+                    <input type="text" id="in_DATA_EXTENSO" placeholder="14/03/2026 (sábado)">
+                </div>
+                <div class="form-group">
+                    <label>Local (ex: Lar Santa Clara)</label>
+                    <input type="text" id="in_NOME_LOCAL" placeholder="Lar Santa Clara">
+                </div>
+                <div class="form-group">
+                    <label>Endereço Reunião</label>
+                    <input type="text" id="in_ENDERECO_REUNIAO" placeholder="AMUSA Rua Saint Clair de Brito...">
+                </div>
+                <div class="form-group">
+                    <label>Coordenador Inicial</label>
+                    <input type="text" id="in_NOME_COORDENADOR" placeholder="Cfd. Dênis Higino">
+                </div>
+            </div>
+
+            <h3>Relato - Obra Unida 1 (Exemplo)</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome do Asilo/Lar</label>
+                    <input type="text" id="in_NOME_OBRA_1" placeholder="LAR DOS IDOSOS...">
+                </div>
+                <div class="form-group">
+                    <label>Representante</label>
+                    <input type="text" id="in_REPRESENTANTE_1" placeholder="Cfd. Cristiano">
+                </div>
+                <div class="form-group">
+                    <label>Qtd. Idosos</label>
+                    <input type="number" id="in_QTD_IDOSOS_1" placeholder="36">
+                </div>
+                <div class="form-group">
+                    <label>Qtd. Funcionários</label>
+                    <input type="number" id="in_QTD_FUNC_1" placeholder="18">
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label>Relato Livre (Atividades, finanças, visitas)</label>
+                <textarea id="in_RELATO_LIVRE_1" placeholder="Escreva os detalhes operacionais informados na reunião..."></textarea>
+            </div>
+
+            <div class="actions">
+                <button type="button" onclick="gerarAta()">Gerar Ata Final</button>
+                <div class="slots-container">
+                    <span>Salvar em:</span>
+                    <button type="button" class="btn-secondary slot-btn" onclick="saveSlot(1)">Slot 1</button>
+                    <button type="button" class="btn-secondary slot-btn" onclick="saveSlot(2)">Slot 2</button>
+                    <span>Carregar:</span>
+                    <button type="button" class="btn-secondary slot-btn" onclick="loadSlot(1)">Slot 1</button>
+                    <button type="button" class="btn-secondary slot-btn" onclick="loadSlot(2)">Slot 2</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="output" style="margin-top: 2rem;"></div>
+    </div>
+</div>
+
+<script>
+    // Lógica do Toggle de Aprendizado
+    const toggle = document.getElementById('modelToggle');
+    const variables = document.querySelectorAll('.variable');
+
+    function updateVariablesView() {
+        const isTags = toggle.checked;
+        variables.forEach(v => {
+            if (isTags) {
+                v.textContent = v.getAttribute('data-tag');
+                v.classList.remove('show-original');
+                v.classList.add('show-tags');
+            } else {
+                v.textContent = v.getAttribute('data-original');
+                v.classList.remove('show-tags');
+                v.classList.add('show-original');
+            }
+        });
+    }
+
+    toggle.addEventListener('change', updateVariablesView);
+    // Inicializar estado
+    updateVariablesView();
+
+    // Lógica de Geração e Local Storage
+    const templateText = \`Ata da <NUMERO_ATA> Trimestral do ano de <ANO_ATA>, realizada pelo DENOR.
+Aos <DATA_EXTENSO>, realizou-se a reunião Trimestral do <NOME_LOCAL>, na sede <ENDERECO_REUNIAO>. 
+
+A reunião teve início pelo <NOME_COORDENADOR> que iniciou os trabalhos.
+
+Em seguida fez a chamada das Obras Unidas:
+<NOME_OBRA_1>: O representante <REPRESENTANTE_1> informou as notícias: Estamos com <QTD_IDOSOS_1> Idosos, <QTD_FUNC_1> funcionários registrados pela Obra Unida. 
+Relato adicional: <RELATO_LIVRE_1>
+
+E para tudo constar eu, secretaria, lavrei a presente ata que dato e assino.\`;
+
+    const inputs = [
+        'in_NUMERO_ATA', 'in_ANO_ATA', 'in_DATA_EXTENSO', 'in_NOME_LOCAL', 
+        'in_ENDERECO_REUNIAO', 'in_NOME_COORDENADOR', 'in_NOME_OBRA_1', 
+        'in_REPRESENTANTE_1', 'in_QTD_IDOSOS_1', 'in_QTD_FUNC_1', 'in_RELATO_LIVRE_1'
+    ];
+
+    function gerarAta() {
+        let result = templateText;
+        inputs.forEach(id => {
+            const val = document.getElementById(id).value || '[NÃO PREENCHIDO]';
+            const tag = '<' + id.replace('in_', '') + '>';
+            result = result.replace(new RegExp(tag, 'g'), val);
+        });
+
+        const outDiv = document.getElementById('output');
+        outDiv.textContent = result;
+        outDiv.style.display = 'block';
+        outDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function saveSlot(slot) {
+        const data = {};
+        inputs.forEach(id => {
+            data[id] = document.getElementById(id).value;
+        });
+        localStorage.setItem('ata_slot_' + slot, JSON.stringify(data));
+        alert('Dados salvos no Slot ' + slot + '!');
+    }
+
+    function loadSlot(slot) {
+        const json = localStorage.getItem('ata_slot_' + slot);
+        if (json) {
+            const data = JSON.parse(json);
+            inputs.forEach(id => {
+                if (data[id] !== undefined) {
+                    document.getElementById(id).value = data[id];
+                }
+            });
+            alert('Slot ' + slot + ' carregado!');
+        } else {
+            alert('Slot ' + slot + ' está vazio.');
+        }
+    }
+</script>
+</body>
+</html>

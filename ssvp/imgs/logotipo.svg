@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="100%" height="100%">
+  <!-- Definições para caminhos de texto -->
+  <defs>
+    <!-- Arco superior para o nome da Sociedade (externo ao círculo) -->
+    <path id="arc-society" d="M 18,110 A 82,82 0 0,1 182,110" fill="none" />
+    
+    <!-- Arco interno superior para a sigla SSVP -->
+    <path id="arc-ssvp" d="M 58,82 A 42,42 0 0,1 142,82" fill="none" />
+    
+    <!-- Arco interno inferior para o lema 'serviens in spe' -->
+    <path id="arc-lema" d="M 46,114 A 54,54 0 0,0 154,114" fill="none" />
+  </defs>
+
+  <!-- Círculo Azul Principal da SSVP -->
+  <circle cx="100" cy="110" r="75" fill="#0056A6" />
+
+  <!-- Sigla SSVP Curvada (Vermelha com contorno Branco) -->
+  <text font-family="'Arial Black', Impact, sans-serif" font-size="19" font-weight="900" fill="#D62B2B" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round" letter-spacing="1">
+    <textPath href="#arc-ssvp" startOffset="50%" text-anchor="middle">SSVP</textPath>
+  </text>
+
+  <!-- O Peixe Estilizado (Ichthys Caligráfico da SSVP) -->
+  <!-- O traço cruza no lado direito, formando o rabo do peixe -->
+  <path d="M 40,110 C 50,92 85,92 115,103 C 130,108 145,115 158,103 C 145,95 130,100 115,107 C 85,118 50,118 40,110 Z" 
+        fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- O Olho Vermelho do Peixe (Representa a caridade e o amor) -->
+  <circle cx="56" cy="110" r="4.2" fill="#D62B2B" />
+
+  <!-- Lema 'serviens in spe' em Branco -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="10.5" font-style="italic" fill="#FFFFFF" letter-spacing="0.5">
+    <textPath href="#arc-lema" startOffset="50%" text-anchor="middle">serviens in spe</textPath>
+  </text>
+
+  <!-- Nome Externo da Sociedade em Azul -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="11.5" font-weight="bold" fill="#0056A6" letter-spacing="0.2">
+    <textPath href="#arc-society" startOffset="50%" text-anchor="middle">Sociedade de São Vicente de Paulo</textPath>
+  </text>
+
+  <!-- Palavra 'Brasil' na base (Serifada e Vermelha) -->
+  <text x="100" y="208" font-family="Georgia, 'Times New Roman', serif" font-size="19" font-weight="bold" fill="#D62B2B" text-anchor="middle" letter-spacing="0.5">Brasil</text>
+</svg>

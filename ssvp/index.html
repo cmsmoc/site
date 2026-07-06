@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Secretário - SSVP</title>
+    <!-- Importando ssvp.css -->
+    <link rel="stylesheet" href="ssvp.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+        
+        :root {
+            --primary: #0056A6;
+            --primary-dark: #003d7a;
+            --primary-light: #e6f0fa;
+            --accent: #D62B2B;
+            --gold: #C8991A;
+            --bg-color: #f0f4f8;
+            --surface: #ffffff;
+            --border: #dce6f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555e78;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            padding: 20px 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Brand Header */
+        .brand-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 86, 166, 0.2);
+            border-bottom: 4px solid var(--accent);
+        }
+        .brand-header h2 {
+            margin: 0 0 5px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .brand-header p {
+            margin: 0;
+            opacity: 0.85;
+            font-size: 14px;
+        }
+        .header-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Layout Grid */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--surface);
+            border-radius: 12px;
+            padding: 24px 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+        }
+        
+        .nav-section-title {
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 12px 10px;
+        }
+
+        .list-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .list-group-item {
+            background: transparent;
+            border: none;
+            border-radius: 8px !important;
+            padding: 12px 14px;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .list-group-item:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .list-group-item.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 86, 166, 0.2);
+        }
+        
+        .list-group-item.active .list-group-item-text {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .list-group-item-heading {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+        }
+
+        .list-group-item-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Preview Area */
+        .preview-container {
+            background-color: var(--surface);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 160px);
+            min-height: 600px;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preview-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .preview-header span {
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: #f8fafc;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        iframe {
+            flex-grow: 1;
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: #f8fafc;
+        }
+
+        .btn-external {
+            display: block;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+        .btn-external:hover {
+            background-color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .preview-container {
+                height: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <!-- Top Brand Header -->
+    <div class="brand-header">
+        <div>
+            <h2>Central de Documentação SSVP</h2>
+            <p>Painel integrado para visualização e criação de atas e relatórios.</p>
+        </div>
+        <div class="header-badge">
+            Conselho Metropolitano Montes Claros
+        </div>
+    </div>
+
+    <div class="layout-grid">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="nav-section-title">Atas & Relatórios</div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active" onclick="loadPreview('ata_ssvp.html', 'Ata SSVP Oficial (ssvp-agent)', this)">
+                    <div class="list-group-item-heading">✨ Ata SSVP (ssvp-agent)</div>
+                    <div class="list-group-item-text">Versão oficial e padronizada sob as regras do ssvp-agent.</div>
+                </a>
+                <a href="#" class="list-group-item" onclick="loadPreview('ata_2026_t2.html', 'Ata Trimestral 2026/T2 (Salinas)', this)">
+                    <div class="list-group-item-heading">📅 Ata Trimestral T2 (Salinas)</div>
+                    <div class="list-group-item-text">Ata do 2º trimestre de 2026 realizada em Salinas-MG, com a nova logo.</div>
+                </a>
+                <a href="#" class="list-group-item" onclick="loadPreview('ata_v4.html', 'Ata Completa V4 — Identidade SSVP', this)">
+                    <div class="list-group-item-heading">⭐ Ata Completa V4</div>
+                    <div class="list-group-item-text">Versão com cards por Lar e dados consolidados.</div>
+                </a>
+                <a href="#" class="list-group-item" onclick="loadPreview('ata_v3.html', 'Ata Trimestral V3 (ssvp.css)', this)">
+                    <div class="list-group-item-heading">📄 Ata Trimestral V3</div>
+                    <div class="list-group-item-text">Visualização clássica e limpa formatada com ssvp.css.</div>
+                </a>
+            </div>
+            
+            <div class="nav-section-title">Documentos Oficiais</div>
+            <div class="list-group">
+                <a href="#" class="list-group-item" onclick="loadPreview('oficio.html', 'Modelo de Ofício Timbrado — SSVP', this)">
+                    <div class="list-group-item-heading">✉️ Ofício Timbrado</div>
+                    <div class="list-group-item-text">Modelo oficial de ofício em papel timbrado com a logo transparente.</div>
+                </a>
+                <a href="#" class="list-group-item" onclick="loadPreview('convite.html', 'Modelo de Convite Oficial — SSVP', this)">
+                    <div class="list-group-item-heading">🎫 Convite Oficial</div>
+                    <div class="list-group-item-text">Layout de convite para reuniões plenárias e solenidades.</div>
+                </a>
+                <a href="#" class="list-group-item" onclick="loadPreview('relatorio_visual_ata.html', 'Relatório Visual - Pôster', this)">
+                    <div class="list-group-item-heading">🎨 Relatório Pôster (V2)</div>
+                    <div class="list-group-item-text">Estilo pôster visual premium seguindo o SSVP-DESIGNER.</div>
+                </a>
+            </div>
+
+            <div class="nav-section-title">Utilitários & Design</div>
+            <div class="list-group">
+                <a href="#" class="list-group-item" onclick="loadPreview('gerador_atas.html', 'Assistente Gerador de Atas', this)">
+                    <div class="list-group-item-heading">⚙️ Assistente / Gerador</div>
+                    <div class="list-group-item-text">Ferramenta com formulário e gravação em Local Storage.</div>
+                </a>
+                <a href="#" class="list-group-item" onclick="loadPreview('imgs/logotipo.svg', 'Logotipo Vetorial (SVG Teste)', this)">
+                    <div class="list-group-item-heading">📐 Logotipo Vetorial (SVG)</div>
+                    <div class="list-group-item-text">Versão vetorial de testes em código nativo.</div>
+                </a>
+            </div>
+            
+            <div style="border-top: 1px solid var(--border); padding-top: 16px; margin-top: 16px;">
+                <div class="nav-section-title" style="margin-left:0;">Ações Rápidas</div>
+                <a id="btnExternal" href="ata_ssvp.html" target="_blank" class="btn-external">Abrir em Nova Aba ↗</a>
+            </div>
+        </div>
+
+        <!-- Preview Area -->
+        <div class="preview-container">
+            <div class="preview-header">
+                <h3 id="previewTitle">Ata SSVP Oficial (ssvp-agent)</h3>
+                <span id="fileStatus">Visualizando arquivo local</span>
+            </div>
+            <iframe id="previewFrame" src="ata_ssvp.html"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadPreview(url, title, element) {
+        // Atualizar Iframe e Título
+        document.getElementById('previewFrame').src = url;
+        document.getElementById('previewTitle').textContent = title;
+        document.getElementById('btnExternal').href = url;
+
+        // Atualizar classe ativa na lista lateral
+        const items = document.querySelectorAll('.list-group-item');
+        items.forEach(item => item.classList.remove('active'));
+        element.classList.add('active');
+    }
+</script>
+</body>
+</html>
