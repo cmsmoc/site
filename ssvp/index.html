@@ -2,318 +2,434 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Secretário - SSVP</title>
-    <!-- Importando ssvp.css -->
-    <link rel="stylesheet" href="ssvp.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0056A6">
+    <title>Central SSVP</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/ssvp/imgs/logotipo.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Intro.js for Onboarding -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
-        
         :root {
             --primary: #0056A6;
             --primary-dark: #003d7a;
-            --primary-light: #e6f0fa;
             --accent: #D62B2B;
             --gold: #C8991A;
-            --bg-color: #f0f4f8;
+            --bg: #f8fafc;
             --surface: #ffffff;
-            --border: #dce6f5;
-            --text-primary: #1a1a2e;
-            --text-secondary: #555e78;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --nav-height: 65px;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-color);
-            padding: 20px 0;
             font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
+            background-color: var(--bg);
+            color: var(--text-main);
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: var(--nav-height);
         }
 
-        /* Dashboard Container */
-        .dashboard-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Brand Header */
-        .brand-header {
+        /* App Header */
+        .app-header {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: white;
-            padding: 20px 30px;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0, 86, 166, 0.2);
+            padding: 20px 24px;
             border-bottom: 4px solid var(--accent);
-        }
-        .brand-header h2 {
-            margin: 0 0 5px 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        .brand-header p {
-            margin: 0;
-            opacity: 0.85;
-            font-size: 14px;
-        }
-        .header-badge {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(4px);
-        }
-
-        /* Layout Grid */
-        .layout-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 24px;
-            align-items: start;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            background-color: var(--surface);
-            border-radius: 12px;
-            padding: 24px 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--border);
-        }
-        
-        .nav-section-title {
-            color: var(--primary);
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0 0 12px 10px;
-        }
-
-        .list-group {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 24px;
-        }
-
-        .list-group-item {
-            background: transparent;
-            border: none;
-            border-radius: 8px !important;
-            padding: 12px 14px;
-            color: var(--text-primary);
-            transition: all 0.2s;
-            text-decoration: none;
-            display: block;
-        }
-
-        .list-group-item:hover {
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-
-        .list-group-item.active {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 12px rgba(0, 86, 166, 0.2);
-        }
-        
-        .list-group-item.active .list-group-item-text {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .list-group-item-heading {
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0 0 4px 0;
-        }
-
-        .list-group-item-text {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        /* Preview Area */
-        .preview-container {
-            background-color: var(--surface);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            height: calc(100vh - 160px);
-            min-height: 600px;
-        }
-
-        .preview-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-bottom: 16px;
-            margin-bottom: 16px;
-            border-bottom: 1px solid var(--border);
+            gap: 15px;
+        }
+        .app-header img { height: 40px; filter: brightness(0) invert(1); }
+        .app-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin: 0;
+        }
+        .app-header p {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 2px;
         }
 
-        .preview-header h3 {
-            margin: 0;
+        /* Views */
+        .view-section {
+            display: none;
+            padding: 24px;
+            animation: fadeIn 0.3s ease;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .view-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Typography */
+        .section-title {
             font-size: 18px;
             font-weight: 700;
             color: var(--primary-dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-
-        .preview-header span {
-            font-size: 12px;
-            color: var(--text-secondary);
-            background: #f8fafc;
-            padding: 4px 10px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-        }
-
-        iframe {
-            flex-grow: 1;
-            width: 100%;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background-color: #f8fafc;
-        }
-
-        .btn-external {
+        .section-title::before {
+            content: '';
             display: block;
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s;
-            margin-top: 10px;
-        }
-        .btn-external:hover {
-            background-color: var(--primary-dark);
-            text-decoration: none;
+            width: 4px;
+            height: 18px;
+            background: var(--gold);
+            border-radius: 2px;
         }
 
-        @media (max-width: 900px) {
-            .layout-grid {
-                grid-template-columns: 1fr;
-            }
-            .preview-container {
-                height: 800px;
-            }
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
         }
+        .doc-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .doc-card:active { transform: scale(0.98); }
+        .doc-card-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 20px;
+            align-self: flex-start;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-b { background: #64748b; }
+        .doc-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .doc-card p { font-size: 13px; color: var(--text-muted); line-height: 1.4; flex-grow: 1; }
+        .doc-card-footer {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Assistant Form */
+        .assistant-box {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--primary-dark);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.2s;
+            background: #f8fafc;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,86,166,0.1);
+        }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            gap: 8px;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:active { background: var(--primary-dark); transform: scale(0.98); }
+        .btn-success { background: #10b981; color: white; margin-top: 10px; }
+        
+        /* Bottom Nav */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            gap: 4px;
+            flex: 1;
+            height: 100%;
+            transition: color 0.2s;
+        }
+        .nav-item.active { color: var(--primary); }
+        .nav-item svg { width: 24px; height: 24px; stroke-width: 2; fill: none; stroke: currentColor; }
+        .nav-item.active svg { fill: rgba(0,86,166,0.1); }
+
     </style>
 </head>
 <body>
 
-<div class="dashboard-container">
-    <!-- Top Brand Header -->
-    <div class="brand-header">
+    <!-- Header -->
+    <header class="app-header" id="step-header">
+        <img src="/ssvp/imgs/logotipo.png" alt="SSVP Logo">
         <div>
-            <h2>Central de Documentação SSVP</h2>
-            <p>Painel integrado para visualização e criação de atas e relatórios.</p>
+            <h1>Central SSVP</h1>
+            <p>DENOR / CMMOC</p>
         </div>
-        <div class="header-badge">
-            Conselho Metropolitano Montes Claros
-        </div>
-    </div>
+    </header>
 
-    <div class="layout-grid">
-        <!-- Sidebar Navigation -->
-        <div class="sidebar">
-            <div class="nav-section-title">Atas & Relatórios</div>
-            <div class="list-group">
-                <a href="#" class="list-group-item active" onclick="loadPreview('ata_ssvp.html', 'Ata SSVP Oficial (ssvp-agent)', this)">
-                    <div class="list-group-item-heading">✨ Ata SSVP (ssvp-agent)</div>
-                    <div class="list-group-item-text">Versão oficial e padronizada sob as regras do ssvp-agent.</div>
-                </a>
-                <a href="#" class="list-group-item" onclick="loadPreview('ata_2026_t2.html', 'Ata Trimestral 2026/T2 (Salinas)', this)">
-                    <div class="list-group-item-heading">📅 Ata Trimestral T2 (Salinas)</div>
-                    <div class="list-group-item-text">Ata do 2º trimestre de 2026 realizada em Salinas-MG, com a nova logo.</div>
-                </a>
-                <a href="#" class="list-group-item" onclick="loadPreview('ata_v4.html', 'Ata Completa V4 — Identidade SSVP', this)">
-                    <div class="list-group-item-heading">⭐ Ata Completa V4</div>
-                    <div class="list-group-item-text">Versão com cards por Lar e dados consolidados.</div>
-                </a>
-                <a href="#" class="list-group-item" onclick="loadPreview('ata_v3.html', 'Ata Trimestral V3 (ssvp.css)', this)">
-                    <div class="list-group-item-heading">📄 Ata Trimestral V3</div>
-                    <div class="list-group-item-text">Visualização clássica e limpa formatada com ssvp.css.</div>
-                </a>
-            </div>
+    <!-- VIEW: DOCUMENTOS -->
+    <main id="view-docs" class="view-section active">
+        
+        <h2 class="section-title">Modelos de Atas</h2>
+        <div class="card-grid" id="step-atas">
+            <a href="ata_v4.html" target="_blank" class="doc-card">
+                <span class="doc-card-badge">Versão A (Recomendada)</span>
+                <h3>Ata Completa V4</h3>
+                <p>O modelo aprovado e refinado, com cards dinâmicos para cada Lar, identidades visuais completas e layout perfeito.</p>
+                <div class="doc-card-footer">Abrir documento <span>→</span></div>
+            </a>
+
+            <a href="ata_ssvp.html" target="_blank" class="doc-card">
+                <span class="doc-card-badge badge-b">Versão B</span>
+                <h3>Ata Padrão (SSVP-Agent)</h3>
+                <p>Versão simplificada focada nas regras oficiais do ssvp-agent, formato limpo.</p>
+                <div class="doc-card-footer">Abrir documento <span>→</span></div>
+            </a>
+        </div>
+
+        <h2 class="section-title">Documentos Oficiais</h2>
+        <div class="card-grid" id="step-docs">
+            <a href="oficio.html" target="_blank" class="doc-card">
+                <span class="doc-card-badge">Timbrado</span>
+                <h3>Ofício Oficial</h3>
+                <p>Papel timbrado padrão para envio de ofícios a órgãos públicos e privados.</p>
+                <div class="doc-card-footer">Abrir documento <span>→</span></div>
+            </a>
+
+            <a href="convite.html" target="_blank" class="doc-card">
+                <span class="doc-card-badge">Especial</span>
+                <h3>Convite Formal</h3>
+                <p>Convite com fundo rico (novo design), elegante para posses e solenidades.</p>
+                <div class="doc-card-footer">Abrir documento <span>→</span></div>
+            </a>
+
+            <a href="relatorio_visual_ata.html" target="_blank" class="doc-card">
+                <span class="doc-card-badge">Visual</span>
+                <h3>Relatório Pôster</h3>
+                <p>Resumo de ata em formato de pôster executivo, visual premium e direto.</p>
+                <div class="doc-card-footer">Abrir documento <span>→</span></div>
+            </a>
+        </div>
+    </main>
+
+    <!-- VIEW: ASSISTENTE -->
+    <main id="view-assistant" class="view-section">
+        <h2 class="section-title">Assistente de Atas</h2>
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Preencha os dados básicos da reunião. O sistema salva automaticamente no seu celular e você pode baixar como texto puro para formatar depois.</p>
+        
+        <div class="assistant-box" id="step-assistant">
+            <form id="ataForm">
+                <div class="form-group" id="step-form">
+                    <label>Data da Reunião</label>
+                    <input type="date" id="ataData" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Localização (Conselho / Obra)</label>
+                    <input type="text" id="ataLocal" class="form-control" placeholder="Ex: Sede do Conselho Metropolitano">
+                </div>
+                <div class="form-group">
+                    <label>Pauta Principal</label>
+                    <input type="text" id="ataPauta" class="form-control" placeholder="Ex: Avaliação financeira trimestral">
+                </div>
+                <div class="form-group">
+                    <label>Deliberações / Anotações</label>
+                    <textarea id="ataAnotacoes" class="form-control" placeholder="Descreva os pontos discutidos de forma livre..."></textarea>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="salvarLocal()" id="step-save">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Salvar Progresso
+                </button>
+                
+                <button type="button" class="btn btn-success" onclick="baixarMarkdown()" id="step-download">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Baixar Ata (.md)
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" id="step-nav">
+        <a href="#" class="nav-item active" onclick="switchTab('docs', this)">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Início
+        </a>
+        <a href="#" class="nav-item" onclick="switchTab('assistant', this)">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Assistente
+        </a>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script>
+        // Tab Navigation
+        function switchTab(tabId, el) {
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             
-            <div class="nav-section-title">Documentos Oficiais</div>
-            <div class="list-group">
-                <a href="#" class="list-group-item" onclick="loadPreview('oficio.html', 'Modelo de Ofício Timbrado — SSVP', this)">
-                    <div class="list-group-item-heading">✉️ Ofício Timbrado</div>
-                    <div class="list-group-item-text">Modelo oficial de ofício em papel timbrado com a logo transparente.</div>
-                </a>
-                <a href="#" class="list-group-item" onclick="loadPreview('convite.html', 'Modelo de Convite Oficial — SSVP', this)">
-                    <div class="list-group-item-heading">🎫 Convite Oficial</div>
-                    <div class="list-group-item-text">Layout de convite para reuniões plenárias e solenidades.</div>
-                </a>
-                <a href="#" class="list-group-item" onclick="loadPreview('relatorio_visual_ata.html', 'Relatório Visual - Pôster', this)">
-                    <div class="list-group-item-heading">🎨 Relatório Pôster (V2)</div>
-                    <div class="list-group-item-text">Estilo pôster visual premium seguindo o SSVP-DESIGNER.</div>
-                </a>
-            </div>
+            document.getElementById('view-' + tabId).classList.add('active');
+            el.classList.add('active');
+            window.scrollTo(0,0);
+        }
 
-            <div class="nav-section-title">Utilitários & Design</div>
-            <div class="list-group">
-                <a href="#" class="list-group-item" onclick="loadPreview('gerador_atas.html', 'Assistente Gerador de Atas', this)">
-                    <div class="list-group-item-heading">⚙️ Assistente / Gerador</div>
-                    <div class="list-group-item-text">Ferramenta com formulário e gravação em Local Storage.</div>
-                </a>
-                <a href="#" class="list-group-item" onclick="loadPreview('/ssvp/imgs/logotipo.svg', 'Logotipo Vetorial (SVG Teste)', this)">
-                    <div class="list-group-item-heading">📐 Logotipo Vetorial (SVG)</div>
-                    <div class="list-group-item-text">Versão vetorial de testes em código nativo.</div>
-                </a>
-            </div>
+        // Assistant Logic (LocalStorage + Download)
+        const formIds = ['ataData', 'ataLocal', 'ataPauta', 'ataAnotacoes'];
+        
+        function carregarLocal() {
+            formIds.forEach(id => {
+                const val = localStorage.getItem('ssvp_' + id);
+                if(val) document.getElementById(id).value = val;
+            });
+        }
+        
+        function salvarLocal() {
+            formIds.forEach(id => {
+                localStorage.setItem('ssvp_' + id, document.getElementById(id).value);
+            });
             
-            <div style="border-top: 1px solid var(--border); padding-top: 16px; margin-top: 16px;">
-                <div class="nav-section-title" style="margin-left:0;">Ações Rápidas</div>
-                <a id="btnExternal" href="ata_ssvp.html" target="_blank" class="btn-external">Abrir em Nova Aba ↗</a>
-            </div>
-        </div>
+            const btn = document.getElementById('step-save');
+            const original = btn.innerHTML;
+            btn.innerHTML = '✔ Salvo!';
+            setTimeout(() => btn.innerHTML = original, 2000);
+        }
 
-        <!-- Preview Area -->
-        <div class="preview-container">
-            <div class="preview-header">
-                <h3 id="previewTitle">Ata SSVP Oficial (ssvp-agent)</h3>
-                <span id="fileStatus">Visualizando arquivo local</span>
-            </div>
-            <iframe id="previewFrame" src="ata_ssvp.html"></iframe>
-        </div>
-    </div>
-</div>
+        function baixarMarkdown() {
+            salvarLocal();
+            
+            const data = document.getElementById('ataData').value || 'Não informada';
+            const local = document.getElementById('ataLocal').value || 'Não informado';
+            const pauta = document.getElementById('ataPauta').value || 'Não informada';
+            const anotacoes = document.getElementById('ataAnotacoes').value || '';
 
-<script>
-    function loadPreview(url, title, element) {
-        // Atualizar Iframe e Título
-        document.getElementById('previewFrame').src = url;
-        document.getElementById('previewTitle').textContent = title;
-        document.getElementById('btnExternal').href = url;
+            const md = `# Ata de Reunião - SSVP\n\n**Data:** ${data}\n**Local:** ${local}\n**Pauta:** ${pauta}\n\n## Deliberações\n\n${anotacoes}\n\n---\n*Gerado pelo Assistente Central SSVP*`;
+            
+            const blob = new Blob([md], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = \`ata_ssvp_${data}.md\`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
 
-        // Atualizar classe ativa na lista lateral
-        const items = document.querySelectorAll('.list-group-item');
-        items.forEach(item => item.classList.remove('active'));
-        element.classList.add('active');
-    }
-</script>
+        // Initialize form
+        carregarLocal();
+        
+        // Auto-save typing
+        formIds.forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                localStorage.setItem('ssvp_' + id, document.getElementById(id).value);
+            });
+        });
+
+        // Onboarding logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const hasSeenTutorial = localStorage.getItem('ssvp_tutorial_v1');
+            
+            if (!hasSeenTutorial) {
+                introJs().setOptions({
+                    nextLabel: 'Próximo',
+                    prevLabel: 'Voltar',
+                    doneLabel: 'Entendi!',
+                    showBullets: true,
+                    steps: [
+                        { element: '#step-header', intro: 'Bem-vindo à Central SSVP! Este é o seu novo app direto no celular ou desktop.' },
+                        { element: '#step-atas', intro: 'Aqui ficam os modelos de Ata. A Versão A (V4) é a principal e recomendada.' },
+                        { element: '#step-docs', intro: 'Nesta seção você tem Ofícios e Convites prontos para imprimir.' },
+                        { element: '#step-nav', intro: 'Use esta barra para alternar para o Assistente.' }
+                    ]
+                }).start().oncomplete(() => {
+                    localStorage.setItem('ssvp_tutorial_v1', 'true');
+                    
+                    // Optional second tutorial for the assistant view if needed later
+                }).onexit(() => {
+                    localStorage.setItem('ssvp_tutorial_v1', 'true');
+                });
+            }
+        });
+        
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(err => console.log('SW falhou:', err));
+            });
+        }
+    </script>
 </body>
 </html>
-
-

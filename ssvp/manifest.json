@@ -1,0 +1,23 @@
+{
+  "name": "Central SSVP",
+  "short_name": "SSVP",
+  "description": "App da Central de Documentação e Atas - SSVP CMMOC",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0056A6",
+  "icons": [
+    {
+      "src": "/ssvp/imgs/logotipo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/ssvp/imgs/logotipo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
