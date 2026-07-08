@@ -1,14 +1,14 @@
 {
   "context": {
     "module_name": "site",
-    "purpose": "A ser preenchido...",
-    "tech_stack": [],
-    "design_rules": ""
+    "purpose": "Hospedagem e distribuição de arquivos e atas oficiais sob o domínio cmsmoc.com.",
+    "tech_stack": ["HTML5", "CSS3", "JS Vanilla", "PWA"],
+    "design_rules": "Caminhos de assets de subdiretórios devem usar caminhos absolutos base (ex: /ssvp/imgs/logotipo.png) para evitar quebras por roteamento. Metadados og:image de compartilhamento de link devem obrigatoriamente usar URLs absolutas qualificadas completas (https://cmsmoc.com/pasta/imgs/thumb.png) com 1200x630px e peso < 300KB."
   },
   "shared_resources": [],
   "current_status": {
     "phase": "Mapeamento inicial",
-    "last_updated": "2026-06-28",
+    "last_updated": "2026-07-07",
     "stable": true
   },
   "changelog": [
@@ -16,9 +16,14 @@
       "date": "2026-06-28",
       "agent": "Antigravity",
       "action": "Inicialização do arquivo de contexto (readme-agy.json)."
+    },
+    {
+      "date": "2026-07-07",
+      "agent": "Antigravity",
+      "action": "Adicionadas regras específicas sobre caminhos de imagens e metadados de thumbnails para redes sociais (og:image)."
     }
   ],
   "pending_tasks": [
-    "Preencher o purpose e a tech_stack deste módulo."
+    "Continuar integrando os caminhos corretos de subdiretório e absoluto de imagens nas próximas atas e relatórios."
   ]
 }

@@ -1,0 +1,14 @@
+# 🏷️ Regras de Contexto - CMSMOC (Trabalho)
+
+Este repositório (`C:\Users\55389\Documents\CMS 2026\_NovoCMS2026\site`) está associado ao repositório do GitHub `cmsmoc.github.io/site` e é servido sob o domínio principal **`https://cmsmoc.com`**.
+
+## 🌐 Mapeamento de Domínio e URLs
+1. **Domínio Principal**: `https://cmsmoc.com` (reflete a raiz deste repositório `/`).
+2. **Subdiretórios**: Projetos ou seções internas (ex: `/ssvp`) são acessados como `https://cmsmoc.com/ssvp/` (cada subpasta deve conter seu próprio `index.html` autônomo).
+
+## 🖼️ Resolução de Caminhos (Assets e Imagens)
+* **Assets Gerais (HTML/CSS)**: Evite caminhos flutuantes como `src="imgs/logo.png"`. Para evitar quebras causadas por roteamento do navegador ou caminhos limpos (sem barra final `/`), use o caminho absoluto com o subdiretório do projeto (ex: `src="/ssvp/imgs/logo.png"`) ou garanta que os links sejam estritamente estruturados relativos ao ponto de entrada.
+* **Thumbnails de Compartilhamento (og:image / Capas)**:
+  - **Obrigatoriamente Absoluto**: O link do Open Graph no `<head>` para a thumbnail de compartilhamento deve conter a URL completa e qualificada: `https://cmsmoc.com/pasta/imgs/thumb.png` (WhatsApp/Telegram exigem a URL inteira com protocolo).
+  - **Dimensões & Peso**: Imagem padrão de **1200x630px**, otimizada para web (tamanho inferior a 300KB) para que apareça com destaque no envio de links.
+  - **Sempre que possível**, insira tags de capa de metadados (`og:image`, `twitter:image`) em todo novo documento HTML gerado.
