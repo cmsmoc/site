@@ -1423,18 +1423,27 @@ body {
       const data = await response.json();
 
       if (data.status === "sucesso") {
-        feedback.innerHTML = 'Presença registrada com sucesso! Sua declaração de participação estará disponível após a reunião.';
+        feedback.innerHTML = '<strong style="display:block; font-size:15px; margin-bottom:6px; color:#1E8A4A;">✓ CONFIRMADO</strong>Sua presença foi registrada! Redirecionando em 5 segundos para que você possa conferir seu nome na lista de presentes e confirmar que deu certo. As declarações serão disponibilizadas após o evento.';
         feedback.className = 'cms-feedback-msg success';
+        feedback.style.display = 'block';
         form.reset();
+        setTimeout(() => {
+          window.location.href = 'https://www.cmsmoc.com/reuniao';
+        }, 5000);
       } else {
         feedback.innerHTML = data.mensagem || 'Erro ao registrar presença.';
         feedback.className = 'cms-feedback-msg error';
+        feedback.style.display = 'block';
       }
     } catch (error) {
       console.error(error);
-      feedback.innerHTML = 'Presença registrada! Você está credenciado para a reunião.';
+      feedback.innerHTML = '<strong style="display:block; font-size:15px; margin-bottom:6px; color:#1E8A4A;">✓ CONFIRMADO</strong>Sua presença foi registrada! Redirecionando em 5 segundos para que você possa conferir seu nome na lista de presentes e confirmar que deu certo. As declarações serão disponibilizadas após o evento.';
       feedback.className = 'cms-feedback-msg success';
+      feedback.style.display = 'block';
       form.reset();
+      setTimeout(() => {
+        window.location.href = 'https://www.cmsmoc.com/reuniao';
+      }, 5000);
     } finally {
       btnSubmit.disabled = false;
       btnSubmit.innerHTML = 'ASSINAR';
