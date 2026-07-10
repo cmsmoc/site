@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteção de Tela 2.0 - Controle Social - CMS Montes Claros</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cms-navy: #0D2E5A;
+            --cms-navy-dark: #071933;
+            --cms-blue: #1B6CB5;
+            --cms-green: #1E8A4A;
+            --cms-yellow: #F5C400;
+            --cms-white: #FFFFFF;
+            --cms-off: #F7F8FA;
+            --cms-ink: #111827;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: radial-gradient(circle at 50% 50%, var(--cms-navy), var(--cms-navy-dark));
+            background-size: 200% 200%;
+            animation: bgBreath 20s ease-in-out infinite alternate;
+            color: var(--cms-white);
+            font-family: 'Open Sans', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @keyframes bgBreath {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* HEADER */
+        .cms-header {
+            position: absolute;
+            top: 4vh;
+            left: 4vw;
+            right: 4vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .cms-header img {
+            height: auto;
+            max-height: 50px;
+            opacity: 0.8;
+        }
+
+        /* BG WATERMARK */
+        .cms-bg-logo {
+            position: absolute;
+            right: -5vw;
+            bottom: -5vw;
+            width: 50vw;
+            opacity: 0.02;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* TRANSITION OVERLAY */
+        .transition-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .stripe {
+            flex: 1;
+            background: var(--cms-yellow);
+            transform: scaleX(0);
+            transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+        .stripe:nth-child(odd) { transform-origin: left; }
+        .stripe:nth-child(even) { transform-origin: right; }
+
+        .transition-overlay.in .stripe { transform: scaleX(1); }
+        .transition-overlay.out .stripe:nth-child(odd) { transform-origin: right; transform: scaleX(0); }
+        .transition-overlay.out .stripe:nth-child(even) { transform-origin: left; transform: scaleX(0); }
+        
+        .stripe:nth-child(1) { transition-delay: 0.0s; }
+        .stripe:nth-child(2) { transition-delay: 0.1s; }
+        .stripe:nth-child(3) { transition-delay: 0.2s; }
+        .stripe:nth-child(4) { transition-delay: 0.3s; }
+        .stripe:nth-child(5) { transition-delay: 0.4s; }
+
+        /* SLIDES CONTAINER */
+        .slides-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            opacity: 0;
+            visibility: hidden;
+            padding: 10vw 6vw 10vw 8vw;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* TYPOGRAPHY & ZOOM OUT EFFECT */
+        .huge-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 5.5vw, 6.5rem);
+            text-transform: uppercase;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 2rem;
+            transform-origin: center left;
+        }
+        .huge-title span { color: var(--cms-yellow); }
+        .huge-title.blue span { color: var(--cms-blue); }
+        .huge-title.green span { color: var(--cms-green); }
+        
+        .slide.active .huge-title {
+            animation: zoomOutText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+        .layout-center .huge-title { transform-origin: center center; }
+        .layout-right .huge-title { transform-origin: center right; }
+
+        @keyframes zoomOutText {
+            0% { transform: scale(1.5); opacity: 0; filter: blur(10px); }
+            100% { transform: scale(1); opacity: 1; filter: blur(0); }
+        }
+
+        .subtitle {
+            font-size: clamp(1.5rem, 2.5vw, 3rem);
+            font-weight: 400;
+            color: var(--cms-off);
+            max-width: 85%;
+            line-height: 1.4;
+            opacity: 0;
+        }
+        .subtitle strong {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--cms-white);
+            font-weight: 700;
+        }
+
+        .slide.active .subtitle {
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 0.6s;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ICONS & BADGES */
+        .icon-wrapper { margin-bottom: 1.5rem; color: var(--cms-yellow); opacity: 0; }
+        .icon-wrapper svg { width: 100px; height: 100px; }
+        .slide.active .icon-wrapper { animation: fadeUp 1s ease forwards; animation-delay: 0.4s; }
+        
+        .huge-icon {
+            font-size: clamp(10rem, 20vw, 25rem);
+            line-height: 1;
+            opacity: 0;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+        }
+        .slide.active .huge-icon {
+            animation: floatIcon 6s ease-in-out infinite, fadeUp 1s ease forwards;
+            animation-delay: 0s, 0.5s;
+        }
+
+        @keyframes floatIcon {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* LAYOUT VARIATIONS */
+        .layout-center {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .layout-center .subtitle { margin: 0 auto; text-align: center; }
+        
+        .layout-left {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            width: 100%;
+            gap: 4vw;
+        }
+        .layout-left .text-col { flex: 1; }
+        .layout-left .media-col { display: flex; justify-content: center; align-items: center; flex: 0.8; }
+        
+        .layout-right {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            text-align: right;
+            width: 100%;
+            gap: 4vw;
+        }
+        .layout-right .text-col { flex: 1; display:flex; flex-direction:column; align-items:flex-end; }
+        .layout-right .media-col { display: flex; justify-content: center; align-items: center; flex: 0.8; }
+
+        /* TICKER */
+        .cms-ticker-wrap {
+            width: 100%;
+            background-color: var(--cms-yellow);
+            padding: 1.2rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 50;
+        }
+        .cms-ticker {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--cms-ink);
+            animation: ticker 40s linear infinite;
+        }
+        .cms-ticker span { margin: 0 2vw; color: var(--cms-navy); }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* PROGRESS BAR */
+        .progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(255,255,255,0.1); z-index: 100; }
+        .progress-fill { height: 100%; background: var(--cms-yellow); width: 0%; transition: width linear; }
+
+        /* FINAL LOGO SLIDE */
+        .final-logo {
+            width: 40vw;
+            max-width: 600px;
+            opacity: 0;
+        }
+        .slide.active .final-logo {
+            animation: pulseLogo 3s ease-in-out infinite;
+            opacity: 1;
+        }
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(255,255,255,0.1)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(255,255,255,0.3)); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- TRANSITION OVERLAY -->
+    <div class="transition-overlay" id="transitionOverlay">
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+    </div>
+
+    <div class="progress-bar-container"><div class="progress-fill" id="progress"></div></div>
+    
+    <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logline.png" alt="" class="cms-bg-logo">
+
+    <header class="cms-header">
+        <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png" alt="CMS Montes Claros">
+        <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva">
+    </header>
+
+    <!-- SLIDES -->
+    <div class="slides-container">
+        
+        <!-- SLIDE 1: A FORÇA DA CIDADANIA -->
+        <div class="slide layout-left" id="slide-1">
+            <div class="text-col">
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+                </div>
+                <h1 class="huge-title">CONTROLE SOCIAL<br><span>A FORÇA DA<br>CIDADANIA</span></h1>
+                <p class="subtitle">O CMS Montes Claros é a <strong>ponte ativa</strong> entre a população e o Sistema Único de Saúde.</p>
+            </div>
+            <div class="media-col">
+                <div class="huge-icon">🤝</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: SUA VOZ TEM LEI -->
+        <div class="slide layout-right" id="slide-2">
+            <div class="text-col">
+                <h1 class="huge-title blue">VOCÊ SABIA?<br><span>SUA VOZ<br>TEM LEI</span></h1>
+                <p class="subtitle" style="text-align:right;">A <strong>Lei 8.142</strong> garante a participação da comunidade na gestão da saúde pública. Fiscalizar é um direito seu!</p>
+            </div>
+            <div class="media-col">
+                <div class="huge-icon" style="text-shadow: 0 0 50px rgba(27, 108, 181, 0.8);">⚖️</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: O TRIPÉ -->
+        <div class="slide layout-center" id="slide-3">
+            <div class="icon-wrapper" style="margin-bottom: 2rem;">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.829 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.487 1.508 1.333 1.508 2.316V18" /></svg>
+            </div>
+            <h1 class="huge-title green">FISCALIZAR<br>AVALIAR<br><span>PROPOR</span></h1>
+            <p class="subtitle" style="max-width: 100%;">O papel do conselheiro é <strong>fundamental</strong> para construir um SUS cada vez mais forte, eficiente e acolhedor.</p>
+        </div>
+
+        <!-- SLIDE 4: TRANSPARÊNCIA -->
+        <div class="slide layout-left" id="slide-4">
+            <div class="text-col">
+                <h1 class="huge-title">TRANSPARÊNCIA<br><span>E CONSTRUÇÃO<br>CONJUNTA</span></h1>
+                <p class="subtitle">Acompanhe nossas plenárias e deliberações. <strong>Juntos</strong> fazemos mais pela saúde de Montes Claros.</p>
+            </div>
+            <div class="media-col">
+                <div class="huge-icon">👁️</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 5: O SUS QUE DÁ CERTO -->
+        <div class="slide layout-right" id="slide-5">
+            <div class="text-col">
+                <h1 class="huge-title blue">O SUS<br><span>QUE DÁ CERTO</span><br>TEM A SUA VOZ</h1>
+                <p class="subtitle" style="text-align:right;">Seja atuante. Participe das decisões que impactam a sua vida e a de milhares de cidadãos.</p>
+            </div>
+            <div class="media-col">
+                <div class="huge-icon" style="text-shadow: 0 0 50px rgba(245, 196, 0, 0.8);">📢</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: FINAL LOGO TRANSITION -->
+        <div class="slide layout-center" id="slide-6">
+            <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logowh.png" alt="CMS Logo" class="final-logo">
+        </div>
+
+    </div>
+
+    <!-- TICKER -->
+    <div class="cms-ticker-wrap">
+        <div class="cms-ticker">
+            CONSELHO MUNICIPAL DE SAÚDE <span>•</span> MONTES CLAROS <span>•</span> CONTROLE SOCIAL ATIVO <span>•</span> O SUS QUE DÁ CERTO TEM A SUA VOZ <span>•</span> CONSELHO MUNICIPAL DE SAÚDE <span>•</span> MONTES CLAROS <span>•</span> CONTROLE SOCIAL ATIVO <span>•</span> O SUS QUE DÁ CERTO TEM A SUA VOZ <span>•</span>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progress');
+        const transitionOverlay = document.getElementById('transitionOverlay');
+        let currentSlide = -1;
+        let isTransitioning = false;
+        
+        const TIME_PER_SLIDE = 120000; // 2 minutes (120000ms) reading time for these specific info slides
+        let slideTimer;
+
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
+        async function goToSlide(index) {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            try {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+
+                clearInterval(slideTimer);
+                progressBar.style.transition = 'none';
+                progressBar.style.width = '0%';
+
+                // 1. ANIMATE OVERLAY IN
+                if (currentSlide !== -1) {
+                    transitionOverlay.classList.remove('out');
+                    transitionOverlay.classList.add('in');
+                    await delay(1200); 
+                }
+
+                // 2. SWAP SLIDES
+                slides.forEach(s => s.classList.remove('active'));
+                currentSlide = index;
+                const activeSlide = slides[currentSlide];
+                activeSlide.classList.add('active');
+
+                // 3. ANIMATE OVERLAY OUT
+                if (currentSlide !== -1) {
+                    transitionOverlay.classList.remove('in');
+                    transitionOverlay.classList.add('out');
+                    await delay(100);
+                }
+
+                // Determine time for this slide
+                let timeForThisSlide = TIME_PER_SLIDE;
+                if (currentSlide === (slides.length - 1)) timeForThisSlide = 8000; // 8s for logo loop
+
+                // 4. RESTART TIMER
+                setTimeout(() => {
+                    progressBar.style.transition = `width ${timeForThisSlide}ms linear`;
+                    progressBar.style.width = '100%';
+                }, 50);
+                
+                slideTimer = setInterval(nextSlide, timeForThisSlide);
+            } finally {
+                isTransitioning = false;
+            }
+        }
+
+        function nextSlide() { goToSlide(currentSlide + 1); }
+        function prevSlide() { goToSlide(currentSlide - 1); }
+
+        document.addEventListener('keydown', async (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        window.onload = () => goToSlide(0);
+
+    </script>
+</body>
+</html>
