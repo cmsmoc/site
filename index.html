@@ -1023,6 +1023,92 @@ body {
   gap: 6px;
   margin-top: 8px;
 }
+
+/* ==========================================
+   DROPDOWN PREMIUM - DOCUMENTOS OFICIAIS
+   ========================================== */
+.cms-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.cms-dropdown-btn {
+  background: none;
+  border: none;
+  color: var(--cms-navy);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.cms-dropdown-btn:hover {
+  background: var(--cms-off);
+  color: var(--cms-blue);
+}
+
+.cms-dropdown-arrow {
+  font-size: 8px;
+  transition: transform 0.2s ease;
+}
+
+.cms-dropdown:hover .cms-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.cms-dropdown-content {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background-color: var(--cms-white);
+  min-width: 320px;
+  box-shadow: 0 15px 35px rgba(13, 46, 90, 0.15);
+  border: 1px solid var(--cms-border);
+  border-radius: var(--radius-md);
+  z-index: 1000;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cms-dropdown:hover .cms-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.cms-dropdown-item {
+  color: var(--cms-ink);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 11px;
+  font-family: var(--font-body);
+  text-align: left;
+  border-bottom: 1px solid var(--cms-off);
+  transition: background 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+}
+
+.cms-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.cms-dropdown-item:hover {
+  background-color: var(--cms-off);
+  color: var(--cms-blue);
+}
 </style>
 </head>
 <body>
@@ -1060,32 +1146,42 @@ body {
   <div class="cms-wrap cms-quick-links-inner">
     <span class="cms-quick-links-label">Acesso Rápido:</span>
     
-    <div class="cms-quick-link-group">
-      <span class="cms-quick-link-group-title">Deliberações:</span>
-      <a href="deliberacoes/DELIBERAÇÃO 1 2026 CMSMOC-  3º Relatório Detalhado do Quadrimestre Anterior 2025.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">01</a>
-      <a href="deliberacoes/DELIBERAÇÃO 2 2026 CMSMOC-  Programação Anual de Saúde PAS 2026.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">02</a>
-      <a href="deliberacoes/DELIBERAÇÃO 3 2026 CMSMOC-  Planos de Trabalho Emendas Parlamentares.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">03</a>
-      <a href="deliberacoes/DELIBERAÇÃO 4 2026 CMSMOC-  1º Relatório Detalhado do Quadrimestre Anterior 2026.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">04</a>
-      <a href="deliberacoes/DELIBERAÇÃO 5 2026 CMSMOC-  Protocolo Municipal de Oxigenoterapia.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">05</a>
-      <a href="deliberacoes/DELIBERAÇÃO 6 2026 CMSMOC- Protocolo de Estratificação de Risco em Saúde Mental.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">06</a>
-      <a href="deliberacoes/DELIBERAÇÃO 7 2026 CMSMOC-  Fluxograma da Rede de Atenção Psicossocial RAPS.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">07</a>
-      <a href="deliberacoes/DELIBERAÇÃO 8 2026 CMSMOC-  Saúde Mental em movimento.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">08</a>
-      <a href="deliberacoes/DELIBERAÇÃO 9 2026 CMSMOC-  Indicadores.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">09</a>
-      <a href="deliberacoes/DELIBERAÇÃO 10 2026 CMSMOC-  Planos de Trabalho e Recursos de Emendas Parlamentares.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">10</a>
+    <!-- Dropdown Deliberações -->
+    <div class="cms-dropdown">
+      <button class="cms-dropdown-btn">
+        Deliberações <span class="cms-dropdown-arrow">▼</span>
+      </button>
+      <div class="cms-dropdown-content">
+        <a href="deliberacoes/DELIBERAÇÃO 1 2026 CMSMOC-  3º Relatório Detalhado do Quadrimestre Anterior 2025.pdf" target="_blank" class="cms-dropdown-item">Deliberação 01 - 3º RDQA 2025</a>
+        <a href="deliberacoes/DELIBERAÇÃO 2 2026 CMSMOC-  Programação Anual de Saúde PAS 2026.pdf" target="_blank" class="cms-dropdown-item">Deliberação 02 - PAS 2026</a>
+        <a href="deliberacoes/DELIBERAÇÃO 3 2026 CMSMOC-  Planos de Trabalho Emendas Parlamentares.pdf" target="_blank" class="cms-dropdown-item">Deliberação 03 - Planos Emendas</a>
+        <a href="deliberacoes/DELIBERAÇÃO 4 2026 CMSMOC-  1º Relatório Detalhado do Quadrimestre Anterior 2026.pdf" target="_blank" class="cms-dropdown-item">Deliberação 04 - 1º RDQA 2026</a>
+        <a href="deliberacoes/DELIBERAÇÃO 5 2026 CMSMOC-  Protocolo Municipal de Oxigenoterapia.pdf" target="_blank" class="cms-dropdown-item">Deliberação 05 - Oxigenoterapia</a>
+        <a href="deliberacoes/DELIBERAÇÃO 6 2026 CMSMOC- Protocolo de Estratificação de Risco em Saúde Mental.pdf" target="_blank" class="cms-dropdown-item">Deliberação 06 - Risco Saúde Mental</a>
+        <a href="deliberacoes/DELIBERAÇÃO 7 2026 CMSMOC-  Fluxograma da Rede de Atenção Psicossocial RAPS.pdf" target="_blank" class="cms-dropdown-item">Deliberação 07 - RAPS</a>
+        <a href="deliberacoes/DELIBERAÇÃO 8 2026 CMSMOC-  Saúde Mental em movimento.pdf" target="_blank" class="cms-dropdown-item">Deliberação 08 - Saúde Mental Movimento</a>
+        <a href="deliberacoes/DELIBERAÇÃO 9 2026 CMSMOC-  Indicadores.pdf" target="_blank" class="cms-dropdown-item">Deliberação 09 - Indicadores</a>
+        <a href="deliberacoes/DELIBERAÇÃO 10 2026 CMSMOC-  Planos de Trabalho e Recursos de Emendas Parlamentares.pdf" target="_blank" class="cms-dropdown-item">Deliberação 10 - Emendas Prestadores</a>
+      </div>
     </div>
 
     <span style="color: var(--cms-border); margin: 0 4px;">|</span>
 
-    <div class="cms-quick-link-group">
-      <span class="cms-quick-link-group-title">Resoluções:</span>
-      <a href="https://drive.google.com/file/d/1ywCClmASWS-ZFuMRH84r6NSUMOO-JYBa/view" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">01</a>
-      <a href="resolucoes/RESOLUÇÃO 2 2026 CMSMOC-  Composição da Diretoria Executiva.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">02</a>
-      <a href="resolucoes/RESOLUÇÃO 3 2026 CMSMOC-  Regulamentação dos Conselhos Locais de Saúde.pdf" target="_blank" class="cms-quick-link-item" style="font-size: 11px;">03</a>
+    <!-- Dropdown Resoluções -->
+    <div class="cms-dropdown">
+      <button class="cms-dropdown-btn">
+        Resoluções <span class="cms-dropdown-arrow">▼</span>
+      </button>
+      <div class="cms-dropdown-content">
+        <a href="https://drive.google.com/file/d/1ywCClmASWS-ZFuMRH84r6NSUMOO-JYBa/view" target="_blank" class="cms-dropdown-item">Resolução 01 (Drive)</a>
+        <a href="resolucoes/RESOLUÇÃO 2 2026 CMSMOC-  Composição da Diretoria Executiva.pdf" target="_blank" class="cms-dropdown-item">Resolução 02 - Diretoria Executiva</a>
+        <a href="resolucoes/RESOLUÇÃO 3 2026 CMSMOC-  Regulamentação dos Conselhos Locais de Saúde.pdf" target="_blank" class="cms-dropdown-item">Resolução 03 - Regula Conselhos Locais (CLS)</a>
+      </div>
     </div>
 
     <span style="color: var(--cms-border); margin: 0 4px;">|</span>
 
-    <a href="https://app.cmsmoc.com/" target="_blank" class="cms-quick-link-item" style="color: var(--cms-navy);">Documentos Oficiais</a>
+    <a href="https://app.cmsmoc.com/" target="_blank" class="cms-quick-link-item" style="color: var(--cms-navy); font-weight: 700;">Documentos Oficiais</a>
   </div>
 </div>
 
