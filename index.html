@@ -721,26 +721,28 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--cms-navy);
-  color: var(--cms-white);
+  background: var(--cms-yellow);
+  color: var(--cms-navy);
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 12px;
+  font-weight: 900;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 14px 20px;
-  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   width: 100%;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(13, 46, 90, 0.15);
+  box-shadow: 0 4px 12px rgba(245, 196, 0, 0.35);
+  border: 2px solid var(--cms-yellow);
 }
 
 .cms-btn-conselheiro-link:hover {
-  background: var(--cms-yellow);
-  color: var(--cms-navy);
-  box-shadow: 0 6px 15px rgba(245, 196, 0, 0.25);
-  transform: translateY(-1px);
+  background: var(--cms-navy);
+  color: var(--cms-white);
+  border-color: var(--cms-navy);
+  box-shadow: 0 6px 18px rgba(13, 46, 90, 0.3);
+  transform: translateY(-2px);
 }
 
 .cms-btn-conselheiro-link span {
@@ -1216,7 +1218,7 @@ body {
 
       <!-- Box de Visitante (Cadastro) -->
       <div class="cms-visitante-box">
-        <h3 class="cms-box-title">Presença de Visitantes / Público</h3>
+        <h3 class="cms-box-title">LISTA DE PRESENÇA NÃO CONSELHEIRO</h3>
         <form id="cadastro-visitante-form" class="cms-visitante-form">
           <div class="cms-form-group">
             <input type="text" id="visitante-nome" class="cms-input" placeholder="Nome Completo *" required autocomplete="name">
@@ -1228,7 +1230,7 @@ body {
             <input type="text" id="visitante-cargo" class="cms-input" placeholder="Cargo / Instituição Representada">
           </div>
           <button type="submit" class="cms-btn-visitante-submit" id="btn-submit-visitante">
-            Assinar Livro de Visitas
+            ASSINAR
           </button>
           <div id="visitante-feedback" class="cms-feedback-msg"></div>
         </form>
@@ -1237,7 +1239,7 @@ body {
       <!-- Botão/Link para Conselheiros abaixo do box -->
       <div class="cms-conselheiro-link-container">
         <a href="https://www.cmsmoc.com/reuniao" class="cms-btn-conselheiro-link" target="_blank" rel="noopener noreferrer">
-          <span>📋</span> É conselheiro? Clique aqui para autoatendimento
+          <span>📋</span> É conselheiro? Clique aqui
         </a>
       </div>
     </div>
@@ -1435,7 +1437,7 @@ body {
       form.reset();
     } finally {
       btnSubmit.disabled = false;
-      btnSubmit.innerHTML = 'Assinar Livro de Visitas';
+      btnSubmit.innerHTML = 'ASSINAR';
     }
   });
 
