@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Conselheiros Designados - Acompanhamento dos Contratos Hospitalares (v3)</title>
+    
+    <!-- Google Fonts: Lora (serif elegance) and Montserrat (modern sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cms-navy:   #0D2E5A;
+            --cms-blue:   #1B6CB5;
+            --cms-white:  #FFFFFF;
+            --cms-off:    #F1F5F9;
+            --cms-ink:    #0F172A;
+            --cms-muted:  #64748B;
+            --cms-border: #CBD5E1;
+            --whatsapp:   #25D366;
+            
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cms-off);
+            color: var(--cms-ink);
+            line-height: 1.5;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .a4-landscape {
+            width: 297mm;
+            height: 210mm;
+            padding: 15mm 20mm;
+            background-color: var(--cms-white);
+            box-shadow: 0 10px 30px rgba(13, 46, 90, 0.08);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .doc-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--cms-navy);
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+
+        .doc-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-titles {
+            flex-grow: 1;
+        }
+
+        .header-subtitle-main {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 11px;
+            color: var(--cms-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .doc-title-main {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--cms-navy);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .doc-ref {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 9.5px;
+            font-weight: 600;
+            color: var(--cms-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        .table-area {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .contacts-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .contacts-table th {
+            background-color: #F8FAFC;
+            padding: 12px 16px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--cms-navy);
+            border-bottom: 3px solid var(--cms-navy);
+        }
+
+        .contacts-table tr {
+            border-bottom: 1px solid var(--cms-border);
+        }
+
+        .contacts-table tbody tr:hover {
+            background-color: rgba(27, 108, 181, 0.02);
+        }
+
+        .contacts-table td {
+            padding: 14px 16px;
+            vertical-align: middle;
+            font-size: 13.5px;
+        }
+
+        .user-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--cms-navy);
+            font-size: 13px;
+        }
+
+        .hospital-badge {
+            font-family: var(--font-display);
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .h-hucf { background-color: rgba(27, 108, 181, 0.08); color: #155894; border: 1px solid rgba(27, 108, 181, 0.15); }
+        .h-hcmr { background-color: rgba(13, 46, 90, 0.08); color: var(--cms-navy); border: 1px solid rgba(13, 46, 90, 0.15); }
+        .h-aroldo { background-color: rgba(245, 196, 0, 0.12); color: #8F7200; border: 1px solid rgba(245, 196, 0, 0.2); }
+        .h-dilson { background-color: rgba(30, 138, 74, 0.08); color: #1E8A4A; border: 1px solid rgba(30, 138, 74, 0.15); }
+        .h-santacasa { background-color: rgba(239, 68, 68, 0.08); color: #991B1B; border: 1px solid rgba(239, 68, 68, 0.15); }
+        .h-geral { background-color: rgba(100, 116, 139, 0.08); color: #334155; border: 1px solid rgba(100, 116, 139, 0.15); }
+
+        /* --- Click to Copy Elements --- */
+        .interactive-contact {
+            font-family: var(--font-display);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid transparent;
+        }
+
+        .interactive-contact:hover {
+            background-color: var(--cms-off);
+            border-color: var(--cms-border);
+            color: var(--cms-blue);
+        }
+
+        /* --- WhatsApp System --- */
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: var(--whatsapp);
+            color: white;
+            transition: all 0.2s;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .whatsapp-link:hover {
+            transform: scale(1.15);
+            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* --- Toast Toast Message --- */
+        .toast-msg {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            background-color: #0F172A;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 600;
+            display: none;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: slideIn 0.2s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .doc-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--cms-border);
+            padding-top: 12px;
+            font-size: 10px;
+            color: var(--cms-muted);
+            font-family: var(--font-display);
+            font-weight: 500;
+        }
+
+        .doc-footer-logo img {
+            height: 32px;
+            opacity: 0.8;
+        }
+
+        .a4-landscape::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120mm;
+            height: 120mm;
+            background-image: url('https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/logline.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.025;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .a4-landscape > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .a4-landscape {
+                box-shadow: none;
+                padding: 12mm 15mm;
+                width: 297mm;
+                height: 208mm;
+                border: none;
+                overflow: hidden !important;
+            }
+            .interactive-contact:hover {
+                background: none;
+                border-color: transparent;
+            }
+            .whatsapp-link {
+                display: none !important; /* Esconder botão de whatsapp na impressão física */
+            }
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-landscape">
+        <!-- Notificação de cópia rápida -->
+        <div id="toast" class="toast-msg">Copiado para a área de transferência!</div>
+         <!-- Cabeçalho Oficial -->
+        <header class="doc-header">
+            <div class="doc-logo">
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/Logotipo%20CMSMOC%202025%20A8.png" alt="Logo CMS">
+            </div>
+            <div class="header-titles">
+                <div class="header-subtitle-main">Conselho Municipal de Saúde de Montes Claros/MG</div>
+                <h1 class="doc-title-main">Conselheiros Designados para Acompanhamento dos contratos hospitalares</h1>
+                <div class="doc-ref">
+                    <span>designados pela portaria 021/2026/cmsmoc, formalizados no ofício 073/2026/cmsmoc</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tabela de Contatos -->
+        <div class="table-area" style="margin-top: 5px;">
+            <table class="contacts-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">Nome do Representante</th>
+                        <th style="width: 28%">Unidade Hospitalar Designada</th>
+                        <th style="width: 20%">Telefone</th>
+                        <th style="width: 27%">E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Instrução de uso interativo entre a linha divisória do head e a linha 1 -->
+                    <tr>
+                        <td colspan="4" style="padding: 6px 16px; border-bottom: none; font-family: var(--font-display); font-size: 8.5px; color: var(--cms-muted); text-align: center; font-weight: 500; font-style: italic;">
+                            (Clique sobre e-mails ou telefones para copiar. Use o ícone verde para enviar WhatsApp)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-name">Fernanda Fagundes Azevedo</span>
+                        </td>
+                        <td>
+                            <span class="hospital-badge h-hucf">HU Clemente de Faria (HUCF)</span>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" onclick="copyValue('(31) 99944-0038', 'Telefone copiado!')" title="Clique para copiar o telefone">
+                                📞 (31) 99944-0038
+                            </span>
+                            <a href="https://wa.me/5531999440038" target="_blank" class="whatsapp-link" title="Iniciar conversa no WhatsApp">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.982L2 22l5.202-1.362a9.92 9.92 0 004.81 1.233h.005c5.507 0 9.99-4.479 9.99-9.986.002-2.67-1.037-5.18-2.926-7.07C17.19 3.037 14.683 2 12.012 2zm5.727 14.076c-.253.708-1.472 1.298-2.023 1.382-.501.076-1.157.136-3.275-.74-2.705-1.117-4.425-3.87-4.56-4.05-.136-.18-1.077-1.43-1.077-2.73 0-1.299.68-1.939.918-2.193.239-.254.52-.318.694-.318.173 0 .346.002.496.01.153.007.358-.057.562.434.21.503.717 1.745.779 1.871.062.127.104.275.02.444-.083.17-.124.274-.249.418-.124.143-.26.32-.37.428-.12.119-.247.249-.107.49.14.24.622 1.023 1.332 1.654.916.815 1.685 1.068 1.925 1.188.24.12.38.102.522-.06.143-.162.613-.713.777-.955.163-.243.327-.203.551-.12.224.082 1.42.67 1.666.793.245.124.408.183.469.289.062.106.062.614-.191 1.322z"/>
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" style="font-size: 11.5px;" onclick="copyValue('fernandafagundesazevedo@yahoo.com.br', 'E-mail copiado!')" title="Clique para copiar o e-mail">
+                                ✉️ fernandafagundesazevedo@yahoo.com.br
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-name">Ricardo Soares de Oliveira</span>
+                        </td>
+                        <td>
+                            <span class="hospital-badge h-hcmr">HC Mário Ribeiro (HCMR)</span>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" onclick="copyValue('(38) 99877-8500', 'Telefone copiado!')" title="Clique para copiar o telefone">
+                                📞 (38) 99877-8500
+                            </span>
+                            <a href="https://wa.me/5538998778500" target="_blank" class="whatsapp-link" title="Iniciar conversa no WhatsApp">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.982L2 22l5.202-1.362a9.92 9.92 0 004.81 1.233h.005c5.507 0 9.99-4.479 9.99-9.986.002-2.67-1.037-5.18-2.926-7.07C17.19 3.037 14.683 2 12.012 2zm5.727 14.076c-.253.708-1.472 1.298-2.023 1.382-.501.076-1.157.136-3.275-.74-2.705-1.117-4.425-3.87-4.56-4.05-.136-.18-1.077-1.43-1.077-2.73 0-1.299.68-1.939.918-2.193.239-.254.52-.318.694-.318.173 0 .346.002.496.01.153.007.358-.057.562.434.21.503.717 1.745.779 1.871.062.127.104.275.02.444-.083.17-.124.274-.249.418-.124.143-.26.32-.37.428-.12.119-.247.249-.107.49.14.24.622 1.023 1.332 1.654.916.815 1.685 1.068 1.925 1.188.24.12.38.102.522-.06.143-.162.613-.713.777-.955.163-.243.327-.203.551-.12.224.082 1.42.67 1.666.793.245.124.408.183.469.289.062.106.062.614-.191 1.322z"/>
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" style="font-size: 11.5px;" onclick="copyValue('rsoaresmoc@yahoo.com.br', 'E-mail copiado!')" title="Clique para copiar o e-mail">
+                                ✉️ rsoaresmoc@yahoo.com.br
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-name">Anielly Costa Silva</span>
+                        </td>
+                        <td>
+                            <span class="hospital-badge h-aroldo">Hospital Aroldo Tourinho</span>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" onclick="copyValue('(38) 98836-8778', 'Telefone copiado!')" title="Clique para copiar o telefone">
+                                📞 (38) 98836-8778
+                            </span>
+                            <a href="https://wa.me/5538988368778" target="_blank" class="whatsapp-link" title="Iniciar conversa no WhatsApp">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.982L2 22l5.202-1.362a9.92 9.92 0 004.81 1.233h.005c5.507 0 9.99-4.479 9.99-9.986.002-2.67-1.037-5.18-2.926-7.07C17.19 3.037 14.683 2 12.012 2zm5.727 14.076c-.253.708-1.472 1.298-2.023 1.382-.501.076-1.157.136-3.275-.74-2.705-1.117-4.425-3.87-4.56-4.05-.136-.18-1.077-1.43-1.077-2.73 0-1.299.68-1.939.918-2.193.239-.254.52-.318.694-.318.173 0 .346.002.496.01.153.007.358-.057.562.434.21.503.717 1.745.779 1.871.062.127.104.275.02.444-.083.17-.124.274-.249.418-.124.143-.26.32-.37.428-.12.119-.247.249-.107.49.14.24.622 1.023 1.332 1.654.916.815 1.685 1.068 1.925 1.188.24.12.38.102.522-.06.143-.162.613-.713.777-.955.163-.243.327-.203.551-.12.224.082 1.42.67 1.666.793.245.124.408.183.469.289.062.106.062.614-.191 1.322z"/>
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" style="font-size: 11.5px;" onclick="copyValue('aniellycostaramos@yahoo.com.br', 'E-mail copiado!')" title="Clique para copiar o e-mail">
+                                ✉️ aniellycostaramos@yahoo.com.br
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-name">Jucielio Bernardes da Silva</span>
+                        </td>
+                        <td>
+                            <span class="hospital-badge h-dilson">Hospital Dilson Godinho</span>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" onclick="copyValue('(38) 99907-0100', 'Telefone copiado!')" title="Clique para copiar o telefone">
+                                📞 (38) 99907-0100
+                            </span>
+                            <a href="https://wa.me/5538999070100" target="_blank" class="whatsapp-link" title="Iniciar conversa no WhatsApp">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.982L2 22l5.202-1.362a9.92 9.92 0 004.81 1.233h.005c5.507 0 9.99-4.479 9.99-9.986.002-2.67-1.037-5.18-2.926-7.07C17.19 3.037 14.683 2 12.012 2zm5.727 14.076c-.253.708-1.472 1.298-2.023 1.382-.501.076-1.157.136-3.275-.74-2.705-1.117-4.425-3.87-4.56-4.05-.136-.18-1.077-1.43-1.077-2.73 0-1.299.68-1.939.918-2.193.239-.254.52-.318.694-.318.173 0 .346.002.496.01.153.007.358-.057.562.434.21.503.717 1.745.779 1.871.062.127.104.275.02.444-.083.17-.124.274-.249.418-.124.143-.26.32-.37.428-.12.119-.247.249-.107.49.14.24.622 1.023 1.332 1.654.916.815 1.685 1.068 1.925 1.188.24.12.38.102.522-.06.143-.162.613-.713.777-.955.163-.243.327-.203.551-.12.224.082 1.42.67 1.666.793.245.124.408.183.469.289.062.106.062.614-.191 1.322z"/>
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" style="font-size: 11.5px;" onclick="copyValue('jucieliobernardes@gmail.com', 'E-mail copiado!')" title="Clique para copiar o e-mail">
+                                ✉️ jucieliobernardes@gmail.com
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-name">Fernando Antônio Dias de Andrade</span>
+                        </td>
+                        <td>
+                            <span class="hospital-badge h-santacasa">Santa Casa de Montes Claros</span>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" onclick="copyValue('(38) 99977-4741', 'Telefone copiado!')" title="Clique para copiar o telefone">
+                                📞 (38) 99977-4741
+                            </span>
+                            <a href="https://wa.me/5538999774741" target="_blank" class="whatsapp-link" title="Iniciar conversa no WhatsApp">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.982L2 22l5.202-1.362a9.92 9.92 0 004.81 1.233h.005c5.507 0 9.99-4.479 9.99-9.986.002-2.67-1.037-5.18-2.926-7.07C17.19 3.037 14.683 2 12.012 2zm5.727 14.076c-.253.708-1.472 1.298-2.023 1.382-.501.076-1.157.136-3.275-.74-2.705-1.117-4.425-3.87-4.56-4.05-.136-.18-1.077-1.43-1.077-2.73 0-1.299.68-1.939.918-2.193.239-.254.52-.318.694-.318.173 0 .346.002.496.01.153.007.358-.057.562.434.21.503.717 1.745.779 1.871.062.127.104.275.02.444-.083.17-.124.274-.249.418-.124.143-.26.32-.37.428-.12.119-.247.249-.107.49.14.24.622 1.023 1.332 1.654.916.815 1.685 1.068 1.925 1.188.24.12.38.102.522-.06.143-.162.613-.713.777-.955.163-.243.327-.203.551-.12.224.082 1.42.67 1.666.793.245.124.408.183.469.289.062.106.062.614-.191 1.322z"/>
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" style="font-size: 11.5px;" onclick="copyValue('fernandoanjopolishop@gmail.com', 'E-mail copiado!')" title="Clique para copiar o e-mail">
+                                ✉️ fernandoanjopolishop@gmail.com
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-name">Washington Luis Carvalho Souto</span>
+                        </td>
+                        <td>
+                            <span class="hospital-badge h-geral">Geral (Contratos Hospitalares)</span>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" onclick="copyValue('(38) 98806-3167', 'Telefone copiado!')" title="Clique para copiar o telefone">
+                                📞 (38) 98806-3167
+                            </span>
+                            <a href="https://wa.me/5538988063167" target="_blank" class="whatsapp-link" title="Iniciar conversa no WhatsApp">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.982L2 22l5.202-1.362a9.92 9.92 0 004.81 1.233h.005c5.507 0 9.99-4.479 9.99-9.986.002-2.67-1.037-5.18-2.926-7.07C17.19 3.037 14.683 2 12.012 2zm5.727 14.076c-.253.708-1.472 1.298-2.023 1.382-.501.076-1.157.136-3.275-.74-2.705-1.117-4.425-3.87-4.56-4.05-.136-.18-1.077-1.43-1.077-2.73 0-1.299.68-1.939.918-2.193.239-.254.52-.318.694-.318.173 0 .346.002.496.01.153.007.358-.057.562.434.21.503.717 1.745.779 1.871.062.127.104.275.02.444-.083.17-.124.274-.249.418-.124.143-.26.32-.37.428-.12.119-.247.249-.107.49.14.24.622 1.023 1.332 1.654.916.815 1.685 1.068 1.925 1.188.24.12.38.102.522-.06.143-.162.613-.713.777-.955.163-.243.327-.203.551-.12.224.082 1.42.67 1.666.793.245.124.408.183.469.289.062.106.062.614-.191 1.322z"/>
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="interactive-contact" style="font-size: 11.5px;" onclick="copyValue('wluizsouto@yahoo.com.br', 'E-mail copiado!')" title="Clique para copiar o e-mail">
+                                ✉️ wluizsouto@yahoo.com.br
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Rodapé do Documento -->
+        <footer class="doc-footer">
+            <div>Relação oficial de fiscais · Secretaria Executiva CMS-MOC · Atualizada em julho de 2026</div>
+            <div class="doc-footer-logo">
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/Prefeitura%20-%20Logo%20Governo%20+%20Slogan%20+%20Secretarias%20-%201.png" alt="Prefeitura e SUS">
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS minimalista para cópia instantânea -->
+    <script>
+        function copyValue(text, alertMsg) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.innerText = alertMsg;
+                toast.style.display = 'block';
+                
+                // Reiniciar animação
+                toast.style.animation = 'none';
+                toast.offsetHeight;
+                toast.style.animation = 'slideIn 0.2s ease-out';
+                
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

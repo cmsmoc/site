@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proteção de Tela 2.0 - Controle Social - CMS Montes Claros</title>
+    <title>Lista de Presença 2.0 - CMS Montes Claros</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,6 @@
             justify-content: space-between;
             align-items: flex-start;
             z-index: 50;
-            pointer-events: none;
         }
         .cms-header img {
             height: auto;
@@ -90,7 +89,7 @@
         .transition-overlay.in .stripe { transform: scaleX(1); }
         .transition-overlay.out .stripe:nth-child(odd) { transform-origin: right; transform: scaleX(0); }
         .transition-overlay.out .stripe:nth-child(even) { transform-origin: left; transform: scaleX(0); }
-        
+        /* Add slight delay to stripes to make them cross dynamically */
         .stripe:nth-child(1) { transition-delay: 0.0s; }
         .stripe:nth-child(2) { transition-delay: 0.1s; }
         .stripe:nth-child(3) { transition-delay: 0.2s; }
@@ -122,27 +121,27 @@
         .slide.active {
             opacity: 1;
             visibility: visible;
+            /* Don't use transition here, let the overlay hide the hard cut */
         }
 
         /* TYPOGRAPHY & ZOOM OUT EFFECT */
         .huge-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: clamp(3rem, 5.5vw, 6.5rem);
+            font-size: clamp(3rem, 5.5vw, 6rem);
             text-transform: uppercase;
-            line-height: 1.05;
+            line-height: 1;
             letter-spacing: -2px;
             margin-bottom: 2rem;
             transform-origin: center left;
         }
         .huge-title span { color: var(--cms-yellow); }
         .huge-title.blue span { color: var(--cms-blue); }
-        .huge-title.green span { color: var(--cms-green); }
         
         .slide.active .huge-title {
             animation: zoomOutText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.3s;
-            opacity: 0;
+            animation-delay: 0.3s; /* waits for transition out */
+            opacity: 0; /* start hidden */
         }
         .layout-center .huge-title { transform-origin: center center; }
         .layout-right .huge-title { transform-origin: center right; }
@@ -156,7 +155,7 @@
             font-size: clamp(1.5rem, 2.5vw, 3rem);
             font-weight: 400;
             color: var(--cms-off);
-            max-width: 85%;
+            max-width: 90%;
             line-height: 1.4;
             opacity: 0;
         }
@@ -175,26 +174,69 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ICONS & BADGES */
-        .icon-wrapper { margin-bottom: 1.5rem; color: var(--cms-yellow); opacity: 0; }
-        .icon-wrapper svg { width: 100px; height: 100px; }
-        .slide.active .icon-wrapper { animation: fadeUp 1s ease forwards; animation-delay: 0.4s; }
-        
-        .huge-icon {
-            font-size: clamp(10rem, 20vw, 25rem);
-            line-height: 1;
+        .url-highlight {
+            display: inline-block;
+            background-color: var(--cms-blue);
+            color: var(--cms-white);
+            padding: 1rem 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 3vw, 4rem);
+            letter-spacing: -1px;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             opacity: 0;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
         }
-        .slide.active .huge-icon {
-            animation: floatIcon 6s ease-in-out infinite, fadeUp 1s ease forwards;
-            animation-delay: 0s, 0.5s;
+        .slide.active .url-highlight {
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 0.8s;
         }
 
-        @keyframes floatIcon {
+        /* QR CODE COMPONENT (Inside slides) */
+        .qr-card {
+            background-color: var(--cms-white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            width: 52.5vh;
+            height: 52.5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-shrink: 0;
+            opacity: 0;
+        }
+        .qr-card img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 2; }
+        
+        .cms-scanner-line {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background-color: var(--cms-green);
+            box-shadow: 0 0 15px 3px rgba(30, 138, 74, 0.5);
+            z-index: 3;
+            animation: scan 3s ease-in-out infinite;
+        }
+        
+        /* QR Code reveal animation */
+        .slide.active .qr-card {
+            animation: qrReveal 1s ease forwards, float 6s ease-in-out infinite;
+            animation-delay: 0.5s, 0s;
+        }
+        @keyframes qrReveal {
+            from { opacity: 0; transform: scale(0.8) translateY(50px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
+        }
+        @keyframes scan {
+            0%, 100% { top: 5%; opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { top: 95%; }
         }
 
         /* LAYOUT VARIATIONS */
@@ -215,7 +257,6 @@
             gap: 4vw;
         }
         .layout-left .text-col { flex: 1; }
-        .layout-left .media-col { display: flex; justify-content: center; align-items: center; flex: 0.8; }
         
         .layout-right {
             flex-direction: row-reverse;
@@ -226,7 +267,6 @@
             gap: 4vw;
         }
         .layout-right .text-col { flex: 1; display:flex; flex-direction:column; align-items:flex-end; }
-        .layout-right .media-col { display: flex; justify-content: center; align-items: center; flex: 0.8; }
 
         /* TICKER */
         .cms-ticker-wrap {
@@ -248,7 +288,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--cms-ink);
-            animation: ticker 40s linear infinite;
+            animation: ticker 30s linear infinite;
         }
         .cms-ticker span { margin: 0 2vw; color: var(--cms-navy); }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -257,6 +297,31 @@
         .progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(255,255,255,0.1); z-index: 100; }
         .progress-fill { height: 100%; background: var(--cms-yellow); width: 0%; transition: width linear; }
 
+        /* SLIDE 0 SPECIAL ANIMATION */
+        .slide.active #s0-qr {
+            animation: s0QrSequence 2s cubic-bezier(0.25, 1, 0.5, 1) forwards, float 6s ease-in-out infinite;
+            animation-delay: 1.5s, 0s;
+            position: absolute;
+            opacity: 1;
+            /* Start center huge */
+            transform: scale(1.6) translate(0, 0); 
+            z-index: 20;
+        }
+        .slide.active #s0-text {
+            animation: zoomOutText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 2.5s;
+            opacity: 0;
+        }
+        @keyframes s0QrSequence {
+            0% { transform: scale(1.6) translate(0, 0); left: 50%; margin-left: -26.25vh;}
+            100% { transform: scale(1) translate(0, 0); left: 8vw; margin-left: 0;}
+        }
+
+        /* ICONS */
+        .icon-wrapper { margin-bottom: 1.5rem; color: var(--cms-yellow); opacity: 0; }
+        .icon-wrapper svg { width: 100px; height: 100px; }
+        .slide.active .icon-wrapper { animation: fadeUp 1s ease forwards; animation-delay: 0.4s; }
+        
         /* FINAL LOGO SLIDE */
         .final-logo {
             width: 40vw;
@@ -286,7 +351,6 @@
     </div>
 
     <div class="progress-bar-container"><div class="progress-fill" id="progress"></div></div>
-    
     <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/logline.png" alt="" class="cms-bg-logo">
 
     <header class="cms-header">
@@ -297,59 +361,103 @@
     <!-- SLIDES -->
     <div class="slides-container">
         
-        <!-- SLIDE 1: A FORÇA DA CIDADANIA -->
+        <!-- SLIDE 0: MAIN (QR Moves) -->
+        <div class="slide" id="slide-0">
+            <div style="width:100%; height:100%; display:flex; align-items:center; position:relative;">
+                <div class="qr-card" id="s0-qr" style="left:50%; margin-left:-26.25vh;">
+                    <div class="cms-scanner-line"></div>
+                    <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/refs/heads/main/logo/qrcode_www.cmsmoc.com%20(1).png" alt="QR Code">
+                </div>
+                <div id="s0-text" style="position:absolute; right:5%; width:50%;">
+                    <h1 class="huge-title">ASSINE A<br><span>LISTA DE<br>PRESENÇA</span></h1>
+                    <div class="url-highlight">WWW.CMSMOC.COM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 1: CONSELHEIRO VS VISITANTE (Layout Left) -->
         <div class="slide layout-left" id="slide-1">
             <div class="text-col">
-                <div class="icon-wrapper">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+                <h1 class="huge-title" style="font-size: clamp(3rem, 5vw, 6rem);">DICA RÁPIDA:<br><span>COMO ASSINAR</span></h1>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h2 class="subtitle" style="color:var(--cms-blue); font-weight:900; margin-bottom: 0.5rem; text-transform:uppercase;">
+                        <span style="font-size:1.5em; vertical-align:middle; margin-right:10px;">📋</span> CONSELHEIRO
+                    </h2>
+                    <p class="subtitle">Procure e clique direto no seu <strong>nome na lista</strong>.</p>
                 </div>
-                <h1 class="huge-title">CONTROLE SOCIAL<br><span>A FORÇA DA<br>CIDADANIA</span></h1>
-                <p class="subtitle">O CMS Montes Claros é a <strong>ponte ativa</strong> entre a população e o Sistema Único de Saúde.</p>
+
+                <div>
+                    <h2 class="subtitle" style="color:var(--cms-yellow); font-weight:900; margin-bottom: 0.5rem; text-transform:uppercase;">
+                        <span style="font-size:1.5em; vertical-align:middle; margin-right:10px;">👋</span> VISITANTE
+                    </h2>
+                    <p class="subtitle">Preencha rapidamente seu <strong>Nome e E-mail</strong>.</p>
+                </div>
             </div>
-            <div class="media-col">
-                <div class="huge-icon">🤝</div>
+            
+            <div class="qr-card">
+                <div class="cms-scanner-line"></div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/refs/heads/main/logo/qrcode_www.cmsmoc.com%20(1).png" alt="QR Code">
             </div>
         </div>
 
-        <!-- SLIDE 2: SUA VOZ TEM LEI -->
+        <!-- SLIDE 2: EMAIL WARNING (Layout Right) -->
         <div class="slide layout-right" id="slide-2">
             <div class="text-col">
-                <h1 class="huge-title blue">VOCÊ SABIA?<br><span>SUA VOZ<br>TEM LEI</span></h1>
-                <p class="subtitle" style="text-align:right;">A <strong>Lei 8.142</strong> garante a participação da comunidade na gestão da saúde pública. Fiscalizar é um direito seu!</p>
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                </div>
+                <h1 class="huge-title">ATENÇÃO AO<br><span>E-MAIL</span></h1>
+                <p class="subtitle" style="text-align:right;">O endereço de e-mail informado será o canal por onde você receberá sua <strong>declaração de participação</strong> logo após o término da reunião.</p>
             </div>
-            <div class="media-col">
-                <div class="huge-icon" style="text-shadow: 0 0 50px rgba(27, 108, 181, 0.8);">⚖️</div>
+
+            <div class="qr-card">
+                <div class="cms-scanner-line"></div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/refs/heads/main/logo/qrcode_www.cmsmoc.com%20(1).png" alt="QR Code">
             </div>
         </div>
 
-        <!-- SLIDE 3: O TRIPÉ -->
-        <div class="slide layout-center" id="slide-3">
-            <div class="icon-wrapper" style="margin-bottom: 2rem;">
-                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.829 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.487 1.508 1.333 1.508 2.316V18" /></svg>
-            </div>
-            <h1 class="huge-title green">FISCALIZAR<br>AVALIAR<br><span>PROPOR</span></h1>
-            <p class="subtitle" style="max-width: 100%;">O papel do conselheiro é <strong>fundamental</strong> para construir um SUS cada vez mais forte, eficiente e acolhedor.</p>
-        </div>
-
-        <!-- SLIDE 4: TRANSPARÊNCIA -->
-        <div class="slide layout-left" id="slide-4">
+        <!-- SLIDE 3: POST-MEETING (Layout Left) -->
+        <div class="slide layout-left" id="slide-3">
             <div class="text-col">
-                <h1 class="huge-title">TRANSPARÊNCIA<br><span>E CONSTRUÇÃO<br>CONJUNTA</span></h1>
-                <p class="subtitle">Acompanhe nossas plenárias e deliberações. <strong>Juntos</strong> fazemos mais pela saúde de Montes Claros.</p>
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h1 class="huge-title blue">APÓS A<br><span>REUNIÃO</span></h1>
+                <p class="subtitle">Acesse o <strong>mesmo QR Code ou URL</strong> após o encerramento. Lá estarão disponíveis as declarações e as listas oficiais.</p>
             </div>
-            <div class="media-col">
-                <div class="huge-icon">👁️</div>
+
+            <div class="qr-card">
+                <div class="cms-scanner-line"></div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/refs/heads/main/logo/qrcode_www.cmsmoc.com%20(1).png" alt="QR Code">
             </div>
         </div>
-        
-        <!-- SLIDE 5: O SUS QUE DÁ CERTO -->
+
+        <!-- SLIDE 4: ALTERNATE URL (Layout Center) -->
+        <div class="slide layout-center" id="slide-4">
+            <h1 class="huge-title">DIFICULDADE COM O<br><span>QR CODE?</span></h1>
+            <p class="subtitle" style="margin-bottom: 2rem;">Entre diretamente pela URL no navegador do seu celular:</p>
+            <div class="url-highlight" style="font-size: clamp(2.5rem, 4vw, 5rem); margin-bottom: 3rem;">WWW.CMSMOC.COM</div>
+            
+            <div class="qr-card" style="width: 37.5vh; height: 37.5vh;">
+                <div class="cms-scanner-line"></div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/refs/heads/main/logo/qrcode_www.cmsmoc.com%20(1).png" alt="QR Code">
+            </div>
+        </div>
+
+        <!-- SLIDE 5: LIVE CHECK (Layout Right) -->
         <div class="slide layout-right" id="slide-5">
             <div class="text-col">
-                <h1 class="huge-title blue">O SUS<br><span>QUE DÁ CERTO</span><br>TEM A SUA VOZ</h1>
-                <p class="subtitle" style="text-align:right;">Seja atuante. Participe das decisões que impactam a sua vida e a de milhares de cidadãos.</p>
+                <div class="icon-wrapper">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                </div>
+                <h1 class="huge-title">SEU NOME<br><span>AO VIVO</span></h1>
+                <p class="subtitle" style="text-align:right;">Após preencher, seu nome aparece na <strong>lista online</strong> na hora. Está com dúvida se preencheu?<br><strong>Basta conferir na tela.</strong></p>
             </div>
-            <div class="media-col">
-                <div class="huge-icon" style="text-shadow: 0 0 50px rgba(245, 196, 0, 0.8);">📢</div>
+
+            <div class="qr-card">
+                <div class="cms-scanner-line"></div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/refs/heads/main/logo/qrcode_www.cmsmoc.com%20(1).png" alt="QR Code">
             </div>
         </div>
 
@@ -363,7 +471,7 @@
     <!-- TICKER -->
     <div class="cms-ticker-wrap">
         <div class="cms-ticker">
-            CONSELHO MUNICIPAL DE SAÚDE <span>•</span> MONTES CLAROS <span>•</span> CONTROLE SOCIAL ATIVO <span>•</span> O SUS QUE DÁ CERTO TEM A SUA VOZ <span>•</span> CONSELHO MUNICIPAL DE SAÚDE <span>•</span> MONTES CLAROS <span>•</span> CONTROLE SOCIAL ATIVO <span>•</span> O SUS QUE DÁ CERTO TEM A SUA VOZ <span>•</span>
+            ASSINE A LISTA DE PRESENÇA <span>•</span> RECEBA A DECLARAÇÃO POR E-MAIL <span>•</span> WWW.CMSMOC.COM <span>•</span> CONTROLE SOCIAL ATIVO <span>•</span> ASSINE A LISTA DE PRESENÇA <span>•</span> RECEBA A DECLARAÇÃO POR E-MAIL <span>•</span> WWW.CMSMOC.COM <span>•</span> CONTROLE SOCIAL ATIVO <span>•</span>
         </div>
     </div>
 
@@ -371,12 +479,14 @@
         const slides = document.querySelectorAll('.slide');
         const progressBar = document.getElementById('progress');
         const transitionOverlay = document.getElementById('transitionOverlay');
-        let currentSlide = -1;
+        let currentSlide = -1; // Start at -1 to trigger the first transition in cleanly
+        
         let isTransitioning = false;
         
-        const TIME_PER_SLIDE = 120000; // 2 minutes (120000ms) reading time for these specific info slides
+        const TIME_PER_SLIDE = 60000; 
         let slideTimer;
 
+        // Promisified delay
         const delay = ms => new Promise(res => setTimeout(res, ms));
 
         async function goToSlide(index) {
@@ -387,40 +497,39 @@
                 if (index < 0) index = slides.length - 1;
                 if (index >= slides.length) index = 0;
 
+                // Stop timer while transitioning
                 clearInterval(slideTimer);
                 progressBar.style.transition = 'none';
                 progressBar.style.width = '0%';
 
-                // 1. ANIMATE OVERLAY IN
+                // 1. ANIMATE OVERLAY IN (Yellow Stripes cross screen)
                 if (currentSlide !== -1) {
                     transitionOverlay.classList.remove('out');
                     transitionOverlay.classList.add('in');
-                    await delay(1200); 
+                    await delay(1200); // wait for stripes to fully cover
                 }
 
-                // 2. SWAP SLIDES
+                // 2. SWAP SLIDES (Hidden behind overlay)
                 slides.forEach(s => s.classList.remove('active'));
                 currentSlide = index;
                 const activeSlide = slides[currentSlide];
                 activeSlide.classList.add('active');
 
-                // 3. ANIMATE OVERLAY OUT
+                // 3. ANIMATE OVERLAY OUT (Reveal new slide)
                 if (currentSlide !== -1) {
                     transitionOverlay.classList.remove('in');
                     transitionOverlay.classList.add('out');
-                    await delay(100);
+                    await delay(100); // give it a beat before zooming text
                 }
-
-                // Determine time for this slide
-                let timeForThisSlide = TIME_PER_SLIDE;
-                if (currentSlide === (slides.length - 1)) timeForThisSlide = 8000; // 8s for logo loop
 
                 // 4. RESTART TIMER
                 setTimeout(() => {
-                    progressBar.style.transition = `width ${timeForThisSlide}ms linear`;
+                    progressBar.style.transition = `width ${TIME_PER_SLIDE}ms linear`;
                     progressBar.style.width = '100%';
                 }, 50);
                 
+                // Slide 6 (Logo) should probably be shorter since it's just a transition loop point
+                const timeForThisSlide = (currentSlide === 6) ? 10000 : TIME_PER_SLIDE;
                 slideTimer = setInterval(nextSlide, timeForThisSlide);
             } finally {
                 isTransitioning = false;
@@ -435,6 +544,7 @@
             else if (e.key === 'ArrowLeft') prevSlide();
         });
 
+        // Initialize (will skip the IN transition for the very first load)
         window.onload = () => goToSlide(0);
 
     </script>
