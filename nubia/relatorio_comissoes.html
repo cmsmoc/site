@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Comissões e Câmaras Técnicas – Núbia Carneiro Guimarães</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── NCBB TOKENS (NEOCORDEL) ─── */
+:root {
+  --papel: #EAE0C8; --papel-esc: #D6CAA8; --grafite: #1C2420;
+  --branco: #F5F0E4; --sol: #D4A017; --sol-c: #E8B820;
+  --azul: #1A4A6E; --verde: #2D5C3A; --terracota: #8B3A2A;
+  --roxo: #6C3483; --laranja: #D35400; --vermelho: #A93226;
+  --areia: #C4A96A; --concreto: #6B6B5A;
+  --f-d: 'Outfit', sans-serif; --f-m: 'JetBrains Mono', monospace;
+}
+
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-d);
+  background: var(--papel);
+  color: var(--grafite);
+  font-size: 15px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999;
+}
+a { color: var(--azul); text-decoration: none; transition: color 0.25s; }
+a:hover { color: var(--sol); }
+
+/* ─── STRIPE ─── */
+.stripe { height: 6px; background: linear-gradient(to right, var(--sol), var(--verde), var(--azul)); }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--grafite);
+  position: relative; overflow: hidden;
+  padding: 5rem 2rem 4rem;
+  min-height: 40vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.hero-orb1 {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 250px; height: 250px; background: var(--sol); opacity: 0.06;
+  top: -40px; right: 80px;
+  animation: float 8s ease-in-out infinite;
+}
+.hero-orb2 {
+  position: absolute; pointer-events: none;
+  width: 160px; height: 80px; border-radius: 80px 80px 0 0;
+  background: var(--azul); opacity: 0.1;
+  bottom: 0; left: 60px;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+.hero-inner { position: relative; z-index: 1; max-width: 780px; }
+.hero-eyebrow {
+  font-family: var(--f-m); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--sol); margin-bottom: 1.25rem;
+}
+.hero-title {
+  font-family: var(--f-d); font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -1.5px;
+  color: var(--papel); margin-bottom: 1rem;
+}
+.hero-title span { color: var(--sol); }
+.hero-sub { font-size: 0.875rem; color: rgba(234,224,200,0.55); max-width: 520px; line-height: 1.7; }
+
+/* ─── LAYOUT ─── */
+.wrap { max-width: 860px; margin: 0 auto; padding: 3rem 2rem; }
+
+/* ─── NAVIGATION ─── */
+.nav-cordel {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(28,36,32,0.1);
+}
+.nav-cordel a {
+  font-family: var(--f-m);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  background: var(--branco);
+  border: 1px solid rgba(28,36,32,0.15);
+  color: var(--grafite);
+  transition: all 0.25s;
+}
+.nav-cordel a:hover {
+  background: var(--grafite);
+  color: var(--papel);
+  border-color: var(--grafite);
+}
+
+/* ─── HEADINGS ─── */
+.s-num { font-family: var(--f-d); font-size: 4rem; font-weight: 700; color: rgba(28,36,32,0.05); letter-spacing: -3px; line-height: 1; margin-bottom: -1rem; }
+.s-label { font-family: var(--f-m); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--verde); margin-bottom: 0.5rem; }
+.s-title { font-family: var(--f-d); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; color: var(--grafite); margin-bottom: 0.75rem; }
+.s-title em { font-style: normal; color: var(--sol); }
+.s-body { color: var(--concreto); font-size: 0.9375rem; max-width: 68ch; line-height: 1.75; margin-bottom: 2rem; }
+
+/* ─── CARDS ─── */
+.comiss-card {
+  background: var(--branco);
+  border: 1px solid rgba(28,36,32,0.1);
+  margin-bottom: 3.5rem;
+  box-shadow: 0 4px 15px rgba(28,36,32,0.04);
+}
+.comiss-header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-bottom: 1px solid rgba(28,36,32,0.08);
+}
+.comiss-header .icon {
+  font-size: 2.25rem;
+}
+.comiss-header h2 {
+  font-family: var(--f-d);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--grafite);
+  line-height: 1.3;
+}
+.comiss-header p {
+  font-family: var(--f-m);
+  font-size: 10px;
+  color: var(--concreto);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.25rem;
+}
+
+.c1 { border-left: 5px solid var(--azul); }
+.c2 { border-left: 5px solid var(--sol); }
+.c3 { border-left: 5px solid var(--verde); }
+.c4 { border-left: 5px solid var(--laranja); }
+.c5 { border-left: 5px solid var(--vermelho); }
+
+.comiss-body { padding: 2rem; }
+.comiss-desc {
+  font-size: 0.9375rem;
+  color: var(--grafite);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.doc-card {
+  background: rgba(28,36,32,0.02);
+  border: 1px dashed rgba(28,36,32,0.12);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.doc-title {
+  font-family: var(--f-d);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--grafite);
+}
+.doc-meta {
+  font-family: var(--f-m);
+  font-size: 10px;
+  color: var(--concreto);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.doc-card blockquote {
+  font-family: var(--f-d);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--grafite);
+  border-left: 3px solid var(--areia);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+
+.btn-drive {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--f-m);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 8px 16px;
+  color: var(--branco);
+  background: var(--azul);
+  transition: background 0.2s;
+  box-shadow: 2px 2px 0 var(--grafite);
+  border: 1px solid var(--grafite);
+}
+.btn-drive:hover {
+  background: var(--grafite);
+  color: var(--papel);
+}
+.c1 .btn-drive { background: var(--azul); }
+.c2 .btn-drive { background: var(--sol); color: var(--grafite); border-color: var(--grafite); }
+.c3 .btn-drive { background: var(--verde); }
+.c4 .btn-drive { background: var(--laranja); }
+.c5 .btn-drive { background: var(--vermelho); }
+
+.site-footer {
+  background: var(--grafite);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.site-footer p {
+  font-family: var(--f-d);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--papel);
+  margin-bottom: 0.75rem;
+}
+.site-footer small {
+  font-family: var(--f-m);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(234,224,200,0.3);
+}
+</style>
+</head>
+<body>
+
+<div class="stripe"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">CMS Montes Claros &middot; Memória Viva &middot; Atuação Técnica</p>
+    <h1 class="hero-title">Participação em<br><span>Comissões &amp; Câmaras Técnicas</span></h1>
+    <p class="hero-sub">Reconstrução da atuação de Núbia Carneiro Guimarães no Conselho Municipal de Saúde de Montes Claros (2016-2023).</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="wrap">
+
+  <!-- Nav -->
+  <nav class="nav-cordel">
+    <a href="index.html">← Voltar à Central</a>
+    <a href="#c1">1. Instrumentos de Gestão</a>
+    <a href="#c2">2. Conferências (17/19)</a>
+    <a href="#c3">3. Pré-Conferências</a>
+    <a href="#c4">4. Saúde Mental</a>
+    <a href="#c5">5. Monitoramento GRAPPA</a>
+  </nav>
+
+  <!-- SEÇÃO 1 -->
+  <div class="comiss-card c1" id="c1">
+    <div class="comiss-header">
+      <div class="icon">📊</div>
+      <div>
+        <h2>Comissão de Instrumentos de Gestão (2017)</h2>
+        <p>Análise de prestação de contas, RAG 2016 e metas do SISPACTO 2017</p>
+      </div>
+    </div>
+    <div class="comiss-body">
+      <p class="comiss-desc">Núbia Carneiro Guimarães atuou como relatora da comissão, apresentando ao Plenário do CMS as análises detalhadas do Relatório Anual de Gestão de 2016 com rigor técnico, cobrando assessoria técnica para melhor qualificação do conselho.</p>
+
+      <div class="doc-card">
+        <div class="doc-title">Ata da 171ª Reunião Extraordinária do CMS (28 de março de 2017)</div>
+        <div class="doc-meta">Tipo: Google Doc · ID: 1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ</div>
+        <blockquote>
+          "A comissão do Instrumentos de Gestão representada pela conselheira Núbia Carneiro Guimarães, apresenta o relatório das reuniões realizadas para análise do Relatório Anual de Gestão com suas considerações e recomendações. (...) A conselheira Núbia diz que não se atentaram a essas questões [notas e contratos diretos], pois não tiveram tempo hábil e tão pouco condições técnicas para tal."
+        </blockquote>
+        <a class="btn-drive" href="https://docs.google.com/document/d/1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ/edit" target="_blank">📄 Abrir no Drive</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 2 -->
+  <div class="comiss-card c2" id="c2">
+    <div class="comiss-header">
+      <div class="icon">📜</div>
+      <div>
+        <h2>Comissões Organizadoras e de Relatoria (2017–2019)</h2>
+        <p>Regulamentos e redação final das conferências municipais</p>
+      </div>
+    </div>
+    <div class="comiss-body">
+      <p class="comiss-desc">Atuação como membro titular da Comissão Organizadora das Conferências de 2017 e 2019 (representando o segmento de prestadores filantrópicos) e da Comissão de Relatoria, responsável por sistematizar propostas da 8ª e 9ª Conferências.</p>
+
+      <div class="doc-card">
+        <div class="doc-title">Composição da Comissão Organizadora das Conferências (2017)</div>
+        <div class="doc-meta">Tipo: Regulamento · ID: 0B5W_JIkP5oDJUHgzYlZsUjNwR2M</div>
+        <blockquote>
+          "Comissão do Conselho Municipal de Saúde: Prestadores de Serviços: Núbia Carneiro Guimarães."
+        </blockquote>
+        <blockquote>
+          "Comissão de Relatoria: Carolina dos Reis Alves (CMS), Aurora Almeida Murta, Núbia Carneiro Guimarães (CMS), Marinilza Soares Mota Sales (CMS)..."
+        </blockquote>
+        <a class="btn-drive" href="https://drive.google.com/file/d/0B5W_JIkP5oDJUHgzYlZsUjNwR2M/view" target="_blank">📄 Abrir no Drive</a>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-title">Regimento da 9ª Conferência Municipal de Saúde (2019)</div>
+        <div class="doc-meta">Tipo: Resolução CMSMOC nº 003/2019 · ID: 1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ</div>
+        <blockquote>
+          "Comissão de Relatoria: Carolina dos Reis Alves (CMS), Núbia Carneiro Guimarães (CMS), Anne Karoline R. A. Gherardi, Gabriel Vitor Pinheiro Gomes, Adélia Magda Sepúlveda Santos, Alcina Mendes Brito."
+        </blockquote>
+        <a class="btn-drive" href="https://docs.google.com/document/d/1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ/edit" target="_blank">📄 Abrir no Drive</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 3 -->
+  <div class="comiss-card c3" id="c3">
+    <div class="comiss-header">
+      <div class="icon">📢</div>
+      <div>
+        <h2>Comissões de Pré-Conferências Regionais (2019)</h2>
+        <p>Coordenação de fóruns de participação popular nos territórios</p>
+      </div>
+    </div>
+    <div class="comiss-body">
+      <p class="comiss-desc">Designação para coordenar fóruns locais em bairros periféricos e planejar plenárias de escuta comunitária nas regionais Renascença, Planalto e Independência.</p>
+
+      <div class="doc-card">
+        <div class="doc-title">Relatório de Organização das Pré-Conferências (18 de março de 2019)</div>
+        <div class="doc-meta">Tipo: Relatório Interno CMS</div>
+        <blockquote>
+          "29/03 – Bairros Planalto e Village do Lago – IFNMG – Responsável/Coordenador: Malveira e Núbia."
+        </blockquote>
+        <blockquote>
+          "02/04 – Bairro Independência – Salão de Hugo Moura – Responsável/Coordenador: Núbia e Malveira."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 4 -->
+  <div class="comiss-card c4" id="c4">
+    <div class="comiss-header">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>Comissão de Saúde Mental (2021–2022)</h2>
+        <p>Defesa de representação paritária e acolhimento em SRT</p>
+      </div>
+    </div>
+    <div class="comiss-body">
+      <p class="comiss-desc">Atuação forte na Comissão de Saúde Mental do CMSMOC, demandando a inclusão de usuários diretos do sistema no regimento e acompanhando casos complexos de desinstitucionalização psiquiátrica.</p>
+
+      <div class="doc-card">
+        <div class="doc-title">Ata/Notas de Reunião da Comissão de Saúde Mental (01 de junho de 2021)</div>
+        <div class="doc-meta">Tipo: Google Doc · ID: 1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc</div>
+        <blockquote>
+          "Alcina fala da recomposição, enquanto Raíssa lê o Regimento. Colocar pessoas dos prestadores mais ativos, sem ser da alta cúpula. (...) Núbia: colocar usuários dos serviços, propõe um representante de cada serviço."
+        </blockquote>
+        <a class="btn-drive" href="https://docs.google.com/document/d/1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc/edit" target="_blank">📄 Abrir no Drive</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 5 -->
+  <div class="comiss-card c5" id="c5">
+    <div class="comiss-header">
+      <div class="icon">🏠</div>
+      <div>
+        <h2>Monitoramento do Convênio GRAPPA (2016–2023)</h2>
+        <p>Acompanhamento de repasses do Plano de Ações e Metas de DST/AIDS</p>
+      </div>
+    </div>
+    <div class="comiss-body">
+      <p class="comiss-desc">Coordenação e acompanhamento de relatórios de monitoramento financeiro e de metas da Casa de Apoio GRAPPA (Grupo de Apoio e Prevenção à AIDS), visando a regularidade de repasses para pagamento de pessoal técnico de acolhimento.</p>
+
+      <div class="doc-card">
+        <div class="doc-title">Ata da 340ª Reunião Ordinária do CMS</div>
+        <div class="doc-meta">Tipo: MS Word (.docx) · ID Drive: 0B5W_JIkP5oDJb0xTdE9qWmR3VXc</div>
+        <blockquote>
+          "Fernando Caires explana, do ponto de vista jurídico, que o repasse de 133 mil não foi feito por falta de prestação de contas do GRAPPA (...) já foi regularizado e então os recursos poderão ser repassados ao GRAPPA para pagar uma assessoria jurídica e também um técnico em enfermagem."
+        </blockquote>
+        <a class="btn-drive" href="https://drive.google.com/file/d/0B5W_JIkP5oDJb0xTdE9qWmR3VXc/view" target="_blank">📄 Abrir no Drive</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>Conselho Municipal de Saúde de Montes Claros.</p>
+  <small>
+    Antigravity AGY &middot; Relatório de Comissões &middot; 18 jul 2026<br>
+    Gestão 2026&ndash;2029 &middot; Secretaria Executiva
+  </small>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!-- saved from url=(0119)file:///C:/Users/55389/.gemini/antigravity-cli/brain/ceeb18b0-61c3-42b2-a6ba-1f9d8df71503/calendario_reunioes_2026.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendário de Reuniões · 2026 · CMS Montes Claros</title>
+  <link href="./Calendário de Reuniões · 2026 · CMS Montes Claros_files/css2" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #0D2E5A;
+      --blue:   #1B6CB5;
+      --green:  #1E8A4A;
+      --yellow: #F5C400;
+      --off:    #F7F8FA;
+      --ink:    #1C2B3A;
+      --muted:  #6B7280;
+      --border: #E5E7EB;
+      --white:  #ffffff;
+      --font-d: 'Montserrat', sans-serif;
+      --font-b: 'Open Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-b); background: var(--off); color: var(--ink); line-height: 1.7; font-size: 15px; }
+
+    /* Stripe */
+    .cms-stripe { height: 5px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); }
+
+    /* Header */
+    .doc-header { background: var(--navy); color: var(--white); padding: 60px 48px 48px; position: relative; overflow: hidden; }
+    .doc-header::before { content:''; position:absolute; right:-60px; top:-60px; width:360px; height:360px; border-radius:50%; background:radial-gradient(circle, rgba(245,196,0,.12) 0%, transparent 65%); pointer-events:none; }
+    .doc-header::after  { content:''; position:absolute; left:-80px; bottom:-80px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(27,108,181,.18) 0%, transparent 65%); pointer-events:none; }
+    .header-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+    .header-logos { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,.15); padding-bottom:20px; margin-bottom:28px; }
+    .org-badge { display:flex; align-items:center; gap:12px; }
+    .org-icon { width:52px; height:52px; background:rgba(255,255,255,.1); border:2px solid rgba(255,255,255,.25); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:24px; }
+    .org-name { font-family:var(--font-d); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.75); line-height:1.4; }
+    .year-badge { font-family:var(--font-d); font-size:56px; font-weight:900; color:rgba(245,196,0,.18); letter-spacing:-4px; line-height:1; }
+    .header-eyebrow { font-family:var(--font-d); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--yellow); margin-bottom:12px; }
+    .header-title { font-family:var(--font-d); font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:-1.5px; line-height:1.05; margin-bottom:12px; }
+    .header-title em { color:var(--yellow); font-style:normal; }
+    .header-sub { font-size:14px; color:rgba(255,255,255,.6); font-weight:300; max-width:560px; }
+    .header-rule { font-family:var(--font-d); font-size:11px; margin-top:20px; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:8px; }
+    .header-rule::before { content:''; display:block; width:24px; height:2px; background:var(--yellow); border-radius:2px; }
+
+    /* Container */
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 48px; }
+
+    /* KPIs */
+    .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
+    .kpi-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:20px; border-top:4px solid var(--blue); box-shadow:0 4px 20px rgba(0,0,0,.05); }
+    .kpi-card.kpi-success { border-top-color:#16a34a; }
+    .kpi-card.kpi-warning { border-top-color:#d97706; }
+    .kpi-card.kpi-muted   { border-top-color:var(--muted); }
+    .kpi-label { font-family:var(--font-d); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:8px; }
+    .kpi-value { font-family:var(--font-d); font-size:34px; font-weight:900; color:var(--navy); letter-spacing:-2px; line-height:1; }
+    .kpi-sub { font-size:12px; color:var(--muted); margin-top:6px; }
+
+    /* Section label */
+    .section-label { font-family:var(--font-d); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+    .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    /* Info Box */
+    .info-box { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:32px; border-left:4px solid var(--navy); }
+    .info-box h3 { font-family:var(--font-d); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--navy); margin-bottom:14px; }
+    .info-table { width:100%; border-collapse:collapse; }
+    .info-table td { padding:9px 14px; border-top:1px solid var(--border); font-size:13.5px; }
+    .info-table tr:first-child td { border-top:none; }
+    .info-table tr:nth-child(even) td { background:var(--off); }
+    .info-table td:first-child { font-family:var(--font-d); font-weight:700; color:var(--navy); width:200px; font-size:11px; text-transform:uppercase; letter-spacing:.5px; }
+
+    /* Calendar Grid */
+    .calendar-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:40px; }
+    .month-card { background:var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.05); transition:box-shadow .2s, transform .2s; }
+    .month-card:hover { box-shadow:0 6px 24px rgba(13,46,90,.12); transform:translateY(-2px); }
+    .month-card.is-next { outline:2.5px solid var(--yellow); outline-offset:2px; }
+
+    .month-card-header { padding:14px 18px; display:flex; align-items:center; justify-content:space-between; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .month-card-header.past   { background:#374151; }
+    .month-card-header.next   { background:var(--blue); }
+    .month-card-header.future { background:var(--navy); }
+    .month-name { font-family:var(--font-d); font-size:13px; font-weight:900; letter-spacing:.5px; text-transform:uppercase; color:#fff; }
+    .month-number { font-family:var(--font-d); font-size:11px; font-weight:700; color:rgba(255,255,255,.5); }
+
+    .month-card-body { padding:16px 18px; }
+    .meeting-date { font-family:var(--font-d); font-size:32px; font-weight:900; color:var(--navy); letter-spacing:-2px; line-height:1; margin-bottom:4px; }
+    .meeting-weekday { font-family:var(--font-d); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:10px; }
+    .meeting-detail { font-size:12.5px; color:var(--muted); line-height:1.5; margin-bottom:12px; }
+    .meeting-detail strong { color:var(--ink); font-weight:600; }
+
+    /* Badges */
+    .badge { display:inline-flex; align-items:center; gap:4px; padding:3px 10px; border-radius:999px; font-family:var(--font-d); font-size:10px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
+    .badge-success { background:#dcfce7; color:#15803d; }
+    .badge-next    { background:var(--yellow); color:var(--navy); }
+    .badge-muted   { background:#F3F4F6; color:#6B7280; }
+    .badge-warning { background:#fef9c3; color:#92400e; }
+    .badge-info    { background:#dbeafe; color:#1e40af; }
+
+    /* Legal Quote */
+    .legal-quote { background:var(--off); border-left:4px solid var(--navy); border-radius:0 8px 8px 0; padding:16px 20px; margin:0 0 32px; }
+    .legal-quote p { font-size:13.5px; color:#374151; font-style:italic; line-height:1.8; margin-bottom:8px; }
+    .legal-quote cite { font-family:var(--font-d); font-size:10px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:1px; font-style:normal; }
+
+    /* Legenda */
+    .legend { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px; }
+
+    /* Footer */
+    .doc-footer { background:var(--navy); color:rgba(255,255,255,.55); text-align:center; padding:28px 48px; font-size:12px; font-family:var(--font-d); letter-spacing:.5px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .doc-footer strong { color:rgba(255,255,255,.85); }
+
+    /* Print */
+    @media print {
+      body { background:#fff; color:#000; overflow:visible; height:auto; }
+      * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      @page { size:A4; margin:18mm 15mm; }
+      .month-card, .info-box, .legal-quote { page-break-inside:avoid; }
+      .doc-header { -webkit-print-color-adjust:exact; }
+      .cms-stripe { -webkit-print-color-adjust:exact; }
+    }
+
+    /* Responsivo */
+    @media (max-width:900px) {
+      .container { padding:32px 24px; }
+      .calendar-grid { grid-template-columns:repeat(2,1fr); }
+      .kpi-grid { grid-template-columns:repeat(2,1fr); }
+      .doc-header { padding:40px 24px 32px; }
+    }
+    @media (max-width:560px) {
+      .calendar-grid { grid-template-columns:1fr; }
+      .kpi-grid { grid-template-columns:repeat(2,1fr); }
+      body { font-size:14px; }
+      .header-title { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cms-stripe"></div>
+
+<header class="doc-header">
+  <div class="header-inner">
+    <div class="header-logos">
+      <div class="org-badge">
+        <div class="org-icon">🏛️</div>
+        <div class="org-name">Secretaria Executiva<br>CMS Montes Claros — MG</div>
+      </div>
+      <div class="year-badge">2026</div>
+    </div>
+    <p class="header-eyebrow">Calendário Institucional · Reuniões Plenárias</p>
+    <h1 class="header-title">Reuniões <em>Ordinárias</em> 2026</h1>
+    <p class="header-sub">Calendário anual das reuniões ordinárias do plenário do Conselho Municipal de Saúde de Montes Claros, realizadas na <strong style="color:rgba(255,255,255,.85)">1ª quarta-feira de cada mês</strong>, conforme Regimento Interno.</p>
+    <p class="header-rule">Art. 37 do Regimento Interno do CMSMOC — aprovado em Plenário</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-label">Total de Reuniões</div>
+      <div class="kpi-value">12</div>
+      <div class="kpi-sub">Previstas para 2026</div>
+    </div>
+    <div class="kpi-card kpi-success">
+      <div class="kpi-label">Realizadas</div>
+      <div class="kpi-value">7</div>
+      <div class="kpi-sub">Jan a Jul / 2026</div>
+    </div>
+    <div class="kpi-card kpi-warning">
+      <div class="kpi-label">Próxima Reunião</div>
+      <div class="kpi-value">05/08</div>
+      <div class="kpi-sub">Quarta-feira · Agosto</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Pendentes</div>
+      <div class="kpi-value">5</div>
+      <div class="kpi-sub">Ago a Dez / 2026</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>📋 Informações Gerais</h3>
+    <table class="info-table">
+      <tbody><tr><td>Periodicidade</td><td>Mensal — toda 1ª quarta-feira do mês</td></tr>
+      <tr><td>Horário habitual</td><td>09h00 às 12h00 (podendo ser prorrogada)</td></tr>
+      <tr><td>Local habitual</td><td>Câmara Municipal de Montes Claros — Sala Plenária</td></tr>
+      <tr><td>Quórum mínimo</td><td>Maioria simples dos conselheiros titulares</td></tr>
+      <tr><td>Convocação</td><td>Mínimo de 72 horas de antecedência, por e-mail institucional</td></tr>
+      <tr><td>Responsável</td><td>Secretaria Executiva — CMS Montes Claros</td></tr>
+    </tbody></table>
+  </div>
+
+  <p class="section-label">Calendário completo — 12 reuniões ordinárias</p>
+
+  <div class="calendar-grid">
+
+    <!-- JAN -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Janeiro</span><span class="month-number">01</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">07</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>07 de janeiro de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- FEV -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Fevereiro</span><span class="month-number">02</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">04</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>04 de fevereiro de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- MAR -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Março</span><span class="month-number">03</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">04</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>04 de março de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- ABR -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Abril</span><span class="month-number">04</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">01</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>01 de abril de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- MAI -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Maio</span><span class="month-number">05</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">06</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>06 de maio de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- JUN -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Junho</span><span class="month-number">06</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">03</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>03 de junho de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- JUL -->
+    <div class="month-card">
+      <div class="month-card-header past">
+        <span class="month-name">Julho</span><span class="month-number">07</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">01</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>01 de julho de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-success">✓ Realizada</span>
+      </div>
+    </div>
+
+    <!-- AGO — PRÓXIMA -->
+    <div class="month-card is-next">
+      <div class="month-card-header next">
+        <span class="month-name">Agosto</span><span class="month-number">08</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">05</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>05 de agosto de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-next">⚡ Próxima</span>
+      </div>
+    </div>
+
+    <!-- SET -->
+    <div class="month-card">
+      <div class="month-card-header future">
+        <span class="month-name">Setembro</span><span class="month-number">09</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">02</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>02 de setembro de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-muted">◦ Prevista</span>
+      </div>
+    </div>
+
+    <!-- OUT -->
+    <div class="month-card">
+      <div class="month-card-header future">
+        <span class="month-name">Outubro</span><span class="month-number">10</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">07</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>07 de outubro de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-muted">◦ Prevista</span>
+      </div>
+    </div>
+
+    <!-- NOV -->
+    <div class="month-card">
+      <div class="month-card-header future">
+        <span class="month-name">Novembro</span><span class="month-number">11</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">04</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>04 de novembro de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-muted">◦ Prevista</span>
+      </div>
+    </div>
+
+    <!-- DEZ -->
+    <div class="month-card">
+      <div class="month-card-header future">
+        <span class="month-name">Dezembro</span><span class="month-number">12</span>
+      </div>
+      <div class="month-card-body">
+        <div class="meeting-date">02</div>
+        <div class="meeting-weekday">Quarta-feira</div>
+        <div class="meeting-detail"><strong>02 de dezembro de 2026</strong><br>1ª quarta-feira do mês</div>
+        <span class="badge badge-muted">◦ Prevista</span>
+      </div>
+    </div>
+
+  </div><!-- /calendar-grid -->
+
+  <p class="section-label">Fundamento regimental</p>
+  <blockquote class="legal-quote">
+    <p>O Conselho Municipal de Saúde reunir-se-á, ordinariamente, uma vez por mês, na primeira quarta-feira de cada mês, e, extraordinariamente, quando convocado pelo Presidente ou por requerimento de, no mínimo, 1/3 (um terço) dos seus membros, com antecedência mínima de 72 (setenta e duas) horas.</p>
+    <cite>Regimento Interno do CMS de Montes Claros — Art. 37</cite>
+  </blockquote>
+
+  <p class="section-label">Legenda</p>
+  <div class="legend">
+    <span class="badge badge-success">✓ Realizada</span>
+    <span class="badge badge-next">⚡ Próxima</span>
+    <span class="badge badge-muted">◦ Prevista</span>
+    <span class="badge badge-warning">⚠ Reagendada</span>
+    <span class="badge badge-info">ℹ Em análise</span>
+  </div>
+
+</div>
+
+<footer class="doc-footer">
+  <strong>Conselho Municipal de Saúde de Montes Claros — MG</strong><br>
+  Calendário de Reuniões Ordinárias · Exercício 2026 · Secretaria Executiva<br>
+  <span style="font-size:10px;opacity:.6;">cmsmocmg@gmail.com · Av. Dulce Sarmento, 2.076 — Montes Claros / MG</span>
+</footer>
+
+
+
+</body></html>
