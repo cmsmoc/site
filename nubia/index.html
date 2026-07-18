@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Documentação Histórica - CMS Montes Claros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cms: {
+            navy: '#0D2E5A',
+            blue: '#1B6CB5',
+            green: '#1E8A4A',
+            yellow: '#F5C400',
+            white: '#FFFFFF',
+            off: '#F7F8FA',
+            ink: '#111827',
+            muted: '#6B7280',
+            border: '#E5E7EB'
+          }
+        },
+        fontFamily: {
+          display: ['Montserrat', 'sans-serif'],
+          body: ['Open Sans', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background-color: #F7F8FA; color: #111827; font-family: 'Open Sans', sans-serif; }
+  .stagger-item { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .si1{animation-delay:100ms}.si2{animation-delay:200ms}.si3{animation-delay:300ms}
+  .ease-spring { transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
+</style>
+</head>
+<body class="antialiased text-base min-h-screen flex flex-col">
+
+<!-- STRIPE TRICOLOR -->
+<div style="height:6px;width:100%;background:linear-gradient(to right,#F5C400,#1E8A4A,#1B6CB5)"></div>
+
+<!-- NAVBAR -->
+<nav class="bg-cms-navy text-cms-white px-6 md:px-12 py-4 flex items-center justify-between sticky top-0 z-50 shadow-md">
+  <div class="flex items-center gap-3">
+    <span class="text-2xl">🏛️</span>
+    <div class="font-display text-xs font-bold tracking-widest uppercase text-cms-white leading-tight">
+      Secretaria Executiva<br><span class="text-cms-yellow">CMS Montes Claros — MG</span>
+    </div>
+  </div>
+  <div class="flex gap-6 text-xs font-display font-bold uppercase tracking-wider">
+    <a href="../site/index.html" class="hover:text-cms-yellow transition-colors">Voltar ao Portal</a>
+    <a href="../site/calendario_reunioes_2026.html" class="hover:text-cms-yellow transition-colors">Calendário Plenário</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative flex flex-col justify-center px-8 md:px-16 py-20 overflow-hidden bg-cms-navy text-cms-white">
+  <!-- Decorative Background Grid Pattern -->
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+  <div class="absolute w-64 h-64 rounded-full pointer-events-none bg-cms-yellow opacity-10 -top-20 -right-20 blur-xl"></div>
+  <div class="absolute w-48 h-24 rounded-t-full pointer-events-none bg-cms-blue opacity-20 bottom-0 left-32 blur-sm"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto w-full">
+    <p class="font-display font-bold uppercase mb-4 text-xs tracking-[0.25em] text-cms-yellow">Memória Viva do Controle Social &middot; Gestão 2026&ndash;2029</p>
+    <h1 class="font-display font-black leading-tight tracking-tight mb-6 text-4xl md:text-5xl lg:text-6xl">
+      Central de<br><span class="text-cms-yellow">Documentação</span><br>Histórica
+    </h1>
+    <p class="font-light text-base leading-relaxed text-slate-300 max-w-2xl">
+      Acervo consolidado de relatórios, conferências de saúde e evidências documentais da atuação histórica do Conselho Municipal de Saúde de Montes Claros.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="max-w-5xl mx-auto w-full flex-grow px-6 md:px-12 py-16">
+
+  <!-- Section 01 - Relatórios -->
+  <div class="flex items-center gap-4 mb-8">
+    <p class="font-display font-bold uppercase text-xs tracking-[0.2em] text-cms-blue whitespace-nowrap">Relatórios Disponíveis</p>
+    <div class="flex-grow h-px bg-cms-border"></div>
+  </div>
+
+  <!-- Bento Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16 stagger-item si1">
+
+    <!-- Card Relatório Histórico (Nubia) -->
+    <div class="md:col-span-8 bg-cms-navy text-cms-white p-8 relative overflow-hidden flex flex-col justify-between ease-spring shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl border border-slate-800">
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-cms-yellow"></div>
+      <div class="absolute -right-16 -top-16 w-48 h-48 bg-cms-yellow/5 rounded-full blur-2xl pointer-events-none"></div>
+      
+      <div>
+        <p class="font-mono text-[9px] uppercase tracking-[0.3em] text-cms-yellow/80 mb-3">Reconstrução Histórica</p>
+        <h2 class="font-display font-bold text-xl md:text-2xl mb-4 leading-snug">
+          Relatório Núbia Carneiro Guimarães<br><span class="text-cms-yellow">&amp; Atuação no GRAPPA (2016–2023)</span>
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed mb-8 max-w-xl">
+          Análise histórica consolidada da atuação da conselheira na Comissão de Saúde Mental e no Grupo de Apoio e Prevenção à AIDS (GRAPPA), contendo linha do tempo, citações e links diretos para e-mails e arquivos.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <a href="relatorio_historico_cms.html" class="inline-flex items-center gap-2 font-display font-bold uppercase text-[10px] tracking-wider bg-cms-yellow text-cms-navy px-5 py-3 rounded hover:bg-yellow-400 transition-colors shadow">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Abrir Relatório (Cordel)
+        </a>
+      </div>
+    </div>
+
+    <!-- Card Conferências -->
+    <div class="md:col-span-4 bg-cms-white text-cms-ink p-8 relative overflow-hidden flex flex-col justify-between ease-spring shadow-md rounded-xl hover:-translate-y-1 hover:shadow-lg border border-cms-border">
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-cms-green"></div>
+      
+      <div>
+        <p class="font-mono text-[9px] uppercase tracking-[0.3em] text-cms-green mb-3">Conferências</p>
+        <h2 class="font-display font-bold text-xl mb-4 leading-snug text-cms-navy">
+          Histórico de<br><span class="text-cms-green">Conferências</span>
+        </h2>
+        <p class="text-xs text-cms-muted leading-relaxed mb-6">
+          Registro das conferências de saúde de Montes Claros nas etapas estaduais e nacionais de Saúde Mental, da Mulher e Geral.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <a href="conferencias_saude.html" class="inline-flex items-center gap-2 font-display font-bold uppercase text-[10px] tracking-wider border border-cms-blue text-cms-blue hover:bg-cms-blue hover:text-cms-white px-4 py-2.5 rounded transition-all">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Ver Conferências
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section 02 - Links Rápidos -->
+  <div class="flex items-center gap-4 mb-8">
+    <p class="font-display font-bold uppercase text-xs tracking-[0.2em] text-cms-blue whitespace-nowrap">Documentos Corroboradores (Canais)</p>
+    <div class="flex-grow h-px bg-cms-border"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-item si2">
+
+    <!-- Acervo Google Drive -->
+    <div class="bg-cms-white border border-cms-border rounded-xl p-6 shadow-sm">
+      <div class="flex items-center gap-2.5 mb-4 text-cms-navy">
+        <span class="text-xl">📁</span>
+        <h3 class="font-display font-bold uppercase text-xs tracking-wider">Documentos no Google Drive</h3>
+      </div>
+      <ul class="space-y-3 text-xs text-cms-ink font-mono">
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJUHgzYlZsUjNwR2M/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-yellow">▶</span>
+            <span>Ofício 013/11 &ndash; GRAPPA (2016)</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJajdoNFEyZTZQRnM/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-green">▶</span>
+            <span>Ata 336ª Reunião Ordinária (2016)</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJb0xTdE9qWmR3VXc/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-green">▶</span>
+            <span>Ata 340ª Reunião Ordinária (2016)</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJd3Fpd2Y5Q2s4d3M/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-red-700">▶</span>
+            <span>Ata 221ª &ndash; Despejo Sede GRAPPA (2016)</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJTmxYT1hKb0hsb3c/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-yellow">▶</span>
+            <span>100ª Reunião Extraordinária &ndash; Convênio GRAPPA</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJbXNRa1hQUDdKVUk/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-green">▶</span>
+            <span>108ª Reunião Extraordinária &ndash; GRAPPA / Vanilda</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJT0F1Q2JPdVFPMDA/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-blue">▶</span>
+            <span>Reunião CTA &ndash; Implantação Centro Testagem</span>
+          </a>
+        </li>
+        <li class="border-b border-cms-border pb-2">
+          <a href="https://drive.google.com/file/d/1_oynI9VjIl55-Oh26A7dYxEMJyzOdpVj/view" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-green">▶</span>
+            <span>Ata 216ª Reunião Extraordinária (Saúde Mental 2022)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://docs.google.com/document/d/1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc/edit" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+            <span class="text-cms-yellow">▶</span>
+            <span>Ata/Notas Comissão de Saúde Mental (2021)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Acervo Gmail -->
+    <div class="bg-cms-white border border-cms-border rounded-xl p-6 shadow-sm flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4 text-cms-navy">
+          <span class="text-xl">📧</span>
+          <h3 class="font-display font-bold uppercase text-xs tracking-wider">Histórico no Gmail</h3>
+        </div>
+        <ul class="space-y-3 text-xs text-cms-ink font-mono mb-6">
+          <li class="border-b border-cms-border pb-2">
+            <a href="https://mail.google.com/mail/u/0/#inbox/176cdfda96ef48b9" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+              <span class="text-cms-blue">▶</span>
+              <span>Lista Conselheiros CMS (Jan/2021) &ndash; Titularidade</span>
+            </a>
+          </li>
+          <li class="border-b border-cms-border pb-2">
+            <a href="https://mail.google.com/mail/u/0/#inbox/18452fd723df92ce" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+              <span class="text-cms-blue">▶</span>
+              <span>Envio de Atas para Análise (Nov/2022)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://mail.google.com/mail/u/0/#search/N%C3%BAbia+Carneiro+confer%C3%AAncia+estadual" target="_blank" class="hover:text-cms-blue flex items-start gap-2">
+              <span class="text-cms-yellow">▶</span>
+              <span>Coordenação da Delegação &ndash; 10ª Conf. Estadual</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-cms-off border-l-4 border-cms-yellow p-4 rounded text-xs text-cms-muted leading-relaxed font-mono">
+        <p class="font-display font-bold uppercase text-cms-ink mb-1">Acesso Institucional</p>
+        Os documentos linkados do Google Drive exigem login na conta de e-mail oficial do CMS (cmsmocmg@gmail.com).
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-cms-navy text-cms-white/60 text-xs px-8 py-10 text-center border-t border-slate-800">
+  <div class="max-w-4xl mx-auto">
+    <p class="font-display font-bold text-sm text-cms-white mb-2">Conselho Municipal de Saúde de Montes Claros — MG</p>
+    <p class="mb-4">Arquivo Digital &middot; Memória Social e Institucional &middot; Secretaria Executiva</p>
+    <p class="text-[10px] text-cms-white/30 uppercase tracking-widest font-mono">Gerado por Antigravity AGY &middot; 18 jul 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>

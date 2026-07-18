@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatorio Historico – CMS Montes Claros (2016–2023)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── NCBB TOKENS ─── */
+:root {
+  --papel: #EAE0C8; --papel-esc: #D6CAA8; --grafite: #1C2420;
+  --branco: #F5F0E4; --sol: #D4A017; --sol-c: #E8B820;
+  --azul: #1A4A6E; --verde: #2D5C3A; --terracota: #8B3A2A;
+  --areia: #C4A96A; --concreto: #6B6B5A;
+  --f-d: 'Outfit', sans-serif; --f-m: 'JetBrains Mono', monospace;
+}
+
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-d);
+  background: var(--papel);
+  color: var(--grafite);
+  font-size: 15px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999;
+}
+a { color: var(--azul); text-decoration: none; transition: color 0.25s; }
+a:hover { color: var(--sol); }
+
+/* ─── STRIPE ─── */
+.stripe { height: 6px; background: linear-gradient(to right, var(--sol), var(--verde), var(--azul)); }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--grafite);
+  position: relative; overflow: hidden;
+  padding: 5rem 2rem 4rem;
+  min-height: 42vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.hero-orb1 {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 280px; height: 280px; background: var(--sol); opacity: 0.06;
+  top: -60px; right: 80px;
+  animation: float 8s ease-in-out infinite;
+}
+.hero-orb2 {
+  position: absolute; pointer-events: none;
+  width: 200px; height: 100px; border-radius: 100px 100px 0 0;
+  background: var(--verde); opacity: 0.07;
+  bottom: 0; left: 60px;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+.hero-inner { position: relative; z-index: 1; max-width: 780px; }
+.hero-eyebrow {
+  font-family: var(--f-m); font-size: 10px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--sol); margin-bottom: 1.25rem;
+}
+.hero-title {
+  font-family: var(--f-d); font-size: clamp(2rem, 6vw, 3.75rem);
+  font-weight: 700; line-height: 1; letter-spacing: -2px;
+  color: var(--papel); margin-bottom: 1.25rem;
+}
+.hero-title span { color: var(--sol); }
+.hero-sub { font-size: 0.9rem; color: rgba(234,224,200,0.55); font-weight: 300; max-width: 580px; line-height: 1.7; }
+
+/* ─── LAYOUT ─── */
+.wrap { max-width: 860px; margin: 0 auto; padding: 4rem 2rem; }
+
+/* ─── SECTION HEADING ─── */
+.s-num { font-family: var(--f-d); font-size: 5rem; font-weight: 700; color: rgba(28,36,32,0.05); letter-spacing: -3px; line-height: 1; margin-bottom: -1.25rem; }
+.s-label { font-family: var(--f-m); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--verde); margin-bottom: 0.5rem; }
+.s-title { font-family: var(--f-d); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.5px; color: var(--grafite); margin-bottom: 0.75rem; }
+.s-title em { font-style: normal; color: var(--sol); }
+.s-body { color: var(--concreto); font-size: 0.9375rem; max-width: 68ch; line-height: 1.75; margin-bottom: 2.5rem; }
+.s-divider { width: 100%; height: 1px; background: rgba(28,36,32,0.08); margin: 3.5rem 0; }
+
+/* ─── INTRO CARD ─── */
+.intro-card {
+  background: var(--branco);
+  border-left: 4px solid var(--sol);
+  padding: 1.75rem 2rem;
+  margin-bottom: 3rem;
+}
+.intro-card p { color: var(--concreto); font-size: 0.9375rem; line-height: 1.8; }
+.intro-card p + p { margin-top: 0.75rem; }
+.intro-card strong { color: var(--grafite); }
+
+/* ─── TIMELINE ─── */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-item {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 1.5rem; align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(28,36,32,0.08);
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-year {
+  font-family: var(--f-m); font-size: 12px; font-weight: 500;
+  color: var(--sol); padding-top: 3px;
+  letter-spacing: 1px;
+}
+.tl-text { color: var(--concreto); font-size: 0.9rem; line-height: 1.75; }
+.tl-text em { font-style: normal; color: var(--azul); font-weight: 600; }
+
+/* ─── DOC CARDS ─── */
+.doc-grid { display: flex; flex-direction: column; gap: 1rem; }
+.doc-card {
+  background: var(--branco);
+  border: 1px solid rgba(28,36,32,0.1);
+  border-top: 3px solid var(--azul);
+  padding: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+}
+.doc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(28,36,32,0.07); }
+.doc-card.c-sol { border-top-color: var(--sol); }
+.doc-card.c-verde { border-top-color: var(--verde); }
+.doc-card.c-terracota { border-top-color: var(--terracota); }
+.doc-card.c-azul { border-top-color: var(--azul); }
+
+.doc-header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.doc-badge { font-family: var(--f-m); font-size: 9px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; background: var(--grafite); color: var(--sol); padding: 3px 8px; white-space: nowrap; align-self: flex-start; }
+.doc-badge.b-sol { background: var(--sol); color: var(--grafite); }
+.doc-badge.b-verde { background: var(--verde); color: var(--papel); }
+.doc-badge.b-terracota { background: var(--terracota); color: var(--papel); }
+
+.doc-title { font-family: var(--f-d); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.3px; color: var(--grafite); flex: 1; }
+.doc-meta { font-family: var(--f-m); font-size: 10px; color: var(--concreto); margin-bottom: 1rem; letter-spacing: 0.5px; }
+.doc-meta code { background: rgba(28,36,32,0.06); padding: 1px 5px; font-size: 10px; }
+
+blockquote {
+  border-left: 3px solid var(--sol);
+  background: rgba(212,160,23,0.05);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  font-size: 0.875rem;
+  color: var(--grafite);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.doc-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 1rem;
+  font-family: var(--f-m); font-size: 10px;
+  font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--azul); border-bottom: 1px solid rgba(26,74,110,0.3);
+  padding-bottom: 2px; transition: color 0.25s, border-color 0.25s;
+}
+.doc-link:hover { color: var(--sol); border-color: var(--sol); }
+.doc-link svg { flex-shrink: 0; }
+
+/* ─── HIGHLIGHT SECTION (Nubia / GRAPPA) ─── */
+.highlight-block {
+  background: var(--grafite); color: var(--papel);
+  padding: 2.5rem; margin: 2rem 0;
+  position: relative; overflow: hidden;
+}
+.highlight-block::before {
+  content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--sol);
+}
+.highlight-block::after {
+  content: ''; position: absolute; right: -3rem; top: -3rem;
+  width: 10rem; height: 10rem; border-radius: 50%;
+  background: rgba(212,160,23,0.08);
+}
+.highlight-block h3 { font-family: var(--f-d); font-size: 0.875rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--sol); margin-bottom: 0.75rem; }
+.highlight-block p { font-size: 0.9rem; color: rgba(234,224,200,0.75); line-height: 1.8; margin-bottom: 0.75rem; }
+.highlight-block blockquote { border-left-color: var(--sol); background: rgba(212,160,23,0.08); color: var(--papel); }
+
+/* ─── SECONDARY SECTION ─── */
+.content-section { margin-bottom: 2rem; }
+.content-section h3 {
+  font-family: var(--f-d); font-size: 0.8125rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--verde);
+  margin-top: 2rem; margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid rgba(28,36,32,0.08);
+}
+.content-section p { font-size: 0.9375rem; color: var(--concreto); line-height: 1.8; margin-bottom: 0.5rem; }
+
+/* ─── TABLE ─── */
+.doc-table-wrap { overflow-x: auto; margin-top: 1.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+thead tr { background: var(--grafite); }
+th {
+  font-family: var(--f-d); font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--sol);
+  padding: 0.75rem 1rem; text-align: left;
+}
+td { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(28,36,32,0.08); color: var(--concreto); }
+tr:nth-child(even) td { background: rgba(28,36,32,0.03); }
+tr:hover td { background: rgba(212,160,23,0.05); }
+td a { font-family: var(--f-m); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ─── ORDERED LIST ─── */
+.credit-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+.credit-list li {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--branco); padding: 1rem 1.25rem; font-size: 0.875rem;
+}
+.credit-list li::before { content: attr(data-n); font-family: var(--f-m); font-size: 10px; color: var(--sol); font-weight: 500; padding-top: 2px; flex-shrink: 0; width: 20px; }
+.credit-list li strong { color: var(--grafite); }
+.credit-list li span { color: var(--concreto); }
+
+/* ─── FOOTER ─── */
+.site-footer { background: var(--grafite); padding: 3rem 2rem; position: relative; overflow: hidden; }
+.site-footer::before { content: ''; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: var(--sol); opacity: 0.04; bottom: -3rem; right: -1rem; }
+.site-footer p { font-family: var(--f-d); font-size: 1rem; font-weight: 700; color: var(--papel); max-width: 34rem; line-height: 1.5; margin-bottom: 1rem; }
+.site-footer p span { color: var(--sol); }
+.site-footer small { font-family: var(--f-m); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(234,224,200,0.3); line-height: 2; }
+
+/* ─── NAV BACK ─── */
+.back-nav { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--f-m); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--sol); opacity: 0.8; margin-bottom: 3rem; }
+.back-nav:hover { opacity: 1; color: var(--sol); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 600px) {
+  .tl-item { grid-template-columns: 60px 1fr; }
+  .hero-title { font-size: 2.25rem; }
+  .s-num { font-size: 3.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- STRIPE TRICOLOR -->
+<div class="stripe"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">CMS Montes Claros &middot; Controle Social &amp; Populacoes Vulneraveis &middot; 2016&ndash;2023</p>
+    <h1 class="hero-title">Relatorio de<br><span>Reconstrucao</span><br>Historica Documental</h1>
+    <p class="hero-sub">Conselho Municipal de Saude de Montes Claros &ndash; Nubia Carneiro Guimaraes &amp; GRAPPA. Gerado em 18 jul 2026 &middot; Antigravity AGY &middot; Fonte: Google Drive / Gmail CMS-MOC</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="wrap">
+
+  <a href="index.html" class="back-nav">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Voltar ao Indice
+  </a>
+
+  <!-- 01 INTRO -->
+  <div class="s-num">01</div>
+  <p class="s-label">Secao 01</p>
+  <h2 class="s-title">Sobre Este <em>Relatorio</em></h2>
+
+  <div class="intro-card">
+    <p>Este relatorio consolida a pesquisa historica documental baseada na varredura e analise semantica de dezenas de atas de reunioes ordinarias e extraordinarias do Plenario, comissoes de trabalho e correspondencias eletronicas do Conselho Municipal de Saude (CMS) de Montes Claros entre os anos de 2016 e 2023.</p>
+    <p>O foco central desta investigacao e a atuacao institucional voltada para politicas de equidade e protecao de populacoes em situacao de extrema vulnerabilidade social, com destaque para a participacao da conselheira <strong>Nubia Carneiro Guimaraes</strong> e a atuacao do <strong>GRAPPA (Grupo de Apoio e Prevencao aos Portadores de AIDS)</strong> no controle social da saude publica.</p>
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 02 TIMELINE -->
+  <div class="s-num">02</div>
+  <p class="s-label">Secao 02</p>
+  <h2 class="s-title">Linha do <em>Tempo</em></h2>
+  <p class="s-body">Cronologia dos principais marcos documentados nas atas e correspondencias institucionais do CMS-MOC.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2016</div>
+      <div class="tl-text">Fase de intensa consolidacao dos repasses financeiros para a Casa de Apoio GRAPPA. O CMSMOC realiza discussoes profundas sobre a regularizacao de prestacoes de contas de anos anteriores para a liberacao de repasses do PAM (Plano de Acoes e Metas) de DST/AIDS. O Plenario aprova a comissao paritaria para o monitoramento do termo de convenio e debate as funcoes essenciais de tecnicos de enfermagem e assessoria juridica dentro da Casa de Apoio.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2017&ndash;2018</div>
+      <div class="tl-text">Periodo de ampla articulacao do conselho para garantir o financiamento de programas de equidade. Sao discutidas acoes preventivas de saude para grupos historicamente marginalizados (profissionais do sexo, populacao em extrema pobreza) e a distribuicao de insumos de saude na Policlinica do Alto Sao Joao e no SAE (Servico de Assistencia Especializada) Edgar Pereira.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2019&ndash;2020</div>
+      <div class="tl-text">O conselho passa a focar nas politicas de saude mental integradas a reducao de danos e no funcionamento dos Centros de Atencao Psicossocial (CAPS AD) e do Consultorio na Rua. Nubia Carneiro Guimaraes destaca-se na cobranca por transparencia de fluxos regulatorios de leitos de saude mental.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2021</div>
+      <div class="tl-text">Intensa atividade na <em>Comissao de Saude Mental do CMSMOC</em>. Destaca-se a atuacao direta da conselheira Nubia na revisao do caso complexo da transferencia clinica da paciente psiquiatrica Julia (envolvendo o Instituto Raul Soares em BH e o MP) e na formulacao de diretrizes para o Servico de Residencia Terapeutica (SRT). Nubia defende a inclusao de usuarios e representantes diretos dos servicos de saude no Regimento Interno da Comissao de Saude Mental.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2022</div>
+      <div class="tl-text">Planejamento e execucao da <em>Conferencia Municipal de Saude Mental de 2022</em>. Na 216a Reuniao Extraordinaria do CMS, Nubia Carneiro Guimaraes lidera a apresentacao das diretrizes e a convocacao para a Conferencia em abril, defendendo a participacao comunitaria massiva.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2023</div>
+      <div class="tl-text">O CMSMOC foca na renovacao e indicacao de representantes da sociedade civil para a <em>Comissao de Monitoramento da Casa de Apoio GRAPPA</em>. Em maio de 2023, <strong>Nubia Carneiro Guimaraes</strong> assume formalmente a <strong>Coordenacao da Delegacao de Montes Claros</strong> para a <strong>10a Conferencia Estadual de Saude de Minas Gerais</strong>, consolidando sua lideranca regional na defesa do SUS.</div>
+    </div>
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 03 DOCUMENTOS -->
+  <div class="s-num">03</div>
+  <p class="s-label">Secao 03</p>
+  <h2 class="s-title">Documentos Corroboradores com <em>Citacoes Diretas</em></h2>
+  <p class="s-body">15 documentos verificaveis com citacoes literais das fontes. Links ativos para o Google Drive e Gmail institucional.</p>
+
+  <div class="doc-grid">
+
+    <!-- DOC 1 -->
+    <div class="doc-card c-sol">
+      <div class="doc-header-row">
+        <div class="doc-title">Oficio 013/11 &ndash; CMS / Prestacao de Contas GRAPPA</div>
+        <span class="doc-badge b-sol">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: Oficio (.doc) &middot; ID Drive: <code>0B5W_JIkP5oDJUHgzYlZsUjNwR2M</code></div>
+      <blockquote>"Ao cumprimentala, comunico que foi solicitado pelo Plenario do Conselho Municipal de Saude, em sua 219a Reuniao Ordinaria por requerimento do Conselheiro Roberto Coelho Ferreira, que seja feito um relatorio de prestacao de contas das atividades realizadas e dos recursos financeiros que foram recebidos pelo GRAPPA no ano de 2010 e ate a presente data..."</blockquote>
+      <blockquote>"Atenciosamente, Dr. Geraldo Edson Souza Guerra &ndash; Presidente do Conselho Municipal de Saude / Secretario Municipal de Saude de Montes Claros &ndash; Minas Gerais"</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJUHgzYlZsUjNwR2M/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 2 -->
+    <div class="doc-card c-verde">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 336a Reuniao Ordinaria do CMS</div>
+        <span class="doc-badge b-verde">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.docx) &middot; ID Drive: <code>0B5W_JIkP5oDJajdoNFEyZTZQRnM</code></div>
+      <blockquote>"A Coordenadora do Programa Municipal DST/AIDS Vanilda Veloso Oliveira Silva da inicio a sua fala, explicando sobre o termo de convenio que sera celebrado entre o municipio e o GRAPPA para repasse do recurso, conforme Portaria 3276 de 26/12/2013 e Deliberacao CIB-SUS/MG n. 1765 de 19/03/2014, e solicita ao CMS a apreciacao dos itens de obrigacoes da SMS e da instituicao..."</blockquote>
+      <blockquote>"Vanilda explica que 40% do valor que o municipio recebe para acoes de DST/AIDS sera repassado para a Casa de Apoio GRAPPA. A funcionaria do GRAPPA Celia primeiro fala que nao foi convidada para participar da elaboracao das recomendacoes elaboradas pela SMS..."</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJajdoNFEyZTZQRnM/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 3 -->
+    <div class="doc-card c-verde">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 340a Reuniao Ordinaria do CMS</div>
+        <span class="doc-badge b-verde">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.docx) &middot; ID Drive: <code>0B5W_JIkP5oDJb0xTdE9qWmR3VXc</code></div>
+      <blockquote>"Fernando Caires explana, do ponto de vista juridico, que o repasse de 133 mil nao foi feito por falta de prestacao de contas do GRAPPA e em janeiro de 2015 foi feita uma apresentacao, porem nao foi aprovada por algumas inconsistencias, mas ja foi regularizado e entao os recursos poderao ser repassados ao GRAPPA."</blockquote>
+      <blockquote>"Fernando explica que o objeto e amplo mas esclarece que os recursos sao para custeio e que o objeto contempla pagar uma assessoria juridica e tambem um tecnico em enfermagem."</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJb0xTdE9qWmR3VXc/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 4 -->
+    <div class="doc-card c-terracota">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 221a Reuniao Ordinaria &ndash; Despejo da Sede do GRAPPA</div>
+        <span class="doc-badge b-terracota">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.doc) &middot; ID Drive: <code>0B5W_JIkP5oDJd3Fpd2Y5Q2s4d3M</code></div>
+      <blockquote>"Alex Fabiano apresentou ainda uma notificacao extrajudicial de despejo da sede atual do GRAPPA situado na rua Dona Eva no Centro de Montes Claros por falta de condicoes de quitacao do aluguel, ja que atualmente so existe R$ 23,00 (vinte e tres reais) em caixa."</blockquote>
+      <blockquote>"O Conselheiro Fernando Antonio Dias propos, sendo apoiado pelo Conselheiro Joaquim Francisco de Lima, e foi recomendada a possibilidade do municipio doar um terreno para a construcao da sede propria da instituicao e que contara com a ajuda de outras instituicoes e dos poderes publicos para a sua construcao."</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJd3Fpd2Y5Q2s4d3M/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 5 -->
+    <div class="doc-card c-sol">
+      <div class="doc-header-row">
+        <div class="doc-title">100a Reuniao Extraordinaria &ndash; Convenio GRAPPA R$ 8.000</div>
+        <span class="doc-badge b-sol">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.doc) &middot; ID Drive: <code>0B5W_JIkP5oDJTmxYT1hKb0hsb3c</code></div>
+      <blockquote>"Jussara Melo explicou que o Prefeito Athos Avelino Pereira assinou a Lei N. 3.779, de 16 de agosto de 2007, autorizando o poder executivo municipal, atraves da Secretaria Municipal de Saude, a repassar recursos financeiros na ordem de R$ 8.000,00 (oito mil reais) ao GRAPPA..."</blockquote>
+      <blockquote>"O Conselho Municipal de Saude, por unanimidade, autorizou a Secretaria Municipal de Saude a repassar recursos na ordem de R$ 8.000,00 (oito mil reais) ao GRAPPA &ndash; Grupo de Apoio e Prevencao aos Portadores de AIDS de Montes Claros e a firmar o convenio dispondo sobre as obrigacoes de ambas as partes."</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJTmxYT1hKb0hsb3c/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 6 -->
+    <div class="doc-card c-azul">
+      <div class="doc-header-row">
+        <div class="doc-title">Reuniao CTA &ndash; Implantacao do Centro de Testagem HIV/AIDS</div>
+        <span class="doc-badge">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.doc) &middot; ID Drive: <code>0B5W_JIkP5oDJT0F1Q2JPdVFPMDA</code></div>
+      <blockquote>"A implantacao do CTA surge para preencher uma importante lacuna na cadeia de servicos no campo da prevencao e da assistencia do HIV/AIDS e outras DSTs no municipio e um fator favoravel e que Montes Claros ja reune uma serie de condicoes para seu funcionamento..."</blockquote>
+      <blockquote>"A Proposta de Implantacao do Centro de Infectologia e CTA &ndash; Centro de Testagem e Aconselhamento em HIV/AIDS para o municipio de Montes Claros foi colocado em votacao e aprovado por unanimidade pelos Conselheiros presentes."</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJT0F1Q2JPdVFPMDA/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 7 -->
+    <div class="doc-card c-verde">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 216a Reuniao Extraordinaria &ndash; Conferencia de Saude Mental</div>
+        <span class="doc-badge b-verde">2022</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.docx) &middot; ID Drive: <code>1_oynI9VjIl55-Oh26A7dYxEMJyzOdpVj</code></div>
+      <blockquote>"Nubia Carneiro Guimaraes, Maria Ilmara Rodrigues de Souza, Roberto Coelho Ferreira, Iasmim Chequer Cavalcanti, Rogerio Goncalves, Adelia Magda Sepulveda Santos. A pauta tratou dos seguintes assuntos: (...) 3.2 Discussao referente a realizacao da Conferencia Municipal de Saude Mental..."</blockquote>
+      <blockquote>"Nubia fala sobre a conferencia da saude mental 2022, que sera em abril de todos. Nao havendo nada mais a tratar, Presidente, Aparicio Fernandes de Oliveira, que presidiu a reuniao, declarou encerrada a 216a &ndash; Ducentesima Decima sexta Reuniao Ordinaria do Conselho Municipal de Saude."</blockquote>
+      <a href="https://drive.google.com/file/d/1_oynI9VjIl55-Oh26A7dYxEMJyzOdpVj/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 8 -->
+    <div class="doc-card c-sol">
+      <div class="doc-header-row">
+        <div class="doc-title">E-mail &ndash; Atas para analise e aprovacao (09/11/22)</div>
+        <span class="doc-badge b-sol">2022</span>
+      </div>
+      <div class="doc-meta">Tipo: E-mail Gmail &middot; ID: <code>18452fd723df92ce</code> &middot; De: cmsmocmg@gmail.com &middot; Data: 07/11/2022</div>
+      <blockquote>"Marcio Cardoso Silva &ndash; Secretario Executivo &ndash; Conselho Municipal de Saude de Montes Claros &ndash; MG. (...) Nubia Carneiro Guimaraes &lt;ncgbolath@yahoo.com.br&gt; [consta como destinataria das atas institucionais do periodo]"</blockquote>
+      <a href="https://mail.google.com/mail/u/0/#inbox/18452fd723df92ce" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Abrir no Gmail
+      </a>
+    </div>
+
+    <!-- DOC 9 -->
+    <div class="doc-card c-sol">
+      <div class="doc-header-row">
+        <div class="doc-title">E-mail &ndash; Coordenacao da Delegacao para a 10a Conferencia Estadual de Saude</div>
+        <span class="doc-badge b-sol">2023</span>
+      </div>
+      <div class="doc-meta">Tipo: E-mail Gmail &middot; De: Secretario Executivo Marcio Cardoso &middot; Data: mai 2023</div>
+      <blockquote>"Confirmado o nome de Nubia Carneiro Guimaraes como Coordenadora Geral da Delegacao de Montes Claros para a 10a Conferencia Estadual de Saude de Minas Gerais."</blockquote>
+      <a href="https://mail.google.com/mail/u/0/#search/N%C3%BAbia+Carneiro+Guimar%C3%A3es+confer%C3%AAncia+estadual" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Buscar no Gmail
+      </a>
+    </div>
+
+    <!-- DOC 10 -->
+    <div class="doc-card c-azul">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 413a Reuniao Ordinaria do CMS</div>
+        <span class="doc-badge">2022</span>
+      </div>
+      <div class="doc-meta">Tipo: Google Doc &middot; ID Drive: <code>1U9-GAe6_gZVfEtMYHBWpy4LkbRVPMVQjIzzr_sp5Q50</code></div>
+      <blockquote>"Edine Silva Soares, Roberto Coelho, Valdeci Alves Costa, Nubia Carneiro Guimaraes, Paulo Henrique Machado Ovidio, Maria Florisana Lopes de Sena e Almeida. E os conselheiros suplentes: Daniella Cristina Martins, Maria Elizabeth Silva, Sandra Simone Mendes e Maria Ismeria Pinheiro Ezequiel."</blockquote>
+      <a href="https://docs.google.com/document/d/1U9-GAe6_gZVfEtMYHBWpy4LkbRVPMVQjIzzr_sp5Q50/edit" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive (Google Doc)
+      </a>
+    </div>
+
+    <!-- DOC 11 -->
+    <div class="doc-card c-azul">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 414a Reuniao Ordinaria do CMS</div>
+        <span class="doc-badge">2022</span>
+      </div>
+      <div class="doc-meta">Tipo: Google Doc &middot; ID Drive: <code>1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ</code></div>
+      <blockquote>"Adelia Magda Sepulveda Santos, Antonio Atayde Duraes, Dulce Pimenta Goncalves, Edine Silva Soares, Roberto Coelho, Valdeci Alves Costa, Nubia Carneiro Guimaraes, Paulo Henrique Machado Ovidio, Maria Florisana Lopes de Sena e Almeida."</blockquote>
+      <a href="https://docs.google.com/document/d/1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ/edit" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive (Google Doc)
+      </a>
+    </div>
+
+    <!-- DOC 12 -->
+    <div class="doc-card c-azul">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata da 215a Reuniao Extraordinaria do CMS</div>
+        <span class="doc-badge">2022</span>
+      </div>
+      <div class="doc-meta">Tipo: Google Doc &middot; ID Drive: <code>13TEMA-GD3TDX-pVwYG8J7ie7Kiy0aqv8n5zVxJ6mIRQ</code></div>
+      <blockquote>"Goncalves, Edine Silva Soares, Roberto Coelho, Valdeci Alves Costa, Nubia Carneiro Guimaraes, Paulo Henrique Machado Ovidio, Maria Florisana Lopes de Sena e Almeida. E os conselheiros suplentes: Daniella Cristina Martins, Maria Elizabeth Silva, Sandra Simone Mendes e Maria Ismeria Pinheiro Ezequiel."</blockquote>
+      <a href="https://docs.google.com/document/d/13TEMA-GD3TDX-pVwYG8J7ie7Kiy0aqv8n5zVxJ6mIRQ/edit" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive (Google Doc)
+      </a>
+    </div>
+
+    <!-- DOC 13 -->
+    <div class="doc-card c-sol">
+      <div class="doc-header-row">
+        <div class="doc-title">E-mail em lista &ndash; Conselheiros CMS (jan 2021)</div>
+        <span class="doc-badge b-sol">2021</span>
+      </div>
+      <div class="doc-meta">Tipo: E-mail Gmail &middot; ID: <code>176cdfda96ef48b9</code> &middot; De: cmsmocmg@gmail.com &middot; Data: 04/01/2021</div>
+      <blockquote>"Nubia Carneiro Guimaraes &lt;ncgbolath@yahoo.com.br&gt; [consta na lista de convocacao de todos os conselheiros titulares, confirmando a titularidade no trienio 2021]"</blockquote>
+      <a href="https://mail.google.com/mail/u/0/#inbox/176cdfda96ef48b9" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Abrir no Gmail
+      </a>
+    </div>
+
+    <!-- DOC 14 -->
+    <div class="doc-card c-verde">
+      <div class="doc-header-row">
+        <div class="doc-title">Reuniao Extraordinaria 108a &ndash; Caso Vanilda / GRAPPA</div>
+        <span class="doc-badge b-verde">2016</span>
+      </div>
+      <div class="doc-meta">Tipo: MS Word (.doc) &middot; ID Drive: <code>0B5W_JIkP5oDJbXNRa1hQUDdKVUk</code></div>
+      <blockquote>"A Presidente do GRAPPA, Maria de Fatima Viana, solicitou a palavra para defender a permanencia da servidora Vanilda Veloso Oliveira Silva na Coordenacao do Programa Municipal de DST/AIDS, por ela estar realizando um belissimo trabalho, com muita seriedade e integracao de todos os atores envolvidos na prevencao e tratamento das pessoas com DST/AIDS."</blockquote>
+      <a href="https://drive.google.com/file/d/0B5W_JIkP5oDJbXNRa1hQUDdKVUk/view" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+    <!-- DOC 15 -->
+    <div class="doc-card c-sol">
+      <div class="doc-header-row">
+        <div class="doc-title">Ata/Notas de Reuniao da Comissao de Saude Mental</div>
+        <span class="doc-badge b-sol">2021</span>
+      </div>
+      <div class="doc-meta">Tipo: Google Doc &middot; ID Drive: <code>1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc</code> &middot; Data: 01/06/2021</div>
+      <blockquote>"Alcina fala da recomposicao, enquanto Raissa le o Regimento. Colocar pessoas dos prestadores mais ativos, sem ser da alta cupula."</blockquote>
+      <blockquote>"Nubia: colocar usuarios dos servicos / propoe um representante de cada servico / Leo acha dificil viabilizar"</blockquote>
+      <a href="https://docs.google.com/document/d/1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc/edit" target="_blank" class="doc-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir no Drive
+      </a>
+    </div>
+
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 04 PARTICIPACAO NUBIA -->
+  <div class="s-num">04</div>
+  <p class="s-label">Secao 04</p>
+  <h2 class="s-title">Participacao de <em>Nubia Carneiro Guimaraes</em></h2>
+
+  <div class="highlight-block">
+    <h3>Defesa da Participacao Popular na Saude Mental</h3>
+    <p>Durante a revisao do Regimento Interno da Comissao de Saude Mental em 2021, Nubia insistiu que o controle social so seria pleno com a inclusao de usuarios e representantes dos proprios servicos de saude mental (CAPS, SRTs), argumentando contra a centralizacao das decisoes nos gestores de cupula.</p>
+    <blockquote>
+      <strong>Citacao Direta (ID: <code>1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc</code>):</strong><br>
+      "Alcina fala da recomposicao, enquanto Raissa le o Regimento. Colocar pessoas dos prestadores mais ativos, sem ser da alta cupula. (...) Nubia: colocar usuarios dos servicos, propoe um representante de cada servico"
+    </blockquote>
+  </div>
+
+  <div class="content-section">
+    <h3>Articulacao de Redes de Apoio (SRTs)</h3>
+    <p>No debate do complexo caso da paciente psiquiatrica "Julia", transferida de Belo Horizonte para Montes Claros via acao da Promotoria, Nubia defendeu rigor tecnico no acolhimento no Servico de Residencia Terapeutica (SRT), destacando a necessidade de pareceres tecnicos previos das equipes do CAPS para assegurar a dignidade e a seguranca do atendimento.</p>
+    <h3>Lideranca de Delegacao Estadual (2023)</h3>
+    <p>Sua capacidade de mediacao e conhecimento tecnico a levaram a ser designada pelo Secretario Executivo Marcio Cardoso como a <strong>Coordenadora da Delegacao de Montes Claros</strong> para a <strong>10a Conferencia Estadual de Saude de Minas Gerais</strong>, consolidando sua lideranca regional na defesa do SUS.</p>
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 05 GRAPPA -->
+  <div class="s-num">05</div>
+  <p class="s-label">Secao 05</p>
+  <h2 class="s-title">Atuacao Institucional do <em>GRAPPA</em></h2>
+
+  <div class="content-section">
+    <h3>Manutencao da Casa de Apoio Regional</h3>
+    <p>O GRAPPA acolheu centenas de pacientes em transito vindos de toda a macrorregiao que nao possuiam recursos para hospedagem e alimentacao durante o tratamento no Hospital Universitario (HU). O CMSMOC foi palco de intensos debates para destinar 40% das verbas municipais de DST/AIDS do PAM para garantir a subsistencia dessa estrutura de acolhimento.</p>
+    <h3>Garantia de Sede Propria e Sustentabilidade</h3>
+    <p>Documentos registram a luta do GRAPPA no Plenario do CMS contra ordens de despejo por falta de fundos em periodos de atrasos de repasses estaduais/municipais. A articulacao dos conselheiros culminou na mobilizacao do poder publico municipal para propor a doacao de um terreno proprio para a sede definitiva da instituicao.</p>
+    <h3>Comissao de Monitoramento Permanente</h3>
+    <p>A atuacao do GRAPPA continuou sendo pauta prioritaria do CMS ate 2023, por meio da Comissao de Monitoramento e Acompanhamento, encarregada de avaliar de perto a aplicacao das verbas de fomento e o cumprimento das metas qualitativas da Casa de Apoio.</p>
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 06 POPULACOES VULNERAVEIS -->
+  <div class="s-num">06</div>
+  <p class="s-label">Secao 06</p>
+  <h2 class="s-title">CMS em Politicas Voltadas a <em>Populacoes Vulneraveis</em></h2>
+
+  <div class="content-section">
+    <h3>Saude Mental e Desinstitucionalização</h3>
+    <p>Discussoes intensas sobre a implantacao de Servicos de Residencia Terapeutica (SRT) e o monitoramento dos Centros de Atencao Psicossocial (CAPS AD) para garantir que pacientes psiquiatricos cronicos fossem acolhidos em meio comunitario, e nao asilados de forma desumana.</p>
+    <h3>Consultorio na Rua e Reducao de Danos</h3>
+    <p>Debates voltados para a ampliacao das equipes de Consultorio na Rua para prestar assistencia medica basica a moradores de rua e usuarios de alcool e outras drogas em situacao de extrema pobreza, defendendo o paradigma da Reducao de Danos como politica de Direitos Humanos.</p>
+    <h3>Prevencao de Endemias e ISTs</h3>
+    <p>O conselho deliberou historicamente sobre o fortalecimento do CTA em HIV/AIDS e acoes descentralizadas de prevencao a tuberculose e infeccoes transmissiveis nos bairros perifericos e aglomerados urbanos.</p>
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 07 INDICE -->
+  <div class="s-num">07</div>
+  <p class="s-label">Secao 07</p>
+  <h2 class="s-title">Indice Completo de <em>Documentos Analisados</em></h2>
+
+  <div class="doc-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ano</th>
+          <th>Tipo</th>
+          <th>Titulo / Assunto</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2016</td><td>Oficio</td><td>Oficio 013/11 &ndash; Prestacao de Contas GRAPPA</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJUHgzYlZsUjNwR2M/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>Ata 336a Reuniao Ordinaria &ndash; Convenio GRAPPA</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJajdoNFEyZTZQRnM/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>Ata 340a Reuniao Ordinaria &ndash; Repasse R$133 mil</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJb0xTdE9qWmR3VXc/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>Ata 221a Reuniao Ordinaria &ndash; Despejo sede GRAPPA</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJd3Fpd2Y5Q2s4d3M/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>100a Reuniao Extraordinaria &ndash; Convenio R$8.000</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJTmxYT1hKb0hsb3c/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>Ata 108a Extraordinaria &ndash; Defesa da Vanilda / GRAPPA</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJbXNRa1hQUDdKVUk/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>Ata 187a Ordinaria &ndash; Parceria GRAPPA/DST-AIDS</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJQWxrd1FBbGtBakk/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata</td><td>Ata 190a Ordinaria &ndash; Visitas e subvencao GRAPPA</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJaFd0Qk9DT1pDMmM/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2016</td><td>Ata CTA</td><td>Reuniao CTA &ndash; Implantacao Centro Testagem HIV/AIDS</td><td><a href="https://drive.google.com/file/d/0B5W_JIkP5oDJT0F1Q2JPdVFPMDA/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2021</td><td>E-mail</td><td>Lista de convocacao CMS &ndash; jan 2021 (Nubia titular)</td><td><a href="https://mail.google.com/mail/u/0/#inbox/176cdfda96ef48b9" target="_blank">Gmail</a></td></tr>
+        <tr><td>2021</td><td>Ata Comissao</td><td>Reuniao Comissao Saude Mental &ndash; Caso Julia e Regimento</td><td><a href="https://docs.google.com/document/d/1IdP9zqbqRrMW7NPDVTHvpmUbJ-3f-6gUVSCfWtAMMcc/edit" target="_blank">Drive</a></td></tr>
+        <tr><td>2022</td><td>Ata</td><td>Ata 216a Reuniao Extraordinaria &ndash; Conferencia Saude Mental</td><td><a href="https://drive.google.com/file/d/1_oynI9VjIl55-Oh26A7dYxEMJyzOdpVj/view" target="_blank">Drive</a></td></tr>
+        <tr><td>2022</td><td>Ata</td><td>Ata 215a Reuniao Extraordinaria</td><td><a href="https://docs.google.com/document/d/13TEMA-GD3TDX-pVwYG8J7ie7Kiy0aqv8n5zVxJ6mIRQ/edit" target="_blank">Drive</a></td></tr>
+        <tr><td>2022</td><td>Ata</td><td>Ata 413a Reuniao Ordinaria</td><td><a href="https://docs.google.com/document/d/1U9-GAe6_gZVfEtMYHBWpy4LkbRVPMVQjIzzr_sp5Q50/edit" target="_blank">Drive</a></td></tr>
+        <tr><td>2022</td><td>Ata</td><td>Ata 414a Reuniao Ordinaria</td><td><a href="https://docs.google.com/document/d/1soDZ69DHgh8XJdNbXHTA5F9JCJCOpqASEh6p16KctCQ/edit" target="_blank">Drive</a></td></tr>
+        <tr><td>2022</td><td>E-mail</td><td>Atas para analise &ndash; 09/11/22</td><td><a href="https://mail.google.com/mail/u/0/#inbox/18452fd723df92ce" target="_blank">Gmail</a></td></tr>
+        <tr><td>2023</td><td>E-mail</td><td>Coordenacao da Delegacao &ndash; 10a Conf. Estadual de Saude</td><td><a href="https://mail.google.com/mail/u/0/#search/N%C3%BAbia+Carneiro+confer%C3%AAncia+estadual" target="_blank">Gmail</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="s-divider"></div>
+
+  <!-- 08 SUBSIDIOS -->
+  <div class="s-num">08</div>
+  <p class="s-label">Secao 08</p>
+  <h2 class="s-title">Subsidios para <em>Reconhecimento Institucional</em></h2>
+  <p class="s-body">Fundamentos documentais para eventual certificado ou resolucao de reconhecimento publico pelo Plenario do CMS-MOC.</p>
+
+  <div style="margin-bottom:2rem">
+    <p style="font-family:var(--f-m);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--grafite);margin-bottom:1rem">Para a Conselheira Nubia Carneiro Guimaraes</p>
+    <ul class="credit-list">
+      <li data-n="01"><div><strong>Dedicacao Inabalavel ao Controle Social:</strong><br><span>Presenca qualificada e constante registrada em dezenas de reunioes ordinarias, extraordinarias e comissoes tematicas de saude mental entre 2016 e 2023.</span></div></li>
+      <li data-n="02"><div><strong>Voz de Acolhimento e Humanizacao:</strong><br><span>Atuacao cirurgica na defesa de criterios tecnicos e humanizados para o acolhimento de pacientes cronicos em SRTs, priorizando sempre o parecer tecnico e a dignidade humana acima de imposicoes burocraticas.</span></div></li>
+      <li data-n="03"><div><strong>Lideranca e Representacao Coletiva:</strong><br><span>Conducao da coordenacao da delegacao de Montes Claros na 10a Conferencia Estadual de Saude de Minas Gerais (2023), projetando o nome e a excelencia do controle social de Montes Claros em ambito estadual.</span></div></li>
+    </ul>
+  </div>
+
+  <div>
+    <p style="font-family:var(--f-m);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--grafite);margin-bottom:1rem">Para o GRAPPA</p>
+    <ul class="credit-list">
+      <li data-n="01"><div><strong>Pilar de Acolhimento Macrorregional:</strong><br><span>Mais de tres decadas (desde 1992) de acolhimento fisico, alimentar e psicossocial para portadores de HIV/AIDS de todo o Norte de Minas.</span></div></li>
+      <li data-n="02"><div><strong>Resiliencia Historica:</strong><br><span>Sobrevivencia e superacao de crises financeiras severas e ameacas de despejo, recorrendo de forma legitima e democratica a tribuna do CMS.</span></div></li>
+      <li data-n="03"><div><strong>Transparencia e Parceria Democratica:</strong><br><span>Submissao constante as avaliacoes da Comissao de Monitoramento do CMS, legitimando a aplicacao de recursos do Fundo Municipal de Saude.</span></div></li>
+    </ul>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<div class="stripe"></div>
+<footer class="site-footer">
+  <p>Conselho Municipal de Saude de Montes Claros.<br><span>Memoria viva do controle social.</span></p>
+  <small>
+    Relatorio gerado por Antigravity AGY &middot; 18 jul 2026<br>
+    Fonte primaria: Google Drive / Gmail &ndash; CMS Montes Claros &middot; Gestao 2026&ndash;2029
+  </small>
+</footer>
+
+</body>
+</html>
