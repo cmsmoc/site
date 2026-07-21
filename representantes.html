@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Conselheiros Designados - Acompanhamento dos Contratos Hospitalares (v3)</title>
+    <title>Conselheiros Designados - Acompanhamento dos Contratos Hospitalares (v2)</title>
     
     <!-- Google Fonts: Lora (serif elegance) and Montserrat (modern sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,11 +105,42 @@
             margin-top: 4px;
         }
 
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+        }
+
+        .btn-modal {
+            font-family: var(--font-display);
+            background-color: var(--cms-navy);
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(13, 46, 90, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-modal:hover {
+            background-color: var(--cms-blue);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(27, 108, 181, 0.3);
+        }
+
         .table-area {
             flex-grow: 1;
             display: flex;
             align-items: center;
-            margin: 15px 0;
+            margin: 5px 0;
         }
 
         .contacts-table {
@@ -168,7 +199,6 @@
         .h-santacasa { background-color: rgba(239, 68, 68, 0.08); color: #991B1B; border: 1px solid rgba(239, 68, 68, 0.15); }
         .h-geral { background-color: rgba(100, 116, 139, 0.08); color: #334155; border: 1px solid rgba(100, 116, 139, 0.15); }
 
-        /* --- Click to Copy Elements --- */
         .interactive-contact {
             font-family: var(--font-display);
             cursor: pointer;
@@ -187,7 +217,6 @@
             color: var(--cms-blue);
         }
 
-        /* --- WhatsApp System --- */
         .whatsapp-link {
             display: inline-flex;
             align-items: center;
@@ -213,7 +242,6 @@
             fill: currentColor;
         }
 
-        /* --- Toast Toast Message --- */
         .toast-msg {
             position: absolute;
             top: 25px;
@@ -253,26 +281,163 @@
             opacity: 0.8;
         }
 
-        .a4-landscape::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120mm;
-            height: 120mm;
-            background-image: url('https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/logline.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.025;
-            z-index: 0;
-            pointer-events: none;
+        /* --- MODAL SYSTEM --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
         }
-        
-        .a4-landscape > * {
-            position: relative;
-            z-index: 2;
+
+        .modal-card {
+            background-color: white;
+            width: 95%;
+            max-width: 1050px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: modalFadeIn 0.25s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            background-color: var(--cms-navy);
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 20px 24px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-subtitle {
+            font-family: var(--font-display);
+            font-size: 11px;
+            color: var(--cms-muted);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .modal-table th {
+            padding: 10px 12px;
+            font-family: var(--font-display);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            border-bottom: 2px solid var(--cms-navy);
+        }
+
+        .modal-table th.th-titular {
+            background-color: rgba(13, 46, 90, 0.05);
+            color: var(--cms-navy);
+        }
+
+        .modal-table th.th-suplente {
+            background-color: #F1F5F9;
+            color: var(--cms-muted);
+            opacity: 0.8;
+        }
+
+        .modal-table tr {
+            border-bottom: 1px solid var(--cms-border);
+        }
+
+        .modal-table td {
+            padding: 11px 12px;
+            font-size: 12.5px;
+            vertical-align: middle;
+        }
+
+        .modal-h-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--cms-navy);
+        }
+
+        .modal-t-cell {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--cms-navy);
+        }
+
+        .modal-s-cell {
+            font-family: var(--font-display);
+            font-weight: 500;
+            color: #64748B;
+            opacity: 0.65; /* Opacidade reduzida conforme solicitado */
+            background-color: rgba(241, 245, 249, 0.4);
+        }
+
+        .tag-t {
+            display: inline-block;
+            font-size: 9px;
+            background-color: rgba(27, 108, 181, 0.12);
+            color: var(--cms-blue);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        .tag-s {
+            display: inline-block;
+            font-size: 9px;
+            background-color: rgba(100, 116, 139, 0.15);
+            color: #475569;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
         }
 
         @media print {
@@ -280,6 +445,9 @@
                 background: white;
                 padding: 0;
                 margin: 0;
+            }
+            .action-bar, .btn-modal, .modal-overlay {
+                display: none !important;
             }
             .a4-landscape {
                 box-shadow: none;
@@ -294,7 +462,7 @@
                 border-color: transparent;
             }
             .whatsapp-link {
-                display: none !important; /* Esconder botão de whatsapp na impressão física */
+                display: none !important;
             }
             @page {
                 size: A4 landscape;
@@ -308,7 +476,8 @@
     <div class="a4-landscape">
         <!-- Notificação de cópia rápida -->
         <div id="toast" class="toast-msg">Copiado para a área de transferência!</div>
-         <!-- Cabeçalho Oficial -->
+
+        <!-- Cabeçalho Oficial -->
         <header class="doc-header">
             <div class="doc-logo">
                 <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/Logotipo%20CMSMOC%202025%20A8.png" alt="Logo CMS">
@@ -317,13 +486,20 @@
                 <div class="header-subtitle-main">Conselho Municipal de Saúde de Montes Claros/MG</div>
                 <h1 class="doc-title-main">Conselheiros Designados para Acompanhamento dos contratos hospitalares</h1>
                 <div class="doc-ref">
-                    <span>designados pela portaria 021/2026/cmsmoc // ofício 075/2026/cmsmoc // Memorando 1doc nº: 29.605/2026 </span>
+                    <span>designados pela portaria 021/2026/cmsmoc // ofício 076/2026/cmsmoc // Memorando 1doc nº: 29.605/2026 </span>
                 </div>
             </div>
         </header>
 
-        <!-- Tabela de Contatos -->
-        <div class="table-area" style="margin-top: 5px;">
+        <!-- Barra de Ações Rápidas (Atalho de Consulta Completa) -->
+        <div class="action-bar">
+            <button class="btn-modal" onclick="openModal()">
+                📊 Ver Tabela Completa (Titulares e Suplentes)
+            </button>
+        </div>
+
+        <!-- Tabela Principal de Contatos -->
+        <div class="table-area">
             <table class="contacts-table">
                 <thead>
                     <tr>
@@ -334,10 +510,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Instrução de uso interativo entre a linha divisória do head e a linha 1 -->
                     <tr>
-                        <td colspan="4" style="padding: 6px 16px; border-bottom: none; font-family: var(--font-display); font-size: 8.5px; color: var(--cms-muted); text-align: center; font-weight: 500; font-style: italic;">
-                            (Clique sobre e-mails ou telefones para copiar. Use o ícone verde para enviar WhatsApp)
+                        <td colspan="4" style="padding: 4px 16px; border-bottom: none; font-family: var(--font-display); font-size: 8.5px; color: var(--cms-muted); text-align: center; font-weight: 500; font-style: italic;">
+                            (Clique sobre e-mails ou telefones para copiar. Use o botão no topo para abrir a matriz de Titulares e Suplentes)
                         </td>
                     </tr>
                     <tr>
@@ -491,7 +666,68 @@
         </footer>
     </div>
 
-    <!-- JS minimalista para cópia instantânea -->
+    <!-- MODAL DE VISUALIZAÇÃO COMPLETA -->
+    <div id="repModal" class="modal-overlay" onclick="closeModalOnOuterClick(event)">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Matriz Completa de Representação Hospitalar (Portaria GM/MS 3.410/2013)</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-subtitle">Consulta rápida das 4 cadeiras oficiais (2 Titulares + 2 Suplentes) por Hospital Conveniado</div>
+                <table class="modal-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 24%">Hospital / Prestador</th>
+                            <th style="width: 19%" class="th-titular">Titular 1 (Geral)</th>
+                            <th style="width: 19%" class="th-titular">Titular 2 (Setorial)</th>
+                            <th style="width: 19%" class="th-suplente">Suplente 1</th>
+                            <th style="width: 19%" class="th-suplente">Suplente 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="modal-h-name">HU Clemente de Faria (HUCF)</td>
+                            <td class="modal-t-cell"><span class="tag-t">T1</span> Washington Souto</td>
+                            <td class="modal-t-cell"><span class="tag-t">T2</span> Fernanda Fagundes</td>
+                            <td class="modal-s-cell"><span class="tag-s">S1</span> Ricardo Soares</td>
+                            <td class="modal-s-cell"><span class="tag-s">S2</span> Anielly Costa</td>
+                        </tr>
+                        <tr>
+                            <td class="modal-h-name">HC Mário Ribeiro (HCMR)</td>
+                            <td class="modal-t-cell"><span class="tag-t">T1</span> Washington Souto</td>
+                            <td class="modal-t-cell"><span class="tag-t">T2</span> Ricardo Soares</td>
+                            <td class="modal-s-cell"><span class="tag-s">S1</span> Jucielio Bernardes</td>
+                            <td class="modal-s-cell"><span class="tag-s">S2</span> Fernando Andrade</td>
+                        </tr>
+                        <tr>
+                            <td class="modal-h-name">Hospital Aroldo Tourinho</td>
+                            <td class="modal-t-cell"><span class="tag-t">T1</span> Washington Souto</td>
+                            <td class="modal-t-cell"><span class="tag-t">T2</span> Anielly Costa</td>
+                            <td class="modal-s-cell"><span class="tag-s">S1</span> Fernanda Fagundes</td>
+                            <td class="modal-s-cell"><span class="tag-s">S2</span> Jucielio Bernardes</td>
+                        </tr>
+                        <tr>
+                            <td class="modal-h-name">Hospital Dilson Godinho</td>
+                            <td class="modal-t-cell"><span class="tag-t">T1</span> Washington Souto</td>
+                            <td class="modal-t-cell"><span class="tag-t">T2</span> Jucielio Bernardes</td>
+                            <td class="modal-s-cell"><span class="tag-s">S1</span> Fernando Andrade</td>
+                            <td class="modal-s-cell"><span class="tag-s">S2</span> Anielly Costa</td>
+                        </tr>
+                        <tr>
+                            <td class="modal-h-name">Santa Casa de Montes Claros</td>
+                            <td class="modal-t-cell"><span class="tag-t">T1</span> Washington Souto</td>
+                            <td class="modal-t-cell"><span class="tag-t">T2</span> Fernando Andrade</td>
+                            <td class="modal-s-cell"><span class="tag-s">S1</span> Fernanda Fagundes</td>
+                            <td class="modal-s-cell"><span class="tag-s">S2</span> Ricardo Soares</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Interatividade -->
     <script>
         function copyValue(text, alertMsg) {
             navigator.clipboard.writeText(text).then(() => {
@@ -499,7 +735,6 @@
                 toast.innerText = alertMsg;
                 toast.style.display = 'block';
                 
-                // Reiniciar animação
                 toast.style.animation = 'none';
                 toast.offsetHeight;
                 toast.style.animation = 'slideIn 0.2s ease-out';
@@ -510,6 +745,20 @@
             }).catch(err => {
                 console.error('Falha ao copiar: ', err);
             });
+        }
+
+        function openModal() {
+            document.getElementById('repModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('repModal').style.display = 'none';
+        }
+
+        function closeModalOnOuterClick(event) {
+            if (event.target.id === 'repModal') {
+                closeModal();
+            }
         }
     </script>
 </body>
