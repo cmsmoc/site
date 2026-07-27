@@ -253,6 +253,59 @@ body {
     pointer-events: none;
 }
 
+/* Category Headers */
+.category-title {
+    font-family: var(--font-d);
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #E2E8F0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--color-navy);
+}
+
+.category-title::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+}
+
+.cat-contratos::before { background-color: var(--color-yellow); }
+.cat-atas::before { background-color: var(--color-blue); }
+.cat-memorandos::before { background-color: var(--color-navy); }
+
+/* Botão Google Drive Geral */
+.drive-btn-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-drive-large {
+    display: inline-block;
+    background-color: var(--color-blue);
+    color: white;
+    font-family: var(--font-d);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-drive-large:hover {
+    background-color: var(--color-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
 /* Print Rules */
 @media print {
     body {
