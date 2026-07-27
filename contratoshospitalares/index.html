@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Contratos Hospitalares - CMSMOC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Stripe Tricolor CMSMOC -->
+    <div class="cms-stripe"></div>
+    
+    <!-- Cabeçalho Institucional -->
+    <header class="cms-header">
+        <div class="header-content">
+            <div class="logos">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva CMSMOC" class="logo-sec">
+                <!-- Se houver URL específica para logowh.png do CMS, pode ser ajustada aqui -->
+            </div>
+            <div class="header-titles">
+                <h1>Hub de Contratos Hospitalares</h1>
+                <p>Conselho Municipal de Saúde de Montes Claros</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Preâmbulo -->
+        <section class="preambulo">
+            <h2>Gestão de Contratos e Aditivos</h2>
+            <p>Selecione uma das unidades hospitalares abaixo para visualizar os documentos contratuais vigentes (Contratos Principais, Termos Aditivos e Apostilamentos).</p>
+        </section>
+
+        <!-- View 1: Grid de Hospitais -->
+        <section id="view-hospitais" class="metro-grid">
+            <!-- Renderizado via JS -->
+        </section>
+
+        <!-- View 2: Galeria de Arquivos (Escondido inicialmente) -->
+        <section id="view-arquivos" class="files-gallery" style="display: none;">
+            <button id="btn-voltar" class="btn-voltar">&larr; Voltar aos Hospitais</button>
+            <h2 id="hospital-title" class="hospital-title">Nome do Hospital</h2>
+            <div id="files-container" class="files-grid">
+                <!-- Renderizado via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
