@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Contratos Hospitalares - CMSMOC</title>
+    <!-- OpenGraph / WhatsApp Meta Tags -->
+    <meta property="og:title" content="Hub de Contratos Hospitalares - CMSMOC">
+    <meta property="og:description" content="Acesse e consulte os Contratos, Aditivos, Atas e Memorandos dos hospitais vinculados ao Conselho Municipal de Saúde de Montes Claros.">
+    <meta property="og:image" content="https://www.cmsmoc.com/contratoshospitalares/images/thumb.png">
+    <meta property="og:url" content="https://www.cmsmoc.com/contratoshospitalares">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CMSMOC">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-2.css">
+</head>
+<body>
+    <div class="stripe cms-stripe"></div>
+    <div class="wrapper">
+        <!-- Cabeçalho (Padrão CMSMOC) -->
+        <header class="doc-header">
+            <div class="header-inner">
+                <div class="header-logos">
+                    <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva" style="height:60px;object-fit:contain;">
+                    <img src="https://cmsmoc.github.io/site/logowh.png" alt="CMS Montes Claros" style="height:60px;object-fit:contain;">
+                </div>
+                <p class="header-eyebrow">ACOMPANHAMENTO DE CONTRATOS E ADITIVOS</p>
+                <h1 class="header-title">Hub de <em>Contratos Hospitalares</em></h1>
+                <p class="header-sub">Conselho Municipal de Saúde de Montes Claros</p>
+            </div>
+        </header>
+
+    <main class="app-container">
+        <!-- Preâmbulo -->
+        <section class="preambulo">
+            <h2>Gestão de Contratos e Aditivos</h2>
+            <p>Selecione uma das unidades hospitalares abaixo para visualizar os documentos contratuais vigentes (Contratos Principais, Termos Aditivos e Apostilamentos).</p>
+            
+            <div class="drive-btn-container">
+                <a href="https://drive.google.com/drive/folders/1U1t38D_WwLs5dATaLu9r9TonqU-n3pFj" target="_blank" class="btn-drive-large">
+                    🔗 Acessar Pasta Central no Google Drive
+                </a>
+            </div>
+        </section>
+
+        <!-- View 1: Grid de Hospitais -->
+        <section id="view-hospitais" class="metro-grid">
+            <!-- Renderizado via JS -->
+        </section>
+
+        <!-- View 2: Galeria de Arquivos (Escondido inicialmente) -->
+        <section id="view-arquivos" class="files-gallery" style="display: none;">
+            <button id="btn-voltar" class="btn-voltar">&larr; Voltar aos Hospitais</button>
+            <h2 id="hospital-title" class="hospital-title">Nome do Hospital</h2>
+            <div id="files-container" class="files-grid">
+                <!-- Renderizado via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app-2.js"></script>
+</body>
+</html>
