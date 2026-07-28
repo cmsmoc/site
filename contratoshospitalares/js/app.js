@@ -36,9 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
             title.className = 'tile-title';
             title.textContent = hospital.nome;
             
+            let totalFiles = 0;
+            if (hospital.categorias) {
+                totalFiles += (hospital.categorias["Contratos e Aditivos"] || []).length;
+                totalFiles += (hospital.categorias["Atas"] || []).length;
+                totalFiles += (hospital.categorias["Memorandos"] || []).length;
+            }
             const subtitle = document.createElement('p');
             subtitle.className = 'tile-subtitle';
-            subtitle.textContent = `${hospital.arquivos.length} documentos`;
+            subtitle.textContent = `${totalFiles} documentos`;
             
             tile.appendChild(title);
             tile.appendChild(subtitle);
