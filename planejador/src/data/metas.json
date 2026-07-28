@@ -1,0 +1,1930 @@
+[
+    {
+        "id": "A01",
+        "eixo": "A",
+        "titulo": "Instituir o Programa Municipal de Fortalecimento dos Conselhos Locais de Saúde",
+        "descricao": "Elaboração participativa do programa e validação institucional",
+        "acao": "Elaboração participativa do programa e validação institucional",
+        "objeto": "Serviços gráficos, facilitação de oficinas, coffee break, material de apoio",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "instituir",
+            "programa",
+            "municipal",
+            "fortalecimento",
+            "conselhos",
+            "locais",
+            "saúde"
+        ]
+    },
+    {
+        "id": "A02",
+        "eixo": "A",
+        "titulo": "Criar Comitê Gestor Municipal dos CLS",
+        "descricao": "Reuniões de instalação e pactuação de atribuições",
+        "acao": "Reuniões de instalação e pactuação de atribuições",
+        "objeto": "Material de expediente, coffee break, impressão de documentos",
+        "valor": 1800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "comitê",
+            "gestor",
+            "municipal",
+            "cls"
+        ]
+    },
+    {
+        "id": "A03",
+        "eixo": "A",
+        "titulo": "Elaborar Plano Municipal de Fortalecimento dos CLS",
+        "descricao": "Oficinas técnicas para construção do plano",
+        "acao": "Oficinas técnicas para construção do plano",
+        "objeto": "Facilitação, impressão, material gráfico",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "plano",
+            "municipal",
+            "fortalecimento",
+            "cls"
+        ]
+    },
+    {
+        "id": "A04",
+        "eixo": "A",
+        "titulo": "Elaborar diagnóstico institucional dos 12 CLS",
+        "descricao": "Visitas técnicas e aplicação de instrumento diagnóstico",
+        "acao": "Visitas técnicas e aplicação de instrumento diagnóstico",
+        "objeto": "Material de campo, impressão, deslocamentos, diárias",
+        "valor": 5000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "diagnóstico",
+            "institucional",
+            "cls"
+        ]
+    },
+    {
+        "id": "A05",
+        "eixo": "A",
+        "titulo": "Mapear lideranças comunitárias do território",
+        "descricao": "Levantamento e cadastro das lideranças",
+        "acao": "Levantamento e cadastro das lideranças",
+        "objeto": "Material de consumo, formulários, deslocamentos",
+        "valor": 2800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "mapear",
+            "lideranças",
+            "comunitárias",
+            "território"
+        ]
+    },
+    {
+        "id": "A06",
+        "eixo": "A",
+        "titulo": "Atualizar a Resolução Municipal dos CLS",
+        "descricao": "Grupo técnico de revisão normativa",
+        "acao": "Grupo técnico de revisão normativa",
+        "objeto": "Impressão, material de expediente, apoio técnico",
+        "valor": 2000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "atualizar",
+            "resolução",
+            "municipal",
+            "cls"
+        ]
+    },
+    {
+        "id": "A07",
+        "eixo": "A",
+        "titulo": "Elaborar Regimento Interno Modelo",
+        "descricao": "Oficina de elaboração colaborativa",
+        "acao": "Oficina de elaboração colaborativa",
+        "objeto": "Serviços gráficos, material de apoio",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "regimento",
+            "interno",
+            "modelo"
+        ]
+    },
+    {
+        "id": "A08",
+        "eixo": "A",
+        "titulo": "Elaborar Manual de Funcionamento dos CLS",
+        "descricao": "Produção e revisão técnica",
+        "acao": "Produção e revisão técnica",
+        "objeto": "Diagramação, impressão, revisão textual",
+        "valor": 4000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "manual",
+            "funcionamento",
+            "cls"
+        ]
+    },
+    {
+        "id": "A09",
+        "eixo": "A",
+        "titulo": "Elaborar Guia do Conselheiro Local",
+        "descricao": "Produção editorial e validação",
+        "acao": "Produção editorial e validação",
+        "objeto": "Designer gráfico, impressão, revisão",
+        "valor": 4500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "guia",
+            "conselheiro",
+            "local"
+        ]
+    },
+    {
+        "id": "A10",
+        "eixo": "A",
+        "titulo": "Elaborar Guia do Gestor da UBS",
+        "descricao": "Produção de material orientativo",
+        "acao": "Produção de material orientativo",
+        "objeto": "Designer gráfico, impressão",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "guia",
+            "gestor",
+            "ubs"
+        ]
+    },
+    {
+        "id": "A11",
+        "eixo": "A",
+        "titulo": "Instituir calendário anual dos CLS",
+        "descricao": "Planejamento integrado com UBS",
+        "acao": "Planejamento integrado com UBS",
+        "objeto": "Impressão de calendários e materiais",
+        "valor": 1500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "instituir",
+            "calendário",
+            "anual",
+            "cls"
+        ]
+    },
+    {
+        "id": "A12",
+        "eixo": "A",
+        "titulo": "Padronizar atas dos CLS",
+        "descricao": "Desenvolvimento de modelos oficiais",
+        "acao": "Desenvolvimento de modelos oficiais",
+        "objeto": "Material gráfico e impressão",
+        "valor": 1000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "padronizar",
+            "atas",
+            "cls"
+        ]
+    },
+    {
+        "id": "A13",
+        "eixo": "A",
+        "titulo": "Padronizar listas de presença",
+        "descricao": "Criação de formulários padronizados",
+        "acao": "Criação de formulários padronizados",
+        "objeto": "Impressão e material gráfico",
+        "valor": 800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "padronizar",
+            "listas",
+            "presença"
+        ]
+    },
+    {
+        "id": "A14",
+        "eixo": "A",
+        "titulo": "Padronizar formulários administrativos",
+        "descricao": "Elaboração de modelos institucionais",
+        "acao": "Elaboração de modelos institucionais",
+        "objeto": "Designer gráfico, impressão",
+        "valor": 1500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "padronizar",
+            "formulários",
+            "administrativos"
+        ]
+    },
+    {
+        "id": "A15",
+        "eixo": "A",
+        "titulo": "Implantar fluxo oficial CMS-CLS",
+        "descricao": "Oficina de definição dos fluxos",
+        "acao": "Oficina de definição dos fluxos",
+        "objeto": "Material gráfico, reuniões técnicas",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "implantar",
+            "fluxo",
+            "oficial",
+            "cmscls"
+        ]
+    },
+    {
+        "id": "A16",
+        "eixo": "A",
+        "titulo": "Implantar fluxo UBS-CLS",
+        "descricao": "Construção conjunta dos procedimentos",
+        "acao": "Construção conjunta dos procedimentos",
+        "objeto": "Oficinas, impressão, material didático",
+        "valor": 2000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "implantar",
+            "fluxo",
+            "ubscls"
+        ]
+    },
+    {
+        "id": "A17",
+        "eixo": "A",
+        "titulo": "Definir matriz de responsabilidades",
+        "descricao": "Workshop de pactuação institucional",
+        "acao": "Workshop de pactuação institucional",
+        "objeto": "Material gráfico e apoio logístico",
+        "valor": 2200,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "definir",
+            "matriz",
+            "responsabilidades"
+        ]
+    },
+    {
+        "id": "A18",
+        "eixo": "A",
+        "titulo": "Criar cadastro municipal dos conselheiros locais",
+        "descricao": "Levantamento e consolidação de dados",
+        "acao": "Levantamento e consolidação de dados",
+        "objeto": "Material de expediente, formulários, digitação",
+        "valor": 2800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "cadastro",
+            "municipal",
+            "conselheiros",
+            "locais"
+        ]
+    },
+    {
+        "id": "A19",
+        "eixo": "A",
+        "titulo": "Criar banco documental dos CLS",
+        "descricao": "Digitalização e organização documental",
+        "acao": "Digitalização e organização documental",
+        "objeto": "Scanner terceirizado, pastas, etiquetas, armazenamento",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "banco",
+            "documental",
+            "cls"
+        ]
+    },
+    {
+        "id": "A20",
+        "eixo": "A",
+        "titulo": "Organizar acervo normativo dos CLS",
+        "descricao": "Compilação e catalogação documental",
+        "acao": "Compilação e catalogação documental",
+        "objeto": "Impressão, encadernação, organização física",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "organizar",
+            "acervo",
+            "normativo",
+            "cls"
+        ]
+    },
+    {
+        "id": "A21",
+        "eixo": "A",
+        "titulo": "Realizar oficinas intersetoriais com Educação",
+        "descricao": "Encontros institucionais",
+        "acao": "Encontros institucionais",
+        "objeto": "Coffee break, material gráfico, locação eventual",
+        "valor": 3000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "oficinas",
+            "intersetoriais",
+            "educação"
+        ]
+    },
+    {
+        "id": "A22",
+        "eixo": "A",
+        "titulo": "Realizar oficinas intersetoriais com Assistência Social",
+        "descricao": "Integração entre políticas públicas",
+        "acao": "Integração entre políticas públicas",
+        "objeto": "Coffee break, impressão, apoio logístico",
+        "valor": 3000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "oficinas",
+            "intersetoriais",
+            "assistência",
+            "social"
+        ]
+    },
+    {
+        "id": "A23",
+        "eixo": "A",
+        "titulo": "Realizar oficinas intersetoriais com Câmara Municipal",
+        "descricao": "Integração institucional",
+        "acao": "Integração institucional",
+        "objeto": "Material gráfico, coffee break",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "oficinas",
+            "intersetoriais",
+            "câmara",
+            "municipal"
+        ]
+    },
+    {
+        "id": "A24",
+        "eixo": "A",
+        "titulo": "Realizar oficinas com universidades",
+        "descricao": "Articulação para apoio técnico",
+        "acao": "Articulação para apoio técnico",
+        "objeto": "Material gráfico, certificados",
+        "valor": 2800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "oficinas",
+            "universidades"
+        ]
+    },
+    {
+        "id": "A25",
+        "eixo": "A",
+        "titulo": "Formalizar parcerias institucionais",
+        "descricao": "Reuniões e elaboração de instrumentos",
+        "acao": "Reuniões e elaboração de instrumentos",
+        "objeto": "Material gráfico e expediente",
+        "valor": 1800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "formalizar",
+            "parcerias",
+            "institucionais"
+        ]
+    },
+    {
+        "id": "A26",
+        "eixo": "A",
+        "titulo": "Implantar rotina trimestral de monitoramento",
+        "descricao": "Reuniões periódicas dos CLS",
+        "acao": "Reuniões periódicas dos CLS",
+        "objeto": "Coffee break, impressão, listas",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "implantar",
+            "rotina",
+            "trimestral",
+            "monitoramento"
+        ]
+    },
+    {
+        "id": "A27",
+        "eixo": "A",
+        "titulo": "Criar rede municipal de presidentes dos CLS",
+        "descricao": "Encontros periódicos",
+        "acao": "Encontros periódicos",
+        "objeto": "Material gráfico, apoio logístico",
+        "valor": 2800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "rede",
+            "municipal",
+            "presidentes",
+            "cls"
+        ]
+    },
+    {
+        "id": "A28",
+        "eixo": "A",
+        "titulo": "Instituir Fórum Permanente dos CLS",
+        "descricao": "Realização de encontros municipais",
+        "acao": "Realização de encontros municipais",
+        "objeto": "Locação eventual, coffee break, impressão",
+        "valor": 4000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "instituir",
+            "fórum",
+            "permanente",
+            "cls"
+        ]
+    },
+    {
+        "id": "A29",
+        "eixo": "A",
+        "titulo": "Elaborar plano de expansão dos CLS",
+        "descricao": "Estudos técnicos e oficinas",
+        "acao": "Estudos técnicos e oficinas",
+        "objeto": "Material gráfico, consultoria técnica especializada (PJ)",
+        "valor": 4500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "plano",
+            "expansão",
+            "cls"
+        ]
+    },
+    {
+        "id": "A30",
+        "eixo": "A",
+        "titulo": "Elaborar plano de sustentabilidade",
+        "descricao": "Definição de estratégias pós-projeto",
+        "acao": "Definição de estratégias pós-projeto",
+        "objeto": "Oficinas, impressão, material didático",
+        "valor": 3000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "plano",
+            "sustentabilidade"
+        ]
+    },
+    {
+        "id": "A31",
+        "eixo": "A",
+        "titulo": "Realizar diagnóstico da infraestrutura dos CLS",
+        "descricao": "Visitas técnicas às UBS",
+        "acao": "Visitas técnicas às UBS",
+        "objeto": "Deslocamentos, material de registro",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "diagnóstico",
+            "infraestrutura",
+            "cls"
+        ]
+    },
+    {
+        "id": "A32",
+        "eixo": "A",
+        "titulo": "Elaborar mapa territorial dos CLS",
+        "descricao": "Georreferenciamento simplificado dos territórios",
+        "acao": "Georreferenciamento simplificado dos territórios",
+        "objeto": "Serviços gráficos, mapas impressos",
+        "valor": 4000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "mapa",
+            "territorial",
+            "cls"
+        ]
+    },
+    {
+        "id": "A33",
+        "eixo": "A",
+        "titulo": "Atualizar cadastro das entidades comunitárias",
+        "descricao": "Levantamento institucional",
+        "acao": "Levantamento institucional",
+        "objeto": "Material de expediente, formulários",
+        "valor": 2000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "atualizar",
+            "cadastro",
+            "entidades",
+            "comunitárias"
+        ]
+    },
+    {
+        "id": "A34",
+        "eixo": "A",
+        "titulo": "Criar protocolo de integração entre CMS e APS",
+        "descricao": "Oficina técnica de pactuação",
+        "acao": "Oficina técnica de pactuação",
+        "objeto": "Material gráfico, reuniões",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "protocolo",
+            "integração",
+            "entre",
+            "cms",
+            "aps"
+        ]
+    },
+    {
+        "id": "A35",
+        "eixo": "A",
+        "titulo": "Instituir reuniões técnicas com coordenadores das UBS",
+        "descricao": "Agenda permanente de alinhamento",
+        "acao": "Agenda permanente de alinhamento",
+        "objeto": "Coffee break, material gráfico",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "instituir",
+            "reuniões",
+            "técnicas",
+            "coordenadores",
+            "ubs"
+        ]
+    },
+    {
+        "id": "A36",
+        "eixo": "A",
+        "titulo": "Desenvolver indicadores municipais dos CLS",
+        "descricao": "Construção de painel de indicadores",
+        "acao": "Construção de painel de indicadores",
+        "objeto": "Material gráfico, oficina técnica",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "desenvolver",
+            "indicadores",
+            "municipais",
+            "cls"
+        ]
+    },
+    {
+        "id": "A37",
+        "eixo": "A",
+        "titulo": "Criar sistema de acompanhamento das metas",
+        "descricao": "Definição de instrumentos de monitoramento",
+        "acao": "Definição de instrumentos de monitoramento",
+        "objeto": "Planilhas, impressão, material técnico",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "sistema",
+            "acompanhamento",
+            "metas"
+        ]
+    },
+    {
+        "id": "A38",
+        "eixo": "A",
+        "titulo": "Elaborar protocolo para criação de novos CLS",
+        "descricao": "Padronização do processo de implantação",
+        "acao": "Padronização do processo de implantação",
+        "objeto": "Material gráfico e impressão",
+        "valor": 2000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "protocolo",
+            "criação",
+            "novos",
+            "cls"
+        ]
+    },
+    {
+        "id": "A39",
+        "eixo": "A",
+        "titulo": "Elaborar roteiro para reuniões dos CLS",
+        "descricao": "Desenvolvimento de guia operacional",
+        "acao": "Desenvolvimento de guia operacional",
+        "objeto": "Designer gráfico, impressão",
+        "valor": 1800,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "roteiro",
+            "reuniões",
+            "cls"
+        ]
+    },
+    {
+        "id": "A40",
+        "eixo": "A",
+        "titulo": "Elaborar kit documental para instalação dos CLS",
+        "descricao": "Montagem de documentos padronizados",
+        "acao": "Montagem de documentos padronizados",
+        "objeto": "Pastas, impressões, formulários",
+        "valor": 3000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "kit",
+            "documental",
+            "instalação",
+            "cls"
+        ]
+    },
+    {
+        "id": "A41",
+        "eixo": "A",
+        "titulo": "Criar protocolo de comunicação institucional",
+        "descricao": "Definição dos canais oficiais",
+        "acao": "Definição dos canais oficiais",
+        "objeto": "Material gráfico, reuniões",
+        "valor": 2000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "protocolo",
+            "comunicação",
+            "institucional"
+        ]
+    },
+    {
+        "id": "A42",
+        "eixo": "A",
+        "titulo": "Implantar agenda integrada CMS-CLS",
+        "descricao": "Construção do calendário compartilhado",
+        "acao": "Construção do calendário compartilhado",
+        "objeto": "Material gráfico, impressão",
+        "valor": 1500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "implantar",
+            "agenda",
+            "integrada",
+            "cmscls"
+        ]
+    },
+    {
+        "id": "A43",
+        "eixo": "A",
+        "titulo": "Realizar seminário municipal de lançamento do programa",
+        "descricao": "Evento de mobilização institucional",
+        "acao": "Evento de mobilização institucional",
+        "objeto": "Locação de espaço, sonorização, coffee break, material gráfico",
+        "valor": 6000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "seminário",
+            "municipal",
+            "lançamento",
+            "programa"
+        ]
+    },
+    {
+        "id": "A44",
+        "eixo": "A",
+        "titulo": "Realizar visitas técnicas de apoio aos CLS",
+        "descricao": "Agenda periódica de acompanhamento",
+        "acao": "Agenda periódica de acompanhamento",
+        "objeto": "Diárias, deslocamentos, material de apoio",
+        "valor": 4500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "realizar",
+            "visitas",
+            "técnicas",
+            "apoio",
+            "aos",
+            "cls"
+        ]
+    },
+    {
+        "id": "A45",
+        "eixo": "A",
+        "titulo": "Criar comissão técnica de assessoramento aos CLS",
+        "descricao": "Instituição e reuniões periódicas",
+        "acao": "Instituição e reuniões periódicas",
+        "objeto": "Material gráfico, coffee break",
+        "valor": 2000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "criar",
+            "comissão",
+            "técnica",
+            "assessoramento",
+            "aos",
+            "cls"
+        ]
+    },
+    {
+        "id": "A46",
+        "eixo": "A",
+        "titulo": "Implantar rotina de prestação de apoio técnico",
+        "descricao": "Atendimento programado às UBS",
+        "acao": "Atendimento programado às UBS",
+        "objeto": "Material de expediente, deslocamentos",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "implantar",
+            "rotina",
+            "prestação",
+            "apoio",
+            "técnico"
+        ]
+    },
+    {
+        "id": "A47",
+        "eixo": "A",
+        "titulo": "Produzir relatório anual de situação dos CLS",
+        "descricao": "Consolidação de informações municipais",
+        "acao": "Consolidação de informações municipais",
+        "objeto": "Designer gráfico, impressão, revisão",
+        "valor": 3000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "produzir",
+            "relatório",
+            "anual",
+            "situação",
+            "cls"
+        ]
+    },
+    {
+        "id": "A48",
+        "eixo": "A",
+        "titulo": "Elaborar plano anual de trabalho dos CLS",
+        "descricao": "Oficinas de planejamento participativo",
+        "acao": "Oficinas de planejamento participativo",
+        "objeto": "Material gráfico, coffee break",
+        "valor": 3500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "elaborar",
+            "plano",
+            "anual",
+            "trabalho",
+            "cls"
+        ]
+    },
+    {
+        "id": "A49",
+        "eixo": "A",
+        "titulo": "Pactuar metas institucionais entre SMS, CMS e CLS",
+        "descricao": "Reuniões de pactuação e formalização",
+        "acao": "Reuniões de pactuação e formalização",
+        "objeto": "Material gráfico, impressão, apoio logístico",
+        "valor": 2500,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "pactuar",
+            "metas",
+            "institucionais",
+            "entre",
+            "sms",
+            "cms",
+            "cls"
+        ]
+    },
+    {
+        "id": "A50",
+        "eixo": "A",
+        "titulo": "Consolidar modelo municipal de governança dos Conselhos Locais",
+        "descricao": "Documento orientador com fluxos, responsabilidades e mecanismos de monitoramento",
+        "acao": "Documento orientador com fluxos, responsabilidades e mecanismos de monitoramento",
+        "objeto": "Serviços editoriais, diagramação, impressão e encadernação",
+        "valor": 5000,
+        "categoria": "Articulação",
+        "palavrasChave": [
+            "consolidar",
+            "modelo",
+            "municipal",
+            "governança",
+            "conselhos",
+            "locais"
+        ]
+    },
+    {
+        "id": "B01",
+        "eixo": "B",
+        "titulo": "Desenvolver identidade visual dos Conselhos Locais de Saúde",
+        "descricao": "Criação de logomarca, manual de identidade e templates institucionais",
+        "acao": "Criação de logomarca, manual de identidade e templates institucionais",
+        "objeto": "Serviço de design gráfico, manual de marca, arquivos editáveis",
+        "valor": 6000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "desenvolver",
+            "identidade",
+            "visual",
+            "conselhos",
+            "locais",
+            "saúde"
+        ]
+    },
+    {
+        "id": "B02",
+        "eixo": "B",
+        "titulo": "Produzir Kit Institucional dos CLS",
+        "descricao": "Confecção de banners, faixas, placas, crachás e papelaria",
+        "acao": "Confecção de banners, faixas, placas, crachás e papelaria",
+        "objeto": "Serviços gráficos e materiais impressos",
+        "valor": 8000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "kit",
+            "institucional",
+            "cls"
+        ]
+    },
+    {
+        "id": "B03",
+        "eixo": "B",
+        "titulo": "Implantar página dos CLS no Portal do CMS",
+        "descricao": "Desenvolvimento de página para divulgação de informações e documentos",
+        "acao": "Desenvolvimento de página para divulgação de informações e documentos",
+        "objeto": "Serviço de desenvolvimento web e hospedagem",
+        "valor": 5000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "página",
+            "cls",
+            "portal",
+            "cms"
+        ]
+    },
+    {
+        "id": "B04",
+        "eixo": "B",
+        "titulo": "Produzir Cartilha \"O que é o Conselho Local?\"",
+        "descricao": "Produção editorial e impressão de cartilhas educativas",
+        "acao": "Produção editorial e impressão de cartilhas educativas",
+        "objeto": "Diagramação, impressão e revisão",
+        "valor": 7000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "cartilha",
+            "que",
+            "conselho",
+            "local"
+        ]
+    },
+    {
+        "id": "B05",
+        "eixo": "B",
+        "titulo": "Desenvolver campanha de mobilização comunitária",
+        "descricao": "Produção de peças para redes sociais, rádio e materiais impressos",
+        "acao": "Produção de peças para redes sociais, rádio e materiais impressos",
+        "objeto": "Design, impressão, mídia local",
+        "valor": 8000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "desenvolver",
+            "campanha",
+            "mobilização",
+            "comunitária"
+        ]
+    },
+    {
+        "id": "B06",
+        "eixo": "B",
+        "titulo": "Produzir vídeos educativos sobre Controle Social",
+        "descricao": "Gravação e edição de vídeos curtos",
+        "acao": "Gravação e edição de vídeos curtos",
+        "objeto": "Captação, edição e legendagem",
+        "valor": 10000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "vídeos",
+            "educativos",
+            "sobre",
+            "controle",
+            "social"
+        ]
+    },
+    {
+        "id": "B07",
+        "eixo": "B",
+        "titulo": "Implantar boletim informativo dos CLS",
+        "descricao": "Produção periódica de boletins digitais e impressos",
+        "acao": "Produção periódica de boletins digitais e impressos",
+        "objeto": "Diagramação, impressão e distribuição",
+        "valor": 4500,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "boletim",
+            "informativo",
+            "cls"
+        ]
+    },
+    {
+        "id": "B08",
+        "eixo": "B",
+        "titulo": "Criar biblioteca digital dos CLS",
+        "descricao": "Organização e disponibilização de documentos e materiais",
+        "acao": "Organização e disponibilização de documentos e materiais",
+        "objeto": "Serviço de organização digital e plataforma",
+        "valor": 4000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "criar",
+            "biblioteca",
+            "digital",
+            "cls"
+        ]
+    },
+    {
+        "id": "B09",
+        "eixo": "B",
+        "titulo": "Implantar canal oficial de comunicação com a comunidade",
+        "descricao": "Estruturação de listas de transmissão e canais institucionais",
+        "acao": "Estruturação de listas de transmissão e canais institucionais",
+        "objeto": "Ferramentas digitais e produção de conteúdo",
+        "valor": 3500,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "canal",
+            "oficial",
+            "comunicação",
+            "comunidade"
+        ]
+    },
+    {
+        "id": "B10",
+        "eixo": "B",
+        "titulo": "Desenvolver campanha anual de valorização do Controle Social",
+        "descricao": "Produção de materiais para datas estratégicas",
+        "acao": "Produção de materiais para datas estratégicas",
+        "objeto": "Design, impressão, divulgação",
+        "valor": 7000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "desenvolver",
+            "campanha",
+            "anual",
+            "valorização",
+            "controle",
+            "social"
+        ]
+    },
+    {
+        "id": "B11",
+        "eixo": "B",
+        "titulo": "Produzir podcast sobre participação popular",
+        "descricao": "Gravação de episódios com especialistas e comunidade",
+        "acao": "Gravação de episódios com especialistas e comunidade",
+        "objeto": "Captação, edição e publicação",
+        "valor": 6000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "podcast",
+            "sobre",
+            "participação",
+            "popular"
+        ]
+    },
+    {
+        "id": "B12",
+        "eixo": "B",
+        "titulo": "Implantar painel público de transparência dos CLS",
+        "descricao": "Publicação de agendas, atas e indicadores",
+        "acao": "Publicação de agendas, atas e indicadores",
+        "objeto": "Desenvolvimento web e organização de conteúdo",
+        "valor": 5500,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "painel",
+            "público",
+            "transparência",
+            "cls"
+        ]
+    },
+    {
+        "id": "B13",
+        "eixo": "B",
+        "titulo": "Implantar sinalização visual dos Conselhos Locais nas UBS",
+        "descricao": "Instalação de placas, painéis e identificação dos espaços dos CLS",
+        "acao": "Instalação de placas, painéis e identificação dos espaços dos CLS",
+        "objeto": "Placas em ACM/PVC, adesivos, totens e serviços de instalação",
+        "valor": 9000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "sinalização",
+            "visual",
+            "conselhos",
+            "locais",
+            "nas",
+            "ubs"
+        ]
+    },
+    {
+        "id": "B14",
+        "eixo": "B",
+        "titulo": "Desenvolver campanha \"Conheça seu Conselho Local\"",
+        "descricao": "Ações de divulgação junto à população dos territórios",
+        "acao": "Ações de divulgação junto à população dos territórios",
+        "objeto": "Folders, cartazes, mídias digitais, carro de som e material gráfico",
+        "valor": 10000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "desenvolver",
+            "campanha",
+            "conheça",
+            "seu",
+            "conselho",
+            "local"
+        ]
+    },
+    {
+        "id": "B15",
+        "eixo": "B",
+        "titulo": "Produzir Guia de Serviços e Participação Social",
+        "descricao": "Elaboração de material orientativo para usuários do SUS",
+        "acao": "Elaboração de material orientativo para usuários do SUS",
+        "objeto": "Projeto gráfico, impressão e versão digital",
+        "valor": 7500,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "guia",
+            "serviços",
+            "participação",
+            "social"
+        ]
+    },
+    {
+        "id": "B16",
+        "eixo": "B",
+        "titulo": "Implantar Newsletter dos Conselhos Locais",
+        "descricao": "Produção mensal de boletins eletrônicos",
+        "acao": "Produção mensal de boletins eletrônicos",
+        "objeto": "Ferramenta de disparo, diagramação e produção editorial",
+        "valor": 4000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "newsletter",
+            "conselhos",
+            "locais"
+        ]
+    },
+    {
+        "id": "B17",
+        "eixo": "B",
+        "titulo": "Produzir banco de imagens e vídeos institucionais",
+        "descricao": "Registro fotográfico e audiovisual das ações dos CLS",
+        "acao": "Registro fotográfico e audiovisual das ações dos CLS",
+        "objeto": "Fotografia, filmagem, edição e armazenamento digital",
+        "valor": 8500,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "banco",
+            "imagens",
+            "vídeos",
+            "institucionais"
+        ]
+    },
+    {
+        "id": "B18",
+        "eixo": "B",
+        "titulo": "Desenvolver materiais acessíveis de comunicação",
+        "descricao": "Produção de conteúdos em linguagem simples e acessível",
+        "acao": "Produção de conteúdos em linguagem simples e acessível",
+        "objeto": "Design, audiodescrição, legendagem e impressão",
+        "valor": 8000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "desenvolver",
+            "materiais",
+            "acessíveis",
+            "comunicação"
+        ]
+    },
+    {
+        "id": "B19",
+        "eixo": "B",
+        "titulo": "Implantar mural permanente dos CLS em cada UBS",
+        "descricao": "Criação de espaço físico para divulgação das ações",
+        "acao": "Criação de espaço físico para divulgação das ações",
+        "objeto": "Murais, quadros, impressão e instalação",
+        "valor": 9500,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "implantar",
+            "mural",
+            "permanente",
+            "cls",
+            "cada",
+            "ubs"
+        ]
+    },
+    {
+        "id": "B20",
+        "eixo": "B",
+        "titulo": "Produzir relatório anual ilustrado das atividades dos CLS",
+        "descricao": "Prestação de contas à comunidade",
+        "acao": "Prestação de contas à comunidade",
+        "objeto": "Diagramação, impressão e versão digital",
+        "valor": 6000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "relatório",
+            "anual",
+            "ilustrado",
+            "atividades",
+            "cls"
+        ]
+    },
+    {
+        "id": "B21",
+        "eixo": "B",
+        "titulo": "Desenvolver campanha de participação juvenil",
+        "descricao": "Mobilização de estudantes e jovens lideranças",
+        "acao": "Mobilização de estudantes e jovens lideranças",
+        "objeto": "Material gráfico, oficinas e mídias sociais",
+        "valor": 8000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "desenvolver",
+            "campanha",
+            "participação",
+            "juvenil"
+        ]
+    },
+    {
+        "id": "B22",
+        "eixo": "B",
+        "titulo": "Produzir kit de comunicação para eventos dos CLS",
+        "descricao": "Padronização da identidade em reuniões e conferências",
+        "acao": "Padronização da identidade em reuniões e conferências",
+        "objeto": "Banners, roll-up, backdrop, crachás e pastas",
+        "valor": 12000,
+        "categoria": "Comunicação",
+        "palavrasChave": [
+            "produzir",
+            "kit",
+            "comunicação",
+            "eventos",
+            "cls"
+        ]
+    },
+    {
+        "id": "C01",
+        "eixo": "C",
+        "titulo": "Elaborar Regulamento Eleitoral Padronizado",
+        "descricao": "Construção participativa das normas eleitorais",
+        "acao": "Construção participativa das normas eleitorais",
+        "objeto": "Serviços gráficos, impressão e oficinas",
+        "valor": 3000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "elaborar",
+            "regulamento",
+            "eleitoral",
+            "padronizado"
+        ]
+    },
+    {
+        "id": "C02",
+        "eixo": "C",
+        "titulo": "Constituir Comissões Eleitorais Locais",
+        "descricao": "Capacitação e instalação das comissões",
+        "acao": "Capacitação e instalação das comissões",
+        "objeto": "Material didático, certificados e coffee break",
+        "valor": 3500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "constituir",
+            "comissões",
+            "eleitorais",
+            "locais"
+        ]
+    },
+    {
+        "id": "C03",
+        "eixo": "C",
+        "titulo": "Desenvolver Plano Municipal de Mobilização Eleitoral",
+        "descricao": "Planejamento das ações de divulgação",
+        "acao": "Planejamento das ações de divulgação",
+        "objeto": "Material gráfico e reuniões",
+        "valor": 3000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "desenvolver",
+            "plano",
+            "municipal",
+            "mobilização",
+            "eleitoral"
+        ]
+    },
+    {
+        "id": "C04",
+        "eixo": "C",
+        "titulo": "Produzir materiais de divulgação das eleições",
+        "descricao": "Cartazes, folders, artes digitais e faixas",
+        "acao": "Cartazes, folders, artes digitais e faixas",
+        "objeto": "Serviços gráficos",
+        "valor": 8000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "produzir",
+            "materiais",
+            "divulgação",
+            "eleições"
+        ]
+    },
+    {
+        "id": "C05",
+        "eixo": "C",
+        "titulo": "Realizar reuniões comunitárias preparatórias",
+        "descricao": "Mobilização da população nos territórios",
+        "acao": "Mobilização da população nos territórios",
+        "objeto": "Coffee break, sonorização e materiais",
+        "valor": 6000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "realizar",
+            "reuniões",
+            "comunitárias",
+            "preparatórias"
+        ]
+    },
+    {
+        "id": "C06",
+        "eixo": "C",
+        "titulo": "Executar processo eleitoral dos CLS",
+        "descricao": "Organização logística das eleições",
+        "acao": "Organização logística das eleições",
+        "objeto": "Material de expediente, impressão, identificação e apoio operacional",
+        "valor": 12000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "executar",
+            "processo",
+            "eleitoral",
+            "cls"
+        ]
+    },
+    {
+        "id": "C07",
+        "eixo": "C",
+        "titulo": "Organizar cerimônia de posse dos conselheiros",
+        "descricao": "Evento de instalação dos novos colegiados",
+        "acao": "Evento de instalação dos novos colegiados",
+        "objeto": "Locação, sonorização, certificados e coffee break",
+        "valor": 7000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "organizar",
+            "cerimônia",
+            "posse",
+            "conselheiros"
+        ]
+    },
+    {
+        "id": "C08",
+        "eixo": "C",
+        "titulo": "Produzir Manual do Processo Eleitoral",
+        "descricao": "Material orientador para futuras eleições",
+        "acao": "Material orientador para futuras eleições",
+        "objeto": "Diagramação, impressão e revisão",
+        "valor": 4000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "produzir",
+            "manual",
+            "processo",
+            "eleitoral"
+        ]
+    },
+    {
+        "id": "C09",
+        "eixo": "C",
+        "titulo": "Implantar cadastro municipal dos conselheiros eleitos",
+        "descricao": "Organização da base de dados institucional",
+        "acao": "Organização da base de dados institucional",
+        "objeto": "Material de expediente e organização digital",
+        "valor": 2500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "implantar",
+            "cadastro",
+            "municipal",
+            "conselheiros",
+            "eleitos"
+        ]
+    },
+    {
+        "id": "C10",
+        "eixo": "C",
+        "titulo": "Realizar avaliação pós-processo eleitoral",
+        "descricao": "Seminário de avaliação e aperfeiçoamento",
+        "acao": "Seminário de avaliação e aperfeiçoamento",
+        "objeto": "Material gráfico, coffee break e relatório técnico",
+        "valor": 4000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "realizar",
+            "avaliação",
+            "pósprocesso",
+            "eleitoral"
+        ]
+    },
+    {
+        "id": "C11",
+        "eixo": "C",
+        "titulo": "Produzir relatório consolidado das eleições",
+        "descricao": "Documentação e sistematização dos resultados",
+        "acao": "Documentação e sistematização dos resultados",
+        "objeto": "Diagramação, impressão e revisão",
+        "valor": 3500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "produzir",
+            "relatório",
+            "consolidado",
+            "eleições"
+        ]
+    },
+    {
+        "id": "C12",
+        "eixo": "C",
+        "titulo": "Desenvolver protocolo permanente para futuras eleições",
+        "descricao": "Padronização dos procedimentos eleitorais",
+        "acao": "Padronização dos procedimentos eleitorais",
+        "objeto": "Manual operacional e kit documental",
+        "valor": 3500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "desenvolver",
+            "protocolo",
+            "permanente",
+            "futuras",
+            "eleições"
+        ]
+    },
+    {
+        "id": "C13",
+        "eixo": "C",
+        "titulo": "Realizar busca ativa de entidades representativas",
+        "descricao": "Mapeamento e convite formal às organizações locais",
+        "acao": "Mapeamento e convite formal às organizações locais",
+        "objeto": "Material gráfico, deslocamentos e expediente",
+        "valor": 5000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "realizar",
+            "busca",
+            "ativa",
+            "entidades",
+            "representativas"
+        ]
+    },
+    {
+        "id": "C14",
+        "eixo": "C",
+        "titulo": "Promover audiências públicas preparatórias",
+        "descricao": "Apresentação do processo eleitoral à comunidade",
+        "acao": "Apresentação do processo eleitoral à comunidade",
+        "objeto": "Sonorização, coffee break, impressão e apoio logístico",
+        "valor": 8000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "promover",
+            "audiências",
+            "públicas",
+            "preparatórias"
+        ]
+    },
+    {
+        "id": "C15",
+        "eixo": "C",
+        "titulo": "Capacitar mesários e equipes de apoio",
+        "descricao": "Treinamento operacional do processo eleitoral",
+        "acao": "Treinamento operacional do processo eleitoral",
+        "objeto": "Material didático, certificados e coffee break",
+        "valor": 5500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "capacitar",
+            "mesários",
+            "equipes",
+            "apoio"
+        ]
+    },
+    {
+        "id": "C16",
+        "eixo": "C",
+        "titulo": "Implantar sistema padronizado de credenciamento",
+        "descricao": "Organização dos participantes do processo eleitoral",
+        "acao": "Organização dos participantes do processo eleitoral",
+        "objeto": "Formulários, crachás, impressão e material de expediente",
+        "valor": 3500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "implantar",
+            "sistema",
+            "padronizado",
+            "credenciamento"
+        ]
+    },
+    {
+        "id": "C17",
+        "eixo": "C",
+        "titulo": "Produzir kit eleitoral completo",
+        "descricao": "Preparação dos materiais para todas as eleições dos CLS",
+        "acao": "Preparação dos materiais para todas as eleições dos CLS",
+        "objeto": "Urnas, cédulas, listas, envelopes, pastas e formulários",
+        "valor": 10000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "produzir",
+            "kit",
+            "eleitoral",
+            "completo"
+        ]
+    },
+    {
+        "id": "C18",
+        "eixo": "C",
+        "titulo": "Registrar documentalmente todo o processo eleitoral",
+        "descricao": "Produção de registros fotográficos, atas e relatórios",
+        "acao": "Produção de registros fotográficos, atas e relatórios",
+        "objeto": "Fotografia, impressão e organização documental",
+        "valor": 6000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "registrar",
+            "documentalmente",
+            "todo",
+            "processo",
+            "eleitoral"
+        ]
+    },
+    {
+        "id": "C19",
+        "eixo": "C",
+        "titulo": "Realizar oficinas de sensibilização pré-eleitoral",
+        "descricao": "Mobilização comunitária para ampliação da participação",
+        "acao": "Mobilização comunitária para ampliação da participação",
+        "objeto": "Material gráfico, coffee break e apoio técnico",
+        "valor": 6500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "realizar",
+            "oficinas",
+            "sensibilização",
+            "préeleitoral"
+        ]
+    },
+    {
+        "id": "C20",
+        "eixo": "C",
+        "titulo": "Implantar banco histórico das eleições dos CLS",
+        "descricao": "Organização permanente da memória institucional",
+        "acao": "Organização permanente da memória institucional",
+        "objeto": "Digitalização, organização documental e armazenamento",
+        "valor": 5000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "implantar",
+            "banco",
+            "histórico",
+            "eleições",
+            "cls"
+        ]
+    },
+    {
+        "id": "C21",
+        "eixo": "C",
+        "titulo": "Produzir vídeo institucional sobre o processo eleitoral",
+        "descricao": "Orientação aos candidatos e eleitores",
+        "acao": "Orientação aos candidatos e eleitores",
+        "objeto": "Roteiro, gravação, edição e legendagem",
+        "valor": 9000,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "produzir",
+            "vídeo",
+            "institucional",
+            "sobre",
+            "processo",
+            "eleitoral"
+        ]
+    },
+    {
+        "id": "C22",
+        "eixo": "C",
+        "titulo": "Elaborar Plano de Sucessão dos Conselhos Locais",
+        "descricao": "Padronização da renovação periódica dos colegiados",
+        "acao": "Padronização da renovação periódica dos colegiados",
+        "objeto": "Consultoria técnica, oficinas e publicação",
+        "valor": 7500,
+        "categoria": "Eleição",
+        "palavrasChave": [
+            "elaborar",
+            "plano",
+            "sucessão",
+            "conselhos",
+            "locais"
+        ]
+    },
+    {
+        "id": "D01",
+        "eixo": "D",
+        "titulo": "Implantar Programa Municipal de Educação Permanente dos CLS",
+        "descricao": "Estruturação da trilha formativa para conselheiros",
+        "acao": "Estruturação da trilha formativa para conselheiros",
+        "objeto": "Material didático, coordenação pedagógica e apoio técnico",
+        "valor": 8000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "implantar",
+            "programa",
+            "municipal",
+            "educação",
+            "permanente",
+            "cls"
+        ]
+    },
+    {
+        "id": "D02",
+        "eixo": "D",
+        "titulo": "Realizar Curso Introdutório para Conselheiros Locais",
+        "descricao": "Capacitação inicial sobre SUS e Controle Social",
+        "acao": "Capacitação inicial sobre SUS e Controle Social",
+        "objeto": "Material didático, certificados, coffee break",
+        "valor": 8000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "realizar",
+            "curso",
+            "introdutório",
+            "conselheiros",
+            "locais"
+        ]
+    },
+    {
+        "id": "D03",
+        "eixo": "D",
+        "titulo": "Promover oficinas sobre Instrumentos de Gestão do SUS",
+        "descricao": "Capacitação em PPA, LDO, LOA, PAS e RAG",
+        "acao": "Capacitação em PPA, LDO, LOA, PAS e RAG",
+        "objeto": "Material didático e instrutores",
+        "valor": 7500,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "promover",
+            "oficinas",
+            "sobre",
+            "instrumentos",
+            "gestão",
+            "sus"
+        ]
+    },
+    {
+        "id": "D04",
+        "eixo": "D",
+        "titulo": "Capacitar conselheiros em participação social e legislação",
+        "descricao": "Curso sobre legislação do SUS e funcionamento dos Conselhos",
+        "acao": "Curso sobre legislação do SUS e funcionamento dos Conselhos",
+        "objeto": "Material didático e impressão",
+        "valor": 6500,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "conselheiros",
+            "participação",
+            "social",
+            "legislação"
+        ]
+    },
+    {
+        "id": "D05",
+        "eixo": "D",
+        "titulo": "Capacitar em análise de indicadores de saúde",
+        "descricao": "Oficinas práticas utilizando dados municipais",
+        "acao": "Oficinas práticas utilizando dados municipais",
+        "objeto": "Material didático e apoio técnico",
+        "valor": 7000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "análise",
+            "indicadores",
+            "saúde"
+        ]
+    },
+    {
+        "id": "D06",
+        "eixo": "D",
+        "titulo": "Desenvolver curso sobre planejamento em saúde",
+        "descricao": "Oficinas presenciais e estudos de caso",
+        "acao": "Oficinas presenciais e estudos de caso",
+        "objeto": "Material didático e certificados",
+        "valor": 6500,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "desenvolver",
+            "curso",
+            "sobre",
+            "planejamento",
+            "saúde"
+        ]
+    },
+    {
+        "id": "D07",
+        "eixo": "D",
+        "titulo": "Capacitar em comunicação institucional e mediação de conflitos",
+        "descricao": "Treinamento para fortalecimento das reuniões dos CLS",
+        "acao": "Treinamento para fortalecimento das reuniões dos CLS",
+        "objeto": "Instrutores, material didático e coffee break",
+        "valor": 6000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "comunicação",
+            "institucional",
+            "mediação",
+            "conflitos"
+        ]
+    },
+    {
+        "id": "D08",
+        "eixo": "D",
+        "titulo": "Produzir apostilas e cadernos do conselheiro",
+        "descricao": "Desenvolvimento editorial dos materiais pedagógicos",
+        "acao": "Desenvolvimento editorial dos materiais pedagógicos",
+        "objeto": "Diagramação e impressão",
+        "valor": 8000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "produzir",
+            "apostilas",
+            "cadernos",
+            "conselheiro"
+        ]
+    },
+    {
+        "id": "D09",
+        "eixo": "D",
+        "titulo": "Produzir videoaulas para educação permanente",
+        "descricao": "Gravação de módulos temáticos",
+        "acao": "Gravação de módulos temáticos",
+        "objeto": "Captação, edição e legendagem",
+        "valor": 12000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "produzir",
+            "videoaulas",
+            "educação",
+            "permanente"
+        ]
+    },
+    {
+        "id": "D10",
+        "eixo": "D",
+        "titulo": "Implantar biblioteca virtual do Conselheiro Local",
+        "descricao": "Disponibilização de acervo digital",
+        "acao": "Disponibilização de acervo digital",
+        "objeto": "Organização digital e plataforma",
+        "valor": 5000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "implantar",
+            "biblioteca",
+            "virtual",
+            "conselheiro",
+            "local"
+        ]
+    },
+    {
+        "id": "D11",
+        "eixo": "D",
+        "titulo": "Realizar Seminário Municipal Anual dos CLS",
+        "descricao": "Evento de atualização e intercâmbio de experiências",
+        "acao": "Evento de atualização e intercâmbio de experiências",
+        "objeto": "Locação, sonorização, material gráfico e coffee break",
+        "valor": 15000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "realizar",
+            "seminário",
+            "municipal",
+            "anual",
+            "cls"
+        ]
+    },
+    {
+        "id": "D12",
+        "eixo": "D",
+        "titulo": "Desenvolver programa de acompanhamento de novos conselheiros",
+        "descricao": "Mentoria e encontros periódicos durante o primeiro ano",
+        "acao": "Mentoria e encontros periódicos durante o primeiro ano",
+        "objeto": "Material didático, reuniões e apoio técnico",
+        "valor": 6000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "desenvolver",
+            "programa",
+            "acompanhamento",
+            "novos",
+            "conselheiros"
+        ]
+    },
+    {
+        "id": "D13",
+        "eixo": "D",
+        "titulo": "Desenvolver trilha EAD para Conselheiros Locais",
+        "descricao": "Produção de curso autoinstrucional permanente",
+        "acao": "Produção de curso autoinstrucional permanente",
+        "objeto": "Ambiente virtual, videoaulas e material didático",
+        "valor": 18000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "desenvolver",
+            "trilha",
+            "ead",
+            "conselheiros",
+            "locais"
+        ]
+    },
+    {
+        "id": "D14",
+        "eixo": "D",
+        "titulo": "Capacitar conselheiros em Ouvidoria e Participação Social",
+        "descricao": "Curso sobre escuta qualificada e encaminhamento de demandas",
+        "acao": "Curso sobre escuta qualificada e encaminhamento de demandas",
+        "objeto": "Material didático, instrutores e certificados",
+        "valor": 6500,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "conselheiros",
+            "ouvidoria",
+            "participação",
+            "social"
+        ]
+    },
+    {
+        "id": "D15",
+        "eixo": "D",
+        "titulo": "Capacitar em orçamento público e financiamento do SUS",
+        "descricao": "Oficinas práticas sobre execução orçamentária",
+        "acao": "Oficinas práticas sobre execução orçamentária",
+        "objeto": "Material didático e instrutores",
+        "valor": 7500,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "orçamento",
+            "público",
+            "financiamento",
+            "sus"
+        ]
+    },
+    {
+        "id": "D16",
+        "eixo": "D",
+        "titulo": "Capacitar em vigilância em saúde e territorialização",
+        "descricao": "Curso aplicado à realidade dos territórios",
+        "acao": "Curso aplicado à realidade dos territórios",
+        "objeto": "Material didático, mapas e oficinas",
+        "valor": 7000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "vigilância",
+            "saúde",
+            "territorialização"
+        ]
+    },
+    {
+        "id": "D17",
+        "eixo": "D",
+        "titulo": "Capacitar em técnicas de condução de reuniões",
+        "descricao": "Desenvolvimento de competências para presidência e secretaria",
+        "acao": "Desenvolvimento de competências para presidência e secretaria",
+        "objeto": "Material didático e simulações",
+        "valor": 5500,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "capacitar",
+            "técnicas",
+            "condução",
+            "reuniões"
+        ]
+    },
+    {
+        "id": "D18",
+        "eixo": "D",
+        "titulo": "Realizar intercâmbio técnico entre Conselhos Locais",
+        "descricao": "Visitas de aprendizagem e troca de experiências",
+        "acao": "Visitas de aprendizagem e troca de experiências",
+        "objeto": "Transporte, alimentação e material de apoio",
+        "valor": 15000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "realizar",
+            "intercâmbio",
+            "técnico",
+            "entre",
+            "conselhos",
+            "locais"
+        ]
+    },
+    {
+        "id": "D19",
+        "eixo": "D",
+        "titulo": "Produzir coleção de Cadernos Temáticos dos CLS",
+        "descricao": "Publicação de fascículos sobre temas prioritários",
+        "acao": "Publicação de fascículos sobre temas prioritários",
+        "objeto": "Diagramação, impressão e revisão técnica",
+        "valor": 10000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "produzir",
+            "coleção",
+            "cadernos",
+            "temáticos",
+            "cls"
+        ]
+    },
+    {
+        "id": "D20",
+        "eixo": "D",
+        "titulo": "Implantar programa de atualização anual obrigatória",
+        "descricao": "Ciclo permanente de educação continuada",
+        "acao": "Ciclo permanente de educação continuada",
+        "objeto": "Instrutores, material didático e certificados",
+        "valor": 9000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "implantar",
+            "programa",
+            "atualização",
+            "anual",
+            "obrigatória"
+        ]
+    },
+    {
+        "id": "D21",
+        "eixo": "D",
+        "titulo": "Promover Mostra Municipal de Boas Práticas dos CLS",
+        "descricao": "Evento para compartilhamento de experiências exitosas",
+        "acao": "Evento para compartilhamento de experiências exitosas",
+        "objeto": "Locação, sonorização, material gráfico e premiação simbólica",
+        "valor": 14000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "promover",
+            "mostra",
+            "municipal",
+            "boas",
+            "práticas",
+            "cls"
+        ]
+    },
+    {
+        "id": "D22",
+        "eixo": "D",
+        "titulo": "Desenvolver Banco Municipal de Objetos Educacionais",
+        "descricao": "Organização de apresentações, vídeos, apostilas e materiais reutilizáveis",
+        "acao": "Organização de apresentações, vídeos, apostilas e materiais reutilizáveis",
+        "objeto": "Produção editorial, plataforma digital e organização do acervo",
+        "valor": 12000,
+        "categoria": "Formação",
+        "palavrasChave": [
+            "desenvolver",
+            "banco",
+            "municipal",
+            "objetos",
+            "educacionais"
+        ]
+    }
+]

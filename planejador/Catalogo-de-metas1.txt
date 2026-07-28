@@ -1,0 +1,120 @@
+Eixo;Meta;Ação / Atividade;Objeto;Recurso (Estimado)
+Articulação;A.01 Instituir o Programa Municipal de Fortalecimento dos Conselhos Locais de Saúde;Elaboração participativa do programa e validação institucional;Serviços gráficos, facilitação de oficinas, coffee break, material de apoio;R$ 2.500
+Articulação;A.02 Criar Comitê Gestor Municipal dos CLS;Reuniões de instalação e pactuação de atribuições;Material de expediente, coffee break, impressão de documentos;R$ 1.800
+Articulação;A.03 Elaborar Plano Municipal de Fortalecimento dos CLS;Oficinas técnicas para construção do plano;Facilitação, impressão, material gráfico;R$ 3.500
+Articulação;A.04 Elaborar diagnóstico institucional dos 12 CLS;Visitas técnicas e aplicação de instrumento diagnóstico;Material de campo, impressão, deslocamentos, diárias;R$ 5.000
+Articulação;A.05 Mapear lideranças comunitárias do território;Levantamento e cadastro das lideranças;Material de consumo, formulários, deslocamentos;R$ 2.800
+Articulação;A.06 Atualizar a Resolução Municipal dos CLS;Grupo técnico de revisão normativa;Impressão, material de expediente, apoio técnico;R$ 2.000
+Articulação;A.07 Elaborar Regimento Interno Modelo;Oficina de elaboração colaborativa;Serviços gráficos, material de apoio;R$ 2.500
+Articulação;A.08 Elaborar Manual de Funcionamento dos CLS;Produção e revisão técnica;Diagramação, impressão, revisão textual;R$ 4.000
+Articulação;A.09 Elaborar Guia do Conselheiro Local;Produção editorial e validação;Designer gráfico, impressão, revisão;R$ 4.500
+Articulação;A.10 Elaborar Guia do Gestor da UBS;Produção de material orientativo;Designer gráfico, impressão;R$ 3.500
+Articulação;A.11 Instituir calendário anual dos CLS;Planejamento integrado com UBS;Impressão de calendários e materiais;R$ 1.500
+Articulação;A.12 Padronizar atas dos CLS;Desenvolvimento de modelos oficiais;Material gráfico e impressão;R$ 1.000
+Articulação;A.13 Padronizar listas de presença;Criação de formulários padronizados;Impressão e material gráfico;R$ 800
+Articulação;A.14 Padronizar formulários administrativos;Elaboração de modelos institucionais;Designer gráfico, impressão;R$ 1.500
+Articulação;A.15 Implantar fluxo oficial CMS-CLS;Oficina de definição dos fluxos;Material gráfico, reuniões técnicas;R$ 2.500
+Articulação;A.16 Implantar fluxo UBS-CLS;Construção conjunta dos procedimentos;Oficinas, impressão, material didático;R$ 2.000
+Articulação;A.17 Definir matriz de responsabilidades;Workshop de pactuação institucional;Material gráfico e apoio logístico;R$ 2.200
+Articulação;A.18 Criar cadastro municipal dos conselheiros locais;Levantamento e consolidação de dados;Material de expediente, formulários, digitação;R$ 2.800
+Articulação;A.19 Criar banco documental dos CLS;Digitalização e organização documental;Scanner terceirizado, pastas, etiquetas, armazenamento;R$ 3.500
+Articulação;A.20 Organizar acervo normativo dos CLS;Compilação e catalogação documental;Impressão, encadernação, organização física;R$ 2.500
+Articulação;A.21 Realizar oficinas intersetoriais com Educação;Encontros institucionais;Coffee break, material gráfico, locação eventual;R$ 3.000
+Articulação;A.22 Realizar oficinas intersetoriais com Assistência Social;Integração entre políticas públicas;Coffee break, impressão, apoio logístico;R$ 3.000
+Articulação;A.23 Realizar oficinas intersetoriais com Câmara Municipal;Integração institucional;Material gráfico, coffee break;R$ 2.500
+Articulação;A.24 Realizar oficinas com universidades;Articulação para apoio técnico;Material gráfico, certificados;R$ 2.800
+Articulação;A.25 Formalizar parcerias institucionais;Reuniões e elaboração de instrumentos;Material gráfico e expediente;R$ 1.800
+Articulação;A.26 Implantar rotina trimestral de monitoramento;Reuniões periódicas dos CLS;Coffee break, impressão, listas;R$ 2.500
+Articulação;A.27 Criar rede municipal de presidentes dos CLS;Encontros periódicos;Material gráfico, apoio logístico;R$ 2.800
+Articulação;A.28 Instituir Fórum Permanente dos CLS;Realização de encontros municipais;Locação eventual, coffee break, impressão;R$ 4.000
+Articulação;A.29 Elaborar plano de expansão dos CLS;Estudos técnicos e oficinas;Material gráfico, consultoria técnica especializada (PJ);R$ 4.500
+Articulação;A.30 Elaborar plano de sustentabilidade;Definição de estratégias pós-projeto;Oficinas, impressão, material didático;R$ 3.000
+Articulação;A.31 Realizar diagnóstico da infraestrutura dos CLS;Visitas técnicas às UBS;Deslocamentos, material de registro;R$ 3.500
+Articulação;A.32 Elaborar mapa territorial dos CLS;Georreferenciamento simplificado dos territórios;Serviços gráficos, mapas impressos;R$ 4.000
+Articulação;A.33 Atualizar cadastro das entidades comunitárias;Levantamento institucional;Material de expediente, formulários;R$ 2.000
+Articulação;A.34 Criar protocolo de integração entre CMS e APS;Oficina técnica de pactuação;Material gráfico, reuniões;R$ 2.500
+Articulação;A.35 Instituir reuniões técnicas com coordenadores das UBS;Agenda permanente de alinhamento;Coffee break, material gráfico;R$ 2.500
+Articulação;A.36 Desenvolver indicadores municipais dos CLS;Construção de painel de indicadores;Material gráfico, oficina técnica;R$ 3.500
+Articulação;A.37 Criar sistema de acompanhamento das metas;Definição de instrumentos de monitoramento;Planilhas, impressão, material técnico;R$ 2.500
+Articulação;A.38 Elaborar protocolo para criação de novos CLS;Padronização do processo de implantação;Material gráfico e impressão;R$ 2.000
+Articulação;A.39 Elaborar roteiro para reuniões dos CLS;Desenvolvimento de guia operacional;Designer gráfico, impressão;R$ 1.800
+Articulação;A.40 Elaborar kit documental para instalação dos CLS;Montagem de documentos padronizados;Pastas, impressões, formulários;R$ 3.000
+Articulação;A.41 Criar protocolo de comunicação institucional;Definição dos canais oficiais;Material gráfico, reuniões;R$ 2.000
+Articulação;A.42 Implantar agenda integrada CMS-CLS;Construção do calendário compartilhado;Material gráfico, impressão;R$ 1.500
+Articulação;A.43 Realizar seminário municipal de lançamento do programa;Evento de mobilização institucional;Locação de espaço, sonorização, coffee break, material gráfico;R$ 6.000
+Articulação;A.44 Realizar visitas técnicas de apoio aos CLS;Agenda periódica de acompanhamento;Diárias, deslocamentos, material de apoio;R$ 4.500
+Articulação;A.45 Criar comissão técnica de assessoramento aos CLS;Instituição e reuniões periódicas;Material gráfico, coffee break;R$ 2.000
+Articulação;A.46 Implantar rotina de prestação de apoio técnico;Atendimento programado às UBS;Material de expediente, deslocamentos;R$ 3.500
+Articulação;A.47 Produzir relatório anual de situação dos CLS;Consolidação de informações municipais;Designer gráfico, impressão, revisão;R$ 3.000
+Articulação;A.48 Elaborar plano anual de trabalho dos CLS;Oficinas de planejamento participativo;Material gráfico, coffee break;R$ 3.500
+Articulação;A.49 Pactuar metas institucionais entre SMS, CMS e CLS;Reuniões de pactuação e formalização;Material gráfico, impressão, apoio logístico;R$ 2.500
+Articulação;A.50 Consolidar modelo municipal de governança dos Conselhos Locais;Documento orientador com fluxos, responsabilidades e mecanismos de monitoramento;Serviços editoriais, diagramação, impressão e encadernação;R$ 5.000
+
+Comunicação;B.01 Desenvolver identidade visual dos Conselhos Locais de Saúde;Criação de logomarca, manual de identidade e templates institucionais;Serviço de design gráfico, manual de marca, arquivos editáveis;R$ 6.000
+Comunicação;B.02 Produzir Kit Institucional dos CLS;Confecção de banners, faixas, placas, crachás e papelaria;Serviços gráficos e materiais impressos;R$ 8.000
+Comunicação;B.03 Implantar página dos CLS no Portal do CMS;Desenvolvimento de página para divulgação de informações e documentos;Serviço de desenvolvimento web e hospedagem;R$ 5.000
+Comunicação;B.04 Produzir Cartilha "O que é o Conselho Local?";Produção editorial e impressão de cartilhas educativas;Diagramação, impressão e revisão;R$ 7.000
+Comunicação;B.05 Desenvolver campanha de mobilização comunitária;Produção de peças para redes sociais, rádio e materiais impressos;Design, impressão, mídia local;R$ 8.000
+Comunicação;B.06 Produzir vídeos educativos sobre Controle Social;Gravação e edição de vídeos curtos;Captação, edição e legendagem;R$ 10.000
+Comunicação;B.07 Implantar boletim informativo dos CLS;Produção periódica de boletins digitais e impressos;Diagramação, impressão e distribuição;R$ 4.500
+Comunicação;B.08 Criar biblioteca digital dos CLS;Organização e disponibilização de documentos e materiais;Serviço de organização digital e plataforma;R$ 4.000
+Comunicação;B.09 Implantar canal oficial de comunicação com a comunidade;Estruturação de listas de transmissão e canais institucionais;Ferramentas digitais e produção de conteúdo;R$ 3.500
+Comunicação;B.10 Desenvolver campanha anual de valorização do Controle Social;Produção de materiais para datas estratégicas;Design, impressão, divulgação;R$ 7.000
+Comunicação;B.11 Produzir podcast sobre participação popular;Gravação de episódios com especialistas e comunidade;Captação, edição e publicação;R$ 6.000
+Comunicação;B.12 Implantar painel público de transparência dos CLS;Publicação de agendas, atas e indicadores;Desenvolvimento web e organização de conteúdo;R$ 5.500
+Comunicação;B.13 Implantar sinalização visual dos Conselhos Locais nas UBS;Instalação de placas, painéis e identificação dos espaços dos CLS;Placas em ACM/PVC, adesivos, totens e serviços de instalação;R$ 9.000
+Comunicação;B.14 Desenvolver campanha "Conheça seu Conselho Local";Ações de divulgação junto à população dos territórios;Folders, cartazes, mídias digitais, carro de som e material gráfico;R$ 10.000
+Comunicação;B.15 Produzir Guia de Serviços e Participação Social;Elaboração de material orientativo para usuários do SUS;Projeto gráfico, impressão e versão digital;R$ 7.500
+Comunicação;B.16 Implantar Newsletter dos Conselhos Locais;Produção mensal de boletins eletrônicos;Ferramenta de disparo, diagramação e produção editorial;R$ 4.000
+Comunicação;B.17 Produzir banco de imagens e vídeos institucionais;Registro fotográfico e audiovisual das ações dos CLS;Fotografia, filmagem, edição e armazenamento digital;R$ 8.500
+Comunicação;B.18 Desenvolver materiais acessíveis de comunicação;Produção de conteúdos em linguagem simples e acessível;Design, audiodescrição, legendagem e impressão;R$ 8.000
+Comunicação;B.19 Implantar mural permanente dos CLS em cada UBS;Criação de espaço físico para divulgação das ações;Murais, quadros, impressão e instalação;R$ 9.500
+Comunicação;B.20 Produzir relatório anual ilustrado das atividades dos CLS;Prestação de contas à comunidade;Diagramação, impressão e versão digital;R$ 6.000
+Comunicação;B.21 Desenvolver campanha de participação juvenil;Mobilização de estudantes e jovens lideranças;Material gráfico, oficinas e mídias sociais;R$ 8.000
+Comunicação;B.22 Produzir kit de comunicação para eventos dos CLS;Padronização da identidade em reuniões e conferências;Banners, roll-up, backdrop, crachás e pastas;R$ 12.000
+
+Eleição;C.01 Elaborar Regulamento Eleitoral Padronizado;Construção participativa das normas eleitorais;Serviços gráficos, impressão e oficinas;R$ 3.000
+Eleição;C.02 Constituir Comissões Eleitorais Locais;Capacitação e instalação das comissões;Material didático, certificados e coffee break;R$ 3.500
+Eleição;C.03 Desenvolver Plano Municipal de Mobilização Eleitoral;Planejamento das ações de divulgação;Material gráfico e reuniões;R$ 3.000
+Eleição;C.04 Produzir materiais de divulgação das eleições;Cartazes, folders, artes digitais e faixas;Serviços gráficos;R$ 8.000
+Eleição;C.05 Realizar reuniões comunitárias preparatórias;Mobilização da população nos territórios;Coffee break, sonorização e materiais;R$ 6.000
+Eleição;C.06 Executar processo eleitoral dos CLS;Organização logística das eleições;Material de expediente, impressão, identificação e apoio operacional;R$ 12.000
+Eleição;C.07 Organizar cerimônia de posse dos conselheiros;Evento de instalação dos novos colegiados;Locação, sonorização, certificados e coffee break;R$ 7.000
+Eleição;C.08 Produzir Manual do Processo Eleitoral;Material orientador para futuras eleições;Diagramação, impressão e revisão;R$ 4.000
+Eleição;C.09 Implantar cadastro municipal dos conselheiros eleitos;Organização da base de dados institucional;Material de expediente e organização digital;R$ 2.500
+Eleição;C.10 Realizar avaliação pós-processo eleitoral;Seminário de avaliação e aperfeiçoamento;Material gráfico, coffee break e relatório técnico;R$ 4.000
+Eleição;C.11 Produzir relatório consolidado das eleições;Documentação e sistematização dos resultados;Diagramação, impressão e revisão;R$ 3.500
+Eleição;C.12 Desenvolver protocolo permanente para futuras eleições;Padronização dos procedimentos eleitorais;Manual operacional e kit documental;R$ 3.500
+Eleição;C.13 Realizar busca ativa de entidades representativas;Mapeamento e convite formal às organizações locais;Material gráfico, deslocamentos e expediente;R$ 5.000
+Eleição;C.14 Promover audiências públicas preparatórias;Apresentação do processo eleitoral à comunidade;Sonorização, coffee break, impressão e apoio logístico;R$ 8.000
+Eleição;C.15 Capacitar mesários e equipes de apoio;Treinamento operacional do processo eleitoral;Material didático, certificados e coffee break;R$ 5.500
+Eleição;C.16 Implantar sistema padronizado de credenciamento;Organização dos participantes do processo eleitoral;Formulários, crachás, impressão e material de expediente;R$ 3.500
+Eleição;C.17 Produzir kit eleitoral completo;Preparação dos materiais para todas as eleições dos CLS;Urnas, cédulas, listas, envelopes, pastas e formulários;R$ 10.000
+Eleição;C.18 Registrar documentalmente todo o processo eleitoral;Produção de registros fotográficos, atas e relatórios;Fotografia, impressão e organização documental;R$ 6.000
+Eleição;C.19 Realizar oficinas de sensibilização pré-eleitoral;Mobilização comunitária para ampliação da participação;Material gráfico, coffee break e apoio técnico;R$ 6.500
+Eleição;C.20 Implantar banco histórico das eleições dos CLS;Organização permanente da memória institucional;Digitalização, organização documental e armazenamento;R$ 5.000
+Eleição;C.21 Produzir vídeo institucional sobre o processo eleitoral;Orientação aos candidatos e eleitores;Roteiro, gravação, edição e legendagem;R$ 9.000
+Eleição;C.22 Elaborar Plano de Sucessão dos Conselhos Locais;Padronização da renovação periódica dos colegiados;Consultoria técnica, oficinas e publicação;R$ 7.500
+
+Formação;D.01 Implantar Programa Municipal de Educação Permanente dos CLS;Estruturação da trilha formativa para conselheiros;Material didático, coordenação pedagógica e apoio técnico;R$ 8.000
+Formação;D.02 Realizar Curso Introdutório para Conselheiros Locais;Capacitação inicial sobre SUS e Controle Social;Material didático, certificados, coffee break;R$ 8.000
+Formação;D.03 Promover oficinas sobre Instrumentos de Gestão do SUS;Capacitação em PPA, LDO, LOA, PAS e RAG;Material didático e instrutores;R$ 7.500
+Formação;D.04 Capacitar conselheiros em participação social e legislação;Curso sobre legislação do SUS e funcionamento dos Conselhos;Material didático e impressão;R$ 6.500
+Formação;D.05 Capacitar em análise de indicadores de saúde;Oficinas práticas utilizando dados municipais;Material didático e apoio técnico;R$ 7.000
+Formação;D.06 Desenvolver curso sobre planejamento em saúde;Oficinas presenciais e estudos de caso;Material didático e certificados;R$ 6.500
+Formação;D.07 Capacitar em comunicação institucional e mediação de conflitos;Treinamento para fortalecimento das reuniões dos CLS;Instrutores, material didático e coffee break;R$ 6.000
+Formação;D.08 Produzir apostilas e cadernos do conselheiro;Desenvolvimento editorial dos materiais pedagógicos;Diagramação e impressão;R$ 8.000
+Formação;D.09 Produzir videoaulas para educação permanente;Gravação de módulos temáticos;Captação, edição e legendagem;R$ 12.000
+Formação;D.10 Implantar biblioteca virtual do Conselheiro Local;Disponibilização de acervo digital;Organização digital e plataforma;R$ 5.000
+Formação;D.11 Realizar Seminário Municipal Anual dos CLS;Evento de atualização e intercâmbio de experiências;Locação, sonorização, material gráfico e coffee break;R$ 15.000
+Formação;D.12 Desenvolver programa de acompanhamento de novos conselheiros;Mentoria e encontros periódicos durante o primeiro ano;Material didático, reuniões e apoio técnico;R$ 6.000
+Formação;D.13 Desenvolver trilha EAD para Conselheiros Locais;Produção de curso autoinstrucional permanente;Ambiente virtual, videoaulas e material didático;R$ 18.000
+Formação;D.14 Capacitar conselheiros em Ouvidoria e Participação Social;Curso sobre escuta qualificada e encaminhamento de demandas;Material didático, instrutores e certificados;R$ 6.500
+Formação;D.15 Capacitar em orçamento público e financiamento do SUS;Oficinas práticas sobre execução orçamentária;Material didático e instrutores;R$ 7.500
+Formação;D.16 Capacitar em vigilância em saúde e territorialização;Curso aplicado à realidade dos territórios;Material didático, mapas e oficinas;R$ 7.000
+Formação;D.17 Capacitar em técnicas de condução de reuniões;Desenvolvimento de competências para presidência e secretaria;Material didático e simulações;R$ 5.500
+Formação;D.18 Realizar intercâmbio técnico entre Conselhos Locais;Visitas de aprendizagem e troca de experiências;Transporte, alimentação e material de apoio;R$ 15.000
+Formação;D.19 Produzir coleção de Cadernos Temáticos dos CLS;Publicação de fascículos sobre temas prioritários;Diagramação, impressão e revisão técnica;R$ 10.000
+Formação;D.20 Implantar programa de atualização anual obrigatória;Ciclo permanente de educação continuada;Instrutores, material didático e certificados;R$ 9.000
+Formação;D.21 Promover Mostra Municipal de Boas Práticas dos CLS;Evento para compartilhamento de experiências exitosas;Locação, sonorização, material gráfico e premiação simbólica;R$ 14.000
+Formação;D.22 Desenvolver Banco Municipal de Objetos Educacionais;Organização de apresentações, vídeos, apostilas e materiais reutilizáveis;Produção editorial, plataforma digital e organização do acervo;R$ 12.000

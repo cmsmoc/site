@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PDR · Construtor de Projetos · CMS Montes Claros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/main.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="cms-stripe"></div>
+    <div class="app-wrapper">
+        <header class="topbar">
+            <div class="topbar-title">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="SEC" style="height:32px;">
+                Construtor de Projetos · Edital de Fortalecimento
+            </div>
+            <div class="topbar-actions">
+                <button class="btn btn-outline" id="btn-novo" title="Limpar projeto">Novo Projeto</button>
+                <button class="btn btn-warning" id="btn-aleatorio" title="Preencher projeto magicamente🎲">Gerar Sugerido 🎲</button>
+                <button class="btn btn-outline" id="btn-abrir" title="Carregar projeto JSON">Abrir (JSON)</button>
+                <button class="btn btn-primary" id="btn-exportar">Exportar ▼</button>
+            </div>
+        </header>
+
+        <main class="main-layout">
+            <!-- Painel Esquerdo: Filtros -->
+            <aside class="panel panel-left">
+                <div class="panel-header">Filtros de Pesquisa</div>
+                <div class="panel-content">
+                    <div class="form-group">
+                        <label>Buscar por palavra-chave</label>
+                        <input type="text" class="form-control" id="search-input" placeholder="Ex: capacitação, APS...">
+                    </div>
+                    <div class="form-group">
+                        <label>Eixo</label>
+                        <select class="form-control" id="filter-eixo">
+                            <option value="">Todos os Eixos</option>
+                            <option value="A">A - Articulação</option>
+                            <option value="B">B - Comunicação</option>
+                            <option value="C">C - Eleição</option>
+                            <option value="D">D - Formação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <select class="form-control" id="filter-categoria">
+                            <option value="">Todas as Categorias</option>
+                            <option value="Governança">Governança</option>
+                            <option value="Comunicação">Comunicação</option>
+                            <option value="Eleição">Eleição</option>
+                            <option value="Formação">Formação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Valor Máximo</label>
+                        <input type="number" class="form-control" id="filter-valor" placeholder="R$ 0,00">
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Painel Central: Catálogo -->
+            <section class="panel panel-center">
+                <div class="panel-header" style="display:flex; justify-content:space-between; background:var(--cms-off); border-bottom:none;">
+                    <span>Catálogo de Metas (<span id="count-metas">0</span> encontradas)</span>
+                </div>
+                <div class="panel-content" id="catalogo-list">
+                    <!-- Cards de metas renderizados via JS -->
+                </div>
+            </section>
+
+            <!-- Painel Direito: Projeto -->
+            <aside class="panel panel-right">
+                <div class="panel-header">Projeto em Construção</div>
+                <div class="panel-content" id="projeto-list">
+                    <!-- Eixos renderizados via JS -->
+                </div>
+            </aside>
+        </main>
+
+        <!-- Rodapé: Dashboard -->
+        <footer class="dashboard-footer">
+            <div class="dash-grid" id="dashboard-grid">
+                <!-- Barras de progresso renderizadas via JS -->
+                <div class="dash-total">
+                    <div class="dash-label">Total do Projeto</div>
+                    <div class="dash-value" id="total-projeto">R$ 0,00</div>
+                    <div id="status-projeto" style="font-size:11px; margin-top:4px;"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modal Exportação Escondido (simples) -->
+    <div id="export-menu" style="display:none; position:absolute; right:24px; top:60px; background:white; border:1px solid var(--cms-border); border-radius:var(--r-sm); box-shadow:var(--shadow-md); z-index:100; padding:8px; flex-direction:column; gap:4px; width:150px;">
+        <button class="btn btn-outline" style="color:var(--cms-navy); width:100%; text-align:left;" id="export-json">JSON</button>
+        <button class="btn btn-outline" style="color:var(--cms-navy); width:100%; text-align:left;" id="export-csv">CSV</button>
+        <button class="btn btn-outline" style="color:var(--cms-navy); width:100%; text-align:left;" id="export-md">Markdown</button>
+        <button class="btn btn-outline" style="color:var(--cms-navy); width:100%; text-align:left;" id="export-docx">DOCX</button>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>

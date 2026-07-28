@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Integrada de Reativação dos 12 CLS - Montes Claros</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0A2540',
+                            primary: '#103154',
+                            secondary: '#FFC107',
+                            accent: '#F4A261',
+                            success: '#2A9D8F',
+                            green: '#2E7D32',
+                            light: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #F8F9FA; color: #333; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
+        .bg-hero {
+            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.9), rgba(16, 49, 84, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover:hover .card-content { max-height: 2000px; opacity: 1; padding-top: 1rem; }
+        .card-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease; }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e5e7eb;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        @media (max-width: 768px) {
+            .timeline::before { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left !important; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-icon { left: 15px !important; margin-left: 0 !important; }
+            .timeline-content { float: right !important; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Seção 1: Hero Section -->
+    <section class="bg-hero min-h-screen flex items-center pt-20 pb-20 relative">
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight" data-aos="fade-up">
+                Rede Integrada de Reativação e<br>
+                <span class="text-brand-secondary">Fortalecimento Institucional</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 font-light" data-aos="fade-up" data-aos-delay="100">
+                12 Conselhos Locais de Saúde de Montes Claros – MG
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="200">
+                <span class="bg-brand-success text-white px-6 py-3 rounded-full font-semibold shadow-lg text-lg flex items-center">
+                    <i class="fa-solid fa-sack-dollar mr-2"></i> Orçamento: R$ 100.000,00
+                </span>
+                <span class="bg-brand-primary border-2 border-brand-secondary text-brand-secondary px-6 py-3 rounded-full font-semibold shadow-lg text-lg flex items-center">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Abrangência: 12 Territórios
+                </span>
+            </div>
+            <a href="#contexto" class="inline-block bg-brand-secondary text-brand-dark px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-[0_0_15px_rgba(255,193,7,0.5)]" data-aos="zoom-in" data-aos-delay="300">
+                Ver Detalhes do Projeto <i class="fa-solid fa-arrow-down ml-2 animate-bounce"></i>
+            </a>
+        </div>
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[50px] md:h-[100px]">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,137,126,204,113.62,243.68,106.31,283.47,82.27,321.39,56.44Z" fill="#F8F9FA"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Seção 2: Contexto e Justificativa (Anexo VI) -->
+    <section id="contexto" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-4">ANEXO VI – DECLARAÇÃO DE INEXISTÊNCIA DE CLS OU NÃO FUNCIONAMENTO COM JUSTIFICATIVA ROBUSTA</h2>
+                <div class="w-24 h-1 bg-brand-secondary mx-auto rounded"></div>
+            </div>
+
+            <!-- Dados Identificação -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-16 border-t-4 border-brand-primary" data-aos="fade-up">
+                <h3 class="text-xl font-heading font-bold text-brand-dark mb-6 border-b pb-2">1. DADOS DE IDENTIFICAÇÃO E ENQUADRAMENTO DA PROPOSTA</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+                    <div><strong class="text-brand-dark">MUNICÍPIO / ENTIDADE PROPONENTE:</strong> Conselho Municipal de Saúde de Montes Claros – MG</div>
+                    <div><strong class="text-brand-dark">CNPJ:</strong> (Inserir CNPJ do Fundo/Prefeitura/Conselho)</div>
+                    <div class="md:col-span-2"><strong class="text-brand-dark">TÍTULO DO PROJETO:</strong> Rede Integrada de Reativação e Fortalecimento Institucional dos 12 Conselhos Locais de Saúde de Montes Claros</div>
+                    <div><strong class="text-brand-dark">VALOR TOTAL SOLICITADO:</strong> R$ 100.000,00</div>
+                    <div><strong class="text-brand-dark">NÚMERO DE CLS ABRANGIDOS:</strong> 12 Conselhos Locais de Saúde</div>
+                </div>
+            </div>
+
+            <!-- Diagnóstico e Justificativa (Grid Assimétrico) -->
+            <div class="flex flex-col lg:flex-row gap-12 mb-16">
+                <!-- 60% Texto -->
+                <div class="lg:w-3/5" data-aos="fade-right">
+                    <h3 class="text-2xl font-heading font-bold text-brand-dark mb-6">2. JUSTIFICATIVA E DIAGNÓSTICO SITUACIONAL (FUNDAMENTAÇÃO ACADÊMICO-INSTITUCIONAL)</h3>
+                    
+                    <p class="text-lg mb-6 leading-relaxed text-gray-700">
+                        O município de Montes Claros, classificado como polo de saúde e principal cidade da região Norte de Minas Gerais, conta atualmente com 12 Conselhos Locais de Saúde (CLS) estabelecidos em sua rede de Atenção Primária à Saúde (APS). Contudo, a presente proposta fundamenta-se no fato de que <strong class="text-brand-dark">esses 12 conselhos existem, majoritariamente, apenas de maneira pro-forma</strong>, não possuindo funcionamento prático, infraestrutura de reuniões ou capacidade instalada para o pleno exercício do controle social em seus territórios de abrangência (sejam periféricos ou rurais).
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed text-gray-700">
+                        Conforme delineado pela pesquisa acadêmica recente produzida na Universidade Estadual de Montes Claros (Unimontes, 2025 – PPGDEE), o contexto da saúde na região Norte de Minas é historicamente marcado por <strong class="text-brand-dark">subfinanciamento crônico e fortes assimetrias estruturais</strong>. Tais fragilidades recaem de maneira desproporcional sobre a Atenção Primária. Sem mecanismos capilares ativos de fiscalização e governança, instala-se o que a literatura neoinstitucionalista (a exemplo de Daron Acemoglu e Robert Putnam) qualifica como "altos custos de transação" e "baixa densidade de capital social", tornando o sistema vulnerável a distorções na alocação de recursos públicos e dificultando o atendimento real aos anseios da população.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed text-gray-700">
+                        A pesquisa regional atesta que a assimetria de informações afeta de forma direta os conselheiros locais (e os potenciais conselheiros), que frequentemente desconhecem as prerrogativas de fiscalização sobre os instrumentos orçamentários do Sistema Único de Saúde (SUS), como o Plano Municipal de Saúde (PMS), a Programação Anual de Saúde (PAS) e o Relatório Anual de Gestão (RAG). Com isso, a participação comunitária restringe-se, não raro, ao Conselho Municipal de Saúde, dificultando a interiorização da governança democrática exigida pela Constituição Federal de 1988 e pela Lei Orgânica da Saúde (nº 8.142/1990).
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed text-gray-700">
+                        Dessa forma, é inexequível imputar aos próprios Conselhos Locais — hoje adormecidos e sem quadros técnicos capacitados — o encargo isolado de elaborar planos, gerir finanças e captar fomento. Para superar essa barreira estrutural, o presente plano propõe uma abordagem estratégica inovadora e centralizada: a <strong class="text-brand-dark">"Rede Integrada de Reativação"</strong>.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed text-gray-700">
+                        Sob a coordenação técnico-administrativa do Conselho Municipal de Saúde e da Secretaria Municipal de Saúde, os R$ 100.000,00 provenientes deste edital serão injetados <em>em bloco</em> para financiar infraestrutura padronizada (kits institucionais e identidade visual), realizar pleitos eleitorais unificados em todas as 12 bases e garantir capacitação pedagógica itinerante (Curso Introdutório e Educação Permanente) de forma equitativa.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        O financiamento se justifica pelo caráter irrevogável do controle social. Reativar e empoderar faticamente esses 12 CLS é blindar o território contra o isolamento informacional, conectando a comunidade da base diretamente aos processos deliberativos da Secretaria Municipal de Saúde, garantindo transparência, integridade e conformidade com as diretrizes da Resolução CNS nº 714/2023.
+                    </p>
+
+                    <h3 class="text-2xl font-heading font-bold text-brand-dark mt-10 mb-6">3. OBJETIVO GERAL DO PROJETO</h3>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        Estruturar formal, logística e pedagogicamente as atividades dos 12 Conselhos Locais de Saúde inativos ou precarizados no município de Montes Claros, promovendo um ciclo integrado de regulamentação, eleições limpas, produção de materiais de comunicação e ciclos de qualificação (formação) em governança e orçamento do SUS para cerca de 200 conselheiros titulares e suplentes da Atenção Primária à Saúde.
+                    </p>
+                </div>
+
+                <!-- 40% Destaques -->
+                <div class="lg:w-2/5" data-aos="fade-left">
+                    <!-- Teoria da Unimontes -->
+                    <div class="bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] p-8 border-l-8 border-brand-success relative overflow-hidden mb-10 group transition-transform hover:-translate-y-2">
+                        <i class="fa-solid fa-graduation-cap absolute -right-6 -bottom-6 text-9xl text-gray-100 opacity-50 transform -rotate-12 group-hover:scale-110 transition-transform"></i>
+                        <div class="relative z-10">
+                            <h4 class="text-xl font-heading font-bold text-brand-success mb-4 flex items-center">
+                                <i class="fa-solid fa-book-open mr-3"></i> Fundamentação Acadêmica
+                            </h4>
+                            <p class="text-gray-600 italic mb-4">Baseado na pesquisa da Universidade Estadual de Montes Claros (Unimontes, 2025 – PPGDEE).</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-caret-right text-brand-secondary mt-1 mr-2 text-xl"></i>
+                                    <span class="text-lg">Problema do <strong class="text-brand-dark">subfinanciamento crônico</strong></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-caret-right text-brand-secondary mt-1 mr-2 text-xl"></i>
+                                    <span class="text-lg">Combate às <strong class="text-brand-dark">assimetrias estruturais</strong></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-caret-right text-brand-secondary mt-1 mr-2 text-xl"></i>
+                                    <span class="text-lg">Redução de <strong class="text-brand-dark">altos custos de transação</strong></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-caret-right text-brand-secondary mt-1 mr-2 text-xl"></i>
+                                    <span class="text-lg">Elevação da <strong class="text-brand-dark">baixa densidade de capital social</strong></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A Solução (Rede Integrada) -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-heading font-bold text-brand-dark mb-10">A Solução: Rede Integrada</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-brand-primary" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-primary text-3xl">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Infraestrutura Padronizada</h4>
+                        <p class="text-gray-600">Kits institucionais e identidade visual fortalecida nas 12 bases.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-brand-secondary" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-secondary text-3xl">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Eleições Unificadas</h4>
+                        <p class="text-gray-600">Pleitos simultâneos garantindo legitimidade e pluralidade.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-brand-success" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-success text-3xl">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Capacitação Pedagógica Itinerante</h4>
+                        <p class="text-gray-600">Curso introdutório e educação permanente de forma equitativa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: Plano de Trabalho - Metas por Eixo (Anexo VII) -->
+    <section id="plano-trabalho" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-4">PLANO DE TRABALHO – 12 CONSELHOS LOCAIS DE SAÚDE (MONTES CLAROS)</h2>
+                <h3 class="text-xl text-gray-600 font-light mb-4">PROJETO: REDE INTEGRADA DE REATIVAÇÃO DOS 12 CLS (ANEXOS VII E VIII)</h3>
+                <div class="w-24 h-1 bg-brand-secondary mx-auto rounded"></div>
+            </div>
+
+            <!-- Tabela Orçamentária -->
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-16 border border-gray-100" data-aos="fade-up">
+                <div class="bg-brand-primary text-white p-4 text-center font-bold text-lg">
+                    TETO SOLICITADO E DISTRIBUIÇÃO ORÇAMENTÁRIA DO PROJETO
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-brand-dark border-b-2 border-gray-200">
+                                <th class="p-4 font-bold">EIXOS TEMÁTICOS (Item 6.3)</th>
+                                <th class="p-4 font-bold text-center">VALOR PROPOSTO</th>
+                                <th class="p-4 font-bold text-center">FAIXA DO EDITAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4"><strong>A – Articulação</strong></td>
+                                <td class="p-4 text-center font-medium text-orange-600">R$ 13.000,00</td>
+                                <td class="p-4 text-center text-gray-600">R$ 9k a 13k</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4"><strong>B – Comunicação</strong></td>
+                                <td class="p-4 text-center font-medium text-blue-500">R$ 28.000,00</td>
+                                <td class="p-4 text-center text-gray-600">R$ 20k a 28k</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4"><strong>C – Eleição</strong></td>
+                                <td class="p-4 text-center font-medium text-purple-600">R$ 17.000,00</td>
+                                <td class="p-4 text-center text-gray-600">R$ 12k a 17k</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4"><strong>D – Formação para Controle Social</strong></td>
+                                <td class="p-4 text-center font-medium text-green-600">R$ 42.000,00</td>
+                                <td class="p-4 text-center text-gray-600">R$ 29k a 42k</td>
+                            </tr>
+                            <tr class="bg-brand-light font-bold text-brand-dark">
+                                <td class="p-4 text-right">VALOR TOTAL GLOBAL</td>
+                                <td class="p-4 text-center text-xl text-brand-success">R$ 100.000,00</td>
+                                <td class="p-4 text-center">Teto de 100k</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cards de Eixos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Eixo A -->
+                <div class="bg-white rounded-2xl shadow-lg border-t-8 border-orange-500 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6 cursor-pointer">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-14 h-14 bg-orange-100 text-orange-500 rounded-lg flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <span class="bg-orange-100 text-orange-700 text-sm font-bold px-3 py-1 rounded-full">R$ 13.000,00</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">🟧 Eixo A: Articulação</h3>
+                        <p class="text-gray-500 text-sm mb-4">Passe o mouse para ver as submetas detalhadas.</p>
+                        
+                        <div class="card-content border-t border-gray-100">
+                            <ul class="space-y-4 text-sm text-gray-700">
+                                <li>
+                                    <strong class="block text-orange-600">1. A.01 – Instituir o Programa... (R$ 2.500)</strong>
+                                    Aspectos: Elaboração participativa do programa coordenador...<br>
+                                    Custeio: Serviços gráficos, materiais, coffee break...
+                                </li>
+                                <li>
+                                    <strong class="block text-orange-600">2. A.02 – Realizar diagnóstico... (R$ 3.000)</strong>
+                                    Aspectos: Visitas in loco e questionários...<br>
+                                    Custeio: Impressão, locação de veículos, tablets...
+                                </li>
+                                <li>
+                                    <strong class="block text-orange-600">3. A.14 – Fomentar organização... (R$ 4.000)</strong>
+                                    Aspectos: Apoio presencial aos primeiros encontros...<br>
+                                    Custeio: Cadeiras, água, coffee break para encontros...
+                                </li>
+                                <li>
+                                    <strong class="block text-orange-600">4. A.47 – Estruturar modelo... (R$ 3.500)</strong>
+                                    Aspectos: "Secretaria volante" redigindo atas...<br>
+                                    Custeio: Papelaria continuada e logística...
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eixo B -->
+                <div class="bg-white rounded-2xl shadow-lg border-t-8 border-blue-500 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6 cursor-pointer">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-14 h-14 bg-blue-100 text-blue-500 rounded-lg flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <span class="bg-blue-100 text-blue-700 text-sm font-bold px-3 py-1 rounded-full">R$ 28.000,00</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">🟦 Eixo B: Comunicação</h3>
+                        <p class="text-gray-500 text-sm mb-4">Passe o mouse para ver as submetas detalhadas.</p>
+                        
+                        <div class="card-content border-t border-gray-100">
+                            <ul class="space-y-4 text-sm text-gray-700">
+                                <li>
+                                    <strong class="block text-blue-600">5. B.02 – 12 Kits Institucionais (R$ 8.000)</strong>
+                                    Aspectos: Design gráfico para "Kits de Existência Fática"...<br>
+                                    Custeio: Coletes, pastas, urnas, papéis timbrados...
+                                </li>
+                                <li>
+                                    <strong class="block text-blue-600">6. B.03 – Imprimir cartilhas (R$ 5.000)</strong>
+                                    Aspectos: Redação acessível, distribuição porta a porta...<br>
+                                    Custeio: Diagramação, 5.000 unidades do Guia...
+                                </li>
+                                <li>
+                                    <strong class="block text-blue-600">7. B.11 – Confeccionar placas (R$ 4.000)</strong>
+                                    Aspectos: Demarcação física nas Unidades de Saúde...<br>
+                                    Custeio: 12 letreiros acrílico, 12 painéis metálicos...
+                                </li>
+                                <li>
+                                    <strong class="block text-blue-600">8. B.12 – Calendários anuais (R$ 3.000)</strong>
+                                    Aspectos: Lembretes físicos para plenárias...<br>
+                                    Custeio: Banners, ímãs, panfletos via ACS...
+                                </li>
+                                <li>
+                                    <strong class="block text-blue-600">9. B.20 – Campanha com rádio (R$ 8.000)</strong>
+                                    Aspectos: Ações de áudio atingindo zonas rurais...<br>
+                                    Custeio: Carro de som, spots rádio, publicidade...
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eixo C -->
+                <div class="bg-white rounded-2xl shadow-lg border-t-8 border-purple-500 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6 cursor-pointer">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-14 h-14 bg-purple-100 text-purple-500 rounded-lg flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-person-booth"></i>
+                            </div>
+                            <span class="bg-purple-100 text-purple-700 text-sm font-bold px-3 py-1 rounded-full">R$ 17.000,00</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">🟪 Eixo C: Eleição</h3>
+                        <p class="text-gray-500 text-sm mb-4">Passe o mouse para ver as submetas detalhadas.</p>
+                        
+                        <div class="card-content border-t border-gray-100">
+                            <ul class="space-y-4 text-sm text-gray-700">
+                                <li>
+                                    <strong class="block text-purple-600">10. C.01 – Regulamento Eleitoral (R$ 3.000)</strong>
+                                    Aspectos: Processo eleitoral em bloco, homologado...<br>
+                                    Custeio: Cadernos, apoio jurídico, editais, papelaria...
+                                </li>
+                                <li>
+                                    <strong class="block text-purple-600">11. C.02 – Divulgação do pleito (R$ 4.000)</strong>
+                                    Aspectos: Chamamento público massivo para chapas...<br>
+                                    Custeio: Mídia impressa, faixas nas 12 UBSs, cartazes...
+                                </li>
+                                <li>
+                                    <strong class="block text-purple-600">12. C.06 – Logística nas 12 bases (R$ 7.000)</strong>
+                                    Aspectos: Votação simultânea, operada por comissão...<br>
+                                    Custeio: Cédulas segurança, lacres, crachás, marmitas...
+                                </li>
+                                <li>
+                                    <strong class="block text-purple-600">13. C.11 – Cerimônia de Posse (R$ 3.000)</strong>
+                                    Aspectos: Ato solene reunindo todos os novos membros...<br>
+                                    Custeio: Auditório/tendas, som, diplomas, coffee break...
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eixo D -->
+                <div class="bg-white rounded-2xl shadow-lg border-t-8 border-green-500 card-hover overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6 cursor-pointer">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-14 h-14 bg-green-100 text-green-500 rounded-lg flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-700 text-sm font-bold px-3 py-1 rounded-full">R$ 42.000,00</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">🟩 Eixo D: Formação</h3>
+                        <p class="text-gray-500 text-sm mb-4">Passe o mouse para ver as submetas detalhadas.</p>
+                        
+                        <div class="card-content border-t border-gray-100">
+                            <ul class="space-y-4 text-sm text-gray-700">
+                                <li>
+                                    <strong class="block text-green-600">14. D.01 – Prog. Educação Permanente (R$ 8.000)</strong>
+                                    Aspectos: Currículo formativo continuado (2 anos)...<br>
+                                    Custeio: Trilha Pedagógica, coordenador, dinâmicas...
+                                </li>
+                                <li>
+                                    <strong class="block text-green-600">15. D.02 – Curso Introdutório (R$ 10.000)</strong>
+                                    Aspectos: 1º grande módulo (O que é SUS/Papel)...<br>
+                                    Custeio: Instrutores, telão, apostilas 200 alunos, kits...
+                                </li>
+                                <li>
+                                    <strong class="block text-green-600">16. D.04 – Capacitar em Legislação (R$ 6.500)</strong>
+                                    Aspectos: Instrumentalização jurídica (Lei 8080/8142)...<br>
+                                    Custeio: Livretos, palestrantes de Direito Sanitário...
+                                </li>
+                                <li>
+                                    <strong class="block text-green-600">17. D.11 – I Seminário de Integração (R$ 15.000)</strong>
+                                    Aspectos: Intercâmbio de práticas entre as 12 UBSs...<br>
+                                    Custeio: Centro convenções, LED, som, troféus, refeição...
+                                </li>
+                                <li>
+                                    <strong class="block text-green-600">18. D.15 – Oficina Express LOA/RAG (R$ 2.500)</strong>
+                                    Aspectos: Decifrar LOA, PAS, RAG da Unidade...<br>
+                                    Custeio: Facilitadores finanças, cartilhas gráficas, lanches...
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Estratégias de Expansão de Captação (Projetos Irmãos) -->
+    <section id="estrategias-expansao" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-4">Estratégias de Expansão de Captação <br/><span class="text-brand-secondary">(Projetos Irmãos)</span></h2>
+                <div class="w-24 h-1 bg-brand-secondary mx-auto rounded mb-6"></div>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto">
+                    A Nota Técnica do Ministério da Saúde orienta que <strong>não há limite de projetos por município</strong>. O cadastro é feito por projeto. Para maximizar os recursos captados e cobrir de forma mais eficiente todos os territórios, recomenda-se a divisão do escopo original em "Projetos Irmãos", o que é perfeitamente legal e estratégico.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Cenário A -->
+                <div class="bg-white rounded-2xl shadow-lg border-t-8 border-gray-400 flex flex-col h-full transform transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-16 h-16 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                                <i class="fa-solid fa-folder"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-center text-gray-800 mb-2">Cenário A <span class="text-sm font-normal text-gray-500 block">(Original)</span></h3>
+                        <p class="text-center text-gray-600 mb-6 font-medium">1 Projeto Único</p>
+                        
+                        <div class="text-center mb-8 bg-gray-50 py-4 rounded-xl">
+                            <span class="block text-4xl font-bold text-gray-800">R$ 100.000</span>
+                            <span class="text-sm text-gray-500 uppercase font-bold tracking-wider">Orçamento Total</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-700 bg-gray-50 p-2 rounded"><i class="fa-solid fa-check text-gray-400 w-6"></i> <strong>12</strong> CLS Alvo</li>
+                            <li class="flex items-center text-gray-700 p-2"><i class="fa-solid fa-chevron-right text-gray-300 w-6 text-sm"></i> Eixo A: R$ 13.000</li>
+                            <li class="flex items-center text-gray-700 bg-gray-50 p-2 rounded"><i class="fa-solid fa-chevron-right text-gray-300 w-6 text-sm"></i> Eixo B: R$ 28.000</li>
+                            <li class="flex items-center text-gray-700 p-2"><i class="fa-solid fa-chevron-right text-gray-300 w-6 text-sm"></i> Eixo C: R$ 17.000</li>
+                            <li class="flex items-center text-gray-700 bg-gray-50 p-2 rounded"><i class="fa-solid fa-chevron-right text-gray-300 w-6 text-sm"></i> Eixo D: R$ 42.000</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cenário B -->
+                <div class="bg-white rounded-2xl shadow-xl border-t-8 border-brand-primary flex flex-col h-full relative transform transition duration-500 hover:scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-brand-primary text-white text-xs font-bold px-4 py-2 rounded-bl-lg shadow-md uppercase tracking-wide">Recomendado</div>
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-16 h-16 bg-blue-50 text-brand-primary rounded-full flex items-center justify-center text-3xl shadow-sm">
+                                <i class="fa-solid fa-copy"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-center text-brand-dark mb-2">Cenário B</h3>
+                        <p class="text-center text-gray-600 mb-6 font-medium">2 Projetos Irmãos</p>
+                        
+                        <div class="text-center mb-8 bg-blue-50 py-4 rounded-xl border border-blue-100">
+                            <span class="block text-4xl font-bold text-brand-primary">R$ 200.000</span>
+                            <span class="text-sm text-blue-600 uppercase font-bold tracking-wider">Orçamento Total</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-800 bg-gray-50 p-2 rounded"><i class="fa-solid fa-check text-brand-success w-6"></i> <strong>6</strong> CLS Alvo por projeto</li>
+                            <li class="flex items-center text-gray-700 p-2"><i class="fa-solid fa-circle-play text-brand-primary opacity-70 w-6 text-sm"></i> Ex: 'Reativação Polo Norte'</li>
+                            <li class="flex items-center text-gray-700 bg-gray-50 p-2 rounded"><i class="fa-solid fa-circle-play text-brand-primary opacity-70 w-6 text-sm"></i> Ex: 'Reativação Polo Sul'</li>
+                            <li class="flex items-center text-brand-dark font-medium p-2 mt-4 bg-green-50 rounded text-center justify-center"><i class="fa-solid fa-arrow-trend-up mr-2 text-brand-success"></i> 2x recursos por conselho</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cenário C -->
+                <div class="bg-white rounded-2xl shadow-xl border-t-8 border-brand-secondary flex flex-col h-full transform transition duration-500 hover:scale-105 relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 bg-brand-secondary text-brand-dark text-xs font-bold px-4 py-2 rounded-bl-lg shadow-md uppercase tracking-wide"><i class="fa-solid fa-star mr-1"></i> Maximização</div>
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-16 h-16 bg-yellow-50 text-brand-secondary rounded-full flex items-center justify-center text-3xl shadow-sm">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-center text-brand-dark mb-2">Cenário C</h3>
+                        <p class="text-center text-gray-600 mb-6 font-medium">3 Projetos Irmãos</p>
+                        
+                        <div class="text-center mb-8 bg-yellow-50 py-4 rounded-xl border border-yellow-100">
+                            <span class="block text-4xl font-bold text-brand-secondary">R$ 300.000</span>
+                            <span class="text-sm text-yellow-700 uppercase font-bold tracking-wider">Orçamento Total</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-800 bg-gray-50 p-2 rounded"><i class="fa-solid fa-check text-brand-success w-6"></i> <strong>4</strong> CLS Alvo por projeto</li>
+                            <li class="flex items-center text-gray-700 p-2"><i class="fa-solid fa-circle-play text-brand-secondary opacity-70 w-6 text-sm"></i> Ex: 'Núcleo A'</li>
+                            <li class="flex items-center text-gray-700 bg-gray-50 p-2 rounded"><i class="fa-solid fa-circle-play text-brand-secondary opacity-70 w-6 text-sm"></i> Ex: 'Núcleo B'</li>
+                            <li class="flex items-center text-gray-700 p-2"><i class="fa-solid fa-circle-play text-brand-secondary opacity-70 w-6 text-sm"></i> Ex: 'Núcleo C'</li>
+                            <li class="flex items-center text-brand-dark font-medium p-2 mt-2 bg-green-50 rounded text-center justify-center"><i class="fa-solid fa-arrow-trend-up mr-2 text-brand-success"></i> 3x recursos por conselho</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 4: Cronograma de Execução (Timeline) -->
+    <section class="py-20 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-4">Cronograma de Execução</h2>
+                <div class="w-24 h-1 bg-brand-secondary mx-auto rounded"></div>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto timeline">
+                <!-- Fase 1 -->
+                <div class="mb-8 flex justify-between items-center w-full right-timeline timeline-item relative z-10" data-aos="fade-left">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-orange-500 shadow-xl w-8 h-8 rounded-full absolute left-1/2 -translate-x-1/2 timeline-icon">
+                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-full md:w-5/12 px-6 py-4 timeline-content border-l-4 border-orange-500">
+                        <h3 class="mb-3 font-bold text-gray-800 text-xl">Meses 1 a 6</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">
+                            Instituição do Programa, Diagnóstico Situacional e produção/entrega dos Kits Institucionais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline timeline-item relative z-10" data-aos="fade-right">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-purple-500 shadow-xl w-8 h-8 rounded-full absolute left-1/2 -translate-x-1/2 timeline-icon">
+                        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-full md:w-5/12 px-6 py-4 timeline-content border-r-4 md:border-r-0 md:border-l-4 border-purple-500">
+                        <h3 class="mb-3 font-bold text-gray-800 text-xl">Meses 7 a 12</h3>
+                        <p class="text-sm font-medium leading-snug tracking-wide text-gray-600 text-opacity-100">
+                            Fixação de Placas, Regulamento Eleitoral, e Grande Eleição Unificada em todas as bases.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Fase 3 -->
+                <div class="mb-8 flex justify-between items-center w-full right-timeline timeline-item relative z-10" data-aos="fade-left">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full absolute left-1/2 -translate-x-1/2 timeline-icon">
+                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-full md:w-5/12 px-6 py-4 timeline-content border-l-4 border-blue-500">
+                        <h3 class="mb-3 font-bold text-gray-800 text-xl">Mês 13</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">
+                            Cerimônia de Posse Solene unificada.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 4 -->
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline timeline-item relative z-10" data-aos="fade-right">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-green-500 shadow-xl w-8 h-8 rounded-full absolute left-1/2 -translate-x-1/2 timeline-icon">
+                        <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-full md:w-5/12 px-6 py-4 timeline-content border-r-4 md:border-r-0 md:border-l-4 border-green-500">
+                        <h3 class="mb-3 font-bold text-gray-800 text-xl">Meses 14 a 36</h3>
+                        <p class="text-sm font-medium leading-snug tracking-wide text-gray-600 text-opacity-100">
+                            Trilha Pedagógica Contínua, Seminário Anual e Oficina de RAG.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5: Gestão, Assinaturas e Transparência -->
+    <section class="py-16 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h3 class="text-2xl font-heading font-bold text-center text-brand-dark mb-10">4. ASSINATURAS</h3>
+            <p class="text-center text-gray-700 max-w-3xl mx-auto mb-6">
+                Declaro, para os devidos fins legais, a veracidade do diagnóstico de não-funcionamento fático dos referidos Conselhos Locais e corroboro com a justificativa técnica acima delineada para a submissão ao Edital nº 11/2026.
+            </p>
+            <p class="text-center font-bold text-brand-dark mb-16">
+                Montes Claros - MG, (Dia) de (Mês) de 2026.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-32">
+                <div class="text-center">
+                    <div class="w-64 border-b-2 border-brand-dark mx-auto mb-2"></div>
+                    <strong class="block text-brand-dark">Assinatura do Presidente do Conselho Municipal de Saúde</strong>
+                    <div class="text-gray-600 mt-2">Nome: </div>
+                    <div class="text-gray-600">CPF: </div>
+                </div>
+                <div class="text-center mt-10 md:mt-0">
+                    <div class="w-64 border-b-2 border-brand-dark mx-auto mb-2"></div>
+                    <strong class="block text-brand-dark">Assinatura do Secretário Municipal de Saúde / Gestor SUS</strong>
+                    <div class="text-gray-600 mt-2">Nome: </div>
+                    <div class="text-gray-600">CPF: </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-brand-dark text-white pt-12 pb-6 border-t-4 border-brand-secondary">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center space-x-4 mb-6 md:mb-0">
+                    <!-- Placeholder para Brasão -->
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-dark">
+                        <i class="fa-solid fa-landmark text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-bold text-lg text-brand-secondary">Prefeitura de Montes Claros</h4>
+                        <p class="text-sm text-gray-300">Secretaria Municipal de Saúde</p>
+                    </div>
+                </div>
+                <div class="text-center md:text-right text-gray-300 text-sm">
+                    <p class="mb-1"><i class="fa-solid fa-envelope mr-2"></i> contato@cmsmontesclaros.mg.gov.br</p>
+                    <p><i class="fa-solid fa-building mr-2"></i> CNPJ: XX.XXX.XXX/XXXX-XX</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+                &copy; 2026 - Conselho Municipal de Saúde de Montes Claros. Todos os direitos reservados.<br>
+                Projeto Hotsite Premium submetido ao Edital nº 11/2026.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

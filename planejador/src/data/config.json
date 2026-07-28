@@ -1,0 +1,26 @@
+{
+    "valorMinimoProjeto": 10000,
+    "valorMaximoProjeto": 200000,
+    "eixos": {
+        "A": {
+            "nome": "Articulação",
+            "min": 5000,
+            "max": 50000
+        },
+        "B": {
+            "nome": "Comunicação",
+            "min": 0,
+            "max": 30000
+        },
+        "C": {
+            "nome": "Eleição",
+            "min": 0,
+            "max": 80000
+        },
+        "D": {
+            "nome": "Formação",
+            "min": 0,
+            "max": 40000
+        }
+    }
+}

@@ -1,0 +1,537 @@
+# PDR — Catálogo Inteligente de Metas para Projetos de Fortalecimento dos Conselhos Locais de Saúde
+
+## 1. Objetivo
+
+Desenvolver uma aplicação web local (PWA) que funcione como um **Construtor de Projetos** para o Edital de Fortalecimento dos Conselhos Locais de Saúde.
+
+A aplicação deverá funcionar como um **cardápio inteligente de metas**.
+
+O usuário poderá navegar por centenas de metas previamente cadastradas, selecionar aquelas que deseja utilizar em seu projeto e montar automaticamente um Plano de Trabalho compatível com o edital.
+
+O sistema deverá controlar automaticamente os limites financeiros por eixo, gerar alertas e exportar toda a documentação necessária.
+
+---
+
+# 2. Objetivos do Sistema
+
+O sistema deverá permitir:
+
+* navegar pelas metas organizadas por eixo;
+* pesquisar metas por palavra-chave;
+* visualizar descrição completa;
+* visualizar exemplos de custeio;
+* visualizar valor estimado;
+* adicionar/remover metas;
+* acompanhar orçamento em tempo real;
+* controlar automaticamente os limites do edital;
+* exportar o resultado final.
+
+---
+
+# 3. Público-alvo
+
+* Conselhos Municipais de Saúde
+* Secretarias Executivas
+* Técnicos responsáveis pela elaboração de projetos
+* Consultores
+* Equipes de Planejamento
+
+---
+
+# 4. Arquitetura
+
+Aplicação 100% client-side.
+
+Tecnologias sugeridas:
+
+* HTML5
+* CSS
+* JavaScript (ES2023)
+* Bootstrap ou Tailwind
+* IndexedDB
+* PWA
+* Mammoth / docx.js
+* FileSaver
+* Marked
+* PapaParse
+
+Sem backend.
+
+Todos os dados permanecem no navegador.
+
+---
+
+# 5. Estrutura dos Dados
+
+Cada meta possuirá:
+
+```json
+{
+    "id":"A001",
+    "eixo":"Articulação",
+    "titulo":"Instituir Programa Municipal",
+    "descricao":"...",
+    "acao":"...",
+    "objeto":"...",
+    "valor":5000,
+    "categoria":"Governança",
+    "palavrasChave":[
+        "governança",
+        "regimento",
+        "gestão"
+    ]
+}
+```
+
+---
+
+# 6. Organização da Interface
+
+## Barra superior
+
+* Projeto Atual
+* Salvar
+* Abrir
+* Novo Projeto
+* Exportar
+
+---
+
+## Painel esquerdo
+
+Filtros
+
+* eixo
+* categoria
+* faixa de valor
+* palavra-chave
+
+---
+
+## Centro
+
+Lista de metas disponíveis
+
+Cada cartão deverá mostrar:
+
+* código
+* nome
+* descrição
+* ação
+* objeto
+* valor
+* botão "Adicionar"
+
+---
+
+## Painel direito
+
+Projeto em construção
+
+Separado em:
+
+### Eixo A
+
+Metas adicionadas
+
+Subtotal
+
+---
+
+### Eixo B
+
+Metas adicionadas
+
+Subtotal
+
+---
+
+### Eixo C
+
+Metas adicionadas
+
+Subtotal
+
+---
+
+### Eixo D
+
+Metas adicionadas
+
+Subtotal
+
+---
+
+Rodapé
+
+Valor total
+
+---
+
+# 7. Dashboard Financeiro
+
+Sempre visível.
+
+Mostrar:
+
+```
+Articulação
+
+██████████░░░░░
+
+R$ 42.000
+```
+
+```
+Comunicação
+
+███████░░░░░░░
+
+R$ 28.000
+```
+
+etc.
+
+Também mostrar
+
+```
+Total do Projeto
+
+R$ 142.500
+```
+
+---
+
+# 8. Regras do Edital
+
+O sistema deverá possuir um arquivo de configuração contendo:
+
+```json
+{
+    "valorMinimoProjeto":0,
+    "valorMaximoProjeto":0,
+
+    "eixos":{
+
+        "A":{
+
+            "min":0,
+            "max":0
+
+        },
+
+        "B":{
+
+            "min":0,
+            "max":0
+
+        },
+
+        "C":{
+
+            "min":0,
+            "max":0
+
+        },
+
+        "D":{
+
+            "min":0,
+            "max":0
+
+        }
+
+    }
+
+}
+```
+
+Todos os limites deverão ser parametrizados.
+
+Nenhum valor deverá estar fixo no código.
+
+---
+
+# 9. Validação
+
+Ao adicionar metas o sistema deverá informar:
+
+✔ dentro do limite
+
+🟡 próximo do limite
+
+🔴 ultrapassou
+
+Também validar:
+
+* eixo vazio
+* valor mínimo
+* valor máximo
+* projeto incompleto
+
+---
+
+# 10. Pesquisa Inteligente
+
+Pesquisar por:
+
+```
+capacitação
+
+APS
+
+Conferência
+
+Eleição
+
+Comunicação
+
+UBS
+
+Regimento
+
+Formação
+
+Juventude
+
+Idoso
+
+Ouvidoria
+```
+
+A pesquisa deverá procurar:
+
+* título
+* descrição
+* ação
+* objeto
+* categoria
+* palavras-chave
+
+---
+
+# 11. Favoritos
+
+Permitir:
+
+⭐ Favoritar metas
+
+Criar:
+
+* Minhas metas favoritas
+
+---
+
+# 12. Duplicação
+
+Permitir
+
+Duplicar projeto
+
+Duplicar eixo
+
+Duplicar meta
+
+---
+
+# 13. Estatísticas
+
+Mostrar
+
+Número de metas
+
+Quantidade por eixo
+
+Valor por eixo
+
+Valor médio
+
+Maior meta
+
+Menor meta
+
+Distribuição percentual
+
+Gráfico de pizza
+
+Gráfico de barras
+
+---
+
+# 14. Exportações
+
+## CSV
+
+Tabela completa
+
+```
+Eixo
+
+Meta
+
+Ação
+
+Objeto
+
+Recurso (Estimado)
+```
+
+Compatível com Excel.
+
+---
+
+## Markdown (.md)
+
+Gerar documento completo.
+
+Exemplo
+
+```
+# Plano de Trabalho
+
+## Eixo A
+
+### Meta 1
+
+Ação
+
+Objeto
+
+Valor
+
+...
+
+## Eixo B
+
+...
+```
+
+---
+
+## DOCX
+
+Gerar documento formatado contendo:
+
+Título
+
+Dados do projeto
+
+Tabela de metas
+
+Resumo financeiro
+
+Totais
+
+Assinaturas
+
+---
+
+## JSON
+
+Exportação integral do projeto
+
+Para reimportação futura.
+
+---
+
+# 15. Importação
+
+Importar
+
+* JSON
+* CSV
+
+---
+
+# 16. Banco de Metas
+
+O sistema deverá aceitar um arquivo:
+
+```
+metas.csv
+```
+
+ou
+
+```
+metas.json
+```
+
+Permitindo atualizar o catálogo sem necessidade de recompilar a aplicação.
+
+---
+
+# 17. Recursos Extras
+
+* Arrastar e soltar metas entre eixos
+* Duplicar metas
+* Observações por meta
+* Justificativa por meta
+* Prioridade
+* Ordem personalizada
+* Tags
+* Histórico de alterações
+* Desfazer/Refazer
+* Salvamento automático
+* Funcionamento offline (PWA)
+
+---
+
+# 18. Estrutura de Pastas
+
+```
+/src
+
+/components
+
+/pages
+
+/data
+
+metas.json
+
+config.json
+
+/assets
+
+/icons
+
+/export
+
+/services
+
+/utils
+
+/styles
+
+/docs
+```
+
+---
+
+# 19. Critérios de Qualidade
+
+* Código modular
+* Componentização
+* Separação entre dados e interface
+* Responsividade
+* Acessibilidade (WCAG AA)
+* Sem dependência de servidor
+* Performance para catálogo com mais de 1.000 metas
+* Código amplamente documentado
+* Fácil manutenção e expansão
+
+---
+
+# 20. Entregáveis
+
+* Aplicação PWA funcional
+* Catálogo de metas carregado via JSON/CSV
+* Sistema de seleção e composição de projetos
+* Controle automático dos limites financeiros por eixo
+* Dashboard financeiro em tempo real
+* Exportação em **CSV**, **Markdown (.md)**, **DOCX (.docx)** e **JSON**
+* Importação de projetos existentes
+* Persistência local (IndexedDB)
+* Manual técnico e documentação do código
+* Estrutura preparada para adaptação a futuros editais apenas alterando os arquivos `config.json` e `metas.json`, sem necessidade de modificar a lógica da aplicação.

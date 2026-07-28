@@ -1,0 +1,1940 @@
+
+--- PÁGINA 1 ---
+Montes Claros – MG 
+Novembro / 2025 
+ 
+ 
+UNIVERSIDADE ESTADUAL DE MONTES CLAROS 
+Centro de Ciências Sociais Aplicadas 
+Programa de Pós-Graduação em Desenvolvimento Econômico e Estratégia 
+Empresarial (PPGDEE) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fernando André de Souza 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CONTROLE SOCIAL ATRAVÉS DA EFETIVA PARTICIPAÇÃO DOS 
+CONSELHOS DE POLÍTICAS PÚBLICAS DE SAÚDE: UMA ANÁLISE 
+PARA MUNICÍPIOS DA REGIÃO NORTE DE MINAS GERAIS. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 2 ---
+Montes Claros – MG 
+Novembro / 2025 
+ 
+ 
+Fernando André de Souza 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CONTROLE SOCIAL ATRAVÉS DA EFETIVA PARTICIPAÇÃO DOS 
+CONSELHOS DE POLÍTICAS PÚBLICAS DE SAÚDE: UMA ANÁLISE 
+PARA MUNICÍPIOS DA REGIÃO NORTE DE MINAS GERAIS. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Projeto de Pesquisa requerido na disciplina 
+de 
+Seminário 
+de 
+Dissertação, 
+para 
+composição da avaliação. 
+ 
+ 
+ 
+ 
+Orientador: Luiz Paulo Fontes de Rezende 
+ 
+Coorientadora: Camila   Lins Rodrigues. 
+
+--- PÁGINA 3 ---
+Montes Claros – MG 
+Novembro / 2025 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 4 ---
+4 
+ 
+SUMÁRIO 
+ 
+ 
+1. INTRODUÇÃO   
+ 
+             
+ 
+ 
+ 
+ 
+ 
+04 
+ 
+2. PROBLEMATIZAÇÃO E CONTEXTUALIZAÇÃO 
+ 
+ 
+ 
+09 
+ 
+3. JUSTIFICATIVA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+11 
+ 
+4. REFERENCIAL TEÓRICO 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+14 
+ 
+4.1. OS CONSELHOS PROPRIAMENTE DITOS 
+ 
+ 
+ 
+ 
+ 
+20 
+ 
+5. INSTITUIÇÕES  FORTES 
+E 
+CONTROLE SOCIAL: IMPLICAÇÕES 
+PARA O DESEMPENHO ECONÔMICO 
+ 
+ 
+ 
+ 
+ 
+23 
+ 
+6. ESTUDOS AFINS 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+26 
+ 
+7. A GOVERNANÇA, O PLANEJAMENTO E OS INSTRUMENTOS DE GESTÃO 
+NO SUS: O PAPEL FUNDAMENTAL DOS CONSELHOS MUNICIPAIS DE 
+SAÚDE 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+29 
+ 
+7.1. HIERARQUIZAÇÃO E DESCENTRALIZAÇÃO NO SUS: FUNDAMENTOS E 
+FUNCIONAMENTO NAS ESFERAS DE PODER  
+ 
+ 
+ 
+ 
+32 
+ 
+7.2. FUNCIONAMENTO NAS ESFERAS FEDERAL, ESTADUAL E MUNICIPAL 
+ 
+33 
+ 
+7.3. PLANO DIRETOR DE REGIONALIZAÇÃO – PDR 
+ 
+ 
+ 
+ 
+34 
+ 
+ 
+8. METODOLOGIA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+37 
+ 
+8.1. PESQUISA DOCUMENTAL 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+37 
+ 
+8.2. ENTREVISTAS SEMI ESTRUTURADAS 
+ 
+ 
+ 
+ 
+ 
+37 
+ 
+8.3. MODELO QUADRIPOLAR DE PESQUISA 
+ 
+ 
+ 
+ 
+ 
+38 
+ 
+8.4. ANÁLISE DE CONTEÚDO 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+39 
+ 
+8.5. VALIDAÇÃO E GENERALIZAÇÃO 
+ 
+ 
+ 
+ 
+ 
+ 
+39 
+ 
+ 
+9. REFERÊNCIAS BIBLIOGRÁFICAS  
+ 
+ 
+ 
+ 
+ 
+40 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 5 ---
+5 
+ 
+1. 
+INTRODUÇÃO 
+ 
+O Estado democrático de direito no Brasil fundamenta-se no princípio da soberania popular, 
+onde o poder é exercido pelos cidadãos por meio de eleições periódicas e universais. Neste 
+sistema, os representantes eleitos têm a responsabilidade de garantir o bem-estar social, 
+promovendo políticas públicas que atendam às necessidades básicas da população em áreas 
+fundamentais, como saúde, educação e segurança. A Constituição de 1988, marco da 
+redemocratização, estabelece um conjunto de direitos e garantias fundamentais que buscam 
+assegurar a participação cidadã no processo de decisão política e o controle das ações estatais, 
+por meio de mecanismos de controle social. 
+ 
+Aos gestores eleitos são imbuídas as responsabilidades para a resolução das questões políticas 
+e administrativas espelhadas nos anseios do povo, e para tanto, estratégias de políticas públicas 
+são sugeridas e executadas. No processo de instauração destas políticas devem ser observadas 
+as necessidades reais dos destinatários das mesmas, e sua execução deve estar alinhada com os 
+princípios legais vigentes, a fim de coibir possíveis distorções na aplicação das mesmas. 
+ 
+Entretanto, a implementação e o acompanhamento dessas políticas nem sempre são 
+homogêneos, especialmente em regiões periféricas, como a Região Norte de Minas Gerais. As 
+disparidades regionais mineiras refletem a concentração histórica do desenvolvimento no 
+centro-sul do estado e evidenciam o menor dinamismo econômico das mesorregiões Norte e 
+Jequitinhonha, refletindo um padrão histórico de concentração produtiva no estado. (CIRINO; 
+GONZÁLEZ, 2021). Nesta região, marcada por desafios socioeconômicos e históricos, as 
+dificuldades de acesso a serviços públicos e da garantia da efetividade das políticas públicas se 
+ampliam e culminam em um movimento pendular em busca de serviços de saúde pela 
+população (PALHARES; HERMANO E SILVA,2023).  
+ 
+De acordo com o estudo de MELO, SANTOS E SANTOS (2021), que versam sobre a 
+construção do Índice Social e de Saúde (ISS) desenvolvido para a região do Norte de Minas 
+Gerais, referente ao ano de 2010 a região norte apresenta acentuadas desigualdades nos 
+indicadores sociais e de saúde e observa-se que o índice médio regional é considerado baixo, 
+refletindo profundas desigualdades socioeconômicas e territoriais. A pesquisa destaca que parte 
+dessas disparidades decorre da distribuição desigual de recursos públicos entre os municípios, 
+uma vez que localidades de maior porte tendem a receber investimentos mais expressivos em 
+
+--- PÁGINA 6 ---
+6 
+ 
+comparação às de menor capacidade administrativa. Os resultados apontam, contudo, para 
+melhorias graduais nos indicadores sociais e de saúde nas últimas décadas, especialmente após 
+a consolidação do Sistema Único de Saúde (SUS). Essa evolução demonstra que o sistema 
+público de saúde brasileiro teve impacto positivo sobre as condições de vida da população, 
+ainda que de forma heterogênea, entre as microrregiões. Mesmo com esses avanços, o estudo 
+ressalta que o direito universal à saúde continua sendo violado em diversos contextos, afetando 
+principalmente a população mais pobre, que depende integralmente dos serviços públicos. O 
+trabalho também evidencia que o SUS representou um marco na estruturação da política de 
+saúde nacional, ampliando o acesso e promovendo melhorias significativas na atenção básica, 
+especialmente entre os grupos vulneráveis. Todavia, a persistência das desigualdades regionais 
+impõe a necessidade de políticas mais eficientes e equitativas, capazes de garantir condições de 
+saúde mais justas entre os diferentes municípios. 
+ 
+É possivel inferir, diante do panorama da região em que se assenta o estudo, que a  gestão 
+pública local enfrenta obstáculos relacionados à desigualdade regional, à escassez de recursos 
+e à vulnerabilidade social de uma grande parcela da população. 
+ 
+Nesse cenário, torna-se fundamental compreender se os entraves enfrentados na Região Norte 
+de Minas Gerais não decorrem apenas da limitação de recursos ou da desigualdade 
+socioeconômica, mas também da fragilidade dos mecanismos de acompanhamento e 
+fiscalização das ações governamentais. A ausência de uma cultura consolidada de controle 
+social e institucional contribui para que políticas públicas, muitas vezes, não alcancem os 
+resultados esperados, evidenciando a necessidade de fortalecer instrumentos que assegurem 
+maior transparência, responsabilidade e participação cidadã no processo de gestão.  
+ 
+Para tanto  o conceito de controle é um dos fundamentos para a consolidação do Estado 
+Democrático de Direito, pois assegura que os gestores públicos atuem de forma ética, eficiente 
+e conforme o interesse coletivo. O controle  pode ser classificado como interno, quando exercido 
+por órgãos da própria administração pública sobre suas atividades, como as controladorias e 
+corregedorias; ou externo, quando realizado por instituições independentes, como os Tribunais 
+de Contas e o Poder Legislativo, com apoio técnico especializado. De acordo com a 
+Constituição da República Federativa do Brasil (1988), o controle também pode ser exercido 
+diretamente pela população, por meio dos chamados remédios constitucionais, como a ação 
+popular, o mandado de segurança e o habeas corpus, e ainda por meio da participação em 
+
+--- PÁGINA 7 ---
+7 
+ 
+conselhos de políticas públicas e órgãos colegiados, os quais têm a função de acompanhar, 
+deliberar e fiscalizar a execução das ações governamentais. Esses mecanismos garantem que as 
+decisões públicas reflitam as necessidades reais da sociedade, fortalecendo a legitimidade e a 
+transparência na gestão. DI PIETRO (2015) entende o controle da Administração Pública como 
+um instrumento essencial da democracia. Para ela, o controle não se limita ao âmbito interno, 
+pelos próprios órgãos do Estado, ou externo, pelos Tribunais de Contas e Legislativo, mas deve 
+incluir também o controle social, exercido diretamente pelo cidadão e pela sociedade civil. 
+Assim, a boa administração pública depende de um equilíbrio entre autonomia administrativa e 
+participação social, legitimando a atuação do Estado perante a coletividade. 
+ 
+A Constituição Brasileira de 1988 também estabelece, em diversos de seus artigos, a 
+necessidade de participação da sociedade nas decisões sobre saúde, educação, assistência social 
+e outros temas, com a intenção de promover uma gestão pública mais transparente e responsável. 
+ 
+A Carta Magna estabelece, em seu artigo 1º, parágrafo único, que “todo o poder emana do povo, 
+que o exerce por meio de representantes eleitos ou diretamente, nos termos desta Constituição” 
+(BRASIL, 1988, art. 1º, §1º). Já no campo da saúde, o artigo 198, inciso III, prevê a participação 
+da comunidade como uma diretriz da organização do Sistema Único de Saúde (SUS). Dessa 
+forma, a Constituição de 1988 consagra o controle social como um direito e um dever do 
+cidadão, sendo base fundamental para a construção de uma gestão pública participativa, 
+transparente e voltada ao interesse coletivo. 
+Chega-se então a um ponto importante dentro dos requisitos para o desenvolvimento 
+econômico: a participação popular, que também pode ser entendida como um requisito ou 
+componente necessário para o desenvolvimento. Assim, esse componente democrático, na 
+medida em que estabelece estruturas políticas que favorecem a participação, a transparência e 
+a responsabilidade na gestão pública, envolve diferentes setores da sociedade e contribui para 
+a formulação de políticas mais equilibradas e voltadas ao bem-estar coletivo. Esse processo de 
+inclusão permite identificar demandas sociais diversas, como educação, saúde e infraestrutura, 
+que são essenciais para aumentar a produtividade e fortalecer a competitividade econômica. 
+Além disso, a democracia cria um ambiente de previsibilidade e segurança jurídica, reduzindo 
+riscos e estimulando investimentos privados e estrangeiros. Quando os direitos individuais e a 
+propriedade são protegidos, empresários e investidores sentem-se mais confiantes para planejar 
+iniciativas de longo prazo, gerando empregos, inovação tecnológica e diversificação 
+
+--- PÁGINA 8 ---
+8 
+ 
+econômica. A participação cidadã, característica central da democracia, também favorece a 
+fiscalização e o controle social sobre o uso dos recursos públicos, diminuindo a corrupção e 
+promovendo uma gestão mais eficiente e responsável. 
+Outro aspecto relevante é a capacidade da democracia de reduzir desigualdades por meio de 
+políticas redistributivas e programas sociais elaborados e implementados de maneira 
+transparente. A democracia, ao favorecer o debate público e o controle social das decisões 
+governamentais, cria condições para que os recursos sejam direcionados de forma mais 
+equitativa, atendendo às demandas de grupos historicamente marginalizados. Como destaca 
+SEN (2000), o desenvolvimento não se restringe ao crescimento econômico, mas consiste na 
+ampliação efetiva das liberdades individuais e coletivas, permitindo que as pessoas possam 
+viver a vida que valorizam. Nessa perspectiva, políticas que asseguram educação, saúde e 
+proteção social ampliam as capacidades humanas e fortalecem a cidadania, constituindo-se 
+como instrumentos de justiça social. 
+De modo convergente, STIGLITZ (2013) observa que o fortalecimento das instituições 
+democráticas e da transparência pública é essencial para mitigar as distorções provocadas pela 
+concentração de renda e de poder político, promovendo um crescimento econômico mais 
+sustentável e inclusivo. A inclusão econômica e social, ao ampliar o acesso a oportunidades e 
+fortalecer o mercado consumidor, cria uma base mais sólida para o desenvolvimento de longo 
+prazo. BOBBIO (1986) complementa que a democracia contemporânea deve ser compreendida 
+como um processo em constante aperfeiçoamento, cujo êxito depende da efetivação dos direitos 
+civis, políticos e sociais. Assim, ao articular liberdade política, justiça social e estabilidade 
+institucional, o componente democrático não apenas consolida direitos e liberdades, mas 
+também estabelece os fundamentos necessários para um desenvolvimento duradouro, capaz de 
+gerar prosperidade compartilhada e resiliência frente às crises. 
+No contexto latino-americano, FURTADO (2009) já advertia que o subdesenvolvimento não é 
+uma etapa natural do progresso, mas o resultado de estruturas históricas que perpetuam 
+desigualdades internas e externas. Para ele, o desenvolvimento só é efetivo quando associado à 
+democratização do poder e à valorização das potencialidades locais, rompendo com a lógica da 
+dependência e da concentração de renda. Nessa mesma direção, BRESSER-PEREIRA (2018) 
+argumenta que o desenvolvimento nacional depende da construção de um Estado democrático 
+e capaz de coordenar políticas que conciliem estabilidade macroeconômica com inclusão social, 
+superando o dualismo entre eficiência e equidade. Já SANTOS (2021) enfatiza que a 
+
+--- PÁGINA 9 ---
+9 
+ 
+democracia só se realiza plenamente quando incorpora a dimensão participativa, reconhecendo 
+a pluralidade de saberes e experiências que emergem dos territórios e das comunidades. 
+Essas reflexões ajudam a compreender o caso do Norte de Minas Gerais, região que 
+historicamente apresenta baixos indicadores socioeconômicos e desigualdades persistentes nos 
+serviços públicos, especialmente na área da saúde (MELO; SANTOS; SANTOS, 2021). A 
+fragilidade institucional e a limitada capacidade de planejamento dos entes municipais 
+evidenciam um déficit democrático estrutural, em que a participação popular e o controle social 
+ainda se desenvolvem de forma desigual. Assim, a efetivação da democracia participativa — 
+expressa nos Conselhos Municipais de Saúde e nos espaços de deliberação coletiva — torna-se 
+fundamental para a promoção de políticas redistributivas e de fortalecimento da gestão pública. 
+Nesse sentido, a consolidação de práticas democráticas na região não é apenas uma questão 
+política, mas um requisito para o desenvolvimento econômico e social sustentável, capaz de 
+articular cidadania, equidade e justiça territorial. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 10 ---
+10 
+ 
+2. 
+PROBLEMATIZAÇÃO E CONTEXTUALIZAÇÃO 
+ 
+Apesar das garantias constitucionais, o controle social e a participação popular ainda enfrentam 
+diversos desafios no Brasil, especialmente em áreas mais distantes dos grandes centros urbanos, 
+como é o caso da delimitação deste estudo que foca Municípios da Região Norte de Minas 
+Gerais. Nessa região, a implementação de políticas públicas sofre com a carência de 
+infraestrutura, com a falta de capacitação dos gestores públicos locais e com a limitação no 
+acesso a canais formais de participação, como conselhos e audiências públicas. As populações 
+rurais e periféricas enfrentam, ainda, barreiras culturais e educacionais que dificultam sua plena 
+participação nos processos decisórios. 
+ 
+No Brasil, apesar dos percalços, o controle social das políticas públicas tem sido amplamente 
+promovido nas últimas décadas, mas sua eficácia varia consideravelmente de acordo com as 
+regiões. Segundo estudo de ROCHA E LIMA (2019), a região Norte enfrenta desafios como a 
+concentração de renda, a escassez de serviços públicos básicos, e uma infraestrutura precária 
+que dificulta o acesso da população a direitos fundamentais como saúde e educação. A atuação 
+do controle social é, muitas vezes, limitada pela baixa escolaridade e pela falta de conhecimento 
+sobre os direitos da população, o que prejudica a mobilização social e a cobrança por melhorias. 
+ 
+A participação em conselhos municipais, que deveria ser um mecanismo eficaz de controle e 
+formulação de políticas, é muitas vezes ineficaz nessa região devido ao baixo nível de 
+engajamento da população e à falta de capacitação dos representantes locais. Além disso, a 
+grande distância entre as comunidades rurais e os centros urbanos acentua as dificuldades no 
+acesso a informações e na participação nas decisões políticas. 
+ 
+Portanto, embora a Constituição de 1988 tenha estabelecido mecanismos robustos para a 
+participação social e o controle das políticas públicas no Brasil, os desafios enfrentados pelas 
+populações de regiões como o Norte de Minas Gerais evidenciam a necessidade de estratégias 
+específicas para garantir que esses direitos se traduzam em mudanças concretas na vida da 
+população. A efetividade do controle social e a verdadeira participação popular podem depender 
+não apenas da existência de normas e estruturas formais, mas também do fortalecimento da 
+educação cívica, do acesso à informação e do empoderamento das comunidades locais. 
+ 
+Desta forma, formula-se a questão que se busca esclarecer: Como tem se dado a participação 
+dos conselhos na execução das políticas públicas no setor de Saúde da Região Norte de 
+
+--- PÁGINA 11 ---
+11 
+ 
+Minas Gerais? Observa-se congruência das suas atividades com o propósito a que se 
+destina? 
+ 
+Para tanto, tem-se por objetivo geral deste trabalho a análise da atuação dos conselhos de políticas 
+públicas nas áreas de saúde da Região Norte de Minas Gerais. Como objetivos específicos, 
+busca-se:1) identificar a composição dos conselhos (perfil de sexo, idade, escolaridade, 
+condições socioeconômicas); 2) descrever a validação legal que os estrutura; e 3) verificar o 
+nível de engajamento popular presente nos conselhos e sua influência sobre a execução das 
+políticas de saúde. 
+ 
+Para a realização desta pesquisa, entende-se ser necessário,em primeiro lugar, definir o universo 
+da pesquisa. O Norte de Minas Gerais possui 89 muncípios e 85 conselhos de saúde presentes 
+no Cadastro dos Conselhos de Saúde do Estado de Minas Gerais. Dada a impossibilidade de 
+investigação de todos esse conselhos a partir desta pesquisa, serão definidos quatro muncípios 
+com conselhos de saúde atuantes: 1) Montes Claros, por ser a maior cidade da região com a 
+função de polo macrorregional; 2) um  município com IDH baixo; 3) um município com IDH 
+médio e 4) um  município com IDH alto. Esse recorte busca dar representatividade 
+socioeconômica aos municípios e às microrregiões de saúde da região. 
+  
+A partir desse recorte, será realizada análise qualitativa da atuação e dos resultados de ação 
+destes quatro Conselhos frente à realidade em que estão inseridos, o que pode ser viabilizado a 
+partir da realização de pesquisa de campo e coleta de dados primários junto aos atores 
+envolvidos no processo (participantes dos conselhos e autoridades públicas) e, também, pela 
+coleta e leitura de documentos públicos.   
+ 
+Espera-se, com os dados levantados,  visualizar o nível o engajamento  e participação da 
+população  nas decisões colegiadas nestes municípios. A identificação, a partir dos produtos 
+jurídicos e/ou administativos,  dos trabalhos executados pelos conselhos e a interpretação da 
+qualidade destes trabalhos e das decisões contidas nos mesmos auxiliarão no elucidamento da 
+questão do alinhamento entre papéis institucionais e a lide prática destes orgãos. 
+ 
+ 
+ 
+
+--- PÁGINA 12 ---
+12 
+ 
+3. 
+ JUSTIFICATIVA 
+ 
+A Região Norte de Minas Gerais, palco deste estudo, com seus 128.454,108 quilômetros 
+quadrados, é composta por 89 municípios, é uma área historicamente marcada pelo 
+subdesenvolvimento e desigualdades sociais. A falta de infraestrutura básica, aliada a uma 
+escassez de recursos financeiros e humanos, torna difícil a implementação de políticas públicas 
+eficazes. Além disso, a fragilidade das instituições públicas na região reflete-se diretamente na 
+formação e na atuação dos conselhos de políticas públicas. Esses conselhos, que deveriam atuar 
+como órgãos de controle social e garantir que as políticas públicas atendam às reais 
+necessidades da população, muitas vezes não possuem impacto concreto e se limitam a uma 
+mera formalidade legal, sem a efetiva participação da sociedade ou a capacidade de corrigir 
+falhas nas políticas implementadas. 
+ 
+No contexto da saúde pública, o presente estudo tem como recorte os Conselhos Municipais de 
+Saúde localizados na região Norte de Minas Gerais. Esses espaços colegiados, instituídos pela 
+Lei nº 8.142/1990, que se configuram como instâncias permanentes e deliberativas do Sistema 
+Único de Saúde (SUS), responsáveis por formular estratégias e fiscalizar a execução das 
+políticas públicas em nível local. Sua importância transcende o caráter consultivo: os conselhos 
+expressam a concretização do princípio democrático da participação popular, previsto na 
+Constituição Federal de 1988, e materializam o controle social como elemento estruturante da 
+gestão descentralizada. Assim, analisar a atuação e a efetividade desses conselhos significa 
+compreender em que medida a democracia participativa contribui para o fortalecimento 
+institucional do SUS e para a redução das desigualdades regionais em saúde. Nesse sentido, o 
+estudo não apenas examina os mecanismos de representação e deliberação existentes nesses 
+colegiados, mas também busca avaliar como eles influenciam a formulação de políticas e a 
+distribuição equitativa de recursos no território norte-mineiro. 
+ 
+A justificativa deste estudo encontra sustentação na relevância social e científica de analisar o 
+controle social na saúde pública em um contexto de profundas desigualdades regionais, 
+acentuadas pela pandemia da Covid-19. A crise sanitária evidenciou, de forma incontestável, o 
+papel essencial do Sistema Único de Saúde (SUS) como principal instrumento de proteção da 
+população brasileira diante de emergências de saúde pública e de vulnerabilidades 
+socioeconômicas. 
+ 
+
+--- PÁGINA 13 ---
+13 
+ 
+Ao longo da pandemia, o SUS revelou-se uma política pública estratégica para a sobrevivência 
+coletiva, responsável por coordenar ações de vigilância, vacinação, atendimento hospitalar e 
+campanhas de prevenção em todo o território nacional. Contudo, também se tornaram mais 
+visíveis as limitações estruturais e desigualdades regionais que comprometem a equidade e a 
+efetividade do sistema. No Norte de Minas Gerais, por exemplo, observou-se uma combinação 
+crítica de escassez de recursos humanos, infraestrutura hospitalar insuficiente e dependência 
+das transferências federais, o que expôs as fragilidades históricas da região. 
+ 
+Essas desigualdades não se restringem ao campo sanitário, mas refletem uma estrutura social 
+profundamente assimétrica, marcada pela concentração de renda, baixa capacidade de 
+investimento público e frágil institucionalidade democrática. Nesse cenário, os Conselhos 
+Municipais de Saúde assumem papel fundamental na articulação entre Estado e sociedade civil, 
+atuando como instrumentos de controle social, deliberação e fiscalização das políticas de saúde. 
+ 
+Dentro deste contexto, surge a necessidade de aprofundar os estudos sobre os mecanismos de 
+controle social e de participação popular já estabelecidos, como os conselhos de políticas 
+públicas, que, em teoria, deveriam ser instrumentos eficazes para corrigir desvios nas políticas 
+públicas e garantir a transparência na gestão. Embora o Brasil tenha instituído esses 
+mecanismos, a efetividade deles é questionada, especialmente em regiões como o Norte de 
+Minas Gerais, onde as dificuldades estruturais da administração pública impactam diretamente a 
+funcionalidade desses conselhos. 
+ 
+A relevância desta pesquisa, portanto, reside em compreender de que forma o controle social, 
+exercido pelos conselhos, contribui para a efetividade das políticas públicas de saúde em regiões 
+periféricas, desiguais e historicamente marginalizadas. Além de preencher lacunas teóricas 
+sobre a interface entre participação popular, desenvolvimento e saúde, o estudo busca oferecer 
+uma análise aplicada sobre os limites e potencialidades da democracia participativa no contexto 
+da descentralização do SUS. 
+ 
+Assim, os resultados obtidos a partir da presente pesquisa  contribuirão  para a identificação e 
+descrição de problemas estruturais na operacionalização dos conselhos, servindo de material 
+base  para o desenvolvimento de estratégias inovadoras acerca da solução de questões ligadas ao tema 
+pesquisado, florescendo e frutificando na forma de manuais ou guias práticos, que orientem a 
+formulação, instalação e funcionamento desses conselhos, promovendo a integração dos entes 
+
+--- PÁGINA 14 ---
+14 
+ 
+públicos da região e fortalecendo a participação popular no processo de formulação e 
+monitoramento das políticas públicas.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 15 ---
+15 
+ 
+4. 
+REFERENCIAL TEÓRICO 
+ 
+Compreender as bases da participação popular na organização dos Estados é essencial para 
+entender a evolução do poder político. Desde as primeiras formas de convivência humana, 
+baseadas na cooperação e na divisão de tarefas (HARARI, 2015), até os sistemas democráticos 
+atuais, a participação social sempre foi um elemento central da vida política. Na Grécia Antiga, 
+Aristóteles já afirmava que “o homem é por natureza um animal político”, destacando a 
+importância da deliberação pública. Com a Revolução Francesa, consolidou-se a ideia de 
+soberania popular e cidadania ativa (LEFEBVRE, 2001). Contudo, o processo colonial europeu 
+impôs modelos de Estado que desconsideraram formas autônomas de organização de outros 
+povos (TODOROV, 1993). Sociedades africanas e indígenas, por exemplo, desenvolveram 
+sistemas de governança comunitária e participativa, como o ubuntu africano, que valoriza a 
+interdependência e o bem comum (MBITI, 1990; TUTU, 1999). Apesar dos avanços 
+democráticos, a história política revela recorrentes tentativas de exclusão da vontade popular, 
+e, como observa BOBBIO (1986), persiste o paradoxo entre a promessa de igualdade política e 
+sua efetiva realização. 
+ 
+No caso Brasileiro o processo de redemocratização, e a promulgagção da Constituição de 1988 
+retomam o protagonismo da participação popular e tem com um de seus resultados a 
+institucionalização dos Conselhos. O processo de redemocratização brasileira, iniciado na 
+década de 1980, marcou uma ruptura com o regime autoritário instaurado em 1964 e 
+representou um movimento social e político em defesa da ampliação dos direitos civis, sociais 
+e políticos. Esse contexto histórico foi impulsionado por amplos setores da sociedade civil 
+organizada, tais como sindicatos, movimentos populares, entidades religiosas, associações 
+profissionais e acadêmicas, que reivindicavam não apenas o retorno das eleições diretas, mas 
+também a construção de um novo pacto social baseado na cidadania e na participação popular 
+(DAGNINO, 2004). No campo da saúde, o Movimento da Reforma Sanitária teve papel 
+decisivo nesse processo, ao propor a saúde como um direito universal e um dever do Estado, 
+rompendo com o modelo excludente e fragmentado vigente até então (PAIM, 2008). 
+ 
+A promulgação da Constituição Federal de 1988 consolidou as bases jurídicas da 
+redemocratização e instituiu um novo paradigma de Estado e de cidadania no Brasil. Conhecida 
+como “Constituição Cidadã”, ela ampliou os direitos sociais e introduziu o princípio da 
+
+--- PÁGINA 16 ---
+16 
+ 
+participação social na formulação e no controle das políticas públicas. O artigo 1º, parágrafo 
+único, estabelece que “todo o poder emana do povo, que o exerce por meio de representantes 
+eleitos ou diretamente, nos termos desta Constituição” (BRASIL, 1988). No campo da saúde, o 
+artigo 196 define que “a saúde é direito de todos e dever do Estado”, devendo ser garantida 
+mediante políticas que visem à redução do risco de doenças e ao acesso universal e igualitário 
+às ações e serviços. Esse marco constitucional foi decisivo para a criação do Sistema Único de 
+Saúde (SUS), que passou a integrar, de forma descentralizada, as ações de saúde pública sob os 
+princípios da universalidade, integralidade e equidade (BRASIL, 1988; PAIM, 2008). 
+ 
+Com a instituição do SUS, tornou-se necessário regulamentar os dispositivos constitucionais 
+para viabilizar sua implementação. Assim, foram sancionadas a Lei nº 8.080/1990, conhecida 
+como Lei Orgânica da Saúde, e a Lei nº 8.142/1990, que consolidaram o modelo de gestão 
+participativa do sistema. A Lei nº 8.080/1990 definiu a estrutura e o funcionamento do SUS, 
+estabelecendo diretrizes para a descentralização e a regionalização das ações de saúde 
+(BRASIL, 1990). Já a Lei nº 8.142/1990 representou um avanço democrático fundamental ao 
+criar os Conselhos e as Conferências de Saúde, instrumentos institucionais de controle social e 
+de participação direta da população na formulação, execução e fiscalização das políticas 
+públicas (BRASIL, 1990). 
+ 
+Os Conselhos de Saúde, previstos nessa legislação, tornaram-se espaços permanentes de 
+deliberação colegiada e de articulação entre o Estado e a sociedade civil, atuando nas três 
+esferas de governo:  municipal, estadual e federal. A previsão de sua composição deve ser 
+paritária, com 50% de representantes dos usuários, assegura o protagonismo da população nas 
+decisões sobre prioridades, planos e recursos do SUS (BRASIL, 1990; LIMA, 2019). Essa 
+estrutura reflete a materialização do princípio democrático inscrito na Constituição de 1988, 
+que reconhece a participação popular como elemento essencial da gestão pública e da 
+consolidação da cidadania. 
+ 
+Desse modo, a redemocratização brasileira não apenas restabeleceu direitos políticos, mas 
+também promoveu uma transformação profunda na relação entre Estado e sociedade. A 
+Constituição de 1988 e as leis orgânicas do SUS institucionalizaram a participação como 
+princípio de governança, permitindo que a população atuasse na formulação e no controle das 
+políticas públicas de saúde. Como observa GERSCHMAN (2004), a criação dos Conselhos de 
+Saúde simboliza a passagem de um modelo tecnocrático e autoritário para um modelo 
+
+--- PÁGINA 17 ---
+17 
+ 
+democrático e participativo, no qual o cidadão deixa de ser mero beneficiário e se torna sujeito 
+ativo das decisões estatais. Assim, a experiência brasileira reafirma que a democracia se 
+consolida não apenas pelo voto, mas pela efetiva presença da sociedade nos espaços de 
+deliberação e controle das políticas públicas. 
+ 
+Não obstante ao processo de redemocratização do país, e ainda que a democracia seja um 
+regime baseado na soberania do povo, a manutenção da soberania popular  exige constante 
+vigilância e aprofundamento. A ampliação dos mecanismos de participação direta, o 
+fortalecimento da sociedade civil e o combate à desigualdade política são elementos centrais 
+para a efetivação da democracia substantiva. Como conclui ROSANVALLON (2006), “a 
+democracia do século XXI deverá ir além do voto, articulando novas formas de expressão e 
+controle da vontade popular”. Apesar dos avanços nas últimas décadas a  política brasileira 
+pode ser compreendida a partir de um legado histórico marcado pelo patrimonialismo, 
+clientelismo e autoritarismo, práticas que se enraizaram nas instituições e moldaram as relações 
+entre Estado e sociedade. O patrimonialismo, herança da formação colonial e imperial, 
+estabeleceu uma lógica em que a fronteira entre o público e o privado é difusa, permitindo a 
+apropriação de recursos estatais para fins particulares. Essa prática fragiliza a construção de um 
+Estado republicano voltado para o interesse coletivo, pois naturaliza a confusão entre poder 
+político e privilégios pessoais. O clientelismo, por sua vez, perpetua relações de dependência e 
+troca de favores entre governantes e governados, comprometendo a universalização de direitos 
+sociais e subordinando a cidadania a vínculos pessoais e partidários. Já o autoritarismo se 
+manifesta como traço recorrente de nossa trajetória política, tanto em regimes ditatoriais quanto 
+em práticas de concentração de poder em contextos democráticos, restringindo a participação 
+popular e limitando o exercício pleno da cidadania.  
+ 
+Sob uma perspectiva mais comtemporanea a obra "Política social no Brasil (1964-2002): entre 
+a cidadania e a caridade", de Eduardo Fagnani, analisa as transformações estruturais e 
+ideológicas das políticas sociais brasileiras entre o período da ditadura militar e o início do 
+século XXI. A tese central sustenta que, nesse intervalo, a política social oscilou entre um 
+projeto de Estado de Bem-Estar Social, consolidado na Constituição de 1988, e o avanço de 
+políticas neoliberais que resgataram a lógica da caridade e da focalização assistencialista. 
+Durante o regime militar (1964-1985), a política social era autoritária, centralizada e limitada, 
+com forte viés clientelista. A Constituição de 1988 representou uma virada institucional ao 
+garantir direitos sociais universais, criando um marco legal voltado para a cidadania. No 
+
+--- PÁGINA 18 ---
+18 
+ 
+entanto, a partir dos anos 1990, com a hegemonia do neoliberalismo, o Estado brasileiro passou 
+por reformas que limitaram os direitos sociais e promoveram políticas focalizadas, 
+desvinculadas do projeto de cidadania universal. A década de 1990 é marcada por reformas 
+econômicas e sociais que priorizaram o equilíbrio fiscal, a redução dos gastos públicos e a 
+responsabilização das famílias e organizações civis pela proteção social. Nesse contexto, 
+direitos passaram a ser tratados como favores e programas filantrópicos, aprofundando 
+desigualdades e fragilizando o modelo de proteção social universalista. Fagnani conclui que, 
+apesar das conquistas institucionais promovidas pela Constituição de 1988, prevaleceu um 
+modelo híbrido e contraditório de política social, oscilando entre cidadania e caridade, e 
+dependente das escolhas macroeconômicas do Estado.  
+ 
+Esses elementos, ao se entrelaçarem, criam barreiras estruturais ao amadurecimento 
+democrático no Brasil, uma vez que dificultam a consolidação de instituições transparentes, 
+autônomas e voltadas à promoção do bem comum. Assim, compreender a persistência dessas 
+práticas é essencial para pensar alternativas de fortalecimento da democracia, por meio da 
+ampliação da participação social, da educação política e do aprimoramento dos mecanismos de 
+controle e accountability. Cada uma dessas abordagens oferece contribuições sobre como o 
+controle social influencia o desenvolvimento econômico, seja por meio da organização das 
+instituições, da promoção da concorrência ou da transformação das relações de classe.  
+ 
+O desenvolvimento econômico, portanto, está diretamente relacionado à forma como a 
+sociedade exerce o controle sobre suas instituições e seus indivíduos, seja de forma racional, 
+democrática ou coercitiva. O controle social, entendido como o conjunto de mecanismos 
+formais e informais que regulam comportamentos e instituições, exerce papel essencial no 
+desenvolvimento econômico e na organização das políticas públicas, especialmente no campo 
+da saúde, onde a tensão entre o público e o privado revela disputas ideológicas e estruturais. 
+Para DURKHEIM (1893), o controle social é base da coesão e da solidariedade, fundamentais 
+para a estabilidade social e, por extensão, para a efetividade de sistemas públicos de saúde. 
+WEBER (1905) associa-o à racionalização e à burocracia, que garantem eficiência e 
+previsibilidade às instituições, princípios que também sustentam a administração estatal 
+moderna. Em contrapartida, MARX (1867) entende o controle social como instrumento de 
+dominação das classes dominantes, o que, no contexto contemporâneo, pode ser observado nas 
+políticas neoliberais que subordinam o direito à saúde à lógica do mercado. Já SMITH (1776) 
+e RICARDO (1817), expoentes do liberalismo econômico, veem no livre mercado e na 
+
+--- PÁGINA 19 ---
+19 
+ 
+competição mecanismos naturais de regulação e prosperidade, ideias retomadas pelo 
+neoliberalismo ao defender a redução da intervenção estatal e a ampliação do setor privado na 
+provisão de serviços de saúde. Essa perspectiva, contudo, gera tensões em sociedades que, 
+como o Brasil, têm a saúde reconhecida constitucionalmente como direito de todos e dever do 
+Estado (BRASIL, 1988). Assim, o controle social, quando associado à participação popular e à 
+regulação pública, torna-se elemento central para equilibrar as pressões do capital e a garantia 
+da universalidade do acesso, reafirmando a primazia do interesse coletivo sobre a lógica 
+mercantil. 
+ 
+A compreensão da saúde como bem público e direito social fundamental constitui um avanço 
+decisivo na formulação das políticas públicas brasileiras. Essa concepção rompe com a visão 
+restrita que associa saúde apenas à prestação de serviços médicos, reconhecendo que o processo 
+saúde-doença resulta de um conjunto de fatores sociais, econômicos, culturais e ambientais. 
+Essa perspectiva rompe com o paradigma biomédico tradicional e insere a saúde no campo das 
+políticas sociais, reconhecendo a influência de fatores econômicos, ambientais e culturais sobre 
+as condições de vida da população Esse entendimento é central na Saúde Coletiva, campo 
+interdisciplinar que analisa a saúde como fenômeno socialmente determinado, vinculado às 
+condições de vida e às desigualdades estruturais (BREILH, 2006; BUSS; PELLEGRINI 
+FILHO, 2007). 
+ 
+A partir dessa perspectiva, consolida-se o conceito de Determinação Social da Saúde, segundo 
+o qual as condições de saúde de uma população não dependem apenas da disponibilidade de 
+serviços, mas também da distribuição de renda, da qualidade do trabalho, da educação, do 
+saneamento básico e do meio ambiente. Assim, políticas econômicas, sociais e territoriais são, 
+simultaneamente, determinantes e condicionantes da saúde. A Organização Mundial da Saúde 
+(OMS, 2008) reforça que a melhoria dos indicadores sanitários está intrinsecamente ligada à 
+redução das desigualdades sociais, o que exige uma ação intersetorial e uma abordagem de 
+equidade. 
+ 
+No caso brasileiro, o Sistema Único de Saúde (SUS) foi concebido justamente para enfrentar 
+essas desigualdades, garantindo o acesso universal e igualitário às ações e serviços. Entretanto, 
+nas regiões de menor dinamismo econômico, como o Norte de Minas Gerais, persistem 
+iniquidades estruturais que limitam a efetividade das políticas públicas. Estudos regionais 
+demonstram que a desigualdade na oferta de serviços, a precariedade das condições de 
+
+--- PÁGINA 20 ---
+20 
+ 
+saneamento e a baixa densidade de profissionais de saúde são fatores que ampliam a 
+vulnerabilidade social e comprometem o princípio da equidade (MELO; SANTOS; SANTOS, 
+2021). 
+ 
+Dessa forma, compreender a saúde como bem público implica reconhecer que sua efetivação 
+depende de políticas integradas que enfrentem as causas sociais da doença e da exclusão. Para 
+o Norte de Minas Gerais, essa leitura é particularmente relevante, uma vez que o território 
+apresenta um histórico de desinvestimento público, baixa capacidade de gestão municipal e 
+dependência econômica de transferências federais, elementos que refletem e reforçam as 
+desigualdades regionais. A efetividade dos Conselhos Municipais de Saúde, nesse contexto, 
+deve ser analisada não apenas pela sua dimensão institucional, mas também como instrumento 
+de participação cidadã e democratização das decisões públicas, condição indispensável para 
+reduzir as iniquidades e concretizar o direito universal à saúde. 
+ 
+A trajetória do Sistema Único de Saúde (SUS) também é marcada pelo  conflito entre o 
+princípio da universalidade, que garante o acesso igualitário e gratuito à saúde,  e a presença 
+consolidada do setor privado na oferta e no financiamento dos serviços. Desde sua criação, o 
+SUS convive com um modelo onde coexistem o sistema público universal e um sistema 
+suplementar privado, composto por operadoras de planos de saúde e prestadores contratados. 
+Essa dualidade expressa não apenas uma herança histórica, mas também uma disputa contínua 
+sobre o papel do Estado e o alcance dos direitos sociais no Brasil (BRAVO; CORREIA, 2012). 
+ 
+Com a ascensão das políticas neoliberais a partir da década de 1990, intensificou-se o processo 
+de privatização indireta da saúde, por meio da terceirização de serviços e da crescente 
+dependência do SUS em relação à rede privada conveniada. Tal dinâmica reflete uma tendência 
+global de redução da intervenção estatal e de expansão do mercado em setores sociais, o que 
+compromete a capacidade redistributiva e a equidade do sistema, nesse contexto, a Emenda 
+Constitucional nº 95/2016, conhecida como Teto de Gastos, impôs severas restrições ao 
+financiamento da saúde pública, ao congelar por vinte anos os investimentos federais em 
+despesas primárias. O conflito entre o público e o privado no setor saúde também se manifesta 
+nas disputas por recursos orçamentários e nas tensões em torno da lógica de mercado que 
+permeia a gestão de serviços públicos. Enquanto o SUS é orientado por princípios de 
+solidariedade e universalidade, o setor suplementar opera segundo a racionalidade empresarial, 
+priorizando a capacidade de pagamento e a rentabilidade dos serviços. Essa contradição 
+
+--- PÁGINA 21 ---
+21 
+ 
+aprofunda desigualdades regionais e de classe, sobretudo em áreas periféricas, como o Norte 
+de Minas Gerais, onde a cobertura dos planos privados é restrita e o SUS é o principal provedor 
+de cuidados  
+ 
+Desse modo, compreender a efetividade dos Conselhos Municipais de Saúde nessa região exige 
+considerar esse contexto de subfinanciamento e assimetria estrutural. A atuação dos conselhos 
+não pode ser analisada apenas sob o prisma institucional, mas também político e econômico: 
+trata-se de espaços de resistência democrática frente à mercantilização da saúde e à retração do 
+Estado. Assim, discutir o conflito público-privado é essencial para compreender os limites e 
+potencialidades do controle social como instrumento de defesa do direito universal à saúde. 
+ 
+4.1.  OS CONSELHOS PROPRIAMENTE DITOS  
+ 
+Também é essencial compreender o papel dos conselhos de políticas públicas, que são 
+instituídos como instâncias de controle e participação social. Segundo TATAGIBA (2002, p. 
+47), os conselhos gestores são concebidos como espaços em que a sociedade exerce um papel 
+mais efetivo de fiscalização e controle, ao estar mais próxima do Estado. Além disso, esses 
+espaços permitem uma maior democratização no processo de definição de prioridades, 
+especialmente na alocação de recursos públicos. A autora destaca que esses mecanismos de 
+participação forçam o Estado a negociar suas propostas com diferentes grupos sociais que, 
+muitas vezes, já exercem influência sobre o poder estatal. TATAGIBA (2002) também aponta 
+que se espera que a participação social tenha um efeito educacional direto sobre os próprios 
+atores envolvidos, promovendo a cidadania e fortalecendo a democracia. 
+ 
+A sociedade poderia exercer um papel mais efetivo de 
+fiscalização e controle estando mais próxima do Estado, assim 
+como poderia imprimir uma lógica mais democrática na definição 
+da prioridade na alocação dos recursos públicos. Esses 
+mecanismos de participação obrigariam o Estado a negociar suas 
+propostas com outros grupos sociais que circulam em torno do 
+poder estatal e costumam exercer influência direta sobre ele. 
+Esperava-se ainda, que a participação tivesse um efeito direto 
+sobre os próprios atores que participavam, atuando, assim, como 
+um 
+fator 
+educacional 
+na 
+promoção 
+da 
+cidadania. 
+(TATAGIBA,2002) 
+ 
+ 
+TATAGIBA (2002) aponta que os conselhos gestores são espaços de democratização e de 
+controle social, onde a sociedade pode influenciar as decisões do Estado, sendo, assim, uma 
+
+--- PÁGINA 22 ---
+22 
+ 
+forma de educação política e cidadã. Sua proposta envolve um controle que vai além da 
+fiscalização, afetando diretamente a forma como os recursos são alocados e como as políticas 
+públicas são formuladas. 
+ 
+Os conselhos de políticas públicas são instâncias colegiadas, com caráter permanente e 
+deliberativo, que têm a missão de atuar na formulação de estratégias e no controle da execução 
+das políticas públicas. Como estabelece o parágrafo 2º do artigo 1º da Lei 8142/90, os conselhos 
+devem não apenas formular as diretrizes das políticas de saúde (por exemplo), mas também 
+acompanhar sua execução, incluindo seus aspectos econômicos e financeiros. De acordo com 
+o CONASEMS (1995, p. 23), o caráter deliberativo do conselho pressupõe uma atuação 
+constante, permitindo que seus membros examinem e aprovem as diretrizes, aperfeiçoem 
+estratégias e proponham ajustes ou correções, quando necessário. Isso reforça a ideia de que o 
+controle social deve ser contínuo e não apenas episódico, como uma mera formalidade legal. 
+ 
+Atuar na formulação de estratégias da política de saúde, e 
+no controle da execução da política de saúde, incluindo seus 
+aspectos econômicos e financeiros. O caráter deliberativo 
+do Conselho não admite que funcione somente quando 
+convocado, mas pressupõe uma atuação constante para que 
+seus membros tenham condições de examinar e aprovar as 
+diretrizes da política de saúde, formulando estratégias, 
+aperfeiçoando-as e propondo meios aptos para a sua 
+execução ou correção de rumos (CONASEMS, 1995:23). 
+ 
+ 
+No entanto, como salienta DI PIETRO (2015, p. 881), o controle administrativo, quando 
+exercido pela administração pública, deve ser entendido como o poder de fiscalização e 
+correção que a própria administração exerce sobre sua atuação. No caso dos conselhos de 
+políticas públicas, o controle social independe da discricionariedade da administração pública, 
+o que assegura a liberdade e autonomia dos conselhos em sua atuação. Esse tipo de controle é 
+essencial para garantir a transparência e a responsabilidade no processo de implementação das 
+políticas públicas. 
+ 
+DI PIETRO (2015) define o controle administrativo como o poder de fiscalização exercido pela 
+administração pública sobre suas próprias ações, destacando a autonomia dos conselhos de 
+políticas públicas em exercer o controle social, independente da discricionariedade do poder 
+público. 
+ 
+Além dos estudos teóricos que fundamentam a compreensão dos conselhos e do controle social, 
+
+--- PÁGINA 23 ---
+23 
+ 
+é importante considerar os desafios específicos encontrados em contextos regionais como o da 
+Região Norte de Minas Gerais. De acordo com SANTOS (2021), a implementação efetiva dos 
+conselhos de políticas públicas enfrenta dificuldades em regiões periféricas devido à fragilidade 
+das instituições locais e à escassez de recursos. Santos argumenta que, embora os conselhos 
+estejam formalmente instituídos, sua efetividade muitas vezes é comprometida pela falta de 
+capacitação dos atores locais e pela pouca integração entre os conselhos e a administração 
+pública. 
+ 
+FERREIRA E COSTA (2022) ampliam essa análise, destacando que, na Região Norte de 
+Minas, as dificuldades de infraestrutura e a desigualdade social comprometem a capacidade de 
+participação da população nos conselhos de políticas públicas. Os autores afirmam que as 
+condições locais tornam difícil o funcionamento eficaz desses conselhos, além de limitarem o 
+impacto que poderiam ter na implementação e monitoramento das políticas públicas. 
+ 
+SANTOS (2021) examina as dificuldades enfrentadas pelos conselhos de políticas públicas em 
+regiões periféricas, como o Norte de  Minas Gerais, onde as condições de 
+institucionalidade e recursos limitados dificultam a implementação eficaz desses mecanismos 
+de participação social. 
+ 
+FERREIRA E COSTA (2022) discutem como as deficiências de infraestrutura e a desigualdade 
+social na Região Norte de Minas Gerais comprometem a capacidade de os conselhos atuarem 
+efetivamente na formulação e controle das políticas públicas, resultando em uma participação 
+social muitas vezes ineficaz. 
+ 
+Assim, os conselhos de políticas públicas, em teoria, são instrumentos eficazes para promover 
+a democracia participativa e o controle social. No entanto, a efetividade de sua atuação depende 
+de vários fatores, como a capacitação dos participantes, a integração com a administração 
+pública e as condições locais, que variam significativamente entre as diferentes regiões do 
+Brasil. A análise dos conselhos na Região Norte de Minas Gerais revela a necessidade de 
+abordagens específicas que considerem as limitações estruturais e sociais da região, a fim de 
+garantir que esses espaços de participação cumpram seu papel na promoção da cidadania e na 
+melhoria da gestão pública. 
+ 
+ 
+ 
+
+--- PÁGINA 24 ---
+24 
+ 
+5. INSTITUIÇÕES FORTES E CONTROLE SOCIAL: IMPLICAÇÕES 
+PARA O DESEMPENHO ECONÔMICO 
+ 
+As instituições desempenham um papel central no desenvolvimento econômico, moldando as 
+interações entre os agentes econômicos e criando o ambiente propício para o crescimento 
+sustentável. Instituições fortes são aquelas que possuem regras claras, são eficientes em sua 
+execução e garantem a justiça e a segurança jurídica. No entanto, para que essas instituições 
+funcionem adequadamente, elas precisam ser sujeitas ao controle social, ou seja, à fiscalização 
+e participação ativa da população. O controle social, exercido através de auditorias, 
+transparência e participação cidadã, é fundamental para garantir que as instituições   operem 
+de maneira responsável, eficiente e transparente. 
+ 
+A importância das instituições para o desempenho econômico foi amplamente discutida por 
+Douglass North (1990), um dos principais teóricos da economia institucional. North argumenta 
+que as instituições moldam os incentivos dos agentes econômicos e determinam o ambiente no 
+qual as transações econômicas ocorrem. Em seu trabalho, ele afirma que instituições fracas 
+geram incertezas e custos adicionais, prejudicando o desempenho econômico. Já as 
+instituições fortes, que são transparentes e eficazes, proporcionam um ambiente mais estável, 
+onde os agentes econômicos têm confiança para investir e realizar negócios. O controle social, 
+por sua vez, garante que as instituições não se desviem de seus objetivos e operem de maneira 
+eficaz, o que resulta em um melhor desempenho econômico. 
+ 
+O artigo “As influências norte-americanas de Roberto Simonsen: Controle social, 
+institucionalismo e planejamento” , segundo CAVALIERI E CURADO (20216)  analisa as 
+influências teóricas e institucionais do pensamento norte-americano na obra de Roberto 
+Simonsen, destacando sua incorporação do institucionalismo e da filosofia do controle social. 
+Os autores mostram como Simonsen, especialmente durante a década de 1940, se valeu das 
+ideias de pensadores como Stuart Chase, Rexford Tugwell e outros associados ao New Deal, 
+para defender o planejamento econômico como instrumento legítimo de organização racional 
+da economia brasileira. Em oposição ao liberalismo clássico de Eugênio Gudin, Simonsen 
+propôs uma visão de planejamento que integrava ciência, técnica e valores sociais, inspirado 
+nas discussões sobre economia institucional e no papel do Estado como promotor do bem-estar 
+coletivo. Seu projeto intelectual esteve fortemente ligado ao desenvolvimento da Escola Livre 
+
+--- PÁGINA 25 ---
+25 
+ 
+de Sociologia e Política e à recepção de ideias norte-americanas que valorizavam a regulação 
+econômica como resposta aos desafios da industrialização e da justiça social. O artigo destaca 
+que a defesa do planejamento por Simonsen não representava autoritarismo, mas uma tentativa 
+de compatibilizar democracia com intervenção estatal racional, técnica e moralmente 
+fundamentada. 
+ 
+A contribuição de Elinor Ostrom (1990) também é essencial para entender o papel do controle 
+social nas instituições econômicas. Em seu estudo sobre a gestão de bens comuns, Ostrom 
+demonstrou que as comunidades podem gerenciar seus próprios recursos de maneira eficiente, 
+sem depender da intervenção do governo ou do mercado. A autora destaca que, quando as 
+comunidades têm a oportunidade de participar ativamente da gestão e fiscalização das 
+instituições, o desempenho econômico tende a ser mais sustentável. Isso reforça a ideia de que 
+o controle social não apenas melhora a eficiência das instituições, mas também assegura que 
+os recursos sejam alocados de maneira justa e equitativa. 
+ 
+O controle social, na forma de auditorias e participação cidadã, também ajuda a reduzir práticas 
+como a corrupção e a ineficiência dentro das instituições econômicas. James Buchanan (1962), 
+em sua teoria da escolha pública, argumenta que as instituições econômicas são moldadas por 
+escolhas feitas por indivíduos que agem de acordo com seus próprios interesses. Para que as 
+instituições sirvam ao bem coletivo, elas precisam ser constantemente verificadas pela 
+sociedade. O controle social, então, torna-se um mecanismo essencial para corrigir falhas de 
+mercado e garantir que as decisões econômicas atendam ao interesse público. 
+ 
+A teoria de Michel Foucault (1975), embora mais voltada para o campo da sociologia, pode 
+contribuir para a análise do controle social nas instituições econômicas. Foucault argumenta 
+que o poder nas sociedades modernas é exercido não apenas por meio de regras formais, mas 
+também por mecanismos de vigilância e disciplina. No contexto econômico, isso significa que 
+o controle social, exercido por meio de auditorias e fiscalização pública, pode ajudar a evitar 
+comportamentos desviantes, como a corrupção, e garantir que as instituições cumpram suas 
+funções adequadamente. 
+ 
+Exemplos práticos de países que aplicam o controle social de forma eficaz ilustram como 
+instituições fortes podem ter um impacto positivo no desempenho econômico. Países como 
+Suécia, Noruega e Dinamarca, conhecidos por sua governança transparente, têm sistemas de 
+fiscalização pública robustos, onde a participação da população nas decisões políticas e 
+
+--- PÁGINA 26 ---
+26 
+ 
+econômicas é incentivada. Esses países possuem altos índices de confiança nas instituições, o que 
+contribui para o crescimento econômico sustentável e a redução das desigualdades. Cingapura, 
+por sua vez, é um exemplo de um país onde a implementação de políticas rigorosas de auditoria 
+e fiscalização pública resultou em uma das economias mais competitivas do mundo. Esses 
+exemplos demonstram que quando as instituições são fortes e verificadas pelo controle social, 
+o desempenho econômico tende a ser mais positivo e estável. 
+ 
+Portanto, podemos concluir que instituições fortes, aliadas a mecanismos de controle social, 
+têm um impacto direto e positivo no desempenho econômico. O controle social, exercido 
+através da fiscalização e da participação cidadã, ajuda a reduzir a corrupção, aumenta a 
+transparência e melhora a alocação de recursos. Ao garantir que as instituições operem de 
+maneira eficiente e responsável, o controle social contribui para o crescimento econômico e 
+para a estabilidade das economias. A interação entre governança sólida e controle social cria 
+um ciclo virtuoso, no qual o bom desempenho econômico fortalece as instituições, promovendo 
+uma sociedade mais próspera, justa e estável. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 27 ---
+27 
+ 
+6. ESTUDOS AFINS 
+ 
+O presente trabalho reverbera pesquisas em que o tema tratado foi abordado em contextos 
+similiares ao proposto, como no caso do artigo  de STRALEN et al. (2006) que  analisa a 
+efetividade da participação dos Conselhos Municipais de Saúde na gestão das políticas públicas 
+em municípios de Goiás e Mato Grosso do Sul, especialmente em relação à reestruturação da 
+atenção básica via Estratégia de Saúde da Família. A partir da análise de legislação, documentos 
+institucionais e entrevistas com conselheiros, os autores observam que, embora os conselhos 
+sejam importantes instâncias de controle social e legitimem decisões no âmbito do SUS, sua 
+influência efetiva na reorganização dos serviços de saúde permanece limitada. No trabalho dos 
+autores conclui-se que os conselhos ampliam a participação social, mas enfrentam obstáculos 
+institucionais e políticos que reduzem seu impacto direto na formulação e implementação das 
+políticas de saúde.  
+ 
+Já o estudo de Zambon e Ogata (2013) investiga, por meio de entrevistas qualitativas com 
+conselheiros municipais de saúde em São Paulo, as percepções sobre o controle social no SUS. 
+Os resultados mostram que há concepções divergentes sobre o papel do conselho, desde 
+entendimentos alinhados à função deliberativa até interpretações distorcidas do conceito de 
+controle social. Destacam-se dificuldades como a centralização das decisões pela gestão, 
+valorização excessiva do saber técnico e ausência de conferências municipais. Conclui-se que, 
+apesar dos avanços, ainda há fragilidades na formação e atuação dos conselheiros, reafirmando 
+a importância da educação permanente em saúde para fortalecer o controle social e a 
+democracia participativa no âmbito local.  
+ 
+Para Farias Filho, Silva e Mathis (2014) que analisam a ação coletiva em conselhos municipais 
+de saúde da Região Metropolitana de Belém, utilizando levantamento documental, entrevistas 
+e observação. A pesquisa identificou que, embora os conselhos representem instâncias de 
+participação e controle social, suas práticas são marcadas por cooptação de conselheiros, 
+definição de pautas pela gestão e predominância de interesses individuais sobre os coletivos. O 
+estudo conclui que tais dinâmicas contrariam os princípios do SUS e fragilizam a legitimidade 
+dos conselhos, evidenciando limites estruturais e culturais da ação coletiva e apontando a 
+necessidade de maior autonomia e fortalecimento da dimensão pública desses espaços. 
+ 
+
+--- PÁGINA 28 ---
+28 
+ 
+Landerdhal et al. (2010) realizam análise documental de resoluções registradas em atas de um 
+Conselho Municipal de Saúde no Rio Grande do Sul, buscando compreender se tais atos 
+expressam efetivo controle social. Os resultados apontam que a maioria das resoluções refere-
+se à aprovação de programas e projetos encaminhados pela gestão, especialmente sobre 
+infraestrutura e serviços, revelando caráter predominantemente burocrático. Não foram 
+identificadas deliberações autônomas ou propositivas originadas do conselho, o que indica que 
+o mero funcionamento formal não garante participação qualificada. Conclui-se que há um 
+distanciamento entre o potencial dos conselhos e sua prática, reforçando a necessidade de 
+ampliar sua capacidade deliberativa. 
+O artigo de Rosângela Minardi Mitre Cotta et al. (2011), publicado na Revista Physis, analisa a 
+experiência de controle social exercido por um Conselho Municipal de Saúde (CMS) em um 
+município de pequeno porte em Minas Gerais, evidenciando fragilidades estruturais e políticas 
+que comprometem o exercício da participação popular no Sistema Único de Saúde (SUS). Ainda 
+que legalmente previsto pela Lei nº 8.142/90 como instância deliberativa e estratégica, o CMS 
+se mostra, na prática, esvaziado de sua função democrática, funcionando como um espaço 
+formalizado, mas carente de representatividade, autonomia e eficácia. 
+A pesquisa revelou que a composição do conselho desrespeita o princípio da paridade exigido 
+por lei, com predominância de membros vinculados à prefeitura e ao poder político local. Essa 
+configuração compromete a autonomia dos conselheiros, que, em sua maioria, desconhecem 
+suas atribuições e o papel do conselho. As reuniões são esporádicas edesorganizadas, o 
+que reforça a percepção de que o CMS atua apenas para homologar decisões previamente 
+tomadas pela gestão municipal. Muitos conselheiros relataram medo de se posicionar por receio 
+de represálias políticas ou administrativas, enquanto outros reconhecem sua participação apenas 
+como simbólica ou burocrática. A prática participativa vivenciada se distancia dos ideais 
+constitucionais de cidadania ativa e controle social. O artigo evidencia que a ingerência política 
+no processo de escolha e atuação dos conselheiros, somada à baixa capacitação e engajamento 
+dos membros, inviabiliza a consolidação do conselho como espaço real de deliberação e 
+transformação social. Essa realidade é reflexo de uma cultura política marcada pelo 
+patrimonialismo, clientelismo e autoritarismo — elementos que historicamente impedem o 
+amadurecimento democrático no Brasil. O estudo confirma que a simples existência de espaços 
+institucionais de participação não garante, por si só, a efetividade do controle social. Para que 
+esse controle seja exercido de forma legítima e eficiente, é necessário investir na formação 
+política dos conselheiros, promover a autonomia das instituições locais e combater práticas 
+políticas excludentes. O desenvolvimento social e econômico, como demonstram autores 
+
+--- PÁGINA 29 ---
+29 
+ 
+clássicos e contemporâneos, está diretamente relacionado à qualidade das instituições e à 
+capacidade dos cidadãos de exercerem seus direitos de forma plena e consciente. Sem uma 
+cultura de participação efetiva e um Estado comprometido com a democratização do poder, o 
+controle social continuará sendo uma formalidade vazia, distante de seu papel transformador. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 30 ---
+30 
+ 
+7.  A GOVERNANÇA, O PLANEJAMENTO E OS INSTRUMENTOS DE 
+GESTÃO NO SUS: O PAPEL FUNDAMENTAL DOS CONSELHOS 
+MUNICIPAIS DE SAÚDE 
+ 
+Os instrumentos de gestão no Sistema Único de Saúde (SUS) são mecanismos fundamentais 
+para o planejamento, monitoramento e avaliação das políticas públicas de saúde. Esses 
+instrumentos são garantidores do princípio da transparência na aplicação dos recursos e da 
+eficiência na prestação de serviços. A efetividade do SUS está intrinsecamente ligada à 
+articulação entre governança, planejamento e instrumentos de gestão, sendo que a participação 
+dos Conselhos Municipais de Saúde (CMS) representa um pilar essencial nesse processo. Esses 
+conselhos, compostos de forma paritária por representantes do governo, profissionais de saúde 
+e usuários do sistema, exercem um papel deliberativo e fiscalizador, garantindo que as políticas 
+públicas reflitam as reais necessidades da população e os princípios constitucionais do SUS. 
+ 
+Entre os principais instrumentos de planejamento do SUS, destaca-se o Plano de Saúde, um 
+documento estratégico que define as diretrizes, metas e prioridades para a gestão da saúde em 
+um período de quatro anos. Complementar a ele, a Programação Anual de Saúde detalha as ações 
+e serviços de saúde a serem executados anualmente, alinhando-se ao planejamento estratégico. 
+O Relatório Detalhado do Quadrimestre Anterior é um instrumento de monitoramento que 
+apresenta os avanços e desafios da execução das ações previstas na Programação Anual de 
+Saúde, permitindo ajustes na gestão. Já o Relatório Anual de Gestão sintetiza as ações e 
+resultados alcançados ao longo do ano, funcionando como um mecanismo de prestação de 
+contas que reforça a transparência e o controle social. 
+ 
+Esses instrumentos possuem relação direta com os instrumentos de planejamento 
+governamental, como o Plano Plurianual (PPA), a Lei de Diretrizes Orçamentárias (LDO) e a 
+Lei Orçamentária Anual (LOA). O Plano de Saúde, por exemplo, deve estar alinhado ao PPA, 
+enquanto a Programação Anual de Saúde segue as metas estabelecidas na LDO e LOA. Os 
+relatórios de gestão servem como ferramentas de prestação de contas e avaliação, permitindo que 
+os CMS acompanhem a execução física e financeira das ações planejadas. 
+ 
+A governança no SUS ganha força e legitimidade por meio da atuação dos Conselhos 
+Municipais de Saúde, que não apenas acompanham a execução das ações de saúde, mas também 
+participam ativamente da formulação de políticas, como na elaboração do Plano Municipal de 
+Saúde e na aprovação da Programação Anual de Saúde. Em Minas Gerais, por exemplo, os 
+
+--- PÁGINA 31 ---
+31 
+ 
+Conselhos Municipais de Saúde desempenham um papel fundamental no funcionamento das 
+Comissões Intergestores Bipartite, trazendo para o debate as demandas locais e influenciando 
+diretamente as pactuações regionais. Além disso, esses conselhos são responsáveis por analisar 
+e aprovar o Relatório Anual de Gestão, reforçando a transparência e o controle social. 
+ 
+A plataforma DigiSUS Gestor – Módulo Planejamento (DGMP), mantida pelo Ministério da 
+Saúde, facilita o registro e acompanhamento desses instrumentos, permitindo que estados e 
+municípios acompanhem o status de seus planejamentos de maneira sistemática. A importância 
+desse acompanhamento é evidenciada pelos dados disponibilizados na plataforma, que mostram 
+a quantidade de documentos aprovados, em análise ou em processo de elaboração. Em Minas 
+Gerais, por exemplo, entre 2016 e 2025, os dados quantitativos demonstram a amplitude do 
+planejamento na saúde, com 1.631 Planos de Saúde aprovados, 8 pactuações homologadas pelo 
+gestor estadual e 5.628 Programações Anuais de Saúde aprovadas. No que se refere ao Relatório 
+Detalhado do Quadrimestre Anterior, foram avaliados 4.473 documentos no primeiro 
+quadrimestre, 4.377 no segundo e 4.029 no terceiro. Além disso, o Relatório Anual de Gestão 
+contou com 4.115 aprovações. A análise contínua dos Relatórios Detalhados do Quadrimestre 
+Anterior, que somam mais de 12 mil avaliações ao longo do ano, permite ajustes rápidos 
+para melhor atender às necessidades da população. A transparência no planejamento também 
+é um aspecto essencial para fortalecer a participação popular. Os conselhos de saúde têm papel 
+ativo na avaliação e aprovação dos instrumentos de planejamento, garantindo que as políticas 
+sejam construídas de forma democrática e alinhadas às necessidades locais. 
+ 
+A integração entre governança, planejamento e instrumentos de gestão só alcança seu potencial 
+máximo quando os Conselhos Municipais de Saúde estão fortalecidos e atuantes. Esses 
+conselhos não apenas legitimam as decisões tomadas pelos gestores, mas também garantem que 
+a voz da população seja ouvida em todas as etapas do processo. Para que o SUS continue 
+avançando em direção a um sistema mais equitativo e resolutivo, é essencial investir na 
+capacitação dos conselheiros, na estruturação dos Conselhos Municipais de Saúde e na 
+democratização das informações. Afinal, como previsto na Constituição de 1988, a saúde é um 
+direito de todos e um dever do Estado, mas também uma responsabilidade compartilhada com 
+a sociedade. 
+ 
+
+--- PÁGINA 32 ---
+32 
+ 
+O quadro a seguir apresenta as principais legislações que instituem e regulamentam os 
+instrumentos de gestão do Sistema Único de Saúde (SUS), com destaque para o Plano de Saúde, 
+a Programação Anual de Saúde (PAS) e o Relatório Anual de Gestão (RAG). 
+Instrumento de 
+Gestão 
+Legislação/Norma 
+Artigos/Dispositivos 
+Principais 
+Conteúdo/Exigência 
+Relação com o 
+Instrumento 
+Plano de Saúde 
+Constituição 
+Federal de 1988 
+Art. 196 a 200 
+Define a saúde como 
+direito de todos e 
+dever do Estado; 
+estabelece a 
+organização do SUS 
+e a necessidade de 
+planejamento 
+público. 
+Fundamenta o 
+dever estatal de 
+planejar ações e 
+políticas de saúde. 
+Plano de Saúde 
+Lei nº 8.080/1990 
+Art. 36 
+Determina que o 
+processo de 
+planejamento e 
+orçamento do SUS 
+deve ser ascendente, 
+integrado e 
+participativo. 
+Obriga a 
+elaboração do 
+Plano de Saúde 
+em todos os níveis 
+de gestão. 
+Plano de Saúde 
+Decreto nº 
+7.508/2011 
+Capítulo IV (arts. 36 
+a 41) 
+Regulamenta o 
+planejamento da 
+saúde, estabelecendo 
+que o Plano é o 
+instrumento central 
+do processo de 
+gestão. 
+Define o conteúdo 
+mínimo e a 
+integração do 
+Plano com o PPA. 
+Plano de Saúde 
+Portaria MS nº 
+2.135/2013 
+Arts. 2º e 3º 
+Institui as diretrizes 
+para o processo de 
+planejamento no 
+SUS. O Plano de 
+Saúde deve ter 
+vigência de quatro 
+anos e orientar a 
+PAS e o RAG. 
+Estabelece o 
+formato, vigência 
+e relação entre os 
+instrumentos. 
+Plano de Saúde 
+Resolução CNS nº 
+453/2012 
+Art. 1º, inciso V 
+Determina que o 
+Plano de Saúde deve 
+ser submetido à 
+apreciação e 
+aprovação do 
+Conselho de Saúde. 
+Garante o controle 
+social e a 
+transparência do 
+instrumento. 
+Programação 
+Anual de Saúde 
+(PAS) 
+Lei nº 8.080/1990 
+Art. 36, §1º 
+Prevê o 
+desdobramento anual 
+do planejamento em 
+metas e ações 
+específicas. 
+Base legal para a 
+PAS como 
+detalhamento 
+operacional do 
+Plano de Saúde. 
+Programação 
+Anual de Saúde 
+(PAS) 
+Portaria MS nº 
+2.135/2013 
+Arts. 4º e 5º 
+Define a PAS como 
+instrumento anual de 
+operacionalização do 
+Plano de Saúde, 
+vinculada à LDO e à 
+LOA. 
+Estabelece que 
+cada gestor deve 
+elaborar e 
+submeter a PAS 
+anualmente. 
+Programação 
+Anual de Saúde 
+(PAS) 
+Resolução CNS nº 
+453/2012 
+Art. 1º, inciso V 
+Determina a 
+apreciação e 
+aprovação da PAS 
+pelos Conselhos de 
+Saúde. 
+Assegura o 
+acompanhamento 
+social e a 
+legitimidade da 
+gestão. 
+
+--- PÁGINA 33 ---
+33 
+ 
+Relatório Anual 
+de Gestão (RAG) 
+Lei nº 8.142/1990 
+Art. 1º, §2º 
+Estabelece que a 
+execução e os 
+resultados das ações 
+e serviços devem ser 
+apresentados em 
+relatórios de gestão. 
+Base legal para o 
+RAG como 
+instrumento de 
+prestação de 
+contas. 
+Relatório Anual 
+de Gestão (RAG) 
+Decreto nº 
+7.508/2011 
+Art. 41 
+Determina que os 
+resultados do Plano e 
+da PAS devem ser 
+consolidados no 
+Relatório de Gestão. 
+Integra o RAG ao 
+ciclo de 
+planejamento e 
+avaliação. 
+Relatório Anual 
+de Gestão (RAG) 
+Portaria MS nº 
+2.135/2013 
+Art. 6º 
+Define o RAG como 
+instrumento anual de 
+monitoramento e 
+avaliação da 
+execução da PAS. 
+Obriga a 
+elaboração e envio 
+do RAG ao 
+Conselho de 
+Saúde e aos 
+órgãos de 
+controle. 
+Relatório Anual 
+de Gestão (RAG) 
+Resolução CNS nº 
+453/2012 
+Art. 1º, inciso V 
+O RAG deve ser 
+apreciado e aprovado 
+pelo Conselho de 
+Saúde. 
+Garante o controle 
+social e a 
+transparência na 
+gestão do SUS. 
+ 
+ 
+7.1 
+ 
+HIERARQUIZAÇÃO 
+E 
+DESCENTRALIZAÇÃO 
+NO 
+SUS: 
+FUNDAMENTOS E FUNCIONAMENTO NAS ESFERAS DE PODER 
+ 
+A hierarquização e descentralização no Sistema Único de Saúde (SUS) são princípios 
+organizativos fundamentais para garantir o acesso universal, igualitário e integral à saúde no 
+Brasil. Ambos os conceitos estão entre os pilares definidos pela Constituição Federal de 1988 
+e pela Lei Orgânica da Saúde (Lei nº 8.080/1990), sendo essenciais para a construção de um 
+sistema público eficiente e equitativo. A hierarquização se refere à organização dos serviços de 
+saúde em níveis crescentes de complexidade , se estendendo da atenção básica até a alta 
+complexidade, garantindo um fluxo racional e resolutivo do cuidado. Segundo a Lei nº 
+8.080/1990, a hierarquização visa “organizar a rede de serviços de saúde em níveis de 
+complexidade crescente” (BRASIL, 1990).  
+ 
+Esse princípio orienta a estruturação da atenção em três níveis principais:  Atenção Primária: 
+porta de entrada preferencial do sistema, com foco em ações preventivas, promocionais, 
+curativas e de reabilitação. Representa a maior parcela da resolutividade dos problemas de 
+saúde da população. Atenção Secundária: composta por serviços ambulatoriais especializados 
+e hospitalares de média complexidade. Atenção Terciária: envolve serviços de alta 
+complexidade tecnológica, como unidades de terapia intensiva, cirurgias especializadas e 
+
+--- PÁGINA 34 ---
+34 
+ 
+procedimentos de alto custo. A lógica da hierarquização favorece a integralidade do cuidado, 
+na medida em que permite a continuidade e a coordenação das ações em todos os níveis. “A 
+hierarquização é o princípio organizativo que permite racionalizar recursos e garantir maior 
+eficiência e equidade no acesso aos serviços” (SILVA & PEREIRA, 2016, p. 89). 
+ 
+A descentralização refere-se à transferência de responsabilidades da gestão e execução das 
+ações de saúde da esfera federal para os estados e, sobretudo, para os municípios. Esse processo 
+tem como base o Art. 198 da Constituição Federal, que afirma que as ações e serviços públicos 
+de saúde são organizados em uma rede regionalizada e hierarquizada e constituem um sistema 
+único, “descentralizado, com direção única em cada esfera de governo” (BRASIL, 1988). A 
+descentralização promove a autonomia dos entes federativos para planejamento, gestão e 
+execução dos serviços, além de conferir maior capilaridade das políticas públicas, 
+aproximando-as das realidades locais. Permite agilidade na tomada de decisões e na alocação 
+de recursos e assegura a participação social por meio dos conselhos e conferências de saúde. 
+Segundo Lima et al. (2006), a descentralização no SUS não é apenas administrativa, mas 
+também política, ao estimular o controle social e a corresponsabilização dos gestores locais. “A 
+descentralização do SUS constitui uma estratégia para ampliar o acesso, respeitar as 
+diversidades regionais e fortalecer a governança local da saúde” (VIEIRA; SANTOS, 2011, p. 
+34). 
+ 
+7.2  FUNCIONAMENTO NAS ESFERAS FEDERAL, ESTADUAL E 
+MUNICIPAL 
+ 
+O SUS se organiza em um modelo tripartite, no qual as três esferas de governo;  federal, estadual 
+e municipal; compartilham responsabilidades de forma complementar. A esfera Federal, União, 
+por meio do Ministério da Saúde, é responsável por: Formular políticas nacionais de saúde; 
+Coordenar programas estratégicos; Estabelecer diretrizes e normas técnicas; Financiar parte 
+significativa das ações e serviços; Promover a regulação e avaliação do sistema em todo o país. 
+“Compete à União formular políticas nacionais de saúde, com vistas à promoção, proteção e 
+recuperação da saúde em todo o território nacional” (BRASIL, 1990, Art. 16).   
+ 
+A esfera Estadual atua como elo intermediário entre o governo federal e os municípios, com 
+atribuições como: Coordenar redes regionais de saúde; Planejar e implementar políticas 
+estaduais de saúde; Ofertar serviços de média e alta complexidade; Apoiar tecnicamente os 
+
+--- PÁGINA 35 ---
+35 
+ 
+municípios.  
+ 
+A esfera Municipal éa principal executora das ações de saúde no território, com 
+responsabilidade sobre: Gestão da atenção básica; Coordenação da rede de serviços locais; 
+Promoção da saúde, vigilância epidemiológica e sanitária; Contratação e supervisão de 
+profissionais da saúde. 
+ 
+A organização do SUS obedece ao princípio da direcionalidade única, segundo o qual cada 
+esfera de governo deve manter uma instância diretiva do sistema. Essa estrutura é 
+operacionalizada por meio de instâncias deliberativas e normativas, tais como:  Comissão 
+Intergestores Tripartite (CIT);  Comissões Intergestores Bipartites (CIBs); Conselhos de Saúde. 
+“O Decreto nº 7.508 regulamenta a organização do SUS por meio da regionalização, da 
+definição dos contratos organizativos da ação pública da saúde e do funcionamento das redes 
+de atenção” (BRASIL, 2011). 
+ 
+7.3  PLANO DIRETOR DE REGIONALIZAÇÃO – PDR 
+ 
+ O Plano Diretor de Regionalização (PDR-SUS/MG) é o principal instrumento de organização 
+territorial da saúde pública no estado de Minas Gerais. Seu objetivo é promover a regionalização 
+dos serviços de saúde, organizando o acesso da população conforme a complexidade da 
+assistência necessária e a capacidade instalada dos municípios. O mapa apresentado refere-se à 
+Macrorregião de Saúde Norte de Minas, que é uma das 14 macrorregiões em que o território 
+mineiro foi dividido para fins de planejamento e prestação dos serviços de saúde. 
+Essa macrorregião abrange diversos municípios do norte do estado e está subdividida em 
+microrregiões de saúde, que funcionam como agrupamentos locais com estrutura suficiente para 
+atender à média complexidade, como consultas especializadas, exames e internações clínicas. 
+Já os atendimentos de alta complexidade, como cirurgias especializadas e tratamentos 
+oncológicos, estão concentrados em polos macrorregionais, como Montes Claros, que é o 
+principal centro de referência da macrorregião Norte. O funcionamento do PDR ocorre de forma 
+integrada nas esferas municipal, estadual e federal. Os municípios são os responsáveis diretos 
+pela atenção primária e pela gestão dos serviços locais, devendo seguir os critérios e pactuações 
+estabelecidas no plano regional. O estado de Minas Gerais, por meio da Secretaria de Estado 
+de Saúde e suas Superintendências Regionais (como a SRS de Montes Claros), coordena a 
+
+--- PÁGINA 36 ---
+36 
+ 
+integração entre os municípios, articula os recursos e avalia o desempenho regional com base 
+em indicadores de saúde. Já a União, por meio do Ministério da Saúde, complementa os 
+repasses financeiros, estabelece diretrizes nacionais e apoia tecnicamente a execução das 
+políticas.  
+A regionalização da saúde também é organizada conforme o poder público, em suas 
+competências constitucionais: o Poder Executivo elabora, pactua e executa as ações de saúde 
+via secretarias municipais e estadual; o Poder Legislativo acompanha e fiscaliza os planos de 
+saúde, aprova orçamentos e incentiva o controle social; e o Poder Judiciário, quando acionado, 
+garante o cumprimento do direito à saúde. Portanto, o PDR organiza todo o funcionamento do 
+SUS em Minas Gerais por meio de um planejamento territorial que reconhece as 
+particularidades regionais e promove um sistema mais eficiente e equitativo. A Macrorregião 
+Norte de Minas, representada no mapa, é um exemplo desse esforço de integração regional, 
+contando com municípios estruturados para atender diferentes níveis de complexidade, com 
+pactuações contínuas entre os entes federados e orientações normativas que visam garantir o 
+acesso integral à saúde para toda a população. 
+ 
+ 
+fonte: https://www.saude.mg.gov.br/estudos-assistenciais-e-regionalizacao/ 
+
+--- PÁGINA 37 ---
+37 
+ 
+Para fins deste estudo a delimitação da microrregião de saúde e de suas sedes para análise 
+ocorrerá como se segue: 
+A microrregião de saúde é uma das instâncias de organização do Sistema Único de Saúde 
+(SUS), instituída com base nos princípios da regionalização e da hierarquização da atenção à 
+saúde. De acordo com a Portaria nº 4.279/2010 do Ministério da Saúde, a regionalização visa 
+garantir o acesso integral, equânime e contínuo aos serviços de saúde, por meio da integração 
+dos municípios em territórios delimitados segundo critérios geográficos, econômicos, culturais 
+e de fluxos assistenciais. Assim, a sede da microrregião de saúde é o município de referência 
+responsável por concentrar serviços de maior complexidade e coordenar as ações 
+intermunicipais no território, funcionando como polo administrativo, técnico e assistencial. 
+No caso da Região Norte de Minas Gerais, o planejamento regional de saúde é estruturado pela 
+Secretaria de Estado de Saúde de Minas Gerais (SES-MG) por meio das Superintendências 
+Regionais de Saúde (SRS) e das Gerências Regionais de Saúde (GRS). Dentro dessa divisão, 
+destacam-se microrregiões como as de Montes Claros e Francisco Sá, ambas sob a jurisdição 
+da SRS de Montes Claros. 
+Para fins desta pesquisa, serão analisadas especificamente as microrregiões de Montes Claros 
+e Francisco Sá, tendo em vista sua relevância estratégica e suas particularidades 
+socioeconômicas e sanitárias. Montes Claros é reconhecida como o principal polo urbano e de 
+serviços da região Norte de Minas, concentrando hospitais de média e alta complexidade, 
+instituições de ensino superior e a sede da própria Superintendência Regional de Saúde. Já 
+Francisco Sá foi selecionada por representar uma microrregião com características 
+predominantemente rurais e menor densidade populacional, permitindo um contraponto 
+analítico em relação à estrutura mais consolidada de Montes Claros. 
+Essa escolha possibilita uma análise comparativa entre uma microrregião de forte centralidade 
+e outra de menor porte, favorecendo a compreensão das desigualdades regionais na organização 
+e no funcionamento do sistema de saúde, bem como das estratégias de gestão adotadas pelos 
+respectivos Conselhos Municipais de Saúde (CMS). 
+ 
+ 
+
+--- PÁGINA 38 ---
+38 
+ 
+8. METODOLOGIA 
+Este estudo adota uma abordagem qualitativa, fundamentada na pesquisa documental como 
+principal estratégia metodológica. Segundo Sá-Silva, Almeida e Guindani (2009), a pesquisa 
+documental busca produzir novos conhecimentos a partir do exame de materiais originais, 
+sejam eles analisados pela primeira vez ou reinterpretados em conformidade com os objetivos da 
+investigação. Essa abordagem permite compreender fenômenos sociais complexos, 
+especialmente em contextos onde o comportamento humano e os processos participativos estão 
+em análise, como no caso dos conselhos de políticas públicas. Essa abordagem metodológica é 
+especialmente relevante para este trabalho, pois permite uma análise detalhada das práticas 
+e desafios enfrentados pelos conselhos municipais de saúde, oferecendo contribuições 
+valiosas para o aprimoramento das políticas públicas e do controle social na região. 
+ 
+Conforme Teófilo e Martins (2007), a pesquisa qualitativa privilegia dados descritivos e um 
+foco no processo em detrimento apenas dos resultados. Esse método envolve uma análise 
+indutiva, na qual os dados são coletados, organizados e analisados à medida que emergem, 
+permitindo que padrões e tendências sejam identificados. Essa abordagem é particularmente 
+adequada para capturar o significado das ações sociais e entender a perspectiva dos envolvidos. 
+ 
+8.1 
+PESQUISA DOCUMENTAL  
+ 
+A pesquisa documental utilizada neste trabalho considera documentos primários, como atas de 
+reuniões, pareceres e atos administrativos dos conselhos de saúde dos quatro municípios 
+escolhidos. A análise desses materiais segue os princípios estabelecidos por GUBA E 
+LINCOLN (1981), que destacam a importância da reinterpretação de fontes documentais para 
+descobrir novos ângulos e aprofundar a compreensão de fenômenos sociais. Essa abordagem 
+será complementada pela categorização dos dados, conforme descrito por BOGDAN E 
+BIKLEN (1994), em que tópicos recorrentes e padrões são organizados em categorias 
+representativas para uma análise sistemática. 
+ 
+8.2 
+ENTREVISTAS SEMI ESTRUTURADAS  
+ 
+Além da pesquisa documental, serão realizadas entrevistas semiestruturadas com os membros 
+dos respectivos Conselhos Municipais de Saúde e com autoridades públicas locais. Esse tipo de 
+
+--- PÁGINA 39 ---
+39 
+ 
+permite ao pesquisador seguir um roteiro previamente elaborado, mas com flexibilidade para 
+explorar novas questões que emergem no decorrer da conversa. De acordo com Triviños (1987), 
+a entrevista semiestruturada combina perguntas básicas definidas a partir dos objetivos da 
+pesquisa com a liberdade de aprofundar determinados temas conforme a interação com o 
+entrevistado. Essa técnica possibilita captar percepções, significados e experiências que 
+dificilmente emergiriam em instrumentos mais rígidos. Na área da saúde, Minayo (2017) 
+destaca que a entrevista semiestruturada é fundamental para compreender as práticas sociais e 
+institucionais dos sujeitos, permitindo que expressem suas visões de mundo e suas 
+interpretações sobre o funcionamento das políticas públicas. Assim, a adoção desse 
+procedimento metodológico se justifica pela necessidade de compreender de forma 
+aprofundada as percepções dos conselheiros e gestores sobre a efetividade do controle social, 
+suas dificuldades cotidianas e os fatores que condicionam o funcionamento dos conselhos no 
+contexto do Norte de Minas Gerais. 
+ 
+8.3 MODELO QUADRIPOLAR DE PESQUISA  
+ 
+A metodologia deste estudo também se alinha ao modelo quadripolar descrito por TEÓFILO E 
+MARTINS (2007), que integra os pólos epistemológico, teórico, metodológico e técnico. 
+ 
+Polo epistemológico: reflete a produção e validação do conhecimento, garantindo a 
+confiabilidade e a validade dos dados coletados. Isso inclui o uso de fontes oficiais, como 
+documentos dos conselhos, e a aplicação de técnicas rigorosas de categorização. 
+ 
+Polo teórico: baseia-se no conceito de controle social e participação popular, considerando a 
+necessidade de um olhar crítico sobre as práticas dos conselhos de políticas públicas e sua 
+integração com a administração pública. 
+ 
+Polo metodológico: envolve a aplicação de análise de conteúdo, categorização de dados e 
+entrevistas para aprofundar a compreensão sobre o funcionamento dos conselhos de saúde. 
+ 
+Polo técnico: diz respeito à escolha e aplicação das técnicas de coleta e análise de dados, como 
+a organização dos documentos e a condução das entrevistas. 
+ 
+ 
+
+--- PÁGINA 40 ---
+40 
+ 
+8.4 ANÁLISE DE CONTEÚDO  
+ 
+A técnica de análise de conteúdo será utilizada para organizar e interpretar as informações 
+coletadas. Segundo ALMEIDA E GUINDANI (2009), essa técnica permite uma análise 
+objetiva e sistemática da comunicação, facilitando a identificação de padrões e tendências nos 
+dados. A categorização envolverá a criação de blocos temáticos que representarão as principais 
+questões identificadas nas atas e nos relatos dos entrevistados. 
+ 
+8.5 
+ VALIDAÇÃO E GENERALIZAÇÃO 
+ 
+Conforme apontado por TEÓFILO E MARTINS (2007), a validade do estudo será assegurada 
+por meio da triangulação de métodos (documentos e entrevistas) e pelo cruzamento de 
+informações obtidas em diferentes fontes. Essa estratégia aumenta a confiabilidade dos 
+achados e amplia as possibilidades de generalização, embora seja necessário reconhecer as 
+limitações contextuais do estudo, principalmente em relação às especificidades da Região Norte 
+de Minas Gerais. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PÁGINA 41 ---
+41 
+ 
+9 REFERÊNCIAS BIBLIOGRÁFICAS 
+ARISTÓTELES. Política. Tradução de Mário da Gama Kury. Brasília: Editora da UnB, 1991. 
+BOBBIO, Norberto. O futuro da democracia: uma defesa das regras do jogo. Tradução de Marco Aurélio Nogueira. 
+São Paulo: Paz e Terra, 1986. 
+BOGDAN, Robert; BIKLEN, Sari. Investigação qualitativa em educação: uma introdução à teoria e aos métodos. 
+Porto: Porto Editora, 1994. 
+BRASIL. Constituição da República Federativa do Brasil de 1988. Brasília, DF: Senado Federal, 1988. 
+BRASIL. Decreto nº 7.508, de 28 de junho de 2011. 
+BRASIL. Lei nº 8.080, de 19 de setembro de 1990. 
+BRASIL. Lei nº 8.142, de 28 de dezembro de 1990.  
+BRAVO, Maria Inês Souza; CORREIA, Maria Valéria Costa. Desafios do controle social na atualidade. São 
+Paulo: Cortez, 2012. 
+BREILH, Jaime. Epidemiologia crítica: ciência emancipadora e interculturalidade. Rio de Janeiro: Editora Fiocruz, 
+2006. 
+BRESSER-PEREIRA, Luiz Carlos. Em busca do desenvolvimento perdido: um projeto novo-desenvolvimentista 
+para o Brasil. São Paulo: FGV Editora, 2018. 
+BUSS, Paulo Marchiori; PELLEGRINI FILHO, Alberto. A saúde e seus determinantes sociais. Physis: Revista de 
+Saúde Coletiva, Rio de Janeiro, v. 17, n. 1, p. 77-93, 2007.  
+CIRINO, 
+Jader 
+Fernandes; 
+GONZÁLEZ, 
+Alba 
+Maria 
+Guadalupe 
+Orellana. 
+A 
+heterogeneidade 
+do 
+desenvolvimento 
+econômico 
+do 
+estado 
+de 
+Minas 
+Gerais. 
+Revista 
+de 
+Ciências 
+Humanas, 
+Viçosa, 
+MG, 
+v. 
+21, 
+n. 
+2, 
+p. 
+129-146, 
+jul./dez. 
+2021. 
+DOI: 
+10.5902/2238212623476. 
+Disponível em: https://periodicos.ufv.br/RCH/article/view/3476. Acesso em: 9 nov. 2025. 
+CLASTRES, Pierre. A sociedade contra o Estado: pesquisas de antropologia política. Tradução de Theo Santiago. 
+São Paulo: Brasiliense, 1978. 
+CONASEMS. Conselho Nacional de Secretários Municipais de Saúde. Manual dos Conselhos de Saúde. Brasília: 
+Conselho Nacional de Secretários Municipais de Saúde, 1995. 
+DAGNINO, Evelina. Sociedade civil e espaços públicos no Brasil. São Paulo: Paz e Terra, 2004. 
+DI PIETRO, Maria Sylvia Zanella. Direito Administrativo. 28. ed. São Paulo: Atlas, 2015. 
+DURKHEIM, Émile. A divisão do trabalho social. 4. ed. São Paulo: McGraw-Hill, 2005. 
+FAGNANI, Eduardo. Política social no Brasil (1964-2002): entre a cidadania e a caridade. 2005. Tese (Doutorado 
+em Ciências Econômicas) – Instituto de Economia, Universidade Estadual de Campinas, Campinas, 2005. 
+FARIAS FILHO, Milton Cordeiro; SILVA, Andréia Neves da; MATHIS, Armin. Os limites da ação coletiva nos 
+Conselhos Municipais de Saúde. Ciência & Saúde Coletiva, v. 19, n. 6, p. 1911-1919, 2014. 
+FERREIRA, L. T.; COSTA, M. L. Desigualdade e governança no Norte de Minas Gerais: o impacto da 
+infraestrutura deficiente na gestão pública. Revista de Desenvolvimento Regional, v. 18, n. 1, p. 99-114, 2022. 
+
+--- PÁGINA 42 ---
+42 
+ 
+FERREIRA, M. D.; OLIVEIRA, T. S. A participação social no Brasil: o caso dos conselhos de políticas públicas 
+e sua efetividade na gestão pública. Cadernos de Administração Pública, 2021. 
+FURTADO, Celso. Formação econômica do Brasil. 34. ed. São Paulo: Companhia das Letras, 2009. 
+GERSCHMAN, S. Descentralização e equidade no SUS: dilemas e desafios. Ciência & Saúde Coletiva, v. 9, n. 2, 
+p. 339-350, 2004. 
+GIL, Antonio Carlos. Métodos e técnicas de pesquisa social. 7. ed. São Paulo: Atlas, 2019. 
+GIOVANELLA, L. et al. Atenção primária à saúde: seletiva ou integral? Cadernos de Saúde Pública, v. 25, n. 3, 
+p. 409-420, 2009. 
+GUBA, Egon; LINCOLN, Yvonna. Effective evaluation: improving the usefulness of evaluation results through 
+responsive and naturalistic approaches. San Francisco: Jossey-Bass, 1981. 
+HARARI, Yuval Noah. Sapiens: uma breve história da humanidade. Tradução de Lúcia Brito. São Paulo: L&PM, 
+2015. 
+LAKATOS, E. M.; MARCONI, M. A. Técnicas de pesquisas. 5. ed. São Paulo: Atlas, 2002. 
+LANDERDHAL, Maria Celeste et al. Resoluções do Conselho de Saúde: instrumento de controle social ou 
+documento burocrático? Ciência & Saúde Coletiva, v. 15, n. 5, p. 2431-2436, 2010. 
+LEFEBVRE, Georges. A Revolução Francesa. Tradução de Magda Lopes. São Paulo: Ática, 2001. 
+LIMA, L. D. et al. Descentralização, regionalização e instâncias intergovernamentais do SUS. Ciência & Saúde 
+Coletiva, v. 11, n. 5, p. 1211-1222, 2006. 
+LIMA, Nísia Trindade. Saúde e democracia: história e perspectivas do SUS. Rio de Janeiro: Fiocruz, 2019. 
+MARTINS, Gilberto de Andrade; THEÓPHILO, Carlos Renato. Metodologia da investigação científica para 
+ciências sociais aplicadas. São Paulo: Atlas, 2007. 
+MARX, Karl. O capital: crítica da economia política. 10. ed. São Paulo: Abril, 1975. 
+MBITI, John S. African religions and philosophy. 2. ed. Oxford: Heinemann, 1990. 
+MELO, Sandro César de; SANTOS, Silvane Aparecida dos; SANTOS, Vinícius José dos. Índice Social e de Saúde 
+(ISS) para os municípios do Norte de Minas Gerais. Revista Desenvolvimento Social, Montes Claros, v. 27, n. 1, 
+p. 
+203-222, 
+jan./jun. 
+2021. 
+Disponível em: https://www.periodicos.unimontes.br/index.php/rds/article/view/4658. Acesso em: 9 nov. 2025. 
+MINAS GERAIS. Tribunal de Contas. Escola de Contas e Capacitação Professor Pedro Aleixo. Manual de 
+elaboração de trabalhos acadêmicos. Belo Horizonte, 2017. 
+MINAYO, Maria Cecília de Souza. O desafio do conhecimento: pesquisa qualitativa em saúde. 15. ed. São Paulo: 
+Hucitec, 2017. 
+OLIVEIRA, R. S.; SILVA, A. M. A participação popular no Brasil: limites e avanços no controle social das 
+políticas públicas. Cadernos de Administração Pública, v. 24, n. 2, p. 45-58, 2020. 
+PAIM, Jairnilson Silva. O que é o SUS. São Paulo: Editora Fiocruz, 2008. 
+PALHARES, Ricardo Henrique; HERMANO, Vivian Mendes; SILVA, Jefferson Gonçalves da. Movimento 
+pendular e a busca por serviços de saúde em Montes Claros – MG. Revista Eletrônica da Associação dos 
+
+--- PÁGINA 43 ---
+43 
+ 
+Geógrafos Brasileiros, Seção Três Lagoas, v. 1, n. 37, p. 113-135, 12 jul. 2023. DOI: 10.55028/agb-
+tl.v1i37.17774. 
+RICARDO, David. Princípios de economia política e tributação. 3. ed. São Paulo: Pioneira, 2000. 
+ROCHA, A. F.; LIMA, F. P. Desafios para a implementação de políticas públicas no Norte de Minas Gerais: uma 
+análise das limitações no acesso aos direitos fundamentais. Revista de Políticas Públicas Regionais, 2019. 
+ROSANVALLON, Pierre. A contrademocracia: a política na era da desconfiança. Tradução de André Telles. São 
+Paulo: Cambridge University Press, 2006. 
+SANTOS, Boaventura de Sousa. Políticas públicas e controle social: desafios e possibilidades na periferia urbana. 
+Revista Brasileira de Sociologia, v. 63, n. 3, p. 145-162, 2021. 
+SEN, Amartya. Desenvolvimento como liberdade. São Paulo: Companhia das Letras, 2000. 
+SILVA, M. R.; PEREIRA, M. F. Gestão e organização do SUS. São Paulo: Hucitec, 2016. 
+SIMONSEN, Roberto. Controle social, institucionalismo e planejamento. Revista Estudos Econômicos, 2016 
+SMITH, Adam. A riqueza das nações. 7. ed. São Paulo: Nova Cultural, 1992. 
+STIGLITZ, Joseph E. O preço da desigualdade: o que a sociedade dividida de hoje significa para o nosso futuro. 
+Rio de Janeiro: Elsevier, 2013. 
+STRALEN, Cornelis Johannes van et al. Conselhos de saúde: efetividade do controle social em municípios de 
+Goiás e Mato Grosso do Sul. Ciência & Saúde Coletiva, v. 11, n. 3, p. 621-632, 2006. 
+TATAGIBA, Luciana. Conselhos gestores e a democratização das políticas públicas no Brasil. In: DAGNINO, 
+Evelina. Sociedade civil e espaços públicos no Brasil. São Paulo: Paz e Terra, 2002. 
+TODOROV, Tzvetan. A conquista da América: a questão do outro. Tradução de Beatriz Sidou. São Paulo: Martins 
+Fontes, 1993. 
+TRIVIÑOS, Augusto Nibaldo Silva. Introdução à pesquisa em ciências sociais: a pesquisa qualitativa em 
+educação. São Paulo: Atlas, 1987. 
+TUTU, Desmond. No future without forgiveness. New York: Image, 1999. 
+VIEIRA, F. S.; SANTOS, I. S. Federalismo fiscal e financiamento da saúde. Saúde em Debate, v. 35, n. 90, p. 25-
+37, 2011. 
+WEBER, Max. A ética protestante e o espírito do capitalismo. 2. ed. São Paulo: Martins Fontes, 2007. 
+ZAMBON, Vera Dib; OGATA, Márcia Niituma. Controle social do Sistema Único de Saúde: o que pensam os 
+conselheiros municipais de saúde. Revista Brasileira de Enfermagem, v. 66, n. 6, p. 921-927, 2013. 
+ 
+ 
+. 
+ 
+ 
+ 
+
+--- PÁGINA 44 ---
+44 
+ 
+ 
+ 
