@@ -32,9 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
             tile.className = 'tile';
             tile.setAttribute('data-index', index);
             
-            const title = document.createElement('h3');
+            const hospitalMap = {
+                'Aroldo Tourinho': { sigla: 'HAT', nome: 'Hospital Aroldo Tourinho' },
+                'Dilson Godinho': { sigla: 'HDG', nome: 'Hospital Dilson Godinho' },
+                'HC': { sigla: 'HC', nome: 'Hospital das Clínicas' },
+                'HSC': { sigla: 'HSC', nome: 'Irmandade Nossa Senhora das Mercês' },
+                'HU': { sigla: 'HU', nome: 'Hospital Universitário' }
+            };
+            const info = hospitalMap[hospital.nome] || { sigla: hospital.nome, nome: hospital.nome };
+
+            const title = document.createElement('h2');
             title.className = 'tile-title';
-            title.textContent = hospital.nome;
+            title.textContent = info.sigla;
+
+            const fullname = document.createElement('h4');
+            fullname.className = 'tile-fullname';
+            fullname.textContent = info.nome;
             
             let totalFiles = 0;
             if (hospital.categorias) {
@@ -47,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle.textContent = `${totalFiles} documentos`;
             
             tile.appendChild(title);
+            tile.appendChild(fullname);
             tile.appendChild(subtitle);
             
             tile.addEventListener('click', () => {
@@ -96,6 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     title.className = 'file-title';
                     title.textContent = arquivo.nomeExibicao;
                     
+                    const resumo = document.createElement('p');
+                    resumo.className = 'file-resumo';
+                    resumo.textContent = arquivo.resumo && arquivo.resumo.trim() !== '' ? arquivo.resumo : 'Resumo não disponível.';
+                    
                     const link = document.createElement('a');
                     link.className = 'btn-acessar';
                     link.target = '_blank';
@@ -111,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     
                     card.appendChild(title);
+                    card.appendChild(resumo);
                     card.appendChild(link);
                     catGrid.appendChild(card);
                 });

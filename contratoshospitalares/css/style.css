@@ -145,6 +145,16 @@ body {
     z-index: 1;
 }
 
+.tile-fullname {
+    font-family: var(--font-b);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+    z-index: 1;
+    color: #E2E8F0;
+}
+
 .tile:nth-child(2n) {
     background-color: var(--color-navy);
 }
@@ -206,6 +216,9 @@ body {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 
@@ -224,8 +237,15 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     color: var(--color-navy);
+    margin: 0 0 0.5rem 0;
+}
+
+.file-resumo {
+    font-size: 0.9rem;
+    color: #475569;
     margin: 0 0 1rem 0;
     flex-grow: 1;
+    line-height: 1.4;
 }
 
 .btn-acessar {
