@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nota Técnica Estratégica — Edital nº 11/2026 | CLS | CMSMOC</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cms-blue:   #1B6CB5;
+  --cms-navy:   #0D2E5A;
+  --cms-green:  #1E8A4A;
+  --cms-yellow: #F5C400;
+  --cms-white:  #FFFFFF;
+  --cms-off:    #F7F8FA;
+  --cms-ink:    #111827;
+  --cms-muted:  #6B7280;
+  --cms-border: #E5E7EB;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cms-off);
+  color: var(--cms-ink);
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--cms-navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 54px;
+  position: sticky; top: 0; z-index: 200;
+  gap: 16px;
+}
+.topbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+}
+.topbar-brand span { color: var(--cms-yellow); }
+.topbar-nav { display: flex; gap: 24px; overflow-x: auto; }
+.topbar-nav a {
+  font-size: 11px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,0.55);
+  text-decoration: none; transition: color .2s; white-space: nowrap;
+}
+.topbar-nav a:hover { color: var(--cms-yellow); }
+
+/* ── STRIPE ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(to right, var(--cms-yellow) 33.3%, var(--cms-green) 33.3% 66.6%, var(--cms-blue) 66.6%);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--cms-navy);
+  color: white;
+  padding: 80px 48px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,196,0,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -40px; left: 55%;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,108,181,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 28px;
+}
+.hero-tag {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 4px;
+}
+.hero-tag-yellow { background: var(--cms-yellow); color: var(--cms-navy); }
+.hero-tag-outline { border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -1.5px;
+  max-width: 760px;
+  margin-bottom: 12px;
+}
+.hero h1 em { color: var(--cms-yellow); font-style: normal; }
+.hero-sub {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.8vw, 20px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  max-width: 620px;
+  margin-bottom: 36px;
+  line-height: 1.4;
+}
+.hero-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 800px;
+}
+.hero-meta-item {
+  padding: 14px 20px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.hero-meta-item:last-child { border-right: none; }
+.hero-meta-label {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+.hero-meta-value {
+  font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+.hero-meta-value.yellow { color: var(--cms-yellow); font-weight: 700; }
+
+/* ── ALERTA URGENTE ── */
+.alert-urgente {
+  background: var(--cms-yellow);
+  padding: 16px 48px;
+  display: flex; align-items: center; gap: 14px;
+}
+.alert-urgente-icon {
+  font-size: 22px; flex-shrink: 0;
+}
+.alert-urgente-text {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  color: var(--cms-navy);
+  line-height: 1.4;
+}
+.alert-urgente-text span { font-weight: 300; font-family: var(--font-body); }
+
+/* ── WRAP ── */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+/* ── SECTION ── */
+.section { padding: 72px 0; border-bottom: 1px solid var(--cms-border); scroll-margin-top: 54px; }
+.section:last-child { border-bottom: none; }
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cms-blue);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--cms-navy);
+  margin-bottom: 36px;
+}
+.section-title span { color: var(--cms-blue); }
+.section-title em { color: var(--cms-green); font-style: normal; }
+.section-intro {
+  font-size: 15.5px;
+  color: var(--cms-muted);
+  max-width: 740px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* ── SUMÁRIO ── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.toc-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--cms-ink);
+  font-size: 13px; font-weight: 600;
+  transition: all .2s;
+  border-left: 3px solid var(--cms-border);
+}
+.toc-item:hover {
+  border-left-color: var(--cms-blue);
+  color: var(--cms-blue);
+  box-shadow: 0 2px 8px rgba(27,108,181,0.1);
+}
+.toc-n {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  color: var(--cms-muted);
+  min-width: 24px;
+}
+
+/* ── NUMERO GRANDE (OPORTUNIDADE) ── */
+.oport-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.oport-card {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.oport-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--cms-blue);
+}
+.oport-card.yellow::before { background: var(--cms-yellow); }
+.oport-card.green::before { background: var(--cms-green); }
+.oport-card.navy::before { background: var(--cms-navy); }
+.oport-value {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 900;
+  color: var(--cms-navy);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.oport-value.yellow { color: var(--cms-green); }
+.oport-label {
+  font-size: 12px; color: var(--cms-muted);
+  line-height: 1.4;
+}
+
+/* ── EIXOS ── */
+.eixos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.eixo-card {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.eixo-header {
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.eixo-letter {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 900;
+  flex-shrink: 0;
+  color: white;
+}
+.eixo-body { padding: 0 20px 18px; }
+.eixo-name {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  color: var(--cms-navy);
+}
+.eixo-desc { font-size: 12.5px; color: var(--cms-muted); margin-bottom: 12px; line-height: 1.5; }
+.eixo-range {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--cms-off); border-radius: 6px; padding: 8px 12px;
+}
+.eixo-range-label { font-size: 10px; color: var(--cms-muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.eixo-range-value { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--cms-navy); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin-bottom: 28px; width: 100%; }
+.cms-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--cms-border);
+}
+.cms-table thead tr { background: var(--cms-navy); color: white; }
+.cms-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-family: var(--font-display); font-size: 11px; letter-spacing: 0.5px; }
+.cms-table td { padding: 11px 14px; border-top: 1px solid var(--cms-border); vertical-align: top; }
+.cms-table tbody tr:nth-child(even) td { background: var(--cms-off); }
+.cms-table .total-row td { background: #DBEAFE; font-weight: 700; }
+.cms-table .highlight-row td { background: #FEF9C3; }
+td.status-ok { color: var(--cms-green); font-weight: 700; }
+td.status-warn { color: #D97706; font-weight: 700; }
+td.status-todo { color: var(--cms-muted); }
+td.status-elim { color: #DC2626; font-weight: 700; }
+
+/* ── VIABILIDADE CARDS ── */
+.viab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.viab-card {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.viab-icon { font-size: 28px; margin-bottom: 12px; }
+.viab-dim {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--cms-muted);
+  margin-bottom: 4px;
+}
+.viab-nivel {
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 900;
+  color: var(--cms-navy);
+  margin-bottom: 8px;
+}
+.viab-nivel.alta { color: var(--cms-green); }
+.viab-nivel.media-alta { color: var(--cms-blue); }
+.viab-obs { font-size: 12.5px; color: var(--cms-muted); line-height: 1.55; }
+
+/* ── OPORTUNIDADES CARDS ── */
+.opport-grid {
+  display: grid; gap: 16px;
+  margin-bottom: 32px;
+}
+.opport-item {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex; gap: 20px;
+  align-items: flex-start;
+}
+.opport-n {
+  min-width: 40px; height: 40px;
+  background: var(--cms-navy);
+  color: white;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 900;
+  flex-shrink: 0;
+}
+.opport-content h3 {
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 700;
+  color: var(--cms-navy);
+  margin-bottom: 6px;
+}
+.opport-content p { font-size: 13.5px; color: var(--cms-muted); line-height: 1.6; }
+
+/* ── RISCOS ── */
+.risco-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 18px;
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.risco-badge {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+.risco-badge.eliminatorio { background: #FEE2E2; color: #DC2626; }
+.risco-badge.alto { background: #FEF3C7; color: #92400E; }
+.risco-badge.medio { background: #DBEAFE; color: var(--cms-navy); }
+.risco-content h4 {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  color: var(--cms-navy);
+  margin-bottom: 4px;
+}
+.risco-content p { font-size: 12.5px; color: var(--cms-muted); line-height: 1.55; }
+
+/* ── CITAÇÃO ── */
+.fala {
+  border-left: 4px solid var(--cms-blue);
+  padding: 16px 22px;
+  margin: 24px 0;
+  background: white;
+  border-radius: 0 10px 10px 0;
+  font-size: 14.5px;
+  color: var(--cms-ink);
+  line-height: 1.65;
+}
+.fala.urgente {
+  border-left-color: #DC2626;
+  background: #FFF5F5;
+}
+.fala.green { border-left-color: var(--cms-green); }
+.fala.yellow {
+  border-left-color: var(--cms-yellow);
+  background: #FFFBEB;
+}
+.fala strong { color: var(--cms-navy); }
+
+/* ── PLANO AÇÃO ── */
+.checklist-group { margin-bottom: 32px; }
+.checklist-title {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cms-blue);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cms-border);
+}
+.check-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 14px;
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.check-box {
+  width: 18px; height: 18px;
+  border: 2px solid var(--cms-border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.check-item strong { color: var(--cms-navy); font-weight: 700; }
+
+/* ── PROPOSTA ── */
+.proposta-conceito {
+  background: var(--cms-navy);
+  color: white;
+  border-radius: 16px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.proposta-conceito::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,196,0,0.1) 0%, transparent 65%);
+}
+.proposta-nome {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cms-yellow);
+  margin-bottom: 10px;
+}
+.proposta-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.proposta-texto { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+/* ── CONCLUSÃO ── */
+.conclusao-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.conclusao-item {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.conclusao-q {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cms-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.conclusao-r {
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 900;
+  color: var(--cms-green);
+  margin-bottom: 10px;
+}
+.conclusao-texto { font-size: 13px; color: var(--cms-muted); line-height: 1.6; }
+
+/* ── CRONOGRAMA ── */
+.cronograma-phases {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 28px;
+}
+.fase {
+  display: flex; gap: 0; align-items: stretch;
+  border: 1px solid var(--cms-border);
+  border-radius: 10px; overflow: hidden;
+  background: white;
+}
+.fase-label {
+  background: var(--cms-navy);
+  color: white;
+  padding: 14px 18px;
+  min-width: 140px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.fase-n {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 3px;
+}
+.fase-nome {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+.fase-periodo {
+  font-size: 11px;
+  color: var(--cms-yellow);
+  margin-top: 4px;
+}
+.fase-content {
+  padding: 14px 20px;
+  flex: 1;
+  font-size: 13.5px;
+  color: var(--cms-ink);
+  display: flex; align-items: center;
+}
+
+/* ── ORÇAMENTO VISUAL ── */
+.orcamento-bar { margin-bottom: 28px; }
+.orcamento-total {
+  font-family: var(--font-display);
+  font-size: 32px; font-weight: 900;
+  color: var(--cms-navy);
+  margin-bottom: 4px;
+}
+.orcamento-sub { font-size: 13px; color: var(--cms-muted); margin-bottom: 24px; }
+.orcamento-item { margin-bottom: 14px; }
+.orcamento-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 5px;
+}
+.orcamento-label {
+  font-size: 13px; font-weight: 600;
+  color: var(--cms-ink);
+  display: flex; align-items: center; gap: 8px;
+}
+.orcamento-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.orcamento-value {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700;
+  color: var(--cms-navy);
+}
+.orcamento-pct { font-size: 12px; color: var(--cms-muted); }
+.bar-track {
+  background: var(--cms-off);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+.bar-fill { height: 100%; border-radius: 4px; }
+
+/* ── PONTUAÇÃO ── */
+.pontuacao-visual {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin-bottom: 28px;
+}
+.ponto-item {
+  flex: 1; min-width: 150px;
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  text-align: center;
+}
+.ponto-pts {
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 900;
+  color: var(--cms-navy);
+  line-height: 1;
+}
+.ponto-pts.destaque { color: var(--cms-blue); }
+.ponto-desc {
+  font-size: 12px; color: var(--cms-muted);
+  margin-top: 6px; line-height: 1.4;
+}
+
+/* ── DIAGNOSTICO BLOCOS ── */
+.diag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.diag-bloco {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.diag-header {
+  background: var(--cms-off);
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--cms-border);
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--cms-blue);
+}
+.diag-body { padding: 14px 18px; }
+.diag-item {
+  font-size: 13px; color: var(--cms-ink);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--cms-border);
+  line-height: 1.45;
+  display: flex; gap: 8px;
+}
+.diag-item:last-child { border-bottom: none; }
+.diag-item::before { content: '▸'; color: var(--cms-yellow); flex-shrink: 0; margin-top: 1px; }
+
+/* ── ANEXO ── */
+.anexo-section {
+  background: var(--cms-off);
+  border-top: 3px solid var(--cms-blue);
+}
+.anexo-label {
+  display: inline-block;
+  background: var(--cms-blue);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 20px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--cms-navy);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+.footer strong { color: rgba(255,255,255,0.85); }
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(to right, var(--cms-yellow) 33.3%, var(--cms-green) 33.3% 66.6%, var(--cms-blue) 66.6%);
+}
+
+/* ── UTIL ── */
+.cms-tag {
+  display: inline-block;
+  padding: 3px 10px; border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.tag-blue { background: var(--cms-blue); color: white; }
+.tag-green { background: var(--cms-green); color: white; }
+.tag-yellow { background: var(--cms-yellow); color: var(--cms-navy); }
+.tag-navy { background: var(--cms-navy); color: white; }
+.tag-outline { border: 1.5px solid var(--cms-blue); color: var(--cms-blue); }
+.tag-red { background: #FEE2E2; color: #DC2626; }
+
+.sub-title {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 700;
+  color: var(--cms-navy);
+  margin: 28px 0 14px;
+}
+
+hr.divider { border: none; border-top: 1px solid var(--cms-border); margin: 28px 0; }
+
+@media (max-width: 768px) {
+  .hero { padding: 56px 24px 48px; }
+  .topbar { padding: 0 20px; }
+  .topbar-nav { display: none; }
+  .wrap { padding: 0 24px; }
+  .alert-urgente { padding: 14px 24px; }
+  .hero-meta-grid { grid-template-columns: 1fr 1fr; }
+  .fase { flex-direction: column; }
+  .fase-label { min-width: unset; }
+  .footer { padding: 0px; }
+}
+/* Garante que o texto fique acima da marca d'água */
+.hero > * { 
+  position: relative; 
+  z-index: 1; 
+}
+
+/* Estilo da Marca D'água */
+.hero > .hero-watermark {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: -5%; /* Desloca a imagem mais para a direita */
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  width: 900px; /* Tamanho bem grande */
+  max-width: 150%; 
+  opacity: 0.08; /* Transparência forte (efeito marca d'água) */
+  pointer-events: none; /* Impede que a imagem bloqueie cliques */
+}
+
+/* ─── OTIMIZAÇÕES DE IMPRESSÃO (A4 RIGOROSO) ─── */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+    background-color: var(--cms-off);
+  }
+  
+  body {
+    font-size: 10.5pt;
+    background: var(--cms-off);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Esconder navegação na impressão e ajustar barra do topo */
+  .topbar { 
+    position: static; 
+    margin: 0 -15mm !important; 
+    padding: 0 25mm !important; 
+  }
+  .topbar-nav { display: none; }
+
+  /* 1) EFEITO SANGRIA (BLEED) COM MARGENS NEGATIVAS E PADDING SEGURO */
+  .hero, .footer, .alert-urgente, .proposta-conceito, .anexo-section {
+    margin-left: -15mm !important;
+    margin-right: -15mm !important;
+    padding-left: 25mm !important;
+    padding-right: 25mm !important;
+  }
+  .hero {
+    margin-top: -15mm !important;
+    padding-top: 15mm !important;
+    padding-bottom: 10mm !important;
+    margin-bottom: 0 !important;
+  }
+  .hero h1 { font-size: 24pt !important; margin-bottom: 5px !important; }
+  .hero-sub { margin-bottom: 15px !important; font-size: 11pt !important; }
+  .footer {
+    margin-bottom: -15mm !important;
+    padding-bottom: 15mm !important;
+  }
+
+  /* 2) QUEBRAS DE PÁGINA (UMA SEÇÃO POR PÁGINA) */
+  .section {
+    page-break-before: always;
+    break-before: page;
+    padding: 10mm 0 !important;
+    border-bottom: none !important;
+  }
+  
+  /* Exceção: Sumário colado na Capa (Página 1) */
+  #sumario {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  
+  /* Proteger elementos de quebras a meio */
+  h2, h3, .section-eyebrow, .sub-title { page-break-after: avoid; break-after: avoid; }
+  .oport-card, .eixo-card, .viab-card, .opport-item, .risco-item, .conclusao-item, .fase, .diag-bloco, .ponto-item, .check-item, tr, .fala, .proposta-conceito, .hero-meta-item, .orcamento-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* 3) AJUSTES NAS TABELAS E QUEBRAS DE PALAVRA */
+  .table-wrap { overflow-x: hidden !important; width: 100% !important; }
+  .cms-table { width: 100% !important; max-width: 100% !important; table-layout: fixed !important; font-size: 9pt !important;}
+  .cms-table th, .cms-table td { word-wrap: break-word !important; overflow-wrap: break-word !important; padding: 6px 8px !important; }
+  
+  /* Fix para "Documento" não quebrar letra por letra no Anexo III */
+  .cms-table th:nth-child(2), .cms-table td:nth-child(2) { min-width: 130px !important; word-break: normal !important; }
+
+  /* 4) COMPRESSÃO DE SEÇÕES (Seção 9, 10, 11 e Plano) PARA CABEREM NUMA PÁGINA */
+  /* Hero items */
+  .hero-meta-grid { display: flex; flex-wrap: wrap; margin-bottom: 0 !important;}
+  .hero-meta-item { flex: 1 1 45%; border: none !important; padding: 8px 15px !important; }
+  
+  /* TOC compactado */
+  .toc-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+  .toc-item { flex: 1 1 48%; padding: 5px 8px !important; font-size: 8.5pt !important; margin-bottom: 2px !important;}
+
+  /* Seção 9 (Diagnóstico) -> 2 colunas, mais espaçadas e visuais */
+  #diagnostico { padding-top: 15mm !important; padding-bottom: 15mm !important; }
+  #diagnostico .section-title { margin-bottom: 25px !important; font-size: 22pt !important; }
+  #diagnostico .section-intro { margin-bottom: 20px !important; font-size: 11pt !important; }
+  #diagnostico .diag-grid { display: flex; flex-wrap: wrap; gap: 20px; } 
+  #diagnostico .diag-bloco { flex: 1 1 45%; margin: 0 !important; break-inside: avoid; border-radius: 8px !important; border: 1.5px solid var(--cms-border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+  #diagnostico .diag-header { padding: 10px 14px !important; font-size: 10pt !important; background: var(--cms-off); border-bottom: 1.5px solid var(--cms-border); color: var(--cms-navy); font-weight: 900;}
+  #diagnostico .diag-body { padding: 12px 14px !important; }
+  #diagnostico .diag-item { padding: 5px 0 !important; font-size: 9.5pt !important; line-height: 1.5 !important; }
+  
+  /* Seção 10 (Formulário) - Correção de layout e fontes */
+  #formulario { padding-top: 5mm !important; padding-bottom: 5mm !important; }
+  #formulario .section-title { margin-bottom: 10px !important; font-size: 18pt !important; }
+  #formulario .section-intro { margin-bottom: 15px !important; font-size: 10.5pt !important; line-height: 1.4 !important; }
+  
+  /* Aumenta o respiro interno da caixa branca, mas de forma contida */
+  #formulario > .wrap > div { padding: 25px 25px !important; } 
+  #formulario h3 { font-size: 12.5pt !important; margin-bottom: 12px !important; padding-bottom: 8px !important; }
+  
+  /* Normaliza o espaçamento das linhas gerais */
+  #formulario p { margin-bottom: 6px !important; font-size: 10pt !important; line-height: 1.4 !important; font-family: var(--font-body) !important; }
+  
+  /* Destaca e afasta os Títulos dos Blocos (Bloco 1, Bloco 2...) */
+  #formulario p[style*="font-weight:700"] { margin-top: 18px !important; margin-bottom: 8px !important; font-size: 11pt !important; color: var(--cms-navy) !important; }
+  
+  /* Estilo limpo para o Rodapé (Finalidade...) */
+  #formulario p:last-of-type { margin-top: 20px !important; padding-top: 12px !important; font-size: 9pt !important; font-style: normal !important; color: var(--cms-muted) !important; border-top: 1.5px solid var(--cms-border) !important; }
+  
+  /* Seção 11 (Ideias por Eixo) */
+  #ideias { padding-top: 10px !important; padding-bottom: 5px !important; }
+  #ideias .table-wrap { margin-bottom: 5px !important; }
+  #ideias .sub-title { margin: 20px 0 8px 0 !important; font-size: 11pt !important; color: var(--cms-navy); }
+  #ideias .cms-table th, #ideias .cms-table td { padding: 6px 8px !important; font-size: 8.5pt !important; }
+
+  /* Seção 13 (Matriz Preliminar de Projeto) - Espalhando mais a tabela */
+  #estrategia { padding-top: 15mm !important; padding-bottom: 15mm !important; }
+  #estrategia .table-wrap { margin-bottom: 15px !important; width: 100% !important; }
+  #estrategia .cms-table { width: 100% !important; table-layout: auto !important; } 
+  #estrategia .cms-table th, #estrategia .cms-table td { padding: 12px 14px !important; font-size: 9.5pt !important; line-height: 1.4 !important;}
+
+  /* Plano de Ação - Cronograma e Orçamento */
+  #plano { padding-top: 10px !important; padding-bottom: 5px !important; }
+  #plano .cronograma-phases { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px !important;}
+  #plano .fase { flex: 1 1 100%; display: flex; flex-direction: row; margin-bottom: 0 !important; }
+  #plano .fase-label { min-width: 110px; padding: 4px 8px !important; }
+  #plano .fase-content { padding: 4px 8px !important; font-size: 8pt !important; line-height: 1.15 !important;}
+  #plano .orcamento-total { font-size: 14pt !important; margin-bottom: 2px !important; }
+  #plano .orcamento-sub { margin-bottom: 6px !important; font-size: 8pt !important; }
+  #plano .orcamento-item { margin-bottom: 2px !important; }
+  
+  /* Plano de Ação - Checklist (Nova Página Limpa e Espaçada) */
+  #plano-acao { 
+    page-break-before: always !important; 
+    break-before: page !important; 
+    padding-top: 15mm !important; 
+    margin-top: 0 !important; 
+    display: block; 
+    width: 100%; 
+    clear: both;
+  }
+  #plano-acao hr.divider { display: none !important; } /* Esconde o <hr> que sujava o topo */
+  #plano-acao .sub-title { margin-top: 0 !important; font-size: 16pt !important; margin-bottom: 15px !important;}
+  #plano-acao .checklist-group { margin-bottom: 6px !important; }
+  #plano-acao .check-item { margin-bottom: 2px !important; padding: 3px 6px !important; font-size: 8pt !important; line-height: 1.15 !important;}
+  
+  /* 5) ANEXOS OTIMIZADOS E QUEBRAS MANUAIS */
+  #anexos { padding-top: 15mm !important; }
+  .anexo-section { padding-left: 25mm !important; padding-right: 25mm !important; }
+  .anexo-section .wrap { padding-left: 0 !important; padding-right: 0 !important; }
+  
+  .anexo-section .section-title { margin-bottom: 15px !important; } /* Reduz buraco sob o título Anexos */
+  #anexos .anexo-label { margin-bottom: 10px !important; padding: 4px 12px !important; font-size: 8.5pt !important; }
+  #anexos .sub-title { margin-bottom: 15px !important; font-size: 11pt !important; }
+  #anexos .cms-table th, #anexos .cms-table td { padding: 8px 10px !important; font-size: 8.5pt !important; line-height: 1.3 !important; }
+  
+  /* Anexo I: 1 Página, mais espaçado */
+  #anexo1 { page-break-after: always; margin-bottom: 0 !important; padding-top: 10mm !important; } 
+  #anexo1 .anexo-label { margin-bottom: 15px !important; }
+  #anexo1 .sub-title { margin-top: 0 !important; margin-bottom: 12px !important; }
+  #anexo1 .cms-table th, #anexo1 .cms-table td { padding: 10px 12px !important; font-size: 9pt !important; line-height: 1.3 !important; } 
+
+  #anexo2 { page-break-after: avoid; margin-bottom: 30px !important; padding-top: 10mm !important;} /* Anexo II e III juntos */
+  #anexo3 { page-break-before: avoid; page-break-after: always; margin-bottom: 0 !important; }
+  
+  /* Anexo IV: 1 Página */
+  #anexo4 { 
+    page-break-after: avoid !important; 
+    padding-top: 10mm !important; 
+    height: auto !important; /* IMPORTANTE: Devolve a altura ao normal */
+  } 
+  #anexo4 > div { display: flex; flex-wrap: wrap; gap: 20px; }
+  #anexo4 > div > div { flex: 1 1 45%; margin-bottom: 10px !important; break-inside: avoid; }
+  #anexo4 .diag-header { font-size: 9pt !important; padding: 8px 12px !important; }
+  #anexo4 .diag-body { padding: 8px 12px !important; }
+  #anexo4 .diag-item { font-size: 8.5pt !important; padding: 4px 0 !important; line-height: 1.3 !important; }
+
+  .assinatura-wrapper {
+    margin-top: 15mm !important;  /* Diminui o buraco entre o Anexo IV e a Assinatura */
+    margin-bottom: 10mm !important; /* Diminui o buraco entre a Assinatura e o Footer */
+    page-break-inside: avoid !important; 
+  }
+
+  .footer {
+    page-break-inside: avoid !important; /* Garante que o Footer não rache ao meio */
+    margin-top: 0 !important;
+    margin-bottom: -15mm !important; /* Mantém a sangria até ao limite do papel */
+    padding-top: 15mm !important;
+    padding-bottom: 15mm !important;
+  }
+}04:15 16/06/2026
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-brand" style="display: flex; align-items: center; gap: 12px;">
+    <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/secexe3.png" alt="Logo Secretaria Executiva" style="height: 30px; width: auto; object-fit: contain;">
+    <div><span>CMSMOC</span> · Nota Técnica</div>
+  </div>
+  <div class="topbar-nav">
+    <a href="#resumo">Resumo</a>
+    <a href="#programa">Programa</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#requisitos">Requisitos</a>
+    <a href="#pontuacao">Pontuação</a>
+    <a href="#viabilidade">Viabilidade</a>
+    <a href="#estrategia">Estratégia</a>
+    <a href="#plano">Plano</a>
+    <a href="#conclusao">Conclusão</a>
+    <a href="#anexos">Anexos</a>
+  </div>
+</nav>
+<div class="stripe"></div>
+<!-- HERO -->
+<header class="hero">
+  <!-- Marca D'água de Fundo -->
+  <img class="hero-watermark" src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/logline.png" alt="">
+
+  <!-- Sua Logo Grande no Topo já existente -->
+  <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/cms01.png" alt="Secretaria Executiva CMSMOC" style="display: block; width: 100%; max-width: 280px; height: auto; margin-bottom: 36px;">
+
+  <div class="hero-meta">
+    <span class="hero-tag hero-tag-yellow">Nota Técnica Estratégica</span>
+<!-- Restante do código do Hero segue igual... -->
+    <span class="hero-tag hero-tag-outline">Edital nº 11/2026</span>
+    <span class="hero-tag hero-tag-outline">Portaria GM/MS nº 11.485/2026</span>
+  </div>
+  <h1>Programa de Fortalecimento<br>dos <em>Conselhos Locais</em><br>de Saúde</h1>
+  <p class="hero-sub">Análise estratégica e recomendações para participação do município de Montes Claros — MG no edital federal de incentivo aos CLS</p>
+  <div class="hero-meta-grid">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Município</div>
+      <div class="hero-meta-value">Montes Claros — MG</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Elaboração</div>
+      <div class="hero-meta-value">Secretaria Executiva — CMSMOC</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Data da análise</div>
+      <div class="hero-meta-value">11 de junho de 2026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Prazo final de inscrição</div>
+      <div class="hero-meta-value yellow">03 de agosto de 2026</div>
+    </div>
+  </div>
+</header>
+
+<div class="alert-urgente">
+  <div class="alert-urgente-icon">⚠️</div>
+  <div class="alert-urgente-text">
+    Ação urgente: <span>Verificar imediatamente a existência e regularidade da Resolução do CMS que institui os CLS, conforme Resolução CNS nº 714/2023. Condição documental mais crítica do processo — inabilitação automática se ausente.</span>
+  </div>
+</div>
+
+<main>
+
+<section class="section" id="sumario">
+  <div class="wrap">
+    <div class="section-eyebrow">Navegação</div>
+    <h2 class="section-title">Sumário</h2>
+    <div class="toc-grid">
+      <a href="#resumo" class="toc-item"><span class="toc-n">01</span>Resumo Executivo</a>
+      <a href="#programa" class="toc-item"><span class="toc-n">02</span>O que é o Programa</a>
+      <a href="#recursos" class="toc-item"><span class="toc-n">03</span>O que o Município pode Ganhar</a>
+      <a href="#requisitos" class="toc-item"><span class="toc-n">04</span>Requisitos para Participação</a>
+      <a href="#pontuacao" class="toc-item"><span class="toc-n">05</span>Critérios de Seleção e Pontuação</a>
+      <a href="#viabilidade" class="toc-item"><span class="toc-n">06</span>Análise de Viabilidade</a>
+      <a href="#oportunidades" class="toc-item"><span class="toc-n">07</span>Oportunidades Estratégicas</a>
+      <a href="#riscos" class="toc-item"><span class="toc-n">08</span>Riscos e Desafios</a>
+      <a href="#diagnostico" class="toc-item"><span class="toc-n">09</span>Diagnóstico Necessário</a>
+      <a href="#formulario" class="toc-item"><span class="toc-n">10</span>Formulário Recomendado</a>
+      <a href="#ideias" class="toc-item"><span class="toc-n">11</span>Ideias por Eixo</a>
+      <a href="#estrategia" class="toc-item"><span class="toc-n">12–13</span>Proposta Estratégica</a>
+      <a href="#plano" class="toc-item"><span class="toc-n">14–16</span>Cronograma, Orçamento e Plano</a>
+      <a href="#conclusao" class="toc-item"><span class="toc-n">17</span>Conclusão Executiva</a>
+      <a href="#anexos" class="toc-item"><span class="toc-n">I–IV</span>Anexos</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resumo">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 1</div>
+    <h2 class="section-title">Resumo <span>Executivo</span></h2>
+    <p class="section-intro">O Ministério da Saúde publicou em 1º de junho de 2026 o Edital nº 11/2026, lastreado na Portaria GM/MS nº 11.485/2026, que institui um incentivo financeiro federal de custeio destinado ao fortalecimento dos Conselhos Locais de Saúde em todo o território nacional — transferência direta fundo a fundo, sem convênio ou licitação.</p>
+
+    <h3 class="sub-title">A oportunidade em números</h3>
+    <div class="oport-numbers">
+      <div class="oport-card">
+        <div class="oport-value">R$ 15 mi</div>
+        <div class="oport-label">Valor global disponível pelo Ministério da Saúde</div>
+      </div>
+      <div class="oport-card yellow">
+        <div class="oport-value">150</div>
+        <div class="oport-label">Projetos selecionáveis em todo o Brasil</div>
+      </div>
+      <div class="oport-card green">
+        <div class="oport-value" style="color:var(--cms-green)">R$ 100 mil</div>
+        <div class="oport-label">Valor máximo por projeto sem convênio</div>
+      </div>
+      <div class="oport-card navy">
+        <div class="oport-value">36 meses</div>
+        <div class="oport-label">Prazo de execução (prorrogável por +12)</div>
+      </div>
+      <div class="oport-card">
+        <div class="oport-value">Ilimitado</div>
+        <div class="oport-label">Número de propostas por município</div>
+      </div>
+      <div class="oport-card" style="--top-color:var(--cms-yellow)">
+        <div class="oport-value" style="color:#DC2626">30 dias</div>
+        <div class="oport-label">Prazo total para elaborar e submeter</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Recomendação da Secretaria Executiva</h3>
+    <div class="fala yellow">
+      <strong>Participar é altamente recomendável.</strong> A oportunidade converge com os objetivos estratégicos do CMSMOC de fortalecer o controle social territorial, digitalizar processos e ampliar a cultura participativa nas comunidades atendidas pela APS. O custo de não participar é a perda de até R$ 100.000,00 de recursos federais que poderiam transformar estruturalmente os CLS do município por três anos.
+    </div>
+
+    <h3 class="sub-title">Avaliação de viabilidade — síntese</h3>
+    <p style="font-size:14px; color:var(--cms-muted); margin-bottom:16px;">Montes Claros é município de grande porte com rede de APS robusta, CMS ativo e Secretaria Executiva operacional. A combinação posiciona o município com <strong style="color:var(--cms-green)">alta viabilidade de participação</strong>, desde que o requisito documental crítico — a Resolução do CMS sobre os CLS — esteja satisfeito ou seja regularizado ainda dentro do prazo.</p>
+  </div>
+</section>
+
+<section class="section" id="programa">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 2</div>
+    <h2 class="section-title">O que é o <span>Programa</span></h2>
+    <p class="section-intro">O programa nasce de uma política federal de fortalecimento do controle social no SUS, com base na Lei nº 8.142/1990 e na Resolução CNS nº 714/2023 — o marco normativo mais recente sobre os Conselhos Locais de Saúde.</p>
+
+    <div class="fala">
+      <strong>Portaria GM/MS nº 11.485/2026</strong> — assinada pelo Ministro Alexandre Padilha em 29/05/2026, publicada no DOU de 01/06/2026. Funding: Programa de Trabalho 10.122.5121.8287 — Aprimoramento da Articulação e Cooperação Interfederativa em Saúde. Modalidade: <strong>fundo a fundo</strong> — o mecanismo mais desburocratizado do financiamento do SUS.
+    </div>
+
+    <h3 class="sub-title">O que são os Conselhos Locais de Saúde</h3>
+    <p style="font-size:14px; color:var(--cms-muted); margin-bottom:16px; line-height:1.7;">O CMS atua no nível central do município. Os CLS são instâncias instaladas diretamente nas UBS ou em territórios específicos — o braço capilar do controle social. A Resolução CNS nº 714/2023 os define como:</p>
+    <div class="fala green">
+      <em>"Instância colegiada de participação social, de natureza permanente e representativa, vinculada ao SUS, que atua no âmbito de um equipamento de saúde ou território definido."</em>
+    </div>
+
+    <h3 class="sub-title">Por que o Ministério está financiando isso agora</h3>
+    <p style="font-size:14px; color:var(--cms-muted); line-height:1.7;">O SUS depende constitucionalmente da participação social. Os CLS existem em lei, mas historicamente são instâncias frágeis — muitos nunca foram formalmente constituídos, outros existem no papel mas não funcionam. O Ministério investe R$ 15 milhões para induzir municípios a criarem, estruturarem e capacitarem esses conselhos territoriais. Um CLS ativo amplia a democracia sanitária, reduz assimetrias de informação e fortalece a corresponsabilização comunitária.</p>
+  </div>
+</section>
+
+<section class="section" id="recursos">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 3</div>
+    <h2 class="section-title">O que o Município<br>pode <span>Ganhar</span></h2>
+
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead>
+          <tr><th>Horizonte</th><th>Ganhos principais</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Curto prazo</strong><br><span style="font-size:11px;color:var(--cms-muted)">até 12 meses</span></td><td>Recursos financeiros, regularização normativa, eleições, identidade visual, primeiras capacitações</td></tr>
+          <tr><td><strong>Médio prazo</strong><br><span style="font-size:11px;color:var(--cms-muted)">12–24 meses</span></td><td>CLS funcionando, conselheiros formados, comunicação ativa, sistema de monitoramento</td></tr>
+          <tr><td><strong>Longo prazo</strong><br><span style="font-size:11px;color:var(--cms-muted)">24–36+ meses</span></td><td>Rede municipal de CLS consolidada, cultura participativa enraizada, modelo replicável</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">Os quatro eixos financiáveis</h3>
+    <div class="eixos-grid">
+      <div class="eixo-card">
+        <div class="eixo-header">
+          <div class="eixo-letter" style="background:var(--cms-navy)">A</div>
+          <div class="eixo-name">Articulação</div>
+        </div>
+        <div class="eixo-body">
+          <p class="eixo-desc">Normatização e estruturação dos CLS — Resolução, Regimento, fluxos interinstitucionais.</p>
+          <div class="eixo-range">
+            <span class="eixo-range-label">Faixa</span>
+            <span class="eixo-range-value">R$ 9k — R$ 13k</span>
+          </div>
+        </div>
+      </div>
+      <div class="eixo-card">
+        <div class="eixo-header">
+          <div class="eixo-letter" style="background:var(--cms-blue)">B</div>
+          <div class="eixo-name">Comunicação</div>
+        </div>
+        <div class="eixo-body">
+          <p class="eixo-desc">Campanhas, cartilhas, identidade visual, mídias digitais e painel de transparência.</p>
+          <div class="eixo-range">
+            <span class="eixo-range-label">Faixa</span>
+            <span class="eixo-range-value">R$ 20k — R$ 28k</span>
+          </div>
+        </div>
+      </div>
+      <div class="eixo-card">
+        <div class="eixo-header">
+          <div class="eixo-letter" style="background:var(--cms-green)">C</div>
+          <div class="eixo-name">Eleição</div>
+        </div>
+        <div class="eixo-body">
+          <p class="eixo-desc">Organização de processos eleitorais dos CLS — Regulamento, Kit Eleitoral, mutirão.</p>
+          <div class="eixo-range">
+            <span class="eixo-range-label">Faixa</span>
+            <span class="eixo-range-value">R$ 12k — R$ 17k</span>
+          </div>
+        </div>
+      </div>
+      <div class="eixo-card">
+        <div class="eixo-header">
+          <div class="eixo-letter" style="background:#7C3AED">D</div>
+          <div class="eixo-name">Formação</div>
+        </div>
+        <div class="eixo-body">
+          <p class="eixo-desc">Capacitação de conselheiros locais — cursos, escola municipal, jornada anual.</p>
+          <div class="eixo-range">
+            <span class="eixo-range-label">Faixa</span>
+            <span class="eixo-range-value">R$ 29k — R$ 42k</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="requisitos">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 4</div>
+    <h2 class="section-title">Requisitos para <span>Participação</span></h2>
+    <p class="section-intro">Três condições são inegociáveis e eliminatórias. Os demais requisitos precisam ser produzidos antes da submissão.</p>
+
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead>
+          <tr><th>Requisito</th><th>Obrigatório?</th><th>Situação em Montes Claros</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CMS instituído e em funcionamento regular</td>
+            <td><span class="cms-tag tag-red">Eliminatório</span></td>
+            <td class="status-ok">✅ Satisfeito — CMS ativo (465ª Reunião Ordinária recente)</td>
+          </tr>
+          <tr>
+            <td><strong>Resolução do CMS instituindo os CLS (Res. CNS nº 714/2023)</strong></td>
+            <td><span class="cms-tag tag-red">Eliminatório</span></td>
+            <td class="status-warn">⚠️ A verificar com urgência</td>
+          </tr>
+          <tr>
+            <td>Ausência de pendências em prestação de contas com a União</td>
+            <td><span class="cms-tag tag-red">Eliminatório</span></td>
+            <td class="status-warn">⚠️ A verificar no CAUC/SIAFI</td>
+          </tr>
+          <tr>
+            <td>Município não declarado inidôneo ou suspenso</td>
+            <td><span class="cms-tag tag-red">Eliminatório</span></td>
+            <td class="status-warn">⚠️ A verificar no CEIS/SICAF</td>
+          </tr>
+          <tr>
+            <td>Declaração de aprovação da proposta pelo CMS (Anexo IV)</td>
+            <td><span class="cms-tag tag-navy">Sim</span></td>
+            <td class="status-todo">A produzir — requer deliberação em plenária</td>
+          </tr>
+          <tr>
+            <td>Declaração de cessão de servidor coordenador (20h/semana)</td>
+            <td><span class="cms-tag tag-navy">Sim</span></td>
+            <td class="status-todo">A definir com a SMS</td>
+          </tr>
+          <tr>
+            <td>Justificativa técnica (Anexo VI) — até 8.000 caracteres</td>
+            <td><span class="cms-tag tag-navy">Sim</span></td>
+            <td class="status-todo">A elaborar</td>
+          </tr>
+          <tr>
+            <td>Plano de Trabalho (Anexo VII) — metas, cronograma, orçamento</td>
+            <td><span class="cms-tag tag-navy">Sim</span></td>
+            <td class="status-todo">A elaborar</td>
+          </tr>
+          <tr>
+            <td>PDF único via e-mail: projetos.cgpams@saude.gov.br</td>
+            <td><span class="cms-tag tag-navy">Sim</span></td>
+            <td class="status-todo">A organizar — nomeado "SMS Montes Claros MG"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fala urgente">
+      <strong>Requisito mais crítico — a Resolução do CMS sobre os CLS.</strong> Este é o único requisito que, se ausente, gera inabilitação automática sem possibilidade de recurso. O edital é explícito: <em>"será obrigatória a apresentação de Resolução do Conselho de Saúde do ente proponente que institua os Conselhos Locais de Saúde, em conformidade com a Resolução CNS nº 714/2023."</em>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pontuacao">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 5</div>
+    <h2 class="section-title">Critérios de Seleção<br>e <span>Pontuação</span></h2>
+    <p class="section-intro">O edital adota pontuação máxima de 100 pontos. A distribuição revela onde a proposta será vencida ou perdida.</p>
+
+    <div class="pontuacao-visual">
+      <div class="ponto-item">
+        <div class="ponto-pts destaque">40</div>
+        <div class="ponto-desc">Metas, metodologia e resultados coerentes<br><strong style="color:var(--cms-blue)">Peso 4 · 40% da nota total</strong></div>
+      </div>
+      <div class="ponto-item">
+        <div class="ponto-pts destaque">20</div>
+        <div class="ponto-desc">Cronograma compatível com o prazo de execução<br><strong style="color:var(--cms-blue)">Peso 2</strong></div>
+      </div>
+      <div class="ponto-item">
+        <div class="ponto-pts destaque">20</div>
+        <div class="ponto-desc">Coerência financeira entre orçamento e eixos<br><strong style="color:var(--cms-blue)">Peso 2</strong></div>
+      </div>
+      <div class="ponto-item">
+        <div class="ponto-pts">10</div>
+        <div class="ponto-desc">Justificativa: território e capacidade técnica</div>
+      </div>
+      <div class="ponto-item">
+        <div class="ponto-pts">10</div>
+        <div class="ponto-desc">Justificativa: estrutura física e sustentabilidade</div>
+      </div>
+    </div>
+
+    <div class="fala">
+      <strong>O Plano de Trabalho vale 80 pontos</strong> — vs. 20 da Justificativa. Uma justificativa medíocre com metas excelentes pontua mais do que uma justificativa brilhante com metas vagas. <strong>A proposta será vencida ou perdida na qualidade das metas.</strong>
+    </div>
+
+    <h3 class="sub-title">Critérios de desempate (em caso de pontuação igual)</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>#</th><th>Critério</th><th>Observação para Montes Claros</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Maior vulnerabilidade social (IVS — Ipea)</td><td>Favorável — município em região semiárida com desigualdades internas</td></tr>
+          <tr><td>2</td><td>Maior número de CLS já instituídos e em funcionamento</td><td>Reforça urgência de ter CLS formalizados antes da submissão</td></tr>
+          <tr><td>3</td><td>Menor IDHM</td><td>A verificar com dados do Atlas PNUD</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="viabilidade">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 6</div>
+    <h2 class="section-title">Análise de <span>Viabilidade</span></h2>
+    <div class="viab-grid">
+      <div class="viab-card">
+        <div class="viab-icon">🏛️</div>
+        <div class="viab-dim">Capacidade Institucional</div>
+        <div class="viab-nivel alta">Muito Alta</div>
+        <p class="viab-obs">CMS constituído, presidente eleito, Mesa Diretora e SE operacional. Pelo menos 465 reuniões ordinárias registradas, plenárias funcionando e histórico de deliberações.</p>
+      </div>
+      <div class="viab-card">
+        <div class="viab-icon">⚙️</div>
+        <div class="viab-dim">Capacidade Operacional</div>
+        <div class="viab-nivel alta">Alta</div>
+        <p class="viab-obs">SMS opera rede APS de grande porte (~430 mil hab., polo regional). Ponto de atenção: designar servidor coordenador com 20h/semana — contrapartida obrigatória do município.</p>
+      </div>
+      <div class="viab-card">
+        <div class="viab-icon">💰</div>
+        <div class="viab-dim">Capacidade Financeira</div>
+        <div class="viab-nivel media-alta">Média-Alta</div>
+        <p class="viab-obs">Recursos são federais, fundo a fundo. As contrapartidas (espaço físico, coordenador) são gerenciáveis para município de grande porte. Risco: gestão financeira na execução.</p>
+      </div>
+      <div class="viab-card">
+        <div class="viab-icon">🔬</div>
+        <div class="viab-dim">Capacidade Técnica</div>
+        <div class="viab-nivel alta">Alta</div>
+        <p class="viab-obs">SE do CMSMOC com produção de documentos institucionais complexos, materiais de comunicação, domínio de fluxos administrativos do SUS e experiência com formação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="oportunidades">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 7</div>
+    <h2 class="section-title">Oportunidades <span>Estratégicas</span></h2>
+    <div class="opport-grid">
+      <div class="opport-item">
+        <div class="opport-n" style="background:var(--cms-blue)">1</div>
+        <div class="opport-content">
+          <h3>Múltiplas propostas — oportunidade pouco explorada</h3>
+          <p>O edital não limita o número de propostas por município. Montes Claros pode submeter mais de uma, cada uma focada em territórios diferentes (norte, sul, leste, oeste), multiplicando os recursos captados. A estratégia é expressamente autorizada.</p>
+        </div>
+      </div>
+      <div class="opport-item">
+        <div class="opport-n" style="background:var(--cms-green)">2</div>
+        <div class="opport-content">
+          <h3>Diferencial de inovação digital</h3>
+          <p>O edital menciona explicitamente estratégias de comunicação digital, redes sociais e sítios eletrônicos. O CMSMOC já possui infraestrutura digital (SerTão Conselheiro PWA, identidade visual, GitHub Pages) — ativos que podem ser mencionados como evidência de capacidade técnica.</p>
+        </div>
+      </div>
+      <div class="opport-item">
+        <div class="opport-n" style="background:var(--cms-navy)">3</div>
+        <div class="opport-content">
+          <h3>O CMS como articulador, não apenas aprovador</h3>
+          <p>Uma proposta que posiciona o CMS como parceiro técnico do programa — não apenas como anuente burocrático — demonstra integração institucional real, diferencial avaliado na análise qualitativa.</p>
+        </div>
+      </div>
+      <div class="opport-item">
+        <div class="opport-n" style="background:#7C3AED">4</div>
+        <div class="opport-content">
+          <h3>Escola Municipal de Controle Social como conceito âncora</h3>
+          <p>O Eixo D (Formação) é o mais robusto financeiramente (até R$ 42.000). Uma proposta que apresente não apenas "oficinas de capacitação", mas um programa estruturado com nome, identidade e currículo permanente — uma Escola Municipal — tem mais substância para demonstrar sustentabilidade pós-projeto.</p>
+        </div>
+      </div>
+      <div class="opport-item">
+        <div class="opport-n" style="background:var(--cms-green)">5</div>
+        <div class="opport-content">
+          <h3>Rede Municipal de CLS como diferencial estrutural</h3>
+          <p>A proposta mais competitiva não fortalece um CLS isolado, mas apresenta visão sistêmica de rede. CLS não como órgãos isolados em cada UBS, mas como uma Rede Municipal conectada ao CMS, com fluxo de deliberações, comunicação e calendário unificado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="riscos">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 8</div>
+    <h2 class="section-title">Riscos e <span>Desafios</span></h2>
+    <div class="risco-item">
+      <span class="risco-badge eliminatorio">Eliminatório</span>
+      <div class="risco-content">
+        <h4>Ausência ou inadequação da Resolução do CMS sobre CLS</h4>
+        <p>Probabilidade: Média. <strong>Mitigação:</strong> Verificar imediatamente; se necessário, convocar reunião extraordinária do CMS para aprovação urgente antes de 02/07/2026.</p>
+      </div>
+    </div>
+    <div class="risco-item">
+      <span class="risco-badge eliminatorio">Eliminatório</span>
+      <div class="risco-content">
+        <h4>Pendências de prestação de contas na SMS (CAUC/SIAFI)</h4>
+        <p>Probabilidade: Baixa. <strong>Mitigação:</strong> Verificar com urgência antes de iniciar a elaboração da proposta.</p>
+      </div>
+    </div>
+    <div class="risco-item">
+      <span class="risco-badge alto">Alto</span>
+      <div class="risco-content">
+        <h4>Prazo insuficiente para elaboração de proposta competitiva</h4>
+        <p>Probabilidade: Média-Alta. <strong>Mitigação:</strong> Iniciar elaboração imediatamente; dividir tarefas entre SE do CMS e SMS usando este documento e templates para metas SMART.</p>
+      </div>
+    </div>
+    <div class="risco-item">
+      <span class="risco-badge alto">Alto</span>
+      <div class="risco-content">
+        <h4>Proposta desclassificada por metas vagas ou orçamento incoerente</h4>
+        <p>Probabilidade: Média. <strong>Mitigação:</strong> Cotar serviços antes de inserir valores; usar os templates da Seção 11 para elaborar metas SMART verificáveis.</p>
+      </div>
+    </div>
+    <div class="risco-item">
+      <span class="risco-badge medio">Médio</span>
+      <div class="risco-content">
+        <h4>Alta competição — apenas 150 projetos em âmbito nacional</h4>
+        <p>Probabilidade: Alta. <strong>Mitigação:</strong> Proposta diferenciada com conceito de rede e múltiplas inscrições aumentam significativamente a probabilidade de aprovação.</p>
+      </div>
+    </div>
+    <div class="risco-item">
+      <span class="risco-badge medio">Médio</span>
+      <div class="risco-content">
+        <h4>CLS criados não se sustentam após o projeto</h4>
+        <p>Probabilidade: Alta. <strong>Mitigação:</strong> Incorporar sustentabilidade como componente explícito no Plano de Trabalho desde o início — Escola Municipal de Controle Social como estrutura permanente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="diagnostico">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 9</div>
+    <h2 class="section-title">Diagnóstico que precisa<br>ser <span>Realizado</span></h2>
+    <p class="section-intro">Antes de elaborar a proposta final, é necessário mapear a realidade do município em 7 blocos temáticos.</p>
+    <div class="diag-grid">
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 1 — Jurídico-Normativo</div>
+        <div class="diag-body">
+          <div class="diag-item">Existe Resolução CMS sobre CLS? Número, data, ementa?</div>
+          <div class="diag-item">Está adequada à CNS nº 714/2023 (publicada em jul/2023)?</div>
+          <div class="diag-item">Existe regimento interno padrão para os CLS?</div>
+          <div class="diag-item">O CMS está com composição regular e dentro do prazo de mandato?</div>
+        </div>
+      </div>
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 2 — Institucional</div>
+        <div class="diag-body">
+          <div class="diag-item">Quantos CLS existem formalmente em Montes Claros?</div>
+          <div class="diag-item">Quais estão em funcionamento regular (reuniões e atas)?</div>
+          <div class="diag-item">Quais UBS não possuem CLS?</div>
+          <div class="diag-item">Existe cadastro centralizado dos CLS?</div>
+        </div>
+      </div>
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 3 — Territorial</div>
+        <div class="diag-body">
+          <div class="diag-item">Quantas UBS existem? Distribuição por região?</div>
+          <div class="diag-item">Qual o IDHM e IVS do município?</div>
+          <div class="diag-item">Quais territórios têm maior vulnerabilidade social?</div>
+          <div class="diag-item">Qual a população coberta por cada UBS?</div>
+        </div>
+      </div>
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 4 — Operacional</div>
+        <div class="diag-body">
+          <div class="diag-item">Servidor com perfil e disponibilidade para coordenar (20h/semana)?</div>
+          <div class="diag-item">SMS tem estrutura para processos de compra no prazo?</div>
+          <div class="diag-item">Fornecedores locais de design e audiovisual com NF?</div>
+        </div>
+      </div>
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 5 — Financeiro</div>
+        <div class="diag-body">
+          <div class="diag-item">Município regular no CAUC e no SIAFI?</div>
+          <div class="diag-item">Pendências de prestação de contas com o MS?</div>
+          <div class="diag-item">Processo de compra para serviços de comunicação — dispensa, inexigibilidade ou licitação?</div>
+        </div>
+      </div>
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 6 — Comunicação</div>
+        <div class="diag-body">
+          <div class="diag-item">CMS possui identidade visual para materiais dos CLS?</div>
+          <div class="diag-item">Canais de comunicação digital ativos disponíveis?</div>
+          <div class="diag-item">SMS possui equipe de comunicação para apoio?</div>
+        </div>
+      </div>
+      <div class="diag-bloco">
+        <div class="diag-header">Bloco 7 — Formação</div>
+        <div class="diag-body">
+          <div class="diag-item">Ações de capacitação de conselheiros locais já realizadas?</div>
+          <div class="diag-item">Parcerias com instituições de formação (UFMG, ESAP, CONASS)?</div>
+          <div class="diag-item">Experiência com educação popular em saúde?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 10. FORMULÁRIO -->
+<section class="section" id="formulario">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 10</div>
+    <h2 class="section-title">Formulário de Levantamento <span>Recomendado</span></h2>
+    <p class="section-intro" style="margin-bottom:16px;">A seguir, propõe-se um questionário estruturado para envio às UBS e à SMS, com a finalidade de obter as informações necessárias para a elaboração da proposta:</p>
+    <div style="background: white; border: 1px solid var(--cms-border); border-radius: 12px; padding: 20px 24px; font-size: 13.5px; line-height: 1.5;">
+        <h3 style="font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--cms-navy); text-transform: uppercase; margin-bottom: 12px; border-bottom: 2px solid var(--cms-border); padding-bottom: 8px; margin-top:0;">Questionário — Levantamento Diagnóstico dos CLS</h3>
+        <p style="font-style: italic; color: var(--cms-muted); margin-bottom: 16px;">*A ser enviado pela Secretaria Executiva do CMS às equipes de referência de cada UBS e à SMS*</p>
+        
+        <p><strong>Identificação</strong><br>
+        - Nome da UBS: _______________________________________________________<br>
+        - Endereço: __________________________________________________________<br>
+        - Região do município: _________________________________________________<br>
+        - Responsável pelo preenchimento: ______________________________________<br>
+        - Contato (e-mail / telefone): ___________________________________________</p>
+        
+        <p style="margin-top:16px; font-weight:700; color:var(--cms-blue);">Bloco 1 — Situação do CLS</p>
+        <p>1. Esta UBS possui Conselho Local de Saúde formalmente constituído?<br>
+        [ ] Sim, está ativo e reunindo regularmente<br>
+        [ ] Sim, mas está inativo (não se reúne há mais de 6 meses)<br>
+        [ ] Não possui CLS</p>
+        <p>2. Se possui CLS: há quanto tempo está constituído? _____________________</p>
+        <p>3. Quantos membros titulares o CLS possui atualmente? __________________</p>
+        <p>4. O CLS possui ata das últimas 3 reuniões? [ ] Sim [ ] Não</p>
+        <p>5. Existe presidente ou coordenador eleito do CLS? [ ] Sim [ ] Não</p>
+
+        <p style="margin-top:16px; font-weight:700; color:var(--cms-blue);">Bloco 2 — Território e população</p>
+        <p>6. Qual a população estimada coberta por esta UBS? _____________________</p>
+        <p>7. Quais comunidades, bairros ou localidades compõem o território de cobertura? _______</p>
+        <p>8. Existem grupos de vulnerabilidade específica no território? _____________</p>
+
+        <p style="margin-top:16px; font-weight:700; color:var(--cms-blue);">Bloco 3 — Interesse e participação</p>
+        <p>9. Há interesse por parte da equipe de saúde em fortalecer o CLS? [ ] Sim [ ] Não [ ] Não sei</p>
+        <p>10. Existem lideranças comunitárias conhecidas que poderiam participar do CLS? ______</p>
+        <p>11. Qual o principal desafio para o funcionamento do CLS nesta UBS? ______</p>
+
+        <p style="margin-top:16px; font-weight:700; color:var(--cms-blue);">Bloco 4 — Estrutura física</p>
+        <p>12. Existe espaço físico na UBS disponível para reuniões do CLS? [ ] Sim [ ] Não</p>
+        <p>13. Se sim, qual é esse espaço? _________________________________________</p>
+        
+        <p style="margin-top:16px; font-weight:700; color:var(--cms-blue);">Bloco 5 — Apoio Necessário</p>
+        <p>14. Quais ações contribuiriam para fortalecer o CLS? (Marque quantas desejar)<br>
+        [ ] Orientação sobre criação  &nbsp;&nbsp;&nbsp;&nbsp;[ ] Apoio para realizar eleição<br>
+        [ ] Capacitação de conselheiros  &nbsp;&nbsp;&nbsp;&nbsp;[ ] Mobilização comunitária<br>
+        [ ] Materiais informativos  &nbsp;&nbsp;&nbsp;&nbsp;[ ] Apoio institucional<br>
+        [ ] Outros: _________________________________________________________________</p>
+        
+        <p style="margin-top:16px; font-style: italic; color: var(--cms-muted); border-top: 1px solid var(--cms-border); padding-top: 8px; font-size: 12px;">Finalidade: Este levantamento alimentará a Justificativa Técnica (Anexo VI) e o Plano de Trabalho (Anexo VII) da proposta do município ao Edital nº 11/2026.</p>
+    </div>
+  </div>
+</section>
+<section class="section" id="ideias">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 11</div>
+    <h2 class="section-title">Ideias Preliminares<br>de Projeto por <span>Eixo</span></h2>
+
+    <h3 class="sub-title">Eixo A — Articulação (R$ 9.000 a R$ 13.000)</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>Ideia</th><th>Entregas</th><th>Indicador</th></tr></thead>
+        <tbody>
+          <tr><td>Revisão e atualização da Resolução CMS sobre CLS (CNS 714/2023)</td><td>Resolução aprovada em plenária</td><td>1 Resolução publicada</td></tr>
+          <tr><td>Regimento Interno padrão para os CLS</td><td>Documento aprovado e disponível para todas as UBS</td><td>1 Regimento aprovado</td></tr>
+          <tr><td>Fluxo formal CLS → CMS → SMS</td><td>Fluxograma + portaria de regulamentação</td><td>1 portaria editada</td></tr>
+          <tr><td>Reuniões semestrais da Rede Municipal de CLS</td><td>Calendário, atas, lista de presença</td><td>6 encontros / 36 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">Eixo B — Comunicação (R$ 20.000 a R$ 28.000)</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>Ideia</th><th>Entregas</th><th>Indicador</th></tr></thead>
+        <tbody>
+          <tr><td>Campanha "Participa Saúde — Seu Conselho Local está te esperando"</td><td>Cartazes, banners, cards digitais, vídeos</td><td>5.000 peças distribuídas</td></tr>
+          <tr><td>Cartilha Municipal dos CLS (impressa + PDF + acessível)</td><td>2.000 exemplares + versão digital</td><td>Cartilha em 100% das UBS</td></tr>
+          <tr><td>Identidade visual dos CLS (logomarca, template de ata, convocação, ofício)</td><td>Kit visual completo</td><td>1 kit publicado</td></tr>
+          <tr><td>Painel de transparência dos CLS (pautas, deliberações, atas)</td><td>Canal digital atualizado regularmente</td><td>Publicação trimestral</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">Eixo C — Eleição (R$ 12.000 a R$ 17.000)</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>Ideia</th><th>Entregas</th><th>Indicador</th></tr></thead>
+        <tbody>
+          <tr><td>Regulamento Eleitoral padrão para todos os CLS</td><td>Documento aprovado pelo CMS</td><td>1 regulamento publicado</td></tr>
+          <tr><td>Kit Eleitoral dos CLS (edital, ficha, ata, lista, crachá, modelo de posse)</td><td>1 kit completo</td><td>Kit disponível para 100% dos CLS</td></tr>
+          <tr><td>Mutirão municipal de eleições nos CLS</td><td>Eleições realizadas com atas e listas</td><td>≥ 15 UBS com eleição realizada</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">Eixo D — Formação (R$ 29.000 a R$ 42.000)</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>Ideia</th><th>Entregas</th><th>Indicador</th></tr></thead>
+        <tbody>
+          <tr><td>Curso Inicial para Conselheiros (SUS, Controle Social, Planejamento, Financiamento)</td><td>Programa + material didático + certificados</td><td>≥ 80% dos conselheiros titulares certificados</td></tr>
+          <tr><td>Escola Municipal de Controle Social (programa permanente, ciclos anuais)</td><td>Programa institucionalizado + materiais</td><td>3 ciclos / 36 meses, ≥ 20 cons./ciclo</td></tr>
+          <tr><td>Formação de Multiplicadores territoriais</td><td>Lista de multiplicadores + programa avançado</td><td>N° de multiplicadores formados</td></tr>
+          <tr><td>Jornada Municipal dos Conselhos Locais (evento anual)</td><td>3 eventos realizados + publicação</td><td>≥ 100 participantes / evento</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="estrategia">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 12–13</div>
+    <h2 class="section-title">Proposta <span>Estratégica</span><br>Recomendada</h2>
+
+    <div class="proposta-conceito">
+      <div class="proposta-nome">Nome do Projeto</div>
+      <div class="proposta-titulo">"Rede Participa Saúde — Programa Municipal de Fortalecimento dos Conselhos Locais de Saúde de Montes Claros"</div>
+      <p class="proposta-texto">Os Conselhos Locais de Saúde não são órgãos isolados em cada UBS. São nós de uma rede municipal de participação social que, conectada ao CMS, forma o sistema nervoso do controle social em Montes Claros. Este projeto não fortalece um CLS. Fortalece a rede.</p>
+    </div>
+
+    <h3 class="sub-title">Componentes do projeto</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>Componente</th><th>Eixo</th><th>Entrega principal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 — Bases Normativas</strong></td><td><span class="cms-tag tag-navy">Articulação</span></td><td>Resolução atualizada + Regimento-padrão + Rede de CLS</td></tr>
+          <tr><td><strong>2 — Identidade e Comunicação</strong></td><td><span class="cms-tag tag-blue">Comunicação</span></td><td>Campanha + Cartilha + Identidade visual + Painel digital</td></tr>
+          <tr><td><strong>3 — Eleições Legítimas</strong></td><td><span class="cms-tag tag-green">Eleição</span></td><td>Regulamento + Kit Eleitoral + Mutirão eleitoral</td></tr>
+          <tr><td><strong>4 — Escola Municipal</strong></td><td><span class="cms-tag" style="background:#7C3AED;color:white">Formação</span></td><td>Curso inicial + Programa permanente + Jornada anual</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">Impacto esperado ao final dos 36 meses</h3>
+    <div class="oport-numbers">
+      <div class="oport-card">
+        <div class="oport-value">100%</div>
+        <div class="oport-label">CLS com base normativa atualizada</div>
+      </div>
+      <div class="oport-card green">
+        <div class="oport-value" style="color:var(--cms-green)">≥ 15</div>
+        <div class="oport-label">UBS com CLS eleitos e funcionando</div>
+      </div>
+      <div class="oport-card">
+        <div class="oport-value">≥ 200</div>
+        <div class="oport-label">Conselheiros locais capacitados</div>
+      </div>
+      <div class="oport-card navy">
+        <div class="oport-value">1</div>
+        <div class="oport-label">Escola Municipal de Controle Social institucionalizada</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Matriz Preliminar de Projeto (Seção 13)</h3>
+    <div class="table-wrap">
+      <table class="cms-table">
+        <thead><tr><th>Eixo</th><th>Objetivo</th><th>Entrega</th><th>Indicador</th><th>Prazo</th></tr></thead>
+        <tbody>
+          <tr><td><span class="cms-tag tag-navy">A</span></td><td>Atualizar marco normativo</td><td>Resolução + Regimento-padrão</td><td>1 Resolução + 1 Regimento</td><td>Meses 1–4</td></tr>
+          <tr><td><span class="cms-tag tag-navy">A</span></td><td>Criar Rede Municipal de CLS</td><td>Calendário de reuniões + atas</td><td>6 encontros / 36 meses</td><td>A partir do mês 6</td></tr>
+          <tr><td><span class="cms-tag tag-blue">B</span></td><td>Campanha "Participa Saúde"</td><td>Cartazes + cards + vídeos</td><td>5.000 peças distribuídas</td><td>Meses 3–8</td></tr>
+          <tr><td><span class="cms-tag tag-blue">B</span></td><td>Publicar Cartilha dos CLS</td><td>Cartilha impressa + PDF</td><td>2.000 exemplares</td><td>Meses 5–9</td></tr>
+          <tr><td><span class="cms-tag tag-blue">B</span></td><td>Identidade Visual e Painel Digital</td><td>Kit visual + canal de transparência</td><td>100% CLS com identidade</td><td>Meses 2–10</td></tr>
+          <tr><td><span class="cms-tag tag-green">C</span></td><td>Regulamentar eleições</td><td>Regulamento + Kit Eleitoral</td><td>1 regulamento + 1 kit</td><td>Meses 1–4</td></tr>
+          <tr><td><span class="cms-tag tag-green">C</span></td><td>Mutirão de eleições</td><td>Eleições realizadas com atas</td><td>≥ 15 UBS com CLS eleitos</td><td>Meses 6–12</td></tr>
+          <tr><td><span class="cms-tag" style="background:#7C3AED;color:white">D</span></td><td>Curso inicial de conselheiros</td><td>1ª turma certificada</td><td>≥ 80% dos conselheiros</td><td>Meses 8–14</td></tr>
+          <tr><td><span class="cms-tag" style="background:#7C3AED;color:white">D</span></td><td>Escola Municipal de Controle Social</td><td>3 ciclos anuais realizados</td><td>≥ 20 conselheiros / ciclo</td><td>Meses 12–36</td></tr>
+          <tr><td><span class="cms-tag" style="background:#7C3AED;color:white">D</span></td><td>Jornada Municipal dos CLS</td><td>3 Jornadas realizadas</td><td>≥ 100 participantes / evento</td><td>Meses 12, 24, 36</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="plano">
+  <div class="wrap">
+    <div class="section-eyebrow">Seções 14–16</div>
+    <h2 class="section-title">Cronograma, Orçamento<br>e <span>Plano de Ação</span></h2>
+
+    <h3 class="sub-title">Cronograma Macro</h3>
+    <div class="cronograma-phases">
+      <div class="fase">
+        <div class="fase-label">
+          <div class="fase-n">Fase 0</div>
+          <div class="fase-nome">Preparação</div>
+          <div class="fase-periodo">Pré-submissão</div>
+        </div>
+        <div class="fase-content">Diagnóstico, elaboração da proposta, aprovação pelo CMS em plenária, reunião dos documentos obrigatórios.</div>
+      </div>
+      <div class="fase">
+        <div class="fase-label" style="background:var(--cms-blue)">
+          <div class="fase-n">Fase 1</div>
+          <div class="fase-nome">Implantação</div>
+          <div class="fase-periodo">Meses 1 a 6</div>
+        </div>
+        <div class="fase-content">Atualização normativa, identidade visual, Kit Eleitoral, início da campanha "Participa Saúde".</div>
+      </div>
+      <div class="fase">
+        <div class="fase-label" style="background:var(--cms-green)">
+          <div class="fase-n">Fase 2</div>
+          <div class="fase-nome">Mobilização</div>
+          <div class="fase-periodo">Meses 6 a 12</div>
+        </div>
+        <div class="fase-content">Campanha no território, mutirão de eleições, Cartilha publicada, 1ª Jornada Municipal.</div>
+      </div>
+      <div class="fase">
+        <div class="fase-label" style="background:#7C3AED">
+          <div class="fase-n">Fase 3</div>
+          <div class="fase-nome">Formação</div>
+          <div class="fase-periodo">Meses 8 a 18</div>
+        </div>
+        <div class="fase-content">Curso inicial de conselheiros, 1ª turma da Escola Municipal de Controle Social.</div>
+      </div>
+      <div class="fase">
+        <div class="fase-label" style="background:#D97706">
+          <div class="fase-n">Fase 4</div>
+          <div class="fase-nome">Consolidação</div>
+          <div class="fase-periodo">Meses 18 a 30</div>
+        </div>
+        <div class="fase-content">2ª turma de formação, 2ª Jornada Municipal, avaliação intermediária do projeto.</div>
+      </div>
+      <div class="fase">
+        <div class="fase-label" style="background:var(--cms-navy)">
+          <div class="fase-n">Fase 5</div>
+          <div class="fase-nome">Sustentabilidade</div>
+          <div class="fase-periodo">Meses 30 a 36</div>
+        </div>
+        <div class="fase-content">3ª turma, 3ª Jornada, relatório final, transição para sustentabilidade própria da Escola Municipal.</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Orçamento Conceitual</h3>
+    <p class="orcamento-sub">Distribuição que maximiza impacto e competitividade, alocando o máximo nos eixos de maior peso avaliativo.</p>
+    <div class="orcamento-total">R$ 100.000</div>
+
+    <div class="orcamento-item">
+      <div class="orcamento-row">
+        <span class="orcamento-label"><span class="orcamento-dot" style="background:var(--cms-navy)"></span>Eixo A — Articulação</span>
+        <span><span class="orcamento-value">R$ 12.000</span> <span class="orcamento-pct">12%</span></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:12%;background:var(--cms-navy)"></div></div>
+    </div>
+    <div class="orcamento-item">
+      <div class="orcamento-row">
+        <span class="orcamento-label"><span class="orcamento-dot" style="background:var(--cms-blue)"></span>Eixo B — Comunicação</span>
+        <span><span class="orcamento-value">R$ 26.000</span> <span class="orcamento-pct">26%</span></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:26%;background:var(--cms-blue)"></div></div>
+    </div>
+    <div class="orcamento-item">
+      <div class="orcamento-row">
+        <span class="orcamento-label"><span class="orcamento-dot" style="background:var(--cms-green)"></span>Eixo C — Eleição</span>
+        <span><span class="orcamento-value">R$ 16.000</span> <span class="orcamento-pct">16%</span></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:16%;background:var(--cms-green)"></div></div>
+    </div>
+    <div class="orcamento-item">
+      <div class="orcamento-row">
+        <span class="orcamento-label"><span class="orcamento-dot" style="background:#7C3AED"></span>Eixo D — Formação</span>
+        <span><span class="orcamento-value">R$ 41.000</span> <span class="orcamento-pct">41%</span></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:41%;background:#7C3AED"></div></div>
+    </div>
+    <div class="orcamento-item">
+      <div class="orcamento-row">
+        <span class="orcamento-label"><span class="orcamento-dot" style="background:var(--cms-muted)"></span>Reserva técnica</span>
+        <span><span class="orcamento-value">R$ 5.000</span> <span class="orcamento-pct">5%</span></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:5%;background:var(--cms-muted)"></div></div>
+    </div>
+    
+    <div id="plano-acao">
+      <h3 class="sub-title">Plano de Ação Imediato</h3>
+
+      <div class="checklist-group">
+        <div class="checklist-title">⚡ Próximos 7 dias — até 18/06/2026</div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Verificar a existência e conformidade da Resolução CMS sobre os CLS</strong> — item mais urgente do processo</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Consultar o CAUC/SIAFI</strong> para confirmar regularidade do município</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Contatar a SMS</strong> para informar sobre o edital e iniciar alinhamento sobre coordenador do projeto</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Incluir na pauta da próxima plenária do CMS</strong> o item "Apreciação da proposta ao Edital nº 11/2026 — Fortalecimento dos CLS"</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Levantamento preliminar</strong> de quantos CLS existem formalmente no município</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Baixar os formulários oficiais</strong> (Anexos I a VIII) no portal gov.br/saude</div></div>
+      </div>
+
+      <div class="checklist-group">
+        <div class="checklist-title">📋 Próximos 30 dias — até 02/07/2026</div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Aplicar o questionário diagnóstico</strong> nas principais UBS</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Mapear as UBS prioritárias</strong> para a primeira fase do projeto</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Elaborar a Justificativa Técnica (Anexo VI)</strong> com dados do território e histórico do CMS</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Elaborar o Plano de Trabalho (Anexo VII)</strong> com metas SMART por eixo</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Cotar serviços</strong> (designer, impressão, audiovisual, facilitadores) para embasar o orçamento</div></div>
+        <div class="check-item"><div class="check-box"></div><div><strong>Submeter a proposta</strong> até 03/08/2026 via e-mail: projetos.cgpams@saude.gov.br</div></div>
+      </div>
+
+      <div class="checklist-group">
+        <div class="checklist-title">✅ Checklist final antes da submissão</div>
+        <div class="check-item"><div class="check-box"></div><div>Resolução CMS sobre CLS adequada à CNS nº 714/2023 — em mãos</div></div>
+        <div class="check-item"><div class="check-box"></div><div>Deliberação do CMS aprovando a proposta — ata + Anexo IV assinado pelo Presidente</div></div>
+        <div class="check-item"><div class="check-box"></div><div>Ofício do Secretário de Saúde (Anexo I) — assinado e carimbado</div></div>
+        <div class="check-item"><div class="check-box"></div><div>Declarações de espaço físico (II), capacidade técnica (III) e cessão de servidor (V) — assinadas</div></div>
+        <div class="check-item"><div class="check-box"></div><div>Justificativa técnica (Anexo VI) — máximo 8.000 caracteres</div></div>
+        <div class="check-item"><div class="check-box"></div><div>Plano de Trabalho (Anexo VII) — metas, cronograma e orçamento por eixo</div></div>
+        <div class="check-item"><div class="check-box"></div><div>PDF único compilado e nomeado como <strong>"SMS Montes Claros MG"</strong></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="conclusao">
+  <div class="wrap">
+    <div class="section-eyebrow">Seção 17</div>
+    <h2 class="section-title">Conclusão <span>Executiva</span></h2>
+
+    <div class="conclusao-grid">
+      <div class="conclusao-item">
+        <div class="conclusao-q">Vale a pena participar?</div>
+        <div class="conclusao-r">Sim, inequivocamente.</div>
+        <p class="conclusao-texto">A oportunidade financia o que o CMS e a SMS já deveriam estar realizando. Não participar é abrir mão de recursos públicos disponíveis para um município que tem as condições de captá-los.</p>
+      </div>
+      <div class="conclusao-item">
+        <div class="conclusao-q">O município possui condições?</div>
+        <div class="conclusao-r">Sim, com uma ressalva.</div>
+        <p class="conclusao-texto">CMS ativo, rede de APS robusta, SE técnica e histórico sólido. A ressalva é a Resolução do CMS sobre os CLS (CNS 714/2023) — precisa ser verificada imediatamente.</p>
+      </div>
+      <div class="conclusao-item">
+        <div class="conclusao-q">Quais as chances de aprovação?</div>
+        <div class="conclusao-r">Altas, se bem elaborada.</div>
+        <p class="conclusao-texto">Com 150 projetos para todo o Brasil e prazo curto, muitos municípios não chegarão a tempo. O maior risco não é a concorrência — é a eliminação por documentação incompleta ou proposta fraca.</p>
+      </div>
+      <div class="conclusao-item">
+        <div class="conclusao-q">Qual a estratégia de maior sucesso?</div>
+        <div class="conclusao-r">Três elementos combinados.</div>
+        <p class="conclusao-texto">Garantia documental imediata + proposta com identidade própria (metas SMART, conceito de Rede) + múltiplas submissões se houver tempo. A qualidade das metas vale 40% da nota.</p>
+      </div>
+    </div>
+
+    <div class="fala green">
+      <strong>Em síntese:</strong> o Edital nº 11/2026 é uma janela de 30 dias que pode gerar 36 meses de transformação estrutural no controle social territorial de Montes Claros. A Secretaria Executiva do CMS recomenda à Mesa Diretora e à Secretaria Municipal de Saúde a <strong>mobilização imediata</strong> para aproveitamento desta oportunidade.
+    </div>
+  </div>
+</section>
+
+<section class="section anexo-section" id="anexos">
+  <div class="wrap" style="padding-top:56px; padding-bottom:56px;">
+    <div class="section-eyebrow">Documentação de suporte</div>
+    <h2 class="section-title">Anexos</h2>
+
+    <div id="anexo1" style="margin-bottom:40px">
+      <div class="anexo-label">Anexo I</div>
+      <h3 class="sub-title" style="margin-top:0">Matriz de Projeto Completa</h3>
+      <div class="table-wrap">
+        <table class="cms-table">
+          <thead>
+            <tr><th>#</th><th>Eixo</th><th>Objetivo específico</th><th>Atividade</th><th>Produto/Entrega</th><th>Indicador</th><th>Prazo (meses)</th><th>Orçamento</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><span class="cms-tag tag-navy">A</span></td><td>Atualizar normativa dos CLS</td><td>Elaborar e submeter Resolução ao CMS</td><td>Resolução aprovada e publicada</td><td>1 Resolução publicada</td><td>1–3</td><td>R$ 2.000</td></tr>
+            <tr><td>2</td><td><span class="cms-tag tag-navy">A</span></td><td>Padronizar regimento dos CLS</td><td>Elaborar Regimento-padrão</td><td>Regimento aprovado pelo CMS</td><td>1 Regimento aprovado</td><td>2–4</td><td>R$ 1.000</td></tr>
+            <tr><td>3</td><td><span class="cms-tag tag-navy">A</span></td><td>Criar Rede Municipal de CLS</td><td>Reuniões semestrais de articulação</td><td>Atas + lista de presença</td><td>6 encontros realizados</td><td>6–36</td><td>R$ 5.000</td></tr>
+            <tr><td>4</td><td><span class="cms-tag tag-navy">A</span></td><td>Formalizar parceria intersetorial</td><td>Reuniões com Educação/Assistência Social</td><td>Termos de compromisso</td><td>2 parcerias formalizadas</td><td>3–8</td><td>R$ 4.000</td></tr>
+            <tr><td>5</td><td><span class="cms-tag tag-blue">B</span></td><td>Sensibilizar a comunidade</td><td>Campanha "Participa Saúde"</td><td>Peças gráficas + digitais + vídeos</td><td>5.000 peças distribuídas</td><td>3–10</td><td>R$ 10.000</td></tr>
+            <tr><td>6</td><td><span class="cms-tag tag-blue">B</span></td><td>Publicar cartilha dos CLS</td><td>Elaboração, design e impressão</td><td>2.000 exemplares + PDF</td><td>Cartilha em 100% das UBS</td><td>5–9</td><td>R$ 8.000</td></tr>
+            <tr><td>7</td><td><span class="cms-tag tag-blue">B</span></td><td>Criar identidade visual</td><td>Contratação de designer</td><td>Manual + kit visual</td><td>100% dos CLS com identidade</td><td>2–6</td><td>R$ 4.000</td></tr>
+            <tr><td>8</td><td><span class="cms-tag tag-blue">B</span></td><td>Criar painel de transparência</td><td>Desenvolvimento + publicação</td><td>Canal digital ativo</td><td>Publicação a cada 3 meses</td><td>8–36</td><td>R$ 4.000</td></tr>
+            <tr><td>9</td><td><span class="cms-tag tag-green">C</span></td><td>Regulamentar eleições</td><td>Elaborar regulamento e kit</td><td>Regulamento aprovado + kit</td><td>1 regulamento, 1 kit</td><td>1–4</td><td>R$ 3.000</td></tr>
+            <tr><td>10</td><td><span class="cms-tag tag-green">C</span></td><td>Realizar eleições nos CLS</td><td>Mutirão + mobilização</td><td>Eleições realizadas com atas</td><td>≥ 15 eleições realizadas</td><td>6–14</td><td>R$ 8.000</td></tr>
+            <tr><td>11</td><td><span class="cms-tag tag-green">C</span></td><td>Mobilizar comunidade para eleições</td><td>Parceria com ACS + redes sociais</td><td>Material de mobilização</td><td>Taxa de participação eleitoral</td><td>5–12</td><td>R$ 5.000</td></tr>
+            <tr><td>12</td><td><span class="cms-tag" style="background:#7C3AED;color:white">D</span></td><td>Capacitar conselheiros — ciclo 1</td><td>Curso inicial (5 módulos)</td><td>Conselheiros certificados</td><td>≥ 80% dos titulares certificados</td><td>8–14</td><td>R$ 12.000</td></tr>
+            <tr><td>13</td><td><span class="cms-tag" style="background:#7C3AED;color:white">D</span></td><td>Formação continuada (Escola)</td><td>2 ciclos anuais seguintes</td><td>Novas turmas formadas</td><td>≥ 20 conselheiros / ciclo</td><td>16–34</td><td>R$ 18.000</td></tr>
+            <tr><td>14</td><td><span class="cms-tag" style="background:#7C3AED;color:white">D</span></td><td>Jornada Municipal anual</td><td>Evento com CLS + CMS + APS</td><td>Anais + deliberações</td><td>3 Jornadas / 100+ part.</td><td>12, 24, 36</td><td>R$ 11.000</td></tr>
+            <tr class="total-row"><td colspan="7"><strong>Total do projeto</strong></td><td><strong>R$ 95.000</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="anexo2" style="margin-bottom:40px">
+      <div class="anexo-label">Anexo II</div>
+      <h3 class="sub-title" style="margin-top:0">Roteiro de Levantamento Diagnóstico</h3>
+      <div class="table-wrap">
+        <table class="cms-table">
+          <thead><tr><th>#</th><th>Dado a levantar</th><th>Fonte</th></tr></thead>
+          <tbody>
+            <tr><td>1–6</td><td>Nome, n° e endereço de cada UBS ativa; equipes de SF por UBS; cobertura APS; IDHM; IVS; população</td><td>SMS</td></tr>
+            <tr><td>7</td><td>Resolução CMS sobre CLS — número, data, ementa</td><td>CMS / SE</td></tr>
+            <tr><td>8–14</td><td>Lista de CLS formalmente constituídos; situação (ativo/inativo/inexistente); data da última eleição; presidente/coordenador; membros por segmento; atas; espaço físico</td><td>Levantamento nas UBS</td></tr>
+            <tr><td>15–19</td><td>Nome do coordenador e substituto; regularidade CAUC; histórico de execução de projetos; fornecedores locais com NF</td><td>SMS</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="anexo3" style="margin-bottom:40px">
+      <div class="anexo-label">Anexo III</div>
+      <h3 class="sub-title" style="margin-top:0">Checklist Documental</h3>
+      <div class="table-wrap">
+        <table class="cms-table">
+          <thead><tr><th>#</th><th>Documento</th><th>Modelo</th><th>Quem assina</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Ofício de apresentação da proposta</td><td>Anexo I</td><td>Secretário de Saúde</td><td class="status-todo">A produzir</td></tr>
+            <tr><td>2</td><td>Declaração de disponibilização de espaço físico</td><td>Anexo II</td><td>Secretário de Saúde</td><td class="status-todo">A produzir</td></tr>
+            <tr><td>3</td><td>Declaração de capacidade técnica e administrativa</td><td>Anexo III</td><td>Secretário de Saúde</td><td class="status-todo">A produzir</td></tr>
+            <tr><td>4</td><td>Declaração de aprovação da proposta pelo CMS</td><td>Anexo IV</td><td>Presidente do CMS</td><td class="status-warn">A produzir — requer deliberação em plenária</td></tr>
+            <tr><td>5</td><td>Declaração de cessão de servidor coordenador</td><td>Anexo V</td><td>Secretário de Saúde</td><td class="status-warn">A produzir — requer definição de servidor</td></tr>
+            <tr><td>6</td><td><strong>Resolução do CMS instituindo os CLS (CNS 714/2023)</strong></td><td>—</td><td>CMS</td><td class="status-warn">⚠️ A verificar / providenciar</td></tr>
+            <tr><td>7</td><td>Justificativa técnica</td><td>Anexo VI</td><td>SE do CMS / SMS</td><td class="status-todo">A elaborar</td></tr>
+            <tr><td>8</td><td>Plano de Trabalho</td><td>Anexo VII</td><td>SE do CMS / SMS</td><td class="status-todo">A elaborar</td></tr>
+            <tr><td>9</td><td>PDF único compilado e nomeado "SMS Montes Claros MG"</td><td>—</td><td>—</td><td class="status-todo">A organizar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="anexo4">
+      <div class="anexo-label">Anexo IV</div>
+      <h3 class="sub-title" style="margin-top:0">Banco de Ideias por Eixo</h3>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+        <div>
+          <div class="diag-header" style="border-radius:10px 10px 0 0; border:1px solid var(--cms-border);">Eixo A — Articulação</div>
+          <div class="diag-bloco" style="border-radius:0 0 10px 10px; border-top:none;">
+            <div class="diag-body">
+              <div class="diag-item">Revisão da Resolução CMS sobre CLS <span class="cms-tag tag-outline" style="margin-left:6px;font-size:8px">Básico</span></div>
+              <div class="diag-item">Regimento-padrão para todos os CLS</div>
+              <div class="diag-item">Manual de implantação de CLS</div>
+              <div class="diag-item">Fluxo formal CLS → CMS → SMS com portaria <span class="cms-tag" style="background:#FEF3C7;color:#92400E;margin-left:6px;font-size:8px">Intermediário</span></div>
+              <div class="diag-item">Rede Municipal de CLS (encontros semestrais)</div>
+              <div class="diag-item">Sala do Conselho Local (kit de identificação visual)</div>
+              <div class="diag-item">Cadastro único dos CLS integrado ao sistema municipal <span class="cms-tag tag-blue" style="margin-left:6px;font-size:8px">Avançado</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="diag-header" style="border-radius:10px 10px 0 0; border:1px solid var(--cms-border); background:var(--cms-blue); color:white;">Eixo B — Comunicação</div>
+          <div class="diag-bloco" style="border-radius:0 0 10px 10px; border-top:none;">
+            <div class="diag-body">
+              <div class="diag-item">Cartazes e folders sobre os CLS</div>
+              <div class="diag-item">Cards para redes sociais</div>
+              <div class="diag-item">Cartilha impressa e digital</div>
+              <div class="diag-item">Identidade visual dos CLS</div>
+              <div class="diag-item">Vídeo institucional dos CLS (60–90 seg.)</div>
+              <div class="diag-item">Campanha "Participa Saúde" (digital + impresso)</div>
+              <div class="diag-item">Mapa interativo dos CLS no site da SMS <span class="cms-tag tag-blue" style="margin-left:6px;font-size:8px">Avançado</span></div>
+              <div class="diag-item">Painel de transparência digital</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="diag-header" style="border-radius:10px 10px 0 0; border:1px solid var(--cms-border); background:var(--cms-green); color:white;">Eixo C — Eleição</div>
+          <div class="diag-bloco" style="border-radius:0 0 10px 10px; border-top:none;">
+            <div class="diag-body">
+              <div class="diag-item">Regulamento eleitoral padrão</div>
+              <div class="diag-item">Kit eleitoral (edital, ficha, ata, lista, crachá, posse)</div>
+              <div class="diag-item">Mobilização via ACS e ESF</div>
+              <div class="diag-item">Calendário unificado de eleições</div>
+              <div class="diag-item">Mutirão municipal de eleições</div>
+              <div class="diag-item">Transmissão / registro audiovisual das eleições <span class="cms-tag tag-blue" style="margin-left:6px;font-size:8px">Avançado</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="diag-header" style="border-radius:10px 10px 0 0; border:1px solid var(--cms-border); background:#7C3AED; color:white;">Eixo D — Formação</div>
+          <div class="diag-bloco" style="border-radius:0 0 10px 10px; border-top:none;">
+            <div class="diag-body">
+              <div class="diag-item">Oficina de introdução ao SUS (4h)</div>
+              <div class="diag-item">Curso modular inicial (5 módulos)</div>
+              <div class="diag-item">Material didático (apostilas)</div>
+              <div class="diag-item">Formação de multiplicadores territoriais</div>
+              <div class="diag-item">Escola Municipal de Controle Social <span class="cms-tag tag-blue" style="margin-left:6px;font-size:8px">Avançado</span></div>
+              <div class="diag-item">Jornada Municipal dos CLS (evento anual)</div>
+              <div class="diag-item">Trilha EAD via AVASUS/UNASUS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ASSINATURA -->
+<div class="assinatura-wrapper" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/ass.png" alt="Assinatura Alexandre Dourado" style="display: block; margin: 0 auto; max-width: 180px; height: auto;">
+    <div style="width: 280px; height: 1px; background-color: var(--cms-ink); margin: 5px auto 10px auto;"></div>
+    <div style="font-family: var(--font-display); font-size: 11pt; font-weight: 700; color: var(--cms-navy);">ALEXANDRE DOURADO PEREIRA DE SOUZA</div>
+    <div style="font-size: 9pt; color: var(--cms-muted);">Secretário Executivo CMSMOC</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" style="position: relative; overflow: hidden;">
+  <!-- Stripe superior presa ao topo do footer -->
+  <div class="footer-stripe" style="position: absolute; top: 0; left: 0; width: 100%;"></div>
+  
+  <!-- Logo do Rodapé -->
+  <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/secmonowh.png" alt="Secretaria Executiva CMSMOC" style="display: block; margin: 0 auto 20px auto; width: 100%; max-width: 280px; height: auto; position: relative; z-index: 1;">
+  
+  <!-- Textos -->
+  <div style="position: relative; z-index: 1;">
+    <strong>Conselho Municipal de Saúde de Montes Claros — MG</strong><br>
+    Nota Técnica Estratégica · Edital nº 11/2026 · Portaria GM/MS nº 11.485/2026<br>
+    Secretaria Executiva do CMSMOC · 11 de junho de 2026<br>
+    <span style="font-size:11px;margin-top:6px;display:block;">Documento interno de circulação restrita — Mesa Diretora / SMS / CMSMOC · secretariaexecutivacmsmoc@gmail.com</span>
+  </div>
+
+  <!-- Stripe inferior presa à base do footer -->
+  <div class="stripe" style="position: absolute; bottom: 0; left: 0; width: 100%;"></div>
+</footer>
+</section>
+</main>
+<script>
+</body>
+</html>
