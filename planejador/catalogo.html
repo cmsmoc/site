@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Metas - Edital 11/2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap');
+
+        :root {
+            --navy: #0D2E5A;
+            --blue: #1B6CB5;
+            --off-white: #F7F8FA;
+            --ink: #111827;
+            --yellow: #F5C400;
+            --font-d: 'Montserrat', sans-serif;
+            --font-b: 'Open Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-b);
+            color: var(--ink);
+            background-color: var(--off-white);
+            line-height: 1.6;
+        }
+
+        .cms-stripe {
+            height: 6px;
+            background: linear-gradient(90deg, var(--navy) 33.3%, var(--yellow) 33.3% 66.6%, var(--blue) 66.6%);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header {
+            background-color: var(--navy);
+            color: white;
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: var(--font-d);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--yellow);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: white;
+            border: 2px solid var(--border-color, #E5E7EB);
+            color: var(--navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 99px;
+            font-family: var(--font-d);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active {
+            background-color: var(--navy);
+            color: white;
+            border-color: var(--navy);
+        }
+
+        .filter-btn:hover:not(.active) {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #E5E7EB;
+            border-top: 4px solid var(--blue);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Cores de borda por eixo */
+        .card[data-eixo="Articulação"] { border-top-color: var(--blue); }
+        .card[data-eixo="Comunicação"] { border-top-color: var(--yellow); }
+        .card[data-eixo="Eleição"] { border-top-color: var(--navy); }
+        .card[data-eixo="Formação"] { border-top-color: #10B981; } /* Verde para formação */
+
+        .meta-id {
+            font-family: var(--font-d);
+            font-weight: 900;
+            color: var(--navy);
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-title {
+            font-family: var(--font-d);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--ink);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .meta-details {
+            flex-grow: 1;
+        }
+
+        .detail-group {
+            margin-bottom: 0.75rem;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6B7280;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-size: 0.95rem;
+            color: #374151;
+        }
+
+        .meta-price {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-value {
+            font-family: var(--font-d);
+            font-weight: 900;
+            color: var(--navy);
+            font-size: 1.25rem;
+            background-color: var(--off-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cms-stripe"></div>
+    
+    <header>
+        <h1>CATÁLOGO DE METAS</h1>
+        <p>Projetos de Fortalecimento dos Conselhos Locais de Saúde (Edital 11/2026)</p>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos os Eixos</button>
+            <button class="filter-btn" data-filter="Articulação">Articulação</button>
+            <button class="filter-btn" data-filter="Comunicação">Comunicação</button>
+            <button class="filter-btn" data-filter="Eleição">Eleição</button>
+            <button class="filter-btn" data-filter="Formação">Formação</button>
+        </div>
+
+        <div class="gallery" id="gallery">
+            
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.01</div>
+                <div class="meta-title">Instituir o Programa Municipal de Fortalecimento dos Conselhos Locais de Saúde</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Elaboração participativa do programa e validação institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços gráficos, facilitação de oficinas, coffee break, material de apoio</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.02</div>
+                <div class="meta-title">Criar Comitê Gestor Municipal dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Reuniões de instalação e pactuação de atribuições</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de expediente, coffee break, impressão de documentos</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.03</div>
+                <div class="meta-title">Elaborar Plano Municipal de Fortalecimento dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficinas técnicas para construção do plano</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Facilitação, impressão, material gráfico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.04</div>
+                <div class="meta-title">Elaborar diagnóstico institucional dos 12 CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Visitas técnicas e aplicação de instrumento diagnóstico</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de campo, impressão, deslocamentos, diárias</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.05</div>
+                <div class="meta-title">Mapear lideranças comunitárias do território</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Levantamento e cadastro das lideranças</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de consumo, formulários, deslocamentos</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.06</div>
+                <div class="meta-title">Atualizar a Resolução Municipal dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Grupo técnico de revisão normativa</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Impressão, material de expediente, apoio técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.07</div>
+                <div class="meta-title">Elaborar Regimento Interno Modelo</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficina de elaboração colaborativa</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços gráficos, material de apoio</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.08</div>
+                <div class="meta-title">Elaborar Manual de Funcionamento dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção e revisão técnica</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão, revisão textual</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.09</div>
+                <div class="meta-title">Elaborar Guia do Conselheiro Local</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção editorial e validação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Designer gráfico, impressão, revisão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.10</div>
+                <div class="meta-title">Elaborar Guia do Gestor da UBS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção de material orientativo</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Designer gráfico, impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.11</div>
+                <div class="meta-title">Instituir calendário anual dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Planejamento integrado com UBS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Impressão de calendários e materiais</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.12</div>
+                <div class="meta-title">Padronizar atas dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Desenvolvimento de modelos oficiais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico e impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.13</div>
+                <div class="meta-title">Padronizar listas de presença</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Criação de formulários padronizados</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Impressão e material gráfico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.14</div>
+                <div class="meta-title">Padronizar formulários administrativos</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Elaboração de modelos institucionais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Designer gráfico, impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.15</div>
+                <div class="meta-title">Implantar fluxo oficial CMS-CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficina de definição dos fluxos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, reuniões técnicas</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.16</div>
+                <div class="meta-title">Implantar fluxo UBS-CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Construção conjunta dos procedimentos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Oficinas, impressão, material didático</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.17</div>
+                <div class="meta-title">Definir matriz de responsabilidades</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Workshop de pactuação institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico e apoio logístico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.200</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.18</div>
+                <div class="meta-title">Criar cadastro municipal dos conselheiros locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Levantamento e consolidação de dados</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de expediente, formulários, digitação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.19</div>
+                <div class="meta-title">Criar banco documental dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Digitalização e organização documental</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Scanner terceirizado, pastas, etiquetas, armazenamento</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.20</div>
+                <div class="meta-title">Organizar acervo normativo dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Compilação e catalogação documental</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Impressão, encadernação, organização física</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.21</div>
+                <div class="meta-title">Realizar oficinas intersetoriais com Educação</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Encontros institucionais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Coffee break, material gráfico, locação eventual</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.22</div>
+                <div class="meta-title">Realizar oficinas intersetoriais com Assistência Social</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Integração entre políticas públicas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Coffee break, impressão, apoio logístico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.23</div>
+                <div class="meta-title">Realizar oficinas intersetoriais com Câmara Municipal</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Integração institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.24</div>
+                <div class="meta-title">Realizar oficinas com universidades</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Articulação para apoio técnico</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, certificados</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.25</div>
+                <div class="meta-title">Formalizar parcerias institucionais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Reuniões e elaboração de instrumentos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico e expediente</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.26</div>
+                <div class="meta-title">Implantar rotina trimestral de monitoramento</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Reuniões periódicas dos CLS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Coffee break, impressão, listas</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.27</div>
+                <div class="meta-title">Criar rede municipal de presidentes dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Encontros periódicos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, apoio logístico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.28</div>
+                <div class="meta-title">Instituir Fórum Permanente dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Realização de encontros municipais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Locação eventual, coffee break, impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.29</div>
+                <div class="meta-title">Elaborar plano de expansão dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Estudos técnicos e oficinas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, consultoria técnica especializada (PJ)</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.30</div>
+                <div class="meta-title">Elaborar plano de sustentabilidade</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Definição de estratégias pós-projeto</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Oficinas, impressão, material didático</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.31</div>
+                <div class="meta-title">Realizar diagnóstico da infraestrutura dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Visitas técnicas às UBS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Deslocamentos, material de registro</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.32</div>
+                <div class="meta-title">Elaborar mapa territorial dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Georreferenciamento simplificado dos territórios</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços gráficos, mapas impressos</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.33</div>
+                <div class="meta-title">Atualizar cadastro das entidades comunitárias</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Levantamento institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de expediente, formulários</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.34</div>
+                <div class="meta-title">Criar protocolo de integração entre CMS e APS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficina técnica de pactuação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, reuniões</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.35</div>
+                <div class="meta-title">Instituir reuniões técnicas com coordenadores das UBS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Agenda permanente de alinhamento</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Coffee break, material gráfico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.36</div>
+                <div class="meta-title">Desenvolver indicadores municipais dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Construção de painel de indicadores</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, oficina técnica</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.37</div>
+                <div class="meta-title">Criar sistema de acompanhamento das metas</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Definição de instrumentos de monitoramento</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Planilhas, impressão, material técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.38</div>
+                <div class="meta-title">Elaborar protocolo para criação de novos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Padronização do processo de implantação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico e impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.39</div>
+                <div class="meta-title">Elaborar roteiro para reuniões dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Desenvolvimento de guia operacional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Designer gráfico, impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.800</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.40</div>
+                <div class="meta-title">Elaborar kit documental para instalação dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Montagem de documentos padronizados</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Pastas, impressões, formulários</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.41</div>
+                <div class="meta-title">Criar protocolo de comunicação institucional</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Definição dos canais oficiais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, reuniões</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.42</div>
+                <div class="meta-title">Implantar agenda integrada CMS-CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Construção do calendário compartilhado</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 1.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.43</div>
+                <div class="meta-title">Realizar seminário municipal de lançamento do programa</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Evento de mobilização institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Locação de espaço, sonorização, coffee break, material gráfico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.44</div>
+                <div class="meta-title">Realizar visitas técnicas de apoio aos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Agenda periódica de acompanhamento</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diárias, deslocamentos, material de apoio</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.45</div>
+                <div class="meta-title">Criar comissão técnica de assessoramento aos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Instituição e reuniões periódicas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.46</div>
+                <div class="meta-title">Implantar rotina de prestação de apoio técnico</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Atendimento programado às UBS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de expediente, deslocamentos</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.47</div>
+                <div class="meta-title">Produzir relatório anual de situação dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Consolidação de informações municipais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Designer gráfico, impressão, revisão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.48</div>
+                <div class="meta-title">Elaborar plano anual de trabalho dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficinas de planejamento participativo</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.49</div>
+                <div class="meta-title">Pactuar metas institucionais entre SMS, CMS e CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Reuniões de pactuação e formalização</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, impressão, apoio logístico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Articulação">
+                <div class="meta-id">A.50</div>
+                <div class="meta-title">Consolidar modelo municipal de governança dos Conselhos Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Articulação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Documento orientador com fluxos, responsabilidades e mecanismos de monitoramento</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços editoriais, diagramação, impressão e encadernação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.01</div>
+                <div class="meta-title">Desenvolver identidade visual dos Conselhos Locais de Saúde</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Criação de logomarca, manual de identidade e templates institucionais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviço de design gráfico, manual de marca, arquivos editáveis</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.02</div>
+                <div class="meta-title">Produzir Kit Institucional dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Confecção de banners, faixas, placas, crachás e papelaria</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços gráficos e materiais impressos</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.03</div>
+                <div class="meta-title">Implantar página dos CLS no Portal do CMS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Desenvolvimento de página para divulgação de informações e documentos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviço de desenvolvimento web e hospedagem</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.04</div>
+                <div class="meta-title">Produzir Cartilha "O que é o Conselho Local?"</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção editorial e impressão de cartilhas educativas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão e revisão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.05</div>
+                <div class="meta-title">Desenvolver campanha de mobilização comunitária</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção de peças para redes sociais, rádio e materiais impressos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Design, impressão, mídia local</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.06</div>
+                <div class="meta-title">Produzir vídeos educativos sobre Controle Social</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Gravação e edição de vídeos curtos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Captação, edição e legendagem</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 10.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.07</div>
+                <div class="meta-title">Implantar boletim informativo dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção periódica de boletins digitais e impressos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão e distribuição</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.08</div>
+                <div class="meta-title">Criar biblioteca digital dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Organização e disponibilização de documentos e materiais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviço de organização digital e plataforma</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.09</div>
+                <div class="meta-title">Implantar canal oficial de comunicação com a comunidade</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Estruturação de listas de transmissão e canais institucionais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Ferramentas digitais e produção de conteúdo</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.10</div>
+                <div class="meta-title">Desenvolver campanha anual de valorização do Controle Social</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção de materiais para datas estratégicas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Design, impressão, divulgação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.11</div>
+                <div class="meta-title">Produzir podcast sobre participação popular</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Gravação de episódios com especialistas e comunidade</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Captação, edição e publicação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.12</div>
+                <div class="meta-title">Implantar painel público de transparência dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Publicação de agendas, atas e indicadores</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Desenvolvimento web e organização de conteúdo</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.13</div>
+                <div class="meta-title">Implantar sinalização visual dos Conselhos Locais nas UBS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Instalação de placas, painéis e identificação dos espaços dos CLS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Placas em ACM/PVC, adesivos, totens e serviços de instalação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 9.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.14</div>
+                <div class="meta-title">Desenvolver campanha "Conheça seu Conselho Local"</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Ações de divulgação junto à população dos territórios</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Folders, cartazes, mídias digitais, carro de som e material gráfico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 10.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.15</div>
+                <div class="meta-title">Produzir Guia de Serviços e Participação Social</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Elaboração de material orientativo para usuários do SUS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Projeto gráfico, impressão e versão digital</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.16</div>
+                <div class="meta-title">Implantar Newsletter dos Conselhos Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção mensal de boletins eletrônicos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Ferramenta de disparo, diagramação e produção editorial</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.17</div>
+                <div class="meta-title">Produzir banco de imagens e vídeos institucionais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Registro fotográfico e audiovisual das ações dos CLS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Fotografia, filmagem, edição e armazenamento digital</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.18</div>
+                <div class="meta-title">Desenvolver materiais acessíveis de comunicação</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção de conteúdos em linguagem simples e acessível</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Design, audiodescrição, legendagem e impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.19</div>
+                <div class="meta-title">Implantar mural permanente dos CLS em cada UBS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Criação de espaço físico para divulgação das ações</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Murais, quadros, impressão e instalação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 9.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.20</div>
+                <div class="meta-title">Produzir relatório anual ilustrado das atividades dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Prestação de contas à comunidade</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão e versão digital</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.21</div>
+                <div class="meta-title">Desenvolver campanha de participação juvenil</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Mobilização de estudantes e jovens lideranças</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, oficinas e mídias sociais</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Comunicação">
+                <div class="meta-id">B.22</div>
+                <div class="meta-title">Produzir kit de comunicação para eventos dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Comunicação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Padronização da identidade em reuniões e conferências</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Banners, roll-up, backdrop, crachás e pastas</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 12.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.01</div>
+                <div class="meta-title">Elaborar Regulamento Eleitoral Padronizado</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Construção participativa das normas eleitorais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços gráficos, impressão e oficinas</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.02</div>
+                <div class="meta-title">Constituir Comissões Eleitorais Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Capacitação e instalação das comissões</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, certificados e coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.03</div>
+                <div class="meta-title">Desenvolver Plano Municipal de Mobilização Eleitoral</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Planejamento das ações de divulgação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico e reuniões</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.04</div>
+                <div class="meta-title">Produzir materiais de divulgação das eleições</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Cartazes, folders, artes digitais e faixas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Serviços gráficos</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.05</div>
+                <div class="meta-title">Realizar reuniões comunitárias preparatórias</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Mobilização da população nos territórios</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Coffee break, sonorização e materiais</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.06</div>
+                <div class="meta-title">Executar processo eleitoral dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Organização logística das eleições</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de expediente, impressão, identificação e apoio operacional</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 12.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.07</div>
+                <div class="meta-title">Organizar cerimônia de posse dos conselheiros</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Evento de instalação dos novos colegiados</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Locação, sonorização, certificados e coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.08</div>
+                <div class="meta-title">Produzir Manual do Processo Eleitoral</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Material orientador para futuras eleições</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão e revisão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.09</div>
+                <div class="meta-title">Implantar cadastro municipal dos conselheiros eleitos</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Organização da base de dados institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material de expediente e organização digital</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 2.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.10</div>
+                <div class="meta-title">Realizar avaliação pós-processo eleitoral</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Seminário de avaliação e aperfeiçoamento</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, coffee break e relatório técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 4.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.11</div>
+                <div class="meta-title">Produzir relatório consolidado das eleições</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Documentação e sistematização dos resultados</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão e revisão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.12</div>
+                <div class="meta-title">Desenvolver protocolo permanente para futuras eleições</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Padronização dos procedimentos eleitorais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Manual operacional e kit documental</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.13</div>
+                <div class="meta-title">Realizar busca ativa de entidades representativas</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Mapeamento e convite formal às organizações locais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, deslocamentos e expediente</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.14</div>
+                <div class="meta-title">Promover audiências públicas preparatórias</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Apresentação do processo eleitoral à comunidade</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Sonorização, coffee break, impressão e apoio logístico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.15</div>
+                <div class="meta-title">Capacitar mesários e equipes de apoio</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Treinamento operacional do processo eleitoral</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, certificados e coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.16</div>
+                <div class="meta-title">Implantar sistema padronizado de credenciamento</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Organização dos participantes do processo eleitoral</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Formulários, crachás, impressão e material de expediente</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 3.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.17</div>
+                <div class="meta-title">Produzir kit eleitoral completo</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Preparação dos materiais para todas as eleições dos CLS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Urnas, cédulas, listas, envelopes, pastas e formulários</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 10.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.18</div>
+                <div class="meta-title">Registrar documentalmente todo o processo eleitoral</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção de registros fotográficos, atas e relatórios</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Fotografia, impressão e organização documental</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.19</div>
+                <div class="meta-title">Realizar oficinas de sensibilização pré-eleitoral</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Mobilização comunitária para ampliação da participação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material gráfico, coffee break e apoio técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.20</div>
+                <div class="meta-title">Implantar banco histórico das eleições dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Organização permanente da memória institucional</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Digitalização, organização documental e armazenamento</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.21</div>
+                <div class="meta-title">Produzir vídeo institucional sobre o processo eleitoral</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Orientação aos candidatos e eleitores</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Roteiro, gravação, edição e legendagem</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 9.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Eleição">
+                <div class="meta-id">C.22</div>
+                <div class="meta-title">Elaborar Plano de Sucessão dos Conselhos Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Eleição</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Padronização da renovação periódica dos colegiados</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Consultoria técnica, oficinas e publicação</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.01</div>
+                <div class="meta-title">Implantar Programa Municipal de Educação Permanente dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Estruturação da trilha formativa para conselheiros</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, coordenação pedagógica e apoio técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.02</div>
+                <div class="meta-title">Realizar Curso Introdutório para Conselheiros Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Capacitação inicial sobre SUS e Controle Social</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, certificados, coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.03</div>
+                <div class="meta-title">Promover oficinas sobre Instrumentos de Gestão do SUS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Capacitação em PPA, LDO, LOA, PAS e RAG</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático e instrutores</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.04</div>
+                <div class="meta-title">Capacitar conselheiros em participação social e legislação</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Curso sobre legislação do SUS e funcionamento dos Conselhos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático e impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.05</div>
+                <div class="meta-title">Capacitar em análise de indicadores de saúde</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficinas práticas utilizando dados municipais</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático e apoio técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.06</div>
+                <div class="meta-title">Desenvolver curso sobre planejamento em saúde</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficinas presenciais e estudos de caso</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático e certificados</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.07</div>
+                <div class="meta-title">Capacitar em comunicação institucional e mediação de conflitos</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Treinamento para fortalecimento das reuniões dos CLS</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Instrutores, material didático e coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.08</div>
+                <div class="meta-title">Produzir apostilas e cadernos do conselheiro</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Desenvolvimento editorial dos materiais pedagógicos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação e impressão</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 8.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.09</div>
+                <div class="meta-title">Produzir videoaulas para educação permanente</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Gravação de módulos temáticos</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Captação, edição e legendagem</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 12.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.10</div>
+                <div class="meta-title">Implantar biblioteca virtual do Conselheiro Local</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Disponibilização de acervo digital</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Organização digital e plataforma</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.11</div>
+                <div class="meta-title">Realizar Seminário Municipal Anual dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Evento de atualização e intercâmbio de experiências</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Locação, sonorização, material gráfico e coffee break</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 15.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.12</div>
+                <div class="meta-title">Desenvolver programa de acompanhamento de novos conselheiros</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Mentoria e encontros periódicos durante o primeiro ano</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, reuniões e apoio técnico</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.13</div>
+                <div class="meta-title">Desenvolver trilha EAD para Conselheiros Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Produção de curso autoinstrucional permanente</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Ambiente virtual, videoaulas e material didático</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 18.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.14</div>
+                <div class="meta-title">Capacitar conselheiros em Ouvidoria e Participação Social</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Curso sobre escuta qualificada e encaminhamento de demandas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, instrutores e certificados</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 6.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.15</div>
+                <div class="meta-title">Capacitar em orçamento público e financiamento do SUS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Oficinas práticas sobre execução orçamentária</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático e instrutores</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.16</div>
+                <div class="meta-title">Capacitar em vigilância em saúde e territorialização</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Curso aplicado à realidade dos territórios</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático, mapas e oficinas</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 7.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.17</div>
+                <div class="meta-title">Capacitar em técnicas de condução de reuniões</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Desenvolvimento de competências para presidência e secretaria</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Material didático e simulações</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 5.500</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.18</div>
+                <div class="meta-title">Realizar intercâmbio técnico entre Conselhos Locais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Visitas de aprendizagem e troca de experiências</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Transporte, alimentação e material de apoio</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 15.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.19</div>
+                <div class="meta-title">Produzir coleção de Cadernos Temáticos dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Publicação de fascículos sobre temas prioritários</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Diagramação, impressão e revisão técnica</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 10.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.20</div>
+                <div class="meta-title">Implantar programa de atualização anual obrigatória</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Ciclo permanente de educação continuada</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Instrutores, material didático e certificados</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 9.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.21</div>
+                <div class="meta-title">Promover Mostra Municipal de Boas Práticas dos CLS</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Evento para compartilhamento de experiências exitosas</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Locação, sonorização, material gráfico e premiação simbólica</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 14.000</span>
+                </div>
+            </div>
+        
+            <div class="card" data-eixo="Formação">
+                <div class="meta-id">D.22</div>
+                <div class="meta-title">Desenvolver Banco Municipal de Objetos Educacionais</div>
+                
+                <div class="meta-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Eixo Estratégico</span>
+                        <span class="detail-value">Formação</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Ação / Atividade</span>
+                        <span class="detail-value">Organização de apresentações, vídeos, apostilas e materiais reutilizáveis</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Objeto de Gasto</span>
+                        <span class="detail-value">Produção editorial, plataforma digital e organização do acervo</span>
+                    </div>
+                </div>
+
+                <div class="meta-price">
+                    <span class="detail-label">Custo Estimado</span>
+                    <span class="price-value">R$ 12.000</span>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter cards
+                const filter = btn.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.card');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-eixo') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

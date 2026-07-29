@@ -20,7 +20,15 @@ const DOM = {
     exportMenu: document.getElementById('export-menu'),
     btnNovo: document.getElementById('btn-novo'),
     btnAbrir: document.getElementById('btn-abrir'),
-    btnAleatorio: document.getElementById('btn-aleatorio')
+    btnAleatorio: document.getElementById('btn-aleatorio'),
+    
+    // Cronograma
+    tabConstrucao: document.getElementById('tab-construcao'),
+    tabCronograma: document.getElementById('tab-cronograma'),
+    viewConstrucao: document.getElementById('view-construcao'),
+    viewCronograma: document.getElementById('view-cronograma'),
+    cronoBody: document.getElementById('crono-body'),
+    cronoFoot: document.getElementById('crono-foot')
 };
 
 // Formatter de Moeda
@@ -52,6 +60,7 @@ function initApp() {
     renderProjeto();
     setupEventListeners();
     loadFromLocalStorage();
+    renderCronograma();
 }
 
 function renderCatalogo() {
@@ -125,12 +134,13 @@ window.adicionarMeta = (id) => {
     const meta = metasGlobais.find(m => m.id === id);
     if(meta) {
         // Criar um identificador unico para a instancia adicionada
-        const item = { ...meta, uid: Date.now().toString() + Math.random().toString(36).substr(2, 5) };
+        const item = { ...meta, uid: Date.now().toString() + Math.random().toString(36).substr(2, 5), periodos: [] };
         projetoAtual.metas.push(item);
         saveToLocalStorage();
         renderProjeto();
         renderDashboard();
         renderCatalogo(); // Re-renderiza para atualizar bloqueios
+        renderCronograma();
     }
 };
 
@@ -140,6 +150,7 @@ window.removerMeta = (uid) => {
     renderProjeto();
     renderDashboard();
     renderCatalogo(); // Re-renderiza para atualizar bloqueios
+    renderCronograma();
 };
 
 function renderProjeto() {
@@ -227,6 +238,78 @@ function renderDashboard() {
     }
 }
 
+// ==========================
+// CRONOGRAMA
+// ==========================
+function renderCronograma() {
+    if(!DOM.cronoBody) return;
+    
+    let html = '';
+    const totals = [0, 0, 0, 0, 0, 0, 0, 0, 0]; // 9 periodos
+    
+    // Sort by Eixo then Titulo
+    const sortedMetas = [...projetoAtual.metas].sort((a, b) => {
+        if(a.eixo !== b.eixo) return a.eixo.localeCompare(b.eixo);
+        return a.titulo.localeCompare(b.titulo);
+    });
+
+    if(sortedMetas.length === 0) {
+        DOM.cronoBody.innerHTML = `<tr><td colspan="11" style="color:var(--cms-muted); font-style:italic;">Nenhuma meta adicionada ao projeto.</td></tr>`;
+        DOM.cronoFoot.innerHTML = '';
+        return;
+    }
+
+    sortedMetas.forEach(m => {
+        const p = m.periodos || [];
+        const activeCount = p.length;
+        const valPerPeriod = activeCount > 0 ? (m.valor / activeCount) : 0;
+        
+        html += `<tr>
+            <td>
+                <span class="meta-eixo" style="display:block; font-size:10px;">Eixo ${m.eixo}</span>
+                <span style="font-weight:700; color:var(--cms-navy);">${m.titulo}</span>
+            </td>
+            <td style="font-weight:700; color:var(--cms-green);">${formatCurrency(m.valor)}</td>
+        `;
+        
+        for(let i=0; i<9; i++) {
+            const isActive = p.includes(i);
+            if(isActive) totals[i] += valPerPeriod;
+            
+            html += `
+            <td class="${isActive ? 'crono-active-cell' : ''}" onclick="togglePeriodo('${m.uid}', ${i})" style="cursor:pointer; transition:0.2s;">
+                <input type="checkbox" class="crono-checkbox" ${isActive ? 'checked' : ''} onclick="event.stopPropagation(); togglePeriodo('${m.uid}', ${i})">
+                ${isActive ? `<span class="crono-val">${formatCurrency(valPerPeriod)}</span>` : ''}
+            </td>`;
+        }
+        html += `</tr>`;
+    });
+
+    DOM.cronoBody.innerHTML = html;
+    
+    let footHtml = `<tr><td colspan="2" style="text-align:right;">TOTAL DO PERÍODO:</td>`;
+    for(let i=0; i<9; i++) {
+        footHtml += `<td>${formatCurrency(totals[i])}</td>`;
+    }
+    footHtml += `</tr>`;
+    DOM.cronoFoot.innerHTML = footHtml;
+}
+
+window.togglePeriodo = (uid, periodoIndex) => {
+    const meta = projetoAtual.metas.find(m => m.uid === uid);
+    if(meta) {
+        meta.periodos = meta.periodos || [];
+        const idx = meta.periodos.indexOf(periodoIndex);
+        if(idx > -1) {
+            meta.periodos.splice(idx, 1);
+        } else {
+            meta.periodos.push(periodoIndex);
+        }
+        saveToLocalStorage();
+        renderCronograma();
+    }
+};
+
 function saveToLocalStorage() {
     localStorage.setItem('cms_projeto_edital11', JSON.stringify(projetoAtual));
 }
@@ -278,6 +361,33 @@ function setupEventListeners() {
     document.getElementById('export-docx').addEventListener('click', exportDOCX);
     
     DOM.btnAbrir.addEventListener('click', importJSON);
+
+    // Tabs
+    if(DOM.tabConstrucao && DOM.tabCronograma) {
+        DOM.tabConstrucao.addEventListener('click', () => {
+            DOM.tabConstrucao.classList.add('active-tab');
+            DOM.tabCronograma.classList.remove('active-tab');
+            DOM.tabConstrucao.style.color = 'var(--cms-white)';
+            DOM.tabConstrucao.style.borderColor = 'var(--cms-white)';
+            DOM.tabCronograma.style.color = 'var(--cms-off)';
+            DOM.tabCronograma.style.borderColor = 'rgba(255,255,255,0.3)';
+            
+            DOM.viewConstrucao.style.display = 'flex';
+            DOM.viewCronograma.style.display = 'none';
+        });
+        DOM.tabCronograma.addEventListener('click', () => {
+            DOM.tabCronograma.classList.add('active-tab');
+            DOM.tabConstrucao.classList.remove('active-tab');
+            DOM.tabCronograma.style.color = 'var(--cms-white)';
+            DOM.tabCronograma.style.borderColor = 'var(--cms-white)';
+            DOM.tabConstrucao.style.color = 'var(--cms-off)';
+            DOM.tabConstrucao.style.borderColor = 'rgba(255,255,255,0.3)';
+            
+            DOM.viewConstrucao.style.display = 'none';
+            DOM.viewCronograma.style.display = 'flex';
+            renderCronograma();
+        });
+    }
 }
 
 // ==========================
@@ -288,6 +398,8 @@ function gerarPlanoAleatorio() {
     
     projetoAtual.metas = [];
     const eixos = Object.keys(configEdital.eixos);
+    let totalProjeto = 0;
+    const tetoProjeto = configEdital.valorMaximoProjeto;
 
     eixos.forEach(e => {
         const limiteEixo = configEdital.eixos[e].max;
@@ -300,9 +412,19 @@ function gerarPlanoAleatorio() {
 
         let subtotal = 0;
         for (const meta of shuffled) {
-            if (subtotal + meta.valor <= limiteEixo) {
+            if (subtotal + meta.valor <= limiteEixo && totalProjeto + meta.valor <= tetoProjeto) {
                 subtotal += meta.valor;
-                const item = { ...meta, uid: Date.now().toString() + Math.random().toString(36).substr(2, 5) };
+                totalProjeto += meta.valor;
+                
+                // Gerar períodos aleatórios (1 a 3 períodos)
+                const pCount = Math.floor(Math.random() * 3) + 1;
+                const periodos = [];
+                while(periodos.length < pCount) {
+                    const randP = Math.floor(Math.random() * 9);
+                    if(!periodos.includes(randP)) periodos.push(randP);
+                }
+
+                const item = { ...meta, uid: Date.now().toString() + Math.random().toString(36).substr(2, 5), periodos };
                 projetoAtual.metas.push(item);
             }
         }
@@ -312,6 +434,7 @@ function gerarPlanoAleatorio() {
     renderProjeto();
     renderDashboard();
     renderCatalogo();
+    renderCronograma();
 }
 
 // ==========================
@@ -360,7 +483,41 @@ function generateMarkdown() {
         }
     });
     
-    md += `## Resumo Financeiro\n\n**Total Geral do Projeto:** ${formatCurrency(total)}\n`;
+    md += `## Resumo Financeiro\n\n**Total Geral do Projeto:** ${formatCurrency(total)}\n\n---\n\n`;
+
+    md += `## Cronograma de Desembolso (36 Meses)\n\n`;
+    md += `| Eixo / Meta | 1-4 | 5-8 | 9-12 | 13-16 | 17-20 | 21-24 | 25-28 | 29-32 | 33-36 |\n`;
+    md += `|---|---|---|---|---|---|---|---|---|---|\n`;
+
+    let cronoTotals = [0,0,0,0,0,0,0,0,0];
+    const sorted = [...projetoAtual.metas].sort((a,b) => {
+        if(a.eixo !== b.eixo) return a.eixo.localeCompare(b.eixo);
+        return a.titulo.localeCompare(b.titulo);
+    });
+
+    sorted.forEach(m => {
+        const p = m.periodos || [];
+        const activeCount = p.length;
+        const valPerPeriod = activeCount > 0 ? (m.valor / activeCount) : 0;
+        
+        md += `| **Eixo ${m.eixo}** - ${m.titulo} |`;
+        for(let i=0; i<9; i++) {
+            if(p.includes(i)) {
+                cronoTotals[i] += valPerPeriod;
+                md += ` ${formatCurrency(valPerPeriod)} |`;
+            } else {
+                md += ` - |`;
+            }
+        }
+        md += `\n`;
+    });
+
+    md += `| **TOTAL DO PERÍODO** |`;
+    for(let i=0; i<9; i++) {
+        md += ` **${formatCurrency(cronoTotals[i])}** |`;
+    }
+    md += `\n`;
+
     return md;
 }
 

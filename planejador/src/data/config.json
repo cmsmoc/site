@@ -1,26 +1,26 @@
 {
-    "valorMinimoProjeto": 10000,
-    "valorMaximoProjeto": 200000,
+    "valorMinimoProjeto": 70000,
+    "valorMaximoProjeto": 100000,
     "eixos": {
         "A": {
             "nome": "Articulação",
-            "min": 5000,
-            "max": 50000
+            "min": 9000,
+            "max": 13000
         },
         "B": {
             "nome": "Comunicação",
-            "min": 0,
-            "max": 30000
+            "min": 20000,
+            "max": 28000
         },
         "C": {
             "nome": "Eleição",
-            "min": 0,
-            "max": 80000
+            "min": 12000,
+            "max": 17000
         },
         "D": {
             "nome": "Formação",
-            "min": 0,
-            "max": 40000
+            "min": 29000,
+            "max": 42000
         }
     }
 }

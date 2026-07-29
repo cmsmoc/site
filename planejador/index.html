@@ -27,9 +27,15 @@
     <div class="cms-stripe"></div>
     <div class="app-wrapper">
         <header class="topbar">
-            <div class="topbar-title">
-                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="SEC" style="height:32px;">
-                Construtor de Projetos · Edital de Fortalecimento
+            <div class="topbar-title" style="display:flex; align-items:center; gap:20px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="SEC" style="height:32px;">
+                    Construtor de Projetos
+                </div>
+                <div class="view-tabs" style="display:flex; gap:8px;">
+                    <button class="btn btn-outline active-tab" id="tab-construcao" style="color:var(--cms-white); border-color:var(--cms-white);">Modo Construção</button>
+                    <button class="btn btn-outline" id="tab-cronograma" style="color:var(--cms-off); border-color:rgba(255,255,255,0.3);">Cronograma</button>
+                </div>
             </div>
             <div class="topbar-actions">
                 <button class="btn btn-outline" id="btn-novo" title="Limpar projeto">Novo Projeto</button>
@@ -39,7 +45,7 @@
             </div>
         </header>
 
-        <main class="main-layout">
+        <main class="main-layout" id="view-construcao">
             <!-- Painel Esquerdo: Filtros -->
             <aside class="panel panel-left">
                 <div class="panel-header">Filtros de Pesquisa</div>
@@ -92,6 +98,40 @@
                     <!-- Eixos renderizados via JS -->
                 </div>
             </aside>
+        </main>
+
+        <main class="crono-layout" id="view-cronograma" style="display:none; padding:24px; background:var(--cms-off); overflow-y:auto;">
+            <div class="panel" style="background:white; border-radius:var(--r-md); box-shadow:var(--shadow-sm); padding:24px; border:1px solid var(--cms-border);">
+                <div class="panel-header" style="border-bottom:2px solid var(--cms-yellow); padding-bottom:12px; margin-bottom:24px; color:var(--cms-navy); font-size:18px;">
+                    Cronograma de Desembolso Financeiro (36 Meses)
+                    <p style="font-size:12px; color:var(--cms-muted); font-weight:400; margin-top:4px;">Marque os períodos de execução. O valor da meta será distribuído uniformemente.</p>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="crono-table" id="crono-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left; min-width:250px;">Eixo / Meta</th>
+                                <th>Valor Total</th>
+                                <th class="col-periodo">1-4</th>
+                                <th class="col-periodo">5-8</th>
+                                <th class="col-periodo">9-12</th>
+                                <th class="col-periodo">13-16</th>
+                                <th class="col-periodo">17-20</th>
+                                <th class="col-periodo">21-24</th>
+                                <th class="col-periodo">25-28</th>
+                                <th class="col-periodo">29-32</th>
+                                <th class="col-periodo">33-36</th>
+                            </tr>
+                        </thead>
+                        <tbody id="crono-body">
+                            <!-- Metas renderizadas via JS -->
+                        </tbody>
+                        <tfoot id="crono-foot">
+                            <!-- Totais financeiros por coluna -->
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </main>
 
         <!-- Rodapé: Dashboard -->
