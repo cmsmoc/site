@@ -1263,6 +1263,32 @@ body {
   }
 }
 </style>
+
+<!-- OneSignal Push Notifications -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "a2f4b3a1-4daf-404b-9647-23d85f6dab0d",
+      promptOptions: {
+        slidedown: {
+          prompts: [
+            {
+              type: "push",
+              autoPrompt: false,
+              text: {
+                actionMessage: "Gostaria de receber avisos das reuniões do CMS no celular?",
+                acceptButton: "Permitir",
+                cancelButton: "Agora não"
+              }
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
 </head>
 <body>
 
@@ -1637,7 +1663,7 @@ body {
     </div>
     
     <div style="padding: 0 24px 24px;">
-      <a href="https://www.cmsmoc.com/reuniao" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px; font-size: 14px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box; border-radius: var(--radius-md); font-family: var(--font-display); font-weight: 800;">
+      <a href="https://www.cmsmoc.com/reuniao" id="popup-cta-btn" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px; font-size: 14px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box; border-radius: var(--radius-md); font-family: var(--font-display); font-weight: 800;">
         <span>📝</span> ASSINAR LISTA VIRTUAL
       </a>
     </div>
@@ -1670,6 +1696,27 @@ body {
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && popup.classList.contains('open')) {
         closePopup();
+      }
+    });
+  }
+
+  // --- 5. Interceptação do botão para OneSignal Push ---
+  const popupCtaBtn = document.getElementById('popup-cta-btn');
+  if (popupCtaBtn) {
+    popupCtaBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetUrl = this.href;
+
+      if (window.OneSignalDeferred) {
+        window.OneSignalDeferred.push(function(OneSignal) {
+          OneSignal.Slidedown.promptPush().then(() => {
+            window.location.href = targetUrl;
+          }).catch(() => {
+            window.location.href = targetUrl;
+          });
+        });
+      } else {
+        window.location.href = targetUrl;
       }
     });
   }
