@@ -1357,7 +1357,7 @@ body {
     <div class="cms-visitante-box cms-card-reuniao-row" style="margin-bottom: 0; padding: 24px; border-radius: var(--radius-lg); height: 100%; box-sizing: border-box;">
       <!-- Miniatura do Flyer na Lateral Esquerda (Zoom) -->
       <div class="cms-flyer-card" id="flyer-card" style="width: 180px; min-height: 100%; padding: 6px; border-radius: var(--radius-md); flex-shrink: 0; box-shadow: var(--shadow-sm); cursor: pointer; max-width: none; display: flex; align-items: center; justify-content: center; position: relative; background: #fff;">
-        <img src="FLYER.jpeg" alt="Flyer da 268ª Reunião" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px; background: #fff;" class="cms-flyer-img">
+        <img src="FLYER_269.jpg" alt="Flyer da 269ª Reunião" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px; background: #fff;" class="cms-flyer-img">
         <div class="cms-flyer-overlay" id="flyer-zoom-trigger" style="display: flex; align-items: center; justify-content: center; position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.2s; border-radius: 6px;">
           <span style="color: white; font-size: 12px; font-weight: 700;">Zoom 🔍</span>
         </div>
@@ -1368,20 +1368,22 @@ body {
         <div>
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <div>
-              <span class="cms-eyebrow" style="color: var(--cms-blue); font-size: 10px; margin-bottom: 2px; display: inline-block;">Reunião Recente</span>
-              <h3 class="cms-h2" style="font-size: 18px; line-height: 1.2; margin-bottom: 6px;">268ª Reunião Extraordinária</h3>
-              <span style="display: inline-block; padding: 3px 8px; background: #fee2e2; color: #ef4444; border-radius: var(--radius-sm); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Encerrada</span>
+              <span class="cms-eyebrow" style="color: var(--cms-blue); font-size: 10px; margin-bottom: 2px; display: inline-block;">Próxima Reunião</span>
+              <h3 class="cms-h2" style="font-size: 18px; line-height: 1.2; margin-bottom: 6px;">269ª Reunião Extraordinária</h3>
+              <span style="display: inline-block; padding: 3px 8px; background: #dcfce7; color: #15803d; border-radius: var(--radius-sm); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Agendada</span>
             </div>
-            <span style="font-size: 20px;">📋</span>
+            <span style="font-size: 20px;">📅</span>
           </div>
 
-          <p class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.45; margin-bottom: 12px;">
-            A reunião administrativa foi encerrada. As declarações oficiais de presença de conselheiros e visitantes (público) já estão disponíveis para download.
-          </p>
+          <div class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.45; margin-bottom: 12px;">
+            <strong>Data:</strong> 31 de julho às 14h<br>
+            <strong>Local:</strong> Conselho Metropolitano de Montes Claros, Centro (Rua General Carneiro, 170)<br>
+            <strong>Convocação:</strong> <a href="Convocacao_269%C2%AA_Extraordinaria_-_CMS_Montes_Claros_assinado.pdf" target="_blank" style="color: var(--cms-blue); font-weight: bold; text-decoration: none;">Acessar Arquivo PDF</a>
+          </div>
         </div>
 
-        <a href="https://www.cmsmoc.com/reuniao" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 11px; font-size: 12px; background: var(--cms-blue); box-shadow: 0 4px 10px rgba(27, 108, 181, 0.2); width: 100%; box-sizing: border-box;">
-          <span>📋</span> BAIXE SUA DECLARAÇÃO
+        <a href="https://www.cmsmoc.com/reuniao" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 11px; font-size: 12px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box;">
+          <span>📝</span> ASSINE A LISTA VIRTUAL
         </a>
       </div>
     </div>
@@ -1558,7 +1560,7 @@ body {
       <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
     </svg>
   </button>
-  <img src="FLYER.jpeg" alt="Flyer Ampliado" class="cms-modal-content">
+  <img src="FLYER_269.jpg" alt="Flyer Ampliado" class="cms-modal-content">
 </div>
 
 <!-- Scripts de Comportamento e API -->
@@ -1626,34 +1628,17 @@ body {
       </svg>
     </button>
     <div class="cms-popup-header">
-      <span class="cms-eyebrow" style="color: var(--cms-yellow);">Secretaria Executiva</span>
-      <h2 class="cms-popup-title">Novos Minicursos Disponíveis</h2>
+      <span class="cms-eyebrow" style="color: var(--cms-yellow);">Aviso Importante</span>
+      <h2 class="cms-popup-title">269ª Reunião Extraordinária</h2>
       <p class="cms-body" style="color: var(--cms-muted); font-size: 14px; margin-top: 6px;">
-        Aproveite as capacitações individuais desenvolvidas para qualificar o controle social.
+        A reunião acontecerá no dia <strong>31 de julho às 14h</strong> no Conselho Metropolitano de Montes Claros, Centro (Rua General Carneiro, 170).<br><br>
+        Não esqueça de assinar a lista de presença virtual (visitantes).
       </p>
     </div>
     
-    <div class="cms-popup-grid">
-      <!-- Minicurso 1 -->
-      <a href="https://www.cmsmoc.com/instrumentosdegestao/" class="cms-popup-card" target="_blank" rel="noopener noreferrer">
-        <div class="cms-popup-thumb-wrap">
-          <img src="instrumentosdegestao/thumb.webp" alt="Thumb Minicurso Instrumentos de Gestão" class="cms-popup-thumb">
-        </div>
-        <div class="cms-popup-card-body">
-          <h4 class="cms-popup-card-title">Instrumentos de Gestão do SUS</h4>
-          <span class="cms-popup-card-action">Acessar Curso →</span>
-        </div>
-      </a>
-
-      <!-- Minicurso 2 -->
-      <a href="https://www.cmsmoc.com/formacaoregimento/" class="cms-popup-card" target="_blank" rel="noopener noreferrer">
-        <div class="cms-popup-thumb-wrap">
-          <img src="formacaoregimento/thumb.webp" alt="Thumb Minicurso Formação e Regimento" class="cms-popup-thumb">
-        </div>
-        <div class="cms-popup-card-body">
-          <h4 class="cms-popup-card-title">Formação e Regimento Interno</h4>
-          <span class="cms-popup-card-action">Acessar Curso →</span>
-        </div>
+    <div style="padding: 0 24px 24px;">
+      <a href="https://www.cmsmoc.com/reuniao" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px; font-size: 14px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box; border-radius: var(--radius-md); font-family: var(--font-display); font-weight: 800;">
+        <span>📝</span> ASSINAR LISTA VIRTUAL
       </a>
     </div>
   </div>
