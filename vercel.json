@@ -29,6 +29,14 @@
           "destination": "https://cmsmoc.github.io/site/reuniao.html"
         },
         {
+          "source": "/REUNIAO",
+          "destination": "https://cmsmoc.github.io/site/reuniao.html"
+        },
+        {
+          "source": "/Reuniao",
+          "destination": "https://cmsmoc.github.io/site/reuniao.html"
+        },
+        {
           "source": "/avalie",
           "destination": "https://tally.so/r/441yXX"
         },
