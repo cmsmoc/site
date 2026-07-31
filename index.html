@@ -1706,17 +1706,42 @@ body {
     popupCtaBtn.addEventListener('click', function(e) {
       e.preventDefault();
       const targetUrl = this.href;
+      const originalText = popupCtaBtn.innerHTML;
+      popupCtaBtn.innerHTML = '<span>⏳</span> REDIRECIONANDO...';
 
-      if (window.OneSignalDeferred) {
-        window.OneSignalDeferred.push(function(OneSignal) {
-          OneSignal.Slidedown.promptPush().then(() => {
-            window.location.href = targetUrl;
-          }).catch(() => {
-            window.location.href = targetUrl;
-          });
-        });
-      } else {
-        window.location.href = targetUrl;
+      let fallbackTriggered = false;
+      const doRedirect = () => {
+        if (!fallbackTriggered) {
+          fallbackTriggered = true;
+          window.location.href = targetUrl;
+        }
+      };
+
+      // Se o OneSignal demorar mais que 2.5s para responder ou exibir o prompt, redireciona
+      const fallbackTimer = setTimeout(doRedirect, 2500);
+
+      try {
+        if (window.OneSignal && window.OneSignal.Slidedown) {
+          if (window.OneSignal.User && window.OneSignal.User.PushSubscription && window.OneSignal.User.PushSubscription.optedIn) {
+            clearTimeout(fallbackTimer);
+            doRedirect();
+          } else {
+            window.OneSignal.Slidedown.promptPush().then(() => {
+              clearTimeout(fallbackTimer);
+              doRedirect();
+            }).catch(() => {
+              clearTimeout(fallbackTimer);
+              doRedirect();
+            });
+          }
+        } else {
+          // OneSignal não carregou a tempo ou foi bloqueado
+          clearTimeout(fallbackTimer);
+          doRedirect();
+        }
+      } catch (err) {
+        clearTimeout(fallbackTimer);
+        doRedirect();
       }
     });
   }
