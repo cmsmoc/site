@@ -1,7 +1,7 @@
 {
   "configs": {
     "CHAVE": "VALOR",
-    "STATUS_SISTEMA": "ATIVO",
+    "STATUS_SISTEMA": "INATIVO",
     "MODO": 1,
     "TITULO": "468ª Reunião Extraordinária do CMS - Montes Claros",
     "LABEL_TOPO": "",
