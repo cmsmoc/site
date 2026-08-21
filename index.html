@@ -9,8 +9,8 @@
 <meta property="og:url" content="https://www.cmsmoc.com/">
 <meta property="og:title" content="Conselho Municipal de Saúde — Montes Claros">
 <meta property="og:description" content="Site Institucional Oficial do CMS Montes Claros. Participe das reuniões, assine a lista de presença virtual de visitantes e acesse minicursos da Secretaria Executiva.">
-<meta property="og:image" content="https://www.cmsmoc.com/thumb.png">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="https://www.cmsmoc.com/thumb.webp">
+<meta property="og:image:type" content="image/webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
@@ -19,7 +19,7 @@
 <meta name="twitter:url" content="https://www.cmsmoc.com/">
 <meta name="twitter:title" content="Conselho Municipal de Saúde — Montes Claros">
 <meta name="twitter:description" content="Site Institucional Oficial do CMS Montes Claros. Participe das reuniões, assine a lista de presença virtual de visitantes e acesse minicursos da Secretaria Executiva.">
-<meta name="twitter:image" content="https://www.cmsmoc.com/thumb.png">
+<meta name="twitter:image" content="https://www.cmsmoc.com/thumb.webp">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
@@ -1377,81 +1377,52 @@ body {
     </div>
   </div>
 
-  <div class="cms-masonry-grid" style="margin-bottom: 48px;">
+  <details style="margin-bottom: 24px; background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-md); padding: 16px 24px; cursor: pointer; box-shadow: var(--shadow-sm);">
+    <summary style="font-family: var(--font-display); font-weight: 800; color: var(--cms-navy); font-size: 15px; outline: none; list-style-position: inside;">
+      Exibir Mapa das Comissões e Câmaras Técnicas
+    </summary>
+    <div style="margin-top: 16px;">
+      <img src="cts.png" alt="Comissões e Câmaras Técnicas" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+    </div>
+  </details>
+
+  <div class="cms-masonry-grid" style="margin-bottom: 48px; display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
     
-    <!-- CARD 1: 268ª REUNIÃO EXTRAORDINÁRIA (Destaque Principal na esquerda, Layout Horizontal) -->
-    <div class="cms-visitante-box cms-card-reuniao-row" style="margin-bottom: 0; padding: 24px; border-radius: var(--radius-lg); height: 100%; box-sizing: border-box;">
-      <!-- Miniatura do Flyer na Lateral Esquerda (Zoom) -->
-      <div class="cms-flyer-card" id="flyer-card" style="width: 180px; min-height: 100%; padding: 6px; border-radius: var(--radius-md); flex-shrink: 0; box-shadow: var(--shadow-sm); cursor: pointer; max-width: none; display: flex; align-items: center; justify-content: center; position: relative; background: #fff;">
-        <img src="FLYER_269.jpg" alt="Flyer da 269ª Reunião" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px; background: #fff;" class="cms-flyer-img">
-        <div class="cms-flyer-overlay" id="flyer-zoom-trigger" style="display: flex; align-items: center; justify-content: center; position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.2s; border-radius: 6px;">
-          <span style="color: white; font-size: 12px; font-weight: 700;">Zoom 🔍</span>
-        </div>
+    <!-- Minicurso 1 -->
+    <a href="https://www.cmsmoc.com/instrumentosdegestao/" class="cms-cap-card-horizontal" target="_blank" rel="noopener noreferrer">
+      <div style="width: 220px; min-height: 100%; position: relative; flex-shrink: 0; background: var(--cms-navy);">
+        <img src="instrumentosdegestao/thumb.webp" alt="Instrumentos de Gestão" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-
-      <!-- Dados da Reunião (Direita) -->
-      <div style="display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+      <div style="padding: 16px 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
         <div>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-            <div>
-              <span class="cms-eyebrow" style="color: var(--cms-blue); font-size: 10px; margin-bottom: 2px; display: inline-block;">Próxima Reunião</span>
-              <h3 class="cms-h2" style="font-size: 18px; line-height: 1.2; margin-bottom: 6px;">269ª Reunião Extraordinária</h3>
-              <span style="display: inline-block; padding: 3px 8px; background: #dcfce7; color: #15803d; border-radius: var(--radius-sm); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Agendada</span>
-            </div>
-            <span style="font-size: 20px;">📅</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span class="cms-eyebrow" style="color: var(--cms-green); font-size: 9px;">Capacitação SUS</span>
+            <span style="font-size: 16px;">📊</span>
           </div>
-
-          <div class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.45; margin-bottom: 12px;">
-            <strong>Data:</strong> 31 de julho às 14h<br>
-            <strong>Local:</strong> Conselho Metropolitano de Montes Claros, Centro (Rua General Carneiro, 170)<br>
-            <strong>Convocação:</strong> <a href="Convocacao_269%C2%AA_Extraordinaria_-_CMS_Montes_Claros_assinado.pdf" target="_blank" style="color: var(--cms-blue); font-weight: bold; text-decoration: none;">Acessar Arquivo PDF</a>
-          </div>
+          <h4 class="cms-popup-card-title" style="margin-bottom: 6px; font-size: 15px; font-family: var(--font-display); font-weight: 700; color: var(--cms-navy); line-height: 1.3;">Instrumentos de Gestão do SUS</h4>
+          <p class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.4; margin-bottom: 8px;">Conheça o Plano de Saúde, PAS, RDQA e RAG de forma simplificada.</p>
         </div>
-
-        <a href="https://www.cmsmoc.com/reuniao" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 11px; font-size: 12px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box;">
-          <span>📝</span> ASSINE A LISTA VIRTUAL
-        </a>
+        <span class="cms-popup-card-action" style="font-family: var(--font-display); font-size: 11.5px; font-weight: 700; color: var(--cms-blue); margin-top: 0;">Acessar Curso →</span>
       </div>
-    </div>
+    </a>
 
-    <!-- COLUNA DA DIREITA COM OS MINICURSOS (Tamanho assimétrico / Masonry) -->
-    <div style="display: flex; flex-direction: column; gap: 24px;">
-      <!-- Minicurso 1 -->
-      <a href="https://www.cmsmoc.com/instrumentosdegestao/" class="cms-cap-card-horizontal" target="_blank" rel="noopener noreferrer">
-        <div style="width: 220px; min-height: 100%; position: relative; flex-shrink: 0; background: var(--cms-navy);">
-          <img src="instrumentosdegestao/thumb.webp" alt="Instrumentos de Gestão" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div style="padding: 16px 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-          <div>
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-              <span class="cms-eyebrow" style="color: var(--cms-green); font-size: 9px;">Capacitação SUS</span>
-              <span style="font-size: 16px;">📊</span>
-            </div>
-            <h4 class="cms-popup-card-title" style="margin-bottom: 6px; font-size: 15px; font-family: var(--font-display); font-weight: 700; color: var(--cms-navy); line-height: 1.3;">Instrumentos de Gestão do SUS</h4>
-            <p class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.4; margin-bottom: 8px;">Conheça o Plano de Saúde, PAS, RDQA e RAG de forma simplificada.</p>
+    <!-- Minicurso 2 (Com Brilho) -->
+    <a href="https://www.cmsmoc.com/formacaoregimento/" class="cms-cap-card-horizontal" target="_blank" rel="noopener noreferrer" style="box-shadow: 0 0 20px rgba(245, 196, 0, 0.8); border: 2px solid var(--cms-yellow); transform: scale(1.02); transition: transform 0.2s;">
+      <div style="width: 220px; min-height: 100%; position: relative; flex-shrink: 0; background: var(--cms-navy);">
+        <img src="formacaoregimento/thumb.webp" alt="Formação e Regimento Interno" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="padding: 16px 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span class="cms-eyebrow" style="color: var(--cms-green); font-size: 9px;">Capacitação SUS</span>
+            <span style="font-size: 16px;">⚖️</span>
           </div>
-          <span class="cms-popup-card-action" style="font-family: var(--font-display); font-size: 11.5px; font-weight: 700; color: var(--cms-blue); margin-top: 0;">Acessar Curso →</span>
+          <h4 class="cms-popup-card-title" style="margin-bottom: 6px; font-size: 15px; font-family: var(--font-display); font-weight: 700; color: var(--cms-navy); line-height: 1.3;">Formação e Regimento Interno</h4>
+          <p class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.4; margin-bottom: 8px;">Entenda os deveres, a paridade e a organização operacional do conselheiro.</p>
         </div>
-      </a>
-
-      <!-- Minicurso 2 -->
-      <a href="https://www.cmsmoc.com/formacaoregimento/" class="cms-cap-card-horizontal" target="_blank" rel="noopener noreferrer">
-        <div style="width: 220px; min-height: 100%; position: relative; flex-shrink: 0; background: var(--cms-navy);">
-          <img src="formacaoregimento/thumb.webp" alt="Formação e Regimento Interno" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div style="padding: 16px 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-          <div>
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-              <span class="cms-eyebrow" style="color: var(--cms-green); font-size: 9px;">Capacitação SUS</span>
-              <span style="font-size: 16px;">⚖️</span>
-            </div>
-            <h4 class="cms-popup-card-title" style="margin-bottom: 6px; font-size: 15px; font-family: var(--font-display); font-weight: 700; color: var(--cms-navy); line-height: 1.3;">Formação e Regimento Interno</h4>
-            <p class="cms-body" style="font-size: 12px; color: var(--cms-muted); line-height: 1.4; margin-bottom: 8px;">Entenda os deveres, a paridade e a organização operacional do conselheiro.</p>
-          </div>
-          <span class="cms-popup-card-action" style="font-family: var(--font-display); font-size: 11.5px; font-weight: 700; color: var(--cms-blue); margin-top: 0;">Acessar Curso →</span>
-        </div>
-      </a>
-    </div>
+        <span class="cms-popup-card-action" style="font-family: var(--font-display); font-size: 11.5px; font-weight: 700; color: var(--cms-blue); margin-top: 0;">Acessar Curso →</span>
+      </div>
+    </a>
 
   </div>
 
@@ -1579,104 +1550,55 @@ body {
   <span style="font-size: 11px; margin-top: 12px; display: inline-block; color: rgba(255,255,255,0.3);">Layout baseado no Swiss Design System</span>
 </footer>
 
-<!-- Modal / Lightbox para o Flyer -->
-<div class="cms-modal" id="flyer-modal">
-  <button class="cms-modal-close" id="modal-close-btn" aria-label="Fechar">
-    <svg viewBox="0 0 24 24">
-      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-    </svg>
-  </button>
-  <img src="FLYER_269.jpg" alt="Flyer Ampliado" class="cms-modal-content">
-</div>
-
 <!-- Scripts de Comportamento e API -->
 <script>
   // --- 1. Formulário de Visitante (Desativado) ---
   // O formulário foi removido porque a reunião já encerrou.
   // Os usuários agora baixam a declaração diretamente.
-
-  // --- 2. Lightbox / Modal do Flyer ---
-  const zoomTrigger = document.getElementById('flyer-zoom-trigger');
-  const modal = document.getElementById('flyer-modal');
-  const closeBtn = document.getElementById('modal-close-btn');
-
-  function openModal() {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  if (zoomTrigger && modal && closeBtn) {
-    zoomTrigger.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.classList.contains('open')) {
-        closeModal();
-      }
-    });
-  }
-
-  // --- 3. Efeito Parallax Tilt Suave no Card do Flyer ---
-  const card = document.getElementById('flyer-card');
-  if (card && window.innerWidth > 968) {
-    card.addEventListener('mousemove', function(e) {
-      const cardRect = card.getBoundingClientRect();
-      const cardWidth = cardRect.width;
-      const cardHeight = cardRect.height;
-      const mouseX = (e.clientX - cardRect.left) / cardWidth - 0.5;
-      const mouseY = (e.clientY - cardRect.top) / cardHeight - 0.5;
-      const rotateX = (mouseY * -15).toFixed(2);
-      const rotateY = (mouseX * 15).toFixed(2);
-      card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    card.addEventListener('mouseleave', function() {
-      card.style.transform = '';
-    });
-  }
 </script>
 
-<!-- Pop-up de Minicursos da Secretaria Executiva -->
+<!-- Pop-up de Aviso: Comissões e Câmaras Técnicas -->
 <div class="cms-popup-overlay" id="minicursos-popup">
-  <div class="cms-popup-container">
+  <div class="cms-popup-container" style="max-width: 500px; background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.98)), url('cts.png'); background-size: cover; background-position: center;">
     <button class="cms-popup-close-btn" id="minicursos-popup-close" aria-label="Fechar Pop-up">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    <div class="cms-popup-header">
+    <div class="cms-popup-header" style="text-align: center; position: relative; z-index: 2;">
       <span class="cms-eyebrow" style="color: var(--cms-yellow);">Aviso Importante</span>
-      <h2 class="cms-popup-title">269ª Reunião Extraordinária</h2>
-      <p class="cms-body" style="color: var(--cms-muted); font-size: 14px; margin-top: 6px;">
-        A reunião acontecerá no dia <strong>31 de julho às 14h</strong> no Conselho Metropolitano de Montes Claros, Centro (Rua General Carneiro, 170).<br><br>
-        Não esqueça de assinar a lista de presença virtual (visitantes).
-      </p>
+      <h2 class="cms-popup-title" style="font-size: 20px; margin-bottom: 0;">Comissões e Câmaras Técnicas</h2>
+      <div class="cms-body" style="color: var(--cms-navy); font-size: 14px; text-align: left; line-height: 1.6; margin-top: 20px;">
+        <p style="margin-bottom: 12px;">Temos uma ótima notícia! As nossas <strong>Comissões e Câmaras Técnicas</strong> estão em processo de reinstauração.</p>
+        <p style="margin-bottom: 8px;"><strong>E o mais importante:</strong></p>
+        <ul style="margin-bottom: 16px; padding-left: 20px; color: var(--cms-muted);">
+          <li style="margin-bottom: 6px;">Você pode atuar como membro integrante oficial, com portaria.</li>
+          <li style="margin-bottom: 6px;">Ou, se preferir, pode participar livremente como ouvinte nas reuniões, mesmo sem integrar a comissão formalmente.</li>
+          <li style="margin-bottom: 6px;">Sinta-se à vontade para acompanhar a comissão que mais se alinha ao seu perfil!</li>
+        </ul>
+        <p style="margin-bottom: 16px; color: var(--cms-navy); font-weight: 700; text-align: center; font-size: 14.5px; background: rgba(245, 196, 0, 0.2); padding: 12px; border-radius: var(--radius-sm);">
+          Fique de olho em nosso grupo oficial de comunicação! É por lá que organizaremos a inserção dos membros nas portarias de cada encontro.
+        </p>
+      </div>
     </div>
     
     <div style="padding: 0 24px 24px;">
-      <a href="https://www.cmsmoc.com/reuniao" id="popup-cta-btn" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px; font-size: 14px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box; border-radius: var(--radius-md); font-family: var(--font-display); font-weight: 800;">
-        <span>📝</span> ASSINAR LISTA VIRTUAL
+      <p style="font-size: 11.5px; color: var(--cms-blue); font-weight: 700; text-align: center; margin-bottom: 12px;">🔔 IMPORTANTE: INSCREVA-SE NO PUSH ABAIXO PARA RECEBER AVISOS DIRETOS!</p>
+      <a href="#" id="popup-cta-btn" class="cms-btn-visitante-submit" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px; font-size: 14px; background: var(--cms-yellow); color: var(--cms-navy); box-shadow: 0 4px 10px rgba(245, 196, 0, 0.3); width: 100%; box-sizing: border-box; border-radius: var(--radius-md); font-family: var(--font-display); font-weight: 800;">
+        <span>🔔</span> INSCREVER-SE NO PUSH
       </a>
     </div>
   </div>
 </div>
 
 <script>
-  // --- 4. Pop-up de Minicursos Automático (Executado após a renderização dos elementos) ---
+  // --- 4. Pop-up de Aviso Automático ---
   const popup = document.getElementById('minicursos-popup');
   const popupClose = document.getElementById('minicursos-popup-close');
 
   if (popup && popupClose) {
-    // Pop-up abre em cada carregamento com delay suave (1s) para fins de teste
+    // Pop-up abre com delay suave (1s)
     setTimeout(() => {
       popup.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1707,13 +1629,17 @@ body {
       e.preventDefault();
       const targetUrl = this.href;
       const originalText = popupCtaBtn.innerHTML;
-      popupCtaBtn.innerHTML = '<span>⏳</span> REDIRECIONANDO...';
+      popupCtaBtn.innerHTML = '<span>⏳</span> PROCESSANDO...';
 
       let fallbackTriggered = false;
       const doRedirect = () => {
         if (!fallbackTriggered) {
           fallbackTriggered = true;
-          window.location.href = targetUrl;
+          if (targetUrl && !targetUrl.endsWith('#')) {
+            window.location.href = targetUrl;
+          } else {
+            popupCtaBtn.innerHTML = '<span>✔️</span> VERIFIQUE O AVISO NA TELA';
+          }
         }
       };
 
