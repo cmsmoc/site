@@ -1,5 +1,7 @@
 {
   "change_log": [
+    "2026-08-06: Atualizado o pop-up inicial no site principal para exibir aviso sobre declarações da Reunião 468 com cálculo dinâmico da data (hoje, ontem, ou 05 de agosto de 2026) e redirecionamento integrado para /reuniao. Convertido thumb.png para thumb.webp e atualizadas as tags og:image de index.html e reuniao.html para otimizar previews.",
+    "2026-08-05: Substituição dos nomes de conselheiros nas Listas de Presença (Paulo Thiago -> Ranielson Alves Ferreira, Emille -> Ana Márcia de Souza Almeida).",
     "2026-06-30: Cortada a imagem site/formacaoregimento/thumb.webp (de 1394x635 para 1212x635) para proporção de 1.91:1, otimizando o tamanho da miniatura (thumb) no WhatsApp.",
     "2026-06-30: Atualizada a propriedade og:image:width no arquivo site/formacaoregimento/index.html para refletir a nova largura de 1212px.",
     "2026-06-30: Atualizado o arquivo site/recomposicao.html com correções e substituições de nomes de conselheiros (Emilly -> Ana Márcia, Paulo -> Renilson, Jucélio -> Juciélio).",
@@ -25,7 +27,8 @@
     "2026-07-30: Atualizado o destaque e o pop-up do site provisório para divulgar a 269ª Reunião Extraordinária (31 de julho às 14h), incluindo o CTA para assinar a lista virtual apontando para /reuniao. Substituída a imagem do flyer por FLYER_269.jpg. Realizado push para produção (main). Também foi salvo na área de trabalho o Plano de Normalização e Proposta do Assistente CMS (Plano_Normalizacao_Assistente.md) e criado o sandbox interativo (assistente-cms-sandbox.html) para automatizar alterações frequentes de banners/popups.",
     "2026-07-30: Atualizado o destaque e o pop-up do site provisório para divulgar a 269ª Reunião Extraordinária (31 de julho às 14h), incluindo o CTA para assinar a lista virtual apontando para /reuniao. Substituída a imagem do flyer por FLYER_269.jpg. Realizado push para produção (main). Também foi salvo na área de trabalho o Plano de Normalização e Proposta do Assistente CMS (Plano_Normalizacao_Assistente.md) e criado o sandbox interativo (assistente-cms-sandbox.html) para automatizar alterações frequentes de banners/popups.",
     "2026-07-30: Integrado o SDK do OneSignal (v16) ao site principal. Adicionado o arquivo OneSignalSDKWorker.js na raiz e modificado o CTA do popup de presença para acionar a permissão de notificações nativa via OneSignal.Slidedown.promptPush() antes de redirecionar o usuário para a lista de presença.",
-    "2026-07-30: Adicionadas regras de rewrite em vercel.json para suportar variações de URL (/REUNIAO e /Reuniao), resolvendo o problema de case-sensitivity no acesso à lista de presença."
+    "2026-07-30: Adicionadas regras de rewrite em vercel.json para suportar variações de URL (/REUNIAO e /Reuniao), resolvendo o problema de case-sensitivity no acesso à lista de presença.",
+    "2026-08-21: Atualizado index.html para remover o aviso e modal da 269ª Reunião. Reorganizada a área de destaque para as Oficinas, com adição de glow effect no 'Formação e Regimento Interno'. Adicionada tag details/summary (acordeão) retrátil contendo a imagem cts.png no topo. Substituído o pop-up antigo pelo aviso aprimorado sobre as Comissões e Câmaras Técnicas, integrando imagem ao background e botão interativo para o sistema PUSH."
   ],
   "planejamento_estrategico_2026": {
     "etapas": [
