@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Contratos - V4</title>
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Hub de Contratos Hospitalares">
+    <meta property="og:description" content="Acesso aos Contratos, Aditivos, Atas e Memorandos dos hospitais vinculados ao CMSMOC.">
+    <meta property="og:image" content="https://www.cmsmoc.com/contratoshospitalares/images/thumb.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cms-stripe"></div>
+    
+    <header class="cms-header">
+        <div class="header-content">
+            <div class="logos">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva CMSMOC" class="logo-sec">
+            </div>
+            <div class="header-titles">
+                <h1>Hub de Contratos Hospitalares</h1>
+                <p>Conselho Municipal de Saúde de Montes Claros</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Preâmbulo Original c/ Link pro Drive -->
+        <section id="preambulo" class="preambulo">
+            <h2>Gestão de Contratos e Aditivos</h2>
+            <p>Selecione uma das unidades hospitalares abaixo para visualizar os documentos contratuais vigentes.</p>
+            <div class="drive-btn-container" style="margin-top: 2rem;">
+                <a href="https://drive.google.com/drive/folders/1U1t38D_WwLs5dATaLu9r9TonqU-n3pFj" target="_blank" class="btn-drive-large">
+                    🔗 Acessar Pasta Central no Google Drive
+                </a>
+            </div>
+        </section>
+
+        <!-- View 1: Grid de Hospitais -->
+        <section id="view-hospitais" class="metro-grid">
+            <!-- Renderizado via JS -->
+        </section>
+
+        <!-- View 2: Galeria de Arquivos (Escondido) -->
+        <section id="view-arquivos" class="files-gallery" style="display: none;">
+            <div class="files-header">
+                <h2 id="hospital-title" class="hospital-title">Nome do Hospital</h2>
+                <button id="btn-voltar" class="btn-voltar">
+                    Voltar aos Hospitais
+                </button>
+            </div>
+            <div id="files-container">
+                <!-- Renderizado via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

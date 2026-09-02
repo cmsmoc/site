@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Contratos - Teste Dinâmico</title>
+    <!-- OpenGraph / WhatsApp Meta Tags -->
+    <meta property="og:title" content="Hub de Contratos Hospitalares - Teste">
+    <meta property="og:description" content="Acesso dinâmico aos Contratos, Aditivos, Atas e Memorandos dos hospitais vinculados ao CMSMOC.">
+    <meta property="og:image" content="https://www.cmsmoc.com/contratoshospitalares/images/thumb.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Stripe Tricolor CMSMOC -->
+    <div class="cms-stripe"></div>
+    
+    <!-- Cabeçalho Institucional -->
+    <header class="cms-header">
+        <div class="header-content">
+            <div class="logos">
+                <img src="https://cmsmoc.github.io/secretariaexecutiva/logo/secwh.png" alt="Secretaria Executiva CMSMOC" class="logo-sec">
+            </div>
+            <div class="header-titles">
+                <h1>Hub de Contratos Hospitalares</h1>
+                <p>Conselho Municipal de Saúde de Montes Claros</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Preâmbulo -->
+        <section id="preambulo" class="preambulo">
+            <h2>Gestão de Contratos e Aditivos</h2>
+            <p>Selecione uma das unidades hospitalares abaixo para visualizar os documentos contratuais vigentes (Contratos Principais, Termos Aditivos e Apostilamentos). Este é um ambiente dinâmico.</p>
+        </section>
+
+        <!-- View 1: Grid de Hospitais -->
+        <section id="view-hospitais" class="metro-grid">
+            <!-- Renderizado via JS -->
+        </section>
+
+        <!-- View 2: Galeria de Arquivos (Escondido inicialmente) -->
+        <section id="view-arquivos" class="files-gallery glass-panel" style="display: none;">
+            <div class="files-header">
+                <h2 id="hospital-title" class="hospital-title">Nome do Hospital</h2>
+                <button id="btn-voltar" class="btn-voltar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Voltar aos Hospitais
+                </button>
+            </div>
+            <div id="files-container">
+                <!-- Renderizado via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
