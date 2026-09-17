@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hub Educacional — Oficinas e Trilhas de Formação | CMS Montes Claros</title>
+<!-- Metadados de Compartilhamento (Open Graph / WhatsApp / Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.cmsmoc.com/oficinas/">
+<meta property="og:title" content="Hub Educacional — CMS Montes Claros">
+<meta property="og:description" content="Acesse as oficinas, trilhas de formação e capacitações oferecidas pela Secretaria Executiva do CMS Montes Claros.">
+<meta property="og:image" content="https://www.cmsmoc.com/oficinas/thumb.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.cmsmoc.com/oficinas/">
+<meta name="twitter:title" content="Hub Educacional — CMS Montes Claros">
+<meta name="twitter:description" content="Acesse as oficinas, trilhas de formação e capacitações oferecidas pela Secretaria Executiva do CMS Montes Claros.">
+<meta name="twitter:image" content="https://www.cmsmoc.com/oficinas/thumb.webp">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cms-blue:#1B6CB5;
+  --cms-navy:#0D2E5A;
+  --cms-green:#1E8A4A;
+  --cms-yellow:#F5C400;
+  --cms-white:#FFFFFF;
+  --cms-off:#F7F8FA;
+  --cms-ink:#111827;
+  --cms-muted:#6B7280;
+  --cms-border:#E5E7EB;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--cms-off);color:var(--cms-ink);line-height:1.65;font-size:15px}
+
+/* TOPBAR */
+.topbar{
+  background:var(--cms-navy);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:56px;
+  position:sticky;top:0;z-index:1000;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+.topbar-brand{
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:12px;
+  letter-spacing:2px;text-transform:uppercase;color:#fff;text-decoration:none;
+}
+.topbar-brand span{color:var(--cms-yellow)}
+.topbar-tag{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
+/* HERO */
+.hero{
+  background:var(--cms-navy);
+  padding:80px 40px;
+  position:relative;overflow:hidden;
+  text-align:center;
+  color:var(--cms-white);
+}
+.hero h1{
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;
+  line-height:1.2;margin-bottom:16px;
+}
+.hero p{
+  font-size:18px;max-width:600px;margin:0 auto;color:rgba(255,255,255,.8);
+}
+
+/* CONTAINER */
+.container{
+  max-width:1100px;margin:0 auto;padding:64px 20px;
+}
+.section-title{
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;
+  color:var(--cms-navy);margin-bottom:32px;text-align:center;
+}
+
+/* GRID */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;
+}
+
+/* CARD */
+.card{
+  background:var(--cms-white);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+  display:flex;flex-direction:column;
+  text-decoration:none;color:inherit;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 30px rgba(0,0,0,.1);
+}
+.card-img{
+  width:100%;height:180px;object-fit:cover;
+  border-bottom:1px solid var(--cms-border);
+}
+.card-body{
+  padding:24px;flex-grow:1;display:flex;flex-direction:column;
+}
+.card-badge{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;color:var(--cms-blue);
+  background:#EFF6FF;padding:4px 10px;border-radius:20px;
+  align-self:flex-start;margin-bottom:16px;
+}
+.card-title{
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;
+  color:var(--cms-navy);margin-bottom:12px;
+}
+.card-desc{
+  font-size:14px;color:var(--cms-muted);flex-grow:1;margin-bottom:24px;
+}
+.card-btn{
+  background:var(--cms-blue);color:var(--cms-white);
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;
+  text-align:center;padding:12px;border-radius:8px;
+  transition:background 0.2s;
+}
+.card:hover .card-btn{
+  background:var(--cms-navy);
+}
+
+/* FOOTER */
+.footer{
+  background:var(--cms-white);
+  border-top:1px solid var(--cms-border);
+  padding:32px 20px;
+  text-align:center;
+}
+.footer p{
+  font-size:14px;color:var(--cms-muted);
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/" class="topbar-brand">CMS <span>Montes Claros</span></a>
+  <div class="topbar-tag">Hub Educacional</div>
+</header>
+
+<section class="hero">
+  <h1>Trilhas de Formação</h1>
+  <p>Acesse nossas oficinas e capacitações criadas para conselheiros, gestores e cidadãos engajados no SUS.</p>
+</section>
+
+<main class="container">
+  <h2 class="section-title">Nossas Oficinas</h2>
+  
+  <div class="grid">
+    <!-- CARD 1 -->
+    <a href="/formacaoregimento/" class="card">
+      <img src="https://www.cmsmoc.com/formacaoregimento/thumb.webp" alt="Formação do Conselheiro" class="card-img">
+      <div class="card-body">
+        <span class="card-badge">Básico</span>
+        <h3 class="card-title">Mini Formação do Conselheiro</h3>
+        <p class="card-desc">Aprenda como o CMS funciona de verdade — com linguagem clara, exemplos práticos e quizzes interativos.</p>
+        <div class="card-btn">Acessar Oficina</div>
+      </div>
+    </a>
+
+    <!-- CARD 2 -->
+    <a href="/instrumentosdegestao/" class="card">
+      <img src="https://www.cmsmoc.com/instrumentosdegestao/thumb.webp" alt="Instrumentos de Gestão" class="card-img">
+      <div class="card-body">
+        <span class="card-badge">Avançado</span>
+        <h3 class="card-title">Instrumentos de Gestão no SUS</h3>
+        <p class="card-desc">Como funciona a gestão da saúde pública — e qual é o papel real do conselheiro na fiscalização e planejamento.</p>
+        <div class="card-btn">Acessar Oficina</div>
+      </div>
+    </a>
+
+    <!-- CARD 3 -->
+    <a href="/iadados/" class="card">
+      <img src="https://www.cmsmoc.com/iadados/thumb.webp" alt="IA, Dados e Conhecimento" class="card-img">
+      <div class="card-body">
+        <span class="card-badge">Especialização</span>
+        <h3 class="card-title">IA, Dados e Conhecimento</h3>
+        <p class="card-desc">O futuro da saúde digital e como utilizar dados para apoiar decisões estratégicas no Conselho Municipal.</p>
+        <div class="card-btn">Acessar Oficina</div>
+      </div>
+    </a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2026 Conselho Municipal de Saúde de Montes Claros. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

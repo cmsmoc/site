@@ -1,5 +1,6 @@
 {
   "change_log": [
+    "2026-09-17: Atualização das tags og:image das páginas /iadados, /formacaoregimento e /instrumentosdegestao para usar URLs absolutas, geração de thumbnails webp e jpg (para WhatsApp), e criação de um novo Hub Educacional em /oficinas centralizando o acesso às capacitações.",
     "2026-08-06: Atualizado o pop-up inicial no site principal para exibir aviso sobre declarações da Reunião 468 com cálculo dinâmico da data (hoje, ontem, ou 05 de agosto de 2026) e redirecionamento integrado para /reuniao. Convertido thumb.png para thumb.webp e atualizadas as tags og:image de index.html e reuniao.html para otimizar previews.",
     "2026-08-05: Substituição dos nomes de conselheiros nas Listas de Presença (Paulo Thiago -> Ranielson Alves Ferreira, Emille -> Ana Márcia de Souza Almeida).",
     "2026-06-30: Cortada a imagem site/formacaoregimento/thumb.webp (de 1394x635 para 1212x635) para proporção de 1.91:1, otimizando o tamanho da miniatura (thumb) no WhatsApp.",
