@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Instalação do AutoDoc CMS</title>
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="AutoDoc CMS - Automação de Documentos">
+  <meta property="og:description" content="Clique para copiar o AutoDoc para o seu sistema Google. Quaisquer dúvidas siga o tutorial.">
+  <meta property="og:image" content="https://www.cmsmoc.com/autodoc/thumbnail.webp">
+  <meta property="og:url" content="https://www.cmsmoc.com/autodoc/index.html">
+  <meta property="og:type" content="website">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CMS Design System Tokens */
+    :root {
+      --navy:     #071A33;
+      --navy-light:#0D2E5A;
+      --blue:     #1B6CB5;
+      --yellow:   #F5C400;
+      --white:    #FFFFFF;
+      --muted:    #9CA3AF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    /* Glow de Fundo */
+    .bg-glow {
+      position: absolute;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(27,108,181,0.2) 0%, transparent 60%);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Card Principal */
+    .install-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 50px 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Tipografia */
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--blue); }
+
+    p.lead {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    /* Botão Principal */
+    .btn-install {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 18px 24px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      width: 100%;
+      box-shadow: 0 10px 20px rgba(27,108,181,0.3);
+    }
+    
+    .btn-install:hover {
+      background: #155590;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(27,108,181,0.4);
+    }
+
+    /* Icon SVG no botão */
+    .btn-install svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <div class="install-card">
+    <span class="eyebrow">Instalação Segura</span>
+    <h1>AutoDoc <span>v5.0</span></h1>
+    <p class="lead">O sistema completo de automação e validação de tags de documentos para o CMS.</p>
+    
+    <a href="https://docs.google.com/spreadsheets/d/1AB9wqwZ70xoWXneNa9KVXO8EtDNUOKBDp0pa2YHWuNc/copy" class="btn-install">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 3H5C3.89 3 3 3.9 3 5v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5C21 3.9 20.11 3 19 3zM19 19H5V5h14v14zM16 11v2H8v-2h8z"/>
+      </svg>
+      Copiar AutoDoc para o Google
+    </a>
+    
+    <div class="footer-note">
+      Quaisquer dúvidas, siga o tutorial oficial de instalação.
+    </div>
+  </div>
+
+</body>
+</html>

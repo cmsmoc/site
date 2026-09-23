@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial: CMS Inteligente – Módulo AutoDoc</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS & RESET ── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cms-blue:   #1B6CB5;
+  --cms-navy:   #0D2E5A;
+  --cms-green:  #1E8A4A;
+  --cms-yellow: #F5C400;
+  --cms-white:  #FFFFFF;
+  --cms-off:    #F7F8FA;
+  --cms-ink:    #111827;
+  --cms-muted:  #6B7280;
+  --cms-border: #E5E7EB;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--cms-off);
+  color: var(--cms-ink);
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ── NAV ── */
+.topbar {
+  background: var(--cms-navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 56px;
+  position: sticky; top: 0; z-index: 200;
+}
+.topbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+.topbar-brand span { color: var(--cms-yellow); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--cms-navy);
+  color: white;
+  padding: 96px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,196,0,0.12) 0%, transparent 65%);
+}
+.hero-label {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cms-navy);
+  background: var(--cms-yellow);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  max-width: 800px;
+  margin-bottom: 24px;
+}
+.hero h1 em { color: var(--cms-yellow); font-style: normal; }
+.hero p.desc {
+  font-size: 16px; color: rgba(255,255,255,0.7);
+  max-width: 600px; font-weight: 300; line-height: 1.75;
+}
+.hero-quote {
+  margin-top: 40px;
+  padding-left: 20px;
+  border-left: 4px solid var(--cms-yellow);
+  max-width: 700px;
+}
+.hero-quote p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+/* ── WRAP & SECTIONS ── */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 680px) { .wrap { padding: 0 20px; } .hero { padding: 64px 20px; } .topbar { padding: 0 20px; } }
+
+.section { padding: 80px 0; border-bottom: 1px solid var(--cms-border); }
+.section:last-child { border-bottom: none; }
+.section-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cms-blue);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--cms-navy);
+  margin-bottom: 40px;
+}
+.section-title span { color: var(--cms-blue); }
+.section-desc {
+  font-size: 16px;
+  color: var(--cms-ink);
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+/* ── GRID & CARDS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+@media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.principle {
+  background: white;
+  border-radius: 12px;
+  padding: 32px 28px;
+  border: 1px solid var(--cms-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.principle::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--cms-blue); }
+.principle.yellow::before { background: var(--cms-yellow); }
+.principle.green::before { background: var(--cms-green); }
+.principle.navy::before { background: var(--cms-navy); }
+.principle-n {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px; font-weight: 900;
+  color: var(--cms-border);
+  line-height: 1; margin-bottom: 16px;
+}
+.principle h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--cms-navy); margin-bottom: 12px;
+}
+.principle p { font-size: 14px; color: var(--cms-muted); line-height: 1.65; }
+
+/* ── LISTS & TAGS ── */
+.cms-list { list-style: none; padding: 0; margin-bottom: 40px; }
+.cms-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 16px 0; border-bottom: 1px solid var(--cms-border);
+  font-size: 15px; color: var(--cms-ink);
+}
+.cms-list li::before {
+  content: '●'; color: var(--cms-blue); font-size: 12px; margin-top: 4px; flex-shrink: 0;
+}
+.cms-list strong { color: var(--cms-navy); }
+
+.tag-ui {
+  background: var(--cms-border);
+  color: var(--cms-navy);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ── HIGHLIGHT BOXES ── */
+.highlight-box {
+  margin-top: 32px; padding: 28px 32px;
+  background: var(--cms-navy); border-radius: 12px;
+}
+.highlight-label {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--cms-yellow); margin-bottom: 12px;
+}
+.highlight-box p {
+  font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;
+  color: white; line-height: 1.4;
+}
+.highlight-box span {
+  display: block; margin-top: 12px; color: rgba(255,255,255,.6);
+  font-weight: 400; font-size: 15px; font-family: 'Open Sans', sans-serif;
+}
+
+/* ── STEP CARDS ── */
+.step-card {
+  background: white; border: 1px solid var(--cms-border);
+  border-radius: 12px; margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03); position: relative; overflow: hidden;
+}
+.step-card::before {
+  content: ''; position: absolute; top: 0; left: 0; bottom: 0;
+  width: 4px; background: var(--cms-blue);
+}
+.step-header {
+  padding: 20px 24px 12px 28px;
+  font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700;
+  color: var(--cms-navy); text-transform: uppercase; letter-spacing: 1px;
+}
+.step-body { padding: 0 24px 24px 28px; font-size: 15px; color: var(--cms-muted); line-height: 1.75; }
+.step-body p { margin-bottom: 12px; }
+.step-body p:last-child { margin-bottom: 0; }
+.step-body strong { color: var(--cms-ink); }
+
+/* ── ALERT BOXES ── */
+.alert-box {
+  background: white;
+  border: 1px solid var(--cms-border);
+  border-left: 4px solid var(--cms-yellow);
+  padding: 20px 24px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.alert-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cms-yellow); background: var(--cms-navy);
+  padding: 3px 8px; border-radius: 4px;
+  display: inline-block; margin-bottom: 12px;
+}
+.alert-box p { font-size: 14px; color: var(--cms-ink); line-height: 1.6; }
+
+/* ── CTA FOOTER ── */
+.cta-block {
+  background: var(--cms-navy);
+  padding: 64px 48px;
+  border-radius: 16px;
+  color: white;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.cta-block::after {
+  content: ''; position: absolute; top: -50px; right: -50px;
+  width: 250px; height: 250px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,108,181,0.3) 0%, transparent 70%);
+}
+.cta-block h2 {
+  font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 4vw, 36px); font-weight: 900;
+  color: white; margin-bottom: 24px; letter-spacing: -1px; position: relative; z-index: 1;
+}
+.cta-list { list-style: none; margin-bottom: 32px; position: relative; z-index: 1; }
+.cta-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; font-size: 16px; color: rgba(255,255,255,0.85);
+}
+.cta-list li::before {
+  content: '→'; color: var(--cms-yellow); font-weight: 700; font-size: 18px; margin-top: -2px;
+}
+.dev-tip {
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid var(--cms-yellow);
+  padding: 20px 24px;
+  border-radius: 0 8px 8px 0;
+  position: relative; z-index: 1;
+}
+.dev-tip-label {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--cms-yellow);
+  margin-bottom: 8px;
+}
+.dev-tip p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+
+/* ── FOOTER ── */
+.page-footer {
+  text-align: center; padding: 40px 20px; font-size: 13px; color: var(--cms-muted); border-top: 1px solid var(--cms-border); margin-top: 40px;
+}
+.page-footer strong { color: var(--cms-navy); }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="topbar-brand">CMS <span>Inteligente</span> — Sistemas</span>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-label">Módulo AutoDoc</div>
+    <h1>TUTORIAL:<br><em>CMS INTELIGENTE</em></h1>
+    <p class="desc">Este guia explica como transformar dados de uma planilha em documentos profissionais (PDF ou Word) de forma automática, personalizada e organizada.</p>
+    
+    <div class="hero-quote">
+      <p>"Se você sabe preencher uma tabela, você sabe criar mil documentos."</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- SEÇÃO 01 -->
+<section class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">01 · O Conceito</p>
+    <h2 class="section-title">A "Mágica" das<br><span>Etiquetas (Tags)</span></h2>
+    <p class="section-desc">O segredo de tudo está nas Tags. Imagine que seu documento é um formulário com espaços em branco. Em vez de deixar o espaço vazio, você coloca uma "etiqueta" entre chaves: <span class="tag-ui">{{Nome}}</span>.</p>
+
+    <div class="grid-3">
+      <div class="principle navy">
+        <div class="principle-n">01</div>
+        <h3>A Planilha</h3>
+        <p>É onde guardamos as informações (O combustível).</p>
+      </div>
+      <div class="principle blue">
+        <div class="principle-n">02</div>
+        <h3>O Template</h3>
+        <p>É o seu modelo de documento no Google Docs (O molde).</p>
+      </div>
+      <div class="principle green">
+        <div class="principle-n">03</div>
+        <h3>O AutoDoc</h3>
+        <p>É o motor que lê a planilha e carimba as informações no lugar certo das etiquetas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 02 -->
+<section class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">02 · O Esqueleto</p>
+    <h2 class="section-title">Como funciona a<br><span>lógica</span></h2>
+    <p class="section-desc">Para usar o sistema, você só precisa de três ingredientes básicos bem configurados.</p>
+
+    <ul class="cms-list">
+      <li><strong>Uma Planilha com Títulos:</strong> A primeira linha da sua planilha deve ter nomes claros (ex: Nome, Data, Valor, Cargo).</li>
+      <li><strong>Um Modelo (Template):</strong> Um arquivo no Google Docs formatado do seu jeito. Onde você quer que a informação da planilha apareça, escreva o título da coluna entre chaves. Ex: Eu, <span class="tag-ui">{{Nome}}</span>, portador do CPF <span class="tag-ui">{{CPF}}</span>...</li>
+      <li><strong>Uma Pasta de Destino:</strong> Onde o sistema vai "cuspir" os arquivos prontos.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <div class="highlight-label">REGRA DE OURO</div>
+      <p>O que está dentro do {{...}} no documento deve ser <em>exatamente igual</em> ao título da coluna na planilha.</p>
+      <span>Se na planilha está "Nome Completo", no documento deve obrigatoriamente estar {{Nome Completo}}.</span>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 03 -->
+<section class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">03 · Passo a Passo</p>
+    <h2 class="section-title">Criando sua<br><span>Automação</span></h2>
+
+    <div class="step-card">
+      <div class="step-header">Passo 1: Configuração (Onde e Quem)</div>
+      <div class="step-body">
+        <p><strong>Nome da Automação:</strong> Dê um nome para o seu "robô" (ex: "Gerador de Ofícios 2026").</p>
+        <p><strong>Busca de Arquivos:</strong> Use a lupa 🔍 para encontrar seu modelo e a pasta onde os arquivos serão salvos. O sistema faz a busca no seu Google Drive para você não ter que copiar links complicados.</p>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header" style="color:var(--cms-blue);">Passo 2: Verificação de Tags (O Check-up)</div>
+      <div class="step-body">
+        <p>O AutoDoc vai ler seu documento e avisar: "Olha, encontrei a tag <span class="tag-ui">{{Data}}</span>, e ela existe na sua planilha. Tudo certo!".</p>
+        <p>Se aparecer algo em vermelho, significa que você esqueceu de criar aquela coluna na planilha ou escreveu o nome diferente.</p>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header" style="color:var(--cms-green);">Passo 3: Formatos e Envio (O Toque Final)</div>
+      <div class="step-body">
+        <p><strong>Nome do Arquivo:</strong> Você pode personalizar o nome de cada arquivo gerado usando as tags! Ex: Contrato - <span class="tag-ui">{{Nome}}</span>. Isso evita aquela pasta cheia de arquivos com o mesmo nome.</p>
+        <p><strong>PDF ou Doc:</strong> Escolha se quer o arquivo editável ou fechado em PDF.</p>
+        <p><strong>E-mail Automático:</strong> Se você marcar esta opção, o sistema envia o documento pronto para o e-mail que estiver na planilha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 04 -->
+<section class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">04 · Atenção</p>
+    <h2 class="section-title">Cuidados e<br><span>Boas Práticas</span></h2>
+    <p class="section-desc">Para não errar durante o processamento em lote, atente-se a estes detalhes do sistema.</p>
+
+    <div class="alert-box">
+      <div class="alert-tag">⚠️ Status Doc</div>
+      <p>O script cria uma coluna chamada "Status Doc". Se estiver escrito "Sucesso" lá, o robô não vai processar aquela linha de novo. Isso evita enviar o mesmo documento duas vezes para a mesma pessoa. Se quiser refazer, apague o "Sucesso".</p>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-tag">⚠️ Letras Maiúsculas/Minúsculas</div>
+      <p>O sistema é sensível. <span class="tag-ui">{{nome}}</span> é diferente de <span class="tag-ui">{{Nome}}</span>. Mantenha um padrão de nomenclatura rigoroso.</p>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-tag">⚠️ Limpeza de Dados</div>
+      <p>Use as ferramentas de "Formatação de Texto" no menu 🧠 CMS Inteligente para garantir que os nomes fiquem bonitos (ex: converter tudo para "Nome Próprio" antes de gerar os documentos).</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 05 -->
+<section class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">05 · Possibilidades</p>
+    <h2 class="section-title">O Poder da<br><span>Abstração</span></h2>
+    <p class="section-desc">Não pense que o AutoDoc serve apenas para contratos. Se você entender a lógica das Tags, o céu é o limite. Você pode criar:</p>
+
+    <div class="grid-2" style="margin-bottom: 32px;">
+      <div class="principle">
+        <h3>Certificados de Cursos</h3>
+        <p>Tags: <span class="tag-ui">{{Aluno}}</span>, <span class="tag-ui">{{Carga Horária}}</span></p>
+      </div>
+      <div class="principle">
+        <h3>Editais de Convocação</h3>
+        <p>Tags: <span class="tag-ui">{{Conselheiro}}</span>, <span class="tag-ui">{{Pauta}}</span>, <span class="tag-ui">{{Hora}}</span></p>
+      </div>
+      <div class="principle">
+        <h3>Recibos</h3>
+        <p>Tags: <span class="tag-ui">{{Valor}}</span>, <span class="tag-ui">{{Referente a}}</span></p>
+      </div>
+      <div class="principle">
+        <h3>Relatórios Mensais</h3>
+        <p>Tags: <span class="tag-ui">{{Mês}}</span>, <span class="tag-ui">{{Indicador 01}}</span></p>
+      </div>
+    </div>
+
+    <p style="font-family:'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: var(--cms-blue); text-align: center; margin-top: 48px;">
+      O sistema é uma ferramenta vazia: a inteligência e a utilidade vêm da sua necessidade.
+    </p>
+
+    <div class="cta-block">
+      <h2>🛠️ Próximos Passos</h2>
+      <ul class="cta-list">
+        <li>Prepare sua planilha com os dados.</li>
+        <li>Crie seu primeiro modelo no Google Docs usando as <span class="tag-ui">{{Tags}}</span>.</li>
+        <li>Abra o menu <strong>🧠 CMS Inteligente &gt; 🚀 Abrir AutoDoc</strong> e siga as etapas!</li>
+      </ul>
+      <div class="dev-tip">
+        <div class="dev-tip-label">Dica da Secretaria Executiva</div>
+        <p>Se você tiver um documento que queira transformar em um template, use a Inteligência Artificial e peça para ela reescrever o texto inserindo {{ }} nos campos que são variáveis!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  <strong>Conselho Municipal de Saúde de Montes Claros – MG</strong><br>
+  Tutorial AutoDoc · Sistema de Gestão Inteligente
+</footer>
+
+</body>
+</html>
