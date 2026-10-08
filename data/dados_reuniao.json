@@ -1,17 +1,17 @@
 {
   "configs": {
     "CHAVE": "VALOR",
-    "STATUS_SISTEMA": "ATIVO",
+    "STATUS_SISTEMA": "INATIVO",
     "MODO": 1,
-    "TITULO": "470ª Reunião Oordinária do CMS - Montes Claros",
+    "TITULO": "470ª Reunião Ordinária do CMS - Montes Claros",
     "LABEL_TOPO": "",
     "DESCRICAO": "",
     "PAUTA": "Apresentação e Votação do 2º RDQA 2026",
     "QUANDO_ONDE": "<b>28 de setembro de 2026</b><br>Segunda-feira<br><br><b>Sindicato dos Trabalhadores Rurais - Rua Iolanda de Almeida, 222, Cidade Nova<br>Montes Claros/MG",
     "DATA_REUNIAO": "07 de outubro de 2026",
-    "HORA_REUNIAO": "14:00",
-    "LOCAL_REUNIAO": "Câmara Municipal de Montes Claros, na Rua Urbino Viana, 600, Vila Guilhermina",
-    "DATA_ASSINATURA": "28 de setembro de 2026",
+    "HORA_REUNIAO": "no período vespertino,",
+    "LOCAL_REUNIAO": "realizada na Câmara Municipal de Montes Claros, localizada na Rua Urbino Viana, 600, Vila Guilhermina, Montes Claros/MG",
+    "DATA_ASSINATURA": "07 de outubro de 2026",
     "EXIBIR_AVISO": "",
     "AVISO_GLOBAL": ""
   },
@@ -465,5 +465,1222 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": []
+  "lista": [
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "MARIANA CRISTINA MEIRA CAMBUÍ",
+      "id": 34,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "SUELEN DOS SANTOS FERREIRA",
+      "id": 50,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "MARILDA BATISTA DA SILVA",
+      "id": 13,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "EMANUELA TOMAS DA SILVA CONCEIÇÃO",
+      "id": 3,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "EDINÉ SILVA SOARES",
+      "id": 43,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "ELIZETE SANTOS BARBOSA",
+      "id": 10,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "RANIELSON ALVES FERREIRA",
+      "id": 23,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ANIELLY COSTA SILVA",
+      "id": 21,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/10MaAMGTmuEQD9RCPS3Erj-1v060GI1Vl/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "MARIA DOS REIS RIBEIRO DIAS",
+      "id": 11,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1iZpClz4qr1_ncvKz4WH2P0GfBMaegAdu/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "SHEILLA SILVA MENDES",
+      "id": 33,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1l0IfXjRvduLskWmZLNr8fFA2v4oJKByi/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "RICARDO SOARES DE OLIVEIRA",
+      "id": 38,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1iU0eheONcmfH-fnudExikGbtkPcZgvo2/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "CLÁUDIA ROCHA BISCOTTO",
+      "id": 29,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1PtBKhdSHi3dQgYHGlgBn_3wCWv5K7w1N/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "DANIELLE SANTOS SOUSA",
+      "id": 5,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/11WgBdnpL5JxfxY62mp5zG5HMQF4RxU0t/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ISABEL MACEDO AVELAR",
+      "id": 27,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1RZ4Bb-GoH-EPx6zV4byMN90o2LeafQEA/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "NÚBIA CARNEIRO GUIMARÃES",
+      "id": 51,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1e1d7L5EIMgiD_mnPvUWhVdpiK7YE3IsR/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ROBERTA CUNHA MOTA SANTOS",
+      "id": 9,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/18TEiUN4OWH7kmtd1g6deHJB46z4Tv5C_/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FERNANDA FAGUNDES AZEVEDO",
+      "id": 37,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1pNqC5eosNKbkIWz1G6kvqIfYmDjwzk0x/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "HERICK RODRIGUES ARAÚJO",
+      "id": 55,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1aXO3EIx_Bn4912LTJOFQvTfcCh7Z60Jk/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "JOEL FRANCISCO BORGES",
+      "id": 1,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1_iFlaW5UwG7Dbnp8RUWgv4iJFP0Jy2GW/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FARLEY SINDEAUX RIBEIRO",
+      "id": 15,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/18jgXgok68j1EOAY_Mg8E-9VQWW2fWzE6/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "MÔNICA DE FÁTIMA FERNANDES FERREIRA",
+      "id": 40,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1BpCJUgMrZ3rwmKB4mDQLsP6ZJ0pFC6W-/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "WASHINGTON LUIS CARVALHO SOUTO",
+      "id": 41,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1SMv46thwcijQzjU-mM8UHYeJfrS10i-V/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "EDMILSON ALVES DA SILVA",
+      "id": 45,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1avx-GrjYf0zxgnF9h2_PuOljRCaZuNaL/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ROBERTO COELHO FERREIRA",
+      "id": 47,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1I1b1JfG-b_Akmdl2AEhLAVDNHTGVY0dp/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "NAYRA CRISTINE LACERDA LOURENS",
+      "id": 53,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1eSNCWZyeBY96TIECrBTQXzEhJGIJ3csx/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "MARIA CLARA LELIS RAMOS CARDOSO",
+      "id": 59,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1UpgD0j3aFCK4SlBAdOCMOel2YC7bx-3N/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "MÁRCIO CARDOSO SILVA",
+      "id": 61,
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/19Xq7t2HWHGtuaENvi3_RpqQer7FmFWcC/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "IANNE CRISTINA ALVES BATISTA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1tY7AcEtEy80xMeh8MwBhrsmS8F8bKXhM/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "KÉVIA RAYANE FERREIRA DE ALMEIDA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ezkvtXNKE5qLZo0AUQtlYcB3iqGWukcM/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "MÁRIO FERREIRA DE SOUZA JÚNIOR ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/19NAX8GQRRHv9axd9gpQT1XWjchoO9UhV/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "KEVYN BORGES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/18YUXovFgnII6FYuM0v7EOIM_HekhzQTo/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmica / UBS Vila Campos ",
+      "nome": "KARINE HIGINO DOS SANTOS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1bcPy4WiKtBhGMkORwyIhQ7Y92qi5LFHI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmica de Odontologia ",
+      "nome": "IOHANA SOUZA MENDES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Bdoj4pWWn-3O9-a6hQJFzUhB5u8ilito/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmica de Odontologia da FCO",
+      "nome": "MANIELE DE ARAÚJO MAIA MORAIS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1jc8wJgGpGR9d-yow_DfGamau3HuZV0fH/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmico odontologia FCO",
+      "nome": "RIAN NOBRE BARBOSA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1xET59IsRzPXXN0vQoZrZrAWTC788mWkQ/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Dentista ",
+      "nome": "CAÍQUE VINÍCIUS MARTINS DIAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1CO3fOE1IWzk0AmF4WufBT2FoXK5NBZPJ/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante",
+      "nome": "MARIA EDUARDA SOARES PERES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1-ighFyXrjc-8N2DDzRBA1YQcrLmHIoKB/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante / FCO",
+      "nome": "ANA LUIZA DE SOUZA BARBOSA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1SVxOJeOI7fU3T-o_L4gxnakUVB1P8C5k/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante /Unimontes ",
+      "nome": "LUANA DE JESUS OLIVEIRA MENESES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Gp_FLwi87ggTLAbKdw22OIzSTrWtXK-A/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante da FCO",
+      "nome": "LUIZ GABRIEL MENDES LOPES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1tjhGxJEdFb8UHCOhZIBFz7uTgofhEtVY/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante da FCO",
+      "nome": "ARTUR ALMEIDA MENDES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1zPPVsyKvSse5Gbg2EcaBshE6Ob7TtNCY/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante de odontologia ",
+      "nome": "BRENDA LARISSA ANTUNES DE SOUZA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ztiwzEryXUHgAA-FOelqRIMdghMGzgJ7/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante de odontologia- fco ",
+      "nome": "MARIA FERNANDA LEITE PEREIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/18Z_Zx5vtmfCJbQOasGnxU5iizX-Wq0Sc/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante de odontologia/ Faculdade de Ciências Odontologicas ",
+      "nome": "MARIA FERNANDA LUSTRINO COUTINHO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1cW6XPzngpSNKPnuIIheVhPDIktja8ABt/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante Unimontes ",
+      "nome": "BIANCA VITÓRIA SOLIDADE MEDEIROS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1myRGkJTV2Tyk60JCj84SSG7CWj9Liuhh/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/ FCO ",
+      "nome": "BRENDA CAMILLY SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1CPttt3ZZdL_hY2871retLqYhbiRMLh8M/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/FCO",
+      "nome": "MARIA LUIZA SOUZA PINTO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1PDYUEnXDqATj52pQwGyIMs1zkFFiYEeU/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/FCO",
+      "nome": "LUARA DE OLIVEIRA ARAÚJO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1t8IGyXsjQhaozlencniUnTYkVgX7naX7/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/fco",
+      "nome": "ANA LUIZA OLIVEIRA DIAS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/18AKjOZXeURE3NdkAIggDqUGXiR8IHjVZ/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/Unimontes ",
+      "nome": "AMANDA IASMIM ALVES BARBOSA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1cRJNf3OmaOgAsZUWtWEqUCoJmoGtNpOk/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/UNIMONTES ",
+      "nome": "KAREN CAROLINE CARVALHO OLIVEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1r6a9OIxE5P6QmsD_i-_PNy1yolXPoc5V/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Fco",
+      "nome": "ANA CLARA DE PINHO CELESTINO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1SyuD95KAbBztCW9vSFeX78JRI5Ycy1M4/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "FCO - estudante ",
+      "nome": "NATALIA OLIVEIRA RUAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1lcY9b_VMtGaaupLuQoBzR8yBGSGheI9D/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "FCO - estudante ",
+      "nome": "GIOVANA RABELO VELOSO",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1OscImzu2jcFInjwxNsiaaw1blD3NQeyA/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "FCO-Estudante",
+      "nome": "MARIA TERESA DE OLIVEIRA PRAIS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1yImsHOlKMvoAryCukg4ojekPAzNoGMVp/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes",
+      "nome": "PRISCILA GAVILANES AMARAL",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Z69R89QYv364f8FxHDgrIFlqMFCKKy1t/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes ",
+      "nome": "NATHANAEL BARBOSA OLIVEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1cMRveOwpsElSoUG1QsT5S1A2ldkWugVG/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS Maracanã ",
+      "nome": "MAGDA APARECIDA SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/12DW0LKc5BAMfU00Y_Sh_bph0rcBQcas_/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/odontologia",
+      "nome": "ANE CAROLINE AGUIAR DE JESUS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1i-Aw3WuVNE4jURgELYMG_Gm5830VDGCb/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ",
+      "nome": "MAYLA MIRENE SOARES MARQUES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/140y7q6s1I4pNagkzUIqtp-t6k2fqPysR/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS José Correa Machado ",
+      "nome": "ARIANNE ALVES GUIMARÃES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ysaScMVTwtHzSRspgJfVixo61_RdxZUw/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes ",
+      "nome": "NATHANAEL BARBOSA OLIVEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1PBIOl0uGekBtprJe4lzVv9efc1kArc-P/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente USF Acácias ",
+      "nome": "MONIK LOPES DE JESUS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1o4RvlPxjAfjC5IZhu25LJzVHzyAvv_oh/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante de odontologia- FCO",
+      "nome": "MARIA FERNANDA LEITE PEREIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1IfR8Z8YzqWqQPNn7zTC_1d14Vn0jUJXw/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante FCO",
+      "nome": "MARIA EDUARDA SOARES PERES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1JLoI8w-2Z5nZz__8fBX5MqT3SG93uIAD/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Fco",
+      "nome": "ANA CLARA DE PINHO CELESTINO",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1zx_sQZEssM80HCBoAweu-hmP0CfUw16b/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "THIAGO SANTANA SILVA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/19dkiktQ9s-JSz4HZ_pwAA5mxnzZa3lmZ/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "DAI-I",
+      "nome": "ALINE MAGALY ANTUNES TEIXEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1LKcUaJ_ZAD7tHUmR-CSa8qvWh0qjLeDI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente - secretaria de saude ",
+      "nome": "RENATA MESQUITA PIMENTA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1EbYF7yKdtUs8uIiRD_r26nmkdnvAFdEW/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS PLANALTO ",
+      "nome": "RENATA CARVALHO SALES SOUZA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1GhDj942o1rSVELMA1BvxmfS0SG9oWOgo/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/fco",
+      "nome": "ANA LUIZA OLIVEIRA DIAS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1CBbvp_Te_9zwk4sTUFu0Ran5RSum8-0W/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante Odontologia ",
+      "nome": "BRENDA LARISSA ANTUNES DE SOUZA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1jR92RIjRHrLbLTuFpHDA-RGCoYTd-zwX/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Enfermeira- Apoiadora Indtitucional ",
+      "nome": "ANA CAROLINE CARDOZO SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Hu5HWahTZzg63i87U6uxs5gBM5DMzR9Z/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Enfermeiro/ SAE Ampliado",
+      "nome": "JOÃO PAULO DIAS LOPES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1neKdanofG4pIWLuiepFlh3rR-5lWDT2p/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes",
+      "nome": "PRÍSCILA GAVILANES AMARAL",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1H34OQs-_JkjfImwSDKOUIRd5r3Osbd2Q/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente - UBS Monte Carmelo ",
+      "nome": "THIAGO LIMA SIQUEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1nsm5AI5q4uXypXSV_7nLJofnoBvrAiFK/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmico ",
+      "nome": "LARISSA PEREIRA DE ALMEIDA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1OPe-rissnpozEui2RUhqRZdrLffXk-B2/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Professor e coordenador de ambulatório NASPP",
+      "nome": "IGOR MONTEIRO LIMA MARTINS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1OkKGubODqmRtaidpiSVRXDnv-fawszF7/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente/UBS Major Prates ",
+      "nome": "LORENA PEREIRA FLÁVIO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1z_xRn0gxhf1g51yRFDn-H92m68e8cgOU/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "ROBERTH PETER FERREIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/15CFE9JPJCwF4GpMxOlLhbf9MprBMN5oT/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente Planejamento Estratégico ",
+      "nome": "BRUNO PINHEIRO DE CARVALHO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1jgf9jNR2eS6wqvxi6s8z_Z_r0LQp0PA_/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Referência Técnica NAPRIS SMS",
+      "nome": "CARLOS HENRIQUE GUIMARÃES BRASIL",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1vk3TLim07q9Rqf8n787tjVjERA_kOtba/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/Universidade estadual de Montes Claros ",
+      "nome": "ANTÔNIO AUGUSTO OLIVEIRA AMORIM ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1IDjR2VpOS4I1Wq23kf2EI7Rip9NOh94O/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente USF Santos Reis ",
+      "nome": "THALITA BEATA SANTOS FONSECA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1fxWfEnkAWjzrH35FtMgIysBq6D0ZC7sI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Enfermeira- Apoiadora Institucional SMS ",
+      "nome": "ANA CAROLINE CARDOZO SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1SHptVLCJuXO7Kk5cEvjn5huiunYJkMW5/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes",
+      "nome": "BIANCA VITÓRIA SOLIDADE MEDEIROS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1IhKp-8OD5fIKeAuO0N2X7vwzj4bzyKQR/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente Esplanada SMS",
+      "nome": "LUCIANE DAS NEVES MARTINS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1leyAEz7G_ghpXtse2gviMdJexBY_ymlj/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Diretora de Regulação/SMS MOC",
+      "nome": "CLARICE RIBEIRO DE OLIVEIRA MATOS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1uPjvNrVmQbeLUBLT6kwGupM9gVQzD9SE/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Universidade estadual de Montes Claros ",
+      "nome": "JULIO CESAR FERREIRA SANTA ROSA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1tyogp8fiadtHsNl4u-qRs5dSoKZIcGh-/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente da UBS Eldorado II ",
+      "nome": "SIMONE XAVIER BRANT DE ABREU ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1kSwkBSXgRb96yVznPJia6HT6OMJRY3kh/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ",
+      "nome": "SÔNIA OLIVEIRA BRAGA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1AWn47HR1mLp6RlUtuMseLKIYxTbFXKRY/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente - UBS Monte Carmelo ",
+      "nome": "THIAGO LIMA SIQUEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1cjbEiWszkSBcjNRFMpwupkx-ln1lV3tC/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Subsecretária de Gestão Hospitalar ",
+      "nome": "PATRÍCIA FERREIRA COSTA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1VhBfHTTEK9XMd6v5HpjXAcbCtRDSvgtI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Enfermeira - coordenação/Centro de Reabilitação Física - Órteses e Próteses",
+      "nome": "MARCELA SOARES DE LIMA BRANT",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1BsQEaSVQmcra1Qo39o33xopHqDw5UEjw/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante da fco ",
+      "nome": "LUIZ GABRIEL MENDES LOPES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1dKuHRa88Dnw9m3z2ql1ket-FsDarhzKY/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "IVONETE CÁSSIA PEREIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1fzbgqfJLXV1lP7xf-wT5CVfilpr3jOqm/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmica de Odontologia da FCO",
+      "nome": "MANIELE DE ARAÚJO MAIA MORAIS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1MXpV-1LDH_nwlbIgkDpts0SjPAOglK-R/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Chefe de unidade de saúde ",
+      "nome": "CLEITA PINHEIRO DE ALMEIDA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1M4RIRjiz5G7nHQQzTAEUHaGeLt1IlWiG/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante da fco",
+      "nome": "LUIZ GABRIEL MENDES LOPES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1A8tuRChXmI2RO6_jMDIU-uEEGfgSwt1s/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/ Unimontes - Gestão pública ",
+      "nome": "KESSIA EMANUELE ALVES FREITAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1WTtHF-lDZWro-JOL_nVl_hQsx8_hOQcE/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Diretora de Regulação/SMS MOC",
+      "nome": "CLARICE RIBEIRO DE OLIVEIRA MATOS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1IbDyma7Y9n3DpWJXSuExfLeIeembEwPE/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente da unidade Vila Campos/Santa Rafaela",
+      "nome": "ISA PEREIRA DIAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1CDLlJTEKl5UHtt7s67Q0K66xUFutMvpU/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente ",
+      "nome": "KRISLEY FRANCIELLE LOPES MOREIRA RAMOS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1TAC-vpBPMcTK1GXzvw-Vx7o8csD4wwkW/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante de odontologia/ Faculdade de Ciências Odontologicas ",
+      "nome": "MARIA FERNANDA LUSTRINO COUTINHO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1DJwwzYZar0Nr0NAO1CFQCDWdN3K4rNZz/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Discente - Unimontes ",
+      "nome": "ANNA LUISA RIBEIRO SOARES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1UettDwuAsLFgXLeNnXLz0AMtpg4VDwN1/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Universidade Estadual de Montes Claros, Unimontes - Curso Superior de Tecnologia em Gestão Pública Claros, ",
+      "nome": "FRANCISCO FELIPE SILVA FILHO",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1kk44TKbETSTjVFzG1k3lhX8FBYNveFRI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "BRENDA CAMILLY SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/11sDXziS191lgKHW9_Tul4-juQvRWwEOj/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante - odontologia ",
+      "nome": "NATALIA OLIVEIRA RUAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1bk4hIsbCN85AxWS2onWRjpLYnZULk2iC/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante Odontologia",
+      "nome": "MARIA TERESA DE OLIVEIRA PRAIS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1mrf4Ow3olu6uwMwDdkF7h98SQVQfOEpQ/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Universidade estadual de Montes Claros -unimontes curso superior tecnologia em gestão pública ",
+      "nome": "JÚLIO FERREIRA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ujBbcZYnECjOVhtVSJwmCfu2gHvU1jgn/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": " UNIVERSIDADE ESTADUAL DE MONTES CLAROS - UNIMONTES, CURSO SUPERIOR TECNOLOGIA EM GESTÃO PÚBLICA",
+      "nome": "MARIA EDUARDA SILVA FREITAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1sRDzRKvjSCqJYwBK-9inNZ7E7JfYf0PO/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/ FCO ",
+      "nome": "BRENDA CAMILLY SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1y7k3di9tHSeTQ46R27txxWua4UPI1eHo/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente PSF VITÓRIA ",
+      "nome": "SARAH JULIANE MENDES CAPUCHINHO",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1gbE4dryIjeIJKEzGRSOCgFd6zTOoyYWn/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente - UBS Monte Carmelo ",
+      "nome": "THIAGO LIMA SIQUEIRA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1Bsb5ZDJ1WGDPFgpdiQ2Q2qtOkcKri0gw/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS Renascença/SMS ",
+      "nome": "JAYANE BATISTA ALVES NEVES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1eSbYxw5M8tvVVX5cfZCRukmrTZ0xboQH/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": " UNIVERSIDADE ESTADUAL DE MONTES CLAROS - UNIMONTES, CURSO SUPERIOR TECNOLOGIA EM GESTÃO PÚBLICA",
+      "nome": "MARIA EDUARDA SILVA FREITAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/11zYGu3BFq5tBsXfdwOMaTXd70yXiD0XB/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Universidade Estadual de Montes Claros ",
+      "nome": "MARIA EDUARDA SILVA FREITAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/151xFxDqkBSAjO6XW3N1XXQ5su7czLX6q/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes ",
+      "nome": "DANIELY FRANCINE FAGUNDES MARQUES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1GTXSfb7UnlLzXFlNo14n4t8vtscJcXNK/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/FCO",
+      "nome": "BRENDA CAMILLY SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1fTrJqS85kPPGH0abXUF8vjgjOJvRc8Dx/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante/FCO",
+      "nome": "LUARA DE OLIVEIRA ARAÚJO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1a9zy6LCpvTxsFlzHiu4FsPpXRtwEyEIE/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente USF José Carlos de Lima ",
+      "nome": "LEYDIANE MARTINS SOUZA DIAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1HLYoIuDAe78Y1tTt5EuH6yS2kTSmuNYH/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Ref tec saúde prisional ",
+      "nome": "ARLEY SILVA DE OLIVEIRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/10h0zvLn1TPeOjleyeofSXdyuYO_MOTvu/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Coordenadora de Telemedicina ",
+      "nome": "ANDREIA DA CRUZ DE ALMEIDA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/13wP55jnxVsbTcu7M7KqIISATZZ5IuvW_/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente/UBS Chiquinho Guimarães ",
+      "nome": "THAIS GOMES VIEIRA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/11xDs7bxfrUVDignZM21eMh9cVyIxBRGH/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmica odontologia ",
+      "nome": "MARIA EDUARDA RODRIGUES SANTOS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1xPGO-pkWM3eWoaeADdHkAhukpLKXfUeI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "GEOVANA GABRIELLY FERNANDES LIMA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1PR4RqQMN_MiQFuYNkEuQfte8WT7Wbp9w/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "FCO - Odonto",
+      "nome": "GIOVANA RABELO VELOSO",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1FJMbDLBVInYgn5Pj5kwDlgGUNfF_3UmM/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Apoio/SMS",
+      "nome": "AMANDA PIMENTA ALMEIDA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1kVPXad7OwacDYKO4Sqifqt5lkhx1aasI/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Coordenadora Saúde bucal/SMS",
+      "nome": "GEANE SOARES  MARQUES GUIMARÃES ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1qfOBBUq96MFERc5e2ZbfHlQGCZVK22uP/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Universitária/Unimontes ",
+      "nome": "MARIA FERNANDA DE OLIVEIRA SILVA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1elPs-ZF_PQ15By98V33heSs8_grToiw4/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Coordenador da Atenção Primária à Saúde - NAPRIS/SMS",
+      "nome": "GUILHERME GONÇALVES DA SILVA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1L4hS5KM98F6oEkzAeGHbvN4YlUJpTDaB/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "IANNE CRISTINA ALVES BATISTA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1V5D1vArVO4ahRk4RUMMnoQdStDKMq8pb/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gestão pública -Unimontes",
+      "nome": "ELZIE FONSECA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1u_qqr22ht06VY6WuX7YsFnDD5757X0H6/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente",
+      "nome": "SUZYANNY DIAS GUSMÃO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ZagWDoexHIg6n8IOrm0haXwpl3Gct1ln/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Estudante de odontologia ",
+      "nome": "KÉVIA RAYANE FERREIRA DE ALMEIDA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ZP7zis0NyxoNLWyXIU3VbPtScVC7dEzs/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Chefe Unidade Básica de Saúde Vargem Grande ",
+      "nome": "TATIANA ALMEIDA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1FP22JrSkjc48ZPfdOo-Y-S2Tc20KM3NT/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "FCO ",
+      "nome": "KARINE HIGINO DOS SANTOS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1mtR3_nCqVK2pl5JqM2nomaOP7ms4_Rr_/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "UBS Village e Recanto ",
+      "nome": "MARIA IRENICE FERREIRA DOS REIS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1g4tAlnLmMfiE7cv3EzCQrHRcEUGJSjwS/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS Walquíria Pereira ",
+      "nome": "RAÍSSA JOSEFANY SOARES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/12-QWWCyBgq3-ZfIva7d860iJi8C60MJU/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente UBS Walquíria Pereira ",
+      "nome": "RAÍSSA JOSEFANY SOARES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1smHe5SfDKosSJUFFXci2O7zJ2J92WurC/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "-",
+      "nome": "GEOVANA GABRIELLY FERNANDES LIMA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1SU8V4RY_Z7_w_p49QRhTU9R0aPPHNXmG/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Gerente/ UBS Tancredo Neves",
+      "nome": "ANGELUCCI FERNANDES PEREIRA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1RZ0n1UsV239xmKdwMKncM5rPAai0jSGq/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Tacs",
+      "nome": "FRANCIELE OLIVEIRA SANTOS CLAIBON NOBRE",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1S0Vn-dEhtpFnnP9_qNX3a41wPJ_4SFY0/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acs",
+      "nome": "VALDIRENE ALVES DA SILVA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1E8HrNdWDHgQS8xg18346KxXksHfMyoIB/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Professor",
+      "nome": "ANA MARIA LACERDA DE FREITAS ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1b3YPsvyFNE2l9GZrJYOEmeMs9pbxrWyh/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acadêmico unimontes. ",
+      "nome": "REINALDO RODRIGUES BEZERRA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/16hiuLrJYb_h_Zh1-OpoWKUqtbvMZdLWS/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "ACS",
+      "nome": "RENATA LEITE DO CARMO",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/15ZBi9RzoBCOBQsXJE1eDSutojPqfCygh/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Unimontes",
+      "nome": "JOAO EDUARDO GOMES DIAS FREITAS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1R995Fgd-kUhXv7vF9UiOcTIQWItc2w6T/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "ACS",
+      "nome": "KERCY JHONES MÁXIMO DA SILVA",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1ZTxs91nC3-cGUgQSKgWG8eAV0YUPzhbU/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Técnico agente comunitária de saúde ",
+      "nome": "PATRICIA MARQUES RODRIGUES",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1HTs5khaZhmXRa72fdcFOBOtd2vIeCv1F/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Agente Comunitario de Saude.",
+      "nome": "RAQUEL QUINTINO MACIEL MARTINS",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1yC6Oec-N0WOYibRDER7zL3GAN1M9Rg4K/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Acs ,esf jaspe ,secretária de saúde ",
+      "nome": "JULIANA FERREIRA LIMA ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1FDD7BNyNfqvr9LfFKdYTnwKYLBbEvd2q/view?usp=drivesdk"
+    }
+  ]
 }
