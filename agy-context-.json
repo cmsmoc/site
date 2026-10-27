@@ -35,7 +35,8 @@
         "2026-09-24: Atualizado o pop-up principal do site para a 270Âª ReuniÃ£o ExtraordinÃ¡ria, alterando a imagem do flyer para 270.jpeg e atualizando os textos descritivos do modal e da data da reuniÃ£o (28 de setembro).",
         "2026-09-28: Criado arquivo Deliberacao_15_2026_CMSMOC--(Aprovacao-2-RDQA-2026).html em Docs/Deliberacoes/",
         "2026-10-08: Atualizado o título e a descrição do popup no index.html para refletir a 271ª Reunião Extraordinária do dia 09 de outubro.",
-        "2026-10-27: Substituição do 271.html pelo portal de Declarações de Presença da 271ª Reunião Extraordinária (busca dinâmica e links individuais), atualização da thumbnail (thumb_271.webp) e metadados Open Graph."
+        "2026-10-27: Substituição do 271.html pelo portal de Declarações de Presença da 271ª Reunião Extraordinária (busca dinâmica e links individuais), atualização da thumbnail (thumb_271.webp) e metadados Open Graph.",
+        "2026-10-27: Criação do portal de Declarações de Presença da 470ª Reunião Ordinária (470.html) com 145 participantes, busca em tempo real, metadados Open Graph e thumbnail dedicada (thumb_470.webp)."
     ],
     "planejamento_estrategico_2026": {
         "etapas": [
