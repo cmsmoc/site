@@ -2,7 +2,7 @@
   "configs": {
     "CHAVE": "VALOR",
     "STATUS_SISTEMA": "ATIVO",
-    "MODO": 1,
+    "MODO": 2,
     "TITULO": "271ª Reunião Extraordinária do CMS - Montes Claros",
     "LABEL_TOPO": "",
     "DESCRICAO": "",
@@ -609,6 +609,14 @@
       "id": "-",
       "registro": "PRESENÇA",
       "link_declaracao": "https://drive.google.com/file/d/1MPanSo1Rhf6ZUQHSWPTYL3ufa9hA4nhr/view?usp=drivesdk"
+    },
+    {
+      "tipo_usuario": "PÚBLICO",
+      "cargo_setor": "Enfermeira/NAPRIS/SMS",
+      "nome": "PRISCILLA DURÃES DE CARVALHO ",
+      "id": "-",
+      "registro": "PRESENÇA",
+      "link_declaracao": "https://drive.google.com/file/d/1_Vf2zRjc_IRtyMh2ff8Wdh7ezGwy8r1D/view?usp=drivesdk"
     }
   ]
 }
