@@ -1,4 +1,4 @@
-﻿{
+{
     "change_log": [
         "2026-09-17: AtualizaÃ§Ã£o das tags og:image das pÃ¡ginas /iadados, /formacaoregimento e /instrumentosdegestao para usar URLs absolutas, geraÃ§Ã£o de thumbnails webp e jpg (para WhatsApp), e criaÃ§Ã£o de um novo Hub Educacional em /oficinas centralizando o acesso Ã s capacitaÃ§Ãµes.",
         "2026-08-06: Atualizado o pop-up inicial no site principal para exibir aviso sobre declaraÃ§Ãµes da ReuniÃ£o 468 com cÃ¡lculo dinÃ¢mico da data (hoje, ontem, ou 05 de agosto de 2026) e redirecionamento integrado para /reuniao. Convertido thumb.png para thumb.webp e atualizadas as tags og:image de index.html e reuniao.html para otimizar previews.",
@@ -36,7 +36,8 @@
         "2026-09-28: Criado arquivo Deliberacao_15_2026_CMSMOC--(Aprovacao-2-RDQA-2026).html em Docs/Deliberacoes/",
         "2026-10-08: Atualizado o título e a descrição do popup no index.html para refletir a 271ª Reunião Extraordinária do dia 09 de outubro.",
         "2026-10-27: Substituição do 271.html pelo portal de Declarações de Presença da 271ª Reunião Extraordinária (busca dinâmica e links individuais), atualização da thumbnail (thumb_271.webp) e metadados Open Graph.",
-        "2026-10-27: Criação do portal de Declarações de Presença da 470ª Reunião Ordinária (470.html) com 145 participantes, busca em tempo real, metadados Open Graph e thumbnail dedicada (thumb_470.webp)."
+        "2026-10-27: Criação do portal de Declarações de Presença da 470ª Reunião Ordinária (470.html) com 145 participantes, busca em tempo real, metadados Open Graph e thumbnail dedicada (thumb_470.webp).",
+        "2026-11-03: Atualizado o pop-up de convocação oficial em index.html para divulgar a 471ª Reunião Ordinária (04 de novembro de 2026 às 14h na Câmara Municipal) e chamada para a lista virtual de presença."
     ],
     "planejamento_estrategico_2026": {
         "etapas": [
