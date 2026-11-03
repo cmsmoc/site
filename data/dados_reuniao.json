@@ -2,16 +2,16 @@
   "configs": {
     "CHAVE": "VALOR",
     "STATUS_SISTEMA": "ATIVO",
-    "MODO": 2,
-    "TITULO": "271ª Reunião Extraordinária do CMS - Montes Claros",
+    "MODO": 1,
+    "TITULO": "471ª Reunião Ordinária do CMS - Montes Claros",
     "LABEL_TOPO": "",
     "DESCRICAO": "",
-    "PAUTA": "Transferência de recursos , para prestadores da rede de cuidados a pessoa com Deficiência",
-    "QUANDO_ONDE": "<b>09 de outubro de 2026</b><br>Quarta-feira<br><br><b>Reunião Online via Sala Virtual Goole Meet<br>Montes Claros/MG",
-    "DATA_REUNIAO": "09 de outubro de 2026",
-    "HORA_REUNIAO": "no período matutino,",
-    "LOCAL_REUNIAO": "realizada de modo híbrido",
-    "DATA_ASSINATURA": "09 de outubro de 2026",
+    "PAUTA": "1. Apresentação do Projeto do Novo Pronto Socorro da Santa Casa de Montes Claros - Recursos e Prazos;\n\n2. Apresentação da Implantação do CAPS2;\n\n3. Apresentação dos Dados e de Serviços referente ao Selo do Ministério da Saúde para o controle de Sífilis;\n\n4. Apresentação da proposta de contratação do CIMAMS para prestação de serviços de consulta e exames com tabela diferenciada com recursos federais em conformidade com Portaria GM/MS nº 12.116, de 21 de agosto de 2026.",
+    "QUANDO_ONDE": "<b>04 de Novembro de 2026</b><br>Quarta-feira<br><br><b>Câmara Municipal<br>Montes Claros/MG",
+    "DATA_REUNIAO": "04 de novembro de 2026",
+    "HORA_REUNIAO": "no período vespertino,",
+    "LOCAL_REUNIAO": "realizada na Câmara Municipal de Vereadores de Montes Claros",
+    "DATA_ASSINATURA": "04 de novembro de 2026",
     "EXIBIR_AVISO": "",
     "AVISO_GLOBAL": ""
   },
@@ -465,158 +465,5 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": [
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "ELIZETE SANTOS BARBOSA",
-      "id": 10,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "VALDEMAR RODRIGUES DOS ANJOS",
-      "id": 64,
-      "registro": "AUSÊNCIA",
-      "link_declaracao": ""
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Suplente",
-      "nome": "RICARDO SOARES DE OLIVEIRA",
-      "id": 38,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1mR6mILD692i_XhGygP0Jg9vPg6nYsFut/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "FERNANDO ANTÔNIO DIAS DE ANDRADE",
-      "id": 17,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/17cDHLjWfW38tJkrLDXbvEJecnDVckI_s/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "MÁRCIO CARDOSO SILVA",
-      "id": 61,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1zVYVGL2xcMdRicUXx16433C1q-Kbs5kq/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ANIELLY COSTA SILVA",
-      "id": 21,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1wsw1rawM2jN-YzrMFQ93MMOoElfcd5Nd/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "JOEL FRANCISCO BORGES",
-      "id": 1,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1NYQCMwyCdbnVyLlFJrJWG3UBJR3M17Af/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Subsecretária de Gestão Hospitalar ",
-      "nome": "PATRICIA FERREIRA COSTA ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1F-iWI2iJy7k98vlAPUbnv4RgFPh7-ojK/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Enfermeira/coordenação - Centro de Reabilitação Física - Órtese e Prótese",
-      "nome": "MARCELA BRANT",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1WBtm2pn4dcK3_yqQNflfj410parVjgs6/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "CHEFE DE UNIDADE DE SAUDE",
-      "nome": "CLEITA PINHEIRO DE ALMEIDA",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/16HurElIupe-_HTac64Tsne16b9AXC6mN/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Diretora de Regulação/SMS MOC",
-      "nome": "CLARICE RIBEIRO DE OLIVEIRA MATOS",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1DiwvpqZMXVoHiw6qmROjpEjPGyY3lyNt/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ROBERTA CUNHA MOTA SANTOS",
-      "id": 9,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/15ZCzFt-Aa1DNBc406sAmT4XwzxhTewa3/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Fisioterapeuta/Junta Reguladora/SMS",
-      "nome": "DANIELLE GOMES SOUSA FERNANDES ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1Nq-pM6rV-A3yhOFKrEWngESGdZDvgnfs/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Enfermeira/ Junta reguladora",
-      "nome": "MYLLENA MONT ALTO OLIVEIRA",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1SnuS0vjB1DFQI14fKx372WvZzUl8OG_o/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "FARLEY SINDEAUX RIBEIRO",
-      "id": 15,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1yC43Azt9YVtmbtPIPNN3dBEBxirU6mfa/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "CONSELHEIRO",
-      "cargo_setor": "Titular",
-      "nome": "ROBERTO COELHO FERREIRA",
-      "id": 47,
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/19hiq-xgGh5Te-t_piOGjgGOZk6zlq5rX/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Coordenador de Regulação ",
-      "nome": "LUCAS FERREIRA RODRIGUES",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1n8usrpPdPVQ_mbRQYNinU9BAmbsnEFpa/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Gerente PSF VITÓRIA ",
-      "nome": "SARAH JULIANE MENDES CAPUCHINHO",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1MPanSo1Rhf6ZUQHSWPTYL3ufa9hA4nhr/view?usp=drivesdk"
-    },
-    {
-      "tipo_usuario": "PÚBLICO",
-      "cargo_setor": "Enfermeira/NAPRIS/SMS",
-      "nome": "PRISCILLA DURÃES DE CARVALHO ",
-      "id": "-",
-      "registro": "PRESENÇA",
-      "link_declaracao": "https://drive.google.com/file/d/1_Vf2zRjc_IRtyMh2ff8Wdh7ezGwy8r1D/view?usp=drivesdk"
-    }
-  ]
+  "lista": []
 }
