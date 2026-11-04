@@ -1262,6 +1262,33 @@ body {
     height: 120px !important;
   }
 }
+/* ── CARD HERO: MATERIAL RECOMENDADO EM DESTAQUE (LIVRO HISTÓRICO) ── */
+.cms-card-destaque-livro {
+  background: var(--cms-white);
+  border: 2px solid var(--cms-yellow);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(13, 46, 90, 0.08);
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 32px;
+}
+.cms-card-destaque-livro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(13, 46, 90, 0.14);
+}
+@media (max-width: 680px) {
+  .cms-card-destaque-livro {
+    flex-direction: column !important;
+  }
+  .cms-card-destaque-livro > div:first-child {
+    width: 100% !important;
+    height: 240px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--cms-border) !important;
+  }
+}
 </style>
 
 <!-- OneSignal Push Notifications -->
@@ -1361,6 +1388,8 @@ body {
     <span style="color: var(--cms-border); margin: 0 4px;">|</span>
 
     <a href="https://app.cmsmoc.com/" target="_blank" class="cms-quick-link-item" style="color: var(--cms-navy); font-weight: 700;">Documentos Oficiais</a>
+    <span style="color: var(--cms-border); margin: 0 4px;">|</span>
+    <a href="Projeto-Montes-Claros-a-utopia-revisitada.pdf" target="_blank" class="cms-quick-link-item" style="color: var(--cms-navy); font-weight: 700;" title="Obra Histórica de Sonia Fleury">📚 Livro: A Utopia Revisitada</a>
   </div>
 </div>
 
@@ -1385,6 +1414,56 @@ body {
       <img src="cts.png" alt="Comissões e Câmaras Técnicas" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
     </div>
   </details>
+
+  <!-- ==========================================
+       CARD HERO: MATERIAL RECOMENDADO EM DESTAQUE (OBRA HISTÓRICA)
+       ========================================== -->
+  <div class="cms-card-destaque-livro">
+    <!-- Capa do Livro -->
+    <div style="width: 210px; flex-shrink: 0; background: var(--cms-navy); display: flex; align-items: center; justify-content: center; overflow: hidden; border-right: 1px solid var(--cms-border);">
+      <img src="thumb_utopia_revisitada.webp" alt="Capa do Livro Projeto Montes Claros: A Utopia Revisitada" style="width: 100%; height: 100%; object-fit: cover; max-height: 290px;">
+    </div>
+    
+    <!-- Conteúdo Editorial -->
+    <div style="padding: 24px 28px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; text-align: left;">
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="background: var(--cms-yellow); color: var(--cms-navy); font-family: var(--font-display); font-size: 10.5px; font-weight: 900; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.5px;">⭐ Material Recomendado em Destaque</span>
+            <span style="background: rgba(30, 138, 74, 0.1); color: var(--cms-green); font-family: var(--font-display); font-size: 10.5px; font-weight: 800; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(30, 138, 74, 0.2);">Memória do SUS</span>
+          </div>
+          <span style="font-size: 11.5px; color: var(--cms-muted); font-weight: 600;">ABRASCO • Edição Integral</span>
+        </div>
+
+        <h3 style="font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 24px); font-weight: 900; color: var(--cms-navy); margin: 0 0 6px 0; line-height: 1.25; text-transform: uppercase;">
+          Projeto Montes Claros: A Utopia Revisitada
+        </h3>
+
+        <div style="font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--cms-blue); margin-bottom: 12px;">
+          Sonia Fleury (Organizadora)
+        </div>
+
+        <p class="cms-body" style="font-size: 13px; color: var(--cms-ink); line-height: 1.5; margin-bottom: 16px;">
+          Resgate histórico indispensável sobre a pioneira experiência de Montes Claros na década de 1970 — modelo que revolucionou a atenção primária, a descentralização sanitária e a participação popular, consolidando-se como um dos embriões fundamentais da criação do Sistema Único de Saúde (SUS) e da Reforma Sanitária Brasileira.
+        </p>
+
+        <!-- Metadados em Pílulas -->
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;">
+          <span style="font-size: 11.5px; background: var(--cms-off); border: 1px solid var(--cms-border); padding: 4px 10px; border-radius: 6px; color: var(--cms-muted); font-weight: 600;">📄 256 Páginas</span>
+          <span style="font-size: 11.5px; background: var(--cms-off); border: 1px solid var(--cms-border); padding: 4px 10px; border-radius: 6px; color: var(--cms-muted); font-weight: 600;">🏛️ Publicação ABRASCO (1995)</span>
+          <span style="font-size: 11.5px; background: var(--cms-off); border: 1px solid var(--cms-border); padding: 4px 10px; border-radius: 6px; color: var(--cms-muted); font-weight: 600;">💾 PDF Digital (11.8 MB)</span>
+          <span style="font-size: 11.5px; background: var(--cms-off); border: 1px solid var(--cms-border); padding: 4px 10px; border-radius: 6px; color: var(--cms-green); font-weight: 700;">✓ Acesso Aberto e Gratuito</span>
+        </div>
+      </div>
+
+      <!-- Botões de Ação -->
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <a href="Projeto-Montes-Claros-a-utopia-revisitada.pdf" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--cms-navy); color: #FFFFFF; font-family: var(--font-display); font-weight: 900; font-size: 12.5px; text-transform: uppercase; padding: 12px 22px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(13, 46, 90, 0.2); transition: all 0.2s ease;" onmouseover="this.style.background='var(--cms-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--cms-navy)'; this.style.transform='translateY(0)'">
+          <span>📥</span> Baixar / Visualizar Livro em PDF
+        </a>
+      </div>
+    </div>
+  </div>
 
   <div class="cms-masonry-grid" style="margin-bottom: 48px; display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
     
@@ -1557,9 +1636,9 @@ body {
   // Os usuários agora baixam a declaração diretamente.
 </script>
 
-<!-- Pop-up de Aviso: 471ª Reunião Ordinária -->
+<!-- Pop-up de Aviso: 471ª Reunião Ordinária & Obra Histórica -->
 <div class="cms-popup-overlay" id="minicursos-popup">
-  <div class="cms-popup-container" style="max-width: 520px; background-color: var(--cms-navy, #0D2E5A); overflow: hidden; padding: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);">
+  <div class="cms-popup-container" style="max-width: 540px; background-color: var(--cms-navy, #0D2E5A); overflow: hidden; padding: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);">
     <!-- Stripe Institucional -->
     <div style="height: 6px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%); width: 100%;"></div>
 
@@ -1571,26 +1650,53 @@ body {
     </button>
 
     <div style="padding: 0; text-align: left; position: relative;">
-      <!-- Imagem do Card Oficial da Reunião (Removida - Usando Apenas Texto) -->
+      <div style="padding: 22px 24px 24px; position: relative; z-index: 2;">
+          <!-- Bloco 1: 471ª Reunião em Andamento -->
+          <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(30, 138, 74, 0.25); border: 1px solid rgba(74, 222, 128, 0.4); border-radius: 20px; padding: 4px 10px; margin-bottom: 10px;">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e;"></span>
+            <span style="font-family: var(--font-display); font-size: 11px; font-weight: 800; color: #86efac; text-transform: uppercase; letter-spacing: 0.5px;">Reunião em Andamento</span>
+          </div>
 
-      <div style="padding: 22px 24px 26px; position: relative; z-index: 2;">
-          <div style="border-left: 4px solid var(--cms-yellow, #F5C400); padding-left: 14px; margin-bottom: 14px;">
-
+          <div style="border-left: 4px solid var(--cms-yellow, #F5C400); padding-left: 14px; margin-bottom: 12px;">
             <h2 class="cms-popup-title" style="font-size: 20px; margin: 0; color: #FFFFFF; line-height: 1.2; font-weight: 900; text-transform: uppercase;">471ª Reunião Ordinária</h2>
           </div>
           
-          <p class="cms-body" style="color: rgba(255,255,255,0.9); font-size: 13.5px; text-align: left; line-height: 1.5; margin-bottom: 18px;">
-            Acompanhe a pauta e participe presencialmente no dia 04 de novembro às 14:00 na Câmara Municipal. Acesse abaixo a lista virtual de presença de conselheiros e participantes.
+          <p class="cms-body" style="color: rgba(255,255,255,0.9); font-size: 13px; text-align: left; line-height: 1.45; margin-bottom: 14px;">
+            A sessão está ocorrendo na Câmara Municipal. Assine a lista virtual ou acesse para baixar sua declaração de presença.
           </p>
           
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <!-- Botão Principal: Lista Virtual -->
-            <a href="https://www.cmsmoc.com/reuniao" id="popup-cta-btn" class="cms-btn-conselheiro-link" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 14px 18px; font-size: 13.5px; background: var(--cms-yellow, #F5C400); color: var(--cms-navy, #0D2E5A); box-shadow: 0 4px 14px rgba(245,196,0,0.35); width: 100%; box-sizing: border-box; border-radius: 8px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; border: none; transition: all 0.2s ease;">
-              <span>📋</span> ACESSAR LISTA VIRTUAL DE PRESENÇA
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px;">
+            <!-- Botão Principal: Lista Virtual / Baixar Declaração -->
+            <a href="https://www.cmsmoc.com/reuniao" id="popup-cta-btn" class="cms-btn-conselheiro-link" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 18px; font-size: 13px; background: var(--cms-yellow, #F5C400); color: var(--cms-navy, #0D2E5A); box-shadow: 0 4px 14px rgba(245,196,0,0.35); width: 100%; box-sizing: border-box; border-radius: 8px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; border: none; transition: all 0.2s ease;">
+              <span>📋</span> LISTA DE PRESENÇA / BAIXAR DECLARAÇÃO
             </a>
+          </div>
 
-            <!-- Botão Secundário: Ativar Notificações Push -->
-            <button id="popup-push-btn" type="button" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 18px; font-size: 12.5px; background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.25); width: 100%; box-sizing: border-box; border-radius: 8px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease;">
+          <!-- Bloco 2: Aviso da Obra Histórica (Sonia Fleury) -->
+          <div style="padding: 14px 16px; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(245, 196, 0, 0.45); border-radius: 10px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 16px;">📚</span>
+                <span style="font-family: var(--font-display); font-size: 10px; font-weight: 800; color: var(--cms-yellow, #F5C400); text-transform: uppercase; letter-spacing: 0.8px;">Acervo Histórico • Leitura Recomendada</span>
+              </div>
+              <span style="font-size: 10px; color: rgba(255,255,255,0.6); font-family: var(--font-body); font-weight: 600;">ABRASCO (1995)</span>
+            </div>
+            <h3 style="color: #FFFFFF; font-size: 14px; font-weight: 800; margin: 0 0 4px 0; font-family: var(--font-display); line-height: 1.25;">
+              Projeto Montes Claros: A Utopia Revisitada
+            </h3>
+            <p style="font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.4; margin: 0 0 10px 0;">
+              Por <strong>Sonia Fleury</strong>. Obra fundamental que resgata a pioneira experiência de saúde dos anos 1970 em Montes Claros como embrião do SUS e da Reforma Sanitária.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="Projeto-Montes-Claros-a-utopia-revisitada.pdf" target="_blank" style="flex: 1; min-width: 180px; text-decoration: none; text-align: center; display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 10px 14px; font-size: 11.5px; background: rgba(255,255,255,0.14); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.14)'">
+                <span>📥</span> Baixar / Ler Livro em PDF (11.8 MB)
+              </a>
+            </div>
+          </div>
+
+          <!-- Botão Secundário: Ativar Notificações Push -->
+          <div style="margin-top: 14px;">
+            <button id="popup-push-btn" type="button" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 9px 14px; font-size: 11.5px; background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); width: 100%; box-sizing: border-box; border-radius: 6px; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease;">
               <span>🔔</span> Ativar Notificações no Celular
             </button>
           </div>
