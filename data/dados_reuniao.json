@@ -8,10 +8,10 @@
     "DESCRICAO": "",
     "PAUTA": "Apreciação e deliberação da proposta de formalização contratual junto ao Consórcio Intermunicipal de Saúde da Rede de Urgência do Norte de Minas (CIMAMS) para a prestação de serviços de consultas médicas especializadas e procedimentos de exames complementares sob tabela diferenciada, custeados por recursos federais no âmbito da Portaria GM/MS nº 12.116, de 21 de agosto de 2026.",
     "QUANDO_ONDE": "<b>09 de Novembro de 2026</b><br>Segunda-feira<br><br><b>Online<br>Montes Claros/MG",
-    "DATA_REUNIAO": "04 de novembro de 2026",
+    "DATA_REUNIAO": "09 de novembro de 2026",
     "HORA_REUNIAO": "no período vespertino,",
     "LOCAL_REUNIAO": "Online",
-    "DATA_ASSINATURA": "04 de novembro de 2026",
+    "DATA_ASSINATURA": "09 de novembro de 2026",
     "EXIBIR_AVISO": "Como participar do Google Meet\nLink da videochamada: https://meet.google.com/obx-iruh-qds",
     "AVISO_GLOBAL": ""
   },
@@ -465,5 +465,78 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": []
+  "lista": [
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ROBERTA CUNHA MOTA SANTOS",
+      "id": 9,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "MARIANA CRISTINA MEIRA CAMBUÍ",
+      "id": 34,
+      "registro": "AUSÊNCIA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "RANIELSON ALVES FERREIRA",
+      "id": 23,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FERNANDO ANTÔNIO DIAS DE ANDRADE",
+      "id": 17,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Suplente",
+      "nome": "RICARDO SOARES DE OLIVEIRA",
+      "id": 38,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "WASHINGTON LUIS CARVALHO SOUTO",
+      "id": 41,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "FERNANDA FAGUNDES AZEVEDO",
+      "id": 37,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "JOEL FRANCISCO BORGES",
+      "id": 1,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    },
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "NÚBIA CARNEIRO GUIMARÃES",
+      "id": 51,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    }
+  ]
 }
