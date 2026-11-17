@@ -1,5 +1,6 @@
 {
   "change_log": [
+    "2026-11-17: Criação do portal consolidado EPROJ em site/eproj/index.html (Portaria SMS 28/2026), integrando catálogo navegável com busca dinâmica de 18 iniciativas, fichas de devolutiva prontas para submissão (PRJ-009, PRJ-010 e PRJ-012 com botão de cópia rápida), estudo de posicionamento profissional do 'Analista-Construtor', roadmap de 30/60/90 dias e manifesto de auditoria. Geração de thumbnails WebP e JPG para WhatsApp/OpenGraph e aplicação rigorosa do design system oficial CMSMOC (cmsmoc-tokens.json e diretrizes Impeccable).",
     "2026-09-17: AtualizaÃ§Ã£o das tags og:image das pÃ¡ginas /iadados, /formacaoregimento e /instrumentosdegestao para usar URLs absolutas, geraÃ§Ã£o de thumbnails webp e jpg (para WhatsApp), e criaÃ§Ã£o de um novo Hub Educacional em /oficinas centralizando o acesso Ã s capacitaÃ§Ãµes.",
     "2026-08-06: Atualizado o pop-up inicial no site principal para exibir aviso sobre declaraÃ§Ãµes da ReuniÃ£o 468 com cÃ¡lculo dinÃ¢mico da data (hoje, ontem, ou 05 de agosto de 2026) e redirecionamento integrado para /reuniao. Convertido thumb.png para thumb.webp e atualizadas as tags og:image de index.html e reuniao.html para otimizar previews.",
     "2026-08-05: SubstituiÃ§Ã£o dos nomes de conselheiros nas Listas de PresenÃ§a (Paulo Thiago -> Ranielson Alves Ferreira, Emille -> Ana MÃ¡rcia de Souza Almeida).",
