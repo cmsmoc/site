@@ -1347,6 +1347,30 @@ body {
   </div>
 </header>
 
+<!-- CARROSSEL DE DESTAQUES (ATIVO CASO HAJA CARDS/CONFIGURADO) -->
+<section id="cms-destaques-topo" style="display: none; background: #071930; border-bottom: 2px solid rgba(245, 196, 0, 0.4); padding: 18px 0; position: relative;">
+  <div class="cms-wrap">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 8px; height: 8px; background: #F5C400; border-radius: 50%; box-shadow: 0 0 8px #F5C400;"></span>
+        <span style="font-family: var(--font-display); font-size: 11px; font-weight: 900; color: #F5C400; text-transform: uppercase; letter-spacing: 1px;">Destaques & Convocações Oficiais</span>
+      </div>
+      <div class="destaques-controls" style="display: flex; gap: 6px;">
+        <button id="destaquesPrevBtn" type="button" aria-label="Destaque anterior" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.2s;">◀</button>
+        <button id="destaquesNextBtn" type="button" aria-label="Próximo destaque" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.2s;">▶</button>
+      </div>
+    </div>
+
+    <!-- Trilho de Cards -->
+    <div id="destaquesTrack" style="display: flex; gap: 14px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 6px; scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+      <!-- Cards gerados dinamicamente via JS -->
+    </div>
+
+    <!-- Dots -->
+    <div id="destaquesDots" style="display: flex; justify-content: center; gap: 6px; margin-top: 10px;"></div>
+  </div>
+</section>
+
 <!-- ACESSO RÁPIDO -->
 <div class="cms-quick-links">
   <div class="cms-wrap cms-quick-links-inner">
@@ -1636,7 +1660,7 @@ body {
   // Os usuários agora baixam a declaração diretamente.
 </script>
 
-<!-- Pop-up de Aviso: 273ª Reunião Extraordinária -->
+<!-- Pop-up de Aviso: Reunião & Convocação Oficial (Dinâmico) -->
 <div class="cms-popup-overlay" id="minicursos-popup">
   <div class="cms-popup-container" style="max-width: 560px; background-color: var(--cms-navy, #0D2E5A); overflow: hidden; padding: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);">
     <!-- Stripe Institucional -->
@@ -1654,40 +1678,40 @@ body {
           <!-- Badge da Convocação Oficial -->
           <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(245, 196, 0, 0.15); border: 1px solid rgba(245, 196, 0, 0.4); border-radius: 20px; padding: 4px 12px; margin-bottom: 12px;">
             <span style="display: inline-block; width: 8px; height: 8px; background: #F5C400; border-radius: 50%; box-shadow: 0 0 8px #F5C400;"></span>
-            <span style="font-family: var(--font-display); font-size: 11px; font-weight: 800; color: #F5C400; text-transform: uppercase; letter-spacing: 0.5px;">Convocação Oficial • Reunião Online</span>
+            <span id="popup-badge-tag" style="font-family: var(--font-display); font-size: 11px; font-weight: 800; color: #F5C400; text-transform: uppercase; letter-spacing: 0.5px;">Convocação Oficial • Reunião Online</span>
           </div>
 
           <!-- Título e Detalhes da Data / Local -->
           <div style="border-left: 4px solid var(--cms-yellow, #F5C400); padding-left: 14px; margin-bottom: 14px;">
-            <h2 class="cms-popup-title" style="font-size: 21px; margin: 0; color: #FFFFFF; line-height: 1.2; font-weight: 900; text-transform: uppercase;">273ª Reunião Extraordinária</h2>
-            <div style="font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 5px; font-weight: 600; line-height: 1.4;">
+            <h2 id="popup-titulo-reuniao" class="cms-popup-title" style="font-size: 21px; margin: 0; color: #FFFFFF; line-height: 1.2; font-weight: 900; text-transform: uppercase;">273ª Reunião Extraordinária</h2>
+            <div id="popup-quando-onde" style="font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 5px; font-weight: 600; line-height: 1.4;">
               📅 <b>16 de Novembro de 2026</b> (Segunda-feira) &bull; 14h &bull; 🌐 Online (Google Meet)
             </div>
           </div>
           
           <!-- Box da Pauta -->
-          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+          <div id="popup-pauta-box" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
             <span style="font-family: var(--font-display); font-size: 10.5px; font-weight: 800; color: var(--cms-yellow, #F5C400); text-transform: uppercase; letter-spacing: 0.8px; display: block; margin-bottom: 5px;">Pauta da Sessão:</span>
-            <p style="color: rgba(255,255,255,0.92); font-size: 12.5px; line-height: 1.45; margin: 0;">
+            <p id="popup-pauta-texto" style="color: rgba(255,255,255,0.92); font-size: 12.5px; line-height: 1.45; margin: 0;">
               Apresentação da previsão orçamentária para o exercício financeiro de 2027 (Ordem do Dia).
             </p>
           </div>
 
           <!-- Instruções de Acesso ao Google Meet -->
-          <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 16px; line-height: 1.4; background: rgba(30, 138, 74, 0.15); border-left: 3px solid #22c55e; padding: 8px 12px; border-radius: 4px;">
-            <strong style="color: #86efac;">Como participar da videochamada:</strong> Acesso direto via Google Meet pelo botão verde abaixo. Após entrar na sessão, assine a lista virtual de presença.
+          <div id="popup-instrucoes-box" style="font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 16px; line-height: 1.4; background: rgba(30, 138, 74, 0.15); border-left: 3px solid #22c55e; padding: 8px 12px; border-radius: 4px;">
+            <strong style="color: #86efac;">Como participar da videochamada:</strong> <span id="popup-instrucoes-texto">Acesso direto via Google Meet pelo botão verde abaixo. Após entrar na sessão, assine a lista virtual de presença.</span>
           </div>
           
           <!-- 2 Botões Destacados -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 14px;">
             <!-- Botão 1: Google Meet -->
-            <a href="https://meet.google.com/bcr-hohj-xpu" target="_blank" rel="noopener noreferrer" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px; font-size: 12.5px; background: var(--cms-green, #1E8A4A); color: #FFFFFF; border-radius: 8px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; box-shadow: 0 4px 14px rgba(30,138,74,0.35); border: none; transition: all 0.2s ease;">
-              <span>📹</span> ENTRAR NA REUNIÃO (MEET)
+            <a id="popup-btn-meet" href="https://meet.google.com/bcr-hohj-xpu" target="_blank" rel="noopener noreferrer" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px; font-size: 12.5px; background: var(--cms-green, #1E8A4A); color: #FFFFFF; border-radius: 8px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; box-shadow: 0 4px 14px rgba(30,138,74,0.35); border: none; transition: all 0.2s ease;">
+              <span>📹</span> <span id="popup-btn-meet-text">ENTRAR NA REUNIÃO (MEET)</span>
             </a>
 
             <!-- Botão 2: Lista de Presença -->
-            <a href="https://www.cmsmoc.com/reuniao" id="popup-cta-btn" class="cms-btn-conselheiro-link" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px; font-size: 12.5px; background: var(--cms-yellow, #F5C400); color: var(--cms-navy, #0D2E5A); box-shadow: 0 4px 14px rgba(245,196,0,0.35); border-radius: 8px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; border: none; transition: all 0.2s ease;">
-              <span>📋</span> ASSINAR LISTA DE PRESENÇA
+            <a id="popup-cta-btn" href="https://www.cmsmoc.com/reuniao" class="cms-btn-conselheiro-link" style="text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px; font-size: 12.5px; background: var(--cms-yellow, #F5C400); color: var(--cms-navy, #0D2E5A); box-shadow: 0 4px 14px rgba(245,196,0,0.35); border-radius: 8px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; border: none; transition: all 0.2s ease;">
+              <span>📋</span> <span id="popup-btn-presenca-text">ASSINAR LISTA DE PRESENÇA</span>
             </a>
           </div>
 
@@ -1750,33 +1774,187 @@ body {
 </div>
 
 <script>
-  // --- 4. Pop-up de Aviso Automático ---
-  const popup = document.getElementById('minicursos-popup');
-  const popupClose = document.getElementById('minicursos-popup-close');
+  // --- 4. Pop-up de Aviso Automático & Carrossel de Destaques Dinâmicos ---
+  async function carregarDestaquesEPopup() {
+    const popup = document.getElementById('minicursos-popup');
+    const popupClose = document.getElementById('minicursos-popup-close');
+    let dados = null;
 
-  if (popup && popupClose) {
-    // Pop-up abre com delay suave (1s)
-    setTimeout(() => {
-      popup.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }, 1000);
+    try {
+      const res = await fetch('data/dados_reuniao.json?t=' + Date.now());
+      if (res.ok) {
+        dados = await res.json();
+      }
+    } catch (err) {
+      console.warn('[CMS Index] Falha ao carregar dados_reuniao.json, mantendo fallback estático:', err);
+    }
+
+    // 1. Renderizar Carrossel de Destaques no Topo
+    renderizarCarrosselTopo(dados);
+
+    // 2. Controlar e Hidratar Pop-up de Entrada
+    if (!popup) return;
+
+    const configs = (dados && dados.configs) || {};
+    const popupAtivo = configs.POPUP_ATIVO !== undefined ? (String(configs.POPUP_ATIVO).trim().toUpperCase() === 'SIM') : true;
+
+    if (!popupAtivo) {
+      // Pop-up desativado pela administração (Painel Central / Aba ADMIN)
+      popup.style.display = 'none';
+      return;
+    }
+
+    // Hidratação Dinâmica dos Campos do Pop-up
+    if (configs.POPUP_TAG) {
+      const el = document.getElementById('popup-badge-tag');
+      if (el) el.textContent = configs.POPUP_TAG;
+    }
+    if (configs.POPUP_TITULO || configs.TITULO) {
+      const el = document.getElementById('popup-titulo-reuniao');
+      if (el) el.textContent = configs.POPUP_TITULO || configs.TITULO;
+    }
+    if (configs.POPUP_QUANDO || configs.QUANDO_ONDE) {
+      const el = document.getElementById('popup-quando-onde');
+      if (el) el.innerHTML = '📅 ' + (configs.POPUP_QUANDO || configs.QUANDO_ONDE);
+    }
+    if (configs.POPUP_PAUTA || configs.PAUTA) {
+      const el = document.getElementById('popup-pauta-texto');
+      if (el) el.textContent = configs.POPUP_PAUTA || configs.PAUTA;
+    }
+    if (configs.POPUP_INSTRUCOES || configs.EXIBIR_AVISO) {
+      const el = document.getElementById('popup-instrucoes-texto');
+      if (el) el.textContent = configs.POPUP_INSTRUCOES || configs.EXIBIR_AVISO;
+    }
+    if (configs.POPUP_LINK_MEET) {
+      const el = document.getElementById('popup-btn-meet');
+      if (el) el.href = configs.POPUP_LINK_MEET;
+    }
+    if (configs.POPUP_BTN_MEET_TEXT) {
+      const el = document.getElementById('popup-btn-meet-text');
+      if (el) el.textContent = configs.POPUP_BTN_MEET_TEXT;
+    }
+    if (configs.POPUP_LINK_PRESENCA) {
+      const el = document.getElementById('popup-cta-btn');
+      if (el) el.href = configs.POPUP_LINK_PRESENCA;
+    }
+    if (configs.POPUP_BTN_PRESENCA_TEXT) {
+      const el = document.getElementById('popup-btn-presenca-text');
+      if (el) el.textContent = configs.POPUP_BTN_PRESENCA_TEXT;
+    }
 
     function closePopup() {
       popup.classList.remove('open');
       document.body.style.overflow = '';
     }
 
-    popupClose.addEventListener('click', closePopup);
+    if (popupClose) popupClose.addEventListener('click', closePopup);
     popup.addEventListener('click', function(e) {
-      if (e.target === popup) {
-        closePopup();
-      }
+      if (e.target === popup) closePopup();
     });
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && popup.classList.contains('open')) {
-        closePopup();
+      if (e.key === 'Escape' && popup.classList.contains('open')) closePopup();
+    });
+
+    // Abertura suave com delay de 1s
+    setTimeout(() => {
+      popup.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }, 1000);
+  }
+
+  function renderizarCarrosselTopo(dados) {
+    const sec = document.getElementById('cms-destaques-topo');
+    const track = document.getElementById('destaquesTrack');
+    const dotsBox = document.getElementById('destaquesDots');
+    if (!sec || !track) return;
+
+    const configs = (dados && dados.configs) || {};
+    const ativo = configs.DESTAQUES_TOPO_ATIVO !== undefined ? (String(configs.DESTAQUES_TOPO_ATIVO).trim().toUpperCase() !== 'NÃO') : true;
+
+    let lista = (dados && Array.isArray(dados.destaques)) ? dados.destaques : [];
+    // Filtra destaques direcionados ao topo (ou sem destino explícito)
+    lista = lista.filter(d => !d.destino || d.destino.includes('topo') || (Array.isArray(d.destino) && d.destino.length === 0));
+
+    if (!ativo || lista.length === 0) {
+      sec.style.display = 'none';
+      return;
+    }
+
+    // Exibir seção do carrossel
+    sec.style.display = 'block';
+    track.innerHTML = '';
+    dotsBox.innerHTML = '';
+
+    const corMap = {
+      amarelo: { border: '#F5C400', tagBg: 'rgba(245, 196, 0, 0.15)', tagText: '#F5C400', btnBg: '#F5C400', btnText: '#0D2E5A' },
+      azul: { border: '#1B6CB5', tagBg: 'rgba(27, 108, 181, 0.2)', tagText: '#60a5fa', btnBg: '#1B6CB5', btnText: '#FFFFFF' },
+      verde: { border: '#1E8A4A', tagBg: 'rgba(30, 138, 74, 0.25)', tagText: '#86efac', btnBg: '#1E8A4A', btnText: '#FFFFFF' },
+      marinho: { border: 'rgba(255,255,255,0.2)', tagBg: 'rgba(255, 255, 255, 0.1)', tagText: '#FFFFFF', btnBg: '#0D2E5A', btnText: '#FFFFFF' }
+    };
+
+    lista.forEach((item, idx) => {
+      const palette = corMap[item.cor] || corMap.azul;
+      const card = document.createElement('div');
+      card.style.cssText = `
+        min-width: 320px;
+        max-width: 380px;
+        flex: 0 0 auto;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid ${palette.border};
+        border-radius: 10px;
+        padding: 16px 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      `;
+      card.onmouseover = () => { card.style.transform = 'translateY(-2px)'; };
+      card.onmouseout = () => { card.style.transform = 'translateY(0)'; };
+
+      card.innerHTML = `
+        <div>
+          <div style="display: inline-block; background: ${palette.tagBg}; border: 1px solid ${palette.border}; border-radius: 12px; padding: 2px 8px; font-family: var(--font-display); font-size: 9.5px; font-weight: 800; color: ${palette.tagText}; text-transform: uppercase; margin-bottom: 8px;">
+            ${item.tag || 'CMS DESTAQUE'}
+          </div>
+          <h3 style="font-family: var(--font-display); font-size: 15px; font-weight: 900; color: #FFFFFF; text-transform: uppercase; line-height: 1.25; margin-bottom: 4px;">
+            ${item.titulo || ''}
+          </h3>
+          ${item.subtitulo ? `<div style="font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.75); margin-bottom: 8px;">${item.subtitulo}</div>` : ''}
+          ${item.descricao ? `<p style="font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.35; margin-bottom: 12px;">${item.descricao}</p>` : ''}
+        </div>
+        ${item.link ? `
+          <a href="${item.link}" ${item.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: ${palette.btnBg}; color: ${palette.btnText}; text-decoration: none; padding: 8px 12px; border-radius: 6px; font-family: var(--font-display); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">
+            <span>${item.link_texto || 'Acessar'}</span> <span>→</span>
+          </a>
+        ` : ''}
+      `;
+      track.appendChild(card);
+
+      // Dot indicador
+      if (lista.length > 1) {
+        const dot = document.createElement('span');
+        dot.style.cssText = `width: 8px; height: 8px; border-radius: 50%; background: ${idx === 0 ? '#F5C400' : 'rgba(255,255,255,0.2)'}; cursor: pointer; transition: all 0.2s;`;
+        dot.onclick = () => {
+          card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          Array.from(dotsBox.children).forEach((d, i) => { d.style.background = i === idx ? '#F5C400' : 'rgba(255,255,255,0.2)'; });
+        };
+        dotsBox.appendChild(dot);
       }
     });
+
+    // Controles de navegação do carrossel
+    const prevBtn = document.getElementById('destaquesPrevBtn');
+    const nextBtn = document.getElementById('destaquesNextBtn');
+    if (prevBtn) prevBtn.onclick = () => track.scrollBy({ left: -340, behavior: 'smooth' });
+    if (nextBtn) nextBtn.onclick = () => track.scrollBy({ left: 340, behavior: 'smooth' });
+  }
+
+  // Inicializar busca dinâmica
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', carregarDestaquesEPopup);
+  } else {
+    carregarDestaquesEPopup();
   }
 
   // --- Função Auxiliar para Disparo de Push Notification (OneSignal) ---

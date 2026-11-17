@@ -1,0 +1,469 @@
+{
+  "configs": {
+    "CHAVE": "VALOR",
+    "STATUS_SISTEMA": "ATIVO",
+    "MODO": 1,
+    "TITULO": "273ª Reunião Extraordinária do CMS - Montes Claros",
+    "LABEL_TOPO": "",
+    "DESCRICAO": "",
+    "PAUTA": "Apresentação da previsão orçamentária para o exercício financeiro de 2027.",
+    "QUANDO_ONDE": "<b>16 de Novembro de 2026</b><br>Segunda-feira &bull; 14h<br><br><b>Online<br>Montes Claros/MG",
+    "DATA_REUNIAO": "16 de novembro de 2026",
+    "HORA_REUNIAO": "às 14h,",
+    "LOCAL_REUNIAO": "Online",
+    "DATA_ASSINATURA": "16 de novembro de 2026",
+    "EXIBIR_AVISO": "Como participar do Google Meet\nLink da videochamada: https://meet.google.com/bcr-hohj-xpu",
+    "AVISO_GLOBAL": ""
+  },
+  "conselheiros": [
+    {
+      "id": 1,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "CLS Jardim Primavera",
+      "nome": "Joel Francisco Borges"
+    },
+    {
+      "id": 2,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "CLS Independência",
+      "nome": "Amanda Mendes Soares"
+    },
+    {
+      "id": 3,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "CLS Renascença",
+      "nome": "Emanuela Tomas da Silva Conceição"
+    },
+    {
+      "id": 4,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "CLS Planalto",
+      "nome": "Sérgio Peres"
+    },
+    {
+      "id": 5,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "CLS Vila Atlântica",
+      "nome": "Danielle Santos Sousa"
+    },
+    {
+      "id": 6,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "CLS Delfino Magalhães",
+      "nome": "Laryssa Félix"
+    },
+    {
+      "id": 7,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Assembleia de Deus Madureira",
+      "nome": "Luciana de Jesus Santos Cardoso"
+    },
+    {
+      "id": 8,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Assembleia de Deus Madureira",
+      "nome": "Júlio César Pereira"
+    },
+    {
+      "id": 9,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Fundação Sara Albuquerque",
+      "nome": "Roberta Cunha Mota Santos"
+    },
+    {
+      "id": 10,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Fundação Sara Albuquerque",
+      "nome": "Elizete Santos Barbosa"
+    },
+    {
+      "id": 11,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Arquidiocese de Montes Claros (Pastoral da Saúde)",
+      "nome": "Maria dos Reis Ribeiro Dias"
+    },
+    {
+      "id": 12,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Arquidiocese de Montes Claros (Pastoral da Saúde)",
+      "nome": "Gilson Mendes de Almeida"
+    },
+    {
+      "id": 13,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Associação Consciência Ativa",
+      "nome": "Marilda Batista da Silva"
+    },
+    {
+      "id": 14,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Associação Consciência Ativa",
+      "nome": "Fabiana Pereira Mori"
+    },
+    {
+      "id": 15,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "ANDA (Associação Norte Mineira de Apoio ao Autista)",
+      "nome": "Farley Sindeaux Ribeiro"
+    },
+    {
+      "id": 16,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "ANDA (Associação Norte Mineira de Apoio ao Autista)",
+      "nome": "Jamilson Gandra Moreira"
+    },
+    {
+      "id": 17,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "ADEMOC",
+      "nome": "Fernando Antônio Dias de Andrade"
+    },
+    {
+      "id": 18,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "ADEMOC",
+      "nome": "Helder Lopes Souza"
+    },
+    {
+      "id": 19,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Sindicato dos Trabalhadores Rurais (CUT)",
+      "nome": "Naiara Oliveira Silva"
+    },
+    {
+      "id": 20,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Sindicato dos Trabalhadores Rurais (CUT)",
+      "nome": "Luiz Antônio Mendes"
+    },
+    {
+      "id": 21,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Lar Betânia",
+      "nome": "Anielly Costa Silva"
+    },
+    {
+      "id": 22,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Lar das Velhinhas",
+      "nome": "Jaqueline da Conceição Camelo"
+    },
+    {
+      "id": 23,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Associação Arco-Íris do Amor",
+      "nome": "Ranielson Alves Ferreira"
+    },
+    {
+      "id": 24,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "MGG (Movimento LBGTQIAPN+ dos Gerais)",
+      "nome": "José Cândido de Souza Filho"
+    },
+    {
+      "id": 25,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Rotary Clube",
+      "nome": "Rafael Carvalho Maciel"
+    },
+    {
+      "id": 26,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Rotary Clube",
+      "nome": "Juliana Aparecida de Oliveira"
+    },
+    {
+      "id": 27,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "UPM (União Popular da Mulher de Montes Claros)",
+      "nome": "Isabel Macedo Avelar"
+    },
+    {
+      "id": 28,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "UPM (União Popular da Mulher de Montes Claros)",
+      "nome": "Marisa Cantidio Oliveira"
+    },
+    {
+      "id": 29,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Clínica Rosa Mística",
+      "nome": "Cláudia Rocha Biscotto"
+    },
+    {
+      "id": 30,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Clínica Rosa Mística",
+      "nome": "Patrícia Soares Gomes"
+    },
+    {
+      "id": 31,
+      "segmento": "Usuários",
+      "cadeira": "Titular",
+      "entidade": "Associação Presente",
+      "nome": "Cindy Almeyda Reis"
+    },
+    {
+      "id": 32,
+      "segmento": "Usuários",
+      "cadeira": "Suplente",
+      "entidade": "Associação Presente",
+      "nome": "Sandra Simony Mendes Gonçalves Carnielle"
+    },
+    {
+      "id": 33,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "ABO (Associação Brasileira de Odontologia)",
+      "nome": "Sheilla Silva Mendes"
+    },
+    {
+      "id": 34,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "ABO (Associação Brasileira de Odontologia)",
+      "nome": "Mariana Cristina Meira Cambuí"
+    },
+    {
+      "id": 35,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "COREN-MG (Nível Médio)",
+      "nome": "Ernandes Rodrigues Moraes"
+    },
+    {
+      "id": 36,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "COREN-MG (Nível Médio)",
+      "nome": "Júlio César Araújo Lopes"
+    },
+    {
+      "id": 37,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "COREN-MG (Nível Superior)",
+      "nome": "Fernanda Fagundes Azevedo"
+    },
+    {
+      "id": 38,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "COREN-MG (Nível Superior)",
+      "nome": "Ricardo Soares de Oliveira"
+    },
+    {
+      "id": 39,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "SEEMG",
+      "nome": "Cláudio Luís de Souza Santos"
+    },
+    {
+      "id": 40,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "SEEMG",
+      "nome": "Mônica de Fátima Fernandes Ferreira"
+    },
+    {
+      "id": 41,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "SIEESS-MG",
+      "nome": "Washington Luis Carvalho Souto"
+    },
+    {
+      "id": 42,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "SIEESS-MG",
+      "nome": "Jucielio Bernardes da Silva"
+    },
+    {
+      "id": 43,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "SINDE-SAÚDE-MG",
+      "nome": "Ediné Silva Soares"
+    },
+    {
+      "id": 44,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "SINDE-SAÚDE-MG",
+      "nome": "Imaculada Conceição Barbosa"
+    },
+    {
+      "id": 45,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "SINDSEP-MG",
+      "nome": "Edmilson Alves da Silva"
+    },
+    {
+      "id": 46,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "SINDSEP-MG",
+      "nome": "Edvaldo de Freitas Francisco"
+    },
+    {
+      "id": 47,
+      "segmento": "Trabalhadores",
+      "cadeira": "Titular",
+      "entidade": "SINDTRRAUX",
+      "nome": "Roberto Coelho Ferreira"
+    },
+    {
+      "id": 48,
+      "segmento": "Trabalhadores",
+      "cadeira": "Suplente",
+      "entidade": "SINDTRRAUX",
+      "nome": "Avilmar Augusto Pereira"
+    },
+    {
+      "id": 49,
+      "segmento": "Prestadores",
+      "cadeira": "Titular",
+      "entidade": "Hospital Universitário Clemente Faria",
+      "nome": "Iuri Simões Mota"
+    },
+    {
+      "id": 50,
+      "segmento": "Prestadores",
+      "cadeira": "Suplente",
+      "entidade": "Hospital Universitário Clemente Faria",
+      "nome": "Suelen dos Santos Ferreira"
+    },
+    {
+      "id": 51,
+      "segmento": "Prestadores",
+      "cadeira": "Titular",
+      "entidade": "GRAPPA",
+      "nome": "Núbia Carneiro Guimarães"
+    },
+    {
+      "id": 52,
+      "segmento": "Prestadores",
+      "cadeira": "Suplente",
+      "entidade": "Fundação Capelo Gaivota",
+      "nome": "Kelly Mendes Fagundes"
+    },
+    {
+      "id": 53,
+      "segmento": "Prestadores",
+      "cadeira": "Titular",
+      "entidade": "Santa Casa de Montes Claros",
+      "nome": "Nayra Cristine Lacerda Lourens"
+    },
+    {
+      "id": 54,
+      "segmento": "Prestadores",
+      "cadeira": "Suplente",
+      "entidade": "Hospital das Clínicas Dr. Mário Ribeiro",
+      "nome": "Cristiano Júnior"
+    },
+    {
+      "id": 55,
+      "segmento": "Prestadores",
+      "cadeira": "Titular",
+      "entidade": "Hospital Dilson Godinho",
+      "nome": "Herick Rodrigues Araújo"
+    },
+    {
+      "id": 56,
+      "segmento": "Prestadores",
+      "cadeira": "Suplente",
+      "entidade": "APAE / Fundação Vovó Clarice",
+      "nome": "Ana Marcia de Souza Almeida"
+    },
+    {
+      "id": 57,
+      "segmento": "Gestão",
+      "cadeira": "Titular",
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Eduardo Luiz da Silva"
+    },
+    {
+      "id": 58,
+      "segmento": "Gestão",
+      "cadeira": "Suplente",
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "João Alves Pereira"
+    },
+    {
+      "id": 59,
+      "segmento": "Gestão",
+      "cadeira": "Titular",
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Maria Clara Lelis Ramos Cardoso"
+    },
+    {
+      "id": 60,
+      "segmento": "Gestão",
+      "cadeira": "Suplente",
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Raimara Gonçalves Pereira"
+    },
+    {
+      "id": 61,
+      "segmento": "Gestão",
+      "cadeira": "Titular",
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Márcio Cardoso Silva"
+    },
+    {
+      "id": 62,
+      "segmento": "Gestão",
+      "cadeira": "Suplente",
+      "entidade": "Secretaria Municipal de Saúde",
+      "nome": "Marcos Dangelis Aguiar"
+    },
+    {
+      "id": 63,
+      "segmento": "Gestão",
+      "cadeira": "Titular",
+      "entidade": "GRS (Gerência Regional de Saúde)",
+      "nome": "Thallyta de Sousa Lima"
+    },
+    {
+      "id": 64,
+      "segmento": "Gestão",
+      "cadeira": "Suplente",
+      "entidade": "GRS (Gerência Regional de Saúde)",
+      "nome": "Valdemar Rodrigues dos Anjos"
+    }
+  ],
+  "lista": []
+}

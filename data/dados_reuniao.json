@@ -13,7 +13,18 @@
     "LOCAL_REUNIAO": "Online",
     "DATA_ASSINATURA": "16 de novembro de 2026",
     "EXIBIR_AVISO": "Como participar do Google Meet\nLink da videochamada: https://meet.google.com/bcr-hohj-xpu",
-    "AVISO_GLOBAL": ""
+    "AVISO_GLOBAL": "",
+    "POPUP_ATIVO": "SIM",
+    "POPUP_TAG": "Convocação Oficial • Reunião Online",
+    "POPUP_TITULO": "273ª Reunião Extraordinária",
+    "POPUP_QUANDO": "16 de Novembro de 2026 (Segunda-feira) • 14h • Online",
+    "POPUP_PAUTA": "Apresentação da previsão orçamentária para o exercício financeiro de 2027.",
+    "POPUP_INSTRUCOES": "Acesso direto via Google Meet pelo botão abaixo. Após entrar na sessão, assine a lista virtual de presença.",
+    "POPUP_LINK_MEET": "https://meet.google.com/bcr-hohj-xpu",
+    "POPUP_BTN_MEET_TEXT": "Entrar na Reunião (Meet)",
+    "POPUP_LINK_PRESENCA": "reuniao.html",
+    "POPUP_BTN_PRESENCA_TEXT": "Assinar Lista de Presença",
+    "DESTAQUES_TOPO_ATIVO": "SIM"
   },
   "conselheiros": [
     {
@@ -465,5 +476,34 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": []
+  "lista": [],
+  "destaques": [
+    {
+      "id": "destaque-1",
+      "tag": "CONVOCAÇÃO OFICIAL",
+      "titulo": "273ª REUNIÃO EXTRAORDINÁRIA",
+      "subtitulo": "Segunda-feira • 14h • Online Google Meet",
+      "descricao": "Pauta: Apresentação da previsão orçamentária para o exercício financeiro de 2027.",
+      "link": "https://meet.google.com/bcr-hohj-xpu",
+      "link_texto": "Acessar Sala Virtual",
+      "cor": "azul",
+      "destino": [
+        "topo",
+        "popup_index"
+      ]
+    },
+    {
+      "id": "destaque-2",
+      "tag": "LISTA DE PRESENÇA",
+      "titulo": "ASSINE A FREQUÊNCIA VIRTUAL",
+      "subtitulo": "Para Conselheiros e Convidados",
+      "descricao": "Credenciamento digital direto pelo portal do CMS Montes Claros.",
+      "link": "reuniao.html",
+      "link_texto": "Registrar Presença",
+      "cor": "amarelo",
+      "destino": [
+        "topo"
+      ]
+    }
+  ]
 }

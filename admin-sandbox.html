@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CMS Sandbox · Simulador Executivo de Reuniões</title>
+  
+  <meta property="og:title" content="CMS Sandbox · Simulador Executivo">
+  <meta property="og:description" content="Ambiente de testes e simulação isolado para o Secretário Executivo do CMS Montes Claros.">
+  <meta property="og:image" content="https://www.cmsmoc.com/thumb_reuniao.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cms-navy: #0D2E5A;
+      --cms-blue: #1B6CB5;
+      --cms-green: #1E8A4A;
+      --cms-yellow: #F5C400;
+      --cms-white: #FFFFFF;
+      --cms-off: #F7F8FA;
+      --cms-ink: #111827;
+      --cms-muted: #6B7280;
+      --cms-border: #E5E7EB;
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      --radius-md: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: #0A1628; color: var(--cms-ink); line-height: 1.5; }
+    
+    /* SANDBOX TOP BAR */
+    .sandbox-bar {
+      background: #D97706;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .sandbox-bar-left { display: flex; align-items: center; gap: 8px; }
+    .sandbox-bar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .sb-btn {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    .sb-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+    .sb-btn-active { background: #FFFFFF; color: #92400E; border-color: #FFFFFF; }
+
+    /* LAYOUT GERAL */
+    .sandbox-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .card-panel {
+      background: var(--cms-white);
+      border-radius: var(--radius-md);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .panel-head {
+      background: var(--cms-navy);
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--cms-yellow);
+    }
+    .panel-head h2 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .panel-body { padding: 20px; }
+
+    /* SIMULATION CONTROL GRID */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .control-item label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--cms-navy);
+      margin-bottom: 6px;
+    }
+    .control-item select, .control-item input {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--cms-border);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      background: #F8FAFC;
+    }
+
+    /* MOCK PRESENCE STATS */
+    .cms-grid-stat {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .cms-stat {
+      background: var(--cms-off);
+      border: 1px solid var(--cms-border);
+      border-radius: 8px;
+      text-align: center;
+      padding: 14px 8px;
+    }
+    .cms-stat-number {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--cms-navy);
+    }
+    .cms-stat-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--cms-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-family: var(--font-display);
+    }
+
+    /* LISTA DE CONSELHEIROS */
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .list-item {
+      background: var(--cms-white);
+      border: 1px solid var(--cms-border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .list-item:hover {
+      border-color: var(--cms-blue);
+      background: #F0F7FF;
+      transform: translateX(2px);
+    }
+    .list-item.is-present {
+      border-left: 5px solid var(--cms-green);
+      background: #F0FDF4;
+    }
+    .list-item.is-absent {
+      border-left: 5px solid #DC2626;
+      background: #FEF2F2;
+    }
+    .tag-cadeira {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: var(--font-display);
+      font-size: 8.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .tag-titular { background: #E0E7FF; color: #3730A3; }
+    .tag-suplente { background: #FEF3C7; color: #92400E; }
+    .badge-status {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .badge-presenca { background: #DCFCE7; color: #166534; }
+    .badge-ausencia { background: #FEE2E2; color: #991B1B; }
+    .badge-pendente { background: #F1F5F9; color: #64748B; }
+
+    /* MOCK DIALOG MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 46, 90, 0.85);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 16px;
+    }
+    .modal-box {
+      background: #fff;
+      border-radius: 12px;
+      max-width: 440px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    /* CERTIFICADO PREVIEW */
+    .cert-box {
+      background: #fff;
+      border: 3px solid var(--cms-navy);
+      padding: 28px;
+      border-radius: 8px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .cert-box h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--cms-navy);
+      margin-bottom: 12px;
+    }
+    .cert-body {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP SANDBOX ADVISORY BAR -->
+  <div class="sandbox-bar">
+    <div class="sandbox-bar-left">
+      <span>🧪</span>
+      <span>SANDBOX ADMINISTRATIVO · CMS MONTES CLAROS</span>
+      <span style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px; font-size: 9.5px;">SIMULAÇÃO 100% ISOLADA</span>
+    </div>
+    <div class="sandbox-bar-actions">
+      <button class="sb-btn" onclick="simularQuorum('um_terco')">1/3 Quórum</button>
+      <button class="sb-btn" onclick="simularQuorum('maioria')">Maioria (50%+1)</button>
+      <button class="sb-btn" onclick="simularQuorum('todos')">100% Presentes</button>
+      <button class="sb-btn" onclick="resetarSimulacao()">Resetar</button>
+      <a href="card-editor.html" target="_blank" class="sb-btn" style="text-decoration: none;">🎨 Cards Studio</a>
+      <a href="reuniao.html" target="_blank" class="sb-btn" style="text-decoration: none; background: #0D2E5A;">👁️ Reunião Oficial</a>
+      <a href="index.html" target="_blank" class="sb-btn" style="text-decoration: none; background: #1E8A4A;">🌐 Site Principal</a>
+    </div>
+  </div>
+
+  <div class="sandbox-container">
+
+    <!-- PAINEL 1: CONFIGURAÇÃO DA SESSÃO SIMULADA -->
+    <div class="card-panel">
+      <div class="panel-head">
+        <h2>⚙️ Parâmetros da Sessão de Teste</h2>
+        <span id="badgeModo" style="background: var(--cms-yellow); color: var(--cms-navy); font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 4px;">MODO 1: ABERTA</span>
+      </div>
+      <div class="panel-body">
+        <div class="controls-grid">
+          <div class="control-item">
+            <label>Selecione a Reunião / Pauta:</label>
+            <select id="selReuniaoPreset" onchange="trocarPresetReuniao()">
+              <option value="273_extra">273ª Reunião Extraordinária (Previsão Orçamentária 2027)</option>
+              <option value="274_ordinaria">274ª Reunião Ordinária (Aprovação de Contas e Relatórios)</option>
+              <option value="solene">Sessão Solene de Posse do Colegiado</option>
+            </select>
+          </div>
+          <div class="control-item">
+            <label>Modo de Funcionamento:</label>
+            <select id="selModoOperacao" onchange="trocarModoOperacao()">
+              <option value="1">Modo 1: Credenciamento & Chamada Aberta</option>
+              <option value="2">Modo 2: Encerrada (Download de Declarações)</option>
+            </select>
+          </div>
+          <div class="control-item">
+            <label>Status do Sistema:</label>
+            <select id="selStatusSistema" onchange="trocarStatusSistema()">
+              <option value="ATIVO">ATIVO (Permite assinaturas)</option>
+              <option value="BLOQUEADO">BLOQUEADO (Apenas consulta)</option>
+            </select>
+          </div>
+          <div class="control-item">
+            <label>Pop-up no Site Principal:</label>
+            <select id="selPopupAtivo" onchange="atualizarPreviewPopup()">
+              <option value="SIM">SIM (Ativo no index.html)</option>
+              <option value="NÃO">NÃO (Oculto no index.html)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- PLACAR DE QUÓRUM EM TEMPO REAL -->
+        <div class="cms-grid-stat">
+          <div class="cms-stat" style="border: 2px solid var(--cms-yellow);">
+            <div class="cms-stat-number" id="statQuorum">0</div>
+            <div class="cms-stat-label">Quórum Atual</div>
+          </div>
+          <div class="cms-stat">
+            <div class="cms-stat-number" id="statTotalPres" style="color: var(--cms-blue);">0</div>
+            <div class="cms-stat-label">Presentes</div>
+          </div>
+          <div class="cms-stat">
+            <div class="cms-stat-number" id="statTitPres">0</div>
+            <div class="cms-stat-label">Titulares</div>
+          </div>
+          <div class="cms-stat">
+            <div class="cms-stat-number" id="statSupPres">0</div>
+            <div class="cms-stat-label">Suplentes</div>
+          </div>
+          <div class="cms-stat">
+            <div class="cms-stat-number" id="statAus" style="color: #DC2626;">0</div>
+            <div class="cms-stat-label">Ausências</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL 2: SIMULADOR DE LISTA DE PRESENÇA (AUTOATENDIMENTO) -->
+    <div class="card-panel">
+      <div class="panel-head">
+        <h2>📋 Simulação da Lista de Chamada Oficial (64 Conselheiros)</h2>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="inpBuscaConselheiro" placeholder="🔍 Buscar conselheiro ou entidade..." oninput="filtrarConselheiros()" style="padding: 5px 10px; border-radius: 4px; border: none; font-size: 11px; width: 220px;">
+          <select id="filtroStatusConselheiro" onchange="filtrarConselheiros()" style="padding: 5px; border-radius: 4px; border: none; font-size: 11px;">
+            <option value="TODOS">Todos</option>
+            <option value="PENDENTE">Pendentes</option>
+            <option value="PRESENÇA">Presentes</option>
+            <option value="AUSÊNCIA">Ausentes</option>
+          </select>
+        </div>
+      </div>
+      <div class="panel-body">
+        <p style="font-size: 12px; color: var(--cms-muted); margin-bottom: 12px;">
+          💡 <b>Dica de Teste:</b> Clique em qualquer conselheiro para abrir o modal idêntico ao que o conselheiro vê na tela dele (no celular ou computador). No <b>Modo 2</b>, clique para simular a emissão da Declaração de Participação.
+        </p>
+
+        <div id="listaConselheirosContainer" class="list-container">
+          <!-- Gerado dinamicamente -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL 3: SIMULADOR VISUAL DO POP-UP DO SITE PRINCIPAL (INDEX.HTML) -->
+    <div class="card-panel">
+      <div class="panel-head">
+        <h2>👁️ Prévia em Tempo Real do Pop-up da Página Inicial</h2>
+        <span style="font-size: 11px; color: var(--cms-yellow); font-weight: 700;">Simulação Exata</span>
+      </div>
+      <div class="panel-body" style="background: #071930; border-radius: 0 0 10px 10px; display: flex; justify-content: center; padding: 24px;">
+        <div id="previewPopupCard" style="max-width: 520px; width: 100%; background: #0D2E5A; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.5); overflow: hidden;">
+          <div style="height: 5px; background: linear-gradient(to right, #F5C400 33.3%, #1E8A4A 33.3% 66.6%, #1B6CB5 66.6%);"></div>
+          <div style="padding: 20px;">
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(245, 196, 0, 0.15); border: 1px solid rgba(245, 196, 0, 0.4); border-radius: 20px; padding: 3px 10px; margin-bottom: 10px;">
+              <span style="width: 7px; height: 7px; background: #F5C400; border-radius: 50%;"></span>
+              <span id="prevBadge" style="font-family: var(--font-display); font-size: 10px; font-weight: 800; color: #F5C400; text-transform: uppercase;">Convocação Oficial • Reunião Online</span>
+            </div>
+            <h3 id="prevTitulo" style="font-family: var(--font-display); font-size: 18px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 6px;">273ª Reunião Extraordinária</h3>
+            <div id="prevQuando" style="font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 600; margin-bottom: 12px;">📅 16 de Novembro de 2026 (Segunda-feira) • 14h • Online Google Meet</div>
+            <div style="background: rgba(255,255,255,0.06); border-radius: 6px; padding: 10px; margin-bottom: 12px;">
+              <span style="font-family: var(--font-display); font-size: 9.5px; font-weight: 800; color: #F5C400; text-transform: uppercase; display: block; margin-bottom: 4px;">Pauta da Sessão:</span>
+              <p id="prevPauta" style="font-size: 11.5px; color: rgba(255,255,255,0.9); line-height: 1.4; margin: 0;">Apresentação da previsão orçamentária para o exercício financeiro de 2027.</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" style="flex: 1; padding: 10px; background: #1E8A4A; color: #fff; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 11px; font-weight: 800; text-transform: uppercase; cursor: pointer;">📹 Entrar no Meet</button>
+              <button type="button" style="flex: 1; padding: 10px; background: #F5C400; color: #0D2E5A; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 11px; font-weight: 800; text-transform: uppercase; cursor: pointer;">📋 Lista Presença</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL DE REGISTRO DO CONSELHEIRO -->
+  <div id="modalConselheiro" class="modal-backdrop">
+    <div class="modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+        <div>
+          <span id="modalCadeira" class="tag-cadeira tag-titular">TITULAR</span>
+          <h3 id="modalNome" style="font-family: var(--font-display); font-size: 16px; font-weight: 900; color: var(--cms-navy); text-transform: uppercase; margin-top: 4px;">Nome do Conselheiro</h3>
+          <p id="modalEntidade" style="font-size: 12px; color: var(--cms-muted);">Entidade Representada</p>
+        </div>
+        <button onclick="fecharModalConselheiro()" style="background: none; border: none; font-size: 18px; cursor: pointer; color: var(--cms-muted);">✕</button>
+      </div>
+
+      <div id="modalPassoAcao" style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+        <p style="font-size: 12.5px; color: #475569; margin-bottom: 8px;">Selecione o registro que deseja simular para este conselheiro:</p>
+        <button onclick="registrarSimulacao('PRESENÇA')" style="padding: 12px; background: var(--cms-green); color: #fff; border: none; border-radius: 6px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 12px; cursor: pointer;">
+          ✅ Confirmar Presença
+        </button>
+        <button onclick="mostrarJustificativa()" style="padding: 12px; background: #DC2626; color: #fff; border: none; border-radius: 6px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 12px; cursor: pointer;">
+          📝 Justificar Ausência
+        </button>
+        <button onclick="limparRegistroConselheiro()" style="padding: 8px; background: transparent; color: var(--cms-muted); border: 1px solid var(--cms-border); border-radius: 6px; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 11px; cursor: pointer;">
+          🔄 Cancelar Registro (Pendente)
+        </button>
+      </div>
+
+      <div id="modalPassoJustificativa" style="display: none; flex-direction: column; gap: 10px; margin-top: 14px;">
+        <label style="font-family: var(--font-display); font-size: 11px; font-weight: 800; color: var(--cms-navy); text-transform: uppercase;">Motivo da Ausência:</label>
+        <textarea id="txtJustificativaSimulada" rows="3" placeholder="Digite a justificativa de ausência..." style="width: 100%; padding: 8px; border: 1.5px solid var(--cms-border); border-radius: 6px; font-size: 12px; font-family: var(--font-body);"></textarea>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="registrarSimulacao('AUSÊNCIA')" style="flex: 1; padding: 10px; background: #DC2626; color: #fff; border: none; border-radius: 6px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 11px; cursor: pointer;">Salvar Ausência</button>
+          <button onclick="voltarPassoAcao()" style="padding: 10px; background: #F1F5F9; color: var(--cms-ink); border: none; border-radius: 6px; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 11px; cursor: pointer;">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DECLARAÇÃO (MODO 2) -->
+  <div id="modalDeclaracao" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 580px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-family: var(--font-display); font-size: 14px; font-weight: 900; color: var(--cms-navy); text-transform: uppercase;">Simulador de Declaração de Participação</h3>
+        <button onclick="fecharModalDeclaracao()" style="background: none; border: none; font-size: 18px; cursor: pointer; color: var(--cms-muted);">✕</button>
+      </div>
+
+      <div class="cert-box">
+        <div style="font-family: var(--font-display); font-size: 11px; font-weight: 800; color: var(--cms-blue); text-transform: uppercase; margin-bottom: 4px;">Conselho Municipal de Saúde de Montes Claros</div>
+        <h3>DECLARAÇÃO DE PARTICIPAÇÃO</h3>
+        <div class="cert-body" id="certTextoCorpo">
+          Declaramos para os devidos fins que <b id="certNome">CONSELHEIRO</b>, representante da entidade <b id="certEntidade">ENTIDADE</b>, participou da <b id="certReuniao">273ª Reunião Extraordinária</b> do Conselho Municipal de Saúde de Montes Claros, realizada em <b id="certData">16 de Novembro de 2026</b>, cumprindo sua representação institucional.
+        </div>
+        <div style="font-size: 11px; color: var(--cms-muted); border-top: 1px dashed var(--cms-border); padding-top: 10px;">
+          Código de Autenticação Digital: <b style="font-family: monospace; color: var(--cms-navy);">CMSMOC-2026-TESTE-OK</b>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px;">
+        <button onclick="window.print()" style="padding: 10px 16px; background: var(--cms-yellow); color: var(--cms-navy); border: none; border-radius: 6px; font-family: var(--font-display); font-weight: 900; font-size: 11px; text-transform: uppercase; cursor: pointer;">
+          🖨️ Simular Impressão / PDF
+        </button>
+        <button onclick="fecharModalDeclaracao()" style="padding: 10px 16px; background: #E2E8F0; color: var(--cms-ink); border: none; border-radius: 6px; font-family: var(--font-display); font-weight: 700; font-size: 11px; text-transform: uppercase; cursor: pointer;">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // DADOS INICIAIS DA SIMULAÇÃO
+    let conselheirosBase = [];
+    let registrosSimulados = {}; // id -> { registro: 'PRESENÇA'|'AUSÊNCIA', justificativa: '' }
+    let conselheiroSelecionado = null;
+
+    let reuniaoAtual = {
+      titulo: '273ª Reunião Extraordinária',
+      data: '16 de Novembro de 2026',
+      pauta: 'Apresentação da previsão orçamentária para o exercício financeiro de 2027.',
+      quando_onde: '16 de Novembro de 2026 (Segunda-feira) • 14h • Online Google Meet',
+      modo: 1,
+      status_sistema: 'ATIVO',
+      popup_ativo: 'SIM'
+    };
+
+    // INICIALIZAÇÃO
+    async function inicializarSandbox() {
+      try {
+        const res = await fetch('data/dados_reuniao.json?t=' + Date.now());
+        if (res.ok) {
+          const dados = await res.json();
+          if (dados.conselheiros && dados.conselheiros.length > 0) {
+            conselheirosBase = dados.conselheiros;
+          }
+          if (dados.configs) {
+            reuniaoAtual.titulo = dados.configs.POPUP_TITULO || dados.configs.TITULO || reuniaoAtual.titulo;
+            reuniaoAtual.pauta = dados.configs.POPUP_PAUTA || dados.configs.PAUTA || reuniaoAtual.pauta;
+            reuniaoAtual.quando_onde = dados.configs.POPUP_QUANDO || dados.configs.QUANDO_ONDE || reuniaoAtual.quando_onde;
+            reuniaoAtual.modo = Number(dados.configs.MODO) || 1;
+            reuniaoAtual.status_sistema = dados.configs.STATUS_SISTEMA || 'ATIVO';
+            reuniaoAtual.popup_ativo = dados.configs.POPUP_ATIVO || 'SIM';
+          }
+        }
+      } catch (err) {
+        console.warn('Sandbox usando fallback embutido:', err);
+      }
+
+      // Se lista vazia, fallback para lista básica
+      if (conselheirosBase.length === 0) {
+        conselheirosBase = [
+          { id: 1, segmento: "Usuários", cadeira: "Titular", entidade: "CLS Jardim Primavera", nome: "Joel Francisco Borges" },
+          { id: 2, segmento: "Usuários", cadeira: "Suplente", entidade: "CLS Independência", nome: "Amanda Mendes Soares" },
+          { id: 3, segmento: "Usuários", cadeira: "Titular", entidade: "CLS Renascença", nome: "Emanuela Tomas da Silva Conceição" },
+          { id: 4, segmento: "Usuários", cadeira: "Suplente", entidade: "CLS Planalto", nome: "Sérgio Peres" },
+          { id: 5, segmento: "Usuários", cadeira: "Titular", entidade: "CLS Vila Atlântica", nome: "Danielle Santos Sousa" },
+          { id: 23, segmento: "Usuários", cadeira: "Titular", entidade: "Associação Arco-Íris do Amor", nome: "Ranielson Alves Ferreira" },
+          { id: 44, segmento: "Trabalhadores", cadeira: "Suplente", entidade: "SINDE-SAÚDE-MG", nome: "Imaculada Conceição Barbosa" },
+          { id: 56, segmento: "Prestadores", cadeira: "Suplente", entidade: "APAE / Fundação Vovó Clarice", nome: "Ana Marcia de Souza Almeida" }
+        ];
+      }
+
+      // Sincronizar UI com valores
+      document.getElementById('selModoOperacao').value = String(reuniaoAtual.modo);
+      document.getElementById('selStatusSistema').value = reuniaoAtual.status_sistema;
+      document.getElementById('selPopupAtivo').value = reuniaoAtual.popup_ativo;
+      atualizarBadgeModo();
+      atualizarPreviewPopup();
+      renderizarListaConselheiros();
+      calcularEstatisticas();
+    }
+
+    function renderizarListaConselheiros() {
+      const container = document.getElementById('listaConselheirosContainer');
+      const termo = document.getElementById('inpBuscaConselheiro').value.toLowerCase();
+      const filtro = document.getElementById('filtroStatusConselheiro').value;
+      container.innerHTML = '';
+
+      const filtrados = conselheirosBase.filter(c => {
+        const reg = registrosSimulados[c.id];
+        const status = reg ? reg.registro : 'PENDENTE';
+        if (filtro !== 'TODOS' && status !== filtro) return false;
+        if (termo && !c.nome.toLowerCase().includes(termo) && !c.entidade.toLowerCase().includes(termo)) return false;
+        return true;
+      });
+
+      if (filtrados.length === 0) {
+        container.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--cms-muted); font-size: 13px;">Nenhum conselheiro encontrado para o filtro.</div>';
+        return;
+      }
+
+      filtrados.forEach(c => {
+        const reg = registrosSimulados[c.id];
+        const item = document.createElement('div');
+        item.className = 'list-item' + (reg ? (reg.registro === 'PRESENÇA' ? ' is-present' : ' is-absent') : '');
+
+        let statusBadge = '<span class="badge-status badge-pendente">Pendente</span>';
+        if (reg) {
+          if (reg.registro === 'PRESENÇA') {
+            statusBadge = reuniaoAtual.modo === 2 
+              ? '<span class="badge-status badge-presenca" style="background:#1B6CB5; color:#fff;">📥 Baixar Declaração</span>'
+              : '<span class="badge-status badge-presenca">● Presença</span>';
+          } else {
+            statusBadge = '<span class="badge-status badge-ausencia">● Ausente</span>';
+          }
+        }
+
+        const tagCadeiraClass = c.cadeira.toUpperCase() === 'TITULAR' ? 'tag-titular' : 'tag-suplente';
+
+        item.innerHTML = `
+          <div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
+              <span class="tag-cadeira ${tagCadeiraClass}">${c.cadeira}</span>
+              <strong style="font-family: var(--font-display); font-size: 13px; color: var(--cms-navy); text-transform: uppercase;">${c.nome}</strong>
+            </div>
+            <div style="font-size: 11px; color: var(--cms-muted);">${c.entidade} (${c.segmento})</div>
+          </div>
+          <div>${statusBadge}</div>
+        `;
+
+        item.onclick = () => abrirModalConselheiro(c);
+        container.appendChild(item);
+      });
+    }
+
+    function abrirModalConselheiro(c) {
+      conselheiroSelecionado = c;
+      if (reuniaoAtual.modo === 2) {
+        // Se estiver no Modo 2, abre o simulador de declaração
+        const reg = registrosSimulados[c.id];
+        if (reg && reg.registro === 'PRESENÇA') {
+          abrirModalDeclaracao(c);
+        } else {
+          alert(`O conselheiro ${c.nome} está registrado como ${reg ? reg.registro : 'PENDENTE'} nesta sessão.`);
+        }
+        return;
+      }
+
+      document.getElementById('modalNome').textContent = c.nome;
+      document.getElementById('modalEntidade').textContent = `${c.entidade} • ${c.segmento}`;
+      const cadeiraEl = document.getElementById('modalCadeira');
+      cadeiraEl.textContent = c.cadeira.toUpperCase();
+      cadeiraEl.className = 'tag-cadeira ' + (c.cadeira.toUpperCase() === 'TITULAR' ? 'tag-titular' : 'tag-suplente');
+
+      voltarPassoAcao();
+      document.getElementById('modalConselheiro').style.display = 'flex';
+    }
+
+    function fecharModalConselheiro() {
+      document.getElementById('modalConselheiro').style.display = 'none';
+      conselheiroSelecionado = null;
+    }
+
+    function mostrarJustificativa() {
+      document.getElementById('modalPassoAcao').style.display = 'none';
+      document.getElementById('modalPassoJustificativa').style.display = 'flex';
+    }
+
+    function voltarPassoAcao() {
+      document.getElementById('modalPassoAcao').style.display = 'flex';
+      document.getElementById('modalPassoJustificativa').style.display = 'none';
+    }
+
+    function registrarSimulacao(tipo) {
+      if (!conselheiroSelecionado) return;
+      const just = tipo === 'AUSÊNCIA' ? document.getElementById('txtJustificativaSimulada').value : '';
+      registrosSimulados[conselheiroSelecionado.id] = {
+        registro: tipo,
+        justificativa: just,
+        horario: new Date().toLocaleTimeString('pt-BR')
+      };
+      fecharModalConselheiro();
+      renderizarListaConselheiros();
+      calcularEstatisticas();
+    }
+
+    function limparRegistroConselheiro() {
+      if (!conselheiroSelecionado) return;
+      delete registrosSimulados[conselheiroSelecionado.id];
+      fecharModalConselheiro();
+      renderizarListaConselheiros();
+      calcularEstatisticas();
+    }
+
+    function calcularEstatisticas() {
+      let presentes = 0;
+      let titulares = 0;
+      let suplentes = 0;
+      let ausencias = 0;
+
+      Object.entries(registrosSimulados).forEach(([id, reg]) => {
+        const c = conselheirosBase.find(item => item.id == id);
+        if (reg.registro === 'PRESENÇA') {
+          presentes++;
+          if (c && c.cadeira.toUpperCase() === 'TITULAR') titulares++;
+          if (c && c.cadeira.toUpperCase() === 'SUPLENTE') suplentes++;
+        } else if (reg.registro === 'AUSÊNCIA') {
+          ausencias++;
+        }
+      });
+
+      document.getElementById('statQuorum').textContent = presentes;
+      document.getElementById('statTotalPres').textContent = presentes;
+      document.getElementById('statTitPres').textContent = titulares;
+      document.getElementById('statSupPres').textContent = suplentes;
+      document.getElementById('statAus').textContent = ausencias;
+    }
+
+    // SIMULAÇÕES EM MASSA
+    function simularQuorum(tipo) {
+      registrosSimulados = {};
+      const total = conselheirosBase.length;
+
+      let meta = 0;
+      if (tipo === 'um_terco') meta = Math.ceil(total / 3);
+      else if (tipo === 'maioria') meta = Math.floor(total / 2) + 1;
+      else if (tipo === 'todos') meta = total;
+
+      for (let i = 0; i < total; i++) {
+        const c = conselheirosBase[i];
+        if (i < meta) {
+          registrosSimulados[c.id] = { registro: 'PRESENÇA', justificativa: '' };
+        } else if (tipo === 'maioria' && i < meta + 5) {
+          registrosSimulados[c.id] = { registro: 'AUSÊNCIA', justificativa: 'Motivo de saúde' };
+        }
+      }
+
+      renderizarListaConselheiros();
+      calcularEstatisticas();
+    }
+
+    function resetarSimulacao() {
+      registrosSimulados = {};
+      renderizarListaConselheiros();
+      calcularEstatisticas();
+    }
+
+    function trocarPresetReuniao() {
+      const preset = document.getElementById('selReuniaoPreset').value;
+      if (preset === '273_extra') {
+        reuniaoAtual.titulo = '273ª Reunião Extraordinária';
+        reuniaoAtual.pauta = 'Apresentação da previsão orçamentária para o exercício financeiro de 2027.';
+        reuniaoAtual.quando_onde = '16 de Novembro de 2026 (Segunda-feira) • 14h • Online Google Meet';
+      } else if (preset === '274_ordinaria') {
+        reuniaoAtual.titulo = '274ª Reunião Ordinária';
+        reuniaoAtual.pauta = 'Aprovação da prestação de contas do 3º Quadrimestre e informes da Mesa Diretora.';
+        reuniaoAtual.quando_onde = '02 de Dezembro de 2026 (Quarta-feira) • 14h • Presencial (Sede CMS)';
+      } else if (preset === 'solene') {
+        reuniaoAtual.titulo = 'Sessão Solene de Posse';
+        reuniaoAtual.pauta = 'Cerimônia oficial de posse dos novos conselheiros municipais de saúde.';
+        reuniaoAtual.quando_onde = '15 de Janeiro de 2027 • 19h • Auditório OAB Montes Claros';
+      }
+      atualizarPreviewPopup();
+    }
+
+    function trocarModoOperacao() {
+      reuniaoAtual.modo = Number(document.getElementById('selModoOperacao').value);
+      atualizarBadgeModo();
+      renderizarListaConselheiros();
+    }
+
+    function trocarStatusSistema() {
+      reuniaoAtual.status_sistema = document.getElementById('selStatusSistema').value;
+    }
+
+    function atualizarBadgeModo() {
+      const badge = document.getElementById('badgeModo');
+      if (reuniaoAtual.modo === 2) {
+        badge.textContent = 'MODO 2: ENCERRADA (DECLARAÇÕES)';
+        badge.style.background = '#1B6CB5';
+        badge.style.color = '#FFFFFF';
+      } else {
+        badge.textContent = 'MODO 1: ABERTA (CHAMADA)';
+        badge.style.background = '#F5C400';
+        badge.style.color = '#0D2E5A';
+      }
+    }
+
+    function atualizarPreviewPopup() {
+      reuniaoAtual.popup_ativo = document.getElementById('selPopupAtivo').value;
+      const card = document.getElementById('previewPopupCard');
+      if (reuniaoAtual.popup_ativo === 'NÃO') {
+        card.style.opacity = '0.35';
+        document.getElementById('prevBadge').textContent = '⚠️ POP-UP DESATIVADO NO SITE';
+      } else {
+        card.style.opacity = '1';
+        document.getElementById('prevBadge').textContent = 'Convocação Oficial • Reunião Online';
+      }
+      document.getElementById('prevTitulo').textContent = reuniaoAtual.titulo;
+      document.getElementById('prevQuando').textContent = '📅 ' + reuniaoAtual.quando_onde;
+      document.getElementById('prevPauta').textContent = reuniaoAtual.pauta;
+    }
+
+    function filtrarConselheiros() {
+      renderizarListaConselheiros();
+    }
+
+    function abrirModalDeclaracao(c) {
+      document.getElementById('certNome').textContent = c.nome;
+      document.getElementById('certEntidade').textContent = c.entidade;
+      document.getElementById('certReuniao').textContent = reuniaoAtual.titulo;
+      document.getElementById('certData').textContent = reuniaoAtual.data;
+      document.getElementById('modalDeclaracao').style.display = 'flex';
+    }
+
+    function fecharModalDeclaracao() {
+      document.getElementById('modalDeclaracao').style.display = 'none';
+    }
+
+    window.onload = inicializarSandbox;
+  </script>
+</body>
+</html>

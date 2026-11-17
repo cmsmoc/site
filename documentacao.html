@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação Técnica e Operacional · Sistema CMS Presença & Portal Web</title>
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Documentação Técnica · Sistema de Presença e Portal CMSMOC">
+  <meta property="og:description" content="Manual didático e técnico completo do ecossistema de presença, integração web, Cards Studio e Sandbox do CMS Montes Claros.">
+  <meta property="og:image" content="https://www.cmsmoc.com/thumb_reuniao.webp">
+  <meta name="theme-color" content="#0D2E5A">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Mermaid.js para diagramas interativos -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ 
+      startOnLoad: true, 
+      theme: 'neutral',
+      themeVariables: {
+        primaryColor: '#0D2E5A',
+        primaryTextColor: '#FFFFFF',
+        primaryBorderColor: '#1B6CB5',
+        lineColor: '#1B6CB5',
+        secondaryColor: '#F5C400',
+        tertiaryColor: '#1E8A4A'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --cms-navy: #0D2E5A;
+      --cms-navy-dark: #071930;
+      --cms-blue: #1B6CB5;
+      --cms-green: #1E8A4A;
+      --cms-yellow: #F5C400;
+      --cms-white: #FFFFFF;
+      --cms-off: #F8FAFC;
+      --cms-ink: #0F172A;
+      --cms-muted: #64748B;
+      --cms-border: #E2E8F0;
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cms-off);
+      color: var(--cms-ink);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* BARRA SUPERIOR INSTITUCIONAL */
+    .top-stripe {
+      height: 6px;
+      background: linear-gradient(to right, var(--cms-yellow) 33.3%, var(--cms-green) 33.3% 66.6%, var(--cms-blue) 66.6%);
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* HEADER */
+    header.doc-header {
+      background: var(--cms-navy-dark);
+      color: var(--cms-white);
+      padding: 48px 24px;
+      border-bottom: 3px solid var(--cms-yellow);
+    }
+    .header-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .doc-badge {
+      display: inline-block;
+      background: rgba(245, 196, 0, 0.15);
+      border: 1px solid rgba(245, 196, 0, 0.4);
+      color: var(--cms-yellow);
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .doc-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+    .doc-subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      margin-top: 8px;
+      font-weight: 300;
+    }
+    .header-meta {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 12px;
+      min-width: 240px;
+    }
+    .header-meta div { margin-bottom: 6px; }
+    .header-meta strong { color: var(--cms-yellow); }
+
+    /* LAYOUT DE CONTEÚDO COM SUMÁRIO */
+    .layout-wrap {
+      max-width: 1280px;
+      margin: 36px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+    }
+    @media (max-width: 900px) {
+      .layout-wrap { grid-template-columns: 1fr; }
+      aside.doc-sidebar { display: none; }
+    }
+
+    /* SIDEBAR SUMÁRIO */
+    aside.doc-sidebar {
+      position: sticky;
+      top: 30px;
+      max-height: calc(100vh - 50px);
+      overflow-y: auto;
+      background: var(--cms-white);
+      border: 1px solid var(--cms-border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .toc-title {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--cms-navy);
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--cms-yellow);
+    }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+    .toc-link {
+      color: var(--cms-muted);
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: block;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .toc-link:hover {
+      color: var(--cms-navy);
+      background: rgba(27, 108, 181, 0.08);
+      transform: translateX(3px);
+    }
+
+    /* ARTIGO PRINCIPAL */
+    article.doc-content {
+      background: var(--cms-white);
+      border: 1px solid var(--cms-border);
+      border-radius: 10px;
+      padding: 44px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    @media (max-width: 600px) {
+      article.doc-content { padding: 24px 18px; }
+    }
+
+    /* TIPOGRAFIA DO ARTIGO */
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--cms-navy);
+      text-transform: uppercase;
+      margin-top: 48px;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--cms-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2.section-title:first-of-type { margin-top: 0; }
+    
+    h3.sub-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--cms-blue);
+      text-transform: uppercase;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    h4 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cms-ink);
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    p { margin-bottom: 16px; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 22px 0;
+      font-size: 13.5px;
+      line-height: 1.6;
+      border-left: 4px solid;
+    }
+    .callout-info {
+      background: #EFF6FF;
+      border-color: var(--cms-blue);
+      color: #1E40AF;
+    }
+    .callout-warning {
+      background: #FFFBEB;
+      border-color: #D97706;
+      color: #92400E;
+    }
+    .callout-tip {
+      background: #F0FDF4;
+      border-color: var(--cms-green);
+      color: #166534;
+    }
+    .callout-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 11.5px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* BLOCOS DE CÓDIGO */
+    pre {
+      background: #0B192C;
+      color: #E2E8F0;
+      font-family: var(--font-code);
+      font-size: 12.5px;
+      padding: 18px 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 18px 0 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    code {
+      font-family: var(--font-code);
+      font-size: 12.5px;
+      background: #EDF2F7;
+      color: #0F172A;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* TABELAS */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 13.5px;
+    }
+    th, td {
+      border: 1px solid var(--cms-border);
+      padding: 12px 14px;
+      text-align: left;
+    }
+    th {
+      background: #F1F5F9;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--cms-navy);
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    tr:nth-child(even) { background: #F8FAFC; }
+
+    /* DIAGRAMAS MERMAID */
+    .mermaid-box {
+      background: #F8FAFC;
+      border: 1px solid var(--cms-border);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 24px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    /* FOOTER */
+    footer.doc-footer {
+      background: var(--cms-navy-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 60px;
+    }
+    footer.doc-footer strong { color: #fff; }
+
+    /* IMPRESSÃO / PDF */
+    @media print {
+      body { background: #fff; font-size: 11pt; }
+      .top-stripe, aside.doc-sidebar, .doc-footer, .no-print { display: none !important; }
+      .layout-wrap { display: block; margin: 0; padding: 0; }
+      article.doc-content { border: none; box-shadow: none; padding: 0; }
+      h2.section-title { page-break-before: always; margin-top: 20pt; }
+      pre, table, .mermaid-box, .callout { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-stripe"></div>
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <div class="header-wrap">
+      <div>
+        <span class="doc-badge">Arquitetura & Engenharia de Software</span>
+        <h1 class="doc-title">Documentação Técnica & Manual Operacional</h1>
+        <p class="doc-subtitle">Ecossistema Integrado de Presença, Portal Web CMS, Cards Studio e Sandbox Administrativo</p>
+      </div>
+      <div class="header-meta">
+        <div><strong>Instituição:</strong> CMS Montes Claros / MG</div>
+        <div><strong>Versão:</strong> 2.6.0 (Arquitetura Unificada)</div>
+        <div><strong>Atualização:</strong> Novembro de 2026</div>
+        <div><strong>Público:</strong> Secretaria Executiva & Desenvolvedores</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTAINER CENTRAL -->
+  <div class="layout-wrap">
+    
+    <!-- MENU LATERAL / SUMÁRIO -->
+    <aside class="doc-sidebar">
+      <div class="toc-title">Sumário do Sistema</div>
+      <ul class="toc-list">
+        <li><a href="#intro" class="toc-link">1. Introdução & Propósito</a></li>
+        <li><a href="#topologia" class="toc-link">2. Topologia & Fluxo de Dados</a></li>
+        <li><a href="#modulo-presenca" class="toc-link">3. Módulo Presença (GAS)</a></li>
+        <li><a href="#portal-web" class="toc-link">4. Portal Web (Front-end)</a></li>
+        <li><a href="#cards-studio" class="toc-link">5. CMS Cards Studio</a></li>
+        <li><a href="#sandbox" class="toc-link">6. Sandbox Administrativo</a></li>
+        <li><a href="#operacao" class="toc-link">7. Procedimentos Operacionais</a></li>
+        <li><a href="#seguranca" class="toc-link">8. Segurança & Rollback</a></li>
+        <li><a href="#recomendacoes" class="toc-link">9. Recomendações Técnicas</a></li>
+        <li><a href="#roadmap" class="toc-link">10. Próximos Aperfeiçoamentos</a></li>
+      </ul>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <article class="doc-content">
+
+      <!-- 1. INTRODUÇÃO -->
+      <section id="intro">
+        <h2 class="section-title"><span>🏛️</span> 1. Introdução e Contexto Institucional</h2>
+        <p>
+          O <b>Conselho Municipal de Saúde de Montes Claros (CMSMOC)</b> é o órgão colegiado deliberativo superior do Sistema Único de Saúde (SUS) no município. O plenário é composto paritariamente por <b>64 conselheiros</b> (32 titulares e 32 suplentes) organizados em 4 segmentos representativos:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Segmento</th>
+              <th>Proporção</th>
+              <th>Titulares</th>
+              <th>Suplentes</th>
+              <th>Total de Cadeiras</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Usuários do SUS</b></td>
+              <td>50%</td>
+              <td>16</td>
+              <td>16</td>
+              <td>32 conselheiros</td>
+            </tr>
+            <tr>
+              <td><b>Trabalhadores da Saúde</b></td>
+              <td>25%</td>
+              <td>08</td>
+              <td>08</td>
+              <td>16 conselheiros</td>
+            </tr>
+            <tr>
+              <td><b>Prestadores de Serviços</b></td>
+              <td>12,5%</td>
+              <td>04</td>
+              <td>04</td>
+              <td>08 conselheiros</td>
+            </tr>
+            <tr>
+              <td><b>Gestão / Governo Municipal</b></td>
+              <td>12,5%</td>
+              <td>04</td>
+              <td>04</td>
+              <td>08 conselheiros</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-info">
+          <div class="callout-title">🎯 Objetivo da Solução Integrada</div>
+          Prover uma plataforma sem atrito, rápida e resiliente que permita ao <b>Secretário Executivo</b> gerenciar quórum de abertura (1/3) e deliberação (50% + 1), controlar presenças em tempo real (presenciais ou via Google Meet), atualizar o portal público sem necessidade de edição de código e gerar comunicação visual institucional com agilidade e padronização.
+        </div>
+      </section>
+
+      <!-- 2. TOPOLOGIA -->
+      <section id="topologia">
+        <h2 class="section-title"><span>🌐</span> 2. Topologia do Sistema e Fluxo de Dados</h2>
+        <p>
+          A arquitetura do sistema adota o paradigma <b>JAMstack Híbrido</b> acoplado ao <b>Google Workspace</b>. Essa abordagem elimina a necessidade de servidores dedicados de backend (como Node.js ou PHP mantidos 24/7), garantindo alta disponibilidade com custo zero de infraestrutura e resposta imediata aos cidadãos e conselheiros.
+        </p>
+
+        <div class="mermaid-box">
+          <div class="mermaid">
+flowchart TD
+    subgraph Google_Workspace ["GOOGLE WORKSPACE & APPS SCRIPT"]
+        Planilha["Google Planilha Oficial"]
+        AbaConselheiros["Aba CONSELHEIROS<br>(64 Nomes & Segmentos)"]
+        AbaAdmin["Aba ADMIN<br>(Configs & Parâmetros)"]
+        Assistente["Assistente.html<br>(Frequência em Plenário)"]
+        Painel["PainelCentral.html<br>(Pop-up & Configs)"]
+        CodigoJS["Código.js<br>(Lógica Apps Script)"]
+    end
+
+    subgraph GitHub_Infra ["INFRAESTRUTURA GITHUB & CDN"]
+        Repo["Repositório cmsmoc/site"]
+        JSON["data/dados_reuniao.json<br>(Single Source of Truth)"]
+    end
+
+    subgraph Portal_Web ["PORTAL PÚBLICO & FERRAMENTAS"]
+        Index["index.html<br>(Pop-up & Destaques Topo)"]
+        Reuniao["reuniao.html<br>(Autoatendimento Conselheiro)"]
+        CardsStudio["card-editor.html<br>(CMS Cards Studio)"]
+        Sandbox["admin-sandbox.html<br>(Simulador Isolado)"]
+    end
+
+    AbaConselheiros -->|obterConselheirosAba| Assistente
+    Assistente -.->|Contingência| Fallback["PRESENÇA - CONSELHEIROS.csv"]
+    AbaAdmin <-->|Edição Visual| Painel
+    Painel -->|Sincronizar| CodigoJS
+    CodigoJS -->|GitHub REST API (Base64)| JSON
+    JSON -->|Fetch com Cache-Buster| Index
+    JSON -->|Fetch com Cache-Buster| Reuniao
+    CardsStudio -->|Gera Imagem PNG/JPEG| WhatsApp["WhatsApp & Redes Sociais"]
+    CardsStudio -->|Alimenta Destaques| JSON
+    Sandbox -.->|Simulação Segura em Memória| JSON
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. MÓDULO PRESENÇA -->
+      <section id="modulo-presenca">
+        <h2 class="section-title"><span>⚡</span> 3. O Módulo de Presença (Google Apps Script)</h2>
+        <p>
+          Hospedado no diretório <code>Docs/Reunioes/Modulo_PRESENCA</code>, este módulo é o centro de controle da Secretaria Executiva dentro da planilha oficial.
+        </p>
+
+        <h3 class="sub-title">3.1. `Código.js`: Funções-Chave e Engenharia</h3>
+        
+        <h4>A. Sincronização Dinâmica com a Aba de Conselheiros</h4>
+        <p>
+          Antes desta atualização, a interface <code>Assistente.html</code> dependia exclusivamente de um array fixo codificado no HTML. Agora, o sistema adota uma <b>abordagem resiliente em duas camadas</b>:
+        </p>
+        <pre><code>function obterConselheirosAba() {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const aba = ss.getSheetByName("CONSELHEIROS");
+    if (!aba) return null;
+
+    const dados = aba.getDataRange().getValues();
+    if (dados.length <= 1) return null;
+
+    const cabecalho = dados[0].map(c => String(c).trim().toUpperCase());
+    const idxId = cabecalho.indexOf("ID");
+    const idxSeg = cabecalho.indexOf("SEGMENTO");
+    const idxCad = cabecalho.indexOf("CADEIRA");
+    const idxEnt = cabecalho.indexOf("ENTIDADE");
+    const idxNome = cabecalho.indexOf("NOME DO CONSELHEIRO");
+
+    const lista = [];
+    for (let i = 1; i < dados.length; i++) {
+      const r = dados[i];
+      if (!r[idxNome] || String(r[idxNome]).trim() === "") continue;
+      lista.push({
+        id: idxId !== -1 ? r[idxId] : i,
+        segmento: idxSeg !== -1 ? r[idxSeg] : "Geral",
+        cadeira: idxCad !== -1 ? r[idxCad] : "Titular",
+        entidade: idxEnt !== -1 ? r[idxEnt] : "",
+        nome: String(r[idxNome]).trim()
+      });
+    }
+    return lista;
+  } catch (err) {
+    return null;
+  }
+}</code></pre>
+
+        <div class="callout callout-tip">
+          <div class="callout-title">💡 Vantagem Técnica da Solução</div>
+          A indexação dinâmica pelos nomes das colunas (<code>indexOf</code>) garante que, mesmo se o operador da planilha inserir novas colunas ou mudar a ordem física das células, o script continuará lendo corretamente os dados de cada conselheiro.
+        </div>
+
+        <h4>B. Padronização e Limpeza da Aba ADMIN</h4>
+        <p>
+          A função <code>padronizarAbaAdmin()</code> organiza a aba em blocos estruturados e rotulados com <code>==</code>. Durante a exportação para o GitHub, o algoritmo descarta deliberadamente os cabeçalhos de seção:
+        </p>
+        <pre><code>// Filtra linhas organizacionais para não sujar o JSON público
+for (let i = 1; i < dadosAdmin.length; i++) {
+  const chave = String(dadosAdmin[i][0]).trim();
+  const valor = dadosAdmin[i][1];
+  if (!chave || chave.startsWith("==")) continue; // Ignora cabeçalhos
+  configs[chave] = valor;
+}</code></pre>
+
+        <h4>C. Sincronização Segura via GitHub REST API</h4>
+        <p>
+          O commit para o repositório <code>cmsmoc/site</code> é realizado via requisição HTTPS com codificação Base64/UTF-8 para preservar caracteres da língua portuguesa:
+        </p>
+        <pre><code>const payload = {
+  message: "Atualização de parâmetros via CMS Painel Central",
+  content: Utilities.base64Encode(Utilities.newBlob(jsonString).getBytes()),
+  sha: currentFileSha // Previne conflitos de escrita concorrente
+};</code></pre>
+
+        <h3 class="sub-title">3.2. `Assistente.html`: Interface do Secretário</h3>
+        <p>
+          A interface de controle de frequência durante a reunião exibe em destaque o status da conexão da fonte de dados:
+        </p>
+        <ul>
+          <li>🟢 <b>Fonte: Aba CONSELHEIROS (Tempo Real)</b> — Indica que os dados vieram da planilha.</li>
+          <li>🟠 <b>Fonte: Fallback CSV</b> — Indica que a chamada falhou e o sistema usou com sucesso a base de contingência de 64 membros de <code>PRESENÇA - CONSELHEIROS.csv</code>.</li>
+        </ul>
+      </section>
+
+      <!-- 4. PORTAL WEB -->
+      <section id="portal-web">
+        <h2 class="section-title"><span>💻</span> 4. O Portal Web e a Integração Front-end</h2>
+        <p>
+          No diretório <code>site/</code>, as páginas públicas consomem o arquivo <code>data/dados_reuniao.json</code> de forma transparente e performática.
+        </p>
+
+        <h3 class="sub-title">4.1. Pop-up Dinâmico na Página Inicial (`index.html`)</h3>
+        <p>
+          O script <code>carregarDestaquesEPopup()</code> busca as configurações mais recentes. Se a chave <code>POPUP_ATIVO</code> estiver configurada como <code>"NÃO"</code>, o modal é desativado na hora, impedindo pop-ups indesejados fora de períodos de reunião.
+        </p>
+
+        <h3 class="sub-title">4.2. Carrossel de Destaques no Topo (`#cms-destaques-topo`)</h3>
+        <p>
+          Injetado logo após a tag <code>&lt;/header&gt;</code>, o carrossel exibe comunicados com estilo visual baseado nos tokens do CMS:
+        </p>
+        <ul>
+          <li><b>Navegação Híbrida:</b> Compatível com toque (swipe) em celulares e botões direcionais (◀ ▶) em desktops.</li>
+          <li><b>Auto-Ocultação Inteligente:</b> Caso não haja cards com destino "topo" ou a flag <code>DESTAQUES_TOPO_ATIVO</code> seja "NÃO", o container permanece em <code>display: none;</code>, sem ocupar espaço visual na tela.</li>
+        </ul>
+      </section>
+
+      <!-- 5. CARDS STUDIO -->
+      <section id="cards-studio">
+        <h2 class="section-title"><span>🎨</span> 5. CMS Cards Studio (`card-editor.html`)</h2>
+        <p>
+          Adaptado a partir dos modelos originais, o <b>CMS Cards Studio</b> foi concebido para resolver o gargalo de tempo na produção de materiais gráficos para redes sociais e para o site.
+        </p>
+        
+        <div class="callout callout-tip">
+          <div class="callout-title">⚡ Prioridade: Agilidade com Qualidade Máxima</div>
+          O operador não precisa criar um design do zero. O Cards Studio carrega <b>10 modelos pré-prontos</b> com paleta institucional, tipografia equilibrada e pesos calibrados. Basta selecionar o modelo desejado, alterar os textos e exportar.
+        </div>
+
+        <h4>Recursos Principais do Studio:</h4>
+        <ol>
+          <li><b>Renderização em Alta Resolução (Retina 2x):</b> O Canvas interno renderiza as imagens com o dobro dos pixels reais da tela, garantindo que o arquivo final exportado não apresente borrões ou pixelização.</li>
+          <li><b>Exportação Multiformato:</b>
+            <ul>
+              <li><b>PNG:</b> Para preservar transparências e máxima fidelidade gráfica.</li>
+              <li><b>JPEG Comprimido:</b> Ideal para carregamento imediato em redes sociais (WhatsApp, Instagram, etc.).</li>
+            </ul>
+          </li>
+          <li><b>Minibiblioteca Local:</b> Permite salvar rascunhos e modelos diretamente no <code>localStorage</code> do navegador, sem risco de perda ao fechar a janela.</li>
+          <li><b>Controle de Destino:</b> Checkboxes integrados para escolher onde o card será utilizado: no carrossel de destaques do topo, no pop-up do index ou na tela de presença.</li>
+        </ol>
+      </section>
+
+      <!-- 6. SANDBOX -->
+      <section id="sandbox">
+        <h2 class="section-title"><span>🧪</span> 6. Sandbox Administrativo (`admin-sandbox.html`)</h2>
+        <p>
+          O <b>Sandbox Executivo</b> é um ambiente 100% isolado, projetado especificamente para o Secretário Executivo testar fluxos completos sem tocar em nenhum registro real.
+        </p>
+        
+        <div class="callout callout-warning">
+          <div class="callout-title">🔒 Garantia de Isolamento de Dados</div>
+          O Sandbox opera estritamente na memória volátil do navegador. Nenhuma chamada de rede grava dados na planilha e nenhum commit é disparado para o GitHub.
+        </div>
+
+        <h4>Capacidades de Teste do Sandbox:</h4>
+        <ul>
+          <li><b>Simulação de Quórum em Massa:</b> Botões para preencher instantaneamente 1/3 do colegiado (22 presentes), maioria deliberativa (33 presentes) ou totalidade (64 presentes).</li>
+          <li><b>Alternância de Modos:</b> Permite testar a transição entre o <b>Modo 1</b> (chamada aberta) e o <b>Modo 2</b> (encerramento e liberação de declarações).</li>
+          <li><b>Simulador de Declarações de Participação:</b> No Modo 2, o secretário clica em qualquer conselheiro presente e visualiza a declaração individual idêntica à que será impressa ou baixada pelo conselheiro.</li>
+          <li><b>Prévia ao Vivo do Pop-up da Index:</b> Permite testar se o texto da pauta coube confortavelmente no layout antes de autorizar a publicação no portal oficial.</li>
+        </ul>
+      </section>
+
+      <!-- 7. OPERAÇÃO -->
+      <section id="operacao">
+        <h2 class="section-title"><span>📋</span> 7. Procedimentos Operacionais (Passo a Passo)</h2>
+        <p>
+          Roteiro prático para o operador da Secretaria Executiva durante o ciclo completo de uma reunião plenária:
+        </p>
+
+        <h4>Etapa 1: Convocação (2 a 3 dias antes)</h4>
+        <ol>
+          <li>Abra a planilha oficial e acesse o menu <code>⚙️ CMS Presença > 🎛️ Painel de Controle</code>.</li>
+          <li>Na aba <b>Parâmetros</b>, atualize o número da reunião, data, horário e pauta.</li>
+          <li>Na aba <b>Pop-up do Site</b>, clique em <code>⚡ Copiar Dados da Reunião Atual</code>, revise o texto e garanta que o toggle <b>Ativar Pop-up</b> esteja ligado.</li>
+          <li>Clique no botão <code>🚀 Salvar & Sincronizar com GitHub</code>. O portal público receberá os novos dados em segundos.</li>
+          <li>(Opcional) Abra o <b>CMS Cards Studio</b>, gere o card da convocação e exporte o JPEG para compartilhamento no grupo de WhatsApp dos conselheiros.</li>
+        </ol>
+
+        <h4>Etapa 2: Abertura da Sessão (Dia da Reunião)</h4>
+        <ol>
+          <li>Abra o <code>Assistente de Frequência</code> no menu da planilha.</li>
+          <li>Verifique se o indicador superior exibe 🟢 <i>Fonte: Aba CONSELHEIROS</i>.</li>
+          <li>À medida que a lista for sendo chamada ou os conselheiros entrarem na sala do Google Meet, marque os registros de presença ou ausência.</li>
+          <li>Acompanhe o painel de quórum deliberativo para informar à Mesa Diretora quando houver quórum qualificado (33 votos).</li>
+        </ol>
+
+        <h4>Etapa 3: Encerramento da Sessão (Pós-Reunião)</h4>
+        <ol>
+          <li>Acesse novamente o <code>Painel de Controle</code>.</li>
+          <li>Altere o <b>Modo de Operação</b> para <code>2 - Encerrada (Download de Declarações)</code>.</li>
+          <li>Na aba do Pop-up, mude o toggle para <b>Desativar Pop-up</b>.</li>
+          <li>Clique em <code>🚀 Salvar & Sincronizar com GitHub</code>. O site fechará o credenciamento e liberará o download das declarações para os conselheiros presentes.</li>
+        </ol>
+      </section>
+
+      <!-- 8. SEGURANÇA E ROLLBACK -->
+      <section id="seguranca">
+        <h2 class="section-title"><span>🛡️</span> 8. Segurança e Procedimento de Rollback</h2>
+        <p>
+          Para salvaguardar a estabilidade dos trabalhos do Conselho, o sistema conta com backups redundantes e script automatizado de reversão:
+        </p>
+        <ul>
+          <li><b>Cópias de Segurança Intactas:</b> Localizadas em <code>Modulo_PRESENCA/backup_v_original</code> e <code>site/backup_v_original</code>.</li>
+          <li><b>Script de Restauração em 1 Clique:</b>
+            <pre><code># Para restaurar a versão original anterior:
+cd "C:\Users\55389\Documents\CMS 2026\_NovoCMS2026\Docs\Reunioes\Modulo_PRESENCA"
+.\restaurar_versao_anterior.ps1</code></pre>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 9. RECOMENDAÇÕES -->
+      <section id="recomendacoes">
+        <h2 class="section-title"><span>⚠️</span> 9. Observações e Recomendações Técnicas</h2>
+        <ol>
+          <li><b>Uso de Aspas na Planilha:</b> Ao preencher pautas com citações, utilize aspas simples (<code>'texto'</code>) ou aspas tipográficas (<code>“texto”</code>) para evitar conflitos na serialização JSON.</li>
+          <li><b>Validade do Token GitHub:</b> Monitore a data de expiração do <code>GH_TOKEN</code> cadastrado na aba <code>ADMIN</code> para que a sincronização não falhe silenciosamente.</li>
+          <li><b>Cache de Navegadores:</b> O sistema aplica automaticamente <code>?t=timestamp</code> em todas as requisições AJAX do portal, prevenindo que usuários móveis visualizem informações defasadas.</li>
+        </ol>
+      </section>
+
+      <!-- 10. ROADMAP -->
+      <section id="roadmap">
+        <h2 class="section-title"><span>🚀</span> 10. Sugestões para Próximos Aperfeiçoamentos</h2>
+        <p>
+          Para a continuidade da modernização dos sistemas da Secretaria Executiva, propõem-se as seguintes melhorias para o ciclo futuro:
+        </p>
+        <ol>
+          <li><b>Assinatura Digital com QR Code / Hash SHA-256:</b> Implementação de um identificador criptográfico único em cada Declaração de Participação emitida, com leitor de validação no portal do CMS para facilitar a verificação pelos setores de Recursos Humanos dos órgãos empregadores.</li>
+          <li><b>Disparo Automático de Convocações via WhatsApp API:</b> Integração da função de sincronização com a API de mensagens, enviando a pauta e o link do Meet diretamente para os celulares cadastrados dos 64 conselheiros.</li>
+          <li><b>Automação de Cabeçalho da Ata:</b> Gerador automático que preenche o preâmbulo da Ata oficial do plenário com a relação nominal de todos os titulares e suplentes que registraram frequência na sessão.</li>
+          <li><b>Upload Direto de Atestados de Ausência:</b> Campo de formulário em <code>reuniao.html</code> permitindo o envio de PDF ou foto de atestados médicos ou ofícios de justificativa diretamente para uma pasta do Google Drive da secretaria.</li>
+        </ol>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <p>Conselho Municipal de Saúde de Montes Claros / MG &bull; Secretaria Executiva</p>
+    <p style="margin-top: 4px;">Documentação de Engenharia e Operação &bull; Sistema 2.6.0 &bull; Novembro de 2026</p>
+  </footer>
+
+</body>
+</html>
