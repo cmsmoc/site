@@ -91,6 +91,16 @@ aside.right-pane{width:320px;background:#0A1D36;border-left:1px solid rgba(255,2
 
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1E8A4A;color:#fff;font-family:var(--font-display);font-weight:800;font-size:12px;padding:10px 20px;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.5);z-index:999;animation:fadeIn 0.2s ease}
 @keyframes fadeIn{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+/* click-to-edit */
+#studioCanvas{cursor:crosshair;transition:box-shadow 0.2s}
+#studioCanvas:hover{box-shadow:0 0 0 2px var(--cms-yellow)}
+.canvas-click-hint{position:absolute;top:12px;right:12px;font-family:var(--font-display);font-size:10px;font-weight:800;color:rgba(255,255,255,0.4);letter-spacing:.4px;text-transform:uppercase;pointer-events:none}
+@keyframes fieldFlash{0%{background:rgba(245,196,0,0.25)}100%{background:rgba(255,255,255,0.08)}}
+.field-flash{animation:fieldFlash 0.6s ease-out}
+/* header toggles */
+.header-toggles{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+.htoggle-row{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.8)}
+.htoggle-row input[type="checkbox"]{width:14px;height:14px;accent-color:var(--cms-yellow);cursor:pointer}
 </style>
 </head>
 <body>
@@ -141,8 +151,9 @@ aside.right-pane{width:320px;background:#0A1D36;border-left:1px solid rgba(255,2
   <!-- PALCO CENTRAL -->
   <section class="stage-center">
     <div class="canvas-wrap">
-      <canvas id="studioCanvas" width="880" height="1100"></canvas>
+      <canvas id="studioCanvas" width="880" height="1100" title="Clique para editar o campo"></canvas>
     </div>
+    <div class="canvas-click-hint">✏ clique para editar</div>
     <div class="stage-bottom-bar">
       <span>Formato:</span>
       <select id="selFmt" class="ctl-select" style="width:auto;padding:3px 8px;font-size:11px" onchange="alterarFormato(this.value)">
@@ -192,6 +203,29 @@ aside.right-pane{width:320px;background:#0A1D36;border-left:1px solid rgba(255,2
           <option value="list">Lista de Tópicos / Pauta</option>
           <option value="cta">Chamada com Botão</option>
         </select>
+      </div>
+
+      <!-- CABEÇALHO & MARCA -->
+      <div class="ctl-group">
+        <label class="ctl-label" style="color:var(--cms-yellow)">Cabeçalho do Card</label>
+        <div class="header-toggles">
+          <label class="htoggle-row">
+            <span>🔖 Mostrar cabeçalho</span>
+            <input type="checkbox" id="chkUi" onchange="atualizarCardAtual()" checked>
+          </label>
+          <label class="htoggle-row" id="rowUiLine">
+            <span style="padding-left:12px">― Linha separadora</span>
+            <input type="checkbox" id="chkUiLine" onchange="atualizarCardAtual()" checked>
+          </label>
+          <label class="htoggle-row" id="rowUiNum">
+            <span style="padding-left:12px">🔢 Numeração (ex: 01/03)</span>
+            <input type="checkbox" id="chkUiNum" onchange="atualizarCardAtual()" checked>
+          </label>
+          <label class="htoggle-row" id="rowUiHandle">
+            <span style="padding-left:12px">🏷 Texto da marca</span>
+            <input type="checkbox" id="chkUiHandle" onchange="atualizarCardAtual()" checked>
+          </label>
+        </div>
       </div>
 
       <div class="ctl-group">
@@ -287,7 +321,7 @@ aside.right-pane{width:320px;background:#0A1D36;border-left:1px solid rgba(255,2
 
 <script>
 
-(function(){'use strict';
+'use strict';
 /* ═════ PALETA & OBJETOS — geometria derivada da marca ═════ */
 const MONOF='"Montserrat",Helvetica,Arial,sans-serif';
 const Y='#FFCC2A',BL='#157BAB',G1='#1D9C4F',G2='#177E40',NV='#0D2E5A',INK='#0A0A0A';
@@ -530,9 +564,9 @@ function buildScene(card,total,W,H,o){
   const hb=(start,maxW,maxH,min)=>fitBlock(mkToks(info.head),{family:fam,weight:wt,upper,start,maxW,maxH,lh:.9,ls:-.03,min:min||B*.04});
   if(o.ui){
     const m=B*.02,top=H*(H/W>1.6?.085:.062)+m,lw=Math.max(2,B*.003);
-    mono(sops,o.handle.toUpperCase(),P,top,m,fg,1,'left',.12,true);
-    mono(sops,pad2(card.n)+' / '+pad2(total),W-P,top,m,fg,1,'right',.12,true);
-    sops.push({k:'l',x1:P,y1:top+m*.9,x2:W-P,y2:top+m*.9,c:fg,a:.9,w:lw});
+    if(o.ui_handle!==false) mono(sops,o.handle.toUpperCase(),P,top,m,fg,1,'left',.12,true);
+    if(o.ui_num!==false) mono(sops,pad2(card.n)+' / '+pad2(total),W-P,top,m,fg,1,'right',.12,true);
+    if(o.ui_line!==false) sops.push({k:'l',x1:P,y1:top+m*.9,x2:W-P,y2:top+m*.9,c:fg,a:.9,w:lw});
     const fx=footerOps(th),fr=fx.fr,nt=fx.minimal?fg:(isLight(fr)?INK:'#fff'),yc=fx.yc;
     if(fx.minimal)sops.push({k:'l',x1:P,y1:fy9,x2:W-P,y2:fy9,c:fg,a:.9,w:lw});
     const pk=pickLogo(o.logo||'h',fr);
@@ -675,7 +709,7 @@ function renderCardRaw(ctx,W,H,card,total,o,x){
 }
 const BGI={};
 function getBgImg(src){let im=BGI[src];if(!im){im=new Image();if(!/^data:/.test(src))im.crossOrigin='anonymous';
- im.onload=()=>{sceneCache.clear();bgCache.clear();if(typeof ceDraw==='function')ceDraw();};
+ im.onload=()=>{sceneCache.clear();bgCache.clear();if(typeof desenharCardAtual==='function')desenharCardAtual()};
  im.onerror=()=>{toast('Não foi possível carregar a imagem (URL bloqueada ou inválida). Baixe e envie o arquivo.',4500);};im.src=src;BGI[src]=im;}return im;}
 function bgKey(card){const b=card.bg;return b&&b.src?b.src.length+b.src.slice(-24)+[b.scale,b.x,b.y,b.op,b.veil].join(','):'';}
 function risoPass(ctx,W,H,card){
@@ -694,9 +728,9 @@ function renderCard(ctx,W,H,card,total,o,x){
   renderCardRaw(g,w,h,card,total,o,x2);if(riso)risoPass(g,w,h,card);
   ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(ssC,0,0,W,H);ctx.restore();}
 
-const $=id=>document.getElementById(id);const el={toast:$('toast'),heroCv:$('heroCv')};const bgCache=new Map();
+const $=id=>document.getElementById(id);const el={toast:$('toastMsg')};const bgCache=new Map();
 const FORMATS={'4:5':4/5,'9:16':9/16,'1:1':1,'16:9':16/9};
-function toast(m,ms){el.toast.textContent=m;el.toast.hidden=false;clearTimeout(toast.t);if(ms)toast.t=setTimeout(()=>{el.toast.hidden=true;},ms);}
+function toast(m,ms){const t=el.toast;if(!t)return;t.textContent=m;t.style.display='block';clearTimeout(toast._t);toast._t=setTimeout(()=>{t.style.display='none';},ms||2200);}
 function download(b,n){const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},5000);}
 const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
 function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC[(c^u[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0;}
@@ -705,15 +739,12 @@ function makeZip(files){const enc=new TextEncoder(),chunks=[],central=[];let off
   const ch=new DataView(new ArrayBuffer(46));ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(12,time,true);ch.setUint16(14,date,true);ch.setUint32(16,crc,true);ch.setUint32(20,sz,true);ch.setUint32(24,sz,true);ch.setUint16(28,nm.length,true);ch.setUint32(42,off,true);central.push(ch.buffer,nm);off+=30+nm.length+sz;}
  let cs=0;for(const c of central)cs+=c.byteLength;const e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);return new Blob([...chunks,...central,e.buffer],{type:'application/zip'});}
 
-function drawHero(){const c=el.heroCv.getContext('2d'),W=1600,H=200;
- c.fillStyle=Y;c.fillRect(0,0,W,H);
- c.fillStyle='#fff';c.beginPath();c.arc(1230,64,118,0,7);c.fill();c.fillStyle='rgba(0,0,0,.1)';c.beginPath();c.arc(1230,64,118,-.5,1.2);c.arc(1212,52,118,1.2,-.5,true);c.fill();
- [[46,BL,.4,46],[96,G1,1.8,46],[146,G2,3.1,90]].forEach(([y,col,ph,th])=>wave(c,-10,W+10,y,13,th,ph,col,2.2));}
+function drawHero(){/* removido: heroCv não existe nesta versão do editor */}
 
 const fontsPromise=(async()=>{const T='ÁÀÂÃÉÊÍÓÔÕÚÇáàâãéêíóôõúç0123456789';
  try{await Promise.allSettled(['900 40px "Montserrat"','800 30px "Montserrat"','700 20px "Montserrat"','500 20px "Montserrat"','500 30px "Open Sans"'].map(f=>document.fonts.load(f,T)));await document.fonts.ready;}catch(e){}
  await Promise.all(Object.values(LG).map(L=>new Promise(r=>{if(L.img.complete)r();else{L.img.onload=r;L.img.onerror=r;}})));
- fontsReadyFlag=true;sceneCache.clear();bgCache.clear();drawHero();ceDraw();})();
+ fontsReadyFlag=true;sceneCache.clear();bgCache.clear();if(typeof desenharCardAtual==='function')desenharCardAtual();})();
 
 
 
@@ -793,9 +824,7 @@ const PRESETS = [
     head: 'Pauta da *Sessão Plenária*',
     sup: 'Temas centrais em deliberação na Ordem do Dia',
     num: '',
-    items: 'Previsão Orçamentária 2027: Análise dos recursos municipais
-Fiscalização Hospitalar: Relatório da comissão técnica
-Comunicações da Mesa: Informes gerais e calendário',
+    items: 'Previsão Orçamentária 2027: Análise dos recursos municipais\nFiscalização Hospitalar: Relatório da comissão técnica\nComunicações da Mesa: Informes gerais e calendário',
     cta: '',
     theme: 'azul',
     obj: 'linhas',
@@ -1054,6 +1083,17 @@ function preencherFormularioComCard(c) {
   document.getElementById('chkDestPopIndex').checked = !!c.dest_popup_index;
   document.getElementById('chkDestPopReuniao').checked = !!c.dest_popup_reuniao;
 
+  // cabeçalho
+  const uiOn = c.ui !== false;
+  document.getElementById('chkUi').checked = uiOn;
+  document.getElementById('chkUiLine').checked = c.ui_line !== false;
+  document.getElementById('chkUiNum').checked = c.ui_num !== false;
+  document.getElementById('chkUiHandle').checked = c.ui_handle !== false;
+  ['rowUiLine','rowUiHandle','rowUiNum'].forEach(id => {
+    const row = document.getElementById(id);
+    if(row) row.style.opacity = uiOn ? '1' : '0.35';
+  });
+
   escolherCor(c.theme || 'marinho', false);
 
   // Exibir campos específicos por layout
@@ -1080,6 +1120,18 @@ function atualizarCardAtual() {
   c.dest_topo = document.getElementById('chkDestTopo').checked;
   c.dest_popup_index = document.getElementById('chkDestPopIndex').checked;
   c.dest_popup_reuniao = document.getElementById('chkDestPopReuniao').checked;
+
+  // controles de cabeçalho
+  c.ui = document.getElementById('chkUi').checked;
+  c.ui_line = document.getElementById('chkUiLine').checked;
+  c.ui_num = document.getElementById('chkUiNum').checked;
+  c.ui_handle = document.getElementById('chkUiHandle').checked;
+  // habilitar/desabilitar sub-toggles conforme o master
+  const uiOn = c.ui;
+  ['rowUiLine','rowUiHandle','rowUiNum'].forEach(id => {
+    const row = document.getElementById(id);
+    if(row) row.style.opacity = uiOn ? '1' : '0.35';
+  });
 
   document.getElementById('grpNum').style.display = (c.layout === 'number') ? 'flex' : 'none';
   document.getElementById('grpItems').style.display = (c.layout === 'list') ? 'flex' : 'none';
@@ -1136,6 +1188,9 @@ function montarOptsParaEngine(c) {
     objects: true,
     autoEm: true,
     ui: c.ui !== undefined ? c.ui : true,
+    ui_line: c.ui_line !== false,
+    ui_num: c.ui_num !== false,
+    ui_handle: c.ui_handle !== false,
     logo: c.logo || 'h',
     intro: false,
     f: {
@@ -1354,7 +1409,84 @@ window.onload = () => {
   renderizarListaSalvos();
   preencherFormularioComCard(getCardAtual());
   desenharCardAtual();
+  iniciarClickToEdit();
 };
+
+/* ═══════════════════════════════════════════════════════════════
+   CLICK-TO-EDIT: Clique no canvas → foca o campo correspondente
+   ═══════════════════════════════════════════════════════════════ */
+function iniciarClickToEdit() {
+  const cv = document.getElementById('studioCanvas');
+  if (!cv) return;
+
+  cv.addEventListener('click', function(e) {
+    const rect = cv.getBoundingClientRect();
+    // Converte coordenadas do clique para espaço do canvas
+    const scaleX = cv.width / rect.width;
+    const scaleY = cv.height / rect.height;
+    const cx = (e.clientX - rect.left) * scaleX;
+    const cy = (e.clientY - rect.top) * scaleY;
+    const W = cv.width, H = cv.height;
+
+    let targetId = null;
+    const layout = document.getElementById('selLayout').value;
+
+    // ── Zona do cabeçalho (top ~13%) ──────────────────────────
+    if (cy < H * 0.13) {
+      targetId = 'inpHandle';
+      // Rolar o scroll do right-pane até a seção cabeçalho
+      document.getElementById('chkUi').closest('.ctl-group').scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+    // ── Zona do rodapé (bottom ~13%) ──────────────────────────
+    else if (cy > H * 0.87) {
+      targetId = 'selFst';
+    }
+    // ── Zona central ──────────────────────────────────────────
+    else {
+      const relY = (cy - H * 0.13) / (H * 0.74); // 0=topo 1=fundo da área central
+
+      if (layout === 'number') {
+        // Número fica no topo; cabeçalho abaixo
+        if (relY < 0.25) targetId = 'inpNum';
+        else if (relY < 0.6) targetId = 'txtHead';
+        else targetId = 'txtSup';
+      } else if (layout === 'list') {
+        if (relY < 0.35) targetId = 'txtHead';
+        else targetId = 'txtItems';
+      } else if (layout === 'cta') {
+        if (relY < 0.45) targetId = 'txtHead';
+        else if (relY < 0.68) targetId = 'txtSup';
+        else targetId = 'inpCta';
+      } else if (layout === 'mega') {
+        targetId = relY < 0.55 ? 'txtHead' : 'txtSup';
+      } else {
+        // statement / quote
+        if (relY < 0.5) targetId = 'txtHead';
+        else targetId = 'txtSup';
+      }
+    }
+
+    if (!targetId) return;
+
+    // Foca o campo e aplica flash visual
+    const el = document.getElementById(targetId);
+    if (!el) return;
+
+    // Garante que o painel da direita está visível (scrolla até o campo)
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Flash + foco após scroll
+    setTimeout(() => {
+      el.classList.remove('field-flash');
+      void el.offsetWidth; // reflow para reiniciar animação
+      el.classList.add('field-flash');
+      el.focus();
+      if (el.select) el.select();
+      // Remove a classe após a animação
+      el.addEventListener('animationend', () => el.classList.remove('field-flash'), { once: true });
+    }, 120);
+  });
+}
 </script>
 </body>
 </html>
