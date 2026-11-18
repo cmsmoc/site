@@ -1,0 +1,19 @@
+{
+  "projeto": "EPROJ Diagnostico e Portfolio SMS/CMSMOC 2026",
+  "pasta": "C:\\Users\\55389\\Documents\\CMS 2026\\_NovoCMS2026\\site\\eproj",
+  "change_log": [
+    {
+      "timestamp": "2026-11-18T13:17:45.762718",
+      "autor": "Antigravity",
+      "acao": "Criacao de consolidado.html",
+      "detalhes": "Triangulacao e consolidacao geral dos 3 levantamentos independentes de portfolio (portfolio-cmsmoc.json, portfolio-pessoal-profissional.json e index.html). Geracao da nova interface consolidado.html com 44 iniciativas catalogadas, painel de auditoria de inconsistencias, filtros multidimensionais, matriz de riscos e recursos e exportacao JSON."
+    },
+    {
+      "timestamp": "2026-11-18T13:33:41.512286",
+      "autor": "Antigravity",
+      "acao": "Criacao de consolidado-v2.html",
+      "detalhes": "Criacao da versao v2 do design consolidado baseada em catalogo-projetos-cmsmoc.html. Mantida a versao v1 (consolidado.html) intacta. Implementada interface minimalista com stripe tricolor, sticky appbar, chips de grupos com contadores, dialog nativo com 5 abas, navegacao por teclado/hash e modal de governanca/riscos para as 44 iniciativas."
+    }
+  ],
+  "last_updated": "2026-11-18T13:33:41.512286"
+}

@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPROJ · Consolidado Geral de Portfólio & Auditoria de Iniciativas | CMSMOC & SMS</title>
+    
+    <!-- Metadados OpenGraph & Compartilhamento -->
+    <meta property="og:title" content="EPROJ · Consolidado Geral de Portfólio & Auditoria de Iniciativas | CMSMOC & SMS">
+    <meta property="og:description" content="Triangulação e reconciliação dos 3 levantamentos independentes de portfólio (CMSMOC, Pessoal e AGY Local). Catálogo de 44 iniciativas, matriz de inconsistências, governança e riscos.">
+    <meta property="og:image" content="./thumb_eproj.webp">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0D2E5A">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           TOKENS VISUAIS OFICIAIS CMSMOC (Design System v5.0)
+           ========================================================================== */
+        :root {
+            --cms-navy:          #0D2E5A;
+            --cms-navy-dark:     #081D3B;
+            --cms-navy-light:    #16437E;
+            --cms-blue:          #1B6CB5;
+            --cms-blue-subtle:   #EBF3FA;
+            --cms-green:         #1E8A4A;
+            --cms-green-light:   #E8F5EE;
+            --cms-yellow:        #F5C400;
+            --cms-yellow-subtle: #FEF9E6;
+            --cms-white:         #FFFFFF;
+            --cms-off:           #F8FAFC;
+            --cms-surface:       #FFFFFF;
+            --cms-ink:           #0F172A;
+            --cms-muted:         #64748B;
+            --cms-border:        #E2E8F0;
+            --cms-border-subtle: #F1F5F9;
+            --cms-danger:        #EF4444;
+            --cms-danger-subtle: #FEF2F2;
+            --cms-purple:        #7C3AED;
+            --cms-purple-subtle: #F5F3FF;
+            --cms-teal:          #0D9488;
+            --cms-teal-subtle:   #F0FDFA;
+
+            --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body:    'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 16px rgba(13, 46, 90, 0.08);
+            --shadow-lg: 0 12px 32px rgba(13, 46, 90, 0.12);
+            --shadow-xl: 0 20px 48px rgba(13, 46, 90, 0.16);
+
+            --container-max: 1400px;
+        }
+
+        /* Reset e Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cms-off);
+            color: var(--cms-ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--cms-blue);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--cms-navy);
+            text-decoration: underline;
+        }
+
+        /* Topbar de Alinhamento e Navegação */
+        .topbar {
+            background-color: var(--cms-navy-dark);
+            color: var(--cms-white);
+            font-size: 0.8rem;
+            padding: 0.6rem 1.5rem;
+            border-bottom: 2px solid var(--cms-yellow);
+        }
+
+        .topbar-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .topbar-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #10B981;
+        }
+
+        .topbar-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .topbar-link {
+            color: #94A3B8;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .topbar-link:hover {
+            color: var(--cms-white);
+            text-decoration: none;
+        }
+
+        .topbar-link.active {
+            color: var(--cms-yellow);
+        }
+
+        /* Header Principal */
+        .header {
+            background: linear-gradient(135deg, var(--cms-navy) 0%, #113A6E 100%);
+            color: var(--cms-white);
+            padding: 3.5rem 1.5rem 3rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(27, 108, 181, 0.25) 0%, rgba(13, 46, 90, 0) 70%);
+            pointer-events: none;
+        }
+
+        .header-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-pill {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .badge-pill-yellow {
+            background-color: var(--cms-yellow);
+            color: var(--cms-navy-dark);
+        }
+
+        .badge-pill-blue {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--cms-white);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .header-title {
+            font-family: var(--font-display);
+            font-size: 2.35rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header-title em {
+            color: var(--cms-yellow);
+            font-style: normal;
+        }
+
+        .header-subtitle {
+            font-size: 1.05rem;
+            color: #CBD5E1;
+            max-width: 900px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Grid de KPIs do Header */
+        .header-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .stat-val {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--cms-yellow);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--cms-white);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-desc {
+            font-size: 0.8rem;
+            color: #94A3B8;
+        }
+
+        /* Barra de Ações Rápidas */
+        .actions-bar {
+            background-color: var(--cms-white);
+            border-bottom: 1px solid var(--cms-border);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .actions-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-chips {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .nav-chip {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.45rem 0.9rem;
+            border-radius: var(--radius-full);
+            color: var(--cms-muted);
+            border: 1px solid var(--cms-border);
+            background: var(--cms-off);
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-chip:hover {
+            color: var(--cms-navy);
+            border-color: var(--cms-blue);
+            background: var(--cms-white);
+            text-decoration: none;
+        }
+
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .btn {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.5rem 1.1rem;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--cms-navy);
+            color: var(--cms-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cms-blue);
+            color: var(--cms-white);
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: var(--cms-off);
+            color: var(--cms-ink);
+            border: 1px solid var(--cms-border);
+        }
+
+        .btn-secondary:hover {
+            background-color: #E2E8F0;
+            text-decoration: none;
+        }
+
+        .btn-success {
+            background-color: var(--cms-green);
+            color: var(--cms-white);
+        }
+
+        .btn-success:hover {
+            background-color: #166534;
+            color: var(--cms-white);
+            text-decoration: none;
+        }
+
+        /* Conteúdo Principal */
+        .main-container {
+            max-width: var(--container-max);
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Seções e Títulos */
+        .section-header {
+            margin-bottom: 1.75rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--cms-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.35rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--cms-navy);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-desc {
+            color: var(--cms-muted);
+            font-size: 0.95rem;
+            max-width: 850px;
+            margin-top: 0.35rem;
+        }
+
+        /* ==========================================================================
+           SEÇÃO 1: AUDITORIA DE TRIANGULAÇÃO & DIVERGÊNCIAS
+           ========================================================================== */
+        .audit-card {
+            background: var(--cms-surface);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2.5rem;
+        }
+
+        .audit-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .audit-source-box {
+            background: var(--cms-off);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            border-left: 4px solid var(--cms-blue);
+        }
+
+        .audit-source-box.box-cms {
+            border-left-color: var(--cms-navy);
+        }
+
+        .audit-source-box.box-pes {
+            border-left-color: var(--cms-teal);
+        }
+
+        .audit-source-box.box-agy {
+            border-left-color: var(--cms-yellow);
+        }
+
+        .audit-source-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--cms-ink);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .audit-source-count {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: rgba(0,0,0,0.06);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .audit-source-desc {
+            font-size: 0.85rem;
+            color: var(--cms-muted);
+            line-height: 1.5;
+        }
+
+        /* Lista de Divergências Reconciliadas */
+        .divergences-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .divergence-item {
+            background: var(--cms-off);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .divergence-item:hover {
+            background: var(--cms-white);
+            border-color: #CBD5E1;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .divergence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .divergence-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cms-navy);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .divergence-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+            background-color: var(--cms-yellow-subtle);
+            color: #B45309;
+            border: 1px solid #FDE68A;
+        }
+
+        .divergence-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .comparison-col {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-sm);
+            padding: 0.7rem 0.9rem;
+            font-size: 0.85rem;
+        }
+
+        .comparison-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--cms-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .comparison-val {
+            font-weight: 600;
+            color: var(--cms-ink);
+        }
+
+        .resolution-box {
+            background: var(--cms-green-light);
+            border: 1px solid #BBF7D0;
+            border-radius: var(--radius-sm);
+            padding: 0.65rem 0.9rem;
+            font-size: 0.85rem;
+            color: #14532D;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        /* ==========================================================================
+           SEÇÃO 2: VISÃO DOS EIXOS TEMÁTICOS (BENTO CARDS)
+           ========================================================================== */
+        .axes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .axis-card {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-md);
+            padding: 1.3rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .axis-card:hover {
+            border-color: var(--cms-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .axis-card.active {
+            border-color: var(--cms-navy);
+            background: var(--cms-blue-subtle);
+        }
+
+        .axis-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .axis-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--cms-navy);
+            margin-bottom: 0.35rem;
+        }
+
+        .axis-desc {
+            font-size: 0.82rem;
+            color: var(--cms-muted);
+            margin-bottom: 1rem;
+            line-height: 1.45;
+        }
+
+        .axis-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--cms-border-subtle);
+            padding-top: 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cms-blue);
+        }
+
+        /* ==========================================================================
+           SEÇÃO 3: CATÁLOGO GERAL INTERATIVO (FILTROS & BUSCA)
+           ========================================================================== */
+        .catalog-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .filter-panel {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-md);
+            background: var(--cms-off);
+            color: var(--cms-ink);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            background: var(--cms-white);
+            border-color: var(--cms-blue);
+            box-shadow: 0 0 0 3px rgba(27, 108, 181, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cms-muted);
+            font-size: 1rem;
+        }
+
+        .filter-groups {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--cms-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            min-width: 90px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--cms-border);
+            background: var(--cms-off);
+            color: var(--cms-muted);
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .filter-btn:hover {
+            background: var(--cms-white);
+            border-color: var(--cms-blue);
+            color: var(--cms-navy);
+        }
+
+        .filter-btn.active {
+            background: var(--cms-navy);
+            border-color: var(--cms-navy);
+            color: var(--cms-white);
+        }
+
+        /* Toolbar do Catálogo: Contador e Modo de Exibição */
+        .catalog-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .catalog-counter {
+            font-size: 0.9rem;
+            color: var(--cms-muted);
+            font-weight: 600;
+        }
+
+        .catalog-counter strong {
+            color: var(--cms-navy);
+            font-weight: 700;
+        }
+
+        .view-switch {
+            display: flex;
+            background: #E2E8F0;
+            padding: 2px;
+            border-radius: var(--radius-md);
+            gap: 2px;
+        }
+
+        .view-btn {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: none;
+            background: transparent;
+            color: var(--cms-muted);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .view-btn.active {
+            background: var(--cms-white);
+            color: var(--cms-navy);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Grid de Cards das Iniciativas */
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .init-card {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.22s ease;
+            position: relative;
+        }
+
+        .init-card:hover {
+            border-color: var(--cms-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .init-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .init-code-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            background: var(--cms-off);
+            color: var(--cms-navy);
+            border: 1px solid var(--cms-border);
+        }
+
+        .init-status-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .status-prod {
+            background-color: var(--cms-green-light);
+            color: #166534;
+            border: 1px solid #BBF7D0;
+        }
+
+        .status-delivered {
+            background-color: var(--cms-blue-subtle);
+            color: #1E40AF;
+            border: 1px solid #BFDBFE;
+        }
+
+        .status-dev {
+            background-color: var(--cms-yellow-subtle);
+            color: #B45309;
+            border: 1px solid #FDE68A;
+        }
+
+        .status-study {
+            background-color: var(--cms-purple-subtle);
+            color: #6B21A8;
+            border: 1px solid #E9D5FF;
+        }
+
+        .init-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--cms-navy);
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+        }
+
+        .init-desc {
+            font-size: 0.85rem;
+            color: var(--cms-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .init-sources {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .src-badge {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .badge-agy {
+            background-color: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FDE68A;
+        }
+
+        .badge-cms {
+            background-color: #DBEAFE;
+            color: #1E40AF;
+            border: 1px solid #BFDBFE;
+        }
+
+        .badge-pes {
+            background-color: #CCFBF1;
+            color: #115E59;
+            border: 1px solid #99F6E4;
+        }
+
+        .badge-divergence {
+            background-color: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #FECACA;
+            font-weight: 800;
+        }
+
+        .init-tech-stack {
+            display: flex;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.1rem;
+        }
+
+        .tech-pill {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.15rem 0.45rem;
+            border-radius: var(--radius-sm);
+            background: #F1F5F9;
+            color: #334155;
+            border: 1px solid #E2E8F0;
+        }
+
+        .init-card-footer {
+            border-top: 1px solid var(--cms-border-subtle);
+            padding-top: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .eproj-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--cms-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .eproj-tag.not-eproj {
+            color: var(--cms-muted);
+        }
+
+        .btn-view-details {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cms-blue);
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .btn-view-details:hover {
+            background: var(--cms-blue-subtle);
+            color: var(--cms-navy);
+        }
+
+        /* Tabela Técnica Alternativa */
+        .initiatives-table-container {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            box-shadow: var(--shadow-sm);
+            display: none;
+        }
+
+        .initiatives-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        .initiatives-table th {
+            background: var(--cms-off);
+            padding: 0.85rem 1rem;
+            font-weight: 700;
+            color: var(--cms-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+            border-bottom: 1px solid var(--cms-border);
+        }
+
+        .initiatives-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid var(--cms-border-subtle);
+            vertical-align: middle;
+        }
+
+        .initiatives-table tr:hover {
+            background-color: var(--cms-off);
+        }
+
+        /* ==========================================================================
+           SEÇÃO 4: MATRIZ DE RISCOS, GOVERNANÇA E RECURSOS
+           ========================================================================== */
+        .governance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .gov-card {
+            background: var(--cms-white);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gov-card-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--cms-navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .risks-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .risks-table th {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            font-size: 0.75rem;
+            color: var(--cms-muted);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--cms-border);
+        }
+
+        .risks-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--cms-border-subtle);
+            vertical-align: top;
+        }
+
+        .risk-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: var(--radius-full);
+            display: inline-block;
+        }
+
+        .risk-alta {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .risk-media {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .risk-baixa {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .kpi-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--cms-border-subtle);
+            font-size: 0.88rem;
+        }
+
+        .kpi-title {
+            font-weight: 600;
+            color: var(--cms-ink);
+        }
+
+        .kpi-meta {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cms-green);
+            background: var(--cms-green-light);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        /* ==========================================================================
+           MODAL / DRAWER DE FICHA TÉCNICA COMPLETA
+           ========================================================================== */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-content {
+            background: var(--cms-white);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            animation: modalFadeIn 0.25s ease;
+            overflow: hidden;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            background: var(--cms-navy);
+            color: var(--cms-white);
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: var(--cms-white);
+            font-size: 1.3rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: var(--cms-yellow);
+            color: var(--cms-navy-dark);
+        }
+
+        .modal-body {
+            padding: 1.75rem;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modal-section-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cms-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid var(--cms-border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-field-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .modal-field {
+            background: var(--cms-off);
+            border: 1px solid var(--cms-border);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 0.9rem;
+        }
+
+        .modal-field-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--cms-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .modal-field-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--cms-ink);
+        }
+
+        .modal-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .modal-list li {
+            font-size: 0.88rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .modal-list li::before {
+            content: '▪';
+            color: var(--cms-blue);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+            top: -2px;
+        }
+
+        .modal-footer {
+            background: var(--cms-off);
+            border-top: 1px solid var(--cms-border);
+            padding: 1rem 1.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--cms-navy-dark);
+            color: #94A3B8;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--cms-yellow);
+        }
+
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.88rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--cms-white);
+        }
+
+        /* Print CSS */
+        @media print {
+            .topbar, .actions-bar, .filter-panel, .view-switch, .btn-view-details, .modal-backdrop {
+                display: none !important;
+            }
+            .header {
+                background: none !important;
+                color: #000 !important;
+                padding: 1rem 0 !important;
+            }
+            .header-title, .section-title {
+                color: #000 !important;
+            }
+            .initiatives-table-container {
+                display: block !important;
+            }
+            .initiatives-grid {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.75rem;
+            }
+            .initiatives-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar Institucional -->
+    <div class="topbar">
+        <div class="topbar-container">
+            <div class="topbar-badge">
+                <span class="status-dot"></span>
+                <span>Prefeitura de Montes Claros · SMS · EPROJ (Portaria nº 28/2026)</span>
+            </div>
+            <div class="topbar-links">
+                <a href="index.html" class="topbar-link">← Voltar ao Diagnóstico Inicial (18 Fichas)</a>
+                <span style="color: rgba(255,255,255,0.2);">|</span>
+                <span style="color: var(--cms-yellow); font-weight: 600;">Painel Consolidado de 44 Iniciativas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-meta">
+                <span class="badge-pill badge-pill-yellow">Consolidado Geral Oficial</span>
+                <span class="badge-pill badge-pill-blue">3 Levantamentos Triangulados</span>
+                <span class="badge-pill badge-pill-blue">Portfólio Institucional & Profissional</span>
+            </div>
+            <h1 class="header-title">
+                EPROJ: Consolidado Geral de <em>Portfólio & Auditoria</em>
+            </h1>
+            <p class="header-subtitle">
+                Reconciliação e curadoria dos 3 levantamentos independentes de iniciativas desenvolvidas por Alexandre Dourado: 
+                o Levantamento AGY Local (18 iniciativas), a Conta IA Web CMSMOC (19 projetos) e a Conta IA Web Pessoal (27 projetos). 
+                Base única de 44 iniciativas catalogadas, auditadas e preparadas para enquadramento na SMS.
+            </p>
+
+            <div class="header-stats-grid">
+                <div class="stat-card">
+                    <span class="stat-val" id="stat-total">44</span>
+                    <span class="stat-label">Iniciativas Totais</span>
+                    <span class="stat-desc">Universo integral consolidado das 3 fontes</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val" id="stat-eproj">21</span>
+                    <span class="stat-label">Aptas para EPROJ / SMS</span>
+                    <span class="stat-desc">15 Dossiê Principal + 6 Interfaces Técnicas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val" id="stat-prod">17</span>
+                    <span class="stat-label">Em Produção / Em Uso</span>
+                    <span class="stat-desc">Soluções com impacto operacional imediato</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val" id="stat-divergences">4</span>
+                    <span class="stat-label">Divergências Auditadas</span>
+                    <span class="stat-desc">Status e escopos 100% conciliados</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Navegação Rápida e Ações -->
+    <nav class="actions-bar">
+        <div class="actions-container">
+            <div class="nav-chips">
+                <a href="#auditoria" class="nav-chip">⚖️ Triangulação & Divergências</a>
+                <a href="#eixos" class="nav-chip">📌 Eixos Temáticos</a>
+                <a href="#catalogo" class="nav-chip">📂 Catálogo das 44 Iniciativas</a>
+                <a href="#governanca" class="nav-chip">🛡️ Riscos & Governança</a>
+                <a href="index.html" class="nav-chip" style="color: var(--cms-navy); font-weight: 700;">📄 Ver index.html Original</a>
+            </div>
+            <div class="action-btns">
+                <button class="btn btn-primary" onclick="exportConsolidatedJSON()">
+                    📥 Exportar JSON Consolidado
+                </button>
+                <button class="btn btn-secondary" onclick="window.print()">
+                    🖨️ Imprimir / PDF
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-container">
+
+        <!-- ==========================================================================
+             SEÇÃO 1: PAINEL DE TRIANGULAÇÃO & AUDITORIA DE DIVERGÊNCIAS
+             ========================================================================== -->
+        <section id="auditoria" class="audit-card">
+            <div class="section-header">
+                <span class="section-tag">Auditoria Epistemológica & Conciliação de Dados</span>
+                <h2 class="section-title">Matriz de Triangulação das Três Bases</h2>
+                <p class="section-desc">
+                    Como cada conta de IA e o levantamento local do AGY analisaram o portfólio de forma independente, 
+                    foram mapeadas divergências pontuais de status, escopo e elegibilidade formal. Todas foram resolvidas e documentadas abaixo.
+                </p>
+            </div>
+
+            <!-- Resumo das 3 Fontes -->
+            <div class="audit-summary-grid">
+                <div class="audit-source-box box-agy">
+                    <div class="audit-source-title">
+                        <span>Index AGY Local</span>
+                        <span class="audit-source-count">18 Iniciativas</span>
+                    </div>
+                    <p class="audit-source-desc">
+                        Levantamento estruturado focado no enquadramento direto das 4 categorias da Portaria SMS nº 28/2026.
+                    </p>
+                </div>
+                <div class="audit-source-box box-cms">
+                    <div class="audit-source-title">
+                        <span>Conta IA Web CMSMOC</span>
+                        <span class="audit-source-count">19 Projetos</span>
+                    </div>
+                    <p class="audit-source-desc">
+                        Focado estritamente na Secretaria Executiva do CMSMOC, com contexto legal, POPs e governança.
+                    </p>
+                </div>
+                <div class="audit-source-box box-pes">
+                    <div class="audit-source-title">
+                        <span>Conta IA Web Pessoal</span>
+                        <span class="audit-source-count">27 Projetos</span>
+                    </div>
+                    <p class="audit-source-desc">
+                        Perspectiva ampliada de carreira de Alexandre, detalhando arquitetura, lições aprendidas e métricas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lista de Divergências Reconciliadas -->
+            <div class="divergences-list">
+                <div class="divergence-item">
+                    <div class="divergence-header">
+                        <span class="divergence-title">
+                            1. Elegibilidade EPROJ no Portfólio Pessoal (True vs. False)
+                        </span>
+                        <span class="divergence-tag">Elegibilidade Institucional</span>
+                    </div>
+                    <div class="divergence-comparison">
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta IA Web CMSMOC</span>
+                            <span class="comparison-val"><code>incluir_no_eproj: true</code> (Todos os 15 projetos institucionais)</span>
+                        </div>
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta IA Web Pessoal</span>
+                            <span class="comparison-val"><code>incluir_no_eproj: false</code> (Todos os 27 projetos marcados como False)</span>
+                        </div>
+                    </div>
+                    <div class="resolution-box">
+                        <span>✔</span>
+                        <div>
+                            <strong>Decisão de Conciliação:</strong> A IA pessoal marcou False por adotar uma premissa analítica de "portfólio privado do profissional". 
+                            A curadoria corrigiu para <strong>Elegível (True)</strong> em todas as 21 iniciativas que atendem a rotinas da SMS, CMSMOC, CEREST e metas do SUS.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divergence-item">
+                    <div class="divergence-header">
+                        <span class="divergence-title">
+                            2. SerTão Conselheiro: App Legado vs. Framework Sertão Conselheiro
+                        </span>
+                        <span class="divergence-tag">Status & Granularidade</span>
+                    </div>
+                    <div class="divergence-comparison">
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta CMSMOC</span>
+                            <span class="comparison-val">Separou em 2: App Legado (Entregue) e Framework (Em Uso)</span>
+                        </div>
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta Pessoal</span>
+                            <span class="comparison-val">Unificou em 1 registro: SerTão Conselheiro PWA (Em Uso)</span>
+                        </div>
+                        <div class="comparison-col">
+                            <span class="comparison-label">Index AGY</span>
+                            <span class="comparison-val">PRJ-003: SerTão Conselheiro PWA (Em Produção / Piloto)</span>
+                        </div>
+                    </div>
+                    <div class="resolution-box">
+                        <span>✔</span>
+                        <div>
+                            <strong>Decisão de Conciliação:</strong> O <em>Framework Sertão Conselheiro</em> é a arquitetura viva e o <em>App PWA</em> é o produto em operação diária com conselheiros. Foram mantidos com referências cruzadas claras.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divergence-item">
+                    <div class="divergence-header">
+                        <span class="divergence-title">
+                            3. Hub Edital 11/2026: Proposta Submetida vs. Implantação Contínua
+                        </span>
+                        <span class="divergence-tag">Status Operacional</span>
+                    </div>
+                    <div class="divergence-comparison">
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta CMSMOC</span>
+                            <span class="comparison-val">Status: <code>entregue</code> (Proposta formal protocolada)</span>
+                        </div>
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta Pessoal</span>
+                            <span class="comparison-val">Status: <code>em_desenvolvimento</code> (Operacionalização dos Conselhos Locais)</span>
+                        </div>
+                    </div>
+                    <div class="resolution-box">
+                        <span>✔</span>
+                        <div>
+                            <strong>Decisão de Conciliação:</strong> A fase de projeto e submissão foi 100% <strong>Concluída/Entregue</strong>, enquanto a execução dos Conselhos Locais de Saúde (CLS) permanece como <strong>Roadmap Ativo</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divergence-item">
+                    <div class="divergence-header">
+                        <span class="divergence-title">
+                            4. AutoDoc Atos Oficiais e Sistema de Expedição de Ofícios
+                        </span>
+                        <span class="divergence-tag">Módulo vs. Produto Autônomo</span>
+                    </div>
+                    <div class="divergence-comparison">
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta CMSMOC</span>
+                            <span class="comparison-val">Agrupados como sub-módulos dentro do <code>sgd-cms</code></span>
+                        </div>
+                        <div class="comparison-col">
+                            <span class="comparison-label">Conta Pessoal & Index AGY</span>
+                            <span class="comparison-val">Destacados como iniciativas autônomas (PRJ-002 AutoDoc e PRJ-008 Ofícios)</span>
+                        </div>
+                    </div>
+                    <div class="resolution-box">
+                        <span>✔</span>
+                        <div>
+                            <strong>Decisão de Conciliação:</strong> Devido à relevância e ao uso de IA Generativa para automação de minutas de resoluções, o <strong>AutoDoc</strong> e a <strong>Expedição de Ofícios</strong> foram mantidos com fichas próprias no catálogo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 2: VISÃO DOS EIXOS TEMÁTICOS
+             ========================================================================== -->
+        <section id="eixos" style="margin-bottom: 3rem;">
+            <div class="section-header">
+                <span class="section-tag">Arquitetura de Portfólio</span>
+                <h2 class="section-title">Os 5 Grandes Eixos de Entrega</h2>
+                <p class="section-desc">Clique em qualquer eixo para filtrar o catálogo instantaneamente.</p>
+            </div>
+
+            <div class="axes-grid">
+                <div class="axis-card" onclick="filterByScope('cms-moc')">
+                    <div>
+                        <div class="axis-icon">🏛️</div>
+                        <h3 class="axis-title">Controle Social & CMSMOC</h3>
+                        <p class="axis-desc">Sistemas de plenária, SGD 2.0, AutoDoc, presença digital, eleições e POPs da Secretaria Executiva.</p>
+                    </div>
+                    <div class="axis-footer">
+                        <span>21 Iniciativas</span>
+                        <span>Filtrar →</span>
+                    </div>
+                </div>
+
+                <div class="axis-card" onclick="filterByScope('sms-correlato')">
+                    <div>
+                        <div class="axis-icon">🏥</div>
+                        <h3 class="axis-title">SMS Correlato & Gestão SUS</h3>
+                        <p class="axis-desc">Sistemas para o CEREST Montes Claros, automação de diárias, metas hospitalares e análises de RDQA.</p>
+                    </div>
+                    <div class="axis-footer">
+                        <span>5 Iniciativas</span>
+                        <span>Filtrar →</span>
+                    </div>
+                </div>
+
+                <div class="axis-card" onclick="filterByScope('ia-automacao')">
+                    <div>
+                        <div class="axis-icon">🤖</div>
+                        <h3 class="axis-title">Agentes & Automação IA</h3>
+                        <p class="axis-desc">Ecossistema AGY CLI, orquestração de subagentes, meeting-extractor e skills de design systems especializados.</p>
+                    </div>
+                    <div class="axis-footer">
+                        <span>4 Iniciativas</span>
+                        <span>Filtrar →</span>
+                    </div>
+                </div>
+
+                <div class="axis-card" onclick="filterByScope('estudo-pesquisa')">
+                    <div>
+                        <div class="axis-icon">📊</div>
+                        <h3 class="axis-title">Ciência de Dados & Pesquisa</h3>
+                        <p class="axis-desc">Plataforma DuckDB de inteligência em saúde pública, CMS-Radar e Pós-Graduação em Ciência de Dados e IA.</p>
+                    </div>
+                    <div class="axis-footer">
+                        <span>4 Iniciativas</span>
+                        <span>Filtrar →</span>
+                    </div>
+                </div>
+
+                <div class="axis-card" onclick="filterByScope('pessoal-profissional')">
+                    <div>
+                        <div class="axis-icon">🚀</div>
+                        <h3 class="axis-title">EdTech & Portfólio Pessoal</h3>
+                        <p class="axis-desc">Linha editorial PROMPTOLOGIA, Cadernos e Tripwires, Ebooks interativos, Dani Doces PWA e site pessoal v5.</p>
+                    </div>
+                    <div class="axis-footer">
+                        <span>10 Iniciativas</span>
+                        <span>Filtrar →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 3: CATÁLOGO GERAL INTERATIVO (44 INICIATIVAS)
+             ========================================================================== -->
+        <section id="catalogo" class="catalog-section">
+            <div class="section-header">
+                <span class="section-tag">Inventário Geral Unificado</span>
+                <h2 class="section-title">Catálogo Completo das 44 Iniciativas</h2>
+                <p class="section-desc">
+                    Explore o inventário completo com filtros combinados por escopo, status operacional, elegibilidade EPROJ e presença nas fontes.
+                </p>
+            </div>
+
+            <!-- Painel de Filtros e Busca -->
+            <div class="filter-panel">
+                <div class="search-row">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-input" class="search-input" placeholder="Buscar por título, código, stack tecnológica, objetivo ou palavra-chave..." oninput="applyFilters()">
+                    </div>
+                    <button class="btn btn-secondary" onclick="resetFilters()">Limpar Filtros</button>
+                </div>
+
+                <div class="filter-groups">
+                    <!-- Filtro por Escopo -->
+                    <div class="filter-row">
+                        <span class="filter-label">Escopo:</span>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="scope" data-val="all" onclick="setFilter('scope', 'all', this)">Todos (44)</button>
+                            <button class="filter-btn" data-filter="scope" data-val="cms-moc" onclick="setFilter('scope', 'cms-moc', this)">CMSMOC (21)</button>
+                            <button class="filter-btn" data-filter="scope" data-val="sms-correlato" onclick="setFilter('scope', 'sms-correlato', this)">SMS Correlato (5)</button>
+                            <button class="filter-btn" data-filter="scope" data-val="ia-automacao" onclick="setFilter('scope', 'ia-automacao', this)">IA & Agentes (4)</button>
+                            <button class="filter-btn" data-filter="scope" data-val="estudo-pesquisa" onclick="setFilter('scope', 'estudo-pesquisa', this)">Ciência de Dados (4)</button>
+                            <button class="filter-btn" data-filter="scope" data-val="pessoal-profissional" onclick="setFilter('scope', 'pessoal-profissional', this)">Pessoal & EdTech (10)</button>
+                        </div>
+                    </div>
+
+                    <!-- Filtro por Elegibilidade EPROJ -->
+                    <div class="filter-row">
+                        <span class="filter-label">EPROJ:</span>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="eproj" data-val="all" onclick="setFilter('eproj', 'all', this)">Todos (44)</button>
+                            <button class="filter-btn" data-filter="eproj" data-val="eligible" onclick="setFilter('eproj', 'eligible', this)">Aptos para EPROJ / SMS (21)</button>
+                            <button class="filter-btn" data-filter="eproj" data-val="not-eligible" onclick="setFilter('eproj', 'not-eligible', this)">Uso Interno / Pessoal (23)</button>
+                        </div>
+                    </div>
+
+                    <!-- Filtro por Status -->
+                    <div class="filter-row">
+                        <span class="filter-label">Status:</span>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="status" data-val="all" onclick="setFilter('status', 'all', this)">Todos</button>
+                            <button class="filter-btn" data-filter="status" data-val="prod" onclick="setFilter('status', 'prod', this)">Em Produção / Em Uso</button>
+                            <button class="filter-btn" data-filter="status" data-val="delivered" onclick="setFilter('status', 'delivered', this)">Concluído / Entregue</button>
+                            <button class="filter-btn" data-filter="status" data-val="dev" onclick="setFilter('status', 'dev', this)">Em Desenvolvimento</button>
+                            <button class="filter-btn" data-filter="status" data-val="study" onclick="setFilter('status', 'study', this)">Estudo Preliminar</button>
+                        </div>
+                    </div>
+
+                    <!-- Filtro por Presença de Fonte -->
+                    <div class="filter-row">
+                        <span class="filter-label">Fonte:</span>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="source" data-val="all" onclick="setFilter('source', 'all', this)">Todas as Fontes</button>
+                            <button class="filter-btn" data-filter="source" data-val="has_index" onclick="setFilter('source', 'has_index', this)">No Index AGY (18)</button>
+                            <button class="filter-btn" data-filter="source" data-val="has_cms" onclick="setFilter('source', 'has_cms', this)">Na Conta CMSMOC (19)</button>
+                            <button class="filter-btn" data-filter="source" data-val="has_pes" onclick="setFilter('source', 'has_pes', this)">Na Conta Pessoal (27)</button>
+                            <button class="filter-btn" data-filter="source" data-val="divergence" onclick="setFilter('source', 'divergence', this)">Com Divergência (4)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toolbar: Contador e Alternador de Visão -->
+            <div class="catalog-toolbar">
+                <div class="catalog-counter">
+                    Exibindo <strong id="visible-count">44</strong> de 44 iniciativas consolidadas
+                </div>
+                <div class="view-switch">
+                    <button id="btn-view-grid" class="view-btn active" onclick="switchView('grid')">
+                        ▦ Grade Bento
+                    </button>
+                    <button id="btn-view-table" class="view-btn" onclick="switchView('table')">
+                        ≡ Tabela Técnica
+                    </button>
+                </div>
+            </div>
+
+            <!-- Container dos Cards (Grade) -->
+            <div id="initiatives-grid" class="initiatives-grid">
+                <!-- Renderizado via JS -->
+            </div>
+
+            <!-- Container da Tabela Técnica (Alternativa) -->
+            <div id="initiatives-table-container" class="initiatives-table-container">
+                <table class="initiatives-table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Iniciativa & Objetivo</th>
+                            <th>Escopo</th>
+                            <th>Status</th>
+                            <th>Fontes</th>
+                            <th>EPROJ</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="initiatives-table-body">
+                        <!-- Renderizado via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 4: GOVERNANÇA, MATRIZ DE RISCOS E RECURSOS
+             ========================================================================== -->
+        <section id="governanca" style="margin-bottom: 3.5rem;">
+            <div class="section-header">
+                <span class="section-tag">Sustentabilidade & Alinhamento Estratégico</span>
+                <h2 class="section-title">Governança, Riscos e Recursos Consolidados</h2>
+                <p class="section-desc">
+                    Matriz unificada dos 11 riscos institucionais identificados nas contas de IA, com planos de mitigação e quadro de indicadores (KPIs).
+                </p>
+            </div>
+
+            <div class="governance-grid">
+                <!-- Card de Recursos Consolidados -->
+                <div class="gov-card">
+                    <h3 class="gov-card-title">💼 Recursos & Infraestrutura</h3>
+                    <div style="font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <div>
+                            <strong style="color: var(--cms-navy); display: block;">Recursos Humanos:</strong>
+                            <p style="color: var(--cms-muted);">Alexandre Dourado (gestor, analista, desenvolvedor e operador) em conjunto com o suporte operacional da Secretaria Executiva do CMSMOC.</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--cms-navy); display: block;">Stack Tecnológica Consolidada:</strong>
+                            <p style="color: var(--cms-muted);">Google Workspace (Sheets, Docs, Forms, GAS), DuckDB (banco colunar de alta performance), Python 3.12, GitHub Pages, Vanilla Web (HTML5/CSS3/ES6).</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--cms-navy); display: block;">Modelo Financeiro:</strong>
+                            <p style="color: var(--cms-green); font-weight: 700;">Custo Zero Direto</p>
+                            <p style="color: var(--cms-muted);">Aproveitamento integral de licenças públicas existentes e ferramentas gratuitas de código aberto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card de Indicadores Recomendados -->
+                <div class="gov-card">
+                    <h3 class="gov-card-title">📈 7 Indicadores Recomendados (KPIs)</h3>
+                    <div style="display: flex; flex-direction: column;">
+                        <div class="kpi-item">
+                            <span class="kpi-title">Reuniões e atas publicadas via sistema</span>
+                            <span class="kpi-meta">100% sessões</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-title">Tempo médio publicação da ata</span>
+                            <span class="kpi-meta">≤ 5 dias úteis</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-title">Presença registrada digitalmente</span>
+                            <span class="kpi-meta">≥ 85% conselho</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-title">POPs implantados e revisados</span>
+                            <span class="kpi-meta">15 POPs ativos</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-title">Cadeiras do CMS preenchidas</span>
+                            <span class="kpi-meta">100% (32 vagas)</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-title">Metas hospitalares SUS analisadas</span>
+                            <span class="kpi-meta">100% quadrimestres</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-title">Acervo documental digitalizado</span>
+                            <span class="kpi-meta">> 1.200 atos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabela dos 11 Riscos Integrados -->
+            <div class="gov-card">
+                <h3 class="gov-card-title">🛡️ Matriz Consolidada de Riscos & Mitigação (11 Riscos)</h3>
+                <div style="overflow-x: auto;">
+                    <table class="risks-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Risco Mapeado</th>
+                                <th>Categoria</th>
+                                <th>Severidade</th>
+                                <th>Plano de Mitigação Implementado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="risks-table-body">
+                            <!-- Renderizado via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 5: POSICIONAMENTO PROFISSIONAL E TRANSIÇÃO
+             ========================================================================== -->
+        <section style="background: var(--cms-white); border: 1px solid var(--cms-border); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 2.5rem;">
+            <div class="section-header">
+                <span class="section-tag">Análise Estratégica de Competências</span>
+                <h2 class="section-title">Posicionamento de Alexandre Dourado no Contexto da SMS</h2>
+                <p class="section-desc">
+                    A consolidação das 44 iniciativas evidencia um perfil profissional singular de transição: unindo a vivência técnica do controle social do SUS à capacidade de arquitetar ecossistemas digitais ágeis.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: var(--cms-off); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--cms-navy);">
+                    <h4 style="font-family: var(--font-display); color: var(--cms-navy); font-size: 1rem; margin-bottom: 0.5rem;">1. Arquiteto de Soluções em Saúde</h4>
+                    <p style="font-size: 0.85rem; color: var(--cms-muted); line-height: 1.5;">Capacidade de transformar portarias e processos burocráticos complexos em ferramentas digitais autônomas, de baixo custo e alta usabilidade.</p>
+                </div>
+                <div style="background: var(--cms-off); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--cms-blue);">
+                    <h4 style="font-family: var(--font-display); color: var(--cms-blue); font-size: 1rem; margin-bottom: 0.5rem;">2. Analista de Dados & Inteligência SUS</h4>
+                    <p style="font-size: 0.85rem; color: var(--cms-muted); line-height: 1.5;">Domínio de pipelines analíticos rápidos em DuckDB e Python para cruzamento de dados de metas hospitalares, orçamentos e relatórios de gestão (RDQA).</p>
+                </div>
+                <div style="background: var(--cms-off); padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--cms-green);">
+                    <h4 style="font-family: var(--font-display); color: var(--cms-green); font-size: 1rem; margin-bottom: 0.5rem;">3. Especialista em IA Generativa Aplicada</h4>
+                    <p style="font-size: 0.85rem; color: var(--cms-muted); line-height: 1.5;">Pioneirismo no uso de agentes autônomos locais (AGY CLI), engenharia de contexto e prompts para elaboração de minutas de resoluções e sínteses de reuniões.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal / Drawer de Detalhamento Rico -->
+    <div id="initiative-modal" class="modal-backdrop" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap;">
+                        <span id="m-code" class="init-code-badge" style="background: rgba(255,255,255,0.2); color: #fff; border: none;"></span>
+                        <span id="m-status" class="init-status-badge"></span>
+                        <span id="m-scope" class="badge-pill badge-pill-blue" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;"></span>
+                    </div>
+                    <h2 id="m-title" style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; line-height: 1.25;"></h2>
+                </div>
+                <button class="modal-close-btn" onclick="closeModal()">×</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Visão Executiva -->
+                <div>
+                    <h4 class="modal-section-title">📌 Resumo Executivo & Justificativa</h4>
+                    <p id="m-desc" style="font-size: 0.95rem; color: var(--cms-ink); line-height: 1.6; margin-bottom: 0.8rem;"></p>
+                    <div class="modal-field-grid">
+                        <div class="modal-field">
+                            <span class="modal-field-label">Objetivo Estratégico</span>
+                            <span id="m-objective" class="modal-field-value"></span>
+                        </div>
+                        <div class="modal-field">
+                            <span class="modal-field-label">Enquadramento EPROJ</span>
+                            <span id="m-eproj-cat" class="modal-field-value"></span>
+                        </div>
+                        <div class="modal-field">
+                            <span class="modal-field-label">Equipe Responsável</span>
+                            <span id="m-team" class="modal-field-value"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tecnologias e Stack -->
+                <div>
+                    <h4 class="modal-section-title">💻 Arquitetura & Tecnologias</h4>
+                    <div id="m-techs" style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;"></div>
+                </div>
+
+                <!-- Módulos & Entregas -->
+                <div id="m-modules-container">
+                    <h4 class="modal-section-title">📦 Módulos & Entregas Concretas</h4>
+                    <ul id="m-modules-list" class="modal-list"></ul>
+                </div>
+
+                <!-- Métricas & Resultados -->
+                <div id="m-metrics-container">
+                    <h4 class="modal-section-title">📊 Métricas, Resultados & Impacto</h4>
+                    <ul id="m-metrics-list" class="modal-list"></ul>
+                </div>
+
+                <!-- Lições Aprendidas & Decisões (do JSON Pessoal) -->
+                <div id="m-lessons-container">
+                    <h4 class="modal-section-title">💡 Lições Aprendidas & Decisões Técnicas</h4>
+                    <div id="m-lessons-content" style="font-size: 0.88rem; color: var(--cms-muted); line-height: 1.5;"></div>
+                </div>
+
+                <!-- Auditoria de Fontes e Divergências -->
+                <div>
+                    <h4 class="modal-section-title">⚖️ Rastreabilidade de Fontes & Auditoria</h4>
+                    <div id="m-audit-content" style="background: var(--cms-off); border: 1px solid var(--cms-border); border-radius: var(--radius-sm); padding: 0.9rem; font-size: 0.85rem;"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="copyInitiativeText()">📋 Copiar Ficha em Texto</button>
+                <button class="btn btn-primary" onclick="closeModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Institucional -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <span class="footer-brand">EPROJ · Escritório de Projetos da Secretaria Municipal de Saúde</span>
+                <p style="margin-top: 0.25rem;">Montes Claros, Minas Gerais · Gestão SUS 2026</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #64748B;">Documento consolidado unificado · Desenvolvido sob o CMSMOC Design System v5.0</p>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="index.html" style="color: var(--cms-yellow); font-weight: 700;">Ver Diagnóstico Original (index.html)</a>
+                <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Topo</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dados Embutidos & Script de Interatividade -->
+    <script>
+        const MASTER_CATALOG = [{"id": "sgd-cms", "code": "PRJ-001", "name": "CMS Inteligente e Sistema de Gestão Digital (SGD 2.0)", "aliases": ["SGD-CMS", "Sistema de Gestão Documental"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [{"tipo": "Nome e Granularidade", "descricao": "Index: 'CMS Inteligente e Sistema de Gestão Digital (SGD 2.0)' vs CMSMOC: 'SGD-CMS — Sistema de Gestão Documental'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["Google Apps Script", "Sheets", "Docs API", "Astro", "Vercel", "Google Sheets", "PWA"], "description": "Conecta a base de dados central do Google Sheets aos geradores de documentos e registros de presenças. Em operação há mais de 12 meses.", "objective": "Plataforma central integradora de rotinas administrativas, quórum de conselheiros e tramitação de deliberações do controle social.", "modules": ["Reuniões e Atas", "Pessoas", "Declarações", "Documentos Oficiais", "Acervo Documental"], "deliveries": ["PWA com 5 módulos"], "metrics": ["Rastreabilidade, padronização e acesso rápido ao acervo (esperado)"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-001", "name": "CMS Inteligente e Sistema de Gestão Digital (SGD 2.0)", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "Google Apps Script, Sheets, Docs API", "objective": "Plataforma central integradora de rotinas administrativas, quórum de conselheiros e tramitação de deliberações do controle social.", "details": "Conecta a base de dados central do Google Sheets aos geradores de documentos e registros de presenças. Em operação há mais de 12 meses."}, "cmsmoc_status": "Em desenvolvimento", "pessoal_status": "", "confianca": "alta"}}, {"id": "autodoc", "code": "PRJ-002", "name": "AutoDoc Atos Oficiais e Resolutivas", "aliases": ["AutoDoc"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["Google Apps Script V8", "Google Docs API", "Google Apps Script", "PropertiesService", "ScriptApp triggers", "WebApp (HTML Service)"], "description": "Elimina erros materiais e passivo de atos do conselho, garantindo aderência estrita aos padrões de publicação no Diário Oficial.", "objective": "Geração instantânea e padronizada de resoluções, moções e portarias a partir de modelos tipográficos homologados.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-002", "name": "AutoDoc Atos Oficiais e Resolutivas", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "Google Apps Script V8, Google Docs API", "objective": "Geração instantânea e padronizada de resoluções, moções e portarias a partir de modelos tipográficos homologados.", "details": "Elimina erros materiais e passivo de atos do conselho, garantindo aderência estrita aos padrões de publicação no Diário Oficial."}, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento e uso (inferido)", "confianca": "media"}}, {"id": "sgd-oficios", "code": "PRJ-008", "name": "Sistema de Assinatura e Expedição de Ofícios", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}], "divergences": [], "has_divergence": false, "technologies": ["Google Sheets", "Apps Script", "Drive API"], "description": "Garante rastreabilidade total de entradas e saídas de comunicações entre o CMS e o Poder Executivo.", "objective": "Controle de numeração sequencial, despacho e coleta de assinaturas digitais de ofícios e comunicações formais.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": "Alexandre Dourado (Desenvolvedor e Gestor)", "audit": {"index_entry": {"id": "PRJ-008", "name": "Sistema de Assinatura e Expedição de Ofícios", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "Google Sheets, Apps Script, Drive API", "objective": "Controle de numeração sequencial, despacho e coleta de assinaturas digitais de ofícios e comunicações formais.", "details": "Garante rastreabilidade total de entradas e saídas de comunicações entre o CMS e o Poder Executivo."}, "cmsmoc_status": "", "pessoal_status": "", "confianca": "alta"}}, {"id": "sidebar-gas-redacao-atas", "code": "PRJ-005", "name": "Ata-Builder CMSMOC", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["Python", "Whisper ASR", "LLMs", "Apps Script", "Google Apps Script", "Google Docs (inferido)"], "description": "Reduz o tempo de confecção de atas de semanas para horas com rigor terminológico e conformidade jurídica.", "objective": "Pipeline automatizado de redação e compilação de atas de plenárias a partir de listas nominais, pautas e áudios de reunião.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-005", "name": "Ata-Builder CMSMOC", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "Python, Whisper ASR, LLMs, Apps Script", "objective": "Pipeline automatizado de redação e compilação de atas de plenárias a partir de listas nominais, pautas e áudios de reunião.", "details": "Reduz o tempo de confecção de atas de semanas para horas com rigor terminológico e conformidade jurídica."}, "cmsmoc_status": "", "pessoal_status": "Desconhecido", "confianca": "baixa"}}, {"id": "meeting-extractor-agy-skill", "code": "PRJ-019", "name": "Skill meeting-extractor (AGY CLI)", "aliases": ["meeting-extractor", "agente meeting-extractor"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC Operacional", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["AGY CLI", "Python", "YAML", "JSON"], "description": "Skill do AGY CLI que lê convocações, atas e materiais em formatos variados (PDF, HTML, TXT, MD, DOCX) e gera um registro canônico estruturado reuniao-*.yaml, com validação e saída importável no app CMSMOC Reuniões.", "objective": "Automatizar a entrada de dados históricos: extrair local, data, hora, pautas, deliberações, encaminhamentos e presenças sem preencher lacunas por suposição.", "modules": [], "deliveries": ["SKILL.md", "references/schema.md (registro canônico, versão 1)", "scripts/extrair_texto.py", "scripts/validar_e_renderizar.py", "exemplos/reuniao-470.minimo.yaml"], "metrics": [{"indicador": "caracteres extraídos (ata 470ª ROP)", "valor": 16322}], "lessons_learned": [], "decisions": [], "timeline": [{"data": "2026-10-16", "evento": "Ficha técnica (PDR v0.3) cita a skill como iteração 4 entregue"}], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Entregue — sem validação ponta a ponta", "confianca": "alta"}}, {"id": "manual-fluxos-pops", "code": "PRJ-020", "name": "Manual de Fluxos — 15 POPs", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": [], "description": "Manual de Fluxos que sistematiza os processos institucionais do CMS-MOC em 15 Procedimentos Operacionais Padrão (POPs).", "objective": "Padronizar os processos institucionais do CMS-MOC.", "modules": [], "deliveries": ["15 POPs"], "metrics": ["Rotinas padronizadas", "Base para automação", "Modelo aplicável a outros setores"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Entregue", "pessoal_status": "", "confianca": "media"}}, {"id": "protecao-institucional-secretaria-executiva", "code": "PRJ-021", "name": "Materiais de proteção jurídico-institucional da Secretaria Executiva («Projeto Secretaria Desinvisível»)", "aliases": ["Projeto Secretaria Desinvisível"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC Operacional", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": [], "description": "Conjunto de materiais que fundamentam a autonomia da Secretaria Executiva na Lei 8.142/1990 e no Regimento Interno: guia de navegação política, estratégia de visibilidade institucional, caminhos formais de escalonamento (MP, CNS, Controladoria/TCE) e manual de literatura clássica sobre poder com limites éticos explícitos.", "objective": "Embasar juridicamente a posição institucional da Secretaria Executiva e sua visibilidade.", "modules": [], "deliveries": ["Guia de navegação política", "Estratégia de visibilidade institucional («Projeto Secretaria Desinvisível»)", "Fluxos de escalonamento formal (MP, CNS, Controladoria/TCE)", "Manual de literatura clássica sobre poder"], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Entregue (inferido)", "confianca": "media"}}, {"id": "framework-sertao-conselheiro", "code": "PRJ-022", "name": "Framework Sertão Conselheiro", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["Google Workspace"], "description": "Infraestrutura de tecnologia cívica e sistema manual prático para conselheiros de saúde sem perfil técnico conduzirem reuniões, atas, declarações e acompanhamento de solicitações usando apenas ferramentas do Google Workspace.", "objective": "Reduzir a barreira tecnológica dos conselheiros e padronizar a gestão de reuniões, atas, declarações e solicitações.", "modules": [], "deliveries": ["Infraestrutura cívica", "Manual de uso do sistema manual"], "metrics": ["Método replicável de gestão do controle social", "Menor barreira tecnológica para conselheiros"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Em desenvolvimento e uso", "pessoal_status": "", "confianca": "alta"}}, {"id": "sertao-conselheiro-app", "code": "PRJ-003", "name": "SerTão Conselheiro PWA", "aliases": ["CMS-MOC app", "app CMS-MOC", "SerTão Conselheiro", "CMS Docs", "CMS document system"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [{"tipo": "Elegibilidade EPROJ", "descricao": "Conta CMSMOC marcou elegível (True) enquanto Conta Pessoal marcou não elegível (False).", "resolucao": "Conciliado como Elegível devido ao impacto direto nas rotinas do órgão."}, {"tipo": "Status Operacional", "descricao": "CMSMOC: 'Entregue; predecessor do Framework' vs Pessoal: 'Em desenvolvimento e uso (inferido)'.", "resolucao": "Adotado status consolidado 'Concluído / Entregue' baseado na evidência de uso contínuo."}, {"tipo": "Nome e Granularidade", "descricao": "Index: 'SerTão Conselheiro PWA' vs CMSMOC: 'SerTão Conselheiro (antigo app CMS-MOC)'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["React", "Next.js 14", "Tailwind", "PWA", "GitHub Pages", "Google Apps Script", "Google Apps Script (GAS)", "Google Sheets", "Google Drive", "GitHub (organização cmsmoc)", "OneSignal"], "description": "Interface leve e intuitiva adaptada para telas móveis com suporte offline e envio de alertas aos conselheiros.", "objective": "Aplicativo móvel progressivo para conselheiros com pautas, confirmação de presença, atas e notificações institucionais.", "modules": [], "deliveries": ["Plataforma web de reuniões"], "metrics": [{"indicador": "versão", "valor": "3.2"}, {"indicador": "endpoints de API", "valor": 42}, {"indicador": "slides da apresentação plenária", "valor": 47}], "lessons_learned": [], "decisions": ["Deploys do GAS devem sempre usar «Nova versão», nunca nova implantação", "Índices de coluna são base-0 e fixos no código"], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-003", "name": "SerTão Conselheiro PWA", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "proto", "statusLabel": "Protótipo / Piloto", "stack": "React, Next.js 14, Tailwind, PWA", "objective": "Aplicativo móvel progressivo para conselheiros com pautas, confirmação de presença, atas e notificações institucionais.", "details": "Interface leve e intuitiva adaptada para telas móveis com suporte offline e envio de alertas aos conselheiros."}, "cmsmoc_status": "Entregue; predecessor do Framework", "pessoal_status": "Em desenvolvimento e uso (inferido)", "confianca": "alta"}}, {"id": "cmsmoc-reunioes", "code": "PRJ-007", "name": "Portal Institucional CMSMOC e Hub de Reuniões", "aliases": ["CMSMOC REUNIÕES", "assistente offline de atas"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["JAMstack", "Vercel", "GitHub Pages", "HTML/JS", "JavaScript puro (arquivo único)", "IndexedDB (banco cmsmoc, 7 stores)", "Service Worker", "PWA", "Python http.server (execução local)"], "description": "Disponibiliza transmissões, convocações, pautas, atas aprovadas e listas de presença para acesso da sociedade e órgãos de controle.", "objective": "Canal público oficial de transparência ativa do Conselho Municipal de Saúde de Montes Claros (cmsmoc.com).", "modules": ["Reuniões", "Busca", "Histórico", "Conselheiros", "Importar presença", "Ata", "Backup"], "deliveries": ["App v3 em pasta (index.html ~35 KB, manifest.json, sw.js, icon.svg, LEIA-ME.md)", "Ficha Técnica PDR v0.3 (16/10/2026)", "PDR completo em vários arquivos .md (planejado)"], "metrics": [{"indicador": "reuniões por ano (estimado pelo responsável)", "valor": "~30"}, {"indicador": "iterações de entrega registradas", "valor": 4}], "lessons_learned": ["App entregue em JS puro por limite de entrega, divergindo da stack pedida", "Entrada por caixas de diálogo é pouco amigável para um conselho heterogêneo"], "decisions": ["Integração por coexistência: Presença segue coletando; o PWA vira base relacional e importa (17/10/2026)", "Uso só pessoal", "Formulário público de presença continua", "Cadeira com titular e suplente presentes: o titular vota", "Quórum de um terço é apenas de deliberação", "Stack React + TypeScript + Vite", "PDR em vários arquivos .md", "Mandato é da entidade; substituto entra com nova data de entrada e o fim permanece", "Faltas: contabilizar por conselheiro (principalmente seguidas e sem justificativa); alertas caso a caso", "Documentos do conselho separados dos do 1DOC; declarações de presença seguem com template externo do Google Docs"], "timeline": [{"data": "2026-10-07", "evento": "470ª ROP usada como base documental (convocação em PDF e ata em HTML)"}, {"data": "2026-10-16", "evento": "Ficha Técnica PDR v0.3 publicada"}, {"data": "2026-10-17", "evento": "Decisões de alinhamento (coexistência com o módulo Presença, uso pessoal, stack React/TS/Vite, PDR em vários .md)"}, {"data": "2026-11-04", "evento": "Próxima reunião, candidata a piloto (data prevista)"}], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-007", "name": "Portal Institucional CMSMOC e Hub de Reuniões", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "JAMstack, Vercel, GitHub Pages, HTML/JS", "objective": "Canal público oficial de transparência ativa do Conselho Municipal de Saúde de Montes Claros (cmsmoc.com).", "details": "Disponibiliza transmissões, convocações, pautas, atas aprovadas e listas de presença para acesso da sociedade e órgãos de controle."}, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento — Fase 1 parcial; piloto previsto", "confianca": "alta"}}, {"id": "painel-comunicacao-kanban-calendario", "code": "PRJ-006", "name": "Painel Integrado da Secretaria Executiva", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["HTML5", "CSS Vanilla", "JavaScript", "Sheets"], "description": "Painel de controle de rotina utilizado diariamente na Secretaria Executiva do Conselho.", "objective": "Dashboard operacional para acompanhamento de prazos regimentais, correspondências expedidas e pautas pendentes.", "modules": ["Kanban", "Calendário"], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-006", "name": "Painel Integrado da Secretaria Executiva", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "HTML5, CSS Vanilla, JavaScript, Sheets", "objective": "Dashboard operacional para acompanhamento de prazos regimentais, correspondências expedidas e pautas pendentes.", "details": "Painel de controle de rotina utilizado diariamente na Secretaria Executiva do Conselho."}, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento e uso (inferido)", "confianca": "baixa"}}, {"id": "portal-secretaria-executiva-github-pages", "code": "PRJ-023", "name": "Portal da Secretaria Executiva no GitHub Pages (organização cmsmoc)", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC Operacional", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["GitHub", "GitHub Pages", "HTML/CSS/JS"], "description": "Portal publicado em GitHub Pages sob a organização cmsmoc (cmsmoc.github.io/secretariaexecutiva), que hospeda logos e o portal da 11ª Conferência; repositório cmsmoc/site será tornado privado.", "objective": null, "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": ["Repositório cmsmoc/site será tornado privado (17/10/2026)"], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Em uso (inferido)", "confianca": "baixa"}}, {"id": "consolidacao-arquitetura-informacao-cmsmoc", "code": "PRJ-004", "name": "Central CMS Relacional", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["Next.js 14", "SQLite / Prisma", "Sheets"], "description": "Resolve a fragmentação de cadastros com rastreabilidade histórica de mandatos desde a 1ª até a atual composição.", "objective": "Estruturação relacional de mandatos, entidades representadas, titularidades e histórico de deliberações do colegiado.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-004", "name": "Central CMS Relacional", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "Next.js 14, SQLite / Prisma, Sheets", "objective": "Estruturação relacional de mandatos, entidades representadas, titularidades e histórico de deliberações do colegiado.", "details": "Resolve a fragmentação de cadastros com rastreabilidade histórica de mandatos desde a 1ª até a atual composição."}, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento", "confianca": "media"}}, {"id": "modulo-presenca-cmsmoc", "code": "PRJ-015", "name": "Gerador de Convocações e Declarações", "aliases": ["Presença", "Módulo de Presença", "Presença CMSMOC"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["Google Apps Script", "Gmail API", "Sheets", "Google Sheets", "Google Docs (template)"], "description": "Dispara centenas de e-mails formais com controle de confirmação e geração automatizada de certificados e declarações.", "objective": "Automação de envio personalizado de convocações com pautas e emissão em lote de declarações de presença para conselheiros.", "modules": ["CONSELHEIROS", "LISTA", "HISTORICO", "ADMIN", "LOG", "ESTATISTICAS"], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": ["Dados cadastrais sensíveis saem da matriz e não devem aparecer em lugar nenhum"], "timeline": [{"data": "2026-05-01", "evento": "Aba de arquivo do Presença existe desde 05/2026 (mês; dia não informado)"}], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-015", "name": "Gerador de Convocações e Declarações", "cat": "cat-b", "catLabel": "Categoria B · CMSMOC", "status": "prod", "statusLabel": "Em Produção", "stack": "Google Apps Script, Gmail API, Sheets", "objective": "Automação de envio personalizado de convocações com pautas e emissão em lote de declarações de presença para conselheiros.", "details": "Dispara centenas de e-mails formais com controle de confirmação e geração automatizada de certificados e declarações."}, "cmsmoc_status": "", "pessoal_status": "Em uso", "confianca": "media"}}, {"id": "recomposicao-cms-formularios", "code": "PRJ-024", "name": "Sistema de inscrição da recomposição do CMSMOC (2026–2029)", "aliases": ["inscricao-cls-recomposicao", "form-entidades", "form-inscricao-documental"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC Operacional", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["HTML", "Google Apps Script", "Google Sheets"], "description": "Sistema de três formulários (CLS, entidades e inscrição documental) ligados a backend GAS, com roteamento para abas de planilha e protocolos automáticos (CLS-, ENT-, INSC-), para a recomposição do Conselho no ciclo 2026–2029.", "objective": "Gerir o processo de recomposição do Conselho com registro estruturado e protocolos.", "modules": [], "deliveries": ["inscricao-cls-recomposicao.html", "form-entidades.html", "form-inscricao-documental.html"], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Entregue (inferido)", "confianca": "media"}}, {"id": "recomposicao-cms-dashboards", "code": "PRJ-025", "name": "Dashboards da Recomposição do CMS", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["HTML"], "description": "Dashboards HTML para acompanhar o processo de reconstituição do Conselho: cadeiras, titulares e suplentes, mandatos e segmentos.", "objective": "Acompanhar a reconstituição do Conselho.", "modules": [], "deliveries": ["Dashboards de cadeiras, representantes e mandatos por segmento"], "metrics": ["Visão consolidada da composição e das pendências de representação"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Em uso", "pessoal_status": "", "confianca": "media"}}, {"id": "conferencia-11-sistema", "code": "PRJ-011", "name": "Aglutinador Inteligente da 11ª Conferência de Saúde", "aliases": ["Sistema 11ª Conferência", "ATA-PRÉ-CONF 001–009/2026", "MODELO PADRÃO 1 — Ata Pré-Conferência 11ª CMS"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria C · Interface EPROJ", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [{"tipo": "Elegibilidade EPROJ", "descricao": "Conta CMSMOC marcou elegível (True) enquanto Conta Pessoal marcou não elegível (False).", "resolucao": "Conciliado como Elegível devido ao impacto direto nas rotinas do órgão."}, {"tipo": "Status Operacional", "descricao": "CMSMOC: 'Concluído' vs Pessoal: 'Realizada (evento de 22–24/04/2026)'.", "resolucao": "Adotado status consolidado 'Concluído / Entregue' baseado na evidência de uso contínuo."}, {"tipo": "Nome e Granularidade", "descricao": "Index: 'Aglutinador Inteligente da 11ª Conferência de Saúde' vs CMSMOC: 'Sistema da 11ª Conferência Municipal de Saúde'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["Python NLP", "TF-IDF", "Google Docs API", "Google Apps Script", "Google Sheets", "HTML", "Google Forms", "GitHub Pages", "HTML/CSS"], "description": "Eliminou redundâncias de propostas comunitárias e estruturou o Caderno Final da 11ª Conferência Municipal de Saúde.", "objective": "Clusterização semântica e consolidação das 328 propostas oriundas das 9 etapas pré-conferências municipais.", "modules": [], "deliveries": ["Sistema de gestão da conferência", "13 atas oficiais em HTML"], "metrics": [{"indicador": "registros de delegados (dataset cumulativo)", "valor": 133}, {"indicador": "propostas", "valor": 328}, {"indicador": "atas pré-conferência", "valor": 9}], "lessons_learned": [], "decisions": ["Identidade da conferência: tipografia Georama, azul-sus #1A5EA8, verde-sus #3AAA35, amarelo #F5C800, ondas em gradiente"], "timeline": [{"data": "2026-04-22", "evento": "Início da 11ª Conferência Municipal de Saúde"}, {"data": "2026-04-24", "evento": "Término da conferência"}], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-011", "name": "Aglutinador Inteligente da 11ª Conferência de Saúde", "cat": "cat-c", "catLabel": "Categoria C · Interface EPROJ", "status": "prod", "statusLabel": "Concluído / Acervo", "stack": "Python NLP, TF-IDF, Google Docs API", "objective": "Clusterização semântica e consolidação das 328 propostas oriundas das 9 etapas pré-conferências municipais.", "details": "Eliminou redundâncias de propostas comunitárias e estruturou o Caderno Final da 11ª Conferência Municipal de Saúde."}, "cmsmoc_status": "Concluído", "pessoal_status": "Realizada (evento de 22–24/04/2026)", "confianca": "alta"}}, {"id": "hub-edital-11-2026", "code": "PRJ-012", "name": "Programa de Incentivo aos Conselhos Locais (Edital 11/MS)", "aliases": ["Chamamento Público nº 11/2026", "Edital GM/MS nº 11.485/2026", "Proposta CLS", "Anexo VII", "Anexo VI Justificativa"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria C · Interface EPROJ", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [{"tipo": "Elegibilidade EPROJ", "descricao": "Conta CMSMOC marcou elegível (True) enquanto Conta Pessoal marcou não elegível (False).", "resolucao": "Conciliado como Elegível devido ao impacto direto nas rotinas do órgão."}, {"tipo": "Status Operacional", "descricao": "CMSMOC: 'Entregue' vs Pessoal: 'Em desenvolvimento (inferido)'.", "resolucao": "Adotado status consolidado 'Concluído / Entregue' baseado na evidência de uso contínuo."}, {"tipo": "Nome e Granularidade", "descricao": "Index: 'Programa de Incentivo aos Conselhos Locais (Edital 11/MS)' vs CMSMOC: 'Hub de Conhecimento — Edital nº 11/2026'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["Google Forms", "Sheets", "Material Pedagógico", "HTML", "CSS", "JavaScript", "DOCX", "HTML (dossiê)"], "description": "Proposta pronta para início alinhada ao repasse federal do Edital 11/MS em parceria com a Atenção Primária da SMS.", "objective": "Diagnóstico situacional e fortalecimento dos Conselhos Locais de Saúde nas Unidades Básicas de Saúde (UBS).", "modules": [], "deliveries": ["SPA com informações do edital", "Folha de estilo de impressão"], "metrics": [{"indicador": "metas", "valor": 25}, {"indicador": "eixos", "valor": 4}, {"indicador": "valor total", "valor": "R$ 89.300"}, {"indicador": "CLS ativos em Montes Claros", "valor": 12}, {"indicador": "regiões de saúde", "valor": 5}], "lessons_learned": [], "decisions": ["Pré-requisito eliminatório: Resolução do CMS instituindo os CLS conforme a Resolução CNS nº 714/2023"], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-012", "name": "Programa de Incentivo aos Conselhos Locais (Edital 11/MS)", "cat": "cat-c", "catLabel": "Categoria C · Interface EPROJ", "status": "prop", "statusLabel": "Proposta Estruturada", "stack": "Google Forms, Sheets, Material Pedagógico", "objective": "Diagnóstico situacional e fortalecimento dos Conselhos Locais de Saúde nas Unidades Básicas de Saúde (UBS).", "details": "Proposta pronta para início alinhada ao repasse federal do Edital 11/MS em parceria com a Atenção Primária da SMS."}, "cmsmoc_status": "Entregue", "pessoal_status": "Em desenvolvimento (inferido)", "confianca": "alta"}}, {"id": "pesquisas-comparadas", "code": "PRJ-014", "name": "Buscador Inteligente do Diário Oficial", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria C · Interface EPROJ", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [{"tipo": "Nome e Granularidade", "descricao": "Index: 'Buscador Inteligente do Diário Oficial' vs CMSMOC: 'Pesquisas comparadas (CMS de MG e atas institucionais)'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["Python", "BeautifulSoup", "Regex"], "description": "Monitoramento diário preventivo de atos do Executivo que demandam ciência ou deliberação do Conselho de Saúde.", "objective": "Robô de varredura e clipping automático de portarias, decretos e contratos de saúde publicados no Diário Oficial de Montes Claros.", "modules": [], "deliveries": ["Análise comparada de CMS de MG", "Estudo de atas institucionais"], "metrics": ["Modelos de ata", "Referências de boas práticas"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-014", "name": "Buscador Inteligente do Diário Oficial", "cat": "cat-c", "catLabel": "Categoria C · Interface EPROJ", "status": "proto", "statusLabel": "Protótipo Funcional", "stack": "Python, BeautifulSoup, Regex", "objective": "Robô de varredura e clipping automático de portarias, decretos e contratos de saúde publicados no Diário Oficial de Montes Claros.", "details": "Monitoramento diário preventivo de atos do Executivo que demandam ciência ou deliberação do Conselho de Saúde."}, "cmsmoc_status": "Concluído", "pessoal_status": "", "confianca": "media"}}, {"id": "dossie-portfolio-eproj", "code": "PRJ-018", "name": "Estruturação Metodológica do EPROJ / SMS", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria A · SMS Própria", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [{"tipo": "Nome e Granularidade", "descricao": "Index: 'Estruturação Metodológica do EPROJ / SMS' vs CMSMOC: 'Dossiê de Portfólio de Projetos do CMS-MOC para o EPROJ'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["PMO Framework", "Portaria SMS 28/2026", "Markdown", "HTML", "CSS", "JavaScript", "JSON"], "description": "Iniciativa central instituidora da Secretaria de Saúde que orienta o presente diagnóstico e o mapeamento de projetos da rede.", "objective": "Estruturação do Escritório de Projetos da Secretaria Municipal de Saúde para padronização, monitoramento e consolidação de recursos.", "modules": [], "deliveries": ["dossie-portfolio-cmsmoc-eproj.md", "dossie-portfolio-cmsmoc-eproj.html", "dossie-portfolio-cmsmoc-eproj-v5.html", "portfolio-cmsmoc.json"], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-018", "name": "Estruturação Metodológica do EPROJ / SMS", "cat": "cat-a", "catLabel": "Categoria A · SMS Própria", "status": "prop", "statusLabel": "Normatizado (Portaria 28)", "stack": "PMO Framework, Portaria SMS 28/2026", "objective": "Estruturação do Escritório de Projetos da Secretaria Municipal de Saúde para padronização, monitoramento e consolidação de recursos.", "details": "Iniciativa central instituidora da Secretaria de Saúde que orienta o presente diagnóstico e o mapeamento de projetos da rede."}, "cmsmoc_status": "Em elaboração", "pessoal_status": "", "confianca": "alta"}}, {"id": "design-system-cmsmoc-v5", "code": "PRJ-026", "name": "CMSMOC Design System v5.0 e comunicação institucional", "aliases": ["CMSMOC design system", "guia de design v5", "Design system institucional CMSMOC"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "prod", "status_label": "Em Produção / Em Uso", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [{"tipo": "Elegibilidade EPROJ", "descricao": "Conta CMSMOC marcou elegível (True) enquanto Conta Pessoal marcou não elegível (False).", "resolucao": "Conciliado como Elegível devido ao impacto direto nas rotinas do órgão."}], "has_divergence": true, "technologies": ["HTML", "CSS", "Montserrat", "Open Sans", "Georama", "HTML/CSS", "GitHub Pages (hospedagem de logos)"], "description": "Sistema oficial de design do CMS-MOC (guia HTML '_PADRAO_guia_design_v5.html'): tokens de cor e tipografia, ativos de marca, 7 tipos de documento, componentes, regras de scroll, impressão A4 e contraste, e checklist pré-entrega. Também reúne documentos estratégicos institucionais e versões para impressão em preto e branco.", "objective": "Unificar a identidade visual e os documentos estratégicos do Conselho.", "modules": [], "deliveries": ["Guia de design v5.0 em HTML", "Tokens em cmsmoc-tokens.json", "Diretrizes em cmsmoc-design-agent.md", "Documentos estratégicos institucionais", "Versão P&B de documento institucional"], "metrics": ["Marca consistente em todos os produtos", "Versões prontas para impressão"], "lessons_learned": [], "decisions": ["Caminho da logo padronizado para logo/logohwh.png", "Identidade segue Swiss design com as cores e a logo do Conselho"], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Em uso", "pessoal_status": "Em uso (inferido)", "confianca": "alta"}}, {"id": "gerador-cards-cms", "code": "PRJ-027", "name": "Gerador HTML de cards do CMS (estilo Promptologia)", "aliases": ["Cards CMS", "cards Promptologia CMS"], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC Operacional", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["HTML/CSS/JS"], "description": "Gerador HTML de cards para redes sociais, com a mesma lógica e mecânica do gerador da Promptologia, adaptado à identidade do CMS, com frases provocativas sobre o SUS e o controle social.", "objective": "Produzir cards de comunicação do Conselho de forma padronizada.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": ["Foco no visual (não no HTML do guia)", "Pedido: estética mais premium, leve textura, antialiasing máximo; sem quadradinhos coloridos; sem montanhas parecidas com gelo; elementos grandes como faixa atravessando o rodapé"], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento — 1ª versão recebeu feedback visual", "confianca": "media"}}, {"id": "serie-videos-curtos-cmsmoc", "code": "PRJ-016", "name": "Pipeline Audiovisual de Cortes de Reuniões", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria D · Estudo", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["FFmpeg", "Python", "Whisper ASR", "AGY CLI", "Instagram Reels"], "description": "Estudo de engenharia audiovisual para aumentar o engajamento da população e a transparência das discussões do SUS.", "objective": "Geração de recortes temáticos de deliberações e debates das plenárias para divulgação nas redes sociais e portal.", "modules": ["Esqueleto 1: Pergunta → Resposta direta → Contexto → Por que importa", "Esqueleto 2: Pergunta → Situação concreta → Mecanismo → Resposta consolidada", "Esqueleto 3: Pergunta → Mito/confusão comum → Correção → Explicação final"], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-016", "name": "Pipeline Audiovisual de Cortes de Reuniões", "cat": "cat-d", "catLabel": "Categoria D · Estudo", "status": "est", "statusLabel": "Estudo Preliminar", "stack": "FFmpeg, Python, Whisper ASR", "objective": "Geração de recortes temáticos de deliberações e debates das plenárias para divulgação nas redes sociais e portal.", "details": "Estudo de engenharia audiovisual para aumentar o engajamento da população e a transparência das discussões do SUS."}, "cmsmoc_status": "", "pessoal_status": "Em planejamento (inferido)", "confianca": "media"}}, {"id": "defesa-institucional-57-slides", "code": "PRJ-028", "name": "Apresentação de defesa institucional (57 slides)", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": [], "description": "Apresentação de 57 slides com defesa político-jurídica para documentação e sustentação de um processo institucional.", "objective": "Documentar e sustentar, em termos político-jurídicos, um processo institucional.", "modules": [], "deliveries": ["Apresentação de 57 slides"], "metrics": ["Peça de defesa e registro do processo"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Entregue", "pessoal_status": "", "confianca": "media"}}, {"id": "hub-educacional-cmsmoc", "code": "PRJ-029", "name": "Hub educacional do CMSMOC", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC Operacional", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": [], "description": "Hub educacional citado como parte do ecossistema digital fundacional do CMSMOC.", "objective": null, "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Desconhecido", "confianca": "baixa"}}, {"id": "oficina-dados-ia-saude-publica", "code": "PRJ-030", "name": "Oficina 'Dados, Conhecimento e IA na Saúde Pública'", "aliases": [], "scope": "cms-moc", "scope_label": "Controle Social / CMSMOC", "eproj_eligible": true, "eproj_category": "Categoria B · CMSMOC", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["HTML", "CSS", "JavaScript"], "description": "Apresentação HTML em slides para oficina apresentada em coautoria, com notas do apresentador, tipos de layout e painel (HUD) do apresentador.", "objective": "Formar profissionais e conselheiros em dados e IA aplicados à saúde pública.", "modules": [], "deliveries": ["Apresentação HTML com notas do apresentador"], "metrics": ["Oficina realizada em coautoria"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Realizada", "pessoal_status": "", "confianca": "media"}}, {"id": "metas-qualitativas", "code": "PRJ-010", "name": "Hub de Contratos e Metas Hospitalares do SUS", "aliases": [], "scope": "sms-correlato", "scope_label": "SMS Correlato / Gestão SUS", "eproj_eligible": true, "eproj_category": "Categoria C · Interface EPROJ", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [{"tipo": "Nome e Granularidade", "descricao": "Index: 'Hub de Contratos e Metas Hospitalares do SUS' vs CMSMOC: 'Portal Metas Qualitativas'.", "resolucao": "Ambas as nomenclaturas foram preservadas e correlacionadas por aliases."}], "has_divergence": true, "technologies": ["Node.js", "Google Drive API", "HTML5/CSS", "Google Apps Script", "PWA", "JSON"], "description": "Digitalização e controle de aditivos da Santa Casa, Dilson Godinho e Aroldo Tourinho. Prioridade crítica no EPROJ.", "objective": "Acompanhamento e auditoria dos contratos e cumprimento de metas físicas dos hospitais conveniados ao SUS.", "modules": [], "deliveries": ["Portal otimizado para celular", "Suporte PWA", "Exportação noturna em JSON"], "metrics": ["Acesso simples ao monitoramento de metas", "Cópia diária dos dados"], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-010", "name": "Hub de Contratos e Metas Hospitalares do SUS", "cat": "cat-c", "catLabel": "Categoria C · Interface EPROJ", "status": "proto", "statusLabel": "Protótipo Funcional", "stack": "Node.js, Google Drive API, HTML5/CSS", "objective": "Acompanhamento e auditoria dos contratos e cumprimento de metas físicas dos hospitais conveniados ao SUS.", "details": "Digitalização e controle de aditivos da Santa Casa, Dilson Godinho e Aroldo Tourinho. Prioridade crítica no EPROJ."}, "cmsmoc_status": "Entregue", "pessoal_status": "", "confianca": "alta"}}, {"id": "rdqa-2o-quadrimestre-2026", "code": "PRJ-031", "name": "Análise do 2º RDQA/2026 (leitura técnica e questionamentos do conselheiro)", "aliases": [], "scope": "sms-correlato", "scope_label": "SMS Correlato / Gestão SUS", "eproj_eligible": true, "eproj_category": "Categoria C · Interface SMS", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["HTML/CSS (arquivos únicos)"], "description": "Dois documentos para a reunião do Conselho com a Comissão de Avaliação e a gestão da SMS sobre o Relatório Detalhado do Quadrimestre Anterior do 2º quadrimestre de 2026: uma leitura técnica por 35 áreas temáticas e uma sistematização de 12 questionamentos de um conselheiro, cruzados com a planilha da SMS e prontos para leitura em ata.", "objective": "Subsidiar o controle social do Plano Anual de Saúde com leitura técnica e perguntas objetivas à gestão.", "modules": ["Resumo geral", "Painel por área temática (35)", "Pontos de atenção e perguntas diretas à SMS", "12 pontos do conselheiro: 9 esclarecidos, 3 lacunas do plano, 1 elogio"], "deliveries": ["Leitura técnica do 2º RDQA/2026 (HTML)", "Questionamentos do Conselheiro (HTML, 12 cartões com pergunta sugerida)"], "metrics": [{"indicador": "áreas temáticas", "valor": 35}, {"indicador": "ações/indicadores pactuados 2026", "valor": 263}, {"indicador": "com dado lançado no 2º RDQA", "valor": 199}, {"indicador": "sem dado/não aplicável", "valor": 64}, {"indicador": "declaradas meta alcançada", "valor": 66}, {"indicador": "declaradas meta não alcançada", "valor": 13}, {"indicador": "obras concluídas e entregues", "valor": "2 de 29"}, {"indicador": "obras em licitação", "valor": "10 de 29"}, {"indicador": "pontos do conselheiro", "valor": 12}], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Entregue (artefatos publicados em 2026-09-21)", "confianca": "alta"}}, {"id": "rdqa-emendas", "code": "PRJ-009", "name": "Dashboard de Emendas Parlamentares da Saúde", "aliases": [], "scope": "sms-correlato", "scope_label": "SMS Correlato / Gestão SUS", "eproj_eligible": true, "eproj_category": "Categoria C · Interface EPROJ", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}], "divergences": [], "has_divergence": false, "technologies": ["Next.js", "Tailwind", "Google Sheets DB"], "description": "Cruza parlamentares, valores, objetos e prazos de execução. Prioridade crítica de submissão para o EPROJ.", "objective": "Monitoramento e auditoria em tempo real das emendas parlamentares federais e estaduais destinadas à saúde de Montes Claros.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": "Alexandre Dourado (Desenvolvedor e Gestor)", "audit": {"index_entry": {"id": "PRJ-009", "name": "Dashboard de Emendas Parlamentares da Saúde", "cat": "cat-c", "catLabel": "Categoria C · Interface EPROJ", "status": "proto", "statusLabel": "Protótipo Funcional", "stack": "Next.js, Tailwind, Google Sheets DB", "objective": "Monitoramento e auditoria em tempo real das emendas parlamentares federais e estaduais destinadas à saúde de Montes Claros.", "details": "Cruza parlamentares, valores, objetos e prazos de execução. Prioridade crítica de submissão para o EPROJ."}, "cmsmoc_status": "", "pessoal_status": "", "confianca": "alta"}}, {"id": "cerest-montes-claros-sistema-web", "code": "PRJ-032", "name": "Sistema web do CEREST Montes Claros", "aliases": [], "scope": "sms-correlato", "scope_label": "SMS Correlato / Gestão SUS", "eproj_eligible": true, "eproj_category": "Categoria C · Interface SMS", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["Pilha de custo zero (HTML/CSS/JS e Google Workspace)"], "description": "Sistema web institucional que digitaliza o fluxo de solicitações de serviços de saúde do trabalhador do CEREST Montes Claros, na pilha de custo zero.", "objective": "Digitalizar os fluxos de solicitação de serviços de saúde do trabalhador.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": "Equipe do CEREST a confirmar", "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "A confirmar", "pessoal_status": "", "confianca": "media"}}, {"id": "solicitacoes-diarias", "code": "PRJ-033", "name": "Automação de Solicitações de Diárias", "aliases": [], "scope": "sms-correlato", "scope_label": "SMS Correlato / Gestão SUS", "eproj_eligible": true, "eproj_category": "Categoria C · Interface SMS", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["Google Docs", "Google Workspace"], "description": "Sistema de automação das solicitações de diárias municipais, integrado aos modelos oficiais em Google Docs, com preenchimento automático de perfil e armazenamento protegido por PIN.", "objective": "Automatizar a geração de pedidos de diárias a partir dos modelos oficiais.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "A confirmar", "pessoal_status": "", "confianca": "media"}}, {"id": "posgraduacao-ciencia-dados-saude-ia", "code": "PRJ-017", "name": "Plataforma de Inteligência da Saúde em DuckDB", "aliases": [], "scope": "estudo-pesquisa", "scope_label": "Estudo & Ciência de Dados", "eproj_eligible": true, "eproj_category": "Categoria C · Interface EPROJ", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["Python", "DuckDB (OLAP in-process)", "PySUS"], "description": "Executa consultas analíticas complexas sobre milhões de linhas em milissegundos sem demandar servidores pagos.", "objective": "Mecanismo de análise analítica de altíssimo desempenho para processamento de microdados abertos do DATASUS no computador local.", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-017", "name": "Plataforma de Inteligência da Saúde em DuckDB", "cat": "cat-c", "catLabel": "Categoria C · Interface EPROJ", "status": "proto", "statusLabel": "Protótipo Funcional", "stack": "Python, DuckDB (OLAP in-process), PySUS", "objective": "Mecanismo de análise analítica de altíssimo desempenho para processamento de microdados abertos do DATASUS no computador local.", "details": "Executa consultas analíticas complexas sobre milhões de linhas em milissegundos sem demandar servidores pagos."}, "cmsmoc_status": "", "pessoal_status": "Em andamento", "confianca": "baixa"}}, {"id": "cms-radar", "code": "PRJ-013", "name": "CMS-Radar de Maturidade Digital e Controle Social", "aliases": ["CMS-RADAR"], "scope": "estudo-pesquisa", "scope_label": "Estudo & Ciência de Dados", "eproj_eligible": true, "eproj_category": "Categoria D · Estudo", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "index", "name": "Index AGY Local", "badge": "AGY-Local", "class": "badge-agy"}, {"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["Modelagem Conceitual", "Matriz de Indicadores"], "description": "Referencial teórico-metodológico para aferição contínua da capacidade de resposta institucional do controle social.", "objective": "Framework de avaliação da transparência, maturidade digital e governança de conselhos de saúde.", "modules": [], "deliveries": [], "metrics": [{"indicador": "universo de conselhos", "valor": 5570}, {"indicador": "agentes", "valor": 5}, {"indicador": "dimensões de pontuação", "valor": 5}, {"indicador": "níveis de maturidade", "valor": 6}, {"indicador": "tipos de fonte", "valor": 9}], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": {"id": "PRJ-013", "name": "CMS-Radar de Maturidade Digital e Controle Social", "cat": "cat-d", "catLabel": "Categoria D · Estudo", "status": "est", "statusLabel": "Estudo Preliminar", "stack": "Modelagem Conceitual, Matriz de Indicadores", "objective": "Framework de avaliação da transparência, maturidade digital e governança de conselhos de saúde.", "details": "Referencial teórico-metodológico para aferição contínua da capacidade de resposta institucional do controle social."}, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento (inferido)", "confianca": "media"}}, {"id": "agy-cli-agent-system", "code": "PRJ-034", "name": "Sistema institucional de agentes de IA (AGY CLI)", "aliases": ["AGY CLI", "Antigravity CLI", "Sistema de agentes CMSMOC"], "scope": "ia-automacao", "scope_label": "Agentes & Automação IA", "eproj_eligible": true, "eproj_category": "Categoria C · Interface SMS", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["AGY CLI (Antigravity CLI)", "JSON (SSOT)", "YAML", "Markdown", "SKILL.md"], "description": "Sistema institucional de agentes de IA do CMSMOC sobre o AGY CLI (Antigravity CLI), com fonte única da verdade (SSOT) em JSON estruturado, camada de núcleo obrigatória e subagentes que consultam dados em vez de armazenar cópias.", "objective": "Núcleo atual da transformação digital institucional: agentes confiáveis operando sobre dados consolidados.", "modules": ["ata-builder", "design-guard", "radar-collector", "autodoc-bridge", "edital-tracker", "plenario-translator", "sessao-completa"], "deliveries": ["CONTEXTO_CMSMOC.md (contexto institucional para sessões de agentes)", "MANUAL_AGY_CLI_CMSMOC.md (manual estratégico de onboarding)", "PLAYBOOK_DE_BOLSO_AGY_CLI.md", "Especificação de 7 skills/pipelines", "Pipeline AGY para vídeos curtos semanais (roteirista, revisor jurídico, gerador de thumbnail, orquestrador)", "3 SKILL.md de design systems"], "metrics": [], "lessons_learned": [], "decisions": ["Evitar anti-padrões visuais: gradientes roxo/rosa, iconografia de brilho de IA, callouts pastel suaves, cards arredondados"], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento", "confianca": "alta"}}, {"id": "skills-agy-design-systems", "code": "PRJ-035", "name": "Skills de design systems (BLOOMBLU, CENTAURO APS Digital IA, CENTAURO APS Racionalismo)", "aliases": ["tactical-linear-html-builder", "centauro-aps-digital-ia-html-builder", "centauro-aps-racionalismo-html-builder"], "scope": "ia-automacao", "scope_label": "Agentes & Automação IA", "eproj_eligible": true, "eproj_category": "Categoria C · Interface SMS", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["SKILL.md", "HTML/CSS"], "description": "Três arquivos SKILL.md que codificam sistemas visuais completos (tokens de cor, tipografia, regras de componentes e guardrails de «o que NÃO fazer») para geração de HTML: Tactical-Linear/BLOOMBLU, CENTAURO APS Digital IA e CENTAURO APS Racionalismo Moderno.", "objective": "Garantir consistência visual em páginas, relatórios, dashboards e documentos institucionais gerados por IA.", "modules": ["Tactical-Linear / BLOOMBLU (Bloomberg × Linear × editorial suíço; Inter Black + JetBrains Mono; Deep Navy/Arctic White; Centauro Blue + Electric Cyan)", "CENTAURO APS — AI-Native Editorial Intelligence (vidro escuro, Space Grotesk, navy profundo, ciano elétrico)", "CENTAURO APS — Racionalismo Moderno (geometria rígida, raio zero, Montserrat Black, IBM Plex Mono)"], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Entregue (inferido)", "confianca": "media"}}, {"id": "site-pessoal-v5", "code": "PRJ-036", "name": "Site pessoal (v5)", "aliases": [], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["HTML", "CSS", "JavaScript"], "description": "Site pessoal multipágina que posiciona o autor como filósofo e pesquisador e como praticante de IA, em HTML, CSS e JavaScript puros, com paleta de cinza escuro quente e terracota suave.", "objective": "", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Concluído (v5)", "pessoal_status": "", "confianca": "media"}}, {"id": "promptologia-001-003", "code": "PRJ-037", "name": "Linha PROMPTOLOGIA (Caderno 001, Tripwires 002 e 003)", "aliases": ["PROMPTOLOGIA", "Tripwire 002", "Tripwire 003", "Prompt sem Mágica", "Prompting de Precisão", "Caderno 001"], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["HTML autossuficiente (A4, print para PDF)"], "description": "Linha de guias sobre IA em HTML autossuficiente (A4, prontos para salvar em PDF): Caderno prático nº 001 «Pensar. Verificar. Decidir.» (HTML de referência do design system), Tripwire 002 «Prompt sem Mágica» (30 prompts prontos) e Tripwire 003 «Prompting de Precisão» (frameworks, rubricas e 24 templates).", "objective": "Produzir infoprodutos de IA aplicados (inferido: linha comercial, dado o termo «tripwire»).", "modules": [], "deliveries": ["Caderno 001 «Pensar. Verificar. Decidir.»", "prompt-sem-magica.html (Tripwire 002)", "prompting-de-precisao.html (Tripwire 003; visual de manual de métodos)"], "metrics": [{"indicador": "prompts no Tripwire 002", "valor": 30}, {"indicador": "templates no Tripwire 003", "valor": 24}], "lessons_learned": [], "decisions": ["Design system: lavanda #EDE6FF, preto #080808, branco #F8F7FF, ciano #00EFFF, verde-esmeralda #00E686, violeta #4E00FF, magenta #FF2ED1; títulos condensados e pesados; microtipografia monoespaçada; esculturas cromadas iridescentes; grid suíço", "Tripwire 003 com visual de manual de métodos, distinto do 002"], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento", "confianca": "alta"}}, {"id": "promptologia-004", "code": "PRJ-038", "name": "PROMPTOLOGIA 004 — Professor em Modo de Projeto", "aliases": ["PROMPTOLOGIA 004", "Promptologia"], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["HTML", "CSS", "JavaScript"], "description": "Biblioteca de prompts premium para professores, com 12 módulos de 6 prompts cada (72 principais) mais 6 prompts coringa, guia de personalização, checklist e arquitetura comercial. A venda prevista é por módulo, em combos temáticos e como coleção completa, com bônus coringa. A entrega é em HTMLs autossuficientes (CSS embutido, sem CDN), otimizados para impressão A4/PDF, com botão de copiar prompt. Pasta principal: PROMPTOLOGIA_004_PROFESSOR_EM_MODO_DE_PROJETO (00_CONTEUDO, 01_MODULOS_INDIVIDUAIS, 02_COLECAO_COMPLETA, 03_BONUS, 04_DOCUMENTACAO).", "objective": "Vender prompts premium para professores.", "modules": [], "deliveries": ["12 módulos", "6 prompts coringa", "Guia de personalização", "Checklist", "Arquitetura comercial", "Versão v2 para iniciantes e pessoas mais velhas (em pedido)"], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Em desenvolvimento", "pessoal_status": "", "confianca": "alta"}}, {"id": "ebook-venda-the-flash", "code": "PRJ-039", "name": "Ebook interativo 'VENDA THE FLASH' (VOVOZÃO ACADEMY)", "aliases": [], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "delivered", "status_label": "Concluído / Entregue", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["HTML", "CSS", "JavaScript", "Playwright", "Chromium"], "description": "Ebook de marca com sistema de design noir 'Dossiê Confidencial'. Foi refeito como carrossel depois que o PageFlip.js foi abandonado, e é renderizado em PDF com Playwright/Chromium.", "objective": "", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Concluído", "pessoal_status": "", "confianca": "media"}}, {"id": "extract-to-md-3", "code": "PRJ-040", "name": "Extract TO-MD 3.0 (converter_v3.py e text_formatter.py)", "aliases": [], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "cmsmoc", "name": "IA Web CMSMOC", "badge": "Conta-CMSMOC", "class": "badge-cms"}], "divergences": [], "has_divergence": false, "technologies": ["Python"], "description": "Toolkit que converte PDF, DOCX e HTML em Markdown, com o módulo 'FixPDF 3.0' de desquebra de texto e exportação Word no padrão ABNT. Foi pedida revisão e otimização dos scripts converter_v3.py e text_formatter.py.", "objective": "", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": true, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "Em revisão", "pessoal_status": "", "confianca": "media"}}, {"id": "dani-doces-pwa", "code": "PRJ-041", "name": "Dani Doces (PWA de gestão de vendas de doces)", "aliases": ["Dani Doces"], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["JavaScript puro", "IndexedDB", "Google Apps Script", "Google Sheets", "PWA"], "description": "PWA de gestão de vendas de doces, em JavaScript puro com IndexedDB e sincronização com Google Apps Script/Sheets; depurados erros de chave booleana no IndexedDB e de redirecionamento de POST no GAS.", "objective": "Gerir vendas de uma operação de doces (descrito como projeto paralelo pessoal/profissional).", "modules": [], "deliveries": [], "metrics": [], "lessons_learned": ["Chaves booleanas não são válidas como chave de índice no IndexedDB", "POST ao GAS sofre redirecionamento que exige tratamento específico"], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento e uso (inferido)", "confianca": "baixa"}}, {"id": "oraculo-no-bolso", "code": "PRJ-042", "name": "O Oráculo no Bolso — Filosofia e Inteligência Artificial", "aliases": [], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": ["HTML/CSS/JavaScript (arquivo único)", "SVG inline", "Google Fonts: Fraunces e Inter"], "description": "Apresentação interativa em HTML, em tela cheia e com navegação por gestos, de 16 cenas tipográficas e ilustradas em SVG, sobre filosofia e IA (oráculo, espelho, segundo sol, terceirização do raciocínio, fronteira entre cálculo e sabedoria, conclusão); com tema claro/escuro alternado e rótulo «Movimento completo».", "objective": "Provocar reflexão filosófica sobre IA em formato de manifesto visual, afirmando a filosofia como questão de «vida ou morte» diante da IA.", "modules": [], "deliveries": ["Artefato HTML de 16,7 kB"], "metrics": [{"indicador": "cenas", "valor": 16}, {"indicador": "tamanho do arquivo", "valor": "16,7 kB"}], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Entregue (artefato publicado em 2026-10-07)", "confianca": "alta"}}, {"id": "linkedin-perfil-profissional", "code": "PRJ-043", "name": "Perfil profissional no LinkedIn (mockup com 3 enquadramentos estratégicos)", "aliases": [], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "dev", "status_label": "Em Desenvolvimento", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": [], "description": "Construção do perfil profissional no LinkedIn, com um mockup do perfil em três enquadramentos estratégicos.", "objective": "Posicionar-se como autoridade em IA, ciência de dados em saúde e Design Science Research, com foco em secretários municipais de saúde (objetivo registrado no perfil).", "modules": [], "deliveries": ["Mockup do perfil com três enquadramentos estratégicos"], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Em desenvolvimento (inferido)", "confianca": "baixa"}}, {"id": "visualizacao-juros-compostos", "code": "PRJ-044", "name": "Visualização de juros compostos", "aliases": [], "scope": "pessoal-profissional", "scope_label": "Pessoal & EdTech", "eproj_eligible": false, "eproj_category": "Categoria E · Portfólio Externo", "status_key": "study", "status_label": "Estudo Preliminar / Proposta", "sources": [{"id": "pessoal", "name": "IA Web Pessoal", "badge": "Conta-Pessoal", "class": "badge-pes"}], "divergences": [], "has_divergence": false, "technologies": [], "description": "Exploração de conceitos de finanças pessoais com visualizações de juros compostos.", "objective": null, "modules": [], "deliveries": [], "metrics": [], "lessons_learned": [], "decisions": [], "timeline": [], "team": {"padrao": false, "responsavel": "Alexandre Dourado", "apoio": null, "coautores": []}, "audit": {"index_entry": null, "cmsmoc_status": "", "pessoal_status": "Desconhecido", "confianca": "baixa"}}];
+        const MASTER_RISKS = [{"id": "RSK-001", "risco": "Conhecimento e operação concentrados em uma única pessoa (Alexandre Dourado)", "origem": "CMSMOC & Pessoal", "categoria": "Dependência Operacional (SPOF)", "severidade": "Alta", "mitigacao": "Documentação exaustiva de POPs (15 manuais), código aberto documentado, manualização de fluxos e capacitação da equipe da Secretaria Executiva."}, {"id": "RSK-002", "risco": "Dependência da infraestrutura Google Workspace (GAS, Sheets, Drive)", "origem": "CMSMOC", "categoria": "Infraestrutura Tecnológica", "severidade": "Média", "mitigacao": "Arquitetura modular em dados tabulares padrão aberto (CSV/JSON), possibilitando migração rápida para PostgreSQL/DuckDB se necessário."}, {"id": "RSK-003", "risco": "Baixa familiaridade digital de parte dos conselheiros municipais de saúde", "origem": "CMSMOC", "categoria": "Adoção e Usabilidade", "severidade": "Média", "mitigacao": "Interfaces mobile-first sem necessidade de login complexo (PWAs SerTão Conselheiro), botões grandes, linguagem visual acessível e suporte via WhatsApp."}, {"id": "RSK-004", "risco": "Proteção de dados pessoais e conformidade com a LGPD em cadastros e atas", "origem": "CMSMOC & Pessoal", "categoria": "Segurança & Conformidade", "severidade": "Alta", "mitigacao": "Anonimização de dados sensíveis de pacientes citados em reuniões; controle rigoroso de acesso às planilhas centrais restrito à Secretaria Executiva."}, {"id": "RSK-005", "risco": "Dados do app CMSMOC Reuniões armazenados localmente no navegador (IndexedDB)", "origem": "Pessoal", "categoria": "Persistência de Dados", "severidade": "Média", "mitigacao": "Implementação de rotina de exportação automática em backup JSON criptografado e sincronização programada com Google Sheets/Drive."}, {"id": "RSK-006", "risco": "Fragmentação entre ferramentas (GAS, PWAs, GitHub Pages, Scripts)", "origem": "Pessoal", "categoria": "Arquitetura de Sistemas", "severidade": "Média", "mitigacao": "Adoção da Central CMS Relacional e do Portal da Secretaria Executiva como ponto único de entrada e documentação padronizada."}, {"id": "RSK-007", "risco": "Falhas na extração de dados e atas por agentes de IA generativa", "origem": "Pessoal", "categoria": "Inteligência Artificial", "severidade": "Média", "mitigacao": "Regra de validação humana mandatória antes da publicação oficial de qualquer ata ou resolução gerada por IA."}, {"id": "RSK-008", "risco": "Deploys de scripts Google Apps Script sem versionamento quebrando integrações", "origem": "Pessoal", "categoria": "DevOps & Manutenção", "severidade": "Baixa", "mitigacao": "Utilização do Google CLASP ou repositório Git local para versionamento estrito e publicação via releases estáveis."}, {"id": "RSK-009", "risco": "Divergência entre levantamentos independentes e duplicidade de dados", "origem": "Pessoal & EPROJ", "categoria": "Governança da Informação", "severidade": "Baixa (Resolvido)", "mitigacao": "Consolidação centralizada no presente painel auditado com rastreabilidade de ponta a ponta e conferência manual dos 44 registros."}, {"id": "RSK-010", "risco": "Transição da gestão e sustentabilidade do portfólio no EPROJ / SMS", "origem": "CMSMOC & SMS", "categoria": "Institucional", "severidade": "Média", "mitigacao": "Submissão formal dos projetos no EPROJ (Portaria SMS 28/2026), institucionalizando as iniciativas como patrimônio público da saúde municipal."}, {"id": "RSK-011", "risco": "Limites de cota do Google Apps Script (e-mails diários, tempo de execução)", "origem": "CMSMOC", "categoria": "Limites de Plataforma", "severidade": "Baixa", "mitigacao": "Processamento em lotes (batching), logs estruturados e uso de ferramentas locais em Python/DuckDB para análises pesadas."}];
+        const MASTER_KPIS = [{"id": "ind-atas", "indicador": "Reuniões e atas publicadas via sistema", "fonte": "sgd-cms", "valor_base": null}, {"id": "ind-tempo-ata", "indicador": "Tempo médio entre reunião e publicação da ata", "fonte": "sgd-cms", "valor_base": null}, {"id": "ind-presenca", "indicador": "Presença registrada digitalmente", "fonte": "sertao-conselheiro-app", "valor_base": null}, {"id": "ind-pops", "indicador": "POPs implantados e revisados", "fonte": "manual-fluxos-pops", "valor_base": "15 implantados (a confirmar)"}, {"id": "ind-cadeiras", "indicador": "Cadeiras do Conselho preenchidas (%)", "fonte": "recomposicao-cms-dashboards", "valor_base": null}, {"id": "ind-metas", "indicador": "Metas qualitativas acompanhadas", "fonte": "metas-qualitativas", "valor_base": null}, {"id": "ind-acervo", "indicador": "Documentos digitalizados no acervo", "fonte": "sgd-cms", "valor_base": null}];
+
+        let currentScopeFilter = 'all';
+        let currentEprojFilter = 'all';
+        let currentStatusFilter = 'all';
+        let currentSourceFilter = 'all';
+        let currentSearchQuery = '';
+        let currentActiveInitiative = null;
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGrid(MASTER_CATALOG);
+            renderTable(MASTER_CATALOG);
+            renderRisks(MASTER_RISKS);
+        });
+
+        // Renderiza Grade de Cards
+        function renderGrid(items) {
+            const grid = document.getElementById('initiatives-grid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; background: var(--cms-white); border: 1px dashed var(--cms-border); border-radius: var(--radius-lg);">
+                        <p style="font-size: 1.1rem; color: var(--cms-muted); font-weight: 600;">Nenhuma iniciativa encontrada para os filtros selecionados.</p>
+                        <button class="btn btn-secondary" style="margin-top: 1rem;" onclick="resetFilters()">Limpar Filtros</button>
+                    </div>
+                `;
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'init-card';
+
+                // Badges de fontes
+                let srcBadgesHtml = '';
+                item.sources.forEach(s => {
+                    srcBadgesHtml += `<span class="src-badge ${s.class}">${s.badge}</span>`;
+                });
+                if (item.has_divergence) {
+                    srcBadgesHtml += `<span class="src-badge badge-divergence">⚠ Divergência Auditada</span>`;
+                }
+
+                // Tecnologias
+                let techPillsHtml = '';
+                item.technologies.slice(0, 4).forEach(t => {
+                    techPillsHtml += `<span class="tech-pill">${t}</span>`;
+                });
+                if (item.technologies.length > 4) {
+                    techPillsHtml += `<span class="tech-pill">+${item.technologies.length - 4}</span>`;
+                }
+
+                // Status Class
+                let statusClass = 'status-' + item.status_key;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="init-card-header">
+                            <span class="init-code-badge">${item.code}</span>
+                            <span class="init-status-badge ${statusClass}">
+                                <span class="status-dot" style="width: 6px; height: 6px; background-color: currentColor;"></span>
+                                ${item.status_label}
+                            </span>
+                        </div>
+                        <div class="init-sources">${srcBadgesHtml}</div>
+                        <h3 class="init-title">${item.name}</h3>
+                        <p class="init-desc">${item.description || item.objective}</p>
+                        <div class="init-tech-stack">${techPillsHtml}</div>
+                    </div>
+                    <div class="init-card-footer">
+                        <span class="eproj-tag ${item.eproj_eligible ? '' : 'not-eproj'}">
+                            ${item.eproj_eligible ? '✔ Apto EPROJ' : '○ Uso Interno'}
+                        </span>
+                        <button class="btn-view-details" onclick="openModal('${item.id}')">
+                            Ver Ficha Completa →
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Renderiza Tabela Técnica
+        function renderTable(items) {
+            const tbody = document.getElementById('initiatives-table-body');
+            tbody.innerHTML = '';
+
+            items.forEach(item => {
+                const tr = document.createElement('tr');
+                
+                let srcBadges = item.sources.map(s => `<span class="src-badge ${s.class}">${s.badge}</span>`).join(' ');
+                if (item.has_divergence) srcBadges += ' <span class="src-badge badge-divergence">Divergência</span>';
+
+                tr.innerHTML = `
+                    <td style="font-family: var(--font-mono); font-weight: 700; color: var(--cms-navy);">${item.code}</td>
+                    <td>
+                        <div style="font-weight: 700; color: var(--cms-ink);">${item.name}</div>
+                        <div style="font-size: 0.78rem; color: var(--cms-muted);">${item.description ? item.description.substring(0, 85) + '...' : ''}</div>
+                    </td>
+                    <td><span class="tech-pill">${item.scope_label}</span></td>
+                    <td><span class="init-status-badge status-${item.status_key}">${item.status_label}</span></td>
+                    <td>${srcBadges}</td>
+                    <td><span class="eproj-tag ${item.eproj_eligible ? '' : 'not-eproj'}">${item.eproj_eligible ? 'Sim' : 'Não'}</span></td>
+                    <td>
+                        <button class="btn-view-details" onclick="openModal('${item.id}')">Detalhar</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Renderiza Riscos
+        function renderRisks(risks) {
+            const tbody = document.getElementById('risks-table-body');
+            tbody.innerHTML = '';
+
+            risks.forEach(r => {
+                const tr = document.createElement('tr');
+                let badgeClass = 'risk-' + r.severidade.toLowerCase().replace('é', 'e');
+                tr.innerHTML = `
+                    <td style="font-family: var(--font-mono); font-weight: 700;">${r.id}</td>
+                    <td style="font-weight: 600; color: var(--cms-ink);">${r.risco}</td>
+                    <td><span class="tech-pill">${r.categoria}</span></td>
+                    <td><span class="risk-badge ${badgeClass}">${r.severidade}</span></td>
+                    <td style="color: var(--cms-muted); font-size: 0.82rem;">${r.mitigacao}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Filtros e Aplicação
+        function setFilter(type, value, btn) {
+            const siblings = btn.parentElement.querySelectorAll('.filter-btn');
+            siblings.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (type === 'scope') currentScopeFilter = value;
+            if (type === 'eproj') currentEprojFilter = value;
+            if (type === 'status') currentStatusFilter = value;
+            if (type === 'source') currentSourceFilter = value;
+
+            applyFilters();
+        }
+
+        function filterByScope(scopeVal) {
+            currentScopeFilter = scopeVal;
+            // Atualiza botões
+            const btns = document.querySelectorAll('[data-filter="scope"]');
+            btns.forEach(b => {
+                b.classList.toggle('active', b.getAttribute('data-val') === scopeVal);
+            });
+            applyFilters();
+            document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            currentSearchQuery = query;
+
+            const filtered = MASTER_CATALOG.filter(item => {
+                // Scope
+                if (currentScopeFilter !== 'all' && item.scope !== currentScopeFilter) return false;
+
+                // Eproj
+                if (currentEprojFilter === 'eligible' && !item.eproj_eligible) return false;
+                if (currentEprojFilter === 'not-eligible' && item.eproj_eligible) return false;
+
+                // Status
+                if (currentStatusFilter !== 'all' && item.status_key !== currentStatusFilter) return false;
+
+                // Source
+                if (currentSourceFilter === 'has_index' && !item.sources.some(s => s.id === 'index')) return false;
+                if (currentSourceFilter === 'has_cms' && !item.sources.some(s => s.id === 'cmsmoc')) return false;
+                if (currentSourceFilter === 'has_pes' && !item.sources.some(s => s.id === 'pessoal')) return false;
+                if (currentSourceFilter === 'divergence' && !item.has_divergence) return false;
+
+                // Search Query
+                if (query) {
+                    const fullText = (item.code + ' ' + item.name + ' ' + item.description + ' ' + item.objective + ' ' + item.technologies.join(' ') + ' ' + (item.aliases || []).join(' ')).toLowerCase();
+                    if (!fullText.includes(query)) return false;
+                }
+
+                return true;
+            });
+
+            document.getElementById('visible-count').innerText = filtered.length;
+            renderGrid(filtered);
+            renderTable(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            currentScopeFilter = 'all';
+            currentEprojFilter = 'all';
+            currentStatusFilter = 'all';
+            currentSourceFilter = 'all';
+            currentSearchQuery = '';
+
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.toggle('active', b.getAttribute('data-val') === 'all');
+            });
+
+            applyFilters();
+        }
+
+        // Alternador de Visualização
+        function switchView(mode) {
+            const gridEl = document.getElementById('initiatives-grid');
+            const tableEl = document.getElementById('initiatives-table-container');
+            const btnGrid = document.getElementById('btn-view-grid');
+            const btnTable = document.getElementById('btn-view-table');
+
+            if (mode === 'grid') {
+                gridEl.style.display = 'grid';
+                tableEl.style.display = 'none';
+                btnGrid.classList.add('active');
+                btnTable.classList.remove('active');
+            } else {
+                gridEl.style.display = 'none';
+                tableEl.style.display = 'block';
+                btnGrid.classList.remove('active');
+                btnTable.classList.add('active');
+            }
+        }
+
+        // Modal de Ficha Técnica
+        function openModal(id) {
+            const item = MASTER_CATALOG.find(i => i.id === id);
+            if (!item) return;
+
+            currentActiveInitiative = item;
+
+            document.getElementById('m-code').innerText = item.code;
+            document.getElementById('m-title').innerText = item.name;
+            document.getElementById('m-scope').innerText = item.scope_label;
+
+            const statusEl = document.getElementById('m-status');
+            statusEl.className = 'init-status-badge status-' + item.status_key;
+            statusEl.innerText = item.status_label;
+
+            document.getElementById('m-desc').innerText = item.description || 'Sem descrição cadastrada.';
+            document.getElementById('m-objective').innerText = item.objective || 'Atendimento às rotinas de gestão e inovação.';
+            document.getElementById('m-eproj-cat').innerText = item.eproj_category;
+            document.getElementById('m-team').innerText = item.team || 'Alexandre Dourado';
+
+            // Tecnologias
+            const techContainer = document.getElementById('m-techs');
+            techContainer.innerHTML = '';
+            item.technologies.forEach(t => {
+                const p = document.createElement('span');
+                p.className = 'tech-pill';
+                p.style.fontSize = '0.8rem';
+                p.innerText = t;
+                techContainer.appendChild(p);
+            });
+
+            // Módulos
+            const modContainer = document.getElementById('m-modules-container');
+            const modList = document.getElementById('m-modules-list');
+            modList.innerHTML = '';
+            if (item.modules && item.modules.length > 0) {
+                modContainer.style.display = 'block';
+                item.modules.forEach(m => {
+                    const li = document.createElement('li');
+                    li.innerText = typeof m === 'object' ? (m.nome || m.titulo || JSON.stringify(m)) : m;
+                    modList.appendChild(li);
+                });
+            } else if (item.deliveries && item.deliveries.length > 0) {
+                modContainer.style.display = 'block';
+                item.deliveries.forEach(d => {
+                    const li = document.createElement('li');
+                    li.innerText = typeof d === 'object' ? (d.nome || d.titulo || JSON.stringify(d)) : d;
+                    modList.appendChild(li);
+                });
+            } else {
+                modContainer.style.display = 'none';
+            }
+
+            // Métricas
+            const metContainer = document.getElementById('m-metrics-container');
+            const metList = document.getElementById('m-metrics-list');
+            metList.innerHTML = '';
+            if (item.metrics && item.metrics.length > 0) {
+                metContainer.style.display = 'block';
+                item.metrics.forEach(met => {
+                    const li = document.createElement('li');
+                    li.innerText = typeof met === 'object' ? (met.rotulo || met.descricao || JSON.stringify(met)) : met;
+                    metList.appendChild(li);
+                });
+            } else {
+                metContainer.style.display = 'none';
+            }
+
+            // Lições e Decisões
+            const lesContainer = document.getElementById('m-lessons-container');
+            const lesContent = document.getElementById('m-lessons-content');
+            let lessonsText = '';
+            if (item.lessons_learned && item.lessons_learned.length > 0) {
+                lessonsText += '<strong>Lições Aprendidas:</strong><ul class="modal-list" style="margin-top: 0.3rem;">';
+                item.lessons_learned.forEach(l => lessonsText += `<li>${typeof l === 'object' ? JSON.stringify(l) : l}</li>`);
+                lessonsText += '</ul>';
+            }
+            if (item.decisions && item.decisions.length > 0) {
+                lessonsText += '<strong style="display:block; margin-top: 0.6rem;">Decisões Arquiteturais:</strong><ul class="modal-list" style="margin-top: 0.3rem;">';
+                item.decisions.forEach(d => lessonsText += `<li>${typeof d === 'object' ? (d.decisao || JSON.stringify(d)) : d}</li>`);
+                lessonsText += '</ul>';
+            }
+            if (lessonsText) {
+                lesContainer.style.display = 'block';
+                lesContent.innerHTML = lessonsText;
+            } else {
+                lesContainer.style.display = 'none';
+            }
+
+            // Auditoria
+            const auditEl = document.getElementById('m-audit-content');
+            let auditHtml = `
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 0.6rem; flex-wrap: wrap;">
+                    ${item.sources.map(s => `<span class="src-badge ${s.class}">${s.name}</span>`).join(' ')}
+                </div>
+            `;
+            if (item.has_divergence) {
+                auditHtml += `
+                    <div style="background: #FEF2F2; border-left: 3px solid #EF4444; padding: 0.6rem 0.8rem; margin-top: 0.5rem; border-radius: 4px;">
+                        <strong style="color: #991B1B;">Divergências Trianguladas:</strong>
+                        <ul style="margin-top: 0.3rem; padding-left: 1.2rem; color: #7F1D1D;">
+                            ${item.divergences.map(d => `<li><strong>${d.tipo}:</strong> ${d.descricao} (<em>${d.resolucao}</em>)</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            } else {
+                auditHtml += `<p style="color: var(--cms-green); font-weight: 600;">✔ Dados 100% harmônicos entre as bases consultadas.</p>`;
+            }
+            auditEl.innerHTML = auditHtml;
+
+            document.getElementById('initiative-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('initiative-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            currentActiveInitiative = null;
+        }
+
+        function closeModalOnBackdrop(e) {
+            if (e.target.id === 'initiative-modal') {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        function copyInitiativeText() {
+            if (!currentActiveInitiative) return;
+            const text = `
+=== FICHA TÉCNICA EPROJ: ${currentActiveInitiative.code} ===
+Nome: ${currentActiveInitiative.name}
+Escopo: ${currentActiveInitiative.scope_label}
+Status: ${currentActiveInitiative.status_label}
+Elegibilidade EPROJ: ${currentActiveInitiative.eproj_eligible ? 'Apto para submissão' : 'Uso Interno'}
+Enquadramento: ${currentActiveInitiative.eproj_category}
+Tecnologias: ${currentActiveInitiative.technologies.join(', ')}
+
+Descrição:
+${currentActiveInitiative.description}
+
+Objetivo:
+${currentActiveInitiative.objective}
+            `.trim();
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Ficha copiada para a área de transferência!');
+            });
+        }
+
+        // Exportação do JSON Consolidado
+        function exportConsolidatedJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(MASTER_CATALOG, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "portfolio-consolidado-unificado.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+    </script>
+</body>
+</html>

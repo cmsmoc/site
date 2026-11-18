@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CISTT Montes Claros - Convocação de Reunião Híbrida (23/11/2026)</title>
+    
+    <!-- OpenGraph & Social Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cmsmoc.com/cistt.html">
+    <meta property="og:title" content="CISTT Montes Claros - Convocação de Reunião Híbrida">
+    <meta property="og:description" content="Reunião Híbrida no CEREST Regional transmitida ao vivo via www.cmsmoc.com. Pauta: Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho.">
+    <meta property="og:image" content="https://www.cmsmoc.com/thumb_cistt.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.cmsmoc.com/cistt.html">
+    <meta name="twitter:title" content="CISTT Montes Claros - Convocação de Reunião Híbrida">
+    <meta name="twitter:description" content="Reunião Híbrida no CEREST Regional transmitida ao vivo via www.cmsmoc.com. Pauta: Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho.">
+    <meta name="twitter:image" content="https://www.cmsmoc.com/thumb_cistt.webp">
+    
+    <!-- Tipografia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cms-navy: #0D2E5A;
+            --cms-white: #FFFFFF;
+            --cms-off: #F7F8FA;
+            --cms-ink: #111827;
+            
+            /* Identidade CISTT */
+            --com-primary: #1E8A4A;
+            --com-accent: #F5C400;
+
+            --font-display: 'Montserrat', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #1e293b;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            line-height: 1.75;
+            font-size: 14px;
+        }
+
+        .switcher-ui {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #0f172a; padding: 12px 24px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+            z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-bottom: 2px solid var(--com-primary);
+        }
+
+        .btn-switch {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+            color: var(--cms-white); padding: 7px 16px;
+            font-family: var(--font-heading); font-weight: 700; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.8px;
+            cursor: pointer; transition: all 0.2s ease; border-radius: 4px;
+        }
+
+        .btn-switch:hover { background: rgba(255,255,255,0.2); }
+        .btn-switch.active { background: var(--com-primary); border-color: var(--com-accent); color: #FFFFFF; }
+
+        .app-wrapper {
+            padding-top: 80px; padding-bottom: 50px;
+            display: flex; justify-content: center; align-items: flex-start;
+            width: 100%; overflow-x: hidden;
+        }
+
+        @media print {
+            .switcher-ui { display: none !important; }
+            .app-wrapper { padding: 0 !important; background: white !important;}
+            body { background-color: white !important; }
+            .cms-document { box-shadow: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important;}
+        }
+
+        .cms-document {
+            display: none; 
+            width: 100%; max-width: 900px; min-height: 1120px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+            position: relative; overflow: hidden; padding: 7% 8%;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 6px;
+        }
+
+        .cms-document.active { display: block; }
+
+        .theme-dark-cistt {
+            --bg-color: #0b1c12;
+            --text-color: var(--cms-white);
+            --accent-color: var(--com-accent);
+            --primary-accent: var(--com-primary);
+            --card-bg: rgba(255,255,255,0.04);
+            --card-border: rgba(30, 138, 74, 0.4);
+            --border-line: rgba(255,255,255,0.1);
+            --text-muted: rgba(255,255,255,0.78);
+            --watermark: rgba(255,255,255,0.025);
+            border-top: 10px solid var(--com-primary);
+        }
+
+        .theme-light-cistt {
+            --bg-color: var(--cms-white);
+            --text-color: var(--cms-ink);
+            --accent-color: var(--com-primary);
+            --primary-accent: #0D2E5A;
+            --card-bg: var(--cms-off);
+            --card-border: #E2E8F0;
+            --border-line: #E2E8F0;
+            --text-muted: #4B5563;
+            --watermark: rgba(0,0,0,0.02);
+            border-top: 10px solid var(--com-primary);
+        }
+
+        .impact-watermark {
+            position: absolute; top: -4%; right: -3%;
+            font-family: var(--font-display); font-weight: 900;
+            font-size: 260px; line-height: 1; letter-spacing: -10px;
+            color: var(--watermark); z-index: 0; pointer-events: none;
+            user-select: none;
+        }
+
+        .impact-header {
+            position: relative; z-index: 1; margin-bottom: 36px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 18px;
+        }
+
+        .header-cms-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-cms-title {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+            color: var(--text-color);
+        }
+
+        .header-cms-title small {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+        }
+
+        .impact-logo-cms { height: 48px; max-width: 160px; object-fit: contain; }
+
+        .impact-date {
+            text-align: right;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .impact-hero {
+            position: relative; z-index: 1; margin-bottom: 34px;
+            border-left: 6px solid var(--com-primary); padding-left: 20px;
+        }
+
+        .impact-hero-logo {
+            margin-bottom: 14px;
+        }
+
+        .impact-logo-comissao-top {
+            max-height: 72px;
+            max-width: 270px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .impact-tag {
+            display: inline-block;
+            background: rgba(30, 138, 74, 0.2);
+            border: 1px solid var(--com-primary);
+            color: var(--accent-color);
+            font-family: var(--font-heading);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .impact-hero h1 {
+            font-family: var(--font-display); font-weight: 900; font-size: 46px;
+            text-transform: uppercase; letter-spacing: -1px; line-height: 1.05;
+            color: var(--text-color); margin-bottom: 6px;
+        }
+
+        .impact-hero h2 {
+            font-family: var(--font-heading); font-weight: 700; font-size: 20px;
+            color: var(--accent-color); letter-spacing: 0.2px; text-transform: uppercase;
+        }
+
+        .impact-grid {
+            position: relative; z-index: 1; display: grid;
+            grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 34px;
+        }
+
+        .impact-card {
+            background: var(--card-bg); padding: 24px; border: 1.5px solid var(--card-border);
+            border-radius: 8px;
+        }
+
+        .impact-card-label {
+            font-family: var(--font-heading); font-weight: 700; font-size: 13px;
+            text-transform: uppercase; color: var(--accent-color); letter-spacing: 1.5px;
+            margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+
+        .impact-card-val {
+            font-family: var(--font-heading); font-weight: 800; font-size: 19px;
+            color: var(--text-color); line-height: 1.25; margin-bottom: 4px;
+        }
+
+        .impact-card-sub { color: var(--text-muted); font-size: 13.5px; }
+
+        .impact-hybrid-banner {
+            position: relative; z-index: 1; margin-bottom: 30px;
+            background: rgba(245, 196, 0, 0.12);
+            border: 1.5px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .hybrid-tag-badge {
+            background: var(--accent-color);
+            color: var(--cms-navy);
+            font-family: var(--font-heading);
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hybrid-banner-desc {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .hybrid-banner-desc strong {
+            color: var(--accent-color);
+            letter-spacing: 0.3px;
+        }
+
+        .impact-agenda {
+            position: relative; z-index: 1; margin-top: 32px;
+            background: var(--card-bg);
+            border: 1.5px solid var(--card-border);
+            border-radius: 8px;
+            padding: 24px 28px;
+        }
+
+        .impact-agenda-title {
+            font-family: var(--font-heading); font-weight: 800; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color);
+            display: block; margin-bottom: 14px;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 8px;
+        }
+
+        .impact-agenda-item h4 {
+            font-family: var(--font-heading); font-weight: 800; font-size: 18px;
+            color: var(--text-color); margin-bottom: 8px; text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .impact-agenda-item p { color: var(--text-muted); font-size: 14.5px; line-height: 1.6; }
+
+        .impact-footer {
+            margin-top: 44px; border-top: 1px solid var(--border-line);
+            padding-top: 24px; display: flex; justify-content: space-between; align-items: flex-end;
+            gap: 20px;
+        }
+
+        .impact-footer-sigs {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .impact-footer-sig h4 {
+            font-family: var(--font-heading); font-weight: 800; font-size: 14px;
+            color: var(--text-color); text-transform: uppercase;
+        }
+
+        .impact-footer-sig p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+        .impact-footer-logo { height: 48px; object-fit: contain; }
+
+        .cms-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+    <!-- UI DO SWITCHER DE TEMAS -->
+    <div class="switcher-ui">
+        <button class="btn-switch active" onclick="switchTheme('v1')">1. Dark CISTT (Verde / Amarelo)</button>
+        <button class="btn-switch" onclick="switchTheme('v2')">2. Light CISTT (Editorial Impressão)</button>
+    </div>
+
+    <div class="app-wrapper">
+
+        <!-- =================================================================
+             VERSÃO 1: DARK CISTT (ALTO IMPACTO)
+             ================================================================= -->
+        <div id="v1" class="cms-document theme-dark-cistt active">
+            <div class="impact-watermark">CISTT</div>
+            
+            <header class="impact-header">
+                <div class="header-cms-brand">
+                    <img src="logos/logohwh.png" alt="CMS Logo" class="impact-logo-cms">
+                    <div class="header-cms-title">
+                        <span>CONSELHO MUNICIPAL DE SAÚDE</span>
+                        <small>MONTES CLAROS / MG</small>
+                    </div>
+                </div>
+                <div class="impact-date">Montes Claros/MG<br>18 de Novembro de 2026</div>
+            </header>
+
+            <div class="impact-hero">
+                <div class="impact-hero-logo">
+                    <img src="logos/Logo_CISTT.png" alt="Logo CISTT" class="impact-logo-comissao-top">
+                </div>
+                <span class="impact-tag">CISTT • REUNIÃO HÍBRIDA (PRESENCIAL & ONLINE)</span>
+                <h1>Convocação de Reunião</h1>
+                <h2>Comissão Intersetorial de Saúde do Trabalhador e da Trabalhadora</h2>
+            </div>
+
+            <!-- BANNER DE DESTAQUE: REUNIÃO HÍBRIDA -->
+            <div class="impact-hybrid-banner">
+                <span class="hybrid-tag-badge">📡 REUNIÃO HÍBRIDA</span>
+                <span class="hybrid-banner-desc">Será transmitida online, acessível no dia via <strong>www.cmsmoc.com</strong></span>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-card-label">
+                        <svg class="cms-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Quando
+                    </div>
+                    <div class="impact-card-val">23 de Novembro de 2026</div>
+                    <div class="impact-card-sub">Segunda-feira, às 14:00 horas</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-card-label">
+                        <svg class="cms-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Onde (Presencial & Online)
+                    </div>
+                    <div class="impact-card-val">CEREST Regional</div>
+                    <div class="impact-card-sub">Rua Cassimiro de Abreu, nº 54 – Cândida Câmara<br><span style="color: var(--accent-color); font-weight: 700;">Transmissão ao vivo: www.cmsmoc.com</span></div>
+                </div>
+            </div>
+
+            <div class="impact-agenda">
+                <span class="impact-agenda-title">PAUTA DA REUNIÃO</span>
+                <div class="impact-agenda-item">
+                    <h4>1. Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho</h4>
+                    <p>Apresentação das diretrizes e eixos operacionais de vigilância, diagnóstico situacional da saúde do trabalhador no município e alinhamento das ações intersetoriais com órgãos parceiros.</p>
+                </div>
+                <div class="impact-agenda-item" style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border-line);">
+                    <h4>2. Encaminhamentos e Proposições da Comissão</h4>
+                    <p>Definição do cronograma de trabalho, interlocução técnica e encaminhamentos para a Plenária do CMS-Moc.</p>
+                </div>
+            </div>
+
+            <div class="impact-footer">
+                <div class="impact-footer-sigs">
+                    <div class="impact-footer-sig">
+                        <h4>Coordenação da CISTT</h4>
+                        <p>Comissão de Saúde do Trabalhador e da Trabalhadora</p>
+                    </div>
+                    <div class="impact-footer-sig">
+                        <h4>FARLEY SINDEAUX RIBEIRO</h4>
+                        <p>Presidente do CMS-Moc</p>
+                    </div>
+                </div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/Prefeitura%20-%20Logo%20Governo%20%2B%20Slogan%20%2B%20Secretarias%20-%204.png" alt="Prefeitura de Montes Claros" class="impact-footer-logo">
+            </div>
+        </div>
+
+        <!-- =================================================================
+             VERSÃO 2: LIGHT CISTT (EDITORIAL)
+             ================================================================= -->
+        <div id="v2" class="cms-document theme-light-cistt">
+            <div class="impact-watermark">CISTT</div>
+            
+            <header class="impact-header">
+                <div class="header-cms-brand">
+                    <img src="logos/logobl.png" alt="CMS Logo" class="impact-logo-cms">
+                    <div class="header-cms-title">
+                        <span>CONSELHO MUNICIPAL DE SAÚDE</span>
+                        <small>MONTES CLAROS / MG</small>
+                    </div>
+                </div>
+                <div class="impact-date">Montes Claros/MG<br>18 de Novembro de 2026</div>
+            </header>
+
+            <div class="impact-hero">
+                <div class="impact-hero-logo">
+                    <img src="logos/Logo_CISTT.png" alt="Logo CISTT" class="impact-logo-comissao-top">
+                </div>
+                <span class="impact-tag">CISTT • REUNIÃO HÍBRIDA (PRESENCIAL & ONLINE)</span>
+                <h1>Convocação de Reunião</h1>
+                <h2>Comissão Intersetorial de Saúde do Trabalhador e da Trabalhadora</h2>
+            </div>
+
+            <!-- BANNER DE DESTAQUE: REUNIÃO HÍBRIDA -->
+            <div class="impact-hybrid-banner">
+                <span class="hybrid-tag-badge">📡 REUNIÃO HÍBRIDA</span>
+                <span class="hybrid-banner-desc">Será transmitida online, acessível no dia via <strong>www.cmsmoc.com</strong></span>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-card-label">
+                        <svg class="cms-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Quando
+                    </div>
+                    <div class="impact-card-val">23 de Novembro de 2026</div>
+                    <div class="impact-card-sub">Segunda-feira, às 14:00 horas</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-card-label">
+                        <svg class="cms-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Onde (Presencial & Online)
+                    </div>
+                    <div class="impact-card-val">CEREST Regional</div>
+                    <div class="impact-card-sub">Rua Cassimiro de Abreu, nº 54 – Cândida Câmara<br><span style="color: var(--accent-color); font-weight: 700;">Transmissão ao vivo: www.cmsmoc.com</span></div>
+                </div>
+            </div>
+
+            <div class="impact-agenda">
+                <span class="impact-agenda-title">PAUTA DA REUNIÃO</span>
+                <div class="impact-agenda-item">
+                    <h4>1. Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho</h4>
+                    <p>Apresentação das diretrizes e eixos operacionais de vigilância, diagnóstico situacional da saúde do trabalhador no município e alinhamento das ações intersetoriais com órgãos parceiros.</p>
+                </div>
+                <div class="impact-agenda-item" style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border-line);">
+                    <h4>2. Encaminhamentos e Proposições da Comissão</h4>
+                    <p>Definição do cronograma de trabalho, interlocução técnica e encaminhamentos para a Plenária do CMS-Moc.</p>
+                </div>
+            </div>
+
+            <div class="impact-footer">
+                <div class="impact-footer-sigs">
+                    <div class="impact-footer-sig">
+                        <h4>Coordenação da CISTT</h4>
+                        <p>Comissão de Saúde do Trabalhador e da Trabalhadora</p>
+                    </div>
+                    <div class="impact-footer-sig">
+                        <h4>FARLEY SINDEAUX RIBEIRO</h4>
+                        <p>Presidente do CMS-Moc</p>
+                    </div>
+                </div>
+                <img src="https://raw.githubusercontent.com/cmsmoc/secretariaexecutiva/main/logo/Prefeitura%20-%20Logo%20Governo%20%2B%20Slogan%20%2B%20Secretarias%20-%201.png" alt="Prefeitura de Montes Claros" class="impact-footer-logo">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTheme(themeId) {
+            document.querySelectorAll('.cms-document').forEach(doc => {
+                doc.classList.remove('active');
+            });
+            document.getElementById(themeId).classList.add('active');
+
+            document.querySelectorAll('.btn-switch').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
