@@ -1,31 +1,34 @@
 {
   "configs": {
-    "CHAVE": "VALOR",
+    "PARÂMETRO / CHAVE": "VALOR CONFIGURADO",
+    "#ERROR!": "",
+    "TITULO": "REUNIÃO DA COMISSÃO INTERSETORIAL DE SAÚDE DO TRABALHADOR E DA TRABALHAORA",
+    "LABEL_TOPO": "Conselho Municipal de Saúde de Montes Claros",
+    "DATA_REUNIAO": "23 de novembro de 2026",
+    "HORA_REUNIAO": "àS 14HORAS",
+    "LOCAL_REUNIAO": "Híbrida - CEREST e Online (Google Meet)",
+    "PAUTA": "Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho",
+    "DATA_ASSINATURA": "23 de novembro de 2026",
+    "QUANDO_ONDE": "<b>23 de Novembro de 2026</b><br>Segunda-feira<br><br><b>Híbrida -Online<br>Montes Claros/MG",
     "STATUS_SISTEMA": "ATIVO",
     "MODO": 1,
-    "TITULO": "Reunião de Trabalho da CISTT - CMS Montes Claros",
-    "LABEL_TOPO": "COMISSÃO DE SAÚDE DO TRABALHADOR",
-    "DESCRICAO": "Reunião Híbrida no CEREST Regional transmitida ao vivo via www.cmsmoc.com",
-    "PAUTA": "Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho.",
-    "QUANDO_ONDE": "<b>23 de Novembro de 2026</b><br>Segunda-feira &bull; 14h<br><br><b>CEREST Regional &bull; Reunião Híbrida</b><br>R. Cassimiro de Abreu, 54 - Cândida Câmara",
-    "DATA_REUNIAO": "23 de novembro de 2026",
-    "HORA_REUNIAO": "às 14h,",
-    "LOCAL_REUNIAO": "CEREST Regional & Transmissão Online",
-    "DATA_ASSINATURA": "23 de novembro de 2026",
-    "EXIBIR_AVISO": "Reunião Híbrida: presencial no CEREST Regional e transmitida online via www.cmsmoc.com",
+    "EXIBIR_AVISO": "NÃO",
     "AVISO_GLOBAL": "",
     "POPUP_ATIVO": "SIM",
-    "POPUP_TAG": "CISTT • Convocação de Reunião Híbrida",
-    "POPUP_TITULO": "Reunião de Trabalho CISTT",
-    "POPUP_QUANDO": "23 de Novembro de 2026 (Segunda-feira) • 14h • CEREST & Online",
-    "POPUP_PAUTA": "Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho.",
-    "POPUP_INSTRUCOES": "Reunião HÍBRIDA no CEREST Regional (R. Cassimiro de Abreu, nº 54 – Cândida Câmara), com transmissão online ao vivo acessível pelo portal www.cmsmoc.com.",
-    "POPUP_LINK_MEET": "cistt.html",
-    "POPUP_BTN_MEET_TEXT": "Ver Convocação / Transmissão",
-    "POPUP_LINK_PRESENCA": "reuniao.html",
-    "POPUP_BTN_PRESENCA_TEXT": "Assinar Lista de Presença",
-    "DESTAQUES_TOPO_ATIVO": "SIM"
+    "POPUP_TAG": "Convocação Oficial • Reunião Online",
+    "POPUP_TITULO": "Reunião da CISTT - Novembro/2026",
+    "POPUP_QUANDO": "📅 23 de Novembro de 2026 • 14h • 🌐 Google Meet / CEREST",
+    "POPUP_PAUTA": "Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho",
+    "POPUP_INSTRUCOES": "Como participar da videochamada: Acesso direto via Google Meet pelo botão verde abaixo. Após entrar na sessão, assine a lista virtual de presença.",
+    "POPUP_LINK_MEET": "AGUARDE",
+    "POPUP_BTN_MEET_TEXT": "ENTRAR NA REUNIÃO (MEET)",
+    "POPUP_LINK_PRESENCA": "https://www.cmsmoc.com/reuniao",
+    "POPUP_BTN_PRESENCA_TEXT": "ASSINAR LISTA DE PRESENÇA",
+    "POPUP_EXIBIR_PUSH": "SIM",
+    "DESTAQUES_TOPO_ATIVO": "SIM",
+    "TEMPLATE_EMAIL_CORPO": "<p>Prezado(a) {{NOME}},<br>Segue em anexo a declaração de participação na {{TITULO}}.</p>"
   },
+  "destaques": [],
   "conselheiros": [
     {
       "id": 1,
@@ -476,34 +479,5 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": [],
-  "destaques": [
-    {
-      "id": "destaque-1",
-      "tag": "CISTT • REUNIÃO HÍBRIDA",
-      "titulo": "REUNIÃO DE TRABALHO CISTT",
-      "subtitulo": "Segunda-feira, 23/11 • 14h • CEREST & Online",
-      "descricao": "Pauta: Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho.",
-      "link": "cistt.html",
-      "link_texto": "Ver Convocação / Transmissão",
-      "cor": "verde",
-      "destino": [
-        "topo",
-        "popup_index"
-      ]
-    },
-    {
-      "id": "destaque-2",
-      "tag": "TRANSMISSÃO AO VIVO",
-      "titulo": "ACESSO ONLINE NO PORTAL",
-      "subtitulo": "Dia 23 de Novembro às 14:00h",
-      "descricao": "Transmitida online e aberta a membros, técnicos e parceiros no portal oficial www.cmsmoc.com.",
-      "link": "https://www.cmsmoc.com",
-      "link_texto": "Acessar Transmissão",
-      "cor": "amarelo",
-      "destino": [
-        "topo"
-      ]
-    }
-  ]
+  "lista": []
 }
