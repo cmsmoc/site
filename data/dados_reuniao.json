@@ -20,7 +20,7 @@
     "POPUP_QUANDO": "📅 23 de Novembro de 2026 • 14h • 🌐 Google Meet / CEREST",
     "POPUP_PAUTA": "Ação Programática Nacional de Vigilância dos Transtornos Mentais Relacionados ao Trabalho",
     "POPUP_INSTRUCOES": "Como participar da videochamada: Acesso direto via Google Meet pelo botão verde abaixo. Após entrar na sessão, assine a lista virtual de presença.",
-    "POPUP_LINK_MEET": "AGUARDE",
+    "POPUP_LINK_MEET": "https://meet.google.com/xjf-wfow-aak",
     "POPUP_BTN_MEET_TEXT": "ENTRAR NA REUNIÃO (MEET)",
     "POPUP_LINK_PRESENCA": "https://www.cmsmoc.com/reuniao",
     "POPUP_BTN_PRESENCA_TEXT": "ASSINAR LISTA DE PRESENÇA",
@@ -479,5 +479,14 @@
       "nome": "Valdemar Rodrigues dos Anjos"
     }
   ],
-  "lista": []
+  "lista": [
+    {
+      "tipo_usuario": "CONSELHEIRO",
+      "cargo_setor": "Titular",
+      "nome": "ERNANDES RODRIGUES MORAES",
+      "id": 35,
+      "registro": "PRESENÇA",
+      "link_declaracao": ""
+    }
+  ]
 }
